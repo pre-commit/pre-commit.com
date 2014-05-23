@@ -1,0 +1,17 @@
+-   repo: git@github.com:pre-commit/scss-lint
+    sha: 1fb8d218d35a57acdc0615201f6c90d56468269a
+    hooks:
+    -   id: scss-lint
+        files: \.(scss)$
+-   repo: git@github.com:pre-commit/pre-commit-hooks
+    sha: ca93f6834f2afc8a8f7de46c0e02076419077c7a
+    hooks:
+    -   id: trailing-whitespace
+        files: \.(scss|html)$
+    -   id: end-of-file-fixer
+        files: \.(py|sh|yaml|html|scss)$
+-   repo: git@github.com:pre-commit/pre-commit
+    sha: 2c7ec7a744908896af3afd140346e690deca7782
+    hooks:
+    -   id: validate_config
+        files: ^\.pre-commit-config.yaml$
