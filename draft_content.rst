@@ -36,11 +36,11 @@ installed.
 
 Non Administrative Installation::
 
-    curl https://pre-commit.github.io/install.sh && ./install.sh
+    curl -o install.sh https://pre-commit.github.io/install.sh && bash install.sh
 
 System Level Install (requires root)::
 
-    curl https://pre-commit.github.io/root_install.sh && sudo ./root_install.sh
+    curl -o root_install.sh https://pre-commit.github.io/root_install.sh && sudo bash root_install.sh
 
 In a Python Project, add the following to your requirements.txt::
 
