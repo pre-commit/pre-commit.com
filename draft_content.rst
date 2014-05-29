@@ -42,23 +42,22 @@ System Level Install (requires root)::
 
     curl https://pre-commit.github.io/root_install.sh && sudo ./root_install.sh
 
-In a Python Project
-
-Add the following to your requirements.txt::
+In a Python Project, add the following to your requirements.txt::
 
     git+git://github.com/pre-commit/pre-commit#egg=pre-commit
+
 
 Adding pre-commit Plugins To Your Project
 ------------
 
 Once you have pre-commit installed, adding pre-commit plugins to your project is
-done with the .pre-commit-config.yaml configuration file.
+done with the ``.pre-commit-config.yaml`` configuration file.
 
-Add a file called .pre-commit-config.yaml to the root of your project. The
+Add a file called ``.pre-commit-config.yaml`` to the root of your project. The
 pre-commit config file describes:
-- where to get plugins (git repos)
-- what plugins from the repo you want to use (pre-commit id)
-- what files you want to run the plugin on
+    - where to get plugins (git repos)
+    - what plugins from the repo you want to use (pre-commit id)
+    - what files you want to run the plugin on
 
 For example::
 
@@ -71,21 +70,21 @@ For example::
 This configuration says to download the pre-commit-hooks project and run it's
 trailing whitespace fixer on all python, JavaScript and CSS files.
 
+
 Usage
 ------------
 
-run `pre-commit install` to install pre-commit into your git hooks. pre-commit
+run ``pre-commit install`` to install pre-commit into your git hooks. pre-commit
 will now run on every commit.
 
 If you want to manually run all pre-commit hooks on a repository, run
-`pre-commit run --all-files`. To run individual hooks use
-`pre-commit run <hook_id>`
+``pre-commit run --all-files``. To run individual hooks use
+``pre-commit run <hook_id>``
 
 The first time pre-commit runs on a file it will automatically download, install
 and run the hook. Note that running a hook for the first time may be slow. If
 the machine does not have node installed, pre-commit will download and build a
 copy of node.
-
 
 
 Creating New pre-commit Hooks
@@ -98,11 +97,11 @@ support as many languages/hooks as you want.
 
 A git repo containing pre-commit plugins must contain a hooks.yaml file that
 tells pre-commit:
-- The id of the hook - used in pre-commit-config.yaml
-- The name of the hook - shown during hook execution
-- The description of the hook
-- The entry point - The executable to run
-- The language of the hook - tells pre-commit how to install the hook
+    - The id of the hook - used in pre-commit-config.yaml
+    - The name of the hook - shown during hook execution
+    - The description of the hook
+    - The entry point - The executable to run
+    - The language of the hook - tells pre-commit how to install the hook
 
 For example::
 
@@ -151,6 +150,14 @@ flake8::
             files: \.py$
             args: [--max-line-length=131]
 
+Advanced Functionality
+------------
+
+    - Handling Merges
+    - Skipping Hooks
+    - Passing Arguments to Hooks
+
+
 Contributing
 ------------
 
@@ -159,6 +166,7 @@ to support more languages/versions. We'd also like to get the hooks.yaml
 files added to popular linters.
 
 Feel free to submit Bug Reports, Pull Requests and Feature Requests.
+
 
 Contributors
 ------------
