@@ -34,20 +34,19 @@ Installation
 Before you can run hooks, you need to have the pre-commit package manager
 installed.
 
-Non Administrative Installation
+Non Administrative Installation::
 
-curl https://pre-commit.github.io/install.sh && ./install.sh
+    curl https://pre-commit.github.io/install.sh && ./install.sh
 
-System Level Install (requires root)
+System Level Install (requires root)::
 
-curl https://pre-commit.github.io/root_install.sh && sudo ./root_install.sh
+    curl https://pre-commit.github.io/root_install.sh && sudo ./root_install.sh
 
 In a Python Project
 
-Add the following to your requirements.txt:
+Add the following to your requirements.txt::
 
-git+git://github.com/pre-commit/pre-commit#egg=pre-commit
-
+    git+git://github.com/pre-commit/pre-commit#egg=pre-commit
 
 Adding pre-commit Plugins To Your Project
 ------------
@@ -61,13 +60,13 @@ pre-commit config file describes:
 - what plugins from the repo you want to use (pre-commit id)
 - what files you want to run the plugin on
 
-For example:
+For example::
 
--   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: 82344a4055f4e103afdc31e98a46de679fe55385
-    hooks:
-    -   id: trailing-whitespace
-        files: \.(py|js|css)$
+    -   repo: git@github.com:pre-commit/pre-commit-hooks
+        sha: 82344a4055f4e103afdc31e98a46de679fe55385
+        hooks:
+        -   id: trailing-whitespace
+            files: \.(py|js|css)$
 
 This configuration says to download the pre-commit-hooks project and run it's
 trailing whitespace fixer on all python, JavaScript and CSS files.
@@ -105,64 +104,64 @@ tells pre-commit:
 - The entry point - The executable to run
 - The language of the hook - tells pre-commit how to install the hook
 
-For example:
+For example::
 
--   id: trailing-whitespace
-    name: Trim Trailing Whitespace
-    description: This hook trims trailing whitespace.
-    entry: trailing-whitespace-fixer
-    language: python
+    -   id: trailing-whitespace
+        name: Trim Trailing Whitespace
+        description: This hook trims trailing whitespace.
+        entry: trailing-whitespace-fixer
+        language: python
 
 
 Popular Plugins
 ------------
 
-JSHint
+JSHint::
 
--   repo: git@github.com:pre-commit/jshint
-    sha: 191734354d1191e3771c004c3e905a94728d0349
-    hooks:
-    - id: jshint
-    - files: \.js
+    -   repo: git@github.com:pre-commit/jshint
+        sha: 191734354d1191e3771c004c3e905a94728d0349
+        hooks:
+        - id: jshint
+        - files: \.js
 
-SCSS-Lint
+SCSS-Lint::
 
--   repo: git@github.com:pre-commit/scss-lint
-    sha: 425536b1b77d9e836068edde4fb3101bea6e7dd8
-    hooks:
-    - id: jshint
-    - files: \.js
+    -   repo: git@github.com:pre-commit/scss-lint
+        sha: 425536b1b77d9e836068edde4fb3101bea6e7dd8
+        hooks:
+        - id: jshint
+        - files: \.js
 
-Whitespace Fixers
+Whitespace Fixers::
 
--   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: ca93f6834f2afc8a8f7de46c0e02076419077c7a
-    hooks:
-    -   id: trailing-whitespace
-        files: \.(py|js|scss|css|sh|yaml)$
-    -   id: end-of-file-fixer
-        files: \.(py|js|scss|css|sh|yaml)$
+    -   repo: git@github.com:pre-commit/pre-commit-hooks
+        sha: ca93f6834f2afc8a8f7de46c0e02076419077c7a
+        hooks:
+        -   id: trailing-whitespace
+            files: \.(py|js|scss|css|sh|yaml)$
+        -   id: end-of-file-fixer
+            files: \.(py|js|scss|css|sh|yaml)$
 
-flake8
+flake8::
 
--   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: ca93f6834f2afc8a8f7de46c0e02076419077c7a
-    hooks:
-    -   id: flake8
-        files: \.py$
-        args: [--max-line-length=131]
+    -   repo: git@github.com:pre-commit/pre-commit-hooks
+        sha: ca93f6834f2afc8a8f7de46c0e02076419077c7a
+        hooks:
+        -   id: flake8
+            files: \.py$
+            args: [--max-line-length=131]
 
 Contributing
 ------------
 
-We're definitely looking to grow the project and get more contributors especially
-for more languages/versions. We'd like like to get the hooks.yaml files added to
-popular linters.
+We're looking to grow the project and get more contributors especially
+to support more languages/versions. We'd also like to get the hooks.yaml 
+files added to popular linters.
 
 Feel free to submit Bug Reports, Pull Requests and Feature Requests.
 
 Contributors
 ------------
 
-Anthony Sottile
-Ken Struys
+- Anthony Sottile
+- Ken Struys
