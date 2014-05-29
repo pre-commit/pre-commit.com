@@ -2,7 +2,7 @@ Introduction
 ------------
 
 At Yelp we rely heavily on pre commit hooks to find and fix common
-issues before changes are submitted to Code Review. We run our hooks before
+issues before changes are submitted for code review. We run our hooks before
 every commit to automatically point out issues like missing semicolons,
 whitespace problems and debug statements in code. Automatically fixing these
 issues before posting code reviews allow our code reviewer to pay attention to
@@ -13,20 +13,20 @@ commit hooks across projects is painful. We copied and pasted bash scripts from
 project to project. We also had to manually change the hooks to work for
 different project structures.
 
-We also believe that you should always use the best industry standard linters.
-Some of the best linters are written in languages that you do not use in your
+We believe that you should always use the best industry standard linters. Some 
+of the best linters are written in languages that you do not use in your
 project or have installed on your machine. For example scss-lint is a linter
-for SASS written in ruby. If you're writing a project in node you should be able
+for SCSS written in ruby. If you're writing a project in node you should be able
 to use scss-lint as a pre commit hook without adding a Gemfile to your project
 or understanding how to get scss-lint installed.
 
 We built pre-commit to solve our hook issues. pre-commit is a multi-language
 package manager for pre commit hooks. You specify a list of hooks you want
 and pre-commit manages the installation and execution of any hook written in any
-language on before every commit. pre-commit is specifically designed to not
+language before every commit. pre-commit is specifically designed to not
 require root access; if one of your developers doesn't have node installed but
 modifies a javascript file, pre-commit automatically handles downloading and
-building node to run jshint without root access.
+building node to run jshint without root.
 
 Installation
 ------------
@@ -75,11 +75,12 @@ Usage
 ------------
 
 run ``pre-commit install`` to install pre-commit into your git hooks. pre-commit
-will now run on every commit.
+will now run on every commit. Everytime you clone a project using pre-commit 
+running install should always be the first thing you do.
 
 If you want to manually run all pre-commit hooks on a repository, run
 ``pre-commit run --all-files``. To run individual hooks use
-``pre-commit run <hook_id>``
+``pre-commit run <hook_id>``.
 
 The first time pre-commit runs on a file it will automatically download, install
 and run the hook. Note that running a hook for the first time may be slow. If
@@ -163,7 +164,7 @@ Contributing
 
 We're looking to grow the project and get more contributors especially
 to support more languages/versions. We'd also like to get the hooks.yaml 
-files added to popular linters.
+files added to popular linters without maintaining forks.
 
 Feel free to submit Bug Reports, Pull Requests and Feature Requests.
 
