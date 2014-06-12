@@ -36,11 +36,11 @@ installed.
 
 Non Administrative Installation::
 
-    curl -o install.sh https://pre-commit.github.io/install.sh && bash install.sh
+    curl http://pre-commit.github.io/local-install.py | python
 
 System Level Install (requires root)::
 
-    curl -o root_install.sh https://pre-commit.github.io/root_install.sh && sudo bash root_install.sh
+    sudo curl https://bootstrap.pypa.io/get-pip.py | python - pre-commit
 
 In a Python Project, add the following to your requirements.txt::
 
