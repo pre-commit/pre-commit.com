@@ -8,7 +8,7 @@ PATH=$HOME/Library/Python/2.7/bin:$PATH
 # Use pip to get a virtualenv
 pip install virtualenv
 virtualenv ~/.py_env
- 
+
 # Install pre-commit into the virtualenv
 bash -c 'PATH=$HOME/Library/Python/2.7/bin:$PATH && source ~/.py_env/bin/activate && pip install --upgrade git+git://github.com/pre-commit/pre-commit#egg=pre_commit'
 

@@ -1,17 +1,13 @@
--   repo: git@github.com:pre-commit/scss-lint
-    sha: 1fb8d218d35a57acdc0615201f6c90d56468269a
+-   repo: git@github.com:pre-commit/mirrors-scss-lint
+    sha: d7266131da322d6d76a18d6a3659f21025d9ea11
     hooks:
     -   id: scss-lint
-        files: \.(scss)$
 -   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: ca93f6834f2afc8a8f7de46c0e02076419077c7a
+    sha: a751eb58f91d8fa70e8b87c9c95777c5a743a932
     hooks:
     -   id: trailing-whitespace
-        files: \.(scss|html)$
     -   id: end-of-file-fixer
-        files: \.(py|sh|yaml|html|scss)$
 -   repo: git@github.com:pre-commit/pre-commit
-    sha: 2c7ec7a744908896af3afd140346e690deca7782
+    sha: 5a1accd6974612349961a311d7559d332aca59c8
     hooks:
     -   id: validate_config
-        files: ^\.pre-commit-config.yaml$
