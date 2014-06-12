@@ -5,8 +5,11 @@
 -   repo: git@github.com:pre-commit/pre-commit-hooks
     sha: a751eb58f91d8fa70e8b87c9c95777c5a743a932
     hooks:
+    -   id: check-yaml
+    -   id: debug-statements
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
+    -   id: flake8
 -   repo: git@github.com:pre-commit/pre-commit
     sha: 5a1accd6974612349961a311d7559d332aca59c8
     hooks:
