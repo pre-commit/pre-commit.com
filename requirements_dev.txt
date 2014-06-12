@@ -1,2 +1,2 @@
 pyscss
-git+git://github.com/pre-commit/pre-commit#egg=pre_commit
+pre-commit
