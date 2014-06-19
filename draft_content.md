@@ -1,3 +1,5 @@
+# NOTICE: THIS IS OUT OF DATE, CHECK THE README IN pre-commit/pre-commit
+
 ## Introduction
 
 At Yelp we rely heavily on pre-commit hooks to find and fix common
