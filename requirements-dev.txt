@@ -3,3 +3,4 @@ pylint
 pyscss
 pre-commit
 virtualenv
+nodeenv

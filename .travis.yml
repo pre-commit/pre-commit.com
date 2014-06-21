@@ -1,0 +1,25 @@
+language: python
+python:
+  - "2.7"
+script: make
+branches:
+  except:
+    - make_everything_overly_complicated_built
+env:
+  global:
+    - GH_REF: github.com/pre-commit/pre-commit.github.io.git
+    # GH_TOKEN
+    - secure: KBAB9F6+LBSHDzF1qnVQB84LsXqIlGtC/3oHpwQiPTLMP24L5Kwo5Mp6yxJfrelfUrYEsXPPlt2zwMJcB7WcQlll2Ti8F56HZ1hEFnvEB2CBrivIPVBee5WWbs/DbeT7HFLom5NvMsNtQcb0kJ/ihcghiIqQSe9G0OJpUF4XEzs=
+after_success:
+  - git clone "https://${GH_TOKEN}@${GH_REF}" out
+  - cd out
+  - git checkout make_everything_overly_complicated_built
+  - git config user.name "Travis-CI"
+  - git config user.email "kstruys@yelp.com"
+  - cp ../.travis.yml .
+  - cp ../index.html .
+  - cp -R ../build .
+  - cp -R ../bower_components .
+  - git add .
+  - git commit -m "Deployed to Github Pages"
+  - git push origin HEAD

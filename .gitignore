@@ -3,3 +3,7 @@
 .project
 .pydevproject
 py_env
+node_env
+*.swp
+bower_components
+build
