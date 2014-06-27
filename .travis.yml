@@ -11,7 +11,7 @@ env:
     # GH_TOKEN
     - secure: nNgNYmtwXquPRuAFi/6kXOVjSYroglxuIjvZHDun5eCYikV1KgvXM1Q9Yh3CWgNmIWG1LKt76nt/5u4tLleJiZ7AbjcmLMb9dw7679jFNaDd14tIGyWyYBzrqfqxnayTNLclcfp59l0Yi3ag1i7z4J94LM+7tp8D4jr7RyLd++I=
 after_success:
-  - git clone "https://${GH_TOKEN}@${GH_REF}" out
+  - git clone "https://${GH_TOKEN}@${GH_REF}" out >& /dev/null
   - cd out
   - git config user.name "Travis-CI"
   - git config user.email "kstruys@yelp.com"
@@ -21,4 +21,4 @@ after_success:
   - cp -R ../bower_components .
   - git add .
   - git commit -m "Deployed to Github Pages"
-  - git push -q origin HEAD > /dev/null 2>&1
+  - git push -q origin HEAD >& /dev/null
