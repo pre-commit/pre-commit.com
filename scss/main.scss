@@ -1,3 +1,16 @@
+@import 'scss/variables';
+@import 'bower_components/bootstrap-sass/lib/bootstrap';
+
 body {
   font-family: arial, helvetica, sans-serif;
+}
+
+.pre-commit-page-header {
+  background-color: $header-color;
+  height: 70px;
+  margin-bottom: 0;
+}
+
+.top-shelf {
+  background-color: $top-shelf-background;
 }

@@ -1,0 +1,8 @@
+{
+    "name": "pre-commit.github.io",
+    "version": "0.0.1",
+    "dependencies": {
+        "jquery": "1.9.1",
+        "bootstrap-sass": "3.0.1"
+    }
+}
