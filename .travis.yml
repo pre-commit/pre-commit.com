@@ -4,7 +4,7 @@ python:
 script: make
 branches:
   except:
-    - gh-pages
+    - master
 env:
   global:
     - GH_REF: github.com/pre-commit/pre-commit.github.io.git
@@ -13,7 +13,7 @@ env:
 after_success:
   - git clone "https://${GH_TOKEN}@${GH_REF}" out
   - cd out
-  - git checkout gh-pages
+  - git checkout master
   - git config user.name "Travis-CI"
   - git config user.email "kstruys@yelp.com"
   - cp ../.travis.yml .
