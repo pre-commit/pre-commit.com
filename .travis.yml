@@ -9,11 +9,10 @@ env:
   global:
     - GH_REF: github.com/pre-commit/pre-commit.github.io.git
     # GH_TOKEN
-    - secure: KBAB9F6+LBSHDzF1qnVQB84LsXqIlGtC/3oHpwQiPTLMP24L5Kwo5Mp6yxJfrelfUrYEsXPPlt2zwMJcB7WcQlll2Ti8F56HZ1hEFnvEB2CBrivIPVBee5WWbs/DbeT7HFLom5NvMsNtQcb0kJ/ihcghiIqQSe9G0OJpUF4XEzs=
+    - secure: nNgNYmtwXquPRuAFi/6kXOVjSYroglxuIjvZHDun5eCYikV1KgvXM1Q9Yh3CWgNmIWG1LKt76nt/5u4tLleJiZ7AbjcmLMb9dw7679jFNaDd14tIGyWyYBzrqfqxnayTNLclcfp59l0Yi3ag1i7z4J94LM+7tp8D4jr7RyLd++I=
 after_success:
   - git clone "https://${GH_TOKEN}@${GH_REF}" out
   - cd out
-  - git checkout master
   - git config user.name "Travis-CI"
   - git config user.email "kstruys@yelp.com"
   - cp ../.travis.yml .
@@ -22,4 +21,4 @@ after_success:
   - cp -R ../bower_components .
   - git add .
   - git commit -m "Deployed to Github Pages"
-  - git push origin HEAD
+  - git push -q origin HEAD > /dev/null 2>&1
