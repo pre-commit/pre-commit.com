@@ -4,7 +4,7 @@
     -   id: scss-lint
         files: scss/.*\.scss$
 -   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: c94b2087dba92f9111277ded435dea9473356cae
+    sha: 7ec485352199e02d608198b0206b0675fa84af73
     hooks:
     -   id: check-yaml
     -   id: debug-statements
@@ -12,6 +12,6 @@
     -   id: end-of-file-fixer
     -   id: flake8
 -   repo: git@github.com:pre-commit/pre-commit
-    sha: b136679abbd9b02e1a5f168d43341b9fe88718b3
+    sha: e2d2c17218e7e40a44ab32c522cdd4169a9da5cd
     hooks:
     -   id: validate_config

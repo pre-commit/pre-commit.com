@@ -1,0 +1,31 @@
+linters:
+    BorderZero:
+        enabled: false
+    ColorKeyword:
+        enabled: false
+    Comment:
+        enabled: false
+    DeclarationOrder:
+        enabled: false
+    DuplicateProperty:
+        enabled: false
+    IdWithExtraneousSelector:
+        enabled: false
+    Indentation:
+        width: 4
+    LeadingZero:
+        enabled: false
+    MergeableSelector:
+        force_nesting: false
+    PlaceholderInExtend:
+        enabled: false
+    PropertySortOrder:
+        enabled: false
+    SelectorDepth:
+        enabled: false
+    StringQuotes:
+        enabled: false
+    UrlFormat:
+        enabled: false
+    UrlQuotes:
+        enabled: false

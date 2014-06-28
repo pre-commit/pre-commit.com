@@ -1,10 +1,12 @@
+# To build scss continuously I use `watch make build/main.css`
+
 all: install_pre_commit build/main.css
 
 install_pre_commit: py_env
 	bash -c 'source py_env/bin/activate && \
 		pre-commit install'
 
-build/main.css: node_env build_dir scss/main.scss
+build/main.css: node_env build scss/main.scss
 	bash -c 'source py_env/bin/activate && \
     	pyscss -o build/main.css scss/main.scss'
 
@@ -28,8 +30,8 @@ install-local.py: py_env make_bootstrap.py
 clean:
 	rm -rf py_env node_env build bower_components
 
-build_dir:
-	mkdir build
+build:
+	[ -d build ] || mkdir build
 
 open: scss
 	(which google-chrome && google-chrome index.html) || \
