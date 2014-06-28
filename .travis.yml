@@ -13,6 +13,7 @@ env:
 after_success:
   - git clone "https://${GH_TOKEN}@${GH_REF}" out >& /dev/null
   - cd out
+  - git checkout master
   - git config user.name "Travis-CI"
   - git config user.email "kstruys@yelp.com"
   - cp ../.travis.yml .
