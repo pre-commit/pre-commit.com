@@ -1,4 +1,4 @@
-# To build scss continuously I use `watch make build/main.css`
+# To build scss continuously I use `watch -n 0.1 make build/main.css`
 
 all: install_pre_commit build/main.css
 
@@ -6,7 +6,7 @@ install_pre_commit: py_env
 	bash -c 'source py_env/bin/activate && \
 		pre-commit install'
 
-build/main.css: node_env build scss/main.scss
+build/main.css: node_env build scss/main.scss scss/_variables.scss
 	bash -c 'source py_env/bin/activate && \
     	pyscss -o build/main.css scss/main.scss'
 
