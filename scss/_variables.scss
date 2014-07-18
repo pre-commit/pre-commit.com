@@ -1,14 +1,28 @@
-$header-color: #1f2d23;
-$top-shelf-background: #76877c;
-$logo-yellow: #f8b424;
+$pc-green-dark: #1f2d23;
+$pc-green-light: #76877c;
+$pc-yellow: #f8b424;
 
 // Bootstrap overrides
+$brand-primary: $pc-green-light;
 
-$link-color: #fff;
+// Buttons
+$btn-default-color: white;
+$btn-default-bg: transparent;
+$btn-default-border: $btn-default-color;
 
-$btn-default-color: #fff;
-$btn-default-bg: $header-color;
-$btn-default-border: #fff;
+// Navbar
+$navbar-default-bg: $pc-green-dark;
+$navbar-default-link-active-bg: darken($navbar-default-bg, 2.5%);
+$navbar-default-link-hover-bg: $navbar-default-link-active-bg;
 
+$navbar-default-color: white;
+$navbar-default-link-active-color: $navbar-default-color;
+$navbar-default-link-color: $navbar-default-color;
+$navbar-default-link-hover-color: $navbar-default-color;
+
+$navbar-border-radius: 0;
+$navbar-default-border: transparent;
 $navbar-height: 70px;
 $navbar-margin-bottom: 0;
+
+$nav-link-padding: 10px 30px;
