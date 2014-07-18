@@ -1,9 +1,9 @@
--   repo: git@github.com:pre-commit/mirrors-scss-lint
+-   repo: http://github.com/pre-commit/mirrors-scss-lint
     sha: d7266131da322d6d76a18d6a3659f21025d9ea11
     hooks:
     -   id: scss-lint
         files: scss/.*\.scss$
--   repo: git@github.com:pre-commit/pre-commit-hooks
+-   repo: http://github.com/pre-commit/pre-commit-hooks
     sha: 7ec485352199e02d608198b0206b0675fa84af73
     hooks:
     -   id: check-yaml

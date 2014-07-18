@@ -1,16 +1,93 @@
 @import 'scss/variables';
 @import 'bower_components/bootstrap-sass/lib/bootstrap';
 
+
 body {
-  font-family: arial, helvetica, sans-serif;
+    position: relative;
 }
 
-.pre-commit-page-header {
-  background-color: $header-color;
-  height: 70px;
-  margin-bottom: 0;
+pre {
+    margin-bottom: 20px;
 }
+
+
+// Navbar
+
+.pc-navbar-brand {
+    padding: 13px 15px;
+}
+
+.logo {
+    height: 44px;
+    width: 44px;
+    display: block;
+    background: url('../logo.png');
+}
+
+.navbar .btn {
+    margin: 18px 0;
+    padding: 6px 12px;
+}
+
+
+// Top shelf
 
 .top-shelf {
-  background-color: $top-shelf-background;
+    background: $pc-green-light;
+    color: white;
+
+    .container {
+        position: relative;
+    }
+
+    .pc-darwin {
+        float: right;
+        margin: -30px 20px 0 40px;
+    }
+
+    h1 {
+        margin: 40px 0 20px;
+
+        a {
+            color: $pc-yellow;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 40px;
+        font-size: $font-size-h3;
+    }
+}
+
+
+// Sidebar
+
+.pc-sidebar {
+    padding-top: 40px;
+}
+
+.pc-sidenav.affix {
+    top: 40px;
+}
+
+
+// Footer
+
+.pc-footer {
+    margin-top: 40px;
+    background: $pc-green-dark;
+    color: white;
+    text-align: center;
+
+    .container {
+        padding: 40px;
+    }
+
+    a:hover {
+        color: white;
+    }
 }
