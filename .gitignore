@@ -6,4 +6,5 @@ py_env
 node_env
 *.swp
 bower_components
+.DS_Store
 build
