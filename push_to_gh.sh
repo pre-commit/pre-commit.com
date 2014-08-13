@@ -9,6 +9,7 @@ git config user.name "Travis-CI"
 git config user.email "kstruys@yelp.com"
 cp ../.travis.yml .
 cp ../index.html .
+cp ../install-local.py .
 cp -R ../build .
 cp -R ../bower_components .
 git add .
