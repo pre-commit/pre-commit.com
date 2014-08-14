@@ -7,6 +7,7 @@ cd out
 git checkout master
 git config user.name "Travis-CI"
 git config user.email "kstruys@yelp.com"
+cp ../CNAME .
 cp ../.travis.yml .
 cp ../index.html .
 cp -R ../build .
