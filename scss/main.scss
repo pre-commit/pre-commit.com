@@ -24,8 +24,12 @@ pre {
     background: url('../logo.png');
 }
 
-.navbar .btn {
-    margin: 18px 0;
+.pc-navbar-collapse {
+    @include box-shadow(none);
+}
+
+.pc-navbar .btn {
+    margin: 18px 15px;
     padding: 6px 12px;
 }
 
