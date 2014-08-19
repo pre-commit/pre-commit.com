@@ -2,21 +2,32 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="build/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body data-spy="scroll" data-target=".pc-sidebar">
-        <header class="navbar navbar-default pc-nav">
+        <header class="navbar navbar-default pc-nav" role="banner">
             <div class="container">
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".pc-navbar-collapse">
+                        <span class="sr-only">Toggle navigtaion</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a href="/" class="navbar-brand pc-navbar-brand">
                         <i class="logo"></i>
                     </a>
                 </div>
-                <nav class="pc-navbar" role="navigation">
+                <nav class="navbar-collapse pc-navbar pc-navbar-collapse collapse" role="navigation">
                     <ul class="nav navbar-nav">
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="https://github.com/pre-commit/demo-repo#readme">Demo</a></li>
+                        <li><a href="index.html#install" class="active">Documentation</a></li>
+                        <li>
+                            <a href="https://github.com/pre-commit/demo-repo#readme">
+                                Demo
+                            </a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="http://github.com/pre-commit/pre-commit" class="btn btn-default">Download on Github</a></li>
