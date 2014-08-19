@@ -16,7 +16,11 @@
                     <ul class="nav navbar-nav">
                         <li><a href="#">About</a></li>
                         <li><a href="#">Documentation</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li>
+                            <a href="https://github.com/pre-commit/demo-repo#readme">
+                                Demo
+                            </a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="http://github.com/pre-commit/pre-commit" class="btn btn-default">Download on Github</a></li>
@@ -55,29 +59,37 @@
                         <div class="page-header">
                             <h1>Introduction</h1>
                         </div>
-                        <p>At Yelp we rely heavily on pre-commit hooks to find and fix common
-            issues before changes are submitted for pre review. We run our hooks before
-            every commit to automatically point out issues like missing semicolons,
-            whitespace problems, and testing statements in pre. Automatically fixing these
-            issues before posting pre reviews allows our pre reviewer to pay attention to
-            architecture of a change and not worry about trivial errors.</p>
-                        <p>As we created more libraries and projects we recognized that sharing our pre
-            commit hooks across projects is painful. We copied and pasted bash scripts from
-            project to project. We also had to manually change the hooks to work for
-            different project structures.</p>
-                        <p>We believe that you should always use the best industry standard linters. Some
-            of the best linters are written in languages that you do not use in your
-            project or have installed on your machine. For example scss-lint is a linter
-            for SCSS written in ruby. If you&rsquo;re writing a project in node you should be able
-            to use scss-lint as a pre-commit hook without adding a Gemfile to your project
-            or understanding how to get scss-lint installed.</p>
-                        <p>We built pre-commit to solve our hook issues. pre-commit is a multi-language
-            package manager for pre-commit hooks. You specify a list of hooks you want
-            and pre-commit manages the installation and execution of any hook written in any
-            language before every commit. pre-commit is specifically designed to not
-            require root access; if one of your developers doesn&rsquo;t have node installed but
-            modifies a javascript file, pre-commit automatically handles downloading and
-            building node to run jshint without root.</p>
+                        <p>
+                            At Yelp we rely heavily on pre-commit hooks to find and fix common
+                            issues before changes are submitted for code review. We run our hooks before
+                            every commit to automatically point out issues like missing semicolons,
+                            whitespace problems, and testing statements in code. Automatically fixing these
+                            issues before posting code reviews allows our code reviewer to pay attention to
+                            architecture of a change and not worry about trivial errors.
+                        </p>
+                        <p>
+                            As we created more libraries and projects we recognized that sharing our pre
+                            commit hooks across projects is painful. We copied and pasted bash scripts from
+                            project to project. We also had to manually change the hooks to work for
+                            different project structures.
+                        </p>
+                        <p>
+                            We believe that you should always use the best industry standard linters. Some
+                            of the best linters are written in languages that you do not use in your
+                            project or have installed on your machine. For example scss-lint is a linter
+                            for SCSS written in ruby. If you&rsquo;re writing a project in node you should be able
+                            to use scss-lint as a pre-commit hook without adding a Gemfile to your project
+                            or understanding how to get scss-lint installed.
+                        </p>
+                        <p>
+                            We built pre-commit to solve our hook issues. pre-commit is a multi-language
+                            package manager for pre-commit hooks. You specify a list of hooks you want
+                            and pre-commit manages the installation and execution of any hook written in any
+                            language before every commit. pre-commit is specifically designed to not
+                            require root access; if one of your developers doesn&rsquo;t have node installed but
+                            modifies a javascript file, pre-commit automatically handles downloading and
+                            building node to run jshint without root.
+                        </p>
                     </div>
 
                     <div id="install">
@@ -90,7 +102,7 @@
                         <p>Non Administrative Installation:</p>
                         <pre>curl http://pre-commit.github.io/local-install.py | python</pre>
                         <p>System Level Install:</p>
-                        <pre>sudo curl https://bootstrap.pypa.io/get-pip.py | python - pre-commit</pre>
+                        <pre>curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit</pre>
                         <p>In a Python Project, add the following to your requirements.txt (or requirements-dev.txt):</p>
                         <pre>pre-commit</pre>
                     </div>
@@ -141,7 +153,7 @@
                         <div class="page-header">
                             <h1>Usage</h1>
                         </div>
-                        <p>Run <code>pre-commit install</code> to install pre-commit into your git hooks. pre-commit will now run on every commit. Everytime you clone a project using pre-commit running install should always be the first thing you do.</p>
+                        <p>Run <code>pre-commit install</code> to install pre-commit into your git hooks. pre-commit will now run on every commit. Every time you clone a project using pre-commit running <code>pre-commit install</code> should always be the first thing you do.</p>
                         
                         <p>If you want to manually run all pre-commit hooks on a repository, run <code>pre-commit run --all-files</code>. To run individual hooks use <code>pre-commit run &lt;hook_id&gt;</code>.</p>
 
@@ -152,7 +164,7 @@
                         <div class="page-header">
                             <h1>Creating new hooks</h1>
                         </div>
-                        <p>pre-commit currently supports hooks written in JavaScript (node), Python, Ruby and system installed scripts. As long as your git repo is an installable package (gem, npm, pypi, etc) or exposes a executable, it can be used with pre-commit. Each git repo can support as many languages/hooks as you want.</p>
+                        <p>pre-commit currently supports hooks written in JavaScript (node), Python, Ruby and system installed scripts. As long as your git repo is an installable package (gem, npm, pypi, etc.) or exposes an executable, it can be used with pre-commit. Each git repo can support as many languages/hooks as you want.</p>
                         <p>
                             An executable must satisfy the following things:
                             <ul>
