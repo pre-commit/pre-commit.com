@@ -10,6 +10,9 @@ pre {
     margin-bottom: 20px;
 }
 
+.nowrap {
+    white-space: nowrap;
+}
 
 // Navbar
 
@@ -37,6 +40,7 @@ pre {
 // Top shelf
 
 .top-shelf {
+    max-height: 303px;
     background: $pc-green-light;
     color: white;
 
@@ -69,6 +73,12 @@ pre {
     p {
         margin-bottom: 40px;
         font-size: $font-size-h3;
+    }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .top-shelf h1 {
+        margin-top: 10px;
     }
 }
 
