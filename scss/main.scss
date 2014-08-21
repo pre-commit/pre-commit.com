@@ -14,6 +14,11 @@ pre {
     white-space: nowrap;
 }
 
+h1,
+.page-header:first-child {
+    margin-top: 0;
+}
+
 // Navbar
 
 .pc-navbar-brand {
@@ -40,6 +45,7 @@ pre {
 // Top shelf
 
 .top-shelf {
+    margin-bottom: 40px;
     max-height: 303px;
     background: $pc-green-light;
     color: white;
@@ -84,10 +90,6 @@ pre {
 
 
 // Sidebar
-
-.pc-sidebar {
-    padding-top: 40px;
-}
 
 .pc-sidenav.affix {
     top: 40px;
