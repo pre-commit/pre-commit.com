@@ -93,6 +93,25 @@ pre {
     top: 40px;
 }
 
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .pc-sidenav.affix {
+        width: 158px;
+    }
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    .pc-sidenav.affix {
+        width: 213px;
+    }
+}
+
+
+@media (min-width: $screen-lg-min) {
+    .pc-sidenav.affix {
+        width: 263px;
+    }
+}
+
 
 // Footer
 
