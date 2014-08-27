@@ -1,0 +1,115 @@
+{
+    "git://github.com/pre-commit/pre-commit-hooks": [
+        {
+            "id": "autopep8-wrapper",
+            "name": "autopep8 wrapper",
+            "description": "Runs autopep8 over python source.",
+            "entry": "autopep8-wrapper",
+            "language": "python",
+            "files": "\\.py$",
+            "args": [
+                "-i"
+            ]
+        },
+        {
+            "id": "check-json",
+            "name": "Check JSON",
+            "description": "This hook checks json files for parseable syntax.",
+            "entry": "check-json",
+            "language": "python",
+            "files": "\\.json$"
+        },
+        {
+            "id": "check-yaml",
+            "name": "Check Yaml",
+            "description": "This hook checks yaml files for parseable syntax.",
+            "entry": "check-yaml",
+            "language": "python",
+            "files": "\\.(yaml|yml)$"
+        },
+        {
+            "id": "debug-statements",
+            "name": "Debug Statements (Python)",
+            "description": "This hook checks that debug statements (pdb, ipdb, pudb) are not imported on commit.",
+            "entry": "debug-statement-hook",
+            "language": "python",
+            "files": "\\.py$"
+        },
+        {
+            "id": "end-of-file-fixer",
+            "name": "Fix End of Files",
+            "description": "Ensures that a file is either empty, or ends with one newline.",
+            "entry": "end-of-file-fixer",
+            "language": "python",
+            "files": "\\.(js|json|rb|md|py|scss|sh|tmpl|txt|yaml|yml)$"
+        },
+        {
+            "id": "flake8",
+            "name": "Flake8",
+            "description": "This hook runs flake8.",
+            "entry": "flake8",
+            "language": "python",
+            "files": "\\.py$"
+        },
+        {
+            "id": "name-tests-test",
+            "name": "Tests should end in _test.py",
+            "description": "This verifies that test files are named correctly",
+            "entry": "name-tests-test",
+            "language": "python",
+            "files": "tests/.+\\.py$"
+        },
+        {
+            "id": "pyflakes",
+            "name": "Pyflakes (DEPRECATED, use flake8)",
+            "description": "This hook runs pyflakes. (This is deprecated, use flake8).",
+            "entry": "pyflakes",
+            "language": "python",
+            "files": "\\.py$"
+        },
+        {
+            "id": "trailing-whitespace",
+            "name": "Trim Trailing Whitespace",
+            "description": "This hook trims trailing whitespace.",
+            "entry": "trailing-whitespace-fixer",
+            "language": "python",
+            "files": "\\.(js|json|rb|md|py|scss|sh|tmpl|txt|yaml|yml)$"
+        }
+    ],
+    "git://github.com/pre-commit/mirrors-jshint": [
+        {
+            "id": "jshint",
+            "name": "jshint",
+            "entry": "jshint",
+            "language": "node",
+            "files": "\\.js$"
+        }
+    ],
+    "git://github.com/pre-commit/mirrors-ruby-lint": [
+        {
+            "id": "ruby-lint",
+            "name": "ruby-lint",
+            "entry": "ruby-lint",
+            "language": "ruby",
+            "files": "\\.rb$"
+        }
+    ],
+    "git://github.com/pre-commit/mirrors-scss-lint": [
+        {
+            "id": "scss-lint",
+            "name": "scss-lint",
+            "entry": "scss-lint",
+            "language": "ruby",
+            "files": "\\.scss$"
+        }
+    ],
+    "git://github.com/pre-commit/mirrors-eslint": [
+        {
+            "id": "eslint",
+            "name": "eslint",
+            "entry": "eslint",
+            "language": "node",
+            "files": "\\.js$"
+        }
+    ]
+}
