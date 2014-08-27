@@ -1,6 +1,8 @@
 #!/bin/bash
 
-[ "$TRAVIS_BRANCH" == "real_master" -a "$TRAVIS_PULL_REQUEST" == "false" ] || exit
+##[ "$TRAVIS_BRANCH" == "real_master" -a "$TRAVIS_PULL_REQUEST" == "false" ] || exit
+
+echo 'BWAHAHAHAHAH'
 
 git clone "https://${GH_TOKEN}@${GH_REF}" out >& /dev/null
 cd out
