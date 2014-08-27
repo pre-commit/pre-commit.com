@@ -53,7 +53,7 @@
         </div>
         <footer class="pc-footer">
             <div class="container">
-                Brought to you by <a href="http://www.yelp.com">Yelp</a>.
+                Brought to you by <a href="http://www.yelp.com">Yelp</a>. Check out some of our other <a href="http://yelp.github.io/">open source projects</a> on <a href="https://github.com/yelp/">GitHub</a>.
             </div>
         </footer>
         <script src="bower_components/jquery/jquery.min.js"></script>
