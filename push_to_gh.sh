@@ -10,7 +10,7 @@ git config user.email "kstruys@yelp.com"
 # Repo
 cp ../CNAME ../.travis.yml .
 # Website
-cp -R ../build ../bower_components ../*.html ../*.png .
+cp -R ../build ../bower_components ../*.html ../*.png ../favicon.ico .
 # Metadata
 cp ../all-hooks.json ../install-local.py .
 git add .

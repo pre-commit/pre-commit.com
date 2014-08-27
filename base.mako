@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="build/main.css">
+        <link rel="icon" href="favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>pre-commit by Yelp</title>
     </head>
