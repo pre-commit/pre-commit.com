@@ -2,15 +2,6 @@
 
 [ $TRAVIS_BRANCH == real_master ] || exit
 
-. py_env/bin/activate
-pip install aspy.yaml ordereddict pre-commit simplejson
-
-# Make all-hooks.json
-python make_all_hooks.py
-
-# Make install-local.py
-python make_bootstrap.py
-
 git clone "https://${GH_TOKEN}@${GH_REF}" out >& /dev/null
 cd out
 git checkout master

@@ -1,6 +1,10 @@
+aspy.yaml
 flake8
+mako
+nodeenv
+ordereddict
 pylint
 pyscss
 pre-commit
+simplejson
 virtualenv
-nodeenv
