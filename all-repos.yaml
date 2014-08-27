@@ -4,3 +4,4 @@
 - git://github.com/pre-commit/mirrors-ruby-lint
 - git://github.com/pre-commit/mirrors-scss-lint
 - git://github.com/pre-commit/mirrors-eslint
+- git://github.com/pre-commit/mirrors-coffeelint
