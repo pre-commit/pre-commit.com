@@ -76,6 +76,24 @@
             "files": "\\.(js|json|rb|md|py|scss|sh|tmpl|txt|yaml|yml)$"
         }
     ],
+    "git://github.com/pre-commit/mirrors-coffeelint": [
+        {
+            "id": "coffeelint",
+            "name": "coffeelint",
+            "entry": "coffeelint",
+            "language": "node",
+            "files": "\\.js$"
+        }
+    ],
+    "git://github.com/pre-commit/mirrors-eslint": [
+        {
+            "id": "eslint",
+            "name": "eslint",
+            "entry": "eslint",
+            "language": "node",
+            "files": "\\.js$"
+        }
+    ],
     "git://github.com/pre-commit/mirrors-jshint": [
         {
             "id": "jshint",
@@ -101,24 +119,6 @@
             "entry": "scss-lint",
             "language": "ruby",
             "files": "\\.scss$"
-        }
-    ],
-    "git://github.com/pre-commit/mirrors-eslint": [
-        {
-            "id": "eslint",
-            "name": "eslint",
-            "entry": "eslint",
-            "language": "node",
-            "files": "\\.js$"
-        }
-    ],
-    "git://github.com/pre-commit/mirrors-coffeelint": [
-        {
-            "id": "coffeelint",
-            "name": "coffeelint",
-            "entry": "coffeelint",
-            "language": "node",
-            "files": "\\.js$"
         }
     ]
 }
