@@ -1,5 +1,6 @@
 # This files is used to generate all-hooks.json
-- git@github.com:pre-commit/pre-commit-hooks
-- git@github.com:pre-commit/mirrors-jshint
-- git@github.com:pre-commit/mirrors-ruby-lint
-- git@github.com:pre-commit/mirrors-scss-lint
+- git://github.com/pre-commit/pre-commit-hooks
+- git://github.com/pre-commit/mirrors-jshint
+- git://github.com/pre-commit/mirrors-ruby-lint
+- git://github.com/pre-commit/mirrors-scss-lint
+- git://github.com/pre-commit/mirrors-eslint
