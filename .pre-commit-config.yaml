@@ -3,6 +3,7 @@
     hooks:
     -   id: scss-lint
         files: scss/.*\.scss$
+        language_version: 1.9.3-p484
 -   repo: git@github.com:pre-commit/pre-commit-hooks
     sha: d3db0385825d4c082bc7117c090ac16cb4840f3e
     hooks:

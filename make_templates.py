@@ -27,6 +27,7 @@ def get_env():
 def main():
     env = get_env()
     for template in ALL_TEMPLATES:
+        env['template_name'] = template
         with io.open('{0}.html'.format(template), 'w') as html_file:
             template_obj = template_lookup.get_template(
                 '{0}.mako'.format(template),

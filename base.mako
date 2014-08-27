@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>pre-commit by Yelp</title>
     </head>
-    <body data-spy="scroll" data-target=".pc-sidebar">
+    <body class="page-${template_name}" data-spy="scroll" data-target=".pc-sidebar">
         <header class="navbar navbar-default pc-nav" role="banner">
             <div class="container">
                 <div class="navbar-header">
