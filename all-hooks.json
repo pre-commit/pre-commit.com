@@ -111,5 +111,14 @@
             "language": "node",
             "files": "\\.js$"
         }
+    ],
+    "git://github.com/pre-commit/mirrors-coffeelint": [
+        {
+            "id": "coffeelint",
+            "name": "coffeelint",
+            "entry": "coffeelint",
+            "language": "node",
+            "files": "\\.js$"
+        }
     ]
 }
