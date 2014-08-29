@@ -54,7 +54,7 @@
         </div>
         </div>
         <div class="container pc-main-content">
-            <div class="row">${self.body()}</div>
+            ${self.body()}
         </div>
         <footer class="pc-footer">
             <div class="container">
