@@ -100,10 +100,12 @@
                 </tbody>
             </table>
             <p>For example:</p>
-        <pre>-   repo: git://github.com/pre-commit/pre-commit-hooks
-            sha: 82344a4055f4e103afdc31e98a46de679fe55385
-            hooks:
-            -   id: trailing-whitespace</pre>
+<pre>
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: 82344a4055f4e103afdc31e98a46de679fe55385
+    hooks:
+    -   id: trailing-whitespace
+</pre>
             <p>This configuration says to download the pre-commit-hooks project and run its trailing-whitespace hook.</p>
         </div>
 
@@ -168,12 +170,14 @@
                 </tbody>
             </table>
             <p>For example:</p>
-    <pre>-   id: trailing-whitespace
-        name: Trim Trailing Whitespace
-        description: This hook trims trailing whitespace.
-        entry: trailing-whitespace-fixer
-        language: python
-        files: \.(js|rb|md|py|sh|txt|yaml|yml)$</pre>
+<pre>
+-   id: trailing-whitespace
+    name: Trim Trailing Whitespace
+    description: This hook trims trailing whitespace.
+    entry: trailing-whitespace-fixer
+    language: python
+    files: \.(js|rb|md|py|sh|txt|yaml|yml)$
+</pre>
             <h2>Supported languages</h2>
             <ul>
                 <li><code>node</code></li>
@@ -195,7 +199,7 @@
 
             <h2>Temporarily disabling hooks</h2>
             <p>Not all hooks are perfect so sometimes you may need to skip execution of one or more hooks. pre-commit solves this by querying a <code>SKIP</code> environment variable. The <code>SKIP</code> environment variable is a comma separated list of hook ids. This allows you to skip a single hook instead of <code>--no-verify</code>ing the entire commit.</p>
-    <pre>$ SKIP=flake8 git commit -m "foo"</pre>
+            <pre>$ SKIP=flake8 git commit -m "foo"</pre>
 
             <h2>pre-commit during commits</h2>
             <p>Running hooks on unstaged changes can lead to both false-positives and false-negatives during committing. pre-commit only runs on the staged contents of files by temporarily saving the contents of your files at commit time and stashing the unstaged changes while running hooks.</p>
@@ -205,20 +209,24 @@
 
             <h2>Passing arguments to hooks</h2>
             <p>Sometimes hooks require arguments to run correctly. You can pass static arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code> as follows:</p>
-    <pre>-   repo: git://github.com/pre-commit/pre-commit-hooks
-        sha: a751eb58f91d8fa70e8b87c9c95777c5a743a932
-        hooks:
-        -   id: flake8
-            args: [--max-line-length=131]</pre>
+<pre>
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: a751eb58f91d8fa70e8b87c9c95777c5a743a932
+    hooks:
+    -   id: flake8
+        args: [--max-line-length=131]
+</pre>
             <p>This will pass <code>--max-line-length=131</code> to <code>flake8</code>.</p>
 
             <h2 id="overriding-language-version">Overriding Language Version</h2>
             <p>Sometimes you only want to run the hooks on a specific version of the language. For each language, they default to using the system installed language (So for example if I&rsquo;m running <code>python2.6</code> and a hook specifies <code>python</code>, pre-commit will run the hook using <code>python2.6</code>). Sometimes you don&rsquo;t want the default system installed version so you can override this on a per-hook basis by setting the <code>language_version</code>.</p>
-    <pre>-   repo: git://github.com/pre-commit/mirrors-scss-lint
-        sha: d7266131da322d6d76a18d6a3659f21025d9ea11
-        hooks:
-        -   id: scss-lint
-            language_version: 1.9.3-p484</pre>
+<pre>
+-   repo: git://github.com/pre-commit/mirrors-scss-lint
+    sha: d7266131da322d6d76a18d6a3659f21025d9ea11
+    hooks:
+    -   id: scss-lint
+        language_version: 1.9.3-p484
+</pre>
             <p>This tells pre-commit to use <code>1.9.3-p484</code> to run the <code>scss-lint</code> hook.</p>
             <p>Valid values for specific languages are listed below:</p>
             <ul>
