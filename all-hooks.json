@@ -41,7 +41,7 @@
             "description": "Ensures that a file is either empty, or ends with one newline.",
             "entry": "end-of-file-fixer",
             "language": "python",
-            "files": "\\.(js|json|rb|md|py|scss|sh|tmpl|txt|yaml|yml)$"
+            "files": "\\.(erb|js|json|rb|md|py|scss|sh|tmpl|txt|yaml|yml)$"
         },
         {
             "id": "flake8",
@@ -73,7 +73,7 @@
             "description": "This hook trims trailing whitespace.",
             "entry": "trailing-whitespace-fixer",
             "language": "python",
-            "files": "\\.(js|json|rb|md|py|scss|sh|tmpl|txt|yaml|yml)$"
+            "files": "\\.(erb|js|json|rb|md|py|scss|sh|tmpl|txt|yaml|yml)$"
         }
     ],
     "git://github.com/pre-commit/mirrors-coffeelint": [
