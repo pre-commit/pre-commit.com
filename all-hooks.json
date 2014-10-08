@@ -103,6 +103,15 @@
             "files": "\\.js$"
         }
     ],
+    "git://github.com/pre-commit/mirrors-pylint": [
+        {
+            "id": "pylint",
+            "name": "pylint",
+            "entry": "pylint",
+            "language": "python",
+            "files": "\\.py$"
+        }
+    ],
     "git://github.com/pre-commit/mirrors-ruby-lint": [
         {
             "id": "ruby-lint",
