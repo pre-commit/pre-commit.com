@@ -8,3 +8,4 @@
 - git://github.com/pre-commit/mirrors-scss-lint
 - git://github.com/FalconSocial/pre-commit-python-sorter
 - git://github.com/guykisel/pre-commit-robotframework-tidy
+- git://github.com/FalconSocial/pre-commit-mirrors-pep257
