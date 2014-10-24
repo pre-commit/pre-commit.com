@@ -149,5 +149,14 @@
             "language": "python",
             "files": "\\.robot$"
         }
+    ],
+    "git://github.com/FalconSocial/pre-commit-mirrors-pep257": [
+        {
+            "id": "pep257",
+            "name": "pep257",
+            "entry": "pep257",
+            "language": "python",
+            "files": "\\.py$"
+        }
     ]
 }
