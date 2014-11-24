@@ -240,6 +240,14 @@
                     ruby: See <a href="https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build">ruby-build</a>
                 </li>
             </ul>
+
+            <h2>Usage in Continuous Integration</h2>
+            <p>
+                pre-commit can also be used as a tool for continuous
+                integration.  For instance, adding
+                <code>pre-commit run --all-files</code> as a CI step will
+                ensure everything stays in tip-top shape.
+            </p>
         </div>
 
         <div id="contributing">
