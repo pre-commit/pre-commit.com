@@ -219,7 +219,7 @@
             <p>This will pass <code>--max-line-length=131</code> to <code>flake8</code>.</p>
 
             <h3>Arguments Pattern in hooks</h3>
-            <p>If you are writing your own custom hook as a <code>script</code>-type or even a <code>system<code> hook, your hook should expect to receive the 'args' value and then a list of staged files.</p>
+            <p>If you are writing your own custom hook as a <code>script</code>-type or even a <code>system</code> hook, your hook should expect to receive the 'args' value and then a list of staged files.</p>
 
             <p>For example, assuming your .pre-commit-config.yaml was like below</p>
             <pre>
