@@ -219,9 +219,9 @@
             <p>This will pass <code>--max-line-length=131</code> to <code>flake8</code>.</p>
 
             <h3>Arguments Pattern in hooks</h3>
-            <p>If you are writing your own custom hook as a <code>script</code>-type or even a <code>system</code> hook, your hook should expect to receive the 'args' value and then a list of staged files.</p>
+            <p>If you are writing your own custom hook as a <code>script</code>-type or even a <code>system</code> hook, your hook should expect to receive the <code>args</code> value and then a list of staged files.</p>
 
-            <p>For example, assuming your .pre-commit-config.yaml was like below</p>
+            <p>For example, assuming your <code>.pre-commit-config.yaml</code> was like below</p>
 <pre>
 -   repo: git://github.com/path/to/your/hook/repo
     sha: a751eb58f91d8fa70e8b87c9c95777c5a743a932
@@ -230,15 +230,13 @@
         args: [--myarg1=1 --myarg1=2]
 </pre>
 
-            <p>When you next run pre-commit, it will pass on those args together with </p>
+            <p>When you next run <code>pre-commit</code>, it will pass on those args as follows:</p>
 <pre>
 path/to/script-or-system-call --myarg1=1 --myarg1=2 dir/file1 dir/file2 file3
 </pre>
 
-            <p>If the 'args' property is empty or not defined, you should expect pre-commit to be calling your script/command like so </p>
-<pre>
-path/to/script-or-system-call dir/file1 dir/file2 file3
-</pre>
+            <p>If the <code>args</code> property is empty or not defined, you should expect your script to be called:</p>
+<pre> path/to/script-or-system-call dir/file1 dir/file2 file3 </pre>
 
             <h2 id="overriding-language-version">Overriding Language Version</h2>
             <p>Sometimes you only want to run the hooks on a specific version of the language. For each language, they default to using the system installed language (So for example if I&rsquo;m running <code>python2.6</code> and a hook specifies <code>python</code>, pre-commit will run the hook using <code>python2.6</code>). Sometimes you don&rsquo;t want the default system installed version so you can override this on a per-hook basis by setting the <code>language_version</code>.</p>
