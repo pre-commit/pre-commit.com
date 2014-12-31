@@ -12,6 +12,14 @@
             ]
         },
         {
+            "id": "check-added-large-files",
+            "name": "Check for added large files",
+            "language": "python",
+            "entry": "check-added-large-files",
+            "description": "Prevent giant files from being committed",
+            "files": ""
+        },
+        {
             "id": "check-json",
             "name": "Check JSON",
             "description": "This hook checks json files for parseable syntax.",
@@ -41,7 +49,7 @@
             "description": "Ensures that a file is either empty, or ends with one newline.",
             "entry": "end-of-file-fixer",
             "language": "python",
-            "files": "\\.(erb|js|json|rb|md|py|scss|sh|tmpl|txt|yaml|yml)$"
+            "files": "\\.(html|erb|slim|haml|ejs|jade|js|coffee|json|rb|md|py|css|scss|less|sh|tmpl|txt|yaml|yml)$"
         },
         {
             "id": "flake8",
@@ -68,12 +76,20 @@
             "files": "\\.py$"
         },
         {
+            "id": "requirements-txt-fixer",
+            "name": "Fix requirements.txt",
+            "description": "Sorts entries in requirements.txt",
+            "entry": "requirements-txt-fixer",
+            "language": "python",
+            "files": "requirements.*\\.txt$"
+        },
+        {
             "id": "trailing-whitespace",
             "name": "Trim Trailing Whitespace",
             "description": "This hook trims trailing whitespace.",
             "entry": "trailing-whitespace-fixer",
             "language": "python",
-            "files": "\\.(erb|js|json|rb|md|py|scss|sh|tmpl|txt|yaml|yml)$"
+            "files": "\\.(html|erb|slim|haml|ejs|jade|js|coffee|json|rb|md|py|css|scss|less|sh|tmpl|txt|yaml|yml)$"
         }
     ],
     "git://github.com/pre-commit/mirrors-coffeelint": [
