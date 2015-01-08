@@ -182,5 +182,15 @@
             "language": "python",
             "files": "\\.py$"
         }
+    ],
+    "git://github.com/guykisel/prospector-mirror": [
+        {
+            "id": "prospector",
+            "name": "prospector",
+            "description": "This hook runs Prospector: https://github.com/landscapeio/prospector",
+            "entry": "prospector",
+            "language": "system",
+            "files": "\\.py$"
+        }
     ]
 }
