@@ -3,7 +3,7 @@
         {
             "id": "autopep8-wrapper",
             "name": "autopep8 wrapper",
-            "description": "Runs autopep8 over python source.",
+            "description": "Runs autopep8 over python source. (You'll want args: [-i] when using this hook, see .pre-commit-config.yaml for an example.)",
             "entry": "autopep8-wrapper",
             "language": "python",
             "files": "\\.py$",
@@ -16,6 +16,14 @@
             "name": "Check for added large files",
             "description": "Prevent giant files from being committed",
             "entry": "check-added-large-files",
+            "language": "python",
+            "files": ""
+        },
+        {
+            "id": "check-case-conflict",
+            "name": "Check for case conflicts",
+            "description": "Check for files that would conflict in case-insensitive filesystems",
+            "entry": "check-case-conflict",
             "language": "python",
             "files": ""
         },

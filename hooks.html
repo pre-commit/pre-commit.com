@@ -73,11 +73,15 @@ Also available in <a href="/all-hooks.json">json</a>.
     <ul>
             <li>
                 <code>autopep8-wrapper</code>
-                    - Runs autopep8 over python source.
+                    - Runs autopep8 over python source. (You'll want args: [-i] when using this hook, see .pre-commit-config.yaml for an example.)
             </li>
             <li>
                 <code>check-added-large-files</code>
                     - Prevent giant files from being committed
+            </li>
+            <li>
+                <code>check-case-conflict</code>
+                    - Check for files that would conflict in case-insensitive filesystems
             </li>
             <li>
                 <code>check-docstring-first</code>
