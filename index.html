@@ -261,6 +261,9 @@
             <h2>pre-commit during merges</h2>
             <p>The biggest gripe we&rsquo;ve had in the past with pre-commit hooks was during merge conflict resolution. When working on very large projects a merge often results in hundreds of committed files. I shouldn&rsquo;t need to run hooks on all of these files that I didn&rsquo;t even touch! This often led to running commit with <code>--no-verify</code> and allowed introduction of real bugs that hooks could have caught. pre-commit solves this by only running hooks on files that conflict or were manually edited during conflict resolution.</p>
 
+            <h2>pre-commit during push</h2>
+            <p>As of version 0.3.5, pre-commit can be used to manage <code>pre-push</code> hooks.  Simply <code>pre-commit install --hook-type pre-push</code>.</p>
+
             <h2>Passing arguments to hooks</h2>
             <p>Sometimes hooks require arguments to run correctly. You can pass static arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code> as follows:</p>
 <pre>
