@@ -68,6 +68,14 @@
             "files": "\\.py$"
         },
         {
+            "id": "double-quote-string-fixer",
+            "name": "Fix double quoted strings",
+            "description": "This hook replaces double quoted strings with single quoted strings",
+            "entry": "double-quote-string-fixer",
+            "language": "python",
+            "files": "\\.py$"
+        },
+        {
             "id": "end-of-file-fixer",
             "name": "Fix End of Files",
             "description": "Ensures that a file is either empty, or ends with one newline.",
@@ -207,6 +215,34 @@
             "entry": "prospector",
             "language": "system",
             "files": "\\.py$"
+        }
+    ],
+    "git://github.com/asottile/reorder_python_imports": [
+        {
+            "id": "reorder-python-imports",
+            "name": "Reorder python imports",
+            "description": "This hook reorders imports in python files.",
+            "entry": "reorder-python-imports",
+            "language": "python",
+            "files": "\\.py$"
+        }
+    ],
+    "git://github.com/asottile/cheetah_lint": [
+        {
+            "id": "cheetah-reorder-imports",
+            "name": "Reorder cheetah imports",
+            "description": "This hook reorders imports in cheetah files.",
+            "entry": "cheetah-reorder-imports",
+            "language": "python",
+            "files": "\\.tmpl$"
+        },
+        {
+            "id": "cheetah-flake",
+            "name": "Cheetah flake",
+            "description": "Lint cheetah code using flake8 and some other checks.",
+            "entry": "cheetah-flake",
+            "language": "python",
+            "files": "\\.tmpl$"
         }
     ]
 }
