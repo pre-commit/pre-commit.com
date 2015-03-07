@@ -12,3 +12,4 @@
 - git://github.com/guykisel/prospector-mirror
 - git://github.com/asottile/reorder_python_imports
 - git://github.com/asottile/cheetah_lint
+- git://github.com/hootsuite/pre-commit-php
