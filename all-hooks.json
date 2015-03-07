@@ -151,6 +151,15 @@
             "files": "\\.js$"
         }
     ],
+    "git://github.com/pre-commit/mirrors-puppet-lint": [
+        {
+            "id": "puppet-lint",
+            "name": "puppet-lint",
+            "entry": "puppet-lint",
+            "language": "ruby",
+            "files": "\\.pp$"
+        }
+    ],
     "git://github.com/pre-commit/mirrors-pylint": [
         {
             "id": "pylint",
