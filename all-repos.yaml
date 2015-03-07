@@ -3,6 +3,7 @@
 - git://github.com/pre-commit/mirrors-coffeelint
 - git://github.com/pre-commit/mirrors-eslint
 - git://github.com/pre-commit/mirrors-jshint
+- git://github.com/pre-commit/mirrors-puppet-lint
 - git://github.com/pre-commit/mirrors-pylint
 - git://github.com/pre-commit/mirrors-ruby-lint
 - git://github.com/pre-commit/mirrors-scss-lint
