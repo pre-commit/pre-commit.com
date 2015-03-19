@@ -14,3 +14,7 @@
 - git://github.com/asottile/reorder_python_imports
 - git://github.com/asottile/cheetah_lint
 - git://github.com/hootsuite/pre-commit-php
+- git://github.com/pricematch/mirrors-rubocop
+- git://github.com/pricematch/mirrors-closure-linter
+- git://github.com/pricematch/mirrors-pylint
+- git://github.com/pricematch/pricematch-pre-commit-hooks
