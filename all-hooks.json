@@ -44,6 +44,14 @@
             "files": "\\.json$"
         },
         {
+            "id": "check-merge-conflict",
+            "name": "Check for merge conflicts",
+            "description": "Check for files that contain merge conflict strings.",
+            "entry": "check-merge-conflict",
+            "language": "python",
+            "files": ""
+        },
+        {
             "id": "check-xml",
             "name": "Check Xml",
             "description": "This hook checks xml files for parseable syntax.",
@@ -138,7 +146,7 @@
             "name": "coffeelint",
             "entry": "coffeelint",
             "language": "node",
-            "files": "\\.js$"
+            "files": "\\.(js|coffee)$"
         }
     ],
     "git://github.com/pre-commit/mirrors-eslint": [
@@ -297,6 +305,54 @@
             "entry": "pre_commit_hooks/php-cs.sh",
             "language": "script",
             "files": "\\.php$"
+        }
+    ],
+    "git://github.com/pricematch/mirrors-rubocop": [
+        {
+            "id": "rubocop",
+            "name": "rubocop",
+            "entry": "rubocop",
+            "language": "ruby",
+            "files": "\\.(rb|rake)$"
+        }
+    ],
+    "git://github.com/pricematch/mirrors-closure-linter": [
+        {
+            "id": "closure-linter",
+            "name": "closure-linter",
+            "entry": "gjslint",
+            "language": "python",
+            "files": "\\.js$"
+        },
+        {
+            "id": "closure-linter-fixer",
+            "name": "closure-linter-fixer",
+            "entry": "fixjsstyle",
+            "language": "python",
+            "files": "\\.js$"
+        }
+    ],
+    "git://github.com/pricematch/pricematch-pre-commit-hooks": [
+        {
+            "id": "do_not_commit",
+            "name": "Block if \"DO NOT COMMIT\" is found",
+            "entry": "DO NOT COMMIT",
+            "language": "pcre",
+            "files": "^(.*)$"
+        },
+        {
+            "id": "ruby_timezones",
+            "name": "Force explicit usage of timezones",
+            "entry": "(Date.today|Time.now|DateTime.now)([ ,)]|$)",
+            "language": "pcre",
+            "files": "\\.(rb|rake)$"
+        },
+        {
+            "id": "ruby",
+            "name": "ruby_syntax",
+            "entry": "ruby.py",
+            "language": "script",
+            "files": "\\.(rb|rake)$"
         }
     ]
 }
