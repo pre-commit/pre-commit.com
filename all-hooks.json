@@ -354,5 +354,14 @@
             "language": "script",
             "files": "\\.(rb|rake)$"
         }
+    ],
+    "git://github.com/hyperNURb/mirrors-jscs": [
+        {
+            "id": "jscs",
+            "name": "jscs",
+            "entry": "jscs",
+            "language": "node",
+            "files": "\\.js$"
+        }
     ]
 }
