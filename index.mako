@@ -107,6 +107,14 @@
     -   id: trailing-whitespace
 </pre>
             <p>This configuration says to download the pre-commit-hooks project and run its trailing-whitespace hook.</p>
+
+            <h2>Updating hooks automatically</h2>
+
+            <p>
+                You can update your hooks to the latest version automatically
+                by running <code>pre-commit autoupdate</code>.  This will
+                bring the hooks to the latest sha on the master branch.
+            </p>
         </div>
 
         <div id="usage">
@@ -196,6 +204,22 @@
                 <li><code>python</code> - usually provided by <code>console_scripts</code> in setup.py</li>
                 <li><code>ruby</code> - provided by <code>executables</code> in your gemspec</li>
             </ul>
+
+            <h2>Developing hooks interactively</h2>
+
+            <p>
+                Since the <code>repo</code> property of .pre-commit-config.yaml
+                can take anything that <code>git clone ...</code> understands,
+                it's often useful to point it at a local directory on your
+                machine while developing hooks and using
+                <code>pre-commit autoupdate</code> to synchronize changes.
+<pre>
+-   repo: /home/asottile/workspace/pre-commit-hooks
+    sha: 9ce45609a92f648c87b42207410386fd69a5d1e5
+    hooks:
+    -   id: trailing-whitespace
+</pre>
+            </p>
         </div>
 
         <div id="advanced">
