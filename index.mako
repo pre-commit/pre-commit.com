@@ -324,6 +324,7 @@ path/to/script-or-system-call --myarg1=1 --myarg1=2 dir/file1 dir/file2 file3
                 <li><a href="https://github.com/struys">Ken Struys</a></li>
                 <li><a href="https://github.com/mfnkl">Molly Finkle</a></li>
                 <li><a href="https://github.com/guykisel">Guy Kisel</a></li>
+                <li><a href="https://github.com/dupuy">Alexander Dupuy</a></li>
             </ul>
         </div>
     </div>
