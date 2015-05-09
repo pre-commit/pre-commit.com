@@ -353,6 +353,20 @@
             "entry": "ruby.py",
             "language": "script",
             "files": "\\.(rb|rake)$"
+        },
+        {
+            "id": "safe_where_queries_in_parsing",
+            "name": "Only allowed model method is mass_insert in parsing",
+            "entry": "Reservation\\.([^m]...|.[^a]..|..[^s].|...[^s])",
+            "language": "pcre",
+            "files": "^lib/background_jobs/parsing/drivers/.*\\.rb$"
+        },
+        {
+            "id": "check_rails_env_with_methods",
+            "name": "Do not write \"Rails.env =\" to avoid assignment",
+            "entry": "Rails\\.env\\s*=",
+            "language": "pcre",
+            "files": "\\.(rb|rake)$"
         }
     ],
     "git://github.com/hyperNURb/mirrors-jscs": [
