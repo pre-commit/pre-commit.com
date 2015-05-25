@@ -2,6 +2,8 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 import io
+import os.path
+
 import mako.lookup
 import ordereddict
 import simplejson
@@ -9,10 +11,15 @@ import simplejson
 
 template_lookup = mako.lookup.TemplateLookup(
     directories=['.'],
+    default_filters=['html_escape'],
+    imports=['from mako.filters import html_escape'],
 )
 
 
-ALL_TEMPLATES = ('index', 'hooks')
+ALL_TEMPLATES = [
+    filename for filename in os.listdir('.')
+    if filename.endswith('.mako') and filename != 'base.mako'
+]
 
 
 def get_env():
@@ -27,11 +34,10 @@ def get_env():
 def main():
     env = get_env()
     for template in ALL_TEMPLATES:
-        env['template_name'] = template
-        with io.open('{0}.html'.format(template), 'w') as html_file:
-            template_obj = template_lookup.get_template(
-                '{0}.mako'.format(template),
-            )
+        template_name, _ = os.path.splitext(template)
+        env['template_name'] = template_name
+        with io.open('{0}.html'.format(template_name), 'w') as html_file:
+            template_obj = template_lookup.get_template(template)
             html_file.write(template_obj.render(**env))
 
 

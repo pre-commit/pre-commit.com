@@ -9,7 +9,7 @@ install_pre_commit: py_env
 build/main.css: node_env build scss/main.scss scss/_variables.scss
 	sh -c '. py_env/bin/activate && pyscss -o build/main.css scss/main.scss'
 
-all-hooks.json: py_env make_all_hooks.py
+all-hooks.json: py_env make_all_hooks.py all-repos.yaml
 	sh -c '. py_env/bin/activate && python make_all_hooks.py'
 
 index.html hooks.html: py_env all-hooks.json base.mako index.mako hooks.mako make_templates.py
