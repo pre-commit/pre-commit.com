@@ -44,6 +44,14 @@
             "files": "\\.json$"
         },
         {
+            "id": "pretty-format-json",
+            "name": "Pretty format JSON",
+            "description": "This hook sets a standard for formatting JSON files.",
+            "entry": "pretty-format-json",
+            "language": "python",
+            "files": "\\.json$"
+        },
+        {
             "id": "check-merge-conflict",
             "name": "Check for merge conflicts",
             "description": "Check for files that contain merge conflict strings.",
@@ -74,6 +82,14 @@
             "entry": "debug-statement-hook",
             "language": "python",
             "files": "\\.py$"
+        },
+        {
+            "id": "detect-aws-credentials",
+            "name": "Detect AWS Credentials",
+            "description": "Detects *your* aws credentials from the aws cli credentials file",
+            "entry": "detect-aws-credentials",
+            "language": "python",
+            "files": ""
         },
         {
             "id": "detect-private-key",
@@ -338,7 +354,7 @@
             "name": "Block if \"DO NOT COMMIT\" is found",
             "entry": "DO NOT COMMIT",
             "language": "pcre",
-            "files": "^(.*)$"
+            "files": ""
         },
         {
             "id": "ruby_timezones",
@@ -367,6 +383,13 @@
             "entry": "Rails\\.env\\s*=",
             "language": "pcre",
             "files": "\\.(rb|rake)$"
+        },
+        {
+            "id": "remove_encoding_comment",
+            "name": "Remove the encoding comment at beginning of file",
+            "entry": "encoding\\s*\\:\\s*utf\\-8",
+            "language": "pcre",
+            "files": "\\.(rb|rake)$"
         }
     ],
     "git://github.com/hyperNURb/mirrors-jscs": [
@@ -392,6 +415,26 @@
             "name": "CRLF end-lines remover",
             "description": "Replace CRLF end-lines by LF ones before committing",
             "entry": "remove_crlf",
+            "language": "python",
+            "files": ""
+        },
+        {
+            "id": "forbid-tabs",
+            "name": "No-tabs checker",
+            "description": "Forbid files containing tabs to be committed",
+            "entry": "forbid_tabs",
+            "language": "python",
+            "files": ""
+        },
+        {
+            "id": "remove-tabs",
+            "name": "Tabs remover",
+            "description": "Replace tabs by whitespaces before committing",
+            "entry": "remove_tabs",
+            "args": [
+                "--whitespaces-count",
+                "4"
+            ],
             "language": "python",
             "files": ""
         }

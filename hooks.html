@@ -93,6 +93,10 @@ Also available in <a href="/all-hooks.json">json</a>.
                     - This hook checks json files for parseable syntax.
             </li>
             <li>
+                <code>pretty-format-json</code>
+                    - This hook sets a standard for formatting JSON files.
+            </li>
+            <li>
                 <code>check-merge-conflict</code>
                     - Check for files that contain merge conflict strings.
             </li>
@@ -107,6 +111,10 @@ Also available in <a href="/all-hooks.json">json</a>.
             <li>
                 <code>debug-statements</code>
                     - This hook checks that debug statements (pdb, ipdb, pudb) are not imported on commit.
+            </li>
+            <li>
+                <code>detect-aws-credentials</code>
+                    - Detects *your* aws credentials from the aws cli credentials file
             </li>
             <li>
                 <code>detect-private-key</code>
@@ -352,6 +360,10 @@ Also available in <a href="/all-hooks.json">json</a>.
                 <code>check_rails_env_with_methods</code>
                     - Do not write &#34;Rails.env =&#34; to avoid assignment
             </li>
+            <li>
+                <code>remove_encoding_comment</code>
+                    - Remove the encoding comment at beginning of file
+            </li>
     </ul>
     <h3>
         <a href="https://github.com/hyperNURb/mirrors-jscs" target="_blank">
@@ -376,6 +388,14 @@ Also available in <a href="/all-hooks.json">json</a>.
             <li>
                 <code>remove-crlf</code>
                     - Replace CRLF end-lines by LF ones before committing
+            </li>
+            <li>
+                <code>forbid-tabs</code>
+                    - Forbid files containing tabs to be committed
+            </li>
+            <li>
+                <code>remove-tabs</code>
+                    - Replace tabs by whitespaces before committing
             </li>
     </ul>
 
