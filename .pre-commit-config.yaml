@@ -1,11 +1,11 @@
 -   repo: git@github.com:pre-commit/mirrors-scss-lint
-    sha: ce46c548f01433ab1e4587bf993304b52d1b93bc
+    sha: 3eb13b9647543ad4d6a62c8be8a9131e3b99b96a
     hooks:
     -   id: scss-lint
         files: scss/.*\.scss$
         language_version: 1.9.3-p484
 -   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: 9ce45609a92f648c87b42207410386fd69a5d1e5
+    sha: 516cc9fa72ad09699f2c03ffbd0aa7f60d75b59a
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
