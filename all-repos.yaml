@@ -20,3 +20,4 @@
 - git://github.com/hyperNURb/mirrors-jscs
 - git://github.com/Lucas-C/pre-commit-hooks
 - git://github.com/SamWhited/go-pre-commit
+- git@github.com:zonito/command-hook.git
