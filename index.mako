@@ -191,7 +191,7 @@
                 <li><code>node</code> - must have a package.json (Installed via <code>npm install .</code>)</li>
                 <li><code>python</code> - must have a setup.py (Installed via <code>pip install .</code>)</li>
                 <li><code>ruby</code> -  must have a file matching *.gemspec (Installed via <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>)</li>
-                <li><code>pcre</code> - "Perl Compatible Regular Expression" Specify the regex as the <code>entry</code></li>
+                <li><code>pcre</code> - "Perl Compatible Regular Expression" Specify the regex as the <code>entry</code>.  For osx, you'll need <code>brew install grep</code></li>
                 <li><code>script</code> - A script existing inside of a repository</li>
                 <li><code>system</code> - Executables available at the system level</li>
             </ul>
