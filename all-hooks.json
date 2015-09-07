@@ -508,5 +508,14 @@
             "language": "ruby",
             "files": "\\.pp$"
         }
+    ],
+    "git://github.com/elidupuis/mirrors-standard": [
+        {
+            "id": "standard",
+            "name": "standard",
+            "entry": "standard",
+            "language": "node",
+            "files": "\\.(js|jsx)$"
+        }
     ]
 }
