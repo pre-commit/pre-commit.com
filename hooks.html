@@ -454,6 +454,33 @@ Also available in <a href="/all-hooks.json">json</a>.
                 <code>standard</code>
             </li>
     </ul>
+    <h3>
+        <a href="https://github.com/dnephin/pre-commit-golang" target="_blank">
+            github.com/dnephin/pre-commit-golang
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>go-fmt</code>
+                    - Runs `gofmt`, requires golang
+            </li>
+            <li>
+                <code>go-vet</code>
+                    - Runs `go vet`, requires golang
+            </li>
+            <li>
+                <code>go-lint</code>
+                    - Runs `golint`, requires https://github.com/golang/lint
+            </li>
+            <li>
+                <code>validate-toml</code>
+                    - Runs `tomlv`, requires https://github.com/BurntSushi/toml/tree/master/cmd/tomlv
+            </li>
+            <li>
+                <code>no-go-testing</code>
+                    - Checks that no files are using `testing.T`, if you want developers to use a different testing framework
+            </li>
+    </ul>
 
         </div>
         <footer class="pc-footer">
