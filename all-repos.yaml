@@ -22,3 +22,4 @@
 - https://bitbucket.org/SamWhited/go-pre-commit.git
 - git://github.com/chriskuehl/puppet-pre-commit-hooks
 - git://github.com/elidupuis/mirrors-standard
+- git://github.com/dnephin/pre-commit-golang
