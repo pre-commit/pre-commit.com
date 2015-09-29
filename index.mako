@@ -263,7 +263,7 @@
     sha: 5541a6a046b7a0feab73a21612ab5d94a6d3f6f0
     hooks:
     -   id: my-hook-script-id
-        args: [--myarg1=1 --myarg1=2]
+        args: [--myarg1=1, --myarg1=2]
 </pre>
 
             <p>When you next run <code>pre-commit</code>, it will pass on those args as follows:</p>
