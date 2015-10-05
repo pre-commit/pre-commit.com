@@ -97,6 +97,10 @@
                         <td><code>args</code></td>
                         <td>(optional) additional parameters to pass to the hook.</td>
                     </tr>
+                    <tr>
+                        <td><code>stages</code></td>
+                        <td>(optional) Confines the hook to the <code>commit</code> or <code>push</code> stage. See <a href="#confining-hooks-to-run-at-certain-stages">Advanced Features: "Confining Hooks To Run At A Certain Stage"</a>.</td>
+                    </tr>
                 </tbody>
             </table>
             <p>For example:</p>
@@ -243,6 +247,9 @@
             <h2>pre-commit during push</h2>
             <p>As of version 0.3.5, pre-commit can be used to manage <code>pre-push</code> hooks.  Simply <code>pre-commit install --hook-type pre-push</code>.</p>
 
+            <h2 id="confining-hooks-to-run-at-certain-stages">confining hooks to run at certain stages</h2>
+            <p>If pre-commit during push has been installed, then all hooks (by default) will be run during the <code>push</code> stage. Hooks can however be confined to a stage by setting the <code>stages</code> property in your <code>.pre-commit-config.yaml</code>. The <code>stages</code> property is an array and can be set to either <code>['commit']</code>, <code>['push']</code> or <code>['commit','push']</code>.</p>
+
             <h2>Passing arguments to hooks</h2>
             <p>Sometimes hooks require arguments to run correctly. You can pass static arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code> as follows:</p>
 <pre>
@@ -329,6 +336,7 @@ path/to/script-or-system-call --myarg1=1 --myarg1=2 dir/file1 dir/file2 file3
                 <li><a href="https://github.com/caffodian">Alex Tsai</a></li>
                 <li><a href="https://github.com/arahayrabedian">Ara Hayrabedian</a></li>
                 <li><a href="https://github.com/meunierd">Devon Meunier</a></li>
+                <li><a href="https://github.com/barrysteyn">Barry Steyn</a></li>
             </ul>
         </div>
     </div>
