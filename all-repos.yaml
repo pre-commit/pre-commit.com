@@ -17,7 +17,7 @@
 - git://github.com/pricematch/mirrors-rubocop
 - git://github.com/pricematch/mirrors-closure-linter
 - git://github.com/pricematch/pricematch-pre-commit-hooks
-- git://github.com/hyperNURb/mirrors-jscs
+- git://github.com/elidupuis/mirrors-jscs
 - git://github.com/Lucas-C/pre-commit-hooks
 - https://bitbucket.org/SamWhited/go-pre-commit.git
 - git://github.com/chriskuehl/puppet-pre-commit-hooks
