@@ -440,13 +440,33 @@
             "name": "Tabs remover",
             "description": "Replace tabs by whitespaces before committing",
             "entry": "remove_tabs",
+            "language": "python",
             "args": [
                 "--whitespaces-count",
                 "4"
             ],
-            "language": "python",
             "files": "",
             "exclude": "(Makefile|debian/rules)(\\.in)?$"
+        },
+        {
+            "id": "forbid-html-img-without-alt-text",
+            "name": "HTML img tag alt text checker",
+            "description": "List every <img> tag without a alt= or data-ng-attr-alt= attribute",
+            "entry": "forbid_html_img_without_alt_text",
+            "language": "python",
+            "files": ".*\\.html$"
+        },
+        {
+            "id": "forbid-non-std-html-attributes",
+            "name": "Non-standard HTML attributes checker",
+            "description": "Detect any non-standard attribute that is not prefixed with data-",
+            "entry": "forbid_non_std_html_attributes",
+            "language": "python",
+            "args": [
+                "--extra-known-attributes",
+                "content,http-equiv,placeholder,role,style"
+            ],
+            "files": ".*\\.html$"
         }
     ],
     "https://bitbucket.org/SamWhited/go-pre-commit.git": [

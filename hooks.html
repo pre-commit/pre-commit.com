@@ -401,6 +401,14 @@ Also available in <a href="/all-hooks.json">json</a>.
                 <code>remove-tabs</code>
                     - Replace tabs by whitespaces before committing
             </li>
+            <li>
+                <code>forbid-html-img-without-alt-text</code>
+                    - List every &lt;img&gt; tag without a alt= or data-ng-attr-alt= attribute
+            </li>
+            <li>
+                <code>forbid-non-std-html-attributes</code>
+                    - Detect any non-standard attribute that is not prefixed with data-
+            </li>
     </ul>
     <h3>
         <a href="https://bitbucket.org/SamWhited/go-pre-commit.git" target="_blank">
