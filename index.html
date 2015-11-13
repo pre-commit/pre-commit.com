@@ -195,8 +195,8 @@
             <p>
                 An executable must satisfy the following things:
                 <ul>
-                    <li>Returncode of hook must be different between success / failures (Usually 0 for success, nonzero for failure)</li>
-                    <li>It must take filenames</li>
+                    <li>The hook must exit nonzero on failure or modify files in the working directory (since 0.6.3).</li>
+                    <li>It must take filenames as positional arguments.</li>
                 </ul>
             </p>
             <p>A git repo containing pre-commit plugins must contain a hooks.yaml file that tells pre-commit:</p>
