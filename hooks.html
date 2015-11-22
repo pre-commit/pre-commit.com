@@ -133,6 +133,10 @@ Also available in <a href="/all-hooks.json">json</a>.
                     - Ensures that a file is either empty, or ends with one newline.
             </li>
             <li>
+                <code>fix-encoding-pragma</code>
+                    - Add # -*- coding: utf-8 -*- to the top of python files
+            </li>
+            <li>
                 <code>flake8</code>
                     - This hook runs flake8.
             </li>
@@ -361,6 +365,10 @@ Also available in <a href="/all-hooks.json">json</a>.
                     - Only allowed model method is mass_insert in parsing
             </li>
             <li>
+                <code>no_commas_in_string_arrays</code>
+                    - Do not forget a comma in a %w() string array
+            </li>
+            <li>
                 <code>check_rails_env_with_methods</code>
                     - Do not write &#34;Rails.env =&#34; to avoid assignment
             </li>
@@ -418,7 +426,7 @@ Also available in <a href="/all-hooks.json">json</a>.
     <ul>
             <li>
                 <code>gofmt</code>
-                    - Formats Go code
+                    - Formats Go code.
             </li>
             <li>
                 <code>gofix</code>
@@ -431,6 +439,10 @@ Also available in <a href="/all-hooks.json">json</a>.
             <li>
                 <code>gobuild</code>
                     - Makes sure Go code can build.
+            </li>
+            <li>
+                <code>gotest</code>
+                    - Runs tests against Go code.
             </li>
     </ul>
     <h3>
@@ -487,6 +499,17 @@ Also available in <a href="/all-hooks.json">json</a>.
             <li>
                 <code>no-go-testing</code>
                     - Checks that no files are using `testing.T`, if you want developers to use a different testing framework
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/jordant/rubocop-pre-commit-hook" target="_blank">
+            github.com/jordant/rubocop-pre-commit-hook
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>check-rubocop</code>
+                    - This hook checks ruby files for syntax and style
             </li>
     </ul>
 

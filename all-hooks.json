@@ -124,6 +124,14 @@
             "files": "\\.(c|cpp|html|erb|slim|haml|ejs|jade|js|coffee|json|rb|md|py|css|scss|less|sh|tmpl|txt|yaml|yml|pp)$"
         },
         {
+            "id": "fix-encoding-pragma",
+            "name": "Fix python encoding pragma",
+            "language": "python",
+            "entry": "fix-encoding-pragma",
+            "description": "Add # -*- coding: utf-8 -*- to the top of python files",
+            "files": "\\.py$"
+        },
+        {
             "id": "flake8",
             "name": "Flake8",
             "description": "This hook runs flake8.",
@@ -381,9 +389,22 @@
         {
             "id": "safe_where_queries_in_parsing",
             "name": "Only allowed model method is mass_insert in parsing",
-            "entry": "Reservation\\.([^m]...|.[^a]..|..[^s].|...[^s])",
+            "entry": "Reservation\\s*\\.([^m]...|.[^a]..|..[^s].|...[^s])",
             "language": "pcre",
-            "files": "^lib/background_jobs/parsing/drivers/.*\\.rb$"
+            "files": "^lib/background_jobs/parsing/drivers/.*\\.rb$",
+            "args": [
+                "-bzo"
+            ]
+        },
+        {
+            "id": "no_commas_in_string_arrays",
+            "name": "Do not forget a comma in a %w() string array",
+            "entry": "\\%w\\([^(]*,[^(]*\\)",
+            "language": "pcre",
+            "files": "\\.(rb|rake)$",
+            "args": [
+                "-bzo"
+            ]
         },
         {
             "id": "check_rails_env_with_methods",
@@ -473,7 +494,7 @@
         {
             "id": "gofmt",
             "name": "Go Format",
-            "description": "Formats Go code",
+            "description": "Formats Go code.",
             "entry": "gofmthook.sh",
             "language": "script",
             "files": "\\.go$"
@@ -499,6 +520,14 @@
             "name": "Go Build",
             "description": "Makes sure Go code can build.",
             "entry": "go build",
+            "language": "system",
+            "files": "\\.go$"
+        },
+        {
+            "id": "gotest",
+            "name": "Go Test",
+            "description": "Runs tests against Go code.",
+            "entry": "go test",
             "language": "system",
             "files": "\\.go$"
         }
@@ -578,6 +607,16 @@
             "files": "test_\\.go$",
             "language": "pcre",
             "description": "Checks that no files are using `testing.T`, if you want developers to use a different testing framework"
+        }
+    ],
+    "git://github.com/jordant/rubocop-pre-commit-hook": [
+        {
+            "id": "check-rubocop",
+            "name": "Check Rubocop",
+            "description": "This hook checks ruby files for syntax and style",
+            "entry": "check-rubocop",
+            "language": "python",
+            "files": "\\.rb$"
         }
     ]
 }
