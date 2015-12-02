@@ -1,5 +1,6 @@
 # This file is used to generate all-hooks.json
 - git://github.com/pre-commit/pre-commit-hooks
+- git://github.com/pre-commit/mirrors-autopep8
 - git://github.com/pre-commit/mirrors-coffeelint
 - git://github.com/pre-commit/mirrors-eslint
 - git://github.com/pre-commit/mirrors-jshint
@@ -7,9 +8,10 @@
 - git://github.com/pre-commit/mirrors-pylint
 - git://github.com/pre-commit/mirrors-ruby-lint
 - git://github.com/pre-commit/mirrors-scss-lint
+- git://github.com/pre-commit/mirrors-yapf
+- git://github.com/FalconSocial/pre-commit-mirrors-pep257
 - git://github.com/FalconSocial/pre-commit-python-sorter
 - git://github.com/guykisel/pre-commit-robotframework-tidy
-- git://github.com/FalconSocial/pre-commit-mirrors-pep257
 - git://github.com/guykisel/prospector-mirror
 - git://github.com/asottile/reorder_python_imports
 - git://github.com/asottile/cheetah_lint
@@ -18,9 +20,9 @@
 - git://github.com/pricematch/mirrors-closure-linter
 - git://github.com/pricematch/pricematch-pre-commit-hooks
 - git://github.com/elidupuis/mirrors-jscs
+- git://github.com/elidupuis/mirrors-standard
 - git://github.com/Lucas-C/pre-commit-hooks
 - https://bitbucket.org/SamWhited/go-pre-commit.git
 - git://github.com/chriskuehl/puppet-pre-commit-hooks
-- git://github.com/elidupuis/mirrors-standard
 - git://github.com/dnephin/pre-commit-golang
 - git://github.com/jordant/rubocop-pre-commit-hook
