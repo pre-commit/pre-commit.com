@@ -172,6 +172,18 @@
             "files": "\\.(c|cpp|html|erb|slim|haml|ejs|jade|js|coffee|json|rb|md|py|css|scss|less|sh|tmpl|txt|yaml|yml|pp)$"
         }
     ],
+    "git://github.com/pre-commit/mirrors-autopep8": [
+        {
+            "id": "autopep8",
+            "name": "autopep8",
+            "entry": "autopep8",
+            "language": "python",
+            "files": "\\.py$",
+            "args": [
+                "-i"
+            ]
+        }
+    ],
     "git://github.com/pre-commit/mirrors-coffeelint": [
         {
             "id": "coffeelint",
@@ -235,6 +247,27 @@
             "files": "\\.scss$"
         }
     ],
+    "git://github.com/pre-commit/mirrors-yapf": [
+        {
+            "id": "yapf",
+            "name": "yapf",
+            "entry": "yapf",
+            "language": "python",
+            "files": "\\.py$",
+            "args": [
+                "-i"
+            ]
+        }
+    ],
+    "git://github.com/FalconSocial/pre-commit-mirrors-pep257": [
+        {
+            "id": "pep257",
+            "name": "pep257",
+            "entry": "pep257",
+            "language": "python",
+            "files": "\\.py$"
+        }
+    ],
     "git://github.com/FalconSocial/pre-commit-python-sorter": [
         {
             "id": "python-import-sorter",
@@ -253,15 +286,6 @@
             "entry": "python-robotframework-tidy",
             "language": "python",
             "files": "\\.robot$"
-        }
-    ],
-    "git://github.com/FalconSocial/pre-commit-mirrors-pep257": [
-        {
-            "id": "pep257",
-            "name": "pep257",
-            "entry": "pep257",
-            "language": "python",
-            "files": "\\.py$"
         }
     ],
     "git://github.com/guykisel/prospector-mirror": [
@@ -337,6 +361,14 @@
             "entry": "pre_commit_hooks/php-cs.sh",
             "language": "script",
             "files": "\\.php$"
+        },
+        {
+            "id": "php-cbf",
+            "name": "PHP Codesniffer (Code Beutifier and Formatter)",
+            "description": "Run php codesniffer against all staged files.",
+            "entry": "pre_commit_hooks/php-cbf.sh",
+            "language": "script",
+            "files": "\\.php$"
         }
     ],
     "git://github.com/pricematch/mirrors-rubocop": [
@@ -399,7 +431,7 @@
         {
             "id": "no_commas_in_string_arrays",
             "name": "Do not forget a comma in a %w() string array",
-            "entry": "\\%w\\([^(]*,[^(]*\\)",
+            "entry": "\\%w\\([^)]*,[^)]*\\)",
             "language": "pcre",
             "files": "\\.(rb|rake)$",
             "args": [
@@ -419,6 +451,13 @@
             "entry": "encoding\\s*\\:\\s*utf\\-8",
             "language": "pcre",
             "files": "\\.(rb|rake)$"
+        },
+        {
+            "id": "forbid_describe_only",
+            "name": "Do not forget describe.only in test files",
+            "entry": "describe.only",
+            "language": "pcre",
+            "files": "\\.js$"
         }
     ],
     "git://github.com/elidupuis/mirrors-jscs": [
@@ -428,6 +467,15 @@
             "entry": "jscs",
             "language": "node",
             "files": "\\.js$"
+        }
+    ],
+    "git://github.com/elidupuis/mirrors-standard": [
+        {
+            "id": "standard",
+            "name": "standard",
+            "entry": "standard",
+            "language": "node",
+            "files": "\\.(js|jsx)$"
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks": [
@@ -556,15 +604,6 @@
             "entry": "puppet-lint",
             "language": "ruby",
             "files": "\\.pp$"
-        }
-    ],
-    "git://github.com/elidupuis/mirrors-standard": [
-        {
-            "id": "standard",
-            "name": "standard",
-            "entry": "standard",
-            "language": "node",
-            "files": "\\.(js|jsx)$"
         }
     ],
     "git://github.com/dnephin/pre-commit-golang": [
