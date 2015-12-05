@@ -241,10 +241,11 @@
     "git://github.com/pre-commit/mirrors-scss-lint": [
         {
             "id": "scss-lint",
-            "name": "scss-lint",
+            "name": "scss_lint",
             "entry": "scss-lint",
             "language": "ruby",
-            "files": "\\.scss$"
+            "files": "\\.scss$",
+            "args": []
         }
     ],
     "git://github.com/pre-commit/mirrors-yapf": [
@@ -369,6 +370,14 @@
             "entry": "pre_commit_hooks/php-cbf.sh",
             "language": "script",
             "files": "\\.php$"
+        },
+        {
+            "id": "php-cs-fixer",
+            "name": "PHP Coding Standards Fixer",
+            "description": "Run php coding standards fixer against all staged files.",
+            "entry": "pre_commit_hooks/php-cs-fixer.sh",
+            "language": "script",
+            "files": "\\.php$"
         }
     ],
     "git://github.com/pricematch/mirrors-rubocop": [
@@ -421,7 +430,7 @@
         {
             "id": "safe_where_queries_in_parsing",
             "name": "Only allowed model method is mass_insert in parsing",
-            "entry": "Reservation\\s*\\.([^m]...|.[^a]..|..[^s].|...[^s])",
+            "entry": "Reservation\\s*\\.(?!(mass|calendar|hotel_pms_res|set_canceled|update_from)).*",
             "language": "pcre",
             "files": "^lib/background_jobs/parsing/drivers/.*\\.rb$",
             "args": [
@@ -536,6 +545,13 @@
                 "content,http-equiv,placeholder,role,style"
             ],
             "files": ".*\\.html$"
+        },
+        {
+            "id": "detect-missing-css-classes",
+            "name": "Detect unused or missing CSS classes definitions, and abort if any of the later ones is found",
+            "entry": "detect_missing_css_classes",
+            "language": "python",
+            "files": ".*\\.(css|html)$"
         }
     ],
     "https://bitbucket.org/SamWhited/go-pre-commit.git": [
