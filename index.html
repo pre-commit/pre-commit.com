@@ -171,7 +171,7 @@
 </pre>
             <p>This configuration says to download the pre-commit-hooks project and run its trailing-whitespace hook.</p>
 
-            <h2>Updating hooks automatically</h2>
+            <h2 id="updating-hooks-automatically">Updating hooks automatically</h2>
 
             <p>
                 You can update your hooks to the latest version automatically
@@ -245,7 +245,7 @@
     language: python
     files: \.(js|rb|md|py|sh|txt|yaml|yml)$
 </pre>
-            <h2>Supported languages</h2>
+            <h2 id="supported-languages">Supported languages</h2>
             <ul>
                 <li><code>node</code> - must have a package.json (Installed via <code>npm install .</code>)</li>
                 <li><code>python</code> - must have a setup.py (Installed via <code>pip install .</code>)</li>
@@ -264,7 +264,7 @@
                 <li><code>ruby</code> - provided by <code>executables</code> in your gemspec</li>
             </ul>
 
-            <h2>Developing hooks interactively</h2>
+            <h2 id="developing-hooks-interactively">Developing hooks interactively</h2>
 
             <p>
                 Since the <code>repo</code> property of .pre-commit-config.yaml
@@ -286,26 +286,26 @@
                 <h1>Advanced features</h1>
             </div>
 
-            <h2>Running in migration mode</h2>
+            <h2 id="running-in-migration-mode">Running in migration mode</h2>
             <p>By default, if you have existing hooks <code>pre-commit install</code> will install in a migration mode which runs both your existing hooks and hooks for pre-commit. To disable this behavior, simply pass <code>-f</code> / <code>--overwrite</code> to the <code>install</code> command. If you decide not to use pre-commit, <code>pre-commit uninstall</code> will restore your hooks to the state prior to installation.</p>
 
-            <h2>Temporarily disabling hooks</h2>
+            <h2 id="temporarily-disabling-hooks">Temporarily disabling hooks</h2>
             <p>Not all hooks are perfect so sometimes you may need to skip execution of one or more hooks. pre-commit solves this by querying a <code>SKIP</code> environment variable. The <code>SKIP</code> environment variable is a comma separated list of hook ids. This allows you to skip a single hook instead of <code>--no-verify</code>ing the entire commit.</p>
             <pre>$ SKIP=flake8 git commit -m "foo"</pre>
 
-            <h2>pre-commit during commits</h2>
+            <h2 id="pre-commit-during-commits">pre-commit during commits</h2>
             <p>Running hooks on unstaged changes can lead to both false-positives and false-negatives during committing. pre-commit only runs on the staged contents of files by temporarily saving the contents of your files at commit time and stashing the unstaged changes while running hooks.</p>
 
-            <h2>pre-commit during merges</h2>
+            <h2 id="pre-commit-during-merges">pre-commit during merges</h2>
             <p>The biggest gripe we&rsquo;ve had in the past with pre-commit hooks was during merge conflict resolution. When working on very large projects a merge often results in hundreds of committed files. I shouldn&rsquo;t need to run hooks on all of these files that I didn&rsquo;t even touch! This often led to running commit with <code>--no-verify</code> and allowed introduction of real bugs that hooks could have caught. pre-commit solves this by only running hooks on files that conflict or were manually edited during conflict resolution.</p>
 
-            <h2>pre-commit during push</h2>
+            <h2 id="pre-commit-during-push">pre-commit during push</h2>
             <p>As of version 0.3.5, pre-commit can be used to manage <code>pre-push</code> hooks.  Simply <code>pre-commit install --hook-type pre-push</code>.</p>
 
             <h2 id="confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</h2>
             <p>If pre-commit during push has been installed, then all hooks (by default) will be run during the <code>push</code> stage. Hooks can however be confined to a stage by setting the <code>stages</code> property in your <code>.pre-commit-config.yaml</code>. The <code>stages</code> property is an array and can be set to either <code>[commit]</code>, <code>[push]</code> or <code>[commit, push]</code>.</p>
 
-            <h2>Passing arguments to hooks</h2>
+            <h2 id="passing-arguments-to-hooks">Passing arguments to hooks</h2>
             <p>Sometimes hooks require arguments to run correctly. You can pass static arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code> as follows:</p>
 <pre>
 -   repo: git://github.com/pre-commit/pre-commit-hooks
@@ -359,7 +359,7 @@ path/to/script-or-system-call --myarg1=1 --myarg1=2 dir/file1 dir/file2 file3
                 </li>
             </ul>
 
-            <h2>Usage in Continuous Integration</h2>
+            <h2 id="usage-in-continuous-integration">Usage in Continuous Integration</h2>
             <p>
                 pre-commit can also be used as a tool for continuous
                 integration.  For instance, adding
