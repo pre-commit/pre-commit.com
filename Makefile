@@ -7,7 +7,7 @@ install_pre_commit: py_env
 	. py_env/bin/activate && pre-commit install
 
 build/main.css: node_env build scss/main.scss scss/_variables.scss
-	. py_env/bin/activate && pyscss -o build/main.css scss/main.scss
+	. py_env/bin/activate && sassc -s compressed scss/main.scss build/main.css
 
 all-hooks.json: py_env make_all_hooks.py all-repos.yaml
 	. py_env/bin/activate && python make_all_hooks.py

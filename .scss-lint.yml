@@ -3,6 +3,8 @@ linters:
         enabled: false
     ColorKeyword:
         enabled: false
+    ColorVariable:
+        enabled: false
     Comment:
         enabled: false
     DeclarationOrder:
@@ -17,6 +19,8 @@ linters:
         enabled: false
     MergeableSelector:
         force_nesting: false
+    NestingDepth:
+        max_depth: 4
     PlaceholderInExtend:
         enabled: false
     PropertySortOrder:

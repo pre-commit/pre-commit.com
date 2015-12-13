@@ -1,16 +1,16 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
+import collections
 import contextlib
 import io
+import json
 import os.path
 import shutil
 import subprocess
 import tempfile
 
 import aspy.yaml
-import ordereddict
-import simplejson
 from pre_commit.clientlib.validate_manifest import load_manifest
 
 
@@ -35,12 +35,12 @@ def get_manifest_from_repo(repo_path):
 
 def main():
     repos = aspy.yaml.ordered_load(io.open('all-repos.yaml'))
-    hooks_json = ordereddict.OrderedDict()
+    hooks_json = collections.OrderedDict()
     for repo in repos:
         hooks_json[repo] = get_manifest_from_repo(repo)
 
     with open('all-hooks.json', 'w') as hooks_json_file:
-        simplejson.dump(hooks_json, hooks_json_file, indent=4)
+        json.dump(hooks_json, hooks_json_file, indent=4)
 
 
 if __name__ == '__main__':

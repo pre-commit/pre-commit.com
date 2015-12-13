@@ -1,10 +1,7 @@
 aspy.yaml
 flake8
 mako
+libsass
 nodeenv
-ordereddict
-pylint
-pyscss
 pre-commit
-simplejson
 virtualenv

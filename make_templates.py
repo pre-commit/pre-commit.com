@@ -1,12 +1,12 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
+import collections
 import io
+import json
 import os.path
 
 import mako.lookup
-import ordereddict
-import simplejson
 
 
 template_lookup = mako.lookup.TemplateLookup(
@@ -23,9 +23,9 @@ ALL_TEMPLATES = [
 
 
 def get_env():
-    all_hooks = simplejson.loads(
+    all_hooks = json.loads(
         io.open('all-hooks.json').read(),
-        object_pairs_hook=ordereddict.OrderedDict,
+        object_pairs_hook=collections.OrderedDict,
     )
 
     return {'all_hooks': all_hooks}
