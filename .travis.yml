@@ -13,3 +13,6 @@ env:
 after_success:
   - bash push_to_gh.sh
 sudo: false
+cache:
+    directories:
+        - $HOME/.cache/pip
