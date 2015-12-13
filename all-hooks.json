@@ -386,7 +386,8 @@
             "name": "rubocop",
             "entry": "rubocop",
             "language": "ruby",
-            "files": "\\.(rb|rake)$"
+            "files": "\\.(rb|rake)$",
+            "args": []
         }
     ],
     "git://github.com/pricematch/mirrors-closure-linter": [
