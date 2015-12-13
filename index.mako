@@ -179,6 +179,13 @@
                         <td><code>language_version</code></td>
                         <td>(optional) See <a href="#overriding-language-version">Advanced Features: "Overriding Language Version"</a>.</td>
                     </tr>
+                    <tr>
+                        <td><code>minimum_pre_commit_version</code></td>
+                        <td>
+                            (optional) Allows one to indicate a minimum
+                            compatible pre-commit version. New in 0.6.7.
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <p>For example:</p>
