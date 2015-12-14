@@ -190,7 +190,26 @@
             "name": "coffeelint", 
             "entry": "coffeelint", 
             "language": "node", 
-            "files": "\\.(js|coffee)$"
+            "files": "\\.(js|coffee)$", 
+            "args": [], 
+            "additional_dependencies": [
+                "coffeelint@1.14.2"
+            ], 
+            "minimum_pre_commit_version": "0.7.0"
+        }
+    ], 
+    "git://github.com/pre-commit/mirrors-csslint": [
+        {
+            "id": "csslint", 
+            "name": "csslint", 
+            "entry": "csslint", 
+            "language": "node", 
+            "files": "\\.css$", 
+            "args": [], 
+            "additional_dependencies": [
+                "csslint@0.10.0"
+            ], 
+            "minimum_pre_commit_version": "0.7.0"
         }
     ], 
     "git://github.com/pre-commit/mirrors-eslint": [
@@ -199,7 +218,26 @@
             "name": "eslint", 
             "entry": "eslint", 
             "language": "node", 
-            "files": "\\.js$"
+            "files": "\\.js$", 
+            "args": [], 
+            "additional_dependencies": [
+                "eslint@1.10.3"
+            ], 
+            "minimum_pre_commit_version": "0.7.0"
+        }
+    ], 
+    "git://github.com/pre-commit/mirrors-fixmyjs": [
+        {
+            "id": "fixmyjs", 
+            "name": "fixmyjs", 
+            "entry": "fixmyjs", 
+            "language": "node", 
+            "files": "\\.js$", 
+            "args": [], 
+            "additional_dependencies": [
+                "fixmyjs@1.0.3"
+            ], 
+            "minimum_pre_commit_version": "0.7.0"
         }
     ], 
     "git://github.com/pre-commit/mirrors-jshint": [
@@ -208,7 +246,12 @@
             "name": "jshint", 
             "entry": "jshint", 
             "language": "node", 
-            "files": "\\.js$"
+            "files": "\\.js$", 
+            "args": [], 
+            "additional_dependencies": [
+                "jshint@2.8.0"
+            ], 
+            "minimum_pre_commit_version": "0.7.0"
         }
     ], 
     "git://github.com/pre-commit/mirrors-puppet-lint": [
@@ -476,7 +519,12 @@
             "name": "jscs", 
             "entry": "jscs", 
             "language": "node", 
-            "files": "\\.js$"
+            "files": "\\.js$", 
+            "args": [], 
+            "additional_dependencies": [
+                "jscs@2.7.0"
+            ], 
+            "minimum_pre_commit_version": "0.7.0"
         }
     ], 
     "git://github.com/elidupuis/mirrors-standard": [
@@ -485,7 +533,12 @@
             "name": "standard", 
             "entry": "standard", 
             "language": "node", 
-            "files": "\\.(js|jsx)$"
+            "files": "\\.(js|jsx)$", 
+            "args": [], 
+            "additional_dependencies": [
+                "standard@5.4.1"
+            ], 
+            "minimum_pre_commit_version": "0.7.0"
         }
     ], 
     "git://github.com/Lucas-C/pre-commit-hooks": [
