@@ -2,7 +2,9 @@
 - git://github.com/pre-commit/pre-commit-hooks
 - git://github.com/pre-commit/mirrors-autopep8
 - git://github.com/pre-commit/mirrors-coffeelint
+- git://github.com/pre-commit/mirrors-csslint
 - git://github.com/pre-commit/mirrors-eslint
+- git://github.com/pre-commit/mirrors-fixmyjs
 - git://github.com/pre-commit/mirrors-jshint
 - git://github.com/pre-commit/mirrors-puppet-lint
 - git://github.com/pre-commit/mirrors-pylint
