@@ -105,6 +105,10 @@
                         <td><code>additional_dependencies</code></td>
                         <td>(optional) A list of dependencies that will be installed in the environment where this hook gets run. One useful application is to install plugins for hooks such as eslint.  New in 0.6.6.</td>
                     </tr>
+                    <tr>
+                        <td><code>always_run</code></td>
+                        <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files.  New in 0.7.2.</td>
+                    </tr>
                 </tbody>
             </table>
             <p>For example:</p>
@@ -170,6 +174,10 @@
                     <tr>
                         <td><code>language</code></td>
                         <td>The language of the hook - tells pre-commit how to install the hook.</td>
+                    </tr>
+                    <tr>
+                        <td><code>always_run</code></td>
+                        <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files. New in 0.7.2.</td>
                     </tr>
                     <tr>
                         <td><code>description</code></td>
