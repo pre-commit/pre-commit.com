@@ -476,7 +476,7 @@
             "name": "Only allowed model method is mass_insert in parsing", 
             "entry": "Reservation\\s*\\.(?!(mass|calendar|hotel_pms_res|set_canceled|update_from)).*", 
             "language": "pcre", 
-            "files": "^lib/background_jobs/parsing/drivers/.*\\.rb$", 
+            "files": "\\.rb$", 
             "args": [
                 "-bzo"
             ]
@@ -511,6 +511,16 @@
             "entry": "describe.only", 
             "language": "pcre", 
             "files": "\\.js$"
+        }, 
+        {
+            "id": "include_rails_helper_in_tests", 
+            "name": "Start your spec files with the line `include 'rails_helper'`", 
+            "entry": "\\A(?!(require\\s\\'rails_helper\\')).*", 
+            "language": "pcre", 
+            "files": "spec\\.rb$", 
+            "args": [
+                "-bzo"
+            ]
         }
     ], 
     "git://github.com/elidupuis/mirrors-jscs": [
