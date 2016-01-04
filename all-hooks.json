@@ -269,7 +269,8 @@
             "name": "pylint", 
             "entry": "pylint", 
             "language": "python", 
-            "files": "\\.py$"
+            "files": "\\.py$", 
+            "args": []
         }
     ], 
     "git://github.com/pre-commit/mirrors-ruby-lint": [
