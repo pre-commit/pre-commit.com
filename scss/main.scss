@@ -10,6 +10,12 @@ pre {
     margin-bottom: 20px;
 }
 
+
+code {
+    // Allow wrapping of code
+    white-space: normal;
+}
+
 .nowrap {
     white-space: nowrap;
 }
