@@ -68,6 +68,14 @@
             "files": ""
         }, 
         {
+            "id": "check-symlinks", 
+            "name": "Check for broken symlinks", 
+            "description": "Checks for symlinks which do not point to anything.", 
+            "entry": "check-symlinks", 
+            "language": "python", 
+            "files": ""
+        }, 
+        {
             "id": "check-xml", 
             "name": "Check Xml", 
             "description": "This hook checks xml files for parseable syntax.", 
@@ -533,7 +541,7 @@
             "files": "\\.js$", 
             "args": [], 
             "additional_dependencies": [
-                "jscs@2.8.0"
+                "jscs@2.9.0"
             ], 
             "minimum_pre_commit_version": "0.7.0"
         }
