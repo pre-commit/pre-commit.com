@@ -63,6 +63,8 @@
             <pre>curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit</pre>
             <p>In a Python Project, add the following to your requirements.txt (or requirements-dev.txt):</p>
             <pre>pre-commit</pre>
+            <p>Using <a href="http://brew.sh/">homebrew</a></p>
+            <pre>brew install pre-commit</pre>
         </div>
 
         <div id="plugins">
