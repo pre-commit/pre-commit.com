@@ -1,10 +1,10 @@
 -   repo: git@github.com:pre-commit/mirrors-scss-lint
-    sha: 3eb13b9647543ad4d6a62c8be8a9131e3b99b96a
+    sha: f840ac610d8d9d76b666062416241f2156b3f388
     hooks:
     -   id: scss-lint
         language_version: 1.9.3-p547
 -   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: 516cc9fa72ad09699f2c03ffbd0aa7f60d75b59a
+    sha: 97b88d9610bcc03982ddac33caba98bb2b751f5f
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -12,3 +12,8 @@
     -   id: check-yaml
     -   id: debug-statements
     -   id: flake8
+-   repo: https://github.com/asottile/reorder_python_imports.git
+    sha: 50e0be95e292cac913cc3c6fd44b3d6b51d104c5
+    hooks:
+    -   id: reorder-python-imports
+        language_version: python2.7

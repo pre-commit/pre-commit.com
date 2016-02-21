@@ -5,9 +5,8 @@
 .idea
 .project
 .pydevproject
-all-hooks.json
-bower_components
-build
-install-local.py
-node_env
-py_env
+/all-hooks.json
+/bower_components
+/build
+/nenv
+/venv
