@@ -1,7 +1,5 @@
 aspy.yaml
-flake8
 mako
 libsass
 nodeenv
 pre-commit
-virtualenv

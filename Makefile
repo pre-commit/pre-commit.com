@@ -1,38 +1,34 @@
 # To build scss continuously I use `watch -n 0.1 make build/main.css`
 
-all: install_pre_commit build/main.css all-hooks.json index.html hooks.html install-local.py
+all: install-hooks build/main.css all-hooks.json index.html hooks.html
 
-.PHONY: install_pre_commit
-install_pre_commit: py_env
-	. py_env/bin/activate && pre-commit install
+.PHONY: install-hooks
+install-hooks: venv
+	venv/bin/pre-commit install
 
-build/main.css: node_env build scss/main.scss scss/_variables.scss
-	. py_env/bin/activate && sassc -s compressed scss/main.scss build/main.css
+build/main.css: nenv build scss/main.scss scss/_variables.scss
+	venv/bin/sassc -s compressed scss/main.scss build/main.css
 
-all-hooks.json: py_env make_all_hooks.py all-repos.yaml
-	. py_env/bin/activate && python make_all_hooks.py
+all-hooks.json: venv make_all_hooks.py all-repos.yaml
+	venv/bin/python make_all_hooks.py
 
-index.html hooks.html: py_env all-hooks.json base.mako index.mako hooks.mako make_templates.py
-	. py_env/bin/activate && python make_templates.py
+index.html hooks.html: venv all-hooks.json base.mako index.mako hooks.mako make_templates.py
+	venv/bin/python make_templates.py
 
-install-local.py: py_env make_bootstrap.py
-	. py_env/bin/activate && python make_bootstrap.py
+venv: requirements-dev.txt
+	rm -rf venv
+	virtualenv venv
+	venv/bin/pip install -r requirements-dev.txt
 
-py_env: requirements-dev.txt
-	rm -rf py_env
-	virtualenv py_env
-	. py_env/bin/activate && pip install -r requirements-dev.txt
-
-node_env: py_env
-	rm -rf node_env
-	. py_env/bin/activate && \
-		nodeenv node_env --prebuilt && \
-		. node_env/bin/activate && \
+nenv: venv
+	rm -rf nenv
+	venv/bin/nodeenv nenv --prebuilt && \
+		. nenv/bin/activate && \
 		npm install -g bower && \
 		bower install
 
 clean:
-	rm -rf py_env node_env build bower_components *.html install-local.py all-hooks.json
+	rm -rf venv nenv build bower_components *.html all-hooks.json
 
 build:
 	mkdir -p build
