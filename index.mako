@@ -1,6 +1,7 @@
 ## -*- coding: utf-8 -*-
 <%inherit file="base.mako" />
 <div class="row">
+
     <div class="col-sm-3 hidden-xs pc-sidebar">
         <ul class="nav nav-pills nav-stacked pc-sidenav" data-spy="affix" data-offset-top="400">
             <li class="active"><a href="#intro">Introduction</a></li>
