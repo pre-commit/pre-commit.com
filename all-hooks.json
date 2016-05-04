@@ -28,6 +28,14 @@
             "files": "\\.py$"
         }, 
         {
+            "id": "check-byte-order-marker", 
+            "name": "Check for byte-order marker", 
+            "description": "Forbid files which have a UTF-8 byte-order marker", 
+            "entry": "check-byte-order-marker", 
+            "language": "python", 
+            "files": "\\.py$"
+        }, 
+        {
             "id": "check-case-conflict", 
             "name": "Check for case conflicts", 
             "description": "Check for files that would conflict in case-insensitive filesystems", 
@@ -201,7 +209,7 @@
             "files": "\\.(js|coffee)$", 
             "args": [], 
             "additional_dependencies": [
-                "coffeelint@1.14.2"
+                "coffeelint@1.15.7"
             ], 
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -229,7 +237,7 @@
             "files": "\\.js$", 
             "args": [], 
             "additional_dependencies": [
-                "eslint@1.10.3"
+                "eslint@2.8.0"
             ], 
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -257,7 +265,7 @@
             "files": "\\.js$", 
             "args": [], 
             "additional_dependencies": [
-                "jshint@2.8.0"
+                "jshint@2.9.2"
             ], 
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -551,7 +559,7 @@
             "files": "\\.js$", 
             "args": [], 
             "additional_dependencies": [
-                "jscs@2.9.0"
+                "jscs@2.11.0"
             ], 
             "minimum_pre_commit_version": "0.7.0"
         }
