@@ -351,6 +351,31 @@
             <p>If the <code>args</code> property is empty or not defined, your script will be called:</p>
             <pre>path/to/script-or-system-exe dir/file1 dir/file2 file3</pre>
 
+            <h2 id="repository-local-hooks">Repository Local Hooks</h2>
+            <p>Repository-local hooks are useful when:</p>
+            <ul>
+                <li>The scripts are tightly coupled to the repository and it makes sense to distribute the hook scripts with the repository.</li>
+                <li>Hooks require state that is only present in a built artifact of your repository (such as your app's virtualenv for pylint)</li>
+            </ul>
+            <p>You can configure repository-local hooks by specifying the <code>repo</code> as the sentinel <code>local</code>.</p>
+            <p><code>local</code> hooks can be either <code>script</code> or <code>system</code> hooks.</p>
+            <p>A <code>local</code> hook must define <code>id</code>, <code>name</code>, <code>language</code>, <code>entry</code>, and <code>files</code> as specified under <a href="#new-hooks">Creating new hooks</a></p>
+            <p>Here's an example configuration with a few <code>local</code> hooks:</p>
+<pre>
+-   repo: local
+    hooks:
+    -   id: pylint
+        name: pylint
+        entry: python -m pylint.__main__
+        language: system
+        files: \.py$
+    -   id: check-x
+        name: Check X
+        entry: ./bin/check-x.sh
+        language: script
+        files: \.x$
+</pre>
+
             <h2 id="overriding-language-version">Overriding Language Version</h2>
             <p>Sometimes you only want to run the hooks on a specific version of the language. For each language, they default to using the system installed language (So for example if I&rsquo;m running <code>python2.6</code> and a hook specifies <code>python</code>, pre-commit will run the hook using <code>python2.6</code>). Sometimes you don&rsquo;t want the default system installed version so you can override this on a per-hook basis by setting the <code>language_version</code>.</p>
 <pre>
