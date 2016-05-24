@@ -764,5 +764,15 @@
             "language": "python", 
             "files": "\\.rb$"
         }
+    ], 
+    "git://github.com/jstewmon/check-swagger": [
+        {
+            "id": "check-swagger", 
+            "name": "check-swagger", 
+            "entry": "check-swagger", 
+            "description": "Hook to validate swagger specs.", 
+            "language": "python", 
+            "files": ".*swagger.*\\.(json|yaml|yml)"
+        }
     ]
 }
