@@ -28,3 +28,4 @@
 - git://github.com/chriskuehl/puppet-pre-commit-hooks
 - git://github.com/dnephin/pre-commit-golang
 - git://github.com/jordant/rubocop-pre-commit-hook
+- git://github.com/jstewmon/check-swagger
