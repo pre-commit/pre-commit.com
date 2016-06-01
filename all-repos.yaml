@@ -29,3 +29,4 @@
 - git://github.com/dnephin/pre-commit-golang
 - git://github.com/jordant/rubocop-pre-commit-hook
 - git://github.com/jstewmon/check-swagger
+- git://github.com/detailyang/pre-commit-shell
