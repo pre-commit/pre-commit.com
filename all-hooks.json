@@ -774,5 +774,15 @@
             "language": "python", 
             "files": ".*swagger.*\\.(json|yaml|yml)"
         }
+    ], 
+    "git://github.com/detailyang/pre-commit-shell": [
+        {
+            "id": "shell-lint", 
+            "name": "Shell Syntax Check", 
+            "description": "Check Shell Syntax on ALL staged files with user friendly messages and colors", 
+            "entry": "pre_commit_hooks/shell-lint.sh", 
+            "language": "script", 
+            "files": "(\\.sh|\\.zsh|\\.ksh)$"
+        }
     ]
 }
