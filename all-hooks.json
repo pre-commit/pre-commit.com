@@ -785,7 +785,7 @@
             "files": "(\\.sh|\\.zsh|\\.ksh)$"
         }
     ], 
-    "https://github.com/sanmai-NL/pre-commit-hooks_R": [
+    "git://github.com/sanmai-NL/pre-commit-hooks_R": [
         {
             "id": "lintr", 
             "name": "lintr", 
