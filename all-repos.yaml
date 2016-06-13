@@ -30,4 +30,4 @@
 - git://github.com/jordant/rubocop-pre-commit-hook
 - git://github.com/jstewmon/check-swagger
 - git://github.com/detailyang/pre-commit-shell
-- https://github.com/sanmai-NL/pre-commit-hooks_R
+- git://github.com/sanmai-NL/pre-commit-hooks_R
