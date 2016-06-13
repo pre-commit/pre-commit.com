@@ -784,5 +784,15 @@
             "language": "script", 
             "files": "(\\.sh|\\.zsh|\\.ksh)$"
         }
+    ], 
+    "https://github.com/sanmai-NL/pre-commit-hooks_R": [
+        {
+            "id": "lintr", 
+            "name": "lintr", 
+            "entry": "bin/run_lintr_on_file.R", 
+            "files": "\\.R$", 
+            "language": "script", 
+            "description": "Lints R code with `lintr`. "
+        }
     ]
 }
