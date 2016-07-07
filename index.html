@@ -314,7 +314,23 @@
             <p>Running hooks on unstaged changes can lead to both false-positives and false-negatives during committing. pre-commit only runs on the staged contents of files by temporarily saving the contents of your files at commit time and stashing the unstaged changes while running hooks.</p>
 
             <h2 id="pre-commit-during-merges">pre-commit during merges</h2>
-            <p>The biggest gripe we&rsquo;ve had in the past with pre-commit hooks was during merge conflict resolution. When working on very large projects a merge often results in hundreds of committed files. I shouldn&rsquo;t need to run hooks on all of these files that I didn&rsquo;t even touch! This often led to running commit with <code>--no-verify</code> and allowed introduction of real bugs that hooks could have caught. pre-commit solves this by only running hooks on files that conflict or were manually edited during conflict resolution.</p>
+            <p>
+                The biggest gripe we&rsquo;ve had in the past with pre-commit
+                hooks was during merge conflict resolution. 
+                When working on very large projects a merge often results in
+                hundreds of committed files. I shouldn&rsquo;t need to run
+                hooks on all of these files that I didn&rsquo;t even touch!
+                This often led to running commit with <code>--no-verify</code>
+                and allowed introduction of real bugs that hooks could have
+                caught.
+            </p>
+            <p>
+                pre-commit solves this by only running hooks on files that
+                conflict or were manually edited during conflict resolution.
+                This also includes files which were automatically merged by
+                git.  Git isn't perfect and this can often catch implicit
+                conflicts (such as with removed python imports).
+            </p>
 
             <h2 id="pre-commit-during-push">pre-commit during push</h2>
             <p>As of version 0.3.5, pre-commit can be used to manage <code>pre-push</code> hooks.  Simply <code>pre-commit install --hook-type pre-push</code>.</p>
