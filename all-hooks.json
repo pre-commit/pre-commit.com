@@ -618,12 +618,19 @@
             "exclude": "(Makefile|debian/rules)(\\.in)?$"
         }, 
         {
+            "id": "validate-html", 
+            "name": "HTML validator using v.Nu through svenkreiss/html5validator", 
+            "entry": "validate_html", 
+            "language": "python", 
+            "files": ".*\\.(html|hbs)$"
+        }, 
+        {
             "id": "forbid-html-img-without-alt-text", 
             "name": "HTML img tag alt text checker", 
             "description": "List every <img> tag without a alt= or data-ng-attr-alt= attribute", 
             "entry": "forbid_html_img_without_alt_text", 
             "language": "python", 
-            "files": ".*\\.html$"
+            "files": ".*\\.(html|hbs)$"
         }, 
         {
             "id": "forbid-non-std-html-attributes", 
@@ -635,7 +642,7 @@
                 "--extra-known-attributes", 
                 "content,http-equiv,placeholder,role,style"
             ], 
-            "files": ".*\\.html$"
+            "files": ".*\\.(html|hbs)$"
         }, 
         {
             "id": "detect-missing-css-classes", 
@@ -793,6 +800,16 @@
             "files": "\\.R$", 
             "language": "script", 
             "description": "Lints R code with `lintr`. "
+        }
+    ], 
+    "git://github.com/magicmark/pre-commit-es6-imports-reorder": [
+        {
+            "id": "reorder-es6-imports", 
+            "name": "Reorder ES6 Imports", 
+            "description": "This hook reorders ES6 imports.", 
+            "entry": "js-reorder-es6-imports", 
+            "language": "node", 
+            "files": "\\.js$"
         }
     ]
 }
