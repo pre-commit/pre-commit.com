@@ -137,7 +137,7 @@
             "description": "Ensures that a file is either empty, or ends with one newline.", 
             "entry": "end-of-file-fixer", 
             "language": "python", 
-            "files": "\\.(c|cpp|html|erb|slim|haml|ejs|jade|js|coffee|json|rb|md|py|css|scss|less|sh|tmpl|txt|yaml|yml|pp)$"
+            "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|h|haml|hh|hpp|hxx|html|in|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tmpl|ts|txt|yaml|yml)$"
         }, 
         {
             "id": "fix-encoding-pragma", 
@@ -185,7 +185,7 @@
             "description": "This hook trims trailing whitespace.", 
             "entry": "trailing-whitespace-fixer", 
             "language": "python", 
-            "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|h|haml|hh|hpp|hxx|html|in|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scss|sh|slim|tmpl|txt|yaml|yml)$"
+            "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|h|haml|hh|hpp|hxx|html|in|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tmpl|ts|txt|yaml|yml)$"
         }
     ], 
     "git://github.com/pre-commit/mirrors-autopep8": [
@@ -237,7 +237,7 @@
             "files": "\\.js$", 
             "args": [], 
             "additional_dependencies": [
-                "eslint@2.8.0"
+                "eslint@3.5.0"
             ], 
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -265,7 +265,7 @@
             "files": "\\.js$", 
             "args": [], 
             "additional_dependencies": [
-                "jshint@2.9.2"
+                "jshint@2.9.3"
             ], 
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -559,7 +559,7 @@
             "files": "\\.js$", 
             "args": [], 
             "additional_dependencies": [
-                "jscs@2.11.0"
+                "jscs@3.0.7"
             ], 
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -810,6 +810,17 @@
             "entry": "js-reorder-es6-imports", 
             "language": "node", 
             "files": "\\.js$"
+        }
+    ], 
+    "git://github.com/antonbabenko/pre-commit-terraform": [
+        {
+            "id": "terraform_fmt", 
+            "name": "Terraform fmt", 
+            "description": "Rewrites all Terraform configuration files to a canonical format.", 
+            "entry": "terrraform_fmt.sh", 
+            "language": "script", 
+            "files": "\\.tf$", 
+            "exclude": "\\.terraform\\/.*$"
         }
     ]
 }
