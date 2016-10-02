@@ -237,7 +237,7 @@
             "files": "\\.js$", 
             "args": [], 
             "additional_dependencies": [
-                "eslint@3.5.0"
+                "eslint@3.7.0"
             ], 
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -821,6 +821,16 @@
             "language": "script", 
             "files": "\\.tf$", 
             "exclude": "\\.terraform\\/.*$"
+        }
+    ], 
+    "git://github.com/willthames/ansible-lint": [
+        {
+            "id": "ansible-lint", 
+            "name": "Ansible-lint", 
+            "description": "This hook runs ansible-lint.", 
+            "entry": "ansible-lint", 
+            "language": "python", 
+            "files": "\\.(yaml|yml)$"
         }
     ]
 }
