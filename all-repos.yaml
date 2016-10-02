@@ -33,3 +33,4 @@
 - git://github.com/sanmai-NL/pre-commit-hooks_R
 - git://github.com/magicmark/pre-commit-es6-imports-reorder
 - git://github.com/antonbabenko/pre-commit-terraform
+- git://github.com/willthames/ansible-lint
