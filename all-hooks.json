@@ -137,7 +137,7 @@
             "description": "Ensures that a file is either empty, or ends with one newline.", 
             "entry": "end-of-file-fixer", 
             "language": "python", 
-            "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|h|haml|hh|hpp|hxx|html|in|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tmpl|ts|txt|yaml|yml)$"
+            "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|groovy|h|haml|hh|hpp|hxx|html|in|j2|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tex|tmpl|ts|txt|yaml|yml)$"
         }, 
         {
             "id": "fix-encoding-pragma", 
@@ -185,7 +185,7 @@
             "description": "This hook trims trailing whitespace.", 
             "entry": "trailing-whitespace-fixer", 
             "language": "python", 
-            "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|h|haml|hh|hpp|hxx|html|in|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tmpl|ts|txt|yaml|yml)$"
+            "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|groovy|h|haml|hh|hpp|hxx|html|in|j2|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tex|tmpl|ts|txt|yaml|yml)$"
         }
     ], 
     "git://github.com/pre-commit/mirrors-autopep8": [
@@ -548,6 +548,20 @@
             "args": [
                 "-bzo"
             ]
+        }, 
+        {
+            "id": "remove_ipython_notebook_outputs", 
+            "name": "Remove ipython notebook outputs", 
+            "entry": "strip_ipynb.sh", 
+            "files": "\\.ipynb$", 
+            "language": "script"
+        }, 
+        {
+            "id": "no_httparty", 
+            "name": "Use HypertextTransfer wrapper instead of HTTParty directly", 
+            "entry": "HTTParty", 
+            "language": "pcre", 
+            "files": "\\.(rb|rake)$"
         }
     ], 
     "git://github.com/elidupuis/mirrors-jscs": [
@@ -616,14 +630,34 @@
             ], 
             "files": "", 
             "exclude": "(Makefile|debian/rules)(\\.in)?$"
-        }, 
+        }
+    ], 
+    "git://github.com/Lucas-C/pre-commit-hooks-bandit": [
         {
-            "id": "validate-html", 
-            "name": "HTML validator using v.Nu through svenkreiss/html5validator", 
-            "entry": "validate_html", 
+            "id": "python-bandit-vulnerability-check", 
+            "name": "bandit", 
+            "description": "Python code vulnerabilities checker", 
             "language": "python", 
-            "files": ".*\\.(html|hbs)$"
-        }, 
+            "entry": "bandit", 
+            "args": [
+                "-lll", 
+                "--recursive", 
+                "."
+            ], 
+            "files": ""
+        }
+    ], 
+    "git://github.com/Lucas-C/pre-commit-hooks-css": [
+        {
+            "id": "detect-missing-css-classes", 
+            "name": "Missing CSS classes checker", 
+            "description": "Detect unused or missing CSS classes definitions, and abort if any of the later ones is found", 
+            "entry": "detect_missing_css_classes", 
+            "language": "python", 
+            "files": ".*\\.(css|html)$"
+        }
+    ], 
+    "git://github.com/Lucas-C/pre-commit-hooks-lxml": [
         {
             "id": "forbid-html-img-without-alt-text", 
             "name": "HTML img tag alt text checker", 
@@ -643,13 +677,16 @@
                 "content,http-equiv,placeholder,role,style"
             ], 
             "files": ".*\\.(html|hbs)$"
-        }, 
+        }
+    ], 
+    "git://github.com/Lucas-C/pre-commit-hooks-safety": [
         {
-            "id": "detect-missing-css-classes", 
-            "name": "Detect unused or missing CSS classes definitions, and abort if any of the later ones is found", 
-            "entry": "detect_missing_css_classes", 
+            "id": "python-safety-dependencies-check", 
+            "name": "Python dependencies checker", 
+            "description": "Analyze your requirements for known security vulnerabilities", 
+            "entry": "safety", 
             "language": "python", 
-            "files": ".*\\.(css|html)$"
+            "files": "requirements"
         }
     ], 
     "https://bitbucket.org/SamWhited/go-pre-commit.git": [

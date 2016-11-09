@@ -445,6 +445,14 @@ Also available in <a href="/all-hooks.json">json</a>.
                 <code>no_puts_statements</code>
                     - Do not leave puts statements in production code
             </li>
+            <li>
+                <code>remove_ipython_notebook_outputs</code>
+                    - Remove ipython notebook outputs
+            </li>
+            <li>
+                <code>no_httparty</code>
+                    - Use HypertextTransfer wrapper instead of HTTParty directly
+            </li>
     </ul>
     <h3>
         <a href="https://github.com/elidupuis/mirrors-jscs" target="_blank">
@@ -488,10 +496,35 @@ Also available in <a href="/all-hooks.json">json</a>.
                 <code>remove-tabs</code>
                     - Replace tabs by whitespaces before committing
             </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks-bandit" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks-bandit
+        </a>
+    </h3>
+    <ul>
             <li>
-                <code>validate-html</code>
-                    - HTML validator using v.Nu through svenkreiss/html5validator
+                <code>python-bandit-vulnerability-check</code>
+                    - Python code vulnerabilities checker
             </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks-css" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks-css
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>detect-missing-css-classes</code>
+                    - Detect unused or missing CSS classes definitions, and abort if any of the later ones is found
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks-lxml" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks-lxml
+        </a>
+    </h3>
+    <ul>
             <li>
                 <code>forbid-html-img-without-alt-text</code>
                     - List every &lt;img&gt; tag without a alt= or data-ng-attr-alt= attribute
@@ -500,9 +533,16 @@ Also available in <a href="/all-hooks.json">json</a>.
                 <code>forbid-non-std-html-attributes</code>
                     - Detect any non-standard attribute that is not prefixed with data-
             </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks-safety" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks-safety
+        </a>
+    </h3>
+    <ul>
             <li>
-                <code>detect-missing-css-classes</code>
-                    - Detect unused or missing CSS classes definitions, and abort if any of the later ones is found
+                <code>python-safety-dependencies-check</code>
+                    - Analyze your requirements for known security vulnerabilities
             </li>
     </ul>
     <h3>
