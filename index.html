@@ -420,7 +420,9 @@
                 pre-commit can also be used as a tool for continuous
                 integration.  For instance, adding
                 <code>pre-commit run --all-files</code> as a CI step will
-                ensure everything stays in tip-top shape.
+                ensure everything stays in tip-top shape. 
+                To check only files which have changed, which may be faster, use something like 
+                <code>git diff-tree --no-commit-id --name-only -r $REVISION | xargs pre-commit run --files</code>.
             </p>
         </div>
 

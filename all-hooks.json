@@ -156,6 +156,14 @@
             "files": "\\.py$"
         }, 
         {
+            "id": "forbid-new-submodules", 
+            "name": "Forbid new submodules", 
+            "language": "python", 
+            "entry": "forbid-new-submodules", 
+            "description": "Prevent addition of new git submodules", 
+            "files": ""
+        }, 
+        {
             "id": "name-tests-test", 
             "name": "Tests should end in _test.py", 
             "description": "This verifies that test files are named correctly", 
@@ -518,7 +526,7 @@
         {
             "id": "remove_encoding_comment", 
             "name": "Remove the encoding comment at beginning of file", 
-            "entry": "encoding\\s*\\:\\s*utf\\-8", 
+            "entry": "coding\\s*\\:\\s*utf\\-8", 
             "language": "pcre", 
             "files": "\\.(rb|rake)$"
         }, 
@@ -682,8 +690,8 @@
     "git://github.com/Lucas-C/pre-commit-hooks-safety": [
         {
             "id": "python-safety-dependencies-check", 
-            "name": "Python dependencies checker", 
-            "description": "Analyze your requirements for known security vulnerabilities", 
+            "name": "safety", 
+            "description": "Analyze your Python requirements for known security vulnerabilities", 
             "entry": "safety", 
             "language": "python", 
             "files": "requirements"
