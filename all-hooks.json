@@ -662,7 +662,36 @@
             "description": "Detect unused or missing CSS classes definitions, and abort if any of the later ones is found", 
             "entry": "detect_missing_css_classes", 
             "language": "python", 
-            "files": ".*\\.(css|html)$"
+            "files": ".*\\.(css|hbs|html)$"
+        }
+    ], 
+    "git://github.com/Lucas-C/pre-commit-hooks-html": [
+        {
+            "id": "validate-html", 
+            "name": "HTML syntax validator using W3C v.Nu checker", 
+            "entry": "validate_html", 
+            "language": "python", 
+            "files": ".*\\.(html|hbs)$"
+        }, 
+        {
+            "id": "htmlhint", 
+            "name": "NodeJS HTML syntax linter", 
+            "entry": "htmlhint", 
+            "language": "node", 
+            "files": ".*\\.(html|hbs)$", 
+            "additional_dependencies": [
+                "htmlhint"
+            ]
+        }, 
+        {
+            "id": "htmllint", 
+            "name": "NodeJS HTML syntax linter", 
+            "entry": "htmllint", 
+            "language": "node", 
+            "files": ".*\\.(html|hbs)$", 
+            "additional_dependencies": [
+                "htmllint-cli"
+            ]
         }
     ], 
     "git://github.com/Lucas-C/pre-commit-hooks-lxml": [
