@@ -17,7 +17,7 @@ index.html hooks.html: venv all-hooks.json base.mako index.mako hooks.mako make_
 
 venv: requirements-dev.txt
 	rm -rf venv
-	virtualenv venv
+	virtualenv venv -ppython3.5
 	venv/bin/pip install -r requirements-dev.txt
 
 nenv: venv

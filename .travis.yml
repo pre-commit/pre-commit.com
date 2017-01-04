@@ -1,17 +1,16 @@
 language: python
-python:
-  - "2.7"
+python: 3.5
+install: pip install virtualenv --upgrade
 script: make
+after_success: ./push_to_gh.sh
 branches:
-  except:
-    - master
+    except:
+        - master
 env:
-  global:
-    - GH_REF: github.com/pre-commit/pre-commit.github.io.git
-    # GH_TOKEN
-    - secure: nNgNYmtwXquPRuAFi/6kXOVjSYroglxuIjvZHDun5eCYikV1KgvXM1Q9Yh3CWgNmIWG1LKt76nt/5u4tLleJiZ7AbjcmLMb9dw7679jFNaDd14tIGyWyYBzrqfqxnayTNLclcfp59l0Yi3ag1i7z4J94LM+7tp8D4jr7RyLd++I=
-after_success:
-  - bash push_to_gh.sh
+    global:
+        - GH_REF: github.com/pre-commit/pre-commit.github.io.git
+        # GH_TOKEN
+        - secure: nNgNYmtwXquPRuAFi/6kXOVjSYroglxuIjvZHDun5eCYikV1KgvXM1Q9Yh3CWgNmIWG1LKt76nt/5u4tLleJiZ7AbjcmLMb9dw7679jFNaDd14tIGyWyYBzrqfqxnayTNLclcfp59l0Yi3ag1i7z4J94LM+7tp8D4jr7RyLd++I=
 sudo: false
 cache:
     directories:

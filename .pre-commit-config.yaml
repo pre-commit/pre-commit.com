@@ -7,13 +7,19 @@
     sha: 97b88d9610bcc03982ddac33caba98bb2b751f5f
     hooks:
     -   id: trailing-whitespace
+        language_version: python3.5
     -   id: end-of-file-fixer
+        language_version: python3.5
     -   id: autopep8-wrapper
+        language_version: python3.5
     -   id: check-yaml
+        language_version: python3.5
     -   id: debug-statements
+        language_version: python3.5
     -   id: flake8
+        language_version: python3.5
 -   repo: https://github.com/asottile/reorder_python_imports.git
     sha: 50e0be95e292cac913cc3c6fd44b3d6b51d104c5
     hooks:
     -   id: reorder-python-imports
-        language_version: python2.7
+        language_version: python3.5

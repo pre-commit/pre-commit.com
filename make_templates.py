@@ -2,7 +2,6 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 import collections
-import io
 import json
 import os.path
 
@@ -24,10 +23,9 @@ ALL_TEMPLATES = [
 
 def get_env():
     all_hooks = json.loads(
-        io.open('all-hooks.json').read(),
+        open('all-hooks.json').read(),
         object_pairs_hook=collections.OrderedDict,
     )
-
     return {'all_hooks': all_hooks}
 
 
@@ -36,7 +34,7 @@ def main():
     for template in ALL_TEMPLATES:
         template_name, _ = os.path.splitext(template)
         env['template_name'] = template_name
-        with io.open('{0}.html'.format(template_name), 'w') as html_file:
+        with open('{}.html'.format(template_name), 'w') as html_file:
             template_obj = template_lookup.get_template(template)
             html_file.write(template_obj.render(**env))
 
