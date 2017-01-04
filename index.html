@@ -264,6 +264,7 @@
 </pre>
             <h2 id="supported-languages">Supported languages</h2>
             <ul>
+                <li><code>docker</code> - must have a Dockerfile (Installed via <code>docker build .</code>) Requires pre-commit >= 0.10.0.</li>
                 <li><code>node</code> - must have a package.json (Installed via <code>npm install .</code>)</li>
                 <li><code>python</code> - must have a setup.py (Installed via <code>pip install .</code>)</li>
                 <li><code>ruby</code> -  must have a file matching *.gemspec (Installed via <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>)</li>
@@ -280,6 +281,14 @@
                 <li><code>python</code> - usually provided by <code>console_scripts</code> in setup.py</li>
                 <li><code>ruby</code> - provided by <code>executables</code> in your gemspec</li>
             </ul>
+
+            Running Docker hooks required a running Docker engine on your host.
+            For configuring Docker hooks, your <code>entry</code> should correspond to an executable
+            inside the Docker container, and will be used to override the default container entrypoint.
+            Your Docker CMD will not run when pre-commit passes a file list as arguments to the run container
+            command. Docker allows you to use any language that's not supported by pre-commit as a builtin.
+            See <a href="https://github.com/pre-commit/pre-commit-docker-flake8">this repository</a> for an example Docker-based hook.
+
 
             <h2 id="developing-hooks-interactively">Developing hooks interactively</h2>
 
@@ -316,7 +325,7 @@
             <h2 id="pre-commit-during-merges">pre-commit during merges</h2>
             <p>
                 The biggest gripe we&rsquo;ve had in the past with pre-commit
-                hooks was during merge conflict resolution. 
+                hooks was during merge conflict resolution.
                 When working on very large projects a merge often results in
                 hundreds of committed files. I shouldn&rsquo;t need to run
                 hooks on all of these files that I didn&rsquo;t even touch!
@@ -420,8 +429,8 @@
                 pre-commit can also be used as a tool for continuous
                 integration.  For instance, adding
                 <code>pre-commit run --all-files</code> as a CI step will
-                ensure everything stays in tip-top shape. 
-                To check only files which have changed, which may be faster, use something like 
+                ensure everything stays in tip-top shape.
+                To check only files which have changed, which may be faster, use something like
                 <code>git diff-tree --no-commit-id --name-only -r $REVISION | xargs pre-commit run --files</code>.
             </p>
         </div>
@@ -452,6 +461,7 @@
                 <li><a href="https://github.com/barrysteyn">Barry Steyn</a></li>
                 <li><a href="https://github.com/blarghmatey">Tobias Macey</a></li>
                 <li><a href="https://github.com/laurentsigal">Laurent Sigal</a></li>
+                <li><a href="https://github.com/bpicolo">Ben Picolo</a></li>
             </ul>
         </div>
     </div>
