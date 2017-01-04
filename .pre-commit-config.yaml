@@ -2,7 +2,7 @@
     sha: f840ac610d8d9d76b666062416241f2156b3f388
     hooks:
     -   id: scss-lint
-        language_version: 1.9.3-p547
+        language_version: 2.1.2
 -   repo: git@github.com:pre-commit/pre-commit-hooks
     sha: 97b88d9610bcc03982ddac33caba98bb2b751f5f
     hooks:
