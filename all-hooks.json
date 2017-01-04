@@ -1,909 +1,909 @@
 {
     "git://github.com/pre-commit/pre-commit-hooks": [
         {
-            "id": "autopep8-wrapper", 
-            "name": "autopep8 wrapper", 
-            "description": "Runs autopep8 over python source.  If you configure additional arguments you'll want to at least include -i.", 
-            "entry": "autopep8-wrapper", 
-            "language": "python", 
-            "files": "\\.py$", 
+            "id": "autopep8-wrapper",
+            "name": "autopep8 wrapper",
+            "description": "Runs autopep8 over python source.  If you configure additional arguments you'll want to at least include -i.",
+            "entry": "autopep8-wrapper",
+            "language": "python",
+            "files": "\\.py$",
             "args": [
                 "-i"
             ]
-        }, 
+        },
         {
-            "id": "check-added-large-files", 
-            "name": "Check for added large files", 
-            "description": "Prevent giant files from being committed", 
-            "entry": "check-added-large-files", 
-            "language": "python", 
+            "id": "check-added-large-files",
+            "name": "Check for added large files",
+            "description": "Prevent giant files from being committed",
+            "entry": "check-added-large-files",
+            "language": "python",
             "files": ""
-        }, 
+        },
         {
-            "id": "check-ast", 
-            "name": "Check python ast", 
-            "description": "Simply check whether the files parse as valid python.", 
-            "entry": "check-ast", 
-            "language": "python", 
+            "id": "check-ast",
+            "name": "Check python ast",
+            "description": "Simply check whether the files parse as valid python.",
+            "entry": "check-ast",
+            "language": "python",
             "files": "\\.py$"
-        }, 
+        },
         {
-            "id": "check-byte-order-marker", 
-            "name": "Check for byte-order marker", 
-            "description": "Forbid files which have a UTF-8 byte-order marker", 
-            "entry": "check-byte-order-marker", 
-            "language": "python", 
+            "id": "check-byte-order-marker",
+            "name": "Check for byte-order marker",
+            "description": "Forbid files which have a UTF-8 byte-order marker",
+            "entry": "check-byte-order-marker",
+            "language": "python",
             "files": "\\.py$"
-        }, 
+        },
         {
-            "id": "check-case-conflict", 
-            "name": "Check for case conflicts", 
-            "description": "Check for files that would conflict in case-insensitive filesystems", 
-            "entry": "check-case-conflict", 
-            "language": "python", 
+            "id": "check-case-conflict",
+            "name": "Check for case conflicts",
+            "description": "Check for files that would conflict in case-insensitive filesystems",
+            "entry": "check-case-conflict",
+            "language": "python",
             "files": ""
-        }, 
+        },
         {
-            "id": "check-docstring-first", 
-            "name": "Check docstring is first", 
-            "description": "Checks a common error of defining a docstring after code.", 
-            "entry": "check-docstring-first", 
-            "language": "python", 
+            "id": "check-docstring-first",
+            "name": "Check docstring is first",
+            "description": "Checks a common error of defining a docstring after code.",
+            "entry": "check-docstring-first",
+            "language": "python",
             "files": "\\.py$"
-        }, 
+        },
         {
-            "id": "check-json", 
-            "name": "Check JSON", 
-            "description": "This hook checks json files for parseable syntax.", 
-            "entry": "check-json", 
-            "language": "python", 
+            "id": "check-json",
+            "name": "Check JSON",
+            "description": "This hook checks json files for parseable syntax.",
+            "entry": "check-json",
+            "language": "python",
             "files": "\\.json$"
-        }, 
+        },
         {
-            "id": "pretty-format-json", 
-            "name": "Pretty format JSON", 
-            "description": "This hook sets a standard for formatting JSON files.", 
-            "entry": "pretty-format-json", 
-            "language": "python", 
+            "id": "pretty-format-json",
+            "name": "Pretty format JSON",
+            "description": "This hook sets a standard for formatting JSON files.",
+            "entry": "pretty-format-json",
+            "language": "python",
             "files": "\\.json$"
-        }, 
+        },
         {
-            "id": "check-merge-conflict", 
-            "name": "Check for merge conflicts", 
-            "description": "Check for files that contain merge conflict strings.", 
-            "entry": "check-merge-conflict", 
-            "language": "python", 
+            "id": "check-merge-conflict",
+            "name": "Check for merge conflicts",
+            "description": "Check for files that contain merge conflict strings.",
+            "entry": "check-merge-conflict",
+            "language": "python",
             "files": ""
-        }, 
+        },
         {
-            "id": "check-symlinks", 
-            "name": "Check for broken symlinks", 
-            "description": "Checks for symlinks which do not point to anything.", 
-            "entry": "check-symlinks", 
-            "language": "python", 
+            "id": "check-symlinks",
+            "name": "Check for broken symlinks",
+            "description": "Checks for symlinks which do not point to anything.",
+            "entry": "check-symlinks",
+            "language": "python",
             "files": ""
-        }, 
+        },
         {
-            "id": "check-xml", 
-            "name": "Check Xml", 
-            "description": "This hook checks xml files for parseable syntax.", 
-            "entry": "check-xml", 
-            "language": "python", 
+            "id": "check-xml",
+            "name": "Check Xml",
+            "description": "This hook checks xml files for parseable syntax.",
+            "entry": "check-xml",
+            "language": "python",
             "files": "\\.xml$"
-        }, 
+        },
         {
-            "id": "check-yaml", 
-            "name": "Check Yaml", 
-            "description": "This hook checks yaml files for parseable syntax.", 
-            "entry": "check-yaml", 
-            "language": "python", 
+            "id": "check-yaml",
+            "name": "Check Yaml",
+            "description": "This hook checks yaml files for parseable syntax.",
+            "entry": "check-yaml",
+            "language": "python",
             "files": "\\.(yaml|yml|eyaml)$"
-        }, 
+        },
         {
-            "id": "debug-statements", 
-            "name": "Debug Statements (Python)", 
-            "description": "This hook checks that debug statements (pdb, ipdb, pudb) are not imported on commit.", 
-            "entry": "debug-statement-hook", 
-            "language": "python", 
+            "id": "debug-statements",
+            "name": "Debug Statements (Python)",
+            "description": "This hook checks that debug statements (pdb, ipdb, pudb) are not imported on commit.",
+            "entry": "debug-statement-hook",
+            "language": "python",
             "files": "\\.py$"
-        }, 
+        },
         {
-            "id": "detect-aws-credentials", 
-            "name": "Detect AWS Credentials", 
-            "description": "Detects *your* aws credentials from the aws cli credentials file", 
-            "entry": "detect-aws-credentials", 
-            "language": "python", 
+            "id": "detect-aws-credentials",
+            "name": "Detect AWS Credentials",
+            "description": "Detects *your* aws credentials from the aws cli credentials file",
+            "entry": "detect-aws-credentials",
+            "language": "python",
             "files": ""
-        }, 
+        },
         {
-            "id": "detect-private-key", 
-            "name": "Detect Private Key", 
-            "description": "Detects the presence of private keys", 
-            "entry": "detect-private-key", 
-            "language": "python", 
+            "id": "detect-private-key",
+            "name": "Detect Private Key",
+            "description": "Detects the presence of private keys",
+            "entry": "detect-private-key",
+            "language": "python",
             "files": ""
-        }, 
+        },
         {
-            "id": "double-quote-string-fixer", 
-            "name": "Fix double quoted strings", 
-            "description": "This hook replaces double quoted strings with single quoted strings", 
-            "entry": "double-quote-string-fixer", 
-            "language": "python", 
+            "id": "double-quote-string-fixer",
+            "name": "Fix double quoted strings",
+            "description": "This hook replaces double quoted strings with single quoted strings",
+            "entry": "double-quote-string-fixer",
+            "language": "python",
             "files": "\\.py$"
-        }, 
+        },
         {
-            "id": "end-of-file-fixer", 
-            "name": "Fix End of Files", 
-            "description": "Ensures that a file is either empty, or ends with one newline.", 
-            "entry": "end-of-file-fixer", 
-            "language": "python", 
+            "id": "end-of-file-fixer",
+            "name": "Fix End of Files",
+            "description": "Ensures that a file is either empty, or ends with one newline.",
+            "entry": "end-of-file-fixer",
+            "language": "python",
             "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|groovy|h|haml|hh|hpp|hxx|html|in|j2|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tex|tmpl|ts|txt|yaml|yml)$"
-        }, 
+        },
         {
-            "id": "fix-encoding-pragma", 
-            "name": "Fix python encoding pragma", 
-            "language": "python", 
-            "entry": "fix-encoding-pragma", 
-            "description": "Add # -*- coding: utf-8 -*- to the top of python files", 
+            "id": "fix-encoding-pragma",
+            "name": "Fix python encoding pragma",
+            "language": "python",
+            "entry": "fix-encoding-pragma",
+            "description": "Add # -*- coding: utf-8 -*- to the top of python files",
             "files": "\\.py$"
-        }, 
+        },
         {
-            "id": "flake8", 
-            "name": "Flake8", 
-            "description": "This hook runs flake8.", 
-            "entry": "flake8", 
-            "language": "python", 
+            "id": "flake8",
+            "name": "Flake8",
+            "description": "This hook runs flake8.",
+            "entry": "flake8",
+            "language": "python",
             "files": "\\.py$"
-        }, 
+        },
         {
-            "id": "forbid-new-submodules", 
-            "name": "Forbid new submodules", 
-            "language": "python", 
-            "entry": "forbid-new-submodules", 
-            "description": "Prevent addition of new git submodules", 
+            "id": "forbid-new-submodules",
+            "name": "Forbid new submodules",
+            "language": "python",
+            "entry": "forbid-new-submodules",
+            "description": "Prevent addition of new git submodules",
             "files": ""
-        }, 
+        },
         {
-            "id": "name-tests-test", 
-            "name": "Tests should end in _test.py", 
-            "description": "This verifies that test files are named correctly", 
-            "entry": "name-tests-test", 
-            "language": "python", 
+            "id": "name-tests-test",
+            "name": "Tests should end in _test.py",
+            "description": "This verifies that test files are named correctly",
+            "entry": "name-tests-test",
+            "language": "python",
             "files": "tests/.+\\.py$"
-        }, 
+        },
         {
-            "id": "pyflakes", 
-            "name": "Pyflakes (DEPRECATED, use flake8)", 
-            "description": "This hook runs pyflakes. (This is deprecated, use flake8).", 
-            "entry": "pyflakes", 
-            "language": "python", 
+            "id": "pyflakes",
+            "name": "Pyflakes (DEPRECATED, use flake8)",
+            "description": "This hook runs pyflakes. (This is deprecated, use flake8).",
+            "entry": "pyflakes",
+            "language": "python",
             "files": "\\.py$"
-        }, 
+        },
         {
-            "id": "requirements-txt-fixer", 
-            "name": "Fix requirements.txt", 
-            "description": "Sorts entries in requirements.txt", 
-            "entry": "requirements-txt-fixer", 
-            "language": "python", 
+            "id": "requirements-txt-fixer",
+            "name": "Fix requirements.txt",
+            "description": "Sorts entries in requirements.txt",
+            "entry": "requirements-txt-fixer",
+            "language": "python",
             "files": "requirements.*\\.txt$"
-        }, 
+        },
         {
-            "id": "trailing-whitespace", 
-            "name": "Trim Trailing Whitespace", 
-            "description": "This hook trims trailing whitespace.", 
-            "entry": "trailing-whitespace-fixer", 
-            "language": "python", 
+            "id": "trailing-whitespace",
+            "name": "Trim Trailing Whitespace",
+            "description": "This hook trims trailing whitespace.",
+            "entry": "trailing-whitespace-fixer",
+            "language": "python",
             "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|groovy|h|haml|hh|hpp|hxx|html|in|j2|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tex|tmpl|ts|txt|yaml|yml)$"
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-autopep8": [
         {
-            "id": "autopep8", 
-            "name": "autopep8", 
-            "entry": "autopep8", 
-            "language": "python", 
-            "files": "\\.py$", 
+            "id": "autopep8",
+            "name": "autopep8",
+            "entry": "autopep8",
+            "language": "python",
+            "files": "\\.py$",
             "args": [
                 "-i"
             ]
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-coffeelint": [
         {
-            "id": "coffeelint", 
-            "name": "coffeelint", 
-            "entry": "coffeelint", 
-            "language": "node", 
-            "files": "\\.(js|coffee)$", 
-            "args": [], 
+            "id": "coffeelint",
+            "name": "coffeelint",
+            "entry": "coffeelint",
+            "language": "node",
+            "files": "\\.(js|coffee)$",
+            "args": [],
             "additional_dependencies": [
                 "coffeelint@1.15.7"
-            ], 
+            ],
             "minimum_pre_commit_version": "0.7.0"
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-csslint": [
         {
-            "id": "csslint", 
-            "name": "csslint", 
-            "entry": "csslint", 
-            "language": "node", 
-            "files": "\\.css$", 
-            "args": [], 
+            "id": "csslint",
+            "name": "csslint",
+            "entry": "csslint",
+            "language": "node",
+            "files": "\\.css$",
+            "args": [],
             "additional_dependencies": [
                 "csslint@0.10.0"
-            ], 
+            ],
             "minimum_pre_commit_version": "0.7.0"
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-eslint": [
         {
-            "id": "eslint", 
-            "name": "eslint", 
-            "entry": "eslint", 
-            "language": "node", 
-            "files": "\\.js$", 
-            "args": [], 
+            "id": "eslint",
+            "name": "eslint",
+            "entry": "eslint",
+            "language": "node",
+            "files": "\\.js$",
+            "args": [],
             "additional_dependencies": [
                 "eslint@3.7.0"
-            ], 
+            ],
             "minimum_pre_commit_version": "0.7.0"
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-fixmyjs": [
         {
-            "id": "fixmyjs", 
-            "name": "fixmyjs", 
-            "entry": "fixmyjs", 
-            "language": "node", 
-            "files": "\\.js$", 
-            "args": [], 
+            "id": "fixmyjs",
+            "name": "fixmyjs",
+            "entry": "fixmyjs",
+            "language": "node",
+            "files": "\\.js$",
+            "args": [],
             "additional_dependencies": [
                 "fixmyjs@1.0.3"
-            ], 
+            ],
             "minimum_pre_commit_version": "0.7.0"
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-jshint": [
         {
-            "id": "jshint", 
-            "name": "jshint", 
-            "entry": "jshint", 
-            "language": "node", 
-            "files": "\\.js$", 
-            "args": [], 
+            "id": "jshint",
+            "name": "jshint",
+            "entry": "jshint",
+            "language": "node",
+            "files": "\\.js$",
+            "args": [],
             "additional_dependencies": [
                 "jshint@2.9.3"
-            ], 
+            ],
             "minimum_pre_commit_version": "0.7.0"
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-puppet-lint": [
         {
-            "id": "puppet-lint", 
-            "name": "puppet-lint", 
-            "entry": "puppet-lint", 
-            "language": "ruby", 
+            "id": "puppet-lint",
+            "name": "puppet-lint",
+            "entry": "puppet-lint",
+            "language": "ruby",
             "files": "\\.pp$"
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-pylint": [
         {
-            "id": "pylint", 
-            "name": "pylint", 
-            "entry": "pylint", 
-            "language": "python", 
-            "files": "\\.py$", 
+            "id": "pylint",
+            "name": "pylint",
+            "entry": "pylint",
+            "language": "python",
+            "files": "\\.py$",
             "args": []
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-ruby-lint": [
         {
-            "id": "ruby-lint", 
-            "name": "ruby-lint", 
-            "entry": "ruby-lint", 
-            "language": "ruby", 
+            "id": "ruby-lint",
+            "name": "ruby-lint",
+            "entry": "ruby-lint",
+            "language": "ruby",
             "files": "\\.rb$"
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-scss-lint": [
         {
-            "id": "scss-lint", 
-            "name": "scss_lint", 
-            "entry": "scss-lint", 
-            "language": "ruby", 
-            "files": "\\.scss$", 
+            "id": "scss-lint",
+            "name": "scss_lint",
+            "entry": "scss-lint",
+            "language": "ruby",
+            "files": "\\.scss$",
             "args": []
         }
-    ], 
+    ],
     "git://github.com/pre-commit/mirrors-yapf": [
         {
-            "id": "yapf", 
-            "name": "yapf", 
-            "entry": "yapf", 
-            "language": "python", 
-            "files": "\\.py$", 
+            "id": "yapf",
+            "name": "yapf",
+            "entry": "yapf",
+            "language": "python",
+            "files": "\\.py$",
             "args": [
                 "-i"
             ]
         }
-    ], 
+    ],
     "git://github.com/FalconSocial/pre-commit-mirrors-pep257": [
         {
-            "id": "pep257", 
-            "name": "pep257", 
-            "entry": "pep257", 
-            "language": "python", 
+            "id": "pep257",
+            "name": "pep257",
+            "entry": "pep257",
+            "language": "python",
             "files": "\\.py$"
         }
-    ], 
+    ],
     "git://github.com/FalconSocial/pre-commit-python-sorter": [
         {
-            "id": "python-import-sorter", 
-            "name": "Sort python imports", 
-            "description": "This hook sorts python imports.", 
-            "entry": "python-import-sorter", 
-            "language": "python", 
+            "id": "python-import-sorter",
+            "name": "Sort python imports",
+            "description": "This hook sorts python imports.",
+            "entry": "python-import-sorter",
+            "language": "python",
             "files": "\\.py$"
         }
-    ], 
+    ],
     "git://github.com/guykisel/pre-commit-robotframework-tidy": [
         {
-            "id": "robotframework-tidy-wrapper", 
-            "name": "robotframework tidy wrapper", 
-            "description": "Runs Robot Framework's tidy tool.", 
-            "entry": "python-robotframework-tidy", 
-            "language": "python", 
+            "id": "robotframework-tidy-wrapper",
+            "name": "robotframework tidy wrapper",
+            "description": "Runs Robot Framework's tidy tool.",
+            "entry": "python-robotframework-tidy",
+            "language": "python",
             "files": "\\.robot$"
         }
-    ], 
+    ],
     "git://github.com/guykisel/prospector-mirror": [
         {
-            "id": "prospector", 
-            "name": "prospector", 
-            "description": "This hook runs Prospector: https://github.com/landscapeio/prospector", 
-            "entry": "prospector", 
-            "language": "system", 
+            "id": "prospector",
+            "name": "prospector",
+            "description": "This hook runs Prospector: https://github.com/landscapeio/prospector",
+            "entry": "prospector",
+            "language": "system",
             "files": "\\.py$"
         }
-    ], 
+    ],
     "git://github.com/asottile/reorder_python_imports": [
         {
-            "id": "reorder-python-imports", 
-            "name": "Reorder python imports", 
-            "description": "This hook reorders imports in python files.", 
-            "entry": "reorder-python-imports", 
-            "language": "python", 
+            "id": "reorder-python-imports",
+            "name": "Reorder python imports",
+            "description": "This hook reorders imports in python files.",
+            "entry": "reorder-python-imports",
+            "language": "python",
             "files": "\\.py$"
         }
-    ], 
+    ],
     "git://github.com/asottile/cheetah_lint": [
         {
-            "id": "cheetah-reorder-imports", 
-            "name": "Reorder cheetah imports", 
-            "description": "This hook reorders imports in cheetah files.", 
-            "entry": "cheetah-reorder-imports", 
-            "language": "python", 
+            "id": "cheetah-reorder-imports",
+            "name": "Reorder cheetah imports",
+            "description": "This hook reorders imports in cheetah files.",
+            "entry": "cheetah-reorder-imports",
+            "language": "python",
             "files": "\\.tmpl$"
-        }, 
+        },
         {
-            "id": "cheetah-flake", 
-            "name": "Cheetah flake", 
-            "description": "Lint cheetah code using flake8 and some other checks.", 
-            "entry": "cheetah-flake", 
-            "language": "python", 
+            "id": "cheetah-flake",
+            "name": "Cheetah flake",
+            "description": "Lint cheetah code using flake8 and some other checks.",
+            "entry": "cheetah-flake",
+            "language": "python",
             "files": "\\.tmpl$"
         }
-    ], 
+    ],
     "git://github.com/hootsuite/pre-commit-php": [
         {
-            "id": "php-lint-all", 
-            "name": "PHP Syntax Check (Comprehensive)", 
-            "description": "Check PHP Syntax on ALL PHP staged files with user friendly messages and colors", 
-            "entry": "pre_commit_hooks/php-lint.sh", 
-            "language": "script", 
-            "files": "\\.php$", 
+            "id": "php-lint-all",
+            "name": "PHP Syntax Check (Comprehensive)",
+            "description": "Check PHP Syntax on ALL PHP staged files with user friendly messages and colors",
+            "entry": "pre_commit_hooks/php-lint.sh",
+            "language": "script",
+            "files": "\\.php$",
             "args": [
                 "-s all"
             ]
-        }, 
+        },
         {
-            "id": "php-lint", 
-            "name": "PHP Syntax Check (Quick)", 
-            "description": "Runs php -l on all staged files. Exits when it hits the first errored file", 
-            "entry": "php -l", 
-            "language": "system", 
+            "id": "php-lint",
+            "name": "PHP Syntax Check (Quick)",
+            "description": "Runs php -l on all staged files. Exits when it hits the first errored file",
+            "entry": "php -l",
+            "language": "system",
             "files": "\\.php$"
-        }, 
+        },
         {
-            "id": "php-unit", 
-            "name": "PHP Unit", 
-            "description": "Run the full php unit test. Checks which PHPUnit executable is available first and then runs it. Preference order is vendor/bin, phpunit and phpunit.phar.", 
-            "entry": "pre_commit_hooks/php-unit.sh", 
-            "language": "script", 
+            "id": "php-unit",
+            "name": "PHP Unit",
+            "description": "Run the full php unit test. Checks which PHPUnit executable is available first and then runs it. Preference order is vendor/bin, phpunit and phpunit.phar.",
+            "entry": "pre_commit_hooks/php-unit.sh",
+            "language": "script",
             "files": "\\.php$"
-        }, 
+        },
         {
-            "id": "php-cs", 
-            "name": "PHP Codesniffer", 
-            "description": "Run php codesniffer against all staged files.", 
-            "entry": "pre_commit_hooks/php-cs.sh", 
-            "language": "script", 
+            "id": "php-cs",
+            "name": "PHP Codesniffer",
+            "description": "Run php codesniffer against all staged files.",
+            "entry": "pre_commit_hooks/php-cs.sh",
+            "language": "script",
             "files": "\\.php$"
-        }, 
+        },
         {
-            "id": "php-cbf", 
-            "name": "PHP Codesniffer (Code Beutifier and Formatter)", 
-            "description": "Run php codesniffer against all staged files.", 
-            "entry": "pre_commit_hooks/php-cbf.sh", 
-            "language": "script", 
+            "id": "php-cbf",
+            "name": "PHP Codesniffer (Code Beutifier and Formatter)",
+            "description": "Run php codesniffer against all staged files.",
+            "entry": "pre_commit_hooks/php-cbf.sh",
+            "language": "script",
             "files": "\\.php$"
-        }, 
+        },
         {
-            "id": "php-cs-fixer", 
-            "name": "PHP Coding Standards Fixer", 
-            "description": "Run php coding standards fixer against all staged files.", 
-            "entry": "pre_commit_hooks/php-cs-fixer.sh", 
-            "language": "script", 
+            "id": "php-cs-fixer",
+            "name": "PHP Coding Standards Fixer",
+            "description": "Run php coding standards fixer against all staged files.",
+            "entry": "pre_commit_hooks/php-cs-fixer.sh",
+            "language": "script",
             "files": "\\.php$"
         }
-    ], 
+    ],
     "git://github.com/pricematch/mirrors-rubocop": [
         {
-            "id": "rubocop", 
-            "name": "rubocop", 
-            "entry": "rubocop", 
-            "language": "ruby", 
-            "files": "\\.(rb|rake)$", 
+            "id": "rubocop",
+            "name": "rubocop",
+            "entry": "rubocop",
+            "language": "ruby",
+            "files": "\\.(rb|rake)$",
             "args": []
         }
-    ], 
+    ],
     "git://github.com/pricematch/mirrors-closure-linter": [
         {
-            "id": "closure-linter", 
-            "name": "closure-linter", 
-            "entry": "gjslint", 
-            "language": "python", 
+            "id": "closure-linter",
+            "name": "closure-linter",
+            "entry": "gjslint",
+            "language": "python",
             "files": "\\.js$"
-        }, 
+        },
         {
-            "id": "closure-linter-fixer", 
-            "name": "closure-linter-fixer", 
-            "entry": "fixjsstyle", 
-            "language": "python", 
+            "id": "closure-linter-fixer",
+            "name": "closure-linter-fixer",
+            "entry": "fixjsstyle",
+            "language": "python",
             "files": "\\.js$"
         }
-    ], 
+    ],
     "git://github.com/pricematch/pricematch-pre-commit-hooks": [
         {
-            "id": "do_not_commit", 
-            "name": "Block if \"DO NOT COMMIT\" is found", 
-            "entry": "DO NOT COMMIT", 
-            "language": "pcre", 
+            "id": "do_not_commit",
+            "name": "Block if \"DO NOT COMMIT\" is found",
+            "entry": "DO NOT COMMIT",
+            "language": "pcre",
             "files": ""
-        }, 
+        },
         {
-            "id": "ruby_timezones", 
-            "name": "Force explicit usage of timezones", 
-            "entry": "(Date.today|Time.now|DateTime.now)([ ,)]|$)", 
-            "language": "pcre", 
+            "id": "ruby_timezones",
+            "name": "Force explicit usage of timezones",
+            "entry": "(Date.today|Time.now|DateTime.now)([ ,)]|$)",
+            "language": "pcre",
             "files": "\\.(rb|rake)$"
-        }, 
+        },
         {
-            "id": "ruby", 
-            "name": "ruby_syntax", 
-            "entry": "ruby.py", 
-            "language": "script", 
+            "id": "ruby",
+            "name": "ruby_syntax",
+            "entry": "ruby.py",
+            "language": "script",
             "files": "\\.(rb|rake)$"
-        }, 
+        },
         {
-            "id": "safe_where_queries_in_parsing", 
-            "name": "Only allowed model method is mass_insert in parsing", 
-            "entry": "Reservation\\s*\\.(?!(mass|calendar|hotel_pms_res|set_canceled|update_from)).*", 
-            "language": "pcre", 
-            "files": "\\.rb$", 
+            "id": "safe_where_queries_in_parsing",
+            "name": "Only allowed model method is mass_insert in parsing",
+            "entry": "Reservation\\s*\\.(?!(mass|calendar|hotel_pms_res|set_canceled|update_from)).*",
+            "language": "pcre",
+            "files": "\\.rb$",
             "args": [
                 "-bzo"
             ]
-        }, 
+        },
         {
-            "id": "no_commas_in_string_arrays", 
-            "name": "Do not forget a comma in a %w() string array", 
-            "entry": "\\%w\\([^)]*,[^)]*\\)", 
-            "language": "pcre", 
-            "files": "\\.(rb|rake)$", 
+            "id": "no_commas_in_string_arrays",
+            "name": "Do not forget a comma in a %w() string array",
+            "entry": "\\%w\\([^)]*,[^)]*\\)",
+            "language": "pcre",
+            "files": "\\.(rb|rake)$",
             "args": [
                 "-bzo"
             ]
-        }, 
+        },
         {
-            "id": "check_rails_env_with_methods", 
-            "name": "Do not write \"Rails.env =\" to avoid assignment", 
-            "entry": "Rails\\.env\\s*=", 
-            "language": "pcre", 
+            "id": "check_rails_env_with_methods",
+            "name": "Do not write \"Rails.env =\" to avoid assignment",
+            "entry": "Rails\\.env\\s*=",
+            "language": "pcre",
             "files": "\\.(rb|rake)$"
-        }, 
+        },
         {
-            "id": "remove_encoding_comment", 
-            "name": "Remove the encoding comment at beginning of file", 
-            "entry": "coding\\s*\\:\\s*utf\\-8", 
-            "language": "pcre", 
+            "id": "remove_encoding_comment",
+            "name": "Remove the encoding comment at beginning of file",
+            "entry": "coding\\s*\\:\\s*utf\\-8",
+            "language": "pcre",
             "files": "\\.(rb|rake)$"
-        }, 
+        },
         {
-            "id": "forbid_describe_only", 
-            "name": "Do not forget describe.only in test files", 
-            "entry": "describe.only", 
-            "language": "pcre", 
+            "id": "forbid_describe_only",
+            "name": "Do not forget describe.only in test files",
+            "entry": "describe.only",
+            "language": "pcre",
             "files": "\\.js$"
-        }, 
+        },
         {
-            "id": "include_rails_helper_in_tests", 
-            "name": "Start your spec files with the line `include 'rails_helper'`", 
-            "entry": "\\A(?!(require\\s\\'rails_helper\\')).*", 
-            "language": "pcre", 
-            "files": "spec\\.rb$", 
+            "id": "include_rails_helper_in_tests",
+            "name": "Start your spec files with the line `include 'rails_helper'`",
+            "entry": "\\A(?!(require\\s\\'rails_helper\\')).*",
+            "language": "pcre",
+            "files": "spec\\.rb$",
             "args": [
                 "-bzo"
             ]
-        }, 
+        },
         {
-            "id": "no_puts_statements", 
-            "name": "Do not leave puts statements in production code", 
-            "entry": "[.\\s]?puts[(\\s]?.*", 
-            "language": "pcre", 
-            "files": "\\.rb$", 
+            "id": "no_puts_statements",
+            "name": "Do not leave puts statements in production code",
+            "entry": "[.\\s]?puts[(\\s]?.*",
+            "language": "pcre",
+            "files": "\\.rb$",
             "args": [
                 "-bzo"
             ]
-        }, 
+        },
         {
-            "id": "remove_ipython_notebook_outputs", 
-            "name": "Remove ipython notebook outputs", 
-            "entry": "strip_ipynb.sh", 
-            "files": "\\.ipynb$", 
+            "id": "remove_ipython_notebook_outputs",
+            "name": "Remove ipython notebook outputs",
+            "entry": "strip_ipynb.sh",
+            "files": "\\.ipynb$",
             "language": "script"
-        }, 
+        },
         {
-            "id": "no_httparty", 
-            "name": "Use HypertextTransfer wrapper instead of HTTParty directly", 
-            "entry": "HTTParty", 
-            "language": "pcre", 
+            "id": "no_httparty",
+            "name": "Use HypertextTransfer wrapper instead of HTTParty directly",
+            "entry": "HTTParty",
+            "language": "pcre",
             "files": "\\.(rb|rake)$"
         }
-    ], 
+    ],
     "git://github.com/elidupuis/mirrors-jscs": [
         {
-            "id": "jscs", 
-            "name": "jscs", 
-            "entry": "jscs", 
-            "language": "node", 
-            "files": "\\.js$", 
-            "args": [], 
+            "id": "jscs",
+            "name": "jscs",
+            "entry": "jscs",
+            "language": "node",
+            "files": "\\.js$",
+            "args": [],
             "additional_dependencies": [
                 "jscs@3.0.7"
-            ], 
+            ],
             "minimum_pre_commit_version": "0.7.0"
         }
-    ], 
+    ],
     "git://github.com/elidupuis/mirrors-standard": [
         {
-            "id": "standard", 
-            "name": "standard", 
-            "entry": "standard", 
-            "language": "node", 
-            "files": "\\.(js|jsx)$", 
-            "args": [], 
+            "id": "standard",
+            "name": "standard",
+            "entry": "standard",
+            "language": "node",
+            "files": "\\.(js|jsx)$",
+            "args": [],
             "additional_dependencies": [
                 "standard@5.4.1"
-            ], 
+            ],
             "minimum_pre_commit_version": "0.7.0"
         }
-    ], 
+    ],
     "git://github.com/Lucas-C/pre-commit-hooks": [
         {
-            "id": "forbid-crlf", 
-            "name": "CRLF end-lines checker", 
-            "description": "Forbid files containing CRLF end-lines to be committed", 
-            "entry": "forbid_crlf", 
-            "language": "python", 
+            "id": "forbid-crlf",
+            "name": "CRLF end-lines checker",
+            "description": "Forbid files containing CRLF end-lines to be committed",
+            "entry": "forbid_crlf",
+            "language": "python",
             "files": ""
-        }, 
+        },
         {
-            "id": "remove-crlf", 
-            "name": "CRLF end-lines remover", 
-            "description": "Replace CRLF end-lines by LF ones before committing", 
-            "entry": "remove_crlf", 
-            "language": "python", 
+            "id": "remove-crlf",
+            "name": "CRLF end-lines remover",
+            "description": "Replace CRLF end-lines by LF ones before committing",
+            "entry": "remove_crlf",
+            "language": "python",
             "files": ""
-        }, 
+        },
         {
-            "id": "forbid-tabs", 
-            "name": "No-tabs checker", 
-            "description": "Forbid files containing tabs to be committed", 
-            "entry": "forbid_tabs", 
-            "language": "python", 
-            "files": "", 
+            "id": "forbid-tabs",
+            "name": "No-tabs checker",
+            "description": "Forbid files containing tabs to be committed",
+            "entry": "forbid_tabs",
+            "language": "python",
+            "files": "",
             "exclude": "(Makefile|debian/rules)(\\.in)?$"
-        }, 
+        },
         {
-            "id": "remove-tabs", 
-            "name": "Tabs remover", 
-            "description": "Replace tabs by whitespaces before committing", 
-            "entry": "remove_tabs", 
-            "language": "python", 
+            "id": "remove-tabs",
+            "name": "Tabs remover",
+            "description": "Replace tabs by whitespaces before committing",
+            "entry": "remove_tabs",
+            "language": "python",
             "args": [
-                "--whitespaces-count", 
+                "--whitespaces-count",
                 "4"
-            ], 
-            "files": "", 
+            ],
+            "files": "",
             "exclude": "(Makefile|debian/rules)(\\.in)?$"
         }
-    ], 
+    ],
     "git://github.com/Lucas-C/pre-commit-hooks-bandit": [
         {
-            "id": "python-bandit-vulnerability-check", 
-            "name": "bandit", 
-            "description": "Python code vulnerabilities checker", 
-            "language": "python", 
-            "entry": "bandit", 
+            "id": "python-bandit-vulnerability-check",
+            "name": "bandit",
+            "description": "Python code vulnerabilities checker",
+            "language": "python",
+            "entry": "bandit",
             "args": [
-                "-lll", 
-                "--recursive", 
+                "-lll",
+                "--recursive",
                 "."
-            ], 
+            ],
             "files": ""
         }
-    ], 
+    ],
     "git://github.com/Lucas-C/pre-commit-hooks-css": [
         {
-            "id": "detect-missing-css-classes", 
-            "name": "Missing CSS classes checker", 
-            "description": "Detect unused or missing CSS classes definitions, and abort if any of the later ones is found", 
-            "entry": "detect_missing_css_classes", 
-            "language": "python", 
+            "id": "detect-missing-css-classes",
+            "name": "Missing CSS classes checker",
+            "description": "Detect unused or missing CSS classes definitions, and abort if any of the later ones is found",
+            "entry": "detect_missing_css_classes",
+            "language": "python",
             "files": ".*\\.(css|hbs|html)$"
         }
-    ], 
+    ],
     "git://github.com/Lucas-C/pre-commit-hooks-html": [
         {
-            "id": "validate-html", 
-            "name": "HTML syntax validator using W3C v.Nu checker", 
-            "entry": "validate_html", 
-            "language": "python", 
+            "id": "validate-html",
+            "name": "HTML syntax validator using W3C v.Nu checker",
+            "entry": "validate_html",
+            "language": "python",
             "files": ".*\\.(html|hbs)$"
-        }, 
+        },
         {
-            "id": "htmlhint", 
-            "name": "NodeJS HTML syntax linter", 
-            "entry": "htmlhint", 
-            "language": "node", 
-            "files": ".*\\.(html|hbs)$", 
+            "id": "htmlhint",
+            "name": "NodeJS HTML syntax linter",
+            "entry": "htmlhint",
+            "language": "node",
+            "files": ".*\\.(html|hbs)$",
             "additional_dependencies": [
                 "htmlhint"
             ]
-        }, 
+        },
         {
-            "id": "htmllint", 
-            "name": "NodeJS HTML syntax linter", 
-            "entry": "htmllint", 
-            "language": "node", 
-            "files": ".*\\.(html|hbs)$", 
+            "id": "htmllint",
+            "name": "NodeJS HTML syntax linter",
+            "entry": "htmllint",
+            "language": "node",
+            "files": ".*\\.(html|hbs)$",
             "additional_dependencies": [
                 "htmllint-cli"
             ]
         }
-    ], 
+    ],
     "git://github.com/Lucas-C/pre-commit-hooks-lxml": [
         {
-            "id": "forbid-html-img-without-alt-text", 
-            "name": "HTML img tag alt text checker", 
-            "description": "List every <img> tag without a alt= or data-ng-attr-alt= attribute", 
-            "entry": "forbid_html_img_without_alt_text", 
-            "language": "python", 
+            "id": "forbid-html-img-without-alt-text",
+            "name": "HTML img tag alt text checker",
+            "description": "List every <img> tag without a alt= or data-ng-attr-alt= attribute",
+            "entry": "forbid_html_img_without_alt_text",
+            "language": "python",
             "files": ".*\\.(html|hbs)$"
-        }, 
+        },
         {
-            "id": "forbid-non-std-html-attributes", 
-            "name": "Non-standard HTML attributes checker", 
-            "description": "Detect any non-standard attribute that is not prefixed with data-", 
-            "entry": "forbid_non_std_html_attributes", 
-            "language": "python", 
+            "id": "forbid-non-std-html-attributes",
+            "name": "Non-standard HTML attributes checker",
+            "description": "Detect any non-standard attribute that is not prefixed with data-",
+            "entry": "forbid_non_std_html_attributes",
+            "language": "python",
             "args": [
-                "--extra-known-attributes", 
+                "--extra-known-attributes",
                 "content,http-equiv,placeholder,role,style"
-            ], 
+            ],
             "files": ".*\\.(html|hbs)$"
         }
-    ], 
+    ],
     "git://github.com/Lucas-C/pre-commit-hooks-safety": [
         {
-            "id": "python-safety-dependencies-check", 
-            "name": "safety", 
-            "description": "Analyze your Python requirements for known security vulnerabilities", 
-            "entry": "safety", 
-            "language": "python", 
+            "id": "python-safety-dependencies-check",
+            "name": "safety",
+            "description": "Analyze your Python requirements for known security vulnerabilities",
+            "entry": "safety",
+            "language": "python",
             "files": "requirements"
         }
-    ], 
+    ],
     "https://bitbucket.org/SamWhited/go-pre-commit.git": [
         {
-            "id": "gofmt", 
-            "name": "Go Format", 
-            "description": "Formats Go code.", 
-            "entry": "gofmthook.sh", 
-            "language": "script", 
+            "id": "gofmt",
+            "name": "Go Format",
+            "description": "Formats Go code.",
+            "entry": "gofmthook.sh",
+            "language": "script",
             "files": "\\.go$"
-        }, 
+        },
         {
-            "id": "gofix", 
-            "name": "Go Fix", 
-            "description": "Updates old Go APIs to the latest version.", 
-            "entry": "go fix", 
-            "language": "system", 
+            "id": "gofix",
+            "name": "Go Fix",
+            "description": "Updates old Go APIs to the latest version.",
+            "entry": "go fix",
+            "language": "system",
             "files": "\\.go$"
-        }, 
+        },
         {
-            "id": "govet", 
-            "name": "Go Vet", 
-            "description": "Vets Go code for mistakes not caught by the compiler.", 
-            "entry": "go vet", 
-            "language": "system", 
+            "id": "govet",
+            "name": "Go Vet",
+            "description": "Vets Go code for mistakes not caught by the compiler.",
+            "entry": "go vet",
+            "language": "system",
             "files": "\\.go$"
-        }, 
+        },
         {
-            "id": "gobuild", 
-            "name": "Go Build", 
-            "description": "Makes sure Go code can build.", 
-            "entry": "go build", 
-            "language": "system", 
+            "id": "gobuild",
+            "name": "Go Build",
+            "description": "Makes sure Go code can build.",
+            "entry": "go build",
+            "language": "system",
             "files": "\\.go$"
-        }, 
+        },
         {
-            "id": "gotest", 
-            "name": "Go Test", 
-            "description": "Runs tests against Go code.", 
-            "entry": "go test", 
-            "language": "system", 
+            "id": "gotest",
+            "name": "Go Test",
+            "description": "Runs tests against Go code.",
+            "entry": "go test",
+            "language": "system",
             "files": "\\.go$"
         }
-    ], 
+    ],
     "git://github.com/chriskuehl/puppet-pre-commit-hooks": [
         {
-            "id": "puppet-validate", 
-            "name": "Validate Puppet manifests", 
-            "description": "Validate syntax of Puppet manifests", 
-            "entry": "puppet-validate", 
-            "language": "ruby", 
+            "id": "puppet-validate",
+            "name": "Validate Puppet manifests",
+            "description": "Validate syntax of Puppet manifests",
+            "entry": "puppet-validate",
+            "language": "ruby",
             "files": "\\.pp$"
-        }, 
+        },
         {
-            "id": "erb-validate", 
-            "name": "Validate ERB templates", 
-            "description": "Validate syntax of Ruby ERB templates", 
-            "entry": "erb-validate", 
-            "language": "ruby", 
+            "id": "erb-validate",
+            "name": "Validate ERB templates",
+            "description": "Validate syntax of Ruby ERB templates",
+            "entry": "erb-validate",
+            "language": "ruby",
             "files": "\\.erb$"
-        }, 
+        },
         {
-            "id": "puppet-lint", 
-            "name": "puppet-lint", 
-            "description": "Check Puppet manifests for stylistic problems", 
-            "entry": "puppet-lint", 
-            "language": "ruby", 
+            "id": "puppet-lint",
+            "name": "puppet-lint",
+            "description": "Check Puppet manifests for stylistic problems",
+            "entry": "puppet-lint",
+            "language": "ruby",
             "files": "\\.pp$"
         }
-    ], 
+    ],
     "git://github.com/dnephin/pre-commit-golang": [
         {
-            "id": "go-fmt", 
-            "name": "go fmt", 
-            "entry": "run-go-fmt.sh", 
-            "files": "\\.go$", 
-            "language": "script", 
+            "id": "go-fmt",
+            "name": "go fmt",
+            "entry": "run-go-fmt.sh",
+            "files": "\\.go$",
+            "language": "script",
             "description": "Runs `gofmt`, requires golang"
-        }, 
+        },
         {
-            "id": "go-vet", 
-            "name": "go vet", 
-            "entry": "run-go-vet.sh", 
-            "files": "\\.go$", 
-            "language": "script", 
+            "id": "go-vet",
+            "name": "go vet",
+            "entry": "run-go-vet.sh",
+            "files": "\\.go$",
+            "language": "script",
             "description": "Runs `go vet`, requires golang"
-        }, 
+        },
         {
-            "id": "go-lint", 
-            "name": "go lint", 
-            "entry": "run-go-lint.sh", 
-            "files": "\\.go$", 
-            "language": "script", 
+            "id": "go-lint",
+            "name": "go lint",
+            "entry": "run-go-lint.sh",
+            "files": "\\.go$",
+            "language": "script",
             "description": "Runs `golint`, requires https://github.com/golang/lint"
-        }, 
+        },
         {
-            "id": "validate-toml", 
-            "name": "validate toml", 
-            "entry": "tomlv", 
-            "files": "\\.toml$", 
-            "language": "system", 
+            "id": "validate-toml",
+            "name": "validate toml",
+            "entry": "tomlv",
+            "files": "\\.toml$",
+            "language": "system",
             "description": "Runs `tomlv`, requires https://github.com/BurntSushi/toml/tree/master/cmd/tomlv"
-        }, 
+        },
         {
-            "id": "no-go-testing", 
-            "name": "Check files aren't using gos' testing package", 
-            "entry": "testing\\.T", 
-            "files": "test_\\.go$", 
-            "language": "pcre", 
+            "id": "no-go-testing",
+            "name": "Check files aren't using gos' testing package",
+            "entry": "testing\\.T",
+            "files": "test_\\.go$",
+            "language": "pcre",
             "description": "Checks that no files are using `testing.T`, if you want developers to use a different testing framework"
         }
-    ], 
+    ],
     "git://github.com/jordant/rubocop-pre-commit-hook": [
         {
-            "id": "check-rubocop", 
-            "name": "Check Rubocop", 
-            "description": "This hook checks ruby files for syntax and style", 
-            "entry": "check-rubocop", 
-            "language": "python", 
+            "id": "check-rubocop",
+            "name": "Check Rubocop",
+            "description": "This hook checks ruby files for syntax and style",
+            "entry": "check-rubocop",
+            "language": "python",
             "files": "\\.rb$"
         }
-    ], 
+    ],
     "git://github.com/jstewmon/check-swagger": [
         {
-            "id": "check-swagger", 
-            "name": "check-swagger", 
-            "entry": "check-swagger", 
-            "description": "Hook to validate swagger specs.", 
-            "language": "python", 
+            "id": "check-swagger",
+            "name": "check-swagger",
+            "entry": "check-swagger",
+            "description": "Hook to validate swagger specs.",
+            "language": "python",
             "files": ".*swagger.*\\.(json|yaml|yml)"
         }
-    ], 
+    ],
     "git://github.com/detailyang/pre-commit-shell": [
         {
-            "id": "shell-lint", 
-            "name": "Shell Syntax Check", 
-            "description": "Check Shell Syntax on ALL staged files with user friendly messages and colors", 
-            "entry": "pre_commit_hooks/shell-lint.sh", 
-            "language": "script", 
+            "id": "shell-lint",
+            "name": "Shell Syntax Check",
+            "description": "Check Shell Syntax on ALL staged files with user friendly messages and colors",
+            "entry": "pre_commit_hooks/shell-lint.sh",
+            "language": "script",
             "files": "(\\.sh|\\.zsh|\\.ksh)$"
         }
-    ], 
+    ],
     "git://github.com/sanmai-NL/pre-commit-hooks_R": [
         {
-            "id": "lintr", 
-            "name": "lintr", 
-            "entry": "bin/run_lintr_on_file.R", 
-            "files": "\\.R$", 
-            "language": "script", 
+            "id": "lintr",
+            "name": "lintr",
+            "entry": "bin/run_lintr_on_file.R",
+            "files": "\\.R$",
+            "language": "script",
             "description": "Lints R code with `lintr`. "
         }
-    ], 
+    ],
     "git://github.com/magicmark/pre-commit-es6-imports-reorder": [
         {
-            "id": "reorder-es6-imports", 
-            "name": "Reorder ES6 Imports", 
-            "description": "This hook reorders ES6 imports.", 
-            "entry": "js-reorder-es6-imports", 
-            "language": "node", 
+            "id": "reorder-es6-imports",
+            "name": "Reorder ES6 Imports",
+            "description": "This hook reorders ES6 imports.",
+            "entry": "js-reorder-es6-imports",
+            "language": "node",
             "files": "\\.js$"
         }
-    ], 
+    ],
     "git://github.com/antonbabenko/pre-commit-terraform": [
         {
-            "id": "terraform_fmt", 
-            "name": "Terraform fmt", 
-            "description": "Rewrites all Terraform configuration files to a canonical format.", 
-            "entry": "terrraform_fmt.sh", 
-            "language": "script", 
-            "files": "\\.tf$", 
+            "id": "terraform_fmt",
+            "name": "Terraform fmt",
+            "description": "Rewrites all Terraform configuration files to a canonical format.",
+            "entry": "terrraform_fmt.sh",
+            "language": "script",
+            "files": "\\.tf$",
             "exclude": "\\.terraform\\/.*$"
         }
-    ], 
+    ],
     "git://github.com/willthames/ansible-lint": [
         {
-            "id": "ansible-lint", 
-            "name": "Ansible-lint", 
-            "description": "This hook runs ansible-lint.", 
-            "entry": "ansible-lint", 
-            "language": "python", 
+            "id": "ansible-lint",
+            "name": "Ansible-lint",
+            "description": "This hook runs ansible-lint.",
+            "entry": "ansible-lint",
+            "language": "python",
             "files": "\\.(yaml|yml)$"
         }
     ]
