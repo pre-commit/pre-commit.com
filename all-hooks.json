@@ -836,6 +836,48 @@
             "description": "Checks that no files are using `testing.T`, if you want developers to use a different testing framework"
         }
     ],
+    "git://github.com/troian/pre-commit-golang.git": [
+        {
+            "id": "go-fmt",
+            "name": "go fmt",
+            "entry": "run-go-fmt.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `gofmt`, requires golang"
+        },
+        {
+            "id": "go-vet",
+            "name": "go vet",
+            "entry": "run-go-vet.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go vet`, requires golang"
+        },
+        {
+            "id": "go-lint",
+            "name": "go lint",
+            "entry": "run-go-lint.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `golint`, requires https://github.com/golang/lint"
+        },
+        {
+            "id": "go-metalinter",
+            "name": "go metalinter",
+            "entry": "run-go-metalinter.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `gometalinter`, requires https://github.com/alecthomas/gometalinter"
+        },
+        {
+            "id": "go-build",
+            "name": "go build",
+            "description": "Makes sure Go code can build",
+            "entry": "run-go-build.sh",
+            "language": "script",
+            "files": "\\.go$"
+        }
+    ],
     "git://github.com/jordant/rubocop-pre-commit-hook": [
         {
             "id": "check-rubocop",
