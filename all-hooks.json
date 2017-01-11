@@ -786,6 +786,14 @@
             "files": "\\.erb$"
         },
         {
+            "id": "epp-validate",
+            "name": "Validate EPP templates",
+            "description": "Validate syntax of Puppet EPP templates",
+            "entry": "epp-validate",
+            "language": "ruby",
+            "files": "\\.epp$"
+        },
+        {
             "id": "puppet-lint",
             "name": "puppet-lint",
             "description": "Check Puppet manifests for stylistic problems",
@@ -947,6 +955,16 @@
             "entry": "ansible-lint",
             "language": "python",
             "files": "\\.(yaml|yml)$"
+        }
+    ],
+    "git://github.com/yakitucommunity/pre-commit-clang-format": [
+        {
+            "id": "clang-format",
+            "name": "clang-format",
+            "description": "Format",
+            "entry": "clang-format -fallback-style=Google -i",
+            "language": "system",
+            "files": "\\.(c|cpp|java|js|m|proto)$"
         }
     ]
 }
