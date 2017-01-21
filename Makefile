@@ -15,7 +15,7 @@ all-hooks.json: venv make_all_hooks.py all-repos.yaml
 index.html hooks.html: venv all-hooks.json base.mako index.mako hooks.mako make_templates.py
 	venv/bin/python make_templates.py
 
-venv: requirements-dev.txt
+venv: requirements-dev.txt Makefile
 	rm -rf venv
 	virtualenv venv -ppython3.5
 	venv/bin/pip install -r requirements-dev.txt
