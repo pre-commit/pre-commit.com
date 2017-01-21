@@ -160,11 +160,11 @@
                     </tr>
                     <tr>
                         <td><code>additional_dependencies</code></td>
-                        <td>(optional) A list of dependencies that will be installed in the environment where this hook gets run. One useful application is to install plugins for hooks such as eslint.  New in 0.6.6.</td>
+                        <td>(optional) A list of dependencies that will be installed in the environment where this hook gets run. One useful application is to install plugins for hooks such as eslint.  <em>new in 0.6.6</em></td>
                     </tr>
                     <tr>
                         <td><code>always_run</code></td>
-                        <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files.  New in 0.7.2.</td>
+                        <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files.  <em>new in 0.7.2</em></td>
                     </tr>
                 </tbody>
             </table>
@@ -234,7 +234,7 @@
                     </tr>
                     <tr>
                         <td><code>always_run</code></td>
-                        <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files. New in 0.7.2.</td>
+                        <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files. <em>new in 0.7.2</em></td>
                     </tr>
                     <tr>
                         <td><code>description</code></td>
@@ -248,7 +248,7 @@
                         <td><code>minimum_pre_commit_version</code></td>
                         <td>
                             (optional) Allows one to indicate a minimum
-                            compatible pre-commit version. New in 0.6.7.
+                            compatible pre-commit version. <em>new in 0.6.7</em>
                         </td>
                     </tr>
                 </tbody>
@@ -264,30 +264,103 @@
 </pre>
             <h2 id="supported-languages">Supported languages</h2>
             <ul>
-                <li><code>docker</code> - must have a Dockerfile (Installed via <code>docker build .</code>) Requires pre-commit >= 0.10.0.</li>
-                <li><code>node</code> - must have a package.json (Installed via <code>npm install .</code>)</li>
-                <li><code>python</code> - must have a setup.py (Installed via <code>pip install .</code>)</li>
-                <li><code>ruby</code> -  must have a file matching *.gemspec (Installed via <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>)</li>
-                <li><code>pcre</code> - "Perl Compatible Regular Expression" Specify the regex as the <code>entry</code>.  For osx, you'll need <code>brew install grep</code></li>
-                <li><code>script</code> - A script existing inside of a repository</li>
-                <li><code>system</code> - Executables available at the system level</li>
+                <li><a href="#docker">docker</a></li>
+                <li><a href="#node">node</a></li>
+                <li><a href="#python">python</a></li>
+                <li><a href="#ruby">ruby</a></li>
+                <li><a href="#pcre">pcre</a></li>
+                <li><a href="#script">script</a></li>
+                <li><a href="#system">system</a></li>
             </ul>
 
-            For node, python, and ruby hooks: installing the package should
-            produce an executable on the path which matches the
-            <code>entry</code> in your config.
-            <ul>
-                <li><code>node</code> - provided by <code>bin</code> in package.json</li>
-                <li><code>python</code> - usually provided by <code>console_scripts</code> in setup.py</li>
-                <li><code>ruby</code> - provided by <code>executables</code> in your gemspec</li>
-            </ul>
+            <h3 id="docker">docker</h3>
+            <p>
+                <em>new in 0.10.0</em>
+            </p>
+            <p>
+                The hook repository must have a <code>Dockerfile</code>.  It
+                will be installed via <code>docker build .</code>.
+            </p>
+            <p>
+                Running Docker hooks requires a running Docker engine on your
+                host.  For configuring Docker hooks, your <code>entry</code>
+                should correspond to an executable inside the Docker
+                container, and will be used to override the default container
+                entrypoint. Your Docker <code>CMD</code> will not run when 
+                pre-commit passes a file list as arguments to the run
+                container  command. Docker allows you to use any language
+                that's not supported by pre-commit as a builtin.
+            </p
+            <p>
+                See <a href="https://github.com/pre-commit/pre-commit-docker-flake8">this repository</a>
+                for an example Docker-based hook.
+            </p>
 
-            Running Docker hooks required a running Docker engine on your host.
-            For configuring Docker hooks, your <code>entry</code> should correspond to an executable
-            inside the Docker container, and will be used to override the default container entrypoint.
-            Your Docker CMD will not run when pre-commit passes a file list as arguments to the run container
-            command. Docker allows you to use any language that's not supported by pre-commit as a builtin.
-            See <a href="https://github.com/pre-commit/pre-commit-docker-flake8">this repository</a> for an example Docker-based hook.
+            <h3 id="node">node</h3>
+            <p>
+                The hook repository must have a <code>package.json</code>.  It
+                will be installed via <code>npm install .</code>.  The
+                installed package will provide an executable that will match
+                the <code>entry</code> &ndash; usually through
+                <code>bin</code> in package.json.
+            </p>
+
+            <h3 id="python">python</h3>
+            <p>
+                The hook repository must have a <code>setup.py</code>.  It
+                will be installed via <code>pip install .</code>.  The
+                installed package will provide an executable that will match
+                the <code>entry</code> &ndash; usually through
+                <code>console_scripts</code> or <code>scripts</code> in
+                setup.py.
+            </p>
+
+            <h3 id="ruby">ruby</h3>
+            <p>
+                The hook repository must have a <code>*.gemspec</code>.  It
+                will be installed via
+                <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>.
+                The installed package will produce an executable that will
+                match the <code>entry</code> &ndash; usually through
+                <code>exectuables</code> in your gemspec.
+            </p>
+
+            <h3 id="pcre">pcre</h3>
+            <p>
+                "Perl Compatible Regular Expressions" &mdash; pcre hooks are a
+                quick way to write a simple hook which prevents commits by
+                file matching.  Specify the regex as the <code>entry</code>.
+            </p>
+            <p>
+                osx does not ship with a functioning <code>grep -P</code> so
+                you'll need <code>brew install grep</code> for pcre hooks to
+                function.
+            </p>
+
+            <h3 id="script">script</h3>
+            <p>
+                Script hooks provide a way to write simple scripts which
+                valdiate files. The <code>entry</code> should be a path 
+                relative to the root of the hook repository.
+            </p>
+            <p>
+                This hook type will not be given a virtual environment to
+                work with &ndash; if it needs additional dependencies the
+                consumer must install them manually.
+            </p>
+
+            <h3 id="system">system</h3>
+            <p>
+                System hooks provide a way to write hooks for system-level
+                executables which don't have a supported language above (or
+                have special environment requirements that don't allow them to
+                run in isolation such as pylint).
+            </p>
+            <p>
+                This hook type will not be given a virtual environment to
+                work with &ndash; if it needs additional dependencies the
+                consumer must install them manually.
+            </p>
 
 
             <h2 id="developing-hooks-interactively">Developing hooks interactively</h2>

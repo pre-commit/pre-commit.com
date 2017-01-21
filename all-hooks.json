@@ -646,7 +646,7 @@
             "name": "bandit",
             "description": "Python code vulnerabilities checker",
             "language": "python",
-            "entry": "bandit",
+            "entry": "bandit_analyzer",
             "args": [
                 "-lll",
                 "--recursive",
@@ -721,7 +721,7 @@
             "id": "python-safety-dependencies-check",
             "name": "safety",
             "description": "Analyze your Python requirements for known security vulnerabilities",
-            "entry": "safety",
+            "entry": "safety_check",
             "language": "python",
             "files": "requirements"
         }
@@ -775,7 +775,10 @@
             "description": "Validate syntax of Puppet manifests",
             "entry": "puppet-validate",
             "language": "ruby",
-            "files": "\\.pp$"
+            "files": "\\.pp$",
+            "additional_dependencies": [
+                "puppet"
+            ]
         },
         {
             "id": "erb-validate",
@@ -791,7 +794,10 @@
             "description": "Validate syntax of Puppet EPP templates",
             "entry": "epp-validate",
             "language": "ruby",
-            "files": "\\.epp$"
+            "files": "\\.epp$",
+            "additional_dependencies": [
+                "puppet"
+            ]
         },
         {
             "id": "puppet-lint",
@@ -799,7 +805,10 @@
             "description": "Check Puppet manifests for stylistic problems",
             "entry": "puppet-lint",
             "language": "ruby",
-            "files": "\\.pp$"
+            "files": "\\.pp$",
+            "additional_dependencies": [
+                "puppet-lint"
+            ]
         }
     ],
     "git://github.com/dnephin/pre-commit-golang": [
