@@ -217,7 +217,7 @@
             "files": "\\.(js|coffee)$",
             "args": [],
             "additional_dependencies": [
-                "coffeelint@1.15.7"
+                "coffeelint@1.16.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -231,7 +231,7 @@
             "files": "\\.css$",
             "args": [],
             "additional_dependencies": [
-                "csslint@0.10.0"
+                "csslint@1.0.5"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -245,7 +245,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@3.7.0"
+                "eslint@3.14.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -273,7 +273,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "jshint@2.9.3"
+                "jshint@2.9.4"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -284,7 +284,8 @@
             "name": "puppet-lint",
             "entry": "puppet-lint",
             "language": "ruby",
-            "files": "\\.pp$"
+            "files": "\\.pp$",
+            "args": []
         }
     ],
     "git://github.com/pre-commit/mirrors-pylint": [
@@ -303,7 +304,8 @@
             "name": "ruby-lint",
             "entry": "ruby-lint",
             "language": "ruby",
-            "files": "\\.rb$"
+            "files": "\\.rb$",
+            "args": []
         }
     ],
     "git://github.com/pre-commit/mirrors-scss-lint": [
