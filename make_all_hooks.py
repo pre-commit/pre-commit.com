@@ -15,10 +15,15 @@ def get_manifest_from_repo(repo_path):
     with tempfile.TemporaryDirectory() as directory:
         repo_dir = os.path.join(directory, 'repo')
         subprocess.call(('git', 'clone', repo_path, repo_dir))
-        manifest_path = os.path.join(repo_dir, 'hooks.yaml')
+        manifest_path = os.path.join(repo_dir, '.pre-commit-hooks.yaml')
+        manifest_path_legacy = os.path.join(repo_dir, 'hooks.yaml')
+        if os.path.exists(manifest_path):
+            path = manifest_path
+        else:
+            path = manifest_path_legacy
         # Validate the manifest just to make sure it's ok.
-        load_manifest(manifest_path)
-        return aspy.yaml.ordered_load(open(manifest_path))
+        load_manifest(path)
+        return aspy.yaml.ordered_load(open(path))
 
 
 def main():
