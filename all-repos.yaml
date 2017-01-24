@@ -40,4 +40,4 @@
 - git://github.com/magicmark/pre-commit-es6-imports-reorder
 - git://github.com/antonbabenko/pre-commit-terraform
 - git://github.com/willthames/ansible-lint
-- git://github.com/yakitucommunity/pre-commit-clang-format
+- git://github.com/doublify/pre-commit-clang-format
