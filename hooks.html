@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="build/main.css">
+        <link rel="icon" href="favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>pre-commit by Yelp</title>
+    </head>
+    <body class="page-hooks" data-spy="scroll" data-target=".pc-sidebar">
+        <header class="navbar navbar-default pc-nav" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".pc-navbar-collapse">
+                        <span class="sr-only">Toggle navigtaion</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand pc-navbar-brand">
+                        <i class="logo"></i>
+                    </a>
+                </div>
+                <nav class="navbar-collapse pc-navbar pc-navbar-collapse collapse" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Documentation</a></li>
+                        <li><a href="hooks.html">Supported hooks</a></li>
+                        <li><a href="https://github.com/pre-commit/demo-repo#readme">Demo</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://github.com/pre-commit/pre-commit" class="btn btn-default">Download on Github</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="top-shelf">
+            <div class="container">
+                <img class="pc-darwin hidden-xs hidden-sm" src="pre-commit-darwin.png">
+                <h1>
+                    <a href="http://github.com/pre-commit/pre-commit">
+                        pre-commit
+                        <span class="nowrap">by Yelp</span>
+                    </a>
+                </h1>
+                <p>A framework for managing and maintaining multi-language <span class="nowrap">pre-commit</span> hooks.</p>
+           <p><a href="https://travis-ci.org/pre-commit/pre-commit"><img src="https://camo.githubusercontent.com/ea0ef9a42d3a39bf0a55b3f5d7d7a6fa5254bd01/68747470733a2f2f7472617669732d63692e6f72672f7072652d636f6d6d69742f7072652d636f6d6d69742e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/pre-commit/pre-commit.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://coveralls.io/r/pre-commit/pre-commit"><img src="https://camo.githubusercontent.com/aabc8c9324e9f816adc399bc2b29ca98e781a71e/68747470733a2f2f696d672e736869656c64732e696f2f636f766572616c6c732f7072652d636f6d6d69742f7072652d636f6d6d69742e7376673f6272616e63683d6d6173746572" alt="Coverage Status" data-canonical-src="https://img.shields.io/coveralls/pre-commit/pre-commit.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://ci.appveyor.com/project/asottile/pre-commit/branch/master"><img src="https://ci.appveyor.com/api/projects/status/mmcwdlfgba4esaii/branch/master?svg=true" style="max-width:100%"></a></p>
+            <p><iframe src="http://ghbtns.com/github-btn.html?user=pre-commit&amp;repo=pre-commit&amp;type=watch&amp;count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="104px" height="20"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pre-commit.com" data-text="pre-commit - A framework for managing and maintaining multi-language pre-commit hooks.">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>   
+        </div>
+        </div>
+        <div class="container pc-main-content">
+            
+
+<div class="page-header"><h1>Supported hooks</h1></div>
+
+<p>
+To add to this list, fork <a href="https://github.com/pre-commit/pre-commit.github.io">this repository</a>.
+</p>
+
+<p>
+Also available in <a href="/all-hooks.json">json</a>.
+</p>
+
+    <h3>
+        <a href="https://github.com/pre-commit/pre-commit-hooks" target="_blank">
+            github.com/pre-commit/pre-commit-hooks
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>autopep8-wrapper</code>
+                    - Runs autopep8 over python source.  If you configure additional arguments you&#39;ll want to at least include -i.
+            </li>
+            <li>
+                <code>check-added-large-files</code>
+                    - Prevent giant files from being committed
+            </li>
+            <li>
+                <code>check-ast</code>
+                    - Simply check whether the files parse as valid python.
+            </li>
+            <li>
+                <code>check-byte-order-marker</code>
+                    - Forbid files which have a UTF-8 byte-order marker
+            </li>
+            <li>
+                <code>check-case-conflict</code>
+                    - Check for files that would conflict in case-insensitive filesystems
+            </li>
+            <li>
+                <code>check-docstring-first</code>
+                    - Checks a common error of defining a docstring after code.
+            </li>
+            <li>
+                <code>check-json</code>
+                    - This hook checks json files for parseable syntax.
+            </li>
+            <li>
+                <code>pretty-format-json</code>
+                    - This hook sets a standard for formatting JSON files.
+            </li>
+            <li>
+                <code>check-merge-conflict</code>
+                    - Check for files that contain merge conflict strings.
+            </li>
+            <li>
+                <code>check-symlinks</code>
+                    - Checks for symlinks which do not point to anything.
+            </li>
+            <li>
+                <code>check-xml</code>
+                    - This hook checks xml files for parseable syntax.
+            </li>
+            <li>
+                <code>check-yaml</code>
+                    - This hook checks yaml files for parseable syntax.
+            </li>
+            <li>
+                <code>debug-statements</code>
+                    - This hook checks that debug statements (pdb, ipdb, pudb) are not imported on commit.
+            </li>
+            <li>
+                <code>detect-aws-credentials</code>
+                    - Detects *your* aws credentials from the aws cli credentials file
+            </li>
+            <li>
+                <code>detect-private-key</code>
+                    - Detects the presence of private keys
+            </li>
+            <li>
+                <code>double-quote-string-fixer</code>
+                    - This hook replaces double quoted strings with single quoted strings
+            </li>
+            <li>
+                <code>end-of-file-fixer</code>
+                    - Ensures that a file is either empty, or ends with one newline.
+            </li>
+            <li>
+                <code>fix-encoding-pragma</code>
+                    - Add # -*- coding: utf-8 -*- to the top of python files
+            </li>
+            <li>
+                <code>flake8</code>
+                    - This hook runs flake8.
+            </li>
+            <li>
+                <code>forbid-new-submodules</code>
+                    - Prevent addition of new git submodules
+            </li>
+            <li>
+                <code>name-tests-test</code>
+                    - This verifies that test files are named correctly
+            </li>
+            <li>
+                <code>pyflakes</code>
+                    - This hook runs pyflakes. (This is deprecated, use flake8).
+            </li>
+            <li>
+                <code>requirements-txt-fixer</code>
+                    - Sorts entries in requirements.txt
+            </li>
+            <li>
+                <code>trailing-whitespace</code>
+                    - This hook trims trailing whitespace.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-autopep8" target="_blank">
+            github.com/pre-commit/mirrors-autopep8
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>autopep8</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-coffeelint" target="_blank">
+            github.com/pre-commit/mirrors-coffeelint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>coffeelint</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-csslint" target="_blank">
+            github.com/pre-commit/mirrors-csslint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>csslint</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-eslint" target="_blank">
+            github.com/pre-commit/mirrors-eslint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>eslint</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-fixmyjs" target="_blank">
+            github.com/pre-commit/mirrors-fixmyjs
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>fixmyjs</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-jshint" target="_blank">
+            github.com/pre-commit/mirrors-jshint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>jshint</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-puppet-lint" target="_blank">
+            github.com/pre-commit/mirrors-puppet-lint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>puppet-lint</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-pylint" target="_blank">
+            github.com/pre-commit/mirrors-pylint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>pylint</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-ruby-lint" target="_blank">
+            github.com/pre-commit/mirrors-ruby-lint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>ruby-lint</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-scss-lint" target="_blank">
+            github.com/pre-commit/mirrors-scss-lint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>scss-lint</code>
+                    - scss_lint
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pre-commit/mirrors-yapf" target="_blank">
+            github.com/pre-commit/mirrors-yapf
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>yapf</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/FalconSocial/pre-commit-mirrors-pep257" target="_blank">
+            github.com/FalconSocial/pre-commit-mirrors-pep257
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>pep257</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/FalconSocial/pre-commit-python-sorter" target="_blank">
+            github.com/FalconSocial/pre-commit-python-sorter
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>python-import-sorter</code>
+                    - This hook sorts python imports.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/guykisel/pre-commit-robotframework-tidy" target="_blank">
+            github.com/guykisel/pre-commit-robotframework-tidy
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>robotframework-tidy-wrapper</code>
+                    - Runs Robot Framework&#39;s tidy tool.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/guykisel/prospector-mirror" target="_blank">
+            github.com/guykisel/prospector-mirror
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>prospector</code>
+                    - This hook runs Prospector: https://github.com/landscapeio/prospector
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/asottile/reorder_python_imports" target="_blank">
+            github.com/asottile/reorder_python_imports
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>reorder-python-imports</code>
+                    - This hook reorders imports in python files.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/asottile/cheetah_lint" target="_blank">
+            github.com/asottile/cheetah_lint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>cheetah-reorder-imports</code>
+                    - This hook reorders imports in cheetah files.
+            </li>
+            <li>
+                <code>cheetah-flake</code>
+                    - Lint cheetah code using flake8 and some other checks.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/hootsuite/pre-commit-php" target="_blank">
+            github.com/hootsuite/pre-commit-php
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>php-lint-all</code>
+                    - Check PHP Syntax on ALL PHP staged files with user friendly messages and colors
+            </li>
+            <li>
+                <code>php-lint</code>
+                    - Runs php -l on all staged files. Exits when it hits the first errored file
+            </li>
+            <li>
+                <code>php-unit</code>
+                    - Run the full php unit test. Checks which PHPUnit executable is available first and then runs it. Preference order is vendor/bin, phpunit and phpunit.phar.
+            </li>
+            <li>
+                <code>php-cs</code>
+                    - Run php codesniffer against all staged files.
+            </li>
+            <li>
+                <code>php-cbf</code>
+                    - Run php codesniffer against all staged files.
+            </li>
+            <li>
+                <code>php-cs-fixer</code>
+                    - Run php coding standards fixer against all staged files.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pricematch/mirrors-rubocop" target="_blank">
+            github.com/pricematch/mirrors-rubocop
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>rubocop</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pricematch/mirrors-closure-linter" target="_blank">
+            github.com/pricematch/mirrors-closure-linter
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>closure-linter</code>
+            </li>
+            <li>
+                <code>closure-linter-fixer</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/pricematch/pricematch-pre-commit-hooks" target="_blank">
+            github.com/pricematch/pricematch-pre-commit-hooks
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>do_not_commit</code>
+                    - Block if &#34;DO NOT COMMIT&#34; is found
+            </li>
+            <li>
+                <code>ruby_timezones</code>
+                    - Force explicit usage of timezones
+            </li>
+            <li>
+                <code>ruby</code>
+                    - ruby_syntax
+            </li>
+            <li>
+                <code>safe_where_queries_in_parsing</code>
+                    - Only allowed model method is mass_insert in parsing
+            </li>
+            <li>
+                <code>no_commas_in_string_arrays</code>
+                    - Do not forget a comma in a %w() string array
+            </li>
+            <li>
+                <code>check_rails_env_with_methods</code>
+                    - Do not write &#34;Rails.env =&#34; to avoid assignment
+            </li>
+            <li>
+                <code>remove_encoding_comment</code>
+                    - Remove the encoding comment at beginning of file
+            </li>
+            <li>
+                <code>forbid_describe_only</code>
+                    - Do not forget describe.only in test files
+            </li>
+            <li>
+                <code>include_rails_helper_in_tests</code>
+                    - Start your spec files with the line `include &#39;rails_helper&#39;`
+            </li>
+            <li>
+                <code>no_puts_statements</code>
+                    - Do not leave puts statements in production code
+            </li>
+            <li>
+                <code>remove_ipython_notebook_outputs</code>
+                    - Remove ipython notebook outputs
+            </li>
+            <li>
+                <code>no_httparty</code>
+                    - Use HypertextTransfer wrapper instead of HTTParty directly
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/elidupuis/mirrors-jscs" target="_blank">
+            github.com/elidupuis/mirrors-jscs
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>jscs</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/elidupuis/mirrors-standard" target="_blank">
+            github.com/elidupuis/mirrors-standard
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>standard</code>
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>forbid-crlf</code>
+                    - Forbid files containing CRLF end-lines to be committed
+            </li>
+            <li>
+                <code>remove-crlf</code>
+                    - Replace CRLF end-lines by LF ones before committing
+            </li>
+            <li>
+                <code>forbid-tabs</code>
+                    - Forbid files containing tabs to be committed
+            </li>
+            <li>
+                <code>remove-tabs</code>
+                    - Replace tabs by whitespaces before committing
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks-bandit" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks-bandit
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>python-bandit-vulnerability-check</code>
+                    - Python code vulnerabilities checker
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks-css" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks-css
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>detect-missing-css-classes</code>
+                    - Detect unused or missing CSS classes definitions, and abort if any of the later ones is found
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks-html" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks-html
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>validate-html</code>
+                    - HTML syntax validator using W3C v.Nu checker
+            </li>
+            <li>
+                <code>htmlhint</code>
+                    - NodeJS HTML syntax linter
+            </li>
+            <li>
+                <code>htmllint</code>
+                    - NodeJS HTML syntax linter
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks-lxml" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks-lxml
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>forbid-html-img-without-alt-text</code>
+                    - List every &lt;img&gt; tag without a alt= or data-ng-attr-alt= attribute
+            </li>
+            <li>
+                <code>forbid-non-std-html-attributes</code>
+                    - Detect any non-standard attribute that is not prefixed with data-
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/Lucas-C/pre-commit-hooks-safety" target="_blank">
+            github.com/Lucas-C/pre-commit-hooks-safety
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>python-safety-dependencies-check</code>
+                    - Analyze your Python requirements for known security vulnerabilities
+            </li>
+    </ul>
+    <h3>
+        <a href="https://bitbucket.org/SamWhited/go-pre-commit.git" target="_blank">
+            https://bitbucket.org/SamWhited/go-pre-commit.git
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>gofmt</code>
+                    - Formats Go code.
+            </li>
+            <li>
+                <code>gofix</code>
+                    - Updates old Go APIs to the latest version.
+            </li>
+            <li>
+                <code>govet</code>
+                    - Vets Go code for mistakes not caught by the compiler.
+            </li>
+            <li>
+                <code>gobuild</code>
+                    - Makes sure Go code can build.
+            </li>
+            <li>
+                <code>gotest</code>
+                    - Runs tests against Go code.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/chriskuehl/puppet-pre-commit-hooks" target="_blank">
+            github.com/chriskuehl/puppet-pre-commit-hooks
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>puppet-validate</code>
+                    - Validate syntax of Puppet manifests
+            </li>
+            <li>
+                <code>erb-validate</code>
+                    - Validate syntax of Ruby ERB templates
+            </li>
+            <li>
+                <code>puppet-lint</code>
+                    - Check Puppet manifests for stylistic problems
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/dnephin/pre-commit-golang" target="_blank">
+            github.com/dnephin/pre-commit-golang
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>go-fmt</code>
+                    - Runs `gofmt`, requires golang
+            </li>
+            <li>
+                <code>go-vet</code>
+                    - Runs `go vet`, requires golang
+            </li>
+            <li>
+                <code>go-lint</code>
+                    - Runs `golint`, requires https://github.com/golang/lint
+            </li>
+            <li>
+                <code>validate-toml</code>
+                    - Runs `tomlv`, requires https://github.com/BurntSushi/toml/tree/master/cmd/tomlv
+            </li>
+            <li>
+                <code>no-go-testing</code>
+                    - Checks that no files are using `testing.T`, if you want developers to use a different testing framework
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/troian/pre-commit-golang.git" target="_blank">
+            github.com/troian/pre-commit-golang.git
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>go-fmt</code>
+                    - Runs `gofmt`, requires golang
+            </li>
+            <li>
+                <code>go-vet</code>
+                    - Runs `go vet`, requires golang
+            </li>
+            <li>
+                <code>go-lint</code>
+                    - Runs `golint`, requires https://github.com/golang/lint
+            </li>
+            <li>
+                <code>go-metalinter</code>
+                    - Runs `gometalinter`, requires https://github.com/alecthomas/gometalinter
+            </li>
+            <li>
+                <code>go-build</code>
+                    - Makes sure Go code can build
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/jordant/rubocop-pre-commit-hook" target="_blank">
+            github.com/jordant/rubocop-pre-commit-hook
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>check-rubocop</code>
+                    - This hook checks ruby files for syntax and style
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/jstewmon/check-swagger" target="_blank">
+            github.com/jstewmon/check-swagger
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>check-swagger</code>
+                    - Hook to validate swagger specs.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/detailyang/pre-commit-shell" target="_blank">
+            github.com/detailyang/pre-commit-shell
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>shell-lint</code>
+                    - Check Shell Syntax on ALL staged files with user friendly messages and colors
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/sanmai-NL/pre-commit-hooks_R" target="_blank">
+            github.com/sanmai-NL/pre-commit-hooks_R
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>lintr</code>
+                    - Lints R code with `lintr`. 
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/magicmark/pre-commit-es6-imports-reorder" target="_blank">
+            github.com/magicmark/pre-commit-es6-imports-reorder
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>reorder-es6-imports</code>
+                    - This hook reorders ES6 imports.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/antonbabenko/pre-commit-terraform" target="_blank">
+            github.com/antonbabenko/pre-commit-terraform
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>terraform_fmt</code>
+                    - Rewrites all Terraform configuration files to a canonical format.
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/willthames/ansible-lint" target="_blank">
+            github.com/willthames/ansible-lint
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>ansible-lint</code>
+                    - This hook runs ansible-lint.
+            </li>
+    </ul>
+
+        </div>
+        <footer class="pc-footer">
+            <div class="container">
+                Brought to you by <a href="http://www.yelp.com">Yelp</a>. Check out some of our other <a href="http://yelp.github.io/">open source projects</a> on <a href="https://github.com/yelp/">GitHub</a>.
+            </div>
+        </footer>
+        <script src="bower_components/jquery/jquery.min.js"></script>
+        <script src="bower_components/sass-bootstrap/dist/js/bootstrap.min.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-53969031-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>
