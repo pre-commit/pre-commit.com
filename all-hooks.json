@@ -968,14 +968,18 @@
             "files": "\\.(yaml|yml)$"
         }
     ],
-    "git://github.com/yakitucommunity/pre-commit-clang-format": [
+    "git://github.com/doublify/pre-commit-clang-format": [
         {
             "id": "clang-format",
             "name": "clang-format",
-            "description": "Format",
-            "entry": "clang-format -fallback-style=Google -i",
+            "description": "Format files with ClangFormat.",
+            "entry": "clang-format",
             "language": "system",
-            "files": "\\.(c|cpp|java|js|m|proto)$"
+            "files": "\\.(c|cc|cxx|cpp|h|hpp|hxx|java|js|m|proto)$",
+            "args": [
+                "-fallback-style=Google",
+                "-i"
+            ]
         }
     ]
 }
