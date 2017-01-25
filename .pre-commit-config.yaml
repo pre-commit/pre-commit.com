@@ -1,10 +1,10 @@
 -   repo: git@github.com:pre-commit/mirrors-scss-lint
-    sha: f840ac610d8d9d76b666062416241f2156b3f388
+    sha: v0.52.0
     hooks:
     -   id: scss-lint
         language_version: 2.1.2
 -   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: 97b88d9610bcc03982ddac33caba98bb2b751f5f
+    sha: v0.7.0
     hooks:
     -   id: trailing-whitespace
         language_version: python3.5
@@ -19,7 +19,7 @@
     -   id: flake8
         language_version: python3.5
 -   repo: https://github.com/asottile/reorder_python_imports.git
-    sha: 50e0be95e292cac913cc3c6fd44b3d6b51d104c5
+    sha: v0.3.1
     hooks:
     -   id: reorder-python-imports
         language_version: python3.5
