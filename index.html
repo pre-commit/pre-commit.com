@@ -209,7 +209,7 @@
                     <li>It must take filenames as positional arguments.</li>
                 </ul>
             </p>
-            <p>A git repo containing pre-commit plugins must contain a hooks.yaml file that tells pre-commit:</p>
+            <p>A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml file that tells pre-commit:</p>
             <table class="table table-bordered">
                 <tbody>
                     <tr>
@@ -262,21 +262,30 @@
     language: python
     files: \.(js|rb|md|py|sh|txt|yaml|yml)$
 </pre>
+
+            <p>
+                <em>new in 0.12.0</em> Prior to 0.12.0 the file was
+                <code>hooks.yaml</code>
+                (now <code>.pre-commit-hooks.yaml</code>).
+                For backwards compatibility it is suggested to provide both
+                files or suggest users use <code>pre-commit&gt;=0.12.0</code>.
+            </p>
+
             <h2 id="supported-languages">Supported languages</h2>
             <ul>
                 <li><a href="#docker">docker</a></li>
+                <li><a href="#golang">golang</a></li>
                 <li><a href="#node">node</a></li>
                 <li><a href="#python">python</a></li>
                 <li><a href="#ruby">ruby</a></li>
+                <li><a href="#swift">swift</a></li>
                 <li><a href="#pcre">pcre</a></li>
                 <li><a href="#script">script</a></li>
                 <li><a href="#system">system</a></li>
             </ul>
 
             <h3 id="docker">docker</h3>
-            <p>
-                <em>new in 0.10.0</em>
-            </p>
+            <p><em>new in 0.10.0</em></p>
             <p>
                 The hook repository must have a <code>Dockerfile</code>.  It
                 will be installed via <code>docker build .</code>.
@@ -290,10 +299,33 @@
                 pre-commit passes a file list as arguments to the run
                 container  command. Docker allows you to use any language
                 that's not supported by pre-commit as a builtin.
-            </p
+            </p>
+            <p>
+                <u>Support:</u> docker hooks are known to work on any system
+                which has a working <code>docker</code> executable.  It has
+                been tested on linux and macOS.  Hooks that are run via
+                <code>boot2docker</code> are known to be unable to make
+                modifications to files.
+            </p>
             <p>
                 See <a href="https://github.com/pre-commit/pre-commit-docker-flake8">this repository</a>
                 for an example Docker-based hook.
+            </p>
+
+            <h3 id="golang">golang</h3>
+            <p><em>new in 0.12.0</em></p>
+            <p>
+                The hook repository must contain go source code.  It will be
+                installed via <code>go get ./...</code>.  pre-commit will
+                create an isolated <code>GOPATH</code> for each hook and the
+                <code>entry</code> should match an executable which will
+                get installed into the <code>GOPATH</code>'s <code>bin</code>
+                directory.
+            </p>
+            <p>
+                <u>Support:</u> golang hooks are known to work on any system
+                which has go installed.  It has been tested on linux, macOS,
+                and windows.
             </p>
 
             <h3 id="node">node</h3>
@@ -303,6 +335,11 @@
                 installed package will provide an executable that will match
                 the <code>entry</code> &ndash; usually through
                 <code>bin</code> in package.json.
+            </p>
+            <p>
+                <u>Support:</u> node hooks work without any system-level
+                dependencies.  It has been tested on linux and macOS and
+                <em>may</em> work under cygwin.
             </p>
 
             <h3 id="python">python</h3>
@@ -314,6 +351,11 @@
                 <code>console_scripts</code> or <code>scripts</code> in
                 setup.py.
             </p>
+            <p>
+                <u>Support:</u> python hooks work without any system-level
+                depedendencies.  It has been tested on linux, macOS, windows,
+                and cygwin.
+            </p>
 
             <h3 id="ruby">ruby</h3>
             <p>
@@ -323,6 +365,25 @@
                 The installed package will produce an executable that will
                 match the <code>entry</code> &ndash; usually through
                 <code>exectuables</code> in your gemspec.
+            </p>
+            <p>
+                <u>Support:</u> ruby hooks work without any system-level
+                dependencies.  It has been tested on linux and macOS and
+                <em>may</em> work under cygwin.
+            </p>
+
+            <h3 id="swift">swift</h3>
+            <p><em>new in 0.11.0</em></p>
+            <p>
+                The hook repository must have a <code>Package.swift</code>.
+                It will be installed via <code>swift build -c release</code>.
+                The <code>entry</code> should match an executable created by
+                building the repository.
+            </p>
+            <p>
+                <u>Support:</u> swift hooks are known to work on any system
+                which has swift installed.  It has been tested on linux and
+                macOS.
             </p>
 
             <h3 id="pcre">pcre</h3>
@@ -336,6 +397,11 @@
                 you'll need <code>brew install grep</code> for pcre hooks to
                 function.
             </p>
+            <p>
+                <u>Support:</u> pcre hooks work on any system which has a
+                functioning <code>grep -P</code> (or in the case of macOS:
+                <code>ggrep -P</code>).  It has been tested on linux, macOS,
+                windows, and cygwin.
 
             <h3 id="script">script</h3>
             <p>
@@ -347,6 +413,10 @@
                 This hook type will not be given a virtual environment to
                 work with &ndash; if it needs additional dependencies the
                 consumer must install them manually.
+            </p>
+            <p>
+                <u>Support:</u> the support of script hooks depend on the
+                scripts themselves.
             </p>
 
             <h3 id="system">system</h3>
@@ -360,6 +430,10 @@
                 This hook type will not be given a virtual environment to
                 work with &ndash; if it needs additional dependencies the
                 consumer must install them manually.
+            </p>
+            <p>
+                <u>Support:</u> the support of system hooks depend on the
+                executables.
             </p>
 
 
@@ -513,7 +587,7 @@
                 <h1>Contributing</h1>
             </div>
             <p>
-                We&rsquo;re looking to grow the project and get more contributors especially to support more languages/versions. We&rsquo;d also like to get the hooks.yaml files added to popular linters without maintaining forks / mirrors.
+                We&rsquo;re looking to grow the project and get more contributors especially to support more languages/versions. We&rsquo;d also like to get the .pre-commit-hooks.yaml files added to popular linters without maintaining forks / mirrors.
             </p>
             <p>Feel free to submit Bug Reports, Pull Requests, and Feature Requests.</p>
             <P>When submitting a pull request, please enable travis-ci for your fork.</p>
