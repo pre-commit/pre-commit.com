@@ -671,16 +671,6 @@
             "files": ""
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks-css": [
-        {
-            "id": "detect-missing-css-classes",
-            "name": "Missing CSS classes checker",
-            "description": "Detect unused or missing CSS classes definitions, and abort if any of the later ones is found",
-            "entry": "detect_missing_css_classes",
-            "language": "python",
-            "files": ".*\\.(css|hbs|html)$"
-        }
-    ],
     "git://github.com/Lucas-C/pre-commit-hooks-html": [
         {
             "id": "validate-html",
@@ -688,26 +678,6 @@
             "entry": "validate_html",
             "language": "python",
             "files": ".*\\.(html|hbs)$"
-        },
-        {
-            "id": "htmlhint",
-            "name": "NodeJS HTML syntax linter",
-            "entry": "htmlhint",
-            "language": "node",
-            "files": ".*\\.(html|hbs)$",
-            "additional_dependencies": [
-                "htmlhint"
-            ]
-        },
-        {
-            "id": "htmllint",
-            "name": "NodeJS HTML syntax linter",
-            "entry": "htmllint",
-            "language": "node",
-            "files": ".*\\.(html|hbs)$",
-            "additional_dependencies": [
-                "htmllint-cli"
-            ]
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-lxml": [
@@ -730,6 +700,14 @@
                 "content,http-equiv,placeholder,role,style"
             ],
             "files": ".*\\.(html|hbs)$"
+        },
+        {
+            "id": "detect-missing-css-classes",
+            "name": "Missing CSS classes checker",
+            "description": "Detect unused or missing CSS classes definitions, and abort if any of the later ones is found",
+            "entry": "detect_missing_css_classes",
+            "language": "python",
+            "files": ".*\\.(css|hbs|html)$"
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-safety": [
