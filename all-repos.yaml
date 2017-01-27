@@ -26,7 +26,6 @@
 - git://github.com/elidupuis/mirrors-standard
 - git://github.com/Lucas-C/pre-commit-hooks
 - git://github.com/Lucas-C/pre-commit-hooks-bandit
-- git://github.com/Lucas-C/pre-commit-hooks-css
 - git://github.com/Lucas-C/pre-commit-hooks-html
 - git://github.com/Lucas-C/pre-commit-hooks-lxml
 - git://github.com/Lucas-C/pre-commit-hooks-safety
