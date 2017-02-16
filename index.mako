@@ -473,9 +473,16 @@
             <ul>
                 <li>The scripts are tightly coupled to the repository and it makes sense to distribute the hook scripts with the repository.</li>
                 <li>Hooks require state that is only present in a built artifact of your repository (such as your app's virtualenv for pylint)</li>
+                <li>The official repository for a linter doesn't have the pre-commit metadata.</li>
             </ul>
             <p>You can configure repository-local hooks by specifying the <code>repo</code> as the sentinel <code>local</code>.</p>
-            <p><code>local</code> hooks can be either <code>script</code> or <code>system</code> hooks.</p>
+            <p>
+                <em>new in 0.13.0</em> repository hooks can use any language
+                which supports <code>additional_dependencies</code> or
+                <code>pcre</code> / <code>script</code> / <code>system</code>.
+                This enables you to install things which previously would
+                require a trivial mirror repository.
+            </p>
             <p>A <code>local</code> hook must define <code>id</code>, <code>name</code>, <code>language</code>, <code>entry</code>, and <code>files</code> as specified under <a href="#new-hooks">Creating new hooks</a></p>
             <p>Here's an example configuration with a few <code>local</code> hooks:</p>
 <pre>
@@ -491,6 +498,13 @@
         entry: ./bin/check-x.sh
         language: script
         files: \.x$
+    -   id: scss-lint
+        name: scss-lint
+        entry: scss-lint
+        language: ruby
+        language_version: 2.1.5
+        files: '\.scss$'
+        additional_dependencies: ['scss_lint:0.52.0']
 </pre>
 
             <h2 id="overriding-language-version">Overriding Language Version</h2>
