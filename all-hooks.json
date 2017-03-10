@@ -365,7 +365,7 @@
             "name": "prospector",
             "description": "This hook runs Prospector: https://github.com/landscapeio/prospector",
             "entry": "prospector",
-            "language": "system",
+            "language": "python",
             "files": "\\.py$"
         }
     ],
@@ -972,6 +972,15 @@
                 "-fallback-style=Google",
                 "-i"
             ]
+        }
+    ],
+    "git://github.com/chewse/pre-commit-mirrors-pydocstyle": [
+        {
+            "id": "pydocstyle",
+            "name": "Verifying PEP257 Compliance",
+            "entry": "pydocstyle",
+            "language": "python",
+            "files": "\\.py$"
         }
     ]
 }
