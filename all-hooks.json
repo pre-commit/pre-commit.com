@@ -982,5 +982,25 @@
             "language": "python",
             "files": "\\.py$"
         }
+    ],
+    "git://github.com/kintoandar/pre-commit": [
+        {
+            "id": "terraform_fmt",
+            "name": "terraform_fmt",
+            "description": "Formats terraform scripts into the correct checkstyle",
+            "entry": "bin/tf_fmt.sh",
+            "language": "script",
+            "files": "\\.tf$",
+            "exclude": "\\.terraform\\/.*$"
+        },
+        {
+            "id": "terraform_validate",
+            "name": "terraform_validate",
+            "description": "Validates terraform scripts syntax",
+            "entry": "bin/tf_validate.sh",
+            "language": "script",
+            "files": "\\.tf$",
+            "exclude": "\\.terraform\\/.*$"
+        }
     ]
 }
