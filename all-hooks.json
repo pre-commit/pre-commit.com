@@ -369,6 +369,16 @@
             "files": "\\.py$"
         }
     ],
+    "git://github.com/asottile/pyupgrade": [
+        {
+            "id": "pyupgrade",
+            "name": "pyupgrade",
+            "description": "Automatically upgrade syntax for newer versions.",
+            "entry": "pyupgrade",
+            "language": "python",
+            "files": "\\.py$"
+        }
+    ],
     "git://github.com/asottile/reorder_python_imports": [
         {
             "id": "reorder-python-imports",
