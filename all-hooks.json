@@ -172,6 +172,14 @@
             "files": "tests/.+\\.py$"
         },
         {
+            "id": "no-commit-to-branch",
+            "name": "Don't commit to branch",
+            "entry": "no-commit-to-branch",
+            "language": "python",
+            "files": ".*",
+            "always_run": true
+        },
+        {
             "id": "pyflakes",
             "name": "Pyflakes (DEPRECATED, use flake8)",
             "description": "This hook runs pyflakes. (This is deprecated, use flake8).",
@@ -982,6 +990,24 @@
                 "-fallback-style=Google",
                 "-i"
             ]
+        }
+    ],
+    "git://github.com/doublify/pre-commit-go": [
+        {
+            "id": "fmt",
+            "name": "fmt",
+            "description": "Format files with go fmt.",
+            "entry": "go fmt",
+            "language": "system",
+            "files": "\\.go$"
+        },
+        {
+            "id": "vet",
+            "name": "vet",
+            "description": "Check files with go vet.",
+            "entry": "go vet",
+            "language": "system",
+            "files": "\\.go$"
         }
     ],
     "git://github.com/chewse/pre-commit-mirrors-pydocstyle": [
