@@ -44,3 +44,4 @@
 - git://github.com/doublify/pre-commit-clang-format
 - git://github.com/chewse/pre-commit-mirrors-pydocstyle
 - git://github.com/kintoandar/pre-commit
+- git://github.com/doublify/pre-commit-go
