@@ -8,7 +8,7 @@ import subprocess
 import tempfile
 
 import aspy.yaml
-from pre_commit.clientlib.validate_manifest import load_manifest
+from pre_commit.clientlib import load_manifest
 
 
 def get_manifest_from_repo(repo_path):

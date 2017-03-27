@@ -2,11 +2,11 @@
 
 [ "$TRAVIS_BRANCH" == "real_master" -a "$TRAVIS_PULL_REQUEST" == "false" ] || exit
 
-git clone "https://${GH_TOKEN}@${GH_REF}" out >& /dev/null
+git clone "https://${GH_TOKEN}@$github.com/${TRAVIS_REPO_SLUG}" out >& /dev/null
 cd out
 git checkout master
 git config user.name "Travis-CI"
-git config user.email "kstruys@yelp.com"
+git config user.email "user@example.com"
 # Repo
 cp ../CNAME ../.travis.yml .
 # Website

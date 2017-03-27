@@ -2,4 +2,4 @@ aspy.yaml
 mako
 libsass
 nodeenv
-pre-commit>=0.13.1
+pre-commit>=0.13.6

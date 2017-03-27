@@ -19,15 +19,16 @@ else:
 
 
 TGZ = (
-    'https://pypi.python.org/packages/source/v/virtualenv/'
-    'virtualenv-1.11.6.tar.gz'
+    'https://pypi.python.org/packages/d4/0c/'
+    '9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/'
+    'virtualenv-15.1.0.tar.gz'
 )
 PKG_PATH = '/tmp/.virtualenv-pkg'
 
 
-def clean():
-    if os.path.exists(PKG_PATH):
-        shutil.rmtree(PKG_PATH)
+def clean(dirname):
+    if os.path.exists(dirname):
+        shutil.rmtree(dirname)
 
 
 @contextlib.contextmanager
@@ -35,11 +36,12 @@ def clean_path():
     try:
         yield
     finally:
-        clean()
+        clean(PKG_PATH)
 
 
 def virtualenv(path):
-    clean()
+    clean(PKG_PATH)
+    clean(path)
 
     print('Downloading ' + TGZ)
     tar_contents = io.BytesIO(urlopen(TGZ).read())
@@ -60,15 +62,24 @@ def virtualenv(path):
 
 def main():
     venv_path = os.path.join(os.environ['HOME'], '.pre-commit-venv')
+    bin_dir = os.path.join(os.environ['HOME'], 'bin')
+    script_src = os.path.join(venv_path, 'bin', 'pre-commit')
+    script_dest = os.path.join(bin_dir, 'pre-commit')
+
+    if sys.argv[1:] == ['uninstall']:
+        clean(PKG_PATH)
+        clean(venv_path)
+        if os.path.lexists(script_dest):
+            os.remove(script_dest)
+        print('Cleaned ~/.pre-commit-venv ~/bin/pre-commit')
+        return 0
+
     virtualenv(venv_path)
 
     subprocess.check_call((
         os.path.join(venv_path, 'bin', 'pip'), 'install', 'pre-commit',
     ))
 
-    bin_dir = os.path.join(os.environ['HOME'], 'bin')
-    script_src = os.path.join(venv_path, 'bin', 'pre-commit')
-    script_dest = os.path.join(bin_dir, 'pre-commit')
     print('*' * 79)
     print('Installing pre-commit to {0}'.format(script_dest))
     print('*' * 79)
