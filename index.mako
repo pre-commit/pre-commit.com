@@ -57,7 +57,10 @@
             <p>Before you can run hooks, you need to have the pre-commit package manager installed.</p>
             <p>Using pip:</p>
             <pre>pip install pre-commit</pre>
-            <p>Non Administrative Installation:</p>
+            <p>
+                Non Administrative Installation:
+                <small><em>(To upgrade: run again, to uninstall: pass <code>uninstall</code> to python)</em></small>
+            </p>
             <pre>curl http://pre-commit.com/install-local.py | python</pre>
             <p>System Level Install:</p>
             <pre>curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit</pre>
