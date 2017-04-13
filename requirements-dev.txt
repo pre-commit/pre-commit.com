@@ -2,4 +2,5 @@ aspy.yaml
 mako
 libsass
 nodeenv
+markdown-to-presentation>=0.0.12
 pre-commit>=0.13.6

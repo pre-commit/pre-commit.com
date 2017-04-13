@@ -2,15 +2,14 @@ language: python
 python: 3.6
 install: pip install virtualenv --upgrade
 script: make
-after_success: ./push_to_gh.sh
+after_success: make push
 branches:
     except:
         - master
 env:
     global:
         # GH_TOKEN
-        - secure: nNgNYmtwXquPRuAFi/6kXOVjSYroglxuIjvZHDun5eCYikV1KgvXM1Q9Yh3CWgNmIWG1LKt76nt/5u4tLleJiZ7AbjcmLMb9dw7679jFNaDd14tIGyWyYBzrqfqxnayTNLclcfp59l0Yi3ag1i7z4J94LM+7tp8D4jr7RyLd++I=
-sudo: false
+        - secure: "YXgJlui6OJjTEDNBVW82I+/NF5ry5WC4QLAu2D2iNOtAq0tbZe2gSd/n6JCqfYgXsTlIgnVrN1qdH8582IXHFmZH2bUhRJ+skOgn9Y0vTmhz1Kl29BAzN6v0U0ikz5htAyzISr7s+MM78ShHMzzA/mnmkgVFhYXqUTwsB3/iE9Q="
 cache:
     directories:
         - $HOME/.cache/pip

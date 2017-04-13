@@ -27,6 +27,14 @@ nenv: venv
 		npm install -g bower && \
 		bower install
 
+push: venv
+	venv/bin/markdown-to-presentation push \
+		--master-branch real_master \
+		--pages-branch master \
+		.travis.yml README.md CNAME \
+		build bower_components *.html *.png favicon.ico \
+		all-hooks.json install-local.py
+
 clean:
 	rm -rf venv nenv build bower_components *.html all-hooks.json
 
