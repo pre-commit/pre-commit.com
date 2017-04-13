@@ -253,7 +253,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@3.14.0"
+                "eslint@3.18.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -517,9 +517,9 @@
             "files": "\\.(rb|rake)$"
         },
         {
-            "id": "safe_where_queries_in_parsing",
-            "name": "Only allowed model method is mass_insert in parsing",
-            "entry": "Reservation\\s*\\.(?!(mass|calendar|hotel_pms_res|set_canceled|update_from)).*",
+            "id": "restrict_methods_on_reservation_table",
+            "name": "Only allow limited methods on the Reservation model in parsing",
+            "entry": "\\bReservation\\s*\\.(?!(mass|calendar|hotel_pms_res|set_canceled|update_from)).*",
             "language": "pcre",
             "files": "\\.rb$",
             "args": [
@@ -997,17 +997,51 @@
             "id": "fmt",
             "name": "fmt",
             "description": "Format files with go fmt.",
-            "entry": "go fmt",
-            "language": "system",
+            "entry": "fmt.sh",
+            "language": "script",
             "files": "\\.go$"
         },
         {
             "id": "vet",
             "name": "vet",
             "description": "Check files with go vet.",
-            "entry": "go vet",
+            "entry": "vet.sh",
+            "language": "script",
+            "files": "\\.go$"
+        },
+        {
+            "id": "fix",
+            "name": "fix",
+            "description": "Fix files with go fix.",
+            "entry": "go fix",
             "language": "system",
             "files": "\\.go$"
+        }
+    ],
+    "git://github.com/doublify/pre-commit-hindent": [
+        {
+            "id": "hindent",
+            "name": "hindent",
+            "description": "Format files with hindent.",
+            "entry": "hindent",
+            "language": "system",
+            "files": "\\.(hs|lhs)$",
+            "args": [
+                "--sort-imports"
+            ]
+        }
+    ],
+    "git://github.com/doublify/pre-commit-rust": [
+        {
+            "id": "fmt",
+            "name": "fmt",
+            "description": "Format files with rustfmt.",
+            "entry": "rustfmt",
+            "language": "system",
+            "files": "\\.(rs|rlib)$",
+            "args": [
+                "--write-mode=overwrite"
+            ]
         }
     ],
     "git://github.com/chewse/pre-commit-mirrors-pydocstyle": [
@@ -1037,6 +1071,20 @@
             "language": "script",
             "files": "\\.tf$",
             "exclude": "\\.terraform\\/.*$"
+        }
+    ],
+    "git://github.com/awebdeveloper/pre-commit-stylelint": [
+        {
+            "id": "stylelint",
+            "name": "stylelint",
+            "entry": "stylelint",
+            "language": "node",
+            "files": "\\.(css|scss|sass)$",
+            "args": [],
+            "additional_dependencies": [
+                "stylelint@7.9.0"
+            ],
+            "minimum_pre_commit_version": "0.7.0"
         }
     ]
 }
