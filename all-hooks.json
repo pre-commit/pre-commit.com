@@ -1081,10 +1081,18 @@
             "language": "node",
             "files": "\\.(css|scss|sass)$",
             "args": [],
-            "additional_dependencies": [
-                "stylelint@7.9.0"
-            ],
             "minimum_pre_commit_version": "0.7.0"
+        }
+    ],
+    "git://github.com/awebdeveloper/pre-commit-tslint": [
+        {
+            "id": "tslint",
+            "name": "tslint",
+            "entry": "tslint",
+            "language": "node",
+            "files": "\\.(ts)$",
+            "args": [],
+            "minimum_pre_commit_version": "0.12.0"
         }
     ]
 }
