@@ -48,3 +48,4 @@
 - git://github.com/chewse/pre-commit-mirrors-pydocstyle
 - git://github.com/kintoandar/pre-commit
 - git://github.com/awebdeveloper/pre-commit-stylelint
+- git://github.com/awebdeveloper/pre-commit-tslint
