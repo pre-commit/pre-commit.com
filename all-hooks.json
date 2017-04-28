@@ -1023,12 +1023,9 @@
             "id": "hindent",
             "name": "hindent",
             "description": "Format files with hindent.",
-            "entry": "hindent",
-            "language": "system",
-            "files": "\\.(hs|lhs)$",
-            "args": [
-                "--sort-imports"
-            ]
+            "entry": "hindent.sh",
+            "language": "script",
+            "files": "\\.(hs|lhs)$"
         }
     ],
     "git://github.com/doublify/pre-commit-rust": [
@@ -1038,7 +1035,7 @@
             "description": "Format files with rustfmt.",
             "entry": "rustfmt",
             "language": "system",
-            "files": "\\.(rs|rlib)$",
+            "files": "\\.rs$",
             "args": [
                 "--write-mode=overwrite"
             ]
@@ -1092,6 +1089,19 @@
             "language": "node",
             "files": "\\.(ts)$",
             "args": [],
+            "minimum_pre_commit_version": "0.12.0"
+        }
+    ],
+    "git://github.com/awebdeveloper/pre-commit-prettier": [
+        {
+            "id": "prettier",
+            "name": "prettier",
+            "entry": "prettier",
+            "language": "node",
+            "files": "\\.(js)$",
+            "args": [
+                "--write"
+            ],
             "minimum_pre_commit_version": "0.12.0"
         }
     ]
