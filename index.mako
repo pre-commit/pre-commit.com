@@ -150,13 +150,7 @@
                 <h1>Creating new hooks</h1>
             </div>
             <p>pre-commit currently supports hooks written in JavaScript (node), Python, Ruby and system installed scripts. As long as your git repo is an installable package (gem, npm, pypi, etc.) or exposes an executable, it can be used with pre-commit. Each git repo can support as many languages/hooks as you want.</p>
-            <p>
-                An executable must satisfy the following things:
-                <ul>
-                    <li>The hook must exit nonzero on failure or modify files in the working directory (since 0.6.3).</li>
-                    <li>It must take filenames as positional arguments.</li>
-                </ul>
-            </p>
+            <p>The hook must exit nonzero on failure or modify files in the working directory (since 0.6.3).</p>
             <p>A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml file that tells pre-commit:</p>
             <table class="table table-bordered">
                 <tbody>
@@ -183,6 +177,10 @@
                     <tr>
                         <td><code>always_run</code></td>
                         <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files. <em>new in 0.7.2</em></td>
+                    </tr>
+                    <tr>
+                        <td><code>pass_filenames</code></td>
+                        <td>(optional) Default <code>true</code>.  If <code>true</code> this hook must take filenames as positional arguments. <em>new in 0.14.0</em></td>
                     </tr>
                     <tr>
                         <td><code>description</code></td>
