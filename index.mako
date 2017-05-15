@@ -243,7 +243,7 @@
                 host.  For configuring Docker hooks, your <code>entry</code>
                 should correspond to an executable inside the Docker
                 container, and will be used to override the default container
-                entrypoint. Your Docker <code>CMD</code> will not run when 
+                entrypoint. Your Docker <code>CMD</code> will not run when
                 pre-commit passes a file list as arguments to the run
                 container  command. Docker allows you to use any language
                 that's not supported by pre-commit as a builtin.
@@ -354,7 +354,7 @@
             <h3 id="script">script</h3>
             <p>
                 Script hooks provide a way to write simple scripts which
-                valdiate files. The <code>entry</code> should be a path 
+                valdiate files. The <code>entry</code> should be a path
                 relative to the root of the hook repository.
             </p>
             <p>

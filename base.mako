@@ -51,7 +51,7 @@
             <p><iframe src="http://ghbtns.com/github-btn.html?user=pre-commit&amp;repo=pre-commit&amp;type=watch&amp;count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="104px" height="20"></iframe>
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pre-commit.com" data-text="pre-commit - A framework for managing and maintaining multi-language pre-commit hooks.">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>   
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
         </div>
         </div>
         <div class="container pc-main-content">
