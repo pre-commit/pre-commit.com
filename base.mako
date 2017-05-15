@@ -30,7 +30,7 @@
                         <li><a href="https://github.com/pre-commit/demo-repo#readme">Demo</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://github.com/pre-commit/pre-commit" class="btn btn-default">Download on Github</a></li>
+                        <li><a href="https://github.com/pre-commit/pre-commit" class="btn btn-default">Download on GitHub</a></li>
                     </ul>
                 </nav>
             </div>
