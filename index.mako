@@ -352,7 +352,7 @@
             <h3 id="script">script</h3>
             <p>
                 Script hooks provide a way to write simple scripts which
-                valdiate files. The <code>entry</code> should be a path
+                validate files. The <code>entry</code> should be a path
                 relative to the root of the hook repository.
             </p>
             <p>
