@@ -253,7 +253,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@3.18.0"
+                "eslint@4.0.0-rc.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -854,7 +854,7 @@
             "entry": "tomlv",
             "files": "\\.toml$",
             "language": "system",
-            "description": "Runs `tomlv`, requires https://github.com/BurntSushi/toml/tree/master/cmd/tomlv"
+            "description": "Runs `tomlv`, requires https://github.com/BurntSushi/toml/tree/master/cmd/tomlv\"\n"
         },
         {
             "id": "no-go-testing",
@@ -862,7 +862,15 @@
             "entry": "testing\\.T",
             "files": "test_\\.go$",
             "language": "pcre",
-            "description": "Checks that no files are using `testing.T`, if you want developers to use a different testing framework"
+            "description": "Checks that no files are using `testing.T`, if you want developers to use a different testing framework\n"
+        },
+        {
+            "id": "gometalinter",
+            "name": "gometalinter",
+            "entry": "run-gometalinter.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": ""
         }
     ],
     "git://github.com/troian/pre-commit-golang.git": [
@@ -873,6 +881,14 @@
             "files": "\\.go$",
             "language": "script",
             "description": "Runs `gofmt`, requires golang"
+        },
+        {
+            "id": "go-imports",
+            "name": "go imports",
+            "entry": "run-goimports.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `goimports`, requires golang"
         },
         {
             "id": "go-vet",
@@ -962,10 +978,10 @@
             "id": "terraform_fmt",
             "name": "Terraform fmt",
             "description": "Rewrites all Terraform configuration files to a canonical format.",
-            "entry": "terrraform_fmt.sh",
+            "entry": "terraform_fmt.sh",
             "language": "script",
             "files": "\\.tf$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.+.terraform\\/.*$"
         }
     ],
     "git://github.com/willthames/ansible-lint": [

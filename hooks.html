@@ -648,11 +648,17 @@ Also available in <a href="/all-hooks.json">json</a>.
             </li>
             <li>
                 <code>validate-toml</code>
-                    - Runs `tomlv`, requires https://github.com/BurntSushi/toml/tree/master/cmd/tomlv
+                    - Runs `tomlv`, requires https://github.com/BurntSushi/toml/tree/master/cmd/tomlv&#34;
+
             </li>
             <li>
                 <code>no-go-testing</code>
                     - Checks that no files are using `testing.T`, if you want developers to use a different testing framework
+
+            </li>
+            <li>
+                <code>gometalinter</code>
+                    - 
             </li>
     </ul>
     <h3>
@@ -664,6 +670,10 @@ Also available in <a href="/all-hooks.json">json</a>.
             <li>
                 <code>go-fmt</code>
                     - Runs `gofmt`, requires golang
+            </li>
+            <li>
+                <code>go-imports</code>
+                    - Runs `goimports`, requires golang
             </li>
             <li>
                 <code>go-vet</code>
