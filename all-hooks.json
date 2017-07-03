@@ -6,10 +6,14 @@
             "description": "Runs autopep8 over python source.  If you configure additional arguments you'll want to at least include -i.",
             "entry": "autopep8-wrapper",
             "language": "python",
-            "files": "\\.py$",
+            "types": [
+                "python"
+            ],
             "args": [
                 "-i"
-            ]
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-added-large-files",
@@ -17,7 +21,8 @@
             "description": "Prevent giant files from being committed",
             "entry": "check-added-large-files",
             "language": "python",
-            "files": ""
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-ast",
@@ -25,7 +30,11 @@
             "description": "Simply check whether the files parse as valid python.",
             "entry": "check-ast",
             "language": "python",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-byte-order-marker",
@@ -33,7 +42,11 @@
             "description": "Forbid files which have a UTF-8 byte-order marker",
             "entry": "check-byte-order-marker",
             "language": "python",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-case-conflict",
@@ -41,7 +54,8 @@
             "description": "Check for files that would conflict in case-insensitive filesystems",
             "entry": "check-case-conflict",
             "language": "python",
-            "files": ""
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-docstring-first",
@@ -49,7 +63,24 @@
             "description": "Checks a common error of defining a docstring after code.",
             "entry": "check-docstring-first",
             "language": "python",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
+        },
+        {
+            "id": "check-executables-have-shebangs",
+            "name": "Check that executables have shebangs",
+            "description": "Ensures that (non-binary) executables have a shebang.",
+            "entry": "check-executables-have-shebangs",
+            "language": "python",
+            "types": [
+                "text",
+                "executable"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-json",
@@ -57,7 +88,11 @@
             "description": "This hook checks json files for parseable syntax.",
             "entry": "check-json",
             "language": "python",
-            "files": "\\.json$"
+            "types": [
+                "json"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "pretty-format-json",
@@ -65,7 +100,11 @@
             "description": "This hook sets a standard for formatting JSON files.",
             "entry": "pretty-format-json",
             "language": "python",
-            "files": "\\.json$"
+            "types": [
+                "json"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-merge-conflict",
@@ -73,7 +112,11 @@
             "description": "Check for files that contain merge conflict strings.",
             "entry": "check-merge-conflict",
             "language": "python",
-            "files": ""
+            "types": [
+                "text"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-symlinks",
@@ -81,7 +124,11 @@
             "description": "Checks for symlinks which do not point to anything.",
             "entry": "check-symlinks",
             "language": "python",
-            "files": ""
+            "types": [
+                "symlink"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-xml",
@@ -89,7 +136,11 @@
             "description": "This hook checks xml files for parseable syntax.",
             "entry": "check-xml",
             "language": "python",
-            "files": "\\.xml$"
+            "types": [
+                "xml"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "check-yaml",
@@ -97,7 +148,11 @@
             "description": "This hook checks yaml files for parseable syntax.",
             "entry": "check-yaml",
             "language": "python",
-            "files": "\\.(yaml|yml|eyaml)$"
+            "types": [
+                "yaml"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "debug-statements",
@@ -105,7 +160,11 @@
             "description": "This hook checks that debug statements (pdb, ipdb, pudb) are not imported on commit.",
             "entry": "debug-statement-hook",
             "language": "python",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "detect-aws-credentials",
@@ -113,7 +172,11 @@
             "description": "Detects *your* aws credentials from the aws cli credentials file",
             "entry": "detect-aws-credentials",
             "language": "python",
-            "files": ""
+            "types": [
+                "text"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "detect-private-key",
@@ -121,7 +184,11 @@
             "description": "Detects the presence of private keys",
             "entry": "detect-private-key",
             "language": "python",
-            "files": ""
+            "types": [
+                "text"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "double-quote-string-fixer",
@@ -129,7 +196,11 @@
             "description": "This hook replaces double quoted strings with single quoted strings",
             "entry": "double-quote-string-fixer",
             "language": "python",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "end-of-file-fixer",
@@ -137,7 +208,19 @@
             "description": "Ensures that a file is either empty, or ends with one newline.",
             "entry": "end-of-file-fixer",
             "language": "python",
-            "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|groovy|h|haml|hh|hpp|hxx|html|in|j2|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tex|tmpl|ts|txt|yaml|yml)$"
+            "types": [
+                "text"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
+        },
+        {
+            "id": "file-contents-sorter",
+            "name": "File Contents Sorter",
+            "description": "Sort the lines in specified files (defaults to alphabetical). You must provide list of target files as input in your .pre-commit-config.yaml file.",
+            "entry": "file-contents-sorter",
+            "language": "python",
+            "files": "^$"
         },
         {
             "id": "fix-encoding-pragma",
@@ -145,7 +228,11 @@
             "language": "python",
             "entry": "fix-encoding-pragma",
             "description": "Add # -*- coding: utf-8 -*- to the top of python files",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "flake8",
@@ -153,7 +240,11 @@
             "description": "This hook runs flake8.",
             "entry": "flake8",
             "language": "python",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "forbid-new-submodules",
@@ -161,7 +252,8 @@
             "language": "python",
             "entry": "forbid-new-submodules",
             "description": "Prevent addition of new git submodules",
-            "files": ""
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "name-tests-test",
@@ -176,8 +268,9 @@
             "name": "Don't commit to branch",
             "entry": "no-commit-to-branch",
             "language": "python",
-            "files": ".*",
-            "always_run": true
+            "always_run": true,
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "pyflakes",
@@ -185,7 +278,11 @@
             "description": "This hook runs pyflakes. (This is deprecated, use flake8).",
             "entry": "pyflakes",
             "language": "python",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         },
         {
             "id": "requirements-txt-fixer",
@@ -196,12 +293,24 @@
             "files": "requirements.*\\.txt$"
         },
         {
+            "id": "sort-simple-yaml",
+            "name": "Sort simple YAML files",
+            "language": "python",
+            "entry": "sort-simple-yaml",
+            "description": "Sorts simple YAML files which consist only of top-level keys, preserving comments and blocks.",
+            "files": "^$"
+        },
+        {
             "id": "trailing-whitespace",
             "name": "Trim Trailing Whitespace",
             "description": "This hook trims trailing whitespace.",
             "entry": "trailing-whitespace-fixer",
             "language": "python",
-            "files": "\\.(asciidoc|adoc|coffee|cpp|css|c|ejs|erb|groovy|h|haml|hh|hpp|hxx|html|in|j2|jade|json|js|less|markdown|md|ml|mli|pp|py|rb|rs|R|scala|scss|sh|slim|tex|tmpl|ts|txt|yaml|yml)$"
+            "types": [
+                "text"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         }
     ],
     "git://github.com/pre-commit/mirrors-autopep8": [
@@ -253,7 +362,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.0.0-rc.0"
+                "eslint@4.1.1"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -281,7 +390,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "jshint@2.9.4"
+                "jshint@2.9.5"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
