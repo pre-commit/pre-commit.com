@@ -6,7 +6,7 @@ all: install-hooks build/main.css all-hooks.json index.html hooks.html
 install-hooks: venv
 	venv/bin/pre-commit install
 
-build/main.css: nenv build scss/main.scss scss/_variables.scss
+build/main.css: venv node_modules build scss/main.scss scss/_variables.scss
 	venv/bin/sassc -s compressed scss/main.scss build/main.css
 
 all-hooks.json: venv make_all_hooks.py all-repos.yaml
@@ -20,23 +20,23 @@ venv: requirements-dev.txt Makefile
 	virtualenv venv -ppython3.6
 	venv/bin/pip install -r requirements-dev.txt
 
-nenv: venv
-	rm -rf nenv
-	venv/bin/nodeenv nenv --prebuilt && \
-		. nenv/bin/activate && \
-		npm install -g bower && \
-		bower install
+node_modules: package.json
+	( \
+		npm install && \
+		npm prune && \
+		touch $@ \
+	) || touch $@ --reference $^ --date '1 day ago'
 
 push: venv
 	venv/bin/markdown-to-presentation push \
 		--master-branch real_master \
 		--pages-branch master \
 		.travis.yml README.md CNAME \
-		build bower_components *.html *.png favicon.ico \
+		build node_modules *.html *.png favicon.ico \
 		all-hooks.json install-local.py
 
 clean:
-	rm -rf venv nenv build bower_components *.html all-hooks.json
+	rm -rf venv build node_modules *.html all-hooks.json
 
 build:
 	mkdir -p build

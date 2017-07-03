@@ -62,8 +62,8 @@
                 Brought to you by <a href="http://www.yelp.com">Yelp</a>. Check out some of our other <a href="http://yelp.github.io/">open source projects</a> on <a href="https://github.com/yelp/">GitHub</a>.
             </div>
         </footer>
-        <script src="bower_components/jquery/jquery.min.js"></script>
-        <script src="bower_components/sass-bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
