@@ -6,7 +6,6 @@
 .project
 .pydevproject
 /all-hooks.json
-/bower_components
+/node_modules
 /build
-/nenv
 /venv
