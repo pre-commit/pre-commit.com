@@ -154,6 +154,14 @@
                         <td>(optional) File exclude pattern.</td>
                     </tr>
                     <tr>
+                        <td><code>types</code></td>
+                        <td>(optional) Override the default file types to run on.  See <a href="#filtering-files-with-types">Filtering files with types</a>.  <em>new in 0.15.0</em></td>
+                    </tr>
+                    <tr>
+                        <td><code>exclude_types</code></td>
+                        <td>(optional) File types exclude.  <em>new in 0.15.0</em></td>
+                    </tr>
+                    <tr>
                         <td><code>args</code></td>
                         <td>(optional) additional parameters to pass to the hook.</td>
                     </tr>
@@ -174,7 +182,7 @@
             <p>For example:</p>
 <pre>
 -   repo: git://github.com/pre-commit/pre-commit-hooks
-    sha: v0.4.2
+    sha: v0.9.1
     hooks:
     -   id: trailing-whitespace
 </pre>
@@ -222,12 +230,23 @@
                         <td>The entry point - The executable to run</td>
                     </tr>
                     <tr>
-                        <td><code>files</code></td>
-                        <td>The pattern of files to run on.</td>
-                    </tr>
-                    <tr>
                         <td><code>language</code></td>
                         <td>The language of the hook - tells pre-commit how to install the hook.</td>
+                    </tr>
+                    <tr>
+                        <td><code>files</code></td>
+                        <td>(optional) Default <code>''</code>.  The pattern of files to run on.  <em>new in 0.15.0: now optional</em></td>
+                    </tr>
+                    <tr>
+                        <td><code>exclude</code></td>
+                        <td>(optional) Default <code>^$</code>.  Exclude files that were matched by <code>files</code>.</td>
+                    <tr>
+                        <td><code>types</code></td>
+                        <td>(optional) Default <code>[file]</code>.  List of file types to run on.  See <a href="#filtering-files-with-types">Filtering files with types</a>.  <em>new in 0.15.0</em></td>
+                    </tr>
+                    <tr>
+                        <td><code>exclude_types</code></td>
+                        <td>(optional) Default <code>[]</code>.  Exclude files that were matched by <code>types</code>.  <em>new in 0.15.0</em></td>
                     </tr>
                     <tr>
                         <td><code>always_run</code></td>
@@ -261,7 +280,7 @@
     description: This hook trims trailing whitespace.
     entry: trailing-whitespace-fixer
     language: python
-    files: \.(js|rb|md|py|sh|txt|yaml|yml)$
+    types: [text]
 </pre>
 
             <p>
@@ -448,7 +467,7 @@
                 <code>pre-commit autoupdate</code> to synchronize changes.
 <pre>
 -   repo: /home/asottile/workspace/pre-commit-hooks
-    sha: v0.4.2
+    sha: v0.9.1
     hooks:
     -   id: trailing-whitespace
 </pre>
@@ -499,7 +518,7 @@
             <p>Sometimes hooks require arguments to run correctly. You can pass static arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code> as follows:</p>
 <pre>
 -   repo: git://github.com/pre-commit/pre-commit-hooks
-    sha: v0.4.2
+    sha: v0.9.1
     hooks:
     -   id: flake8
         args: [--max-line-length=131]
@@ -548,7 +567,7 @@
         name: pylint
         entry: python -m pylint.__main__
         language: system
-        files: \.py$
+        types: [python]
     -   id: check-x
         name: Check X
         entry: ./bin/check-x.sh
@@ -559,9 +578,102 @@
         entry: scss-lint
         language: ruby
         language_version: 2.1.5
-        files: '\.scss$'
+        types: [scss]
         additional_dependencies: ['scss_lint:0.52.0']
 </pre>
+
+            <h2 id="filtering-files-with-types">Filtering files with types</h2>
+
+            <p><em>new in 0.15.0</em></p>
+
+            <p>
+                Filtering with <code>types</code> provides several benefits
+                over traditional filtering with <code>files</code>.
+
+                <ul>
+                    <li>no error-prone regular expressions</li>
+                    <li>files can be matched by their shebang (even when extensionless)</li>
+                    <li>symlinks / submodules can be easily ignored</li>
+                </ul>
+            </p>
+
+            <p>
+                <code>types</code> is specified per hook as an array of tags.
+                The tags are discovered through a set of heuristics by the
+                <a href="https://github.com/chriskuehl/identify">identify</a>
+                library.  <code>identify</code> was chosen as it is a small
+                portable pure python library.
+            </p>
+
+            <p>
+                Some of the common tags you'll find from identify:
+
+                <ul>
+                    <li><code>file</code><li>
+                    <li><code>symlink</code></li>
+                    <li><code>directory</code> - in the context of pre-commit this will be a submodule</li>
+                    <li><code>executable</code> - whether the file has the executable bit set</li>
+                    <li><code>text</code> - whether the file looks like a text file</li>
+                    <li><code>binary</code> - whether the file looks like a binary file</li>
+                    <li><a href="https://github.com/chriskuehl/identify/blob/master/identify/extensions.py">tags by extension / naming convention</a></li>
+                    <li><a href="https://github.com/chriskuehl/identify/blob/master/identify/interpreters.py">tags by shebang (<code>#!</code>)</a></li>
+                </ul>
+            </p>
+
+            <p>
+                To discovery the type of any file on disk, you can use
+                <code>identify</code>'s cli:
+
+<pre>
+$ identify-cli setup.py
+["file", "non-executable", "python", "text"]
+$ identify-cli some-random-file
+["file", "non-executable", "text"]
+$ identify-cli --filename-only some-random-file; echo $?
+1
+</pre>
+            </p>
+
+            <p>
+                If a file extension you use is not supported, please
+                <a href="https://github.com/chriskuehl/identify">submit a pull request</a>!
+            </p>
+
+            <p>
+                <code>types</code> and <code>files</code> are evaluated with
+                <code>AND</code> when filtering.  Tags within
+                <code>types</code> are also evaluated using <code>AND</code>.
+            </p>
+
+            <p>
+                For example:
+
+<pre>
+    files: ^foo/
+    types: [file, python]
+</pre>
+
+                will match a file <code>foo/1.py</code> but will not match
+                <code>setup.py</code>.
+            </p>
+
+            <p>
+                Files can also be matched by shebang.  With
+                <code>types: python</code>, <code>exe</code> starting with
+                <code>#!/usr/bin/env python3</code> will also be matched.
+            </p>
+
+            <p>
+                As with <code>files</code> and <code>exclude</code>, you can
+                also exclude types if necessary using
+                <code>exclude_types</code>.
+            </p>
+
+            <p>
+                If you'd like to use <code>types</code> with compatibility for
+                older versions
+                <a href="https://github.com/pre-commit/pre-commit/pull/551#issuecomment-312535540">here is a guide to ensuring compatibility</a>.
+            </p>
 
             <h2 id="overriding-language-version">Overriding Language Version</h2>
             <p>Sometimes you only want to run the hooks on a specific version of the language. For each language, they default to using the system installed language (So for example if I&rsquo;m running <code>python2.6</code> and a hook specifies <code>python</code>, pre-commit will run the hook using <code>python2.6</code>). Sometimes you don&rsquo;t want the default system installed version so you can override this on a per-hook basis by setting the <code>language_version</code>.</p>

@@ -493,7 +493,11 @@
             "description": "Automatically upgrade syntax for newer versions.",
             "entry": "pyupgrade",
             "language": "python",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         }
     ],
     "git://github.com/asottile/reorder_python_imports": [
@@ -503,7 +507,11 @@
             "description": "This hook reorders imports in python files.",
             "entry": "reorder-python-imports",
             "language": "python",
-            "files": "\\.py$"
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         }
     ],
     "git://github.com/asottile/cheetah_lint": [
