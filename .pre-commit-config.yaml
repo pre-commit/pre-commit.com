@@ -1,5 +1,5 @@
 -   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: v0.7.0
+    sha: v0.9.1
     hooks:
     -   id: trailing-whitespace
         language_version: python3.5
@@ -14,7 +14,7 @@
     -   id: flake8
         language_version: python3.5
 -   repo: https://github.com/asottile/reorder_python_imports.git
-    sha: v0.3.1
+    sha: v0.3.4
     hooks:
     -   id: reorder-python-imports
         language_version: python3.5
@@ -23,7 +23,7 @@
     -   id: scss-lint
         name: scss-lint
         entry: scss-lint
-        files: '\.scss$'
+        types: [scss]
         language: ruby
         language_version: 2.1.5
         additional_dependencies: ['scss_lint:0.52.0']
