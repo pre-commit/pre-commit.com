@@ -50,3 +50,4 @@
 - git://github.com/awebdeveloper/pre-commit-stylelint
 - git://github.com/awebdeveloper/pre-commit-tslint
 - git://github.com/awebdeveloper/pre-commit-prettier
+- git://github.com/prettier/prettier
