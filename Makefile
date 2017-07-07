@@ -31,7 +31,7 @@ push: venv
 	venv/bin/markdown-to-presentation push \
 		--master-branch real_master \
 		--pages-branch master \
-		.travis.yml README.md CNAME \
+		.nojekyll .travis.yml README.md CNAME \
 		build node_modules *.html *.png favicon.ico \
 		all-hooks.json install-local.py
 
