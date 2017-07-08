@@ -59,7 +59,7 @@ h1,
         position: relative;
     }
 
-    .pc-darwin {
+    .pc-logo-top-shelf {
         float: right;
         margin: -30px 20px 0 40px;
     }
@@ -67,10 +67,6 @@ h1,
     h1 {
         font-weight: bold;
         margin: 40px 0 20px;
-
-        span {
-            font-weight: normal;
-        }
 
         a {
             color: $pc-yellow;
