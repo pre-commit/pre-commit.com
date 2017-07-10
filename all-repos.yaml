@@ -15,6 +15,7 @@
 - git://github.com/FalconSocial/pre-commit-python-sorter
 - git://github.com/guykisel/pre-commit-robotframework-tidy
 - git://github.com/guykisel/prospector-mirror
+- git://github.com/asottile/add-trailing-comma
 - git://github.com/asottile/pyupgrade
 - git://github.com/asottile/reorder_python_imports
 - git://github.com/asottile/cheetah_lint
