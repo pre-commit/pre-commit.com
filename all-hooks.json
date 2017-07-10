@@ -486,6 +486,18 @@
             "files": "\\.py$"
         }
     ],
+    "git://github.com/asottile/add-trailing-comma": [
+        {
+            "id": "add-trailing-comma",
+            "name": "Add trailing commas",
+            "description": "Automatically add trailing commas to calls and literals.",
+            "entry": "add-trailing-comma",
+            "language": "python",
+            "types": [
+                "python"
+            ]
+        }
+    ],
     "git://github.com/asottile/pyupgrade": [
         {
             "id": "pyupgrade",
