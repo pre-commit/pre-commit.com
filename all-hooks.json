@@ -362,7 +362,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.1.1"
+                "eslint@4.2.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -1258,6 +1258,19 @@
             "language": "node",
             "types": [
                 "javascript"
+            ]
+        }
+    ],
+    "git://github.com/adrienverge/yamllint.git": [
+        {
+            "id": "yamllint",
+            "name": "yamllint",
+            "description": "This hook runs yamllint.",
+            "entry": "yamllint",
+            "language": "python",
+            "types": [
+                "file",
+                "yaml"
             ]
         }
     ]
