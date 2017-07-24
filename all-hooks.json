@@ -261,7 +261,7 @@
             "description": "This verifies that test files are named correctly",
             "entry": "name-tests-test",
             "language": "python",
-            "files": "tests/.+\\.py$"
+            "files": "^tests/.+\\.py$"
         },
         {
             "id": "no-commit-to-branch",
@@ -362,7 +362,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.2.0"
+                "eslint@4.3.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }

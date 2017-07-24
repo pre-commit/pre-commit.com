@@ -172,7 +172,7 @@
                     </tr>
                     <tr>
                         <td><code>stages</code></td>
-                        <td>(optional) Confines the hook to the <code>commit</code> or <code>push</code> stage. See <a href="#confining-hooks-to-run-at-certain-stages">Advanced Features: "Confining Hooks To Run At A Certain Stage"</a>.</td>
+                        <td>(optional) Confines the hook to the <code>commit</code>, <code>push</code>, or <code>commit-msg</code> stage. See <a href="#confining-hooks-to-run-at-certain-stages">Advanced Features: "Confining Hooks To Run At A Certain Stage"</a>.</td>
                     </tr>
                     <tr>
                         <td><code>additional_dependencies</code></td>
@@ -516,8 +516,22 @@
             <h2 id="pre-commit-during-push">pre-commit during push</h2>
             <p>As of version 0.3.5, pre-commit can be used to manage <code>pre-push</code> hooks.  Simply <code>pre-commit install --hook-type pre-push</code>.</p>
 
+            <h2 id="pre-commit-for-commit-messages">pre-commit for commit messages</h2>
+            <p>
+                <em>new in 0.15.4</em> pre-commit can be used to manage
+                <code>commit-msg</code> hooks.  Simply <code>pre-commit install --hook-type commit-msg</code>.
+            </p>
+            <p>
+                <code>commit-msg</code> hooks can be configured by setting
+                <code>stages: [commit-msg]</code>.  <code>commit-msg</code>
+                hooks will be passed a single filename -- this file contains
+                the current contents of the commit message which can be
+                validated.  If a hook exits nonzero, the commit will be
+                aborted.
+            </p>
+
             <h2 id="confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</h2>
-            <p>If pre-commit during push has been installed, then all hooks (by default) will be run during the <code>push</code> stage. Hooks can however be confined to a stage by setting the <code>stages</code> property in your <code>.pre-commit-config.yaml</code>. The <code>stages</code> property is an array and can be set to either <code>[commit]</code>, <code>[push]</code> or <code>[commit, push]</code>.</p>
+            <p>If pre-commit during push has been installed, then all hooks (by default) will be run during the <code>push</code> stage. Hooks can however be confined to a stage by setting the <code>stages</code> property in your <code>.pre-commit-config.yaml</code>. The <code>stages</code> property is an array and can contain any of <code>commit</code>, <code>push</code>, and <code>commit-msg</code>.</p>
 
             <h2 id="passing-arguments-to-hooks">Passing arguments to hooks</h2>
             <p>Sometimes hooks require arguments to run correctly. You can pass static arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code> as follows:</p>
