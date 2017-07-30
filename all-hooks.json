@@ -818,6 +818,18 @@
             "files": ""
         }
     ],
+    "git://github.com/Lucas-C/pre-commit-hooks-go": [
+        {
+            "id": "checkmake",
+            "name": "Makefile linter/analyzer",
+            "entry": "checkmake",
+            "language": "golang",
+            "additional_dependencies": [
+                "github.com/mrtazz/checkmake"
+            ],
+            "files": "Makefile"
+        }
+    ],
     "git://github.com/Lucas-C/pre-commit-hooks-html": [
         {
             "id": "validate-html",
@@ -855,6 +867,21 @@
             "entry": "detect_missing_css_classes",
             "language": "python",
             "files": ".*\\.(css|hbs|html)$"
+        }
+    ],
+    "git://github.com/Lucas-C/pre-commit-hooks-nodejs": [
+        {
+            "id": "dockerfile_lint",
+            "name": "Dockerfile linter",
+            "entry": "dockerfile_lint",
+            "args": [
+                "-f"
+            ],
+            "language": "node",
+            "additional_dependencies": [
+                "dockerfile_lint@0.2.7"
+            ],
+            "files": "Dockerfile.*"
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-safety": [
