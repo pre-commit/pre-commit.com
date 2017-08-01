@@ -261,7 +261,7 @@
             "description": "This verifies that test files are named correctly",
             "entry": "name-tests-test",
             "language": "python",
-            "files": "^tests/.+\\.py$"
+            "files": "(^|/)tests/.+\\.py$"
         },
         {
             "id": "no-commit-to-branch",
@@ -466,16 +466,6 @@
             "files": "\\.py$"
         }
     ],
-    "git://github.com/guykisel/pre-commit-robotframework-tidy": [
-        {
-            "id": "robotframework-tidy-wrapper",
-            "name": "robotframework tidy wrapper",
-            "description": "Runs Robot Framework's tidy tool.",
-            "entry": "python-robotframework-tidy",
-            "language": "python",
-            "files": "\\.robot$"
-        }
-    ],
     "git://github.com/guykisel/prospector-mirror": [
         {
             "id": "prospector",
@@ -544,59 +534,6 @@
             "files": "\\.tmpl$"
         }
     ],
-    "git://github.com/hootsuite/pre-commit-php": [
-        {
-            "id": "php-lint-all",
-            "name": "PHP Syntax Check (Comprehensive)",
-            "description": "Check PHP Syntax on ALL PHP staged files with user friendly messages and colors",
-            "entry": "pre_commit_hooks/php-lint.sh",
-            "language": "script",
-            "files": "\\.php$",
-            "args": [
-                "-s all"
-            ]
-        },
-        {
-            "id": "php-lint",
-            "name": "PHP Syntax Check (Quick)",
-            "description": "Runs php -l on all staged files. Exits when it hits the first errored file",
-            "entry": "php -l",
-            "language": "system",
-            "files": "\\.php$"
-        },
-        {
-            "id": "php-unit",
-            "name": "PHP Unit",
-            "description": "Run the full php unit test. Checks which PHPUnit executable is available first and then runs it. Preference order is vendor/bin, phpunit and phpunit.phar.",
-            "entry": "pre_commit_hooks/php-unit.sh",
-            "language": "script",
-            "files": "\\.php$"
-        },
-        {
-            "id": "php-cs",
-            "name": "PHP Codesniffer",
-            "description": "Run php codesniffer against all staged files.",
-            "entry": "pre_commit_hooks/php-cs.sh",
-            "language": "script",
-            "files": "\\.php$"
-        },
-        {
-            "id": "php-cbf",
-            "name": "PHP Codesniffer (Code Beutifier and Formatter)",
-            "description": "Run php codesniffer against all staged files.",
-            "entry": "pre_commit_hooks/php-cbf.sh",
-            "language": "script",
-            "files": "\\.php$"
-        },
-        {
-            "id": "php-cs-fixer",
-            "name": "PHP Coding Standards Fixer",
-            "description": "Run php coding standards fixer against all staged files.",
-            "entry": "pre_commit_hooks/php-cs-fixer.sh",
-            "language": "script",
-            "files": "\\.php$"
-        }
-    ],
     "git://github.com/pricematch/mirrors-rubocop": [
         {
             "id": "rubocop",
@@ -605,22 +542,6 @@
             "language": "ruby",
             "files": "\\.(rb|rake)$",
             "args": []
-        }
-    ],
-    "git://github.com/pricematch/mirrors-closure-linter": [
-        {
-            "id": "closure-linter",
-            "name": "closure-linter",
-            "entry": "gjslint",
-            "language": "python",
-            "files": "\\.js$"
-        },
-        {
-            "id": "closure-linter-fixer",
-            "name": "closure-linter-fixer",
-            "entry": "fixjsstyle",
-            "language": "python",
-            "files": "\\.js$"
         }
     ],
     "git://github.com/pricematch/pricematch-pre-commit-hooks": [
@@ -745,20 +666,6 @@
             "args": [],
             "additional_dependencies": [
                 "sass-lint@1.10.2"
-            ],
-            "minimum_pre_commit_version": "0.7.0"
-        }
-    ],
-    "git://github.com/elidupuis/mirrors-standard": [
-        {
-            "id": "standard",
-            "name": "standard",
-            "entry": "standard",
-            "language": "node",
-            "files": "\\.(js|jsx)$",
-            "args": [],
-            "additional_dependencies": [
-                "standard@5.4.1"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -1079,16 +986,6 @@
             "files": "\\.go$"
         }
     ],
-    "git://github.com/jordant/rubocop-pre-commit-hook": [
-        {
-            "id": "check-rubocop",
-            "name": "Check Rubocop",
-            "description": "This hook checks ruby files for syntax and style",
-            "entry": "check-rubocop",
-            "language": "python",
-            "files": "\\.rb$"
-        }
-    ],
     "git://github.com/jstewmon/check-swagger": [
         {
             "id": "check-swagger",
@@ -1107,26 +1004,6 @@
             "entry": "pre_commit_hooks/shell-lint.sh",
             "language": "script",
             "files": "(\\.sh|\\.zsh|\\.ksh)$"
-        }
-    ],
-    "git://github.com/sanmai-NL/pre-commit-hooks_R": [
-        {
-            "id": "lintr",
-            "name": "lintr",
-            "entry": "bin/run_lintr_on_file.R",
-            "files": "\\.R$",
-            "language": "script",
-            "description": "Lints R code with `lintr`. "
-        }
-    ],
-    "git://github.com/magicmark/pre-commit-es6-imports-reorder": [
-        {
-            "id": "reorder-es6-imports",
-            "name": "Reorder ES6 Imports",
-            "description": "This hook reorders ES6 imports.",
-            "entry": "js-reorder-es6-imports",
-            "language": "node",
-            "files": "\\.js$"
         }
     ],
     "git://github.com/antonbabenko/pre-commit-terraform": [
