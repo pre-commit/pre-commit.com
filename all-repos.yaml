@@ -13,19 +13,23 @@
 - git://github.com/pre-commit/mirrors-yapf
 - git://github.com/FalconSocial/pre-commit-mirrors-pep257
 - git://github.com/FalconSocial/pre-commit-python-sorter
-- git://github.com/guykisel/pre-commit-robotframework-tidy
+# https://github.com/guykisel/pre-commit-robotframework-tidy/issues/1
+# - git://github.com/guykisel/pre-commit-robotframework-tidy
 - git://github.com/guykisel/prospector-mirror
 - git://github.com/asottile/add-trailing-comma
 - git://github.com/asottile/pyupgrade
 - git://github.com/asottile/reorder_python_imports
 - git://github.com/asottile/cheetah_lint
-- git://github.com/hootsuite/pre-commit-php
+# https://github.com/hootsuite/pre-commit-php/issues/16
+# - git://github.com/hootsuite/pre-commit-php
 - git://github.com/pricematch/mirrors-rubocop
-- git://github.com/pricematch/mirrors-closure-linter
+# https://github.com/pricematch/mirrors-closure-linter/issues/1
+# - git://github.com/pricematch/mirrors-closure-linter
 - git://github.com/pricematch/pricematch-pre-commit-hooks
 - git://github.com/elidupuis/mirrors-jscs
 - git://github.com/elidupuis/mirrors-sass-lint
-- git://github.com/elidupuis/mirrors-standard
+# https://github.com/elidupuis/mirrors-standard/issues/2
+# - git://github.com/elidupuis/mirrors-standard
 - git://github.com/Lucas-C/pre-commit-hooks
 - git://github.com/Lucas-C/pre-commit-hooks-bandit
 - git://github.com/Lucas-C/pre-commit-hooks-go
@@ -37,11 +41,14 @@
 - git://github.com/chriskuehl/puppet-pre-commit-hooks
 - git://github.com/dnephin/pre-commit-golang
 - git://github.com/troian/pre-commit-golang.git
-- git://github.com/jordant/rubocop-pre-commit-hook
+# https://github.com/jordant/rubocop-pre-commit-hook/issues/4
+# - git://github.com/jordant/rubocop-pre-commit-hook
 - git://github.com/jstewmon/check-swagger
 - git://github.com/detailyang/pre-commit-shell
-- git://github.com/sanmai-NL/pre-commit-hooks_R
-- git://github.com/magicmark/pre-commit-es6-imports-reorder
+# https://github.com/sanmai-NL/pre-commit-hooks_R/issues/1
+# - git://github.com/sanmai-NL/pre-commit-hooks_R
+# https://github.com/magicmark/pre-commit-es6-imports-reorder/issues/1
+# - git://github.com/magicmark/pre-commit-es6-imports-reorder
 - git://github.com/antonbabenko/pre-commit-terraform
 - git://github.com/willthames/ansible-lint
 - git://github.com/doublify/pre-commit-clang-format

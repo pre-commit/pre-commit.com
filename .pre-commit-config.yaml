@@ -2,22 +2,15 @@
     sha: v0.9.1
     hooks:
     -   id: trailing-whitespace
-        language_version: python3.5
     -   id: end-of-file-fixer
-        language_version: python3.5
     -   id: autopep8-wrapper
-        language_version: python3.5
     -   id: check-yaml
-        language_version: python3.5
     -   id: debug-statements
-        language_version: python3.5
     -   id: flake8
-        language_version: python3.5
 -   repo: https://github.com/asottile/reorder_python_imports.git
     sha: v0.3.4
     hooks:
     -   id: reorder-python-imports
-        language_version: python3.5
 -   repo: local
     hooks:
     -   id: scss-lint
