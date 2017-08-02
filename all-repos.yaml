@@ -23,8 +23,7 @@
 # https://github.com/hootsuite/pre-commit-php/issues/16
 # - git://github.com/hootsuite/pre-commit-php
 - git://github.com/pricematch/mirrors-rubocop
-# https://github.com/pricematch/mirrors-closure-linter/issues/1
-# - git://github.com/pricematch/mirrors-closure-linter
+- git://github.com/pricematch/mirrors-closure-linter
 - git://github.com/pricematch/pricematch-pre-commit-hooks
 - git://github.com/elidupuis/mirrors-jscs
 - git://github.com/elidupuis/mirrors-sass-lint
