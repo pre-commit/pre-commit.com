@@ -644,10 +644,10 @@ $ identify-cli --filename-only some-random-file; echo $?
             <p>Sometimes you only want to run the hooks on a specific version of the language. For each language, they default to using the system installed language (So for example if I&rsquo;m running <code>python2.6</code> and a hook specifies <code>python</code>, pre-commit will run the hook using <code>python2.6</code>). Sometimes you don&rsquo;t want the default system installed version so you can override this on a per-hook basis by setting the <code>language_version</code>.</p>
 <pre>
 -   repo: git://github.com/pre-commit/mirrors-scss-lint
-    sha: v0.43.2
+    sha: v0.54.0
     hooks:
     -   id: scss-lint
-        language_version: 1.9.3-p484
+        language_version: 2.1.5
 </pre>
             <p>This tells pre-commit to use <code>1.9.3-p484</code> to run the <code>scss-lint</code> hook.</p>
             <p>Valid values for specific languages are listed below:</p>
