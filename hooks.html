@@ -557,7 +557,15 @@ Also available in <a href="/all-hooks.json">json</a>.
     <ul>
             <li>
                 <code>validate-html</code>
-                    - HTML syntax validator using W3C v.Nu checker
+                    - HTML syntax validator using W3C v.Nu checker, with support for handlebars/jinja2 templates
+            </li>
+            <li>
+                <code>htmlhint</code>
+                    - NodeJS HTML syntax linter (htmlhint)
+            </li>
+            <li>
+                <code>htmllint</code>
+                    - NodeJS HTML syntax linter (htmllint)
             </li>
     </ul>
     <h3>
@@ -588,6 +596,10 @@ Also available in <a href="/all-hooks.json">json</a>.
             <li>
                 <code>dockerfile_lint</code>
                     - Dockerfile linter
+            </li>
+            <li>
+                <code>markdown-toc</code>
+                    - Insert a table of contents in Markdown files, like a README.md
             </li>
     </ul>
     <h3>
@@ -897,9 +909,9 @@ Also available in <a href="/all-hooks.json">json</a>.
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-53969031-1', 'auto');
+            ga('create', 'UA-104682927-1', 'auto');
             ga('send', 'pageview');
         </script>
     </body>

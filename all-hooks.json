@@ -362,7 +362,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.3.0"
+                "eslint@4.4.1"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -809,10 +809,30 @@
     "git://github.com/Lucas-C/pre-commit-hooks-html": [
         {
             "id": "validate-html",
-            "name": "HTML syntax validator using W3C v.Nu checker",
+            "name": "HTML syntax validator using W3C v.Nu checker, with support for handlebars/jinja2 templates",
             "entry": "validate_html",
             "language": "python",
             "files": ".*\\.(html|hbs)$"
+        },
+        {
+            "id": "htmlhint",
+            "name": "NodeJS HTML syntax linter (htmlhint)",
+            "entry": "htmlhint",
+            "language": "node",
+            "files": ".*\\.(html|hbs)$",
+            "additional_dependencies": [
+                "htmlhint"
+            ]
+        },
+        {
+            "id": "htmllint",
+            "name": "NodeJS HTML syntax linter (htmllint)",
+            "entry": "htmllint",
+            "language": "node",
+            "files": ".*\\.(html|hbs)$",
+            "additional_dependencies": [
+                "htmllint-cli"
+            ]
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-lxml": [
@@ -855,9 +875,22 @@
             ],
             "language": "node",
             "additional_dependencies": [
-                "dockerfile_lint@0.2.7"
+                "dockerfile_lint"
             ],
             "files": "Dockerfile.*"
+        },
+        {
+            "id": "markdown-toc",
+            "name": "Insert a table of contents in Markdown files, like a README.md",
+            "entry": "markdown-toc",
+            "args": [
+                "-i"
+            ],
+            "language": "node",
+            "additional_dependencies": [
+                "markdown-toc"
+            ],
+            "files": "^README.md$"
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-safety": [
