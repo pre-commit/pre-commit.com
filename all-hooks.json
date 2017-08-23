@@ -777,6 +777,14 @@
             ],
             "files": "",
             "exclude": "(Makefile|debian/rules)(\\.in)?$"
+        },
+        {
+            "id": "insert-license",
+            "name": "Insert license in comments",
+            "description": "Insert a short license disclaimer as a header comment in source files",
+            "entry": "insert_license",
+            "language": "python",
+            "files": ".*/.*"
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-bandit": [
