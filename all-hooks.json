@@ -362,7 +362,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.4.1"
+                "eslint@4.5.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -376,7 +376,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "fixmyjs@1.0.3"
+                "fixmyjs@2.0.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
