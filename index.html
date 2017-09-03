@@ -351,7 +351,7 @@
             </p>
             <p>
                 The <code>entry</code> specifies the docker tag to use.  If
-                an image has a <code>ENTRYPOINT</code> defined, nothing
+                an image has an <code>ENTRYPOINT</code> defined, nothing
                 special is needed to hook up the executable.  If the container
                 does not specify an <code>ENTRYPOINT</code> or you want to
                 change the entrypoint you can specify it as well in your
@@ -369,7 +369,7 @@
     entry: --entrypoint my-exe my.registry.example.com/docker-image-2:latest
 # Alternative equivalent solution
 -   id: dockerfile-no-entrypoint-2
-    name: ///
+    name: ...
     language: docker_image
     entry: my.registry.example.com/docker-image-3:latest my-exe
 </pre>
