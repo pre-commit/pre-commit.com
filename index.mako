@@ -245,6 +245,7 @@
             <h2 id="supported-languages">Supported languages</h2>
             <ul>
                 <li><a href="#docker">docker</a></li>
+                <li><a href="#docker_image">docker_image</a></li>
                 <li><a href="#golang">golang</a></li>
                 <li><a href="#node">node</a></li>
                 <li><a href="#python">python</a></li>
@@ -282,6 +283,42 @@
                 See <a href="https://github.com/pre-commit/pre-commit-docker-flake8">this repository</a>
                 for an example Docker-based hook.
             </p>
+
+            <h3 id="docker_image">docker_image</h3>
+            <p><em>new in 0.18.0</em></p>
+            <p>
+                A more lightweight approach to <code>docker</code> hooks.  The
+                <code>docker_image</code> "language" uses existing docker
+                images to provide hook executables.
+            </p>
+            <p>
+                <code>docker_image</code> hooks can be conviently configured as
+                <a href="#repository-local-hooks">local</a> hooks.
+            </p>
+            <p>
+                The <code>entry</code> specifies the docker tag to use.  If
+                an image has a <code>ENTRYPOINT</code> defined, nothing
+                special is needed to hook up the executable.  If the container
+                does not specify an <code>ENTRYPOINT</code> or you want to
+                change the entrypoint you can specify it as well in your
+                <code>entry</code>.
+            </p>
+            <p>For example:</p>
+<pre>
+-   id: dockerfile-provides-entrypoint
+    name: ...
+    language: docker_image
+    entry: my.registry.example.com/docker-image-1:latest
+-   id: dockerfile-no-entrypoint-1
+    name: ...
+    language: docker_image
+    entry: --entrypoint my-exe my.registry.example.com/docker-image-2:latest
+# Alternative equivalent solution
+-   id: dockerfile-no-entrypoint-2
+    name: ///
+    language: docker_image
+    entry: my.registry.example.com/docker-image-3:latest my-exe
+</pre>
 
             <h3 id="golang">golang</h3>
             <p><em>new in 0.12.0</em></p>
@@ -519,7 +556,8 @@
             <p>
                 <em>new in 0.13.0</em> repository hooks can use any language
                 which supports <code>additional_dependencies</code> or
-                <code>pcre</code> / <code>script</code> / <code>system</code>.
+                <code>pcre</code> / <code>script</code> / <code>system</code> /
+                <code>docker_image</code>.
                 This enables you to install things which previously would
                 require a trivial mirror repository.
             </p>
