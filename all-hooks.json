@@ -1270,9 +1270,7 @@
             "name": "prettier",
             "entry": "prettier --write",
             "language": "node",
-            "types": [
-                "javascript"
-            ]
+            "files": "\\.(css|less|scss|html|ts|tsx|graphql|gql|json|js|jsx)$"
         }
     ],
     "git://github.com/adrienverge/yamllint.git": [
