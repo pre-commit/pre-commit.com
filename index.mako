@@ -8,6 +8,7 @@
             <li><a href="#plugins">Adding plugins</a></li>
             <li><a href="#usage">Usage</a></li>
             <li><a href="#new-hooks">Creating new hooks</a></li>
+            <li><a href="#cli">Command line interface</a></li>
             <li><a href="#advanced">Advanced features</a></li>
             <li><a href="#contributing">Contributing</a></li>
         </ul>
@@ -459,6 +460,186 @@
     hooks:
     -   id: trailing-whitespace
 </pre>
+            </p>
+        </div>
+
+        <div id="cli">
+            <div class="page-header"><h1>Command line interface</h1></div>
+
+            <p>All pre-commit commands take the following options:</p>
+            <ul>
+                <li>
+                    <code>--color {auto,always,never}</code>: whether to use
+                    color in output.  Defaults to `auto`.
+                </li>
+                <li>
+                    <code>-c CONFIG</code>, <code>--config CONFIG</code>:
+                    path to alternate config file
+                </li>
+                <li>
+                    <code>-h</code>, <code>--help</code>: show help and
+                    available options.
+                </li>
+            </ul>
+
+            <h2 id="pre-commit-autoupdate">pre-commit autoupdate [options]</h2>
+            <p>Auto-update pre-commit config to the latest repos' versions.</p>
+            <p>Options:</p>
+            <p>
+                <ul>
+                    <li>
+                        <code>--bleeding-edge</code>: update to the bleeding
+                        edge of `master` instead of the latest tagged version
+                        (the default behaviour).
+                    </li>
+                </ul>
+            </p>
+
+            <h2 id="pre-commit-clean">pre-commit clean [options]</h2>
+            <p>Clean out cached pre-commit files.</p>
+            <p>Options: (no additional options)</p>
+
+            <h2 id="pre-commit-install">pre-commit install [options]</h2>
+            <p>Install the pre-commit script.</p>
+            <p>Options:</p>
+            <p>
+                <ul>
+                    <li>
+                        <code>-f</code>, <code>--overwrite</code>: overwrite
+                        existing hooks / remove migration mode.
+                    </li>
+                    <li>
+                        <code>--install-hooks</code>: also install hook
+                        environments for all available hooks.
+                    </li>
+                    <li>
+                        <code>-t {pre-commit,pre-push,commit-msg}</code>,
+                        <code>--hook-type {pre-commit,pre-push,commit-msg}</code>:
+                        which hook type to install.
+                    </li>
+                    <li>
+                        <code>--allow-missing-config</code>: whether to allow
+                        the installed hook scripts to permit a missing
+                        configuration file.
+                    </li>
+                </ul>
+            </p>
+            <p>Some example useful invocations:</p>
+            <p>
+                <ul>
+                    <li>
+                        <code>pre-commit install</code>: default install
+                        invocation will run existing hook scripts alongside
+                        pre-commit.
+                    </li>
+                    <li>
+                        <code>pre-commit install -f --install-hooks</code>:
+                        idempotently replace git hook scripts with pre-commit
+                        and also install hooks.
+                    </li>
+                </ul>
+            </p>
+
+            <h2 id="pre-commit-install-hooks">pre-commit install-hooks [options]</h2>
+            <p>
+                Install hook environments for all environments in the config
+                file.  You may find
+                <code>pre-commit install --install-hooks</code> more useful.
+            </p>
+            <p>Options: (no additional options)</p>
+
+            <h2 id="pre-commit-migrate-config">pre-commit migrate-config [options]</h2>
+            <p>
+                <em>new in 1.0.0</em> Migrate list configuration to the new
+                map configuration format.
+            </p>
+            <p>Options: (no additional options)</p>
+
+            <h2 id="pre-commit-run">pre-commit run [hook-id] [options]</h2>
+            <p>Run hooks.</p>
+            <p>Options:</p>
+            <p>
+                <ul>
+                    <li>
+                        <code>[hook-id]</code>: specify a single hook-id to run
+                        only that hook.
+                    </li>
+                    <li>
+                        <code>-a</code>, <code>--all-files</code>: run on all
+                        the files in the repo.
+                    </li>
+                    <li>
+                        <code>--files [FILES [FILES ...]]</code>: specific
+                        filenames to run hooks on.
+                    </li>
+                    <li>
+                        <code>--source SOURCE</code> +
+                        <code>--origin ORIGIN</code>: run against the files
+                        changed between <code>SOURCE...ORIGIN</code> in git.
+                    </li>
+                    <li>
+                        <code>--show-diff-on-failure</code>:
+                        <em>new in 0.13.4</em> when hooks fail, run
+                        <code>git diff</code> directly afterward.
+                    </li>
+                    <li>
+                        <code>-v</code>, <code>--verbose</code>: produce hook
+                        output independent of success.  Include hook ids in
+                        output.
+                    </li>
+                </ul>
+            </p>
+
+            <p>Some example useful invocations:</p>
+            <p>
+                <ul>
+                    <li>
+                        <code>pre-commit run</code>: this is what pre-commit
+                        runs by default when committing.  This will run all
+                        hooks against currently staged files.
+                    </li>
+                    <li>
+                        <code>pre-commit run --all-files</code>: run all the
+                        hooks against all the files.  This is a useful
+                        invocation if you are using pre-commit in CI.
+                    </li>
+                    <li>
+                        <code>pre-commit run flake8</code>: run the `flake8`
+                        hook against all staged files.
+                    </li>
+                    <li>
+                        <code>
+                            git ls-files -- '*.py' |
+                            xargs pre-commit run --files
+                        </code>: run all hooks against all '*.py' files in the
+                        repository.
+                    </li>
+                    <li>
+                        <code>
+                            pre-commit run --source HEAD^^^
+                            --origin HEAD
+                        </code>: run against the files that have changed
+                        between HEAD^^^ and HEAD.  This form is useful when
+                        leveraged in a pre-receive hook.
+                    </li>
+                </ul>
+            </p>
+
+            <h2 id="pre-commit-sample-config">pre-commit sample-config [options]</h2>
+            <p>Produce a sample <code>.pre-commit-config.yaml</code>.</p>
+            <p>Options: (no additional options)</p>
+
+            <h2 id="pre-commit-uninstall">pre-commit uninstall</h2>
+            <p>Uninstall the pre-commit script.</p>
+            <p>Options:</p>
+            <p>
+                <ul>
+                    <li>
+                        <code>-t {pre-commit,pre-push,commit-msg}</code>,
+                        <code>--hook-type {pre-commit,pre-push,commit-msg}</code>:
+                        which hook type to uninstall.
+                    </li>
+                </ul>
             </p>
         </div>
 
