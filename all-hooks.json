@@ -833,26 +833,6 @@
             "entry": "validate_html",
             "language": "python",
             "files": ".*\\.(html|hbs)$"
-        },
-        {
-            "id": "htmlhint",
-            "name": "NodeJS HTML syntax linter (htmlhint)",
-            "entry": "htmlhint",
-            "language": "node",
-            "files": ".*\\.(html|hbs)$",
-            "additional_dependencies": [
-                "htmlhint"
-            ]
-        },
-        {
-            "id": "htmllint",
-            "name": "NodeJS HTML syntax linter (htmllint)",
-            "entry": "htmllint",
-            "language": "node",
-            "files": ".*\\.(html|hbs)$",
-            "additional_dependencies": [
-                "htmllint-cli"
-            ]
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-lxml": [
@@ -886,6 +866,26 @@
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-nodejs": [
+        {
+            "id": "htmlhint",
+            "name": "NodeJS HTML syntax linter (htmlhint)",
+            "entry": "htmlhint",
+            "language": "node",
+            "files": ".*\\.(html|hbs)$",
+            "additional_dependencies": [
+                "htmlhint"
+            ]
+        },
+        {
+            "id": "htmllint",
+            "name": "NodeJS HTML syntax linter (htmllint)",
+            "entry": "htmllint",
+            "language": "node",
+            "files": ".*\\.(html|hbs)$",
+            "additional_dependencies": [
+                "htmllint-cli"
+            ]
+        },
         {
             "id": "dockerfile_lint",
             "name": "Dockerfile linter",
