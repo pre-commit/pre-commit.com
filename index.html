@@ -54,6 +54,7 @@
         </div>
         <div class="container pc-main-content">
             
+
 <div class="row">
     <div class="col-sm-3 hidden-xs pc-sidebar">
         <ul class="nav nav-pills nav-stacked pc-sidenav" data-spy="affix" data-offset-top="400">
@@ -69,78 +70,70 @@
     </div>
     <div class="col-sm-9">
         <div id="intro">
-            <div class="page-header">
-                <h1>Introduction</h1>
-            </div>
-            <p>
-                Git hook scripts are useful for identifying simple issues
-                before submission to code review.  We run our hooks on every
-                commit to automatically point out issues in code such as
-                missing semicolons, trailing whitespace, and debug statements.
-                By pointing these issues out before code review, this allows a
-                code reviewer to focus on the architecture of a change while
-                not wasting time with trivial style nitpicks.
-            </p>
-            <p>
-                As we created more libraries and projects we recognized that
-                sharing our pre-commit hooks across projects is painful. We
-                copied and pasted unwieldy bash scripts from project to
-                project and had to manually change the hooks to work for
-                different project structures.
-            </p>
-            <p>
-                We believe that you should always use the best industry
-                standard linters. Some of the best linters are written in
-                languages that you do not use in your project or have
-                installed on your machine. For example scss-lint is a linter
-                for SCSS written in Ruby. If you’re writing a project in node
-                you should be able to use scss-lint as a pre-commit hook
-                without adding a Gemfile to your project or understanding how
-                to get scss-lint installed.
-            </p>
-            <p>
-                We built pre-commit to solve our hook issues. It is a
-                multi-language package manager for pre-commit hooks. You
-                specify a list of hooks you want and pre-commit manages the
-                installation and execution of any hook written in any language
-                before every commit. pre-commit is specifically designed to not
-                require root access. If one of your developers doesn’t have
-                node installed but modifies a JavaScript file, pre-commit
-                automatically handles downloading and building node to run
-                eslint without root.
-            </p>
-        </div>
+            <div class="page-header"><h1>Introduction</h1></div>
+<p>Git hook scripts are useful for identifying simple issues before submission to
+code review.  We run our hooks on every commit to automatically point out
+issues in code such as missing semicolons, trailing whitespace, and debug
+statements.  By pointing these issues out before code review, this allows a
+code reviewer to focus on the architecture of a change while not wasting time
+with trivial style nitpicks.</p>
+<p>As we created more libraries and projects we recognized that sharing our
+pre-commit hooks across projects is painful. We copied and pasted unwieldy
+bash scripts from project to project and had to manually change the hooks to
+work for different project structures.</p>
+<p>We believe that you should always use the best industry standard linters.
+Some of the best linters are written in languages that you do not use in your
+project or have installed on your machine. For example scss-lint is a linter
+for SCSS written in Ruby. If you’re writing a project in node you should be
+able to use scss-lint as a pre-commit hook without adding a Gemfile to your
+project or understanding how to get scss-lint installed.</p>
+<p>We built pre-commit to solve our hook issues. It is a multi-language package
+manager for pre-commit hooks. You specify a list of hooks you want and
+pre-commit manages the installation and execution of any hook written in any
+language before every commit. pre-commit is specifically designed to not
+require root access. If one of your developers doesn’t have node installed
+but modifies a JavaScript file, pre-commit automatically handles downloading
+and building node to run eslint without root.</p>
+
 
         <div id="install">
-            <div class="page-header">
-                <h1>Installation</h1>
-            </div>
-            <p>Before you can run hooks, you need to have the pre-commit package manager installed.</p>
-            <p>Using pip:</p>
-            <pre>pip install pre-commit</pre>
-            <p>
-                Non Administrative Installation:
-                <small><em>(To upgrade: run again, to uninstall: pass <code>uninstall</code> to python)</em></small>
-            </p>
-            <pre>curl http://pre-commit.com/install-local.py | python</pre>
-            <p>System Level Install:</p>
-            <pre>curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit</pre>
-            <p>In a Python Project, add the following to your requirements.txt (or requirements-dev.txt):</p>
-            <pre>pre-commit</pre>
-            <p>Using <a href="http://brew.sh/">homebrew</a></p>
-            <pre>brew install pre-commit</pre>
+            <div class="page-header"><h1>Installation</h1></div>
+<p>Before you can run hooks, you need to have the pre-commit package manager
+installed.</p>
+<p>Using pip:</p>
+<div class="highlight"><pre><span></span>pip install pre-commit
+</pre></div>
+<p>Non Administrative Installation:</p>
+<p><em>(To upgrade: run again, to uninstall: pass <code>uninstall</code> to python)</em></p>
+<div class="highlight"><pre><span></span>curl https://raw.githubusercontent.com/pre-commit/pre-commit.github.io/real_master/install-local.py | python
+</pre></div>
+<p>System Level Install:</p>
+<div class="highlight"><pre><span></span>curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit
+</pre></div>
+<p>In a Python Project, add the following to your requirements.txt (or
+requirements-dev.txt):</p>
+<div class="highlight"><pre><span></span>pre-commit
+</pre></div>
+<p>Using <a href="http://brew.sh">homebrew</a>:</p>
+<div class="highlight"><pre><span></span>brew install pre-commit
+</pre></div>
+
         </div>
 
         <div id="plugins">
             <div class="page-header">
                 <h1>Adding pre-commit plugins to your project</h1>
             </div>
-            <p>Once you have pre-commit installed, adding pre-commit plugins to your project is done with the <code>.pre-commit-config.yaml</code> configuration file.</p>
-            <p>Add a file called <code>.pre-commit-config.yaml</code> to the root of your project. The pre-commit config file describes:</p>
+<p>Once you have pre-commit installed, adding pre-commit plugins to your project
+is done with the <code>.pre-commit-config.yaml</code> configuration file.</p>
+<p>Add a file called <code>.pre-commit-config.yaml</code> to the root of your project. The
+pre-commit config file describes:</p>
+
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <td><code>repo</code>, <code>sha</code></td>
+                        <td><p><code>repo</code>, <code>sha</code></p>
+</td>
                         <td>where to get plugins (git repos).  <code>sha</code> can also be a tag.</td>
                     </tr>
                     <tr>
@@ -185,42 +178,51 @@
                     </tr>
                 </tbody>
             </table>
-            <p>For example:</p>
-<pre>
--   repo: git://github.com/pre-commit/pre-commit-hooks
-    sha: v0.9.1
-    hooks:
-    -   id: trailing-whitespace
-</pre>
-            <p>This configuration says to download the pre-commit-hooks project and run its trailing-whitespace hook.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">git://github.com/pre-commit/pre-commit-hooks</span>
+    <span class="l l-Scalar l-Scalar-Plain">sha</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.9.1</span>
+    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+</pre></div>
+<p>This configuration says to download the pre-commit-hooks project and run its
+trailing-whitespace hook.</p>
+
 
             <h2 id="updating-hooks-automatically">Updating hooks automatically</h2>
 
-            <p>
-                You can update your hooks to the latest version automatically
-                by running <code>pre-commit autoupdate</code>.  This will
-                bring the hooks to the latest sha on the master branch.
-            </p>
+<p>You can update your hooks to the latest version automatically by running
+<code>pre-commit autoupdate</code>.  This will bring the hooks to the latest sha on the
+master branch.</p>
+
         </div>
 
         <div id="usage">
-            <div class="page-header">
-                <h1>Usage</h1>
-            </div>
-            <p>Run <code>pre-commit install</code> to install pre-commit into your git hooks. pre-commit will now run on every commit. Every time you clone a project using pre-commit running <code>pre-commit install</code> should always be the first thing you do.</p>
+            <div class="page-header"><h1>Usage</h1></div>
+<p>Run <code>pre-commit install</code> to install pre-commit into your git hooks. pre-commit
+will now run on every commit. Every time you clone a project using pre-commit
+running <code>pre-commit install</code> should always be the first thing you do.</p>
+<p>If you want to manually run all pre-commit hooks on a repository, run
+<code>pre-commit run --all-files</code>. To run individual hooks use
+<code>pre-commit run &lt;hook_id&gt;</code>.</p>
+<p>The first time pre-commit runs on a file it will automatically download,
+install, and run the hook. Note that running a hook for the first time may be
+slow. For example: If the machine does not have node installed, pre-commit
+will download and build a copy of node.</p>
 
-            <p>If you want to manually run all pre-commit hooks on a repository, run <code>pre-commit run --all-files</code>. To run individual hooks use <code>pre-commit run &lt;hook_id&gt;</code>.</p>
-
-            <p>The first time pre-commit runs on a file it will automatically download, install, and run the hook. Note that running a hook for the first time may be slow. For example: If the machine does not have node installed, pre-commit will download and build a copy of node.</p>
         </div>
 
         <div id="new-hooks">
-            <div class="page-header">
-                <h1>Creating new hooks</h1>
-            </div>
-            <p>pre-commit currently supports hooks written in JavaScript (node), Python, Ruby and system installed scripts. As long as your git repo is an installable package (gem, npm, pypi, etc.) or exposes an executable, it can be used with pre-commit. Each git repo can support as many languages/hooks as you want.</p>
-            <p>The hook must exit nonzero on failure or modify files in the working directory (since 0.6.3).</p>
-            <p>A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml file that tells pre-commit:</p>
+            <div class="page-header"><h1>Creating new hooks</h1></div>
+<p>pre-commit currently supports hooks written in
+<a href="#supported-languages">many languages</a>. As long as your git repo is an
+installable package (gem, npm, pypi, etc.) or exposes an executable, it can be
+used with pre-commit. Each git repo can support as many languages/hooks as you
+want.</p>
+<p>The hook must exit nonzero on failure or modify files in the working directory
+<em>(since 0.6.3)</em>.</p>
+<p>A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml
+file that tells pre-commit:</p>
+
             <table class="table table-bordered">
                 <tbody>
                     <tr>
@@ -279,225 +281,149 @@
                     </tr>
                 </tbody>
             </table>
-            <p>For example:</p>
-<pre>
--   id: trailing-whitespace
-    name: Trim Trailing Whitespace
-    description: This hook trims trailing whitespace.
-    entry: trailing-whitespace-fixer
-    language: python
-    types: [text]
-</pre>
 
-            <p>
-                <em>new in 0.12.0</em> Prior to 0.12.0 the file was
-                <code>hooks.yaml</code>
-                (now <code>.pre-commit-hooks.yaml</code>).
-                For backwards compatibility it is suggested to provide both
-                files or suggest users use <code>pre-commit&gt;=0.12.0</code>.
-            </p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Trim Trailing Whitespace</span>
+    <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">This hook trims trailing whitespace.</span>
+    <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace-fixer</span>
+    <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="l l-Scalar l-Scalar-Plain">types</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">text</span><span class="p p-Indicator">]</span>
+</pre></div>
+<p><em>new in 0.12.0</em> Prior to 0.12.0 the file was <code>hooks.yaml</code>
+(now <code>.pre-commit-hooks.yaml</code>).  For backwards compatibility it is suggested
+to provide both files or suggest users use <code>pre-commit&gt;=0.12.0</code>.</p>
 
             <h2 id="supported-languages">Supported languages</h2>
-            <ul>
-                <li><a href="#docker">docker</a></li>
-                <li><a href="#docker_image">docker_image</a></li>
-                <li><a href="#golang">golang</a></li>
-                <li><a href="#node">node</a></li>
-                <li><a href="#python">python</a></li>
-                <li><a href="#ruby">ruby</a></li>
-                <li><a href="#swift">swift</a></li>
-                <li><a href="#pcre">pcre</a></li>
-                <li><a href="#script">script</a></li>
-                <li><a href="#system">system</a></li>
-            </ul>
+
+<ul>
+<li><a href="#docker">docker</a></li>
+<li><a href="#docker_image">docker_image</a></li>
+<li><a href="#golang">golang</a></li>
+<li><a href="#node">node</a></li>
+<li><a href="#python">python</a></li>
+<li><a href="#ruby">ruby</a></li>
+<li><a href="#swift">swift</a></li>
+<li><a href="#pcre">pcre</a></li>
+<li><a href="#script">script</a></li>
+<li><a href="#system">system</a></li>
+</ul>
+
 
             <h3 id="docker">docker</h3>
-            <p><em>new in 0.10.0</em></p>
-            <p>
-                The hook repository must have a <code>Dockerfile</code>.  It
-                will be installed via <code>docker build .</code>.
-            </p>
-            <p>
-                Running Docker hooks requires a running Docker engine on your
-                host.  For configuring Docker hooks, your <code>entry</code>
-                should correspond to an executable inside the Docker
-                container, and will be used to override the default container
-                entrypoint. Your Docker <code>CMD</code> will not run when
-                pre-commit passes a file list as arguments to the run
-                container  command. Docker allows you to use any language
-                that's not supported by pre-commit as a builtin.
-            </p>
-            <p>
-                <u>Support:</u> docker hooks are known to work on any system
-                which has a working <code>docker</code> executable.  It has
-                been tested on linux and macOS.  Hooks that are run via
-                <code>boot2docker</code> are known to be unable to make
-                modifications to files.
-            </p>
-            <p>
-                See <a href="https://github.com/pre-commit/pre-commit-docker-flake8">this repository</a>
-                for an example Docker-based hook.
-            </p>
+<p><em>new in 0.10.0</em></p>
+<p>The hook repository must have a <code>Dockerfile</code>.  It will be installed via
+<code>docker build .</code>.</p>
+<p>Running Docker hooks requires a running Docker engine on your host.  For
+configuring Docker hooks, your <code>entry</code> should correspond to an executable
+inside the Docker container, and will be used to override the default container
+entrypoint. Your Docker <code>CMD</code> will not run when pre-commit passes a file list
+as arguments to the run container  command. Docker allows you to use any
+language that's not supported by pre-commit as a builtin.</p>
+<p><strong>Support:</strong> docker hooks are known to work on any system which has a working
+<code>docker</code> executable.  It has been tested on linux and macOS.  Hooks that are
+run via <code>boot2docker</code> are known to be unable to make modifications to files.</p>
+<p>See <a href="https://github.com/pre-commit/pre-commit-docker-flake8">this repository</a>
+for an example Docker-based hook.</p>
+
 
             <h3 id="docker_image">docker_image</h3>
-            <p><em>new in 0.18.0</em></p>
-            <p>
-                A more lightweight approach to <code>docker</code> hooks.  The
-                <code>docker_image</code> "language" uses existing docker
-                images to provide hook executables.
-            </p>
-            <p>
-                <code>docker_image</code> hooks can be conviently configured as
-                <a href="#repository-local-hooks">local</a> hooks.
-            </p>
-            <p>
-                The <code>entry</code> specifies the docker tag to use.  If
-                an image has an <code>ENTRYPOINT</code> defined, nothing
-                special is needed to hook up the executable.  If the container
-                does not specify an <code>ENTRYPOINT</code> or you want to
-                change the entrypoint you can specify it as well in your
-                <code>entry</code>.
-            </p>
-            <p>For example:</p>
-<pre>
--   id: dockerfile-provides-entrypoint
-    name: ...
-    language: docker_image
-    entry: my.registry.example.com/docker-image-1:latest
--   id: dockerfile-no-entrypoint-1
-    name: ...
-    language: docker_image
-    entry: --entrypoint my-exe my.registry.example.com/docker-image-2:latest
-# Alternative equivalent solution
--   id: dockerfile-no-entrypoint-2
-    name: ...
-    language: docker_image
-    entry: my.registry.example.com/docker-image-3:latest my-exe
-</pre>
+<p><em>new in 0.18.0</em></p>
+<p>A more lightweight approach to &lt;code&gt;docker&lt;/code&gt; hooks.  The <code>docker_image</code>
+"language" uses existing docker images to provide hook executables.</p>
+<p><code>docker_image</code> hooks can be conviently configured as <a href="#repository-local">local</a>
+hooks.</p>
+<p>The <code>entry</code> specifies the docker tag to use.  If an image has an
+<code>ENTRYPOINT</code> defined, nothing special is needed to hook up the executable.
+If the container does not specify an &lt;code&gt;ENTRYPOINT&lt;/code&gt; or you want to
+change the entrypoint you can specify it as well in your <code>entry</code>.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-provides-entrypoint</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
+    <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-1:latest</span>
+<span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-1</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
+    <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">--entrypoint my-exe my.registry.example.com/docker-image-2:latest</span>
+<span class="c1"># Alternative equivalent solution</span>
+<span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-2</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
+    <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-3:latest my-exe</span>
+</pre></div>
+
 
             <h3 id="golang">golang</h3>
-            <p><em>new in 0.12.0</em></p>
-            <p>
-                The hook repository must contain go source code.  It will be
-                installed via <code>go get ./...</code>.  pre-commit will
-                create an isolated <code>GOPATH</code> for each hook and the
-                <code>entry</code> should match an executable which will
-                get installed into the <code>GOPATH</code>'s <code>bin</code>
-                directory.
-            </p>
-            <p>
-                <u>Support:</u> golang hooks are known to work on any system
-                which has go installed.  It has been tested on linux, macOS,
-                and windows.
-            </p>
+<p><em>new in 0.12.0</em></p>
+<p>The hook repository must contain go source code.  It will be installed via
+<code>go get ./...</code>.  pre-commit will create an isolated <code>GOPATH</code> for each hook and
+the <code>entry</code> should match an executable which will get installed into the
+<code>GOPATH</code>'s <code>bin</code> directory.</p>
+<p><strong>Support:</strong> golang hooks are known to work on any system which has go
+installed.  It has been tested on linux, macOS, and windows.</p>
+
 
             <h3 id="node">node</h3>
-            <p>
-                The hook repository must have a <code>package.json</code>.  It
-                will be installed via <code>npm install .</code>.  The
-                installed package will provide an executable that will match
-                the <code>entry</code> &ndash; usually through
-                <code>bin</code> in package.json.
-            </p>
-            <p>
-                <u>Support:</u> node hooks work without any system-level
-                dependencies.  It has been tested on linux and macOS and
-                <em>may</em> work under cygwin.
-            </p>
+<p>The hook repository must have a <code>package.json</code>.  It will be installed via
+<code>npm install .</code>.  The installed package will provide an executable that will
+match the <code>entry</code> – usually through <code>bin</code> in package.json.</p>
+<p><strong>Support:</strong> node hooks work without any system-level dependencies.  It has
+been tested on linux and macOS and <em>may</em> work under cygwin.</p>
+
 
             <h3 id="python">python</h3>
-            <p>
-                The hook repository must have a <code>setup.py</code>.  It
-                will be installed via <code>pip install .</code>.  The
-                installed package will provide an executable that will match
-                the <code>entry</code> &ndash; usually through
-                <code>console_scripts</code> or <code>scripts</code> in
-                setup.py.
-            </p>
-            <p>
-                <u>Support:</u> python hooks work without any system-level
-                depedendencies.  It has been tested on linux, macOS, windows,
-                and cygwin.
-            </p>
+<p>The hook repository must have a <code>setup.py</code>.  It will be installed via
+<code>pip install .</code>.  The installed package will provide an executable that will
+match the <code>entry</code> – usually through <code>console_scripts</code> or <code>scripts</code> in setup.py.</p>
+<p><strong>Support:</strong> python hooks work without any system-level depedendencies.  It
+has been tested on linux, macOS, windows, and cygwin.</p>
+
 
             <h3 id="ruby">ruby</h3>
-            <p>
-                The hook repository must have a <code>*.gemspec</code>.  It
-                will be installed via
-                <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>.
-                The installed package will produce an executable that will
-                match the <code>entry</code> &ndash; usually through
-                <code>exectuables</code> in your gemspec.
-            </p>
-            <p>
-                <u>Support:</u> ruby hooks work without any system-level
-                dependencies.  It has been tested on linux and macOS and
-                <em>may</em> work under cygwin.
-            </p>
+<p>The hook repository must have a <code>*.gemspec</code>.  It will be installed via
+<code>gem build *.gemspec &amp;&amp; gem install *.gem</code>.  The installed package will
+produce an executable that will match the <code>entry</code> – usually through
+<code>exectuables</code> in your gemspec.</p>
+<p><strong>Support:</strong> ruby hooks work without any system-level dependencies.  It has
+been tested on linux and macOS and <em>may</em> work under cygwin.</p>
+
 
             <h3 id="swift">swift</h3>
-            <p><em>new in 0.11.0</em></p>
-            <p>
-                The hook repository must have a <code>Package.swift</code>.
-                It will be installed via <code>swift build -c release</code>.
-                The <code>entry</code> should match an executable created by
-                building the repository.
-            </p>
-            <p>
-                <u>Support:</u> swift hooks are known to work on any system
-                which has swift installed.  It has been tested on linux and
-                macOS.
-            </p>
+<p><em>new in 0.11.0</em></p>
+<p>The hook repository must have a <code>Package.swift</code>.  It will be installed via
+<code>swift build -c release</code>.  The <code>entry</code> should match an executable created by
+building the repository.</p>
+<p><strong>Support:</strong> swift hooks are known to work on any system which has swift
+installed.  It has been tested on linux and macOS.</p>
+
 
             <h3 id="pcre">pcre</h3>
-            <p>
-                "Perl Compatible Regular Expressions" &mdash; pcre hooks are a
-                quick way to write a simple hook which prevents commits by
-                file matching.  Specify the regex as the <code>entry</code>.
-            </p>
-            <p>
-                osx does not ship with a functioning <code>grep -P</code> so
-                you'll need <code>brew install grep</code> for pcre hooks to
-                function.
-            </p>
-            <p>
-                <u>Support:</u> pcre hooks work on any system which has a
-                functioning <code>grep -P</code> (or in the case of macOS:
-                <code>ggrep -P</code>).  It has been tested on linux, macOS,
-                windows, and cygwin.
+<p>"Perl Compatible Regular Expressions" – pcre hooks are a quick way to write a
+simple hook which prevents commits by file matching.  Specify the regex as the
+<code>entry</code>.</p>
+<p>macos does not ship with a functioning <code>grep -P</code> so you'll need
+<code>brew install grep</code> for pcre hooks to function.</p>
+<p><strong>Support:</strong> pcre hooks work on any system which has a functioning
+<code>grep -P</code> (or in the case of macOS: <code>ggrep -P</code>).  It has been tested on linux,
+macOS, windows, and cygwin.</p>
+
 
             <h3 id="script">script</h3>
-            <p>
-                Script hooks provide a way to write simple scripts which
-                validate files. The <code>entry</code> should be a path
-                relative to the root of the hook repository.
-            </p>
-            <p>
-                This hook type will not be given a virtual environment to
-                work with &ndash; if it needs additional dependencies the
-                consumer must install them manually.
-            </p>
-            <p>
-                <u>Support:</u> the support of script hooks depend on the
-                scripts themselves.
-            </p>
+<p>Script hooks provide a way to write simple scripts which validate files. The
+<code>entry</code> should be a path relative to the root of the hook repository.</p>
+<p>This hook type will not be given a virtual environment to work with – if it
+needs additional dependencies the consumer must install them manually.</p>
+<p><strong>Support:</strong> the support of script hooks depend on the scripts themselves.</p>
+
 
             <h3 id="system">system</h3>
-            <p>
-                System hooks provide a way to write hooks for system-level
-                executables which don't have a supported language above (or
-                have special environment requirements that don't allow them to
-                run in isolation such as pylint).
-            </p>
-            <p>
-                This hook type will not be given a virtual environment to
-                work with &ndash; if it needs additional dependencies the
-                consumer must install them manually.
-            </p>
-            <p>
-                <u>Support:</u> the support of system hooks depend on the
-                executables.
-            </p>
+<p>System hooks provide a way to write hooks for system-level executables which
+don't have a supported language above (or have special environment
+requirements that don't allow them to run in isolation such as pylint).</p>
+<p>This hook type will not be given a virtual environment to work with – if it
+needs additional dependencies the consumer must install them manually.</p>
+<p><strong>Support:</strong> the support of system hooks depend on the executables.</p>
 
 
             <h2 id="developing-hooks-interactively">Developing hooks interactively</h2>
