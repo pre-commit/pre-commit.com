@@ -104,13 +104,16 @@ installed.</p>
 <div class="highlight"><pre><span></span>pip install pre-commit
 </pre></div>
 <p>Non Administrative Installation:</p>
-<p><em>(To upgrade: run again, to uninstall: pass <code>uninstall</code> to python)</em></p>
+<ul>
+<li><em>to upgrade: run again, to uninstall: pass <code>uninstall</code> to python</em></li>
+<li><em>does not work on platforms without symlink support (windows)</em></li>
+</ul>
 <div class="highlight"><pre><span></span>curl https://raw.githubusercontent.com/pre-commit/pre-commit.github.io/real_master/install-local.py | python
 </pre></div>
 <p>System Level Install:</p>
 <div class="highlight"><pre><span></span>curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit
 </pre></div>
-<p>In a Python Project, add the following to your requirements.txt (or
+<p>In a python project, add the following to your requirements.txt (or
 requirements-dev.txt):</p>
 <div class="highlight"><pre><span></span>pre-commit
 </pre></div>
