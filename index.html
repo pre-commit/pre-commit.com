@@ -319,14 +319,14 @@ run via <code>boot2docker</code> are known to be unable to make modifications to
 <p>See <a href="https://github.com/pre-commit/pre-commit-docker-flake8">this repository</a>
 for an example Docker-based hook.</p>
 <h3 id="docker_image">    docker_image <small><a href="#docker_image">¶</a></small></h3> <p><em>new in 0.18.0</em></p>
-<p>A more lightweight approach to &lt;code&gt;docker&lt;/code&gt; hooks.  The <code>docker_image</code>
+<p>A more lightweight approach to <code>docker</code> hooks.  The <code>docker_image</code>
 "language" uses existing docker images to provide hook executables.</p>
 <p><code>docker_image</code> hooks can be conviently configured as <a href="#repository-local">local</a>
 hooks.</p>
 <p>The <code>entry</code> specifies the docker tag to use.  If an image has an
 <code>ENTRYPOINT</code> defined, nothing special is needed to hook up the executable.
-If the container does not specify an &lt;code&gt;ENTRYPOINT&lt;/code&gt; or you want to
-change the entrypoint you can specify it as well in your <code>entry</code>.</p>
+If the container does not specify an <code>ENTRYPOINT</code> or you want to change the
+entrypoint you can specify it as well in your <code>entry</code>.</p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-provides-entrypoint</span>
     <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
@@ -407,7 +407,7 @@ directory on your machine while developing hooks and using
 
 <p>All pre-commit commands take the following options:</p>
 <ul>
-<li><code>--color {auto,always,never}&lt;/code&gt;</code>: whether to use color in output.
+<li><code>--color {auto,always,never}</code>: whether to use color in output.
 Defaults to <code>auto</code>.</li>
 <li><code>-c CONFIG</code>, <code>--config CONFIG</code>: path to alternate config file</li>
 <li><code>-h</code>, <code>--help</code>: show help and available options.</li>
