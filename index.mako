@@ -317,7 +317,7 @@ for an example Docker-based hook.
 
 _new in 0.18.0_
 
-A more lightweight approach to <code>docker</code> hooks.  The `docker_image`
+A more lightweight approach to `docker` hooks.  The `docker_image`
 "language" uses existing docker images to provide hook executables.
 
 `docker_image` hooks can be conviently configured as [local](#repository-local)
@@ -325,8 +325,8 @@ hooks.
 
 The `entry` specifies the docker tag to use.  If an image has an
 `ENTRYPOINT` defined, nothing special is needed to hook up the executable.
-If the container does not specify an <code>ENTRYPOINT</code> or you want to
-change the entrypoint you can specify it as well in your `entry`.
+If the container does not specify an `ENTRYPOINT` or you want to change the
+entrypoint you can specify it as well in your `entry`.
 
 For example:
 
@@ -453,7 +453,7 @@ directory on your machine while developing hooks and using
 ${md('''
 All pre-commit commands take the following options:
 
-- `--color {auto,always,never}</code>`: whether to use color in output.
+- `--color {auto,always,never}`: whether to use color in output.
   Defaults to `auto`.
 - `-c CONFIG`, `--config CONFIG`: path to alternate config file
 - `-h`, `--help`: show help and available options.
