@@ -826,7 +826,7 @@
             "files": "Makefile"
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks-html": [
+    "git://github.com/Lucas-C/pre-commit-hooks-java": [
         {
             "id": "validate-html",
             "name": "HTML syntax validator using W3C v.Nu checker, with support for handlebars/jinja2 templates",
@@ -863,6 +863,15 @@
             "entry": "detect_missing_css_classes",
             "language": "python",
             "files": ".*\\.(css|hbs|html)$"
+        }
+    ],
+    "git://github.com/Lucas-C/pre-commit-hooks-markup": [
+        {
+            "id": "rst-linter",
+            "name": "Check .rst files with the same linter used by pypi.org",
+            "entry": "rst_linter",
+            "language": "python",
+            "files": "\\.rst$"
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-nodejs": [
