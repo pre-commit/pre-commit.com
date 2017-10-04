@@ -100,60 +100,117 @@ Once you have pre-commit installed, adding pre-commit plugins to your project
 is done with the `.pre-commit-config.yaml` configuration file.
 
 Add a file called `.pre-commit-config.yaml` to the root of your project. The
-pre-commit config file describes:
-''')}
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <td>${md('`repo`, `sha`')}</td>
-                        <td>where to get plugins (git repos).  <code>sha</code> can also be a tag.</td>
-                    </tr>
-                    <tr>
-                        <td><code>id</code></td>
-                        <td>What plugins from the repo you want to use.</td>
-                    </tr>
-                    <tr>
-                        <td><code>language_version</code></td>
-                        <td>(optional) Override the default language version for the hook. See <a href="#overriding-language-version">Advanced Features: "Overriding Language Version"</a>.</td>
-                    </tr>
-                    <tr>
-                        <td><code>files</code></td>
-                        <td>(optional) Override the default pattern for files to run on.</td>
-                    </tr>
-                    <tr>
-                        <td><code>exclude</code></td>
-                        <td>(optional) File exclude pattern.</td>
-                    </tr>
-                    <tr>
-                        <td><code>types</code></td>
-                        <td>(optional) Override the default file types to run on.  See <a href="#filtering-files-with-types">Filtering files with types</a>.  <em>new in 0.15.0</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>exclude_types</code></td>
-                        <td>(optional) File types exclude.  <em>new in 0.15.0</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>args</code></td>
-                        <td>(optional) additional parameters to pass to the hook.</td>
-                    </tr>
-                    <tr>
-                        <td><code>stages</code></td>
-                        <td>(optional) Confines the hook to the <code>commit</code>, <code>push</code>, or <code>commit-msg</code> stage. See <a href="#confining-hooks-to-run-at-certain-stages">Advanced Features: "Confining Hooks To Run At A Certain Stage"</a>.</td>
-                    </tr>
-                    <tr>
-                        <td><code>additional_dependencies</code></td>
-                        <td>(optional) A list of dependencies that will be installed in the environment where this hook gets run. One useful application is to install plugins for hooks such as eslint.  <em>new in 0.6.6</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>always_run</code></td>
-                        <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files.  <em>new in 0.7.2</em></td>
-                    </tr>
-                </tbody>
-            </table>
-${md('''
-For example:
+pre-commit config file describes what repositories and hooks are installed.
+
+## .pre-commit-config.yaml - top level
+
+_new in 1.0.0_ The default configuration file top-level was changed from a
+list to a map.  If you're using an old version of pre-commit, the top-level
+list is the same as the value of [`repos`](#pre-commit-configyaml---repos).
+If you'd like to migrate to the new configuration format, run
+[`pre-commit migrate-config`](#pre-commit-migrate-config) to automatically
+migrate your configuration.
+
+```table
+=r=
+    =c= `exclude`
+    =c= (optional: default `^$`) global file exclude pattern.  _new in 1.1.0_.
+=r=
+    =c= `fail_fast`
+    =c= (optional: default `false`) set to `true` to have pre-commit stop
+        running hooks after the first failure.  _new in 1.1.0_.
+=r=
+    =c= `repos`
+    =c= A list of [repository mappings](#pre-commit-configyaml---repos).
+```
+
+A sample top-level with all defaults present:
 
 ```yaml
+exclude: '^$'
+fail_fast: false
+repos:
+-   ...
+```
+
+## .pre-commit-config.yaml - repos
+
+The repository mapping tells pre-commit where to get the code for the hook
+from.
+
+```table
+=r=
+    =c= `repo`
+    =c= the repository url to `git clone` from
+=r=
+    =c= `sha`
+    =c= the revision or tag to clone at
+=r=
+    =c= `hooks`
+    =c= A list of [hook mappings](#pre-commit-configyaml---hooks).
+```
+
+A sample repository with all defaults present:
+
+```yaml
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    sha: v0.9.4
+    hooks:
+    -   ...
+```
+
+## .pre-commit-config.yaml - hooks
+
+The hook mapping configures which hook from the repository is used and allows
+for customization.  All optional keys will receive their default from the
+repository's configuration.
+
+```table
+=r=
+    =c= `id`
+    =c= which hook from the repository to use.
+=r=
+    =c= `language_version`
+    =c= (optional) override the language version for the
+        hook.  See [Overriding Language Version](#overriding-language-version).
+=r=
+    =c= `files`
+    =c= (optional) override the default pattern for files to run on.
+=r=
+    =c= `exclude`
+    =c= (optional) file exclude pattern.
+=r=
+    =c= `types`
+    =c= (optional) override the default file types to run on.  See
+        [Filtering files with types](#filtering-files-with-types).
+        _new in 0.15.0_.
+=r=
+    =c= `exclude_types`
+    =c= (optional) file types to exclude.  _new in 0.15.0_.
+=r=
+    =c= `args`
+    =c= (optional) list of additional parameters to pass to the hook.
+=r=
+    =c= `stages`
+    =c= (optional) configes the hook to the `commit`, `push`, or `commit-msg`
+        stage.  See
+        [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
+=r=
+    =c= `additional_dependencies`
+    =c= (optional) a list of dependencies that will be installed in the
+        environment where this hook gets run.  One useful application is to
+        install plugins for hooks such as `eslint`.  _new in 0.6.6_.
+=r=
+    =c= `always_run`
+    =c= (optional) if `true`, this hook will run even if there are no matching
+        files.  _new in 0.7.2_.
+```
+
+One example of a complete configuration:
+
+```yaml
+repos:
 -   repo: git://github.com/pre-commit/pre-commit-hooks
     sha: v0.9.1
     hooks:
@@ -693,7 +750,8 @@ You can configure repository-local hooks by specifying the `repo` as the
 sentinel `local`.
 
 _new in 0.13.0_ repository hooks can use any language which supports
-`additional_dependencies` or `pcre` / `script` / `system` / `docker_image`.
+`additional_dependencies` or `docker_image` / `pcre` / `pygrep` / `script` /
+`system`.
 This enables you to install things which previously would require a trivial
 mirror repository.
 

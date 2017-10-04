@@ -8,6 +8,72 @@ ID_RE = re.compile(r'\[\]\(#([a-z0-9-]+)\)')
 SPECIAL_CHARS_RE = re.compile('[^a-z0-9 _-]')
 
 
+ROW = '=r='
+COL = '    =c= '
+INDENT = ' ' * 8
+
+
+def _render_table(code):
+    """Renders our custom "table" type
+
+    ```table
+    =r=
+        =c= col1
+        =c= col2
+    =r=
+        =c= col3
+        =c= col4
+    ```
+
+    renders to
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr><td>col1</td><td>col2</td></tr>
+            <tr><td>col3</td><td>col4</td></tr>
+        </tbody>
+    </table>
+    """
+    output = ['<table class="table table-bordered"><tbody>']
+    in_row = False
+    col_buffer = None
+
+    def _maybe_end_col():
+        nonlocal col_buffer
+        if col_buffer is not None:
+            output.append(f'<td>{md(col_buffer)}</td>')
+            col_buffer = None
+
+    def _maybe_end_row():
+        nonlocal in_row
+        if in_row:
+            output.append('</tr>')
+            in_row = False
+
+    for line in code.splitlines(True):
+        if line.startswith(ROW):
+            _maybe_end_col()
+            _maybe_end_row()
+            in_row = True
+            output.append('<tr>')
+        elif line.startswith(COL):
+            _maybe_end_col()
+            col_buffer = line[len(COL):]
+        elif col_buffer is not None:
+            if line == '\n':
+                col_buffer += line
+            else:
+                assert line.startswith(INDENT), line
+                col_buffer += line[len(INDENT):]
+        else:
+            raise AssertionError(line)
+
+    _maybe_end_col()
+    _maybe_end_row()
+    output.append('</tbody></table>')
+    return ''.join(output)
+
+
 class Renderer(markdown_code_blocks.CodeRenderer):
     def header(self, text, level, raw=None):
         match = ID_RE.search(raw)
@@ -20,6 +86,12 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             f'    {text} <small><a href="#{h_id}">¶</a></small>'
             f'</h{level}> '
         )
+
+    def block_code(self, code, lang):
+        if lang == 'table':
+            return _render_table(code)
+        else:
+            return super().block_code(code, lang)
 
 
 def md(s):
