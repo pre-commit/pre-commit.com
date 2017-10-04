@@ -289,6 +289,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [ruby](#ruby)
 - [swift](#swift)
 - [pcre](#pcre)
+- [pygrep](#pygrep)
 - [script](#script)
 - [system](#system)
 
@@ -399,6 +400,9 @@ installed.  It has been tested on linux and macOS.
 
 ### pcre
 
+_**deprecated**_: the pcre language will be removed in a later version.  Use
+[pygrep](#pygrep) hooks instead (usually a drop-in replacement).
+
 "Perl Compatible Regular Expressions" – pcre hooks are a quick way to write a
 simple hook which prevents commits by file matching.  Specify the regex as the
 `entry`.
@@ -409,6 +413,19 @@ macos does not ship with a functioning `grep -P` so you'll need
 __Support:__ pcre hooks work on any system which has a functioning
 `grep -P` (or in the case of macOS: `ggrep -P`).  It has been tested on linux,
 macOS, windows, and cygwin.
+
+### pygrep
+
+_new in 1.2.0_
+
+A cross-platform python implementation of `grep` – pygrep hooks are a quick
+way to write a simple hook which prevents commits by file matching.  Specify
+the regex as the `entry`.  The `entry` may be any python
+[regular expression](#regular-expressions).  For case insensitive regexes you
+can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
+
+__Support:__ pygrep hooks are supported on all platforms which pre-commit runs
+on.
 
 ### script
 
