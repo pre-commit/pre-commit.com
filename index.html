@@ -301,6 +301,7 @@ to provide both files or suggest users use <code>pre-commit&gt;=0.12.0</code>.</
 <li><a href="#ruby">ruby</a></li>
 <li><a href="#swift">swift</a></li>
 <li><a href="#pcre">pcre</a></li>
+<li><a href="#pygrep">pygrep</a></li>
 <li><a href="#script">script</a></li>
 <li><a href="#system">system</a></li>
 </ul>
@@ -371,7 +372,9 @@ been tested on linux and macOS and <em>may</em> work under cygwin.</p>
 building the repository.</p>
 <p><strong>Support:</strong> swift hooks are known to work on any system which has swift
 installed.  It has been tested on linux and macOS.</p>
-<h3 id="pcre">    pcre <small><a href="#pcre">¶</a></small></h3> <p>"Perl Compatible Regular Expressions" – pcre hooks are a quick way to write a
+<h3 id="pcre">    pcre <small><a href="#pcre">¶</a></small></h3> <p><em><strong>deprecated</strong></em>: the pcre language will be removed in a later version.  Use
+<a href="#pygrep">pygrep</a> hooks instead (usually a drop-in replacement).</p>
+<p>"Perl Compatible Regular Expressions" – pcre hooks are a quick way to write a
 simple hook which prevents commits by file matching.  Specify the regex as the
 <code>entry</code>.</p>
 <p>macos does not ship with a functioning <code>grep -P</code> so you'll need
@@ -379,6 +382,14 @@ simple hook which prevents commits by file matching.  Specify the regex as the
 <p><strong>Support:</strong> pcre hooks work on any system which has a functioning
 <code>grep -P</code> (or in the case of macOS: <code>ggrep -P</code>).  It has been tested on linux,
 macOS, windows, and cygwin.</p>
+<h3 id="pygrep">    pygrep <small><a href="#pygrep">¶</a></small></h3> <p><em>new in 1.2.0</em></p>
+<p>A cross-platform python implementation of <code>grep</code> – pygrep hooks are a quick
+way to write a simple hook which prevents commits by file matching.  Specify
+the regex as the <code>entry</code>.  The <code>entry</code> may be any python
+<a href="#regular-expressions">regular expression</a>.  For case insensitive regexes you
+can apply the <code>(?i)</code> flag as the start of your entry, or use <code>args: [-i]</code>.</p>
+<p><strong>Support:</strong> pygrep hooks are supported on all platforms which pre-commit runs
+on.</p>
 <h3 id="script">    script <small><a href="#script">¶</a></small></h3> <p>Script hooks provide a way to write simple scripts which validate files. The
 <code>entry</code> should be a path relative to the root of the hook repository.</p>
 <p>This hook type will not be given a virtual environment to work with – if it

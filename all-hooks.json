@@ -374,7 +374,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.7.0"
+                "eslint@4.8.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
