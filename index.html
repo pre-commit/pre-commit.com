@@ -237,67 +237,43 @@ want.</p>
 <em>(since 0.6.3)</em>.</p>
 <p>A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml
 file that tells pre-commit:</p>
-
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <td><code>id</code></td>
-                        <td>The id of the hook - used in pre-commit-config.yaml</td>
-                    </tr>
-                    <tr>
-                        <td><code>name</code></td>
-                        <td>The name of the hook - shown during hook execution</td>
-                    </tr>
-                    <tr>
-                        <td><code>entry</code></td>
-                        <td>The entry point - The executable to run</td>
-                    </tr>
-                    <tr>
-                        <td><code>language</code></td>
-                        <td>The language of the hook - tells pre-commit how to install the hook.</td>
-                    </tr>
-                    <tr>
-                        <td><code>files</code></td>
-                        <td>(optional) Default <code>''</code>.  The pattern of files to run on.  <em>new in 0.15.0: now optional</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>exclude</code></td>
-                        <td>(optional) Default <code>^$</code>.  Exclude files that were matched by <code>files</code>.</td>
-                    <tr>
-                        <td><code>types</code></td>
-                        <td>(optional) Default <code>[file]</code>.  List of file types to run on.  See <a href="#filtering-files-with-types">Filtering files with types</a>.  <em>new in 0.15.0</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>exclude_types</code></td>
-                        <td>(optional) Default <code>[]</code>.  Exclude files that were matched by <code>types</code>.  <em>new in 0.15.0</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>always_run</code></td>
-                        <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files. <em>new in 0.7.2</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>pass_filenames</code></td>
-                        <td>(optional) Default <code>true</code>.  If <code>true</code> this hook must take filenames as positional arguments. <em>new in 0.14.0</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>description</code></td>
-                        <td>(optional) The description of the hook.</td>
-                    </tr>
-                    <tr>
-                        <td><code>language_version</code></td>
-                        <td>(optional) See <a href="#overriding-language-version">Advanced Features: "Overriding Language Version"</a>.</td>
-                    </tr>
-                    <tr>
-                        <td><code>minimum_pre_commit_version</code></td>
-                        <td>
-                            (optional) Allows one to indicate a minimum
-                            compatible pre-commit version. <em>new in 0.6.7</em>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-<p>For example:</p>
+<table class="table table-bordered"><tbody><tr><td><p><code>id</code></p>
+</td><td><p>the id of the hook - used in pre-commit-config.yaml.</p>
+</td></tr><tr><td><p><code>name</code></p>
+</td><td><p>the name of the hook - shown during hook execution.</p>
+</td></tr><tr><td><p><code>entry</code></p>
+</td><td><p>the entry point - the executable to run.  <code>entry</code> can also contain
+arguments that will not be overridden such as <code>entry: autopep8 -i</code>.</p>
+</td></tr><tr><td><p><code>language</code></p>
+</td><td><p>the language of the hook - tells pre-commit how to install the hook.</p>
+</td></tr><tr><td><p><code>files</code></p>
+</td><td><p>(optional: default <code>''</code>) the pattern of files to run on.
+<em>new in 0.15.0</em>: now optional.</p>
+</td></tr><tr><td><p><code>exclude</code></p>
+</td><td><p>(optional: default <code>^$</code>)  exclude files that were matched by <code>files</code>.</p>
+</td></tr><tr><td><p><code>types</code></p>
+</td><td><p>(optional: default <code>[file]</code>)  list of file types to run on.  See
+<a href="#filtering-files-with-types">Filtering files with types</a>.
+<em>new in 0.15.0</em>.</p>
+</td></tr><tr><td><p><code>exclude_types</code></p>
+</td><td><p>(optional: default <code>[]</code>)  exclude files that were matched by <code>types</code>.
+<em>new in 0.15.0</em>.</p>
+</td></tr><tr><td><p><code>always_run</code></p>
+</td><td><p>(optional: default <code>false</code>) if <code>true</code> this hook will run even if there
+are no matching files. <em>new in 0.7.2</em>.</p>
+</td></tr><tr><td><p><code>pass_filenames</code></p>
+</td><td><p>(optional: default <code>true</code>) if <code>true</code> this hook must take filenames as
+positional arguments. <em>new in 0.14.0</em>.</p>
+</td></tr><tr><td><p><code>description</code></p>
+</td><td><p>(optional: default <code>''</code>) description of the hook.  used for metadata
+purposes only.</p>
+</td></tr><tr><td><p><code>language_version</code></p>
+</td><td><p>(optional: default <code>default</code>) see
+<a href="#overriding-language-version">Overriding language version</a>.</p>
+</td></tr><tr><td><p><code>minimum_pre_commit_version</code></p>
+</td><td><p>(optional: default <code>0.0.0</code>) allows one to indicate a minimum
+compatible pre-commit version. <em>new in 0.6.7</em>.</p>
+</td></tr></tbody></table><p>For example:</p>
 <div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
     <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Trim Trailing Whitespace</span>
     <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">This hook trims trailing whitespace.</span>
