@@ -260,67 +260,59 @@ _(since 0.6.3)_.
 
 A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml
 file that tells pre-commit:
-''')}
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <td><code>id</code></td>
-                        <td>The id of the hook - used in pre-commit-config.yaml</td>
-                    </tr>
-                    <tr>
-                        <td><code>name</code></td>
-                        <td>The name of the hook - shown during hook execution</td>
-                    </tr>
-                    <tr>
-                        <td><code>entry</code></td>
-                        <td>The entry point - The executable to run</td>
-                    </tr>
-                    <tr>
-                        <td><code>language</code></td>
-                        <td>The language of the hook - tells pre-commit how to install the hook.</td>
-                    </tr>
-                    <tr>
-                        <td><code>files</code></td>
-                        <td>(optional) Default <code>''</code>.  The pattern of files to run on.  <em>new in 0.15.0: now optional</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>exclude</code></td>
-                        <td>(optional) Default <code>^$</code>.  Exclude files that were matched by <code>files</code>.</td>
-                    <tr>
-                        <td><code>types</code></td>
-                        <td>(optional) Default <code>[file]</code>.  List of file types to run on.  See <a href="#filtering-files-with-types">Filtering files with types</a>.  <em>new in 0.15.0</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>exclude_types</code></td>
-                        <td>(optional) Default <code>[]</code>.  Exclude files that were matched by <code>types</code>.  <em>new in 0.15.0</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>always_run</code></td>
-                        <td>(optional) Default <code>false</code>.  If <code>true</code> this hook will run even if there are no matching files. <em>new in 0.7.2</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>pass_filenames</code></td>
-                        <td>(optional) Default <code>true</code>.  If <code>true</code> this hook must take filenames as positional arguments. <em>new in 0.14.0</em></td>
-                    </tr>
-                    <tr>
-                        <td><code>description</code></td>
-                        <td>(optional) The description of the hook.</td>
-                    </tr>
-                    <tr>
-                        <td><code>language_version</code></td>
-                        <td>(optional) See <a href="#overriding-language-version">Advanced Features: "Overriding Language Version"</a>.</td>
-                    </tr>
-                    <tr>
-                        <td><code>minimum_pre_commit_version</code></td>
-                        <td>
-                            (optional) Allows one to indicate a minimum
-                            compatible pre-commit version. <em>new in 0.6.7</em>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
 
-${md('''
+```table
+=r=
+    =c= `id`
+    =c= the id of the hook - used in pre-commit-config.yaml.
+=r=
+    =c= `name`
+    =c= the name of the hook - shown during hook execution.
+=r=
+    =c= `entry`
+    =c= the entry point - the executable to run.  `entry` can also contain
+        arguments that will not be overridden such as `entry: autopep8 -i`.
+=r=
+    =c= `language`
+    =c= the language of the hook - tells pre-commit how to install the hook.
+=r=
+    =c= `files`
+    =c= (optional: default `''`) the pattern of files to run on.
+        _new in 0.15.0_: now optional.
+=r=
+    =c= `exclude`
+    =c= (optional: default `^$`)  exclude files that were matched by `files`.
+=r=
+    =c= `types`
+    =c= (optional: default `[file]`)  list of file types to run on.  See
+        [Filtering files with types](#filtering-files-with-types).
+        _new in 0.15.0_.
+=r=
+    =c= `exclude_types`
+    =c= (optional: default `[]`)  exclude files that were matched by `types`.
+        _new in 0.15.0_.
+=r=
+    =c= `always_run`
+    =c= (optional: default `false`) if `true` this hook will run even if there
+        are no matching files. _new in 0.7.2_.
+=r=
+    =c= `pass_filenames`
+    =c= (optional: default `true`) if `true` this hook must take filenames as
+        positional arguments. _new in 0.14.0_.
+=r=
+    =c= `description`
+    =c= (optional: default `''`) description of the hook.  used for metadata
+        purposes only.
+=r=
+    =c= `language_version`
+    =c= (optional: default `default`) see
+        [Overriding language version](#overriding-language-version).
+=r=
+    =c= `minimum_pre_commit_version`
+    =c= (optional: default `0.0.0`) allows one to indicate a minimum
+        compatible pre-commit version. _new in 0.6.7_.
+```
+
 For example:
 
 ```yaml
