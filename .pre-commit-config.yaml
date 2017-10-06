@@ -20,3 +20,8 @@
         language: ruby
         language_version: 2.1.5
         additional_dependencies: ['scss_lint:0.52.0']
+    -   id: no-github-dot-git
+        name: No need for .git for github urls
+        entry: 'github.*\.git'
+        files: all-repos.yaml
+        language: pygrep
