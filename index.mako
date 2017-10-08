@@ -499,16 +499,40 @@ __Support:__ the support of system hooks depend on the executables.
 
 ## Developing hooks interactively
 
-Since the `repo` property of .pre-commit-config.yaml can take anything that
-`git clone ...` understands, it's often useful to point it at a local
-directory on your machine while developing hooks and using
-`pre-commit autoupdate` to synchronize changes.
+Since the `repo` property of `.pre-commit-config.yaml` can refer to anything
+that `git clone ...` understands, it's often useful to point it at a local
+directory while developing hooks.
 
-```yaml
--   repo: /home/asottile/workspace/pre-commit-hooks
-    sha: v0.9.1
+[`pre-commit try-repo`](#pre-commit-try-repo) streamlines this process by
+enabling a quick way to try out a repository.  Here's how one might work
+interactively:
+
+```console
+~/work/hook-repo $ git checkout origin/master -b feature
+
+# ... make some changes
+
+~/work/hook-repo $ # A commit is needed so `pre-commit` can clone
+~/work/hook-repo $ git commit -m "Add new hook: foo"
+
+# In another terminal or tab
+
+~/work/other-repo $ pre-commit try-repo ../hook-repo foo --verbose --all-files
+===============================================================================
+Using config:
+===============================================================================
+repos:
+-   repo: ../hook-repo
+    sha: 84f01ac09fcd8610824f9626a590b83cfae9bcbd
     hooks:
-    -   id: trailing-whitespace
+    -   id: foo
+===============================================================================
+[INFO] Initializing environment for ../hook-repo.
+[foo] Foo................................................................Passed
+hookid: foo
+
+Hello from foo hook!
+
 ```
 ''')}
         </div>
@@ -605,6 +629,32 @@ Some example useful invocations:
 Produce a sample `.pre-commit-config.yaml`.
 
 Options: (no additional options)
+
+## pre-commit try-repo REPO [options] [](#pre-commit-try-repo)
+
+_new in 1.3.0_ Try the hooks in a repository, useful for developing new hooks.
+`try-repo` can also be used for testing out a repository before adding it to
+your configuration.  `try-repo` prints a configuration it generates based on
+the remote hook repository before running the hooks.
+
+Options:
+
+- `REPO`: required clonable hooks repository.  Can be a local path on
+  disk.
+- `--ref REF`: Manually select a ref to run against, otherwise the `HEAD`
+  revision will be used.
+- `pre-commit try-repo` also supports all available options for
+  [`pre-commit run`](#pre-commit-run).
+
+Some example useful invocations:
+- `pre-commit try-repo git://github.com/pre-commit/pre-commit-hooks`: runs all
+  the hooks in the latest revision of `pre-commit/pre-commit-hooks`.
+- `pre-commit try-repo ../path/to/repo`: run all the hooks in a repository on
+  disk.
+- `pre-commit try-repo ../pre-commit-hooks flake8`: run only the `flake8` hook
+  configured in a local `../pre-commit-hooks` repository.
+- See [`pre-commit run`](#pre-commit-run) for more useful `run` invocations
+  which are also supported by `pre-commit try-repo`.
 
 ## pre-commit uninstall [options] [](#pre-commit-uninstall)
 
