@@ -131,6 +131,18 @@
             "minimum_pre_commit_version": "0.15.0"
         },
         {
+            "id": "check-vcs-permalinks",
+            "name": "Check vcs permalinks",
+            "description": "Ensures that links to vcs websites are permalinks.",
+            "entry": "check-vcs-permalinks",
+            "language": "python",
+            "types": [
+                "text"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
+        },
+        {
             "id": "check-xml",
             "name": "Check Xml",
             "description": "This hook checks xml files for parseable syntax.",
@@ -346,7 +358,7 @@
             "files": "\\.(js|coffee)$",
             "args": [],
             "additional_dependencies": [
-                "coffeelint@1.16.0"
+                "coffeelint@2.0.6"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -1248,6 +1260,22 @@
             "language": "script",
             "files": "\\.tf$",
             "exclude": "\\.terraform\\/.*$"
+        },
+        {
+            "id": "prometheus_check_rules",
+            "name": "prometheus_check_rules",
+            "description": "Validates prometheus rules",
+            "entry": "bin/prom_rules.sh",
+            "language": "script",
+            "files": "\\.rules$"
+        },
+        {
+            "id": "prometheus_check_config",
+            "name": "prometheus_check_config",
+            "description": "Validates prometheus configuration",
+            "entry": "bin/prom_config.sh",
+            "language": "script",
+            "files": "prometheus.yml$"
         }
     ],
     "git://github.com/awebdeveloper/pre-commit-stylelint": [

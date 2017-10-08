@@ -393,14 +393,36 @@ requirements that don't allow them to run in isolation such as pylint).</p>
 <p>This hook type will not be given a virtual environment to work with – if it
 needs additional dependencies the consumer must install them manually.</p>
 <p><strong>Support:</strong> the support of system hooks depend on the executables.</p>
-<h2 id="developing-hooks-interactively">    Developing hooks interactively <small><a href="#developing-hooks-interactively">¶</a></small></h2> <p>Since the <code>repo</code> property of .pre-commit-config.yaml can take anything that
-<code>git clone ...</code> understands, it's often useful to point it at a local
-directory on your machine while developing hooks and using
-<code>pre-commit autoupdate</code> to synchronize changes.</p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/home/asottile/workspace/pre-commit-hooks</span>
-    <span class="l l-Scalar l-Scalar-Plain">sha</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.9.1</span>
-    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+<h2 id="developing-hooks-interactively">    Developing hooks interactively <small><a href="#developing-hooks-interactively">¶</a></small></h2> <p>Since the <code>repo</code> property of <code>.pre-commit-config.yaml</code> can refer to anything
+that <code>git clone ...</code> understands, it's often useful to point it at a local
+directory while developing hooks.</p>
+<p><a href="#pre-commit-try-repo"><code>pre-commit try-repo</code></a> streamlines this process by
+enabling a quick way to try out a repository.  Here's how one might work
+interactively:</p>
+<div class="highlight"><pre><span></span><span class="go">~/work/hook-repo $ git checkout origin/master -b feature</span>
+
+<span class="gp">#</span> ... make some changes
+
+<span class="go">~/work/hook-repo $ # A commit is needed so `pre-commit` can clone</span>
+<span class="go">~/work/hook-repo $ git commit -m &quot;Add new hook: foo&quot;</span>
+
+<span class="gp">#</span> In another terminal or tab
+
+<span class="go">~/work/other-repo $ pre-commit try-repo ../hook-repo foo --verbose --all-files</span>
+<span class="go">===============================================================================</span>
+<span class="go">Using config:</span>
+<span class="go">===============================================================================</span>
+<span class="go">repos:</span>
+<span class="go">-   repo: ../hook-repo</span>
+<span class="go">    sha: 84f01ac09fcd8610824f9626a590b83cfae9bcbd</span>
+<span class="go">    hooks:</span>
+<span class="go">    -   id: foo</span>
+<span class="go">===============================================================================</span>
+<span class="go">[INFO] Initializing environment for ../hook-repo.</span>
+<span class="go">[foo] Foo................................................................Passed</span>
+<span class="go">hookid: foo</span>
+
+<span class="go">Hello from foo hook!</span>
 </pre></div>
 
         </div>
@@ -473,6 +495,30 @@ leveraged in a pre-receive hook.</li>
 </ul>
 <h2 id="pre-commit-sample-config">    pre-commit sample-config [options] <a href="#pre-commit-sample-config"></a> <small><a href="#pre-commit-sample-config">¶</a></small></h2> <p>Produce a sample <code>.pre-commit-config.yaml</code>.</p>
 <p>Options: (no additional options)</p>
+<h2 id="pre-commit-try-repo">    pre-commit try-repo REPO [options] <a href="#pre-commit-try-repo"></a> <small><a href="#pre-commit-try-repo">¶</a></small></h2> <p><em>new in 1.3.0</em> Try the hooks in a repository, useful for developing new hooks.
+<code>try-repo</code> can also be used for testing out a repository before adding it to
+your configuration.  <code>try-repo</code> prints a configuration it generates based on
+the remote hook repository before running the hooks.</p>
+<p>Options:</p>
+<ul>
+<li><code>REPO</code>: required clonable hooks repository.  Can be a local path on
+disk.</li>
+<li><code>--ref REF</code>: Manually select a ref to run against, otherwise the <code>HEAD</code>
+revision will be used.</li>
+<li><code>pre-commit try-repo</code> also supports all available options for
+<a href="#pre-commit-run"><code>pre-commit run</code></a>.</li>
+</ul>
+<p>Some example useful invocations:</p>
+<ul>
+<li><code>pre-commit try-repo git://github.com/pre-commit/pre-commit-hooks</code>: runs all
+the hooks in the latest revision of <code>pre-commit/pre-commit-hooks</code>.</li>
+<li><code>pre-commit try-repo ../path/to/repo</code>: run all the hooks in a repository on
+disk.</li>
+<li><code>pre-commit try-repo ../pre-commit-hooks flake8</code>: run only the <code>flake8</code> hook
+configured in a local <code>../pre-commit-hooks</code> repository.</li>
+<li>See <a href="#pre-commit-run"><code>pre-commit run</code></a> for more useful <code>run</code> invocations
+which are also supported by <code>pre-commit try-repo</code>.</li>
+</ul>
 <h2 id="pre-commit-uninstall">    pre-commit uninstall [options] <a href="#pre-commit-uninstall"></a> <small><a href="#pre-commit-uninstall">¶</a></small></h2> <p>Uninstall the pre-commit script.</p>
 <p>Options:</p>
 <ul>
