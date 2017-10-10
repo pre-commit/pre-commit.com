@@ -721,6 +721,18 @@ instance, adding <code>pre-commit run --all-files</code> as a CI step will ensur
 everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
 <code>git diff-tree --no-commit-id --name-only -r $REVISION | xargs pre-commit run --files</code>.</p>
+<h2 id="using-the-latest-sha-for-a-repository">    Using the latest sha for a repository <small><a href="#using-the-latest-sha-for-a-repository">¶</a></small></h2> <p><code>pre-commit</code> configuration aims to give a repeatable and fast experience and
+therefore intentionally doesn't provide facilities for "unpinned latest
+version" for hook repositories.</p>
+<p>Instead, <code>pre-commit</code> provides tools to make it easy to upgrade to the
+latest versions with <a href="#pre-commit-autoupdate"><code>pre-commit autoupdate</code></a>.  If
+you need the absolute latest version of a hook (instead of the latest tagged
+version), pass the <code>--bleeding-edge</code> parameter to <code>autoupdate</code>.</p>
+<p><code>pre-commit</code> assumes that the value of <code>sha</code> is an immutable ref (such as a
+tag or SHA) and will cache based on that.  Using a branch name (or <code>HEAD</code>) for
+the value of <code>sha</code> is not supported and will only represent the state of
+that mutable ref at the time of hook installation (and will <em>NOT</em> update
+automatically).</p>
 
         </div>
 
