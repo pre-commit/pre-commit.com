@@ -721,6 +721,42 @@ instance, adding <code>pre-commit run --all-files</code> as a CI step will ensur
 everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
 <code>git diff-tree --no-commit-id --name-only -r $REVISION | xargs pre-commit run --files</code>.</p>
+<h2 id="usage-with-tox">    Usage with tox <small><a href="#usage-with-tox">¶</a></small></h2> <p><a href="http://tox.readthedocs.io/">tox</a> is useful for configuring test / CI tools
+such as pre-commit.  One feature of <code>tox&gt;=2</code> is it will clear environment
+variables such that tests are more reproducible.  Under some conditions,
+pre-commit requires a few environment variables and so they must be
+whitelisted.</p>
+<p>When cloning repos over ssh (<code>repo: git@github.com:...</code>), <code>git</code> requires the
+<code>SSH_AUTH_SOCK</code> variable and will otherwise fail:</p>
+<div class="highlight"><pre><span></span>[INFO] Initializing environment for git@github.com:pre-commit/pre-commit-hooks.
+An unexpected error has occurred: CalledProcessError: Command: (&#39;/usr/bin/git&#39;, &#39;clone&#39;, &#39;--no-checkout&#39;, &#39;git@github.com:pre-commit/pre-commit-hooks&#39;, &#39;/home/asottile/.cache/pre-commit/repofdkwkq_v&#39;)
+Return code: 128
+Expected return code: 0
+Output: (none)
+Errors:
+    Cloning into &#39;/home/asottile/.cache/pre-commit/repofdkwkq_v&#39;...
+    Permission denied (publickey).
+    fatal: Could not read from remote repository.
+
+    Please make sure you have the correct access rights
+    and the repository exists.
+
+
+Check the log at /home/asottile/.cache/pre-commit/pre-commit.log
+</pre></div>
+<p>Add the following to your tox testenv:</p>
+<div class="highlight"><pre><span></span><span class="k">[testenv]</span>
+<span class="na">passenv</span> <span class="o">=</span> <span class="s">SSH_AUTH_SOCK</span>
+</pre></div>
+<p>pre-commit uses <code>os.path.expanduser</code> to create the cache directory, on windows
+this requires the <code>HOMEPATH</code> environment variable:</p>
+<div class="highlight"><pre><span></span><span class="k">[testenv]</span>
+<span class="na">passenv</span> <span class="o">=</span> <span class="s">HOMEPATH</span>
+</pre></div>
+<p>Or with both:</p>
+<div class="highlight"><pre><span></span><span class="k">[testenv]</span>
+<span class="na">passenv</span> <span class="o">=</span> <span class="s">HOMEPATH SSH_AUTH_SOCK</span>
+</pre></div>
 <h2 id="using-the-latest-sha-for-a-repository">    Using the latest sha for a repository <small><a href="#using-the-latest-sha-for-a-repository">¶</a></small></h2> <p><code>pre-commit</code> configuration aims to give a repeatable and fast experience and
 therefore intentionally doesn't provide facilities for "unpinned latest
 version" for hook repositories.</p>
