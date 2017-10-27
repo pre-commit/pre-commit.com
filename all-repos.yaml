@@ -61,3 +61,4 @@
 - git://github.com/awebdeveloper/pre-commit-prettier
 - git://github.com/prettier/prettier
 - git://github.com/adrienverge/yamllint
+- git://github.com/thlorenz/doctoc
