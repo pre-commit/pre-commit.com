@@ -944,6 +944,57 @@ everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
 `git diff-tree --no-commit-id --name-only -r $REVISION | xargs pre-commit run --files`.
 
+## Usage with tox
+
+[tox](http://tox.readthedocs.io/) is useful for configuring test / CI tools
+such as pre-commit.  One feature of `tox>=2` is it will clear environment
+variables such that tests are more reproducible.  Under some conditions,
+pre-commit requires a few environment variables and so they must be
+whitelisted.
+
+When cloning repos over ssh (`repo: git@github.com:...`), `git` requires the
+`SSH_AUTH_SOCK` variable and will otherwise fail:
+
+```
+[INFO] Initializing environment for git@github.com:pre-commit/pre-commit-hooks.
+An unexpected error has occurred: CalledProcessError: Command: ('/usr/bin/git', 'clone', '--no-checkout', 'git@github.com:pre-commit/pre-commit-hooks', '/home/asottile/.cache/pre-commit/repofdkwkq_v')
+Return code: 128
+Expected return code: 0
+Output: (none)
+Errors:
+    Cloning into '/home/asottile/.cache/pre-commit/repofdkwkq_v'...
+    Permission denied (publickey).
+    fatal: Could not read from remote repository.
+
+    Please make sure you have the correct access rights
+    and the repository exists.
+
+
+Check the log at /home/asottile/.cache/pre-commit/pre-commit.log
+```
+
+Add the following to your tox testenv:
+
+```ini
+[testenv]
+passenv = SSH_AUTH_SOCK
+```
+
+pre-commit uses `os.path.expanduser` to create the cache directory, on windows
+this requires the `HOMEPATH` environment variable:
+
+```ini
+[testenv]
+passenv = HOMEPATH
+```
+
+Or with both:
+
+```ini
+[testenv]
+passenv = HOMEPATH SSH_AUTH_SOCK
+```
+
 ## Using the latest sha for a repository
 
 `pre-commit` configuration aims to give a repeatable and fast experience and
