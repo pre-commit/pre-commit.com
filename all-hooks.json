@@ -386,7 +386,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.8.0"
+                "eslint@4.9.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -1332,6 +1332,17 @@
             "types": [
                 "file",
                 "yaml"
+            ]
+        }
+    ],
+    "git://github.com/thlorenz/doctoc": [
+        {
+            "id": "doctoc",
+            "name": "doctoc",
+            "language": "node",
+            "entry": "doctoc",
+            "types": [
+                "markdown"
             ]
         }
     ]
