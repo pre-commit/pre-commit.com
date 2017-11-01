@@ -386,7 +386,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.9.0"
+                "eslint@4.10.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -875,6 +875,28 @@
             "entry": "detect_missing_css_classes",
             "language": "python",
             "files": ".*\\.(css|hbs|html)$"
+        },
+        {
+            "id": "html-tags-blacklist",
+            "name": "Forbid some HTML tags",
+            "entry": "html_tags_blacklist",
+            "language": "python",
+            "args": [
+                "--forbidden-tags",
+                "basefont,blink,center,font,marquee,s,strike,tt,u"
+            ],
+            "files": "\\.(html|hbs)$"
+        },
+        {
+            "id": "html-attributes-blacklist",
+            "name": "Forbid some HTML attributes",
+            "entry": "html_attributes_blacklist",
+            "language": "python",
+            "args": [
+                "--forbidden-attributes",
+                "align,alink,background,basefont,bgcolor,border,color,link,text,vlink"
+            ],
+            "files": "\\.(html|hbs)$"
         }
     ],
     "git://github.com/Lucas-C/pre-commit-hooks-markup": [
@@ -1147,6 +1169,18 @@
             "entry": "pre_commit_hooks/shell-lint.sh",
             "language": "script",
             "files": "(\\.sh|\\.zsh|\\.ksh)$"
+        }
+    ],
+    "git://github.com/bemeurer/beautysh": [
+        {
+            "id": "beautysh",
+            "name": "beautysh",
+            "description": "A Bash beautifier for the masses.\nhttps://pypi.python.org/pypi/beautysh\n",
+            "entry": "beautysh -f",
+            "language": "python",
+            "types": [
+                "shell"
+            ]
         }
     ],
     "git://github.com/antonbabenko/pre-commit-terraform": [
