@@ -44,6 +44,7 @@
 # - git://github.com/jordant/rubocop-pre-commit-hook
 - git://github.com/jstewmon/check-swagger
 - git://github.com/detailyang/pre-commit-shell
+- git://github.com/bemeurer/beautysh
 # https://github.com/sanmai-NL/pre-commit-hooks_R/issues/1
 # - git://github.com/sanmai-NL/pre-commit-hooks_R
 # https://github.com/magicmark/pre-commit-es6-imports-reorder/issues/1
