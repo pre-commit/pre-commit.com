@@ -358,7 +358,7 @@
             "files": "\\.(js|coffee)$",
             "args": [],
             "additional_dependencies": [
-                "coffeelint@2.0.6"
+                "coffeelint@2.0.7"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
