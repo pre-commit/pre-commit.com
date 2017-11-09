@@ -556,7 +556,7 @@ Options:
 
 - `--bleeding-edge`: update to the bleeding edge of `master` instead of the
   latest tagged version (the default behaviour).
-- `--repo REPO`: _new in 1.4.0_ Only update this repository.
+- `--repo REPO`: _new in 1.4.1_ Only update this repository.
 
 ## pre-commit clean [options] [](#pre-commit-clean)
 
