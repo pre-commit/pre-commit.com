@@ -386,7 +386,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.10.0"
+                "eslint@4.11.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -1252,6 +1252,16 @@
             "entry": "hindent.sh",
             "language": "script",
             "files": "\\.(hs|lhs)$"
+        }
+    ],
+    "git://github.com/doublify/pre-commit-isort": [
+        {
+            "id": "isort",
+            "name": "isort",
+            "description": "Sort imports alphabetically with isort.",
+            "entry": "isort",
+            "language": "python",
+            "files": "\\.py$"
         }
     ],
     "git://github.com/doublify/pre-commit-rust": [
