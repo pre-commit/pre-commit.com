@@ -49,6 +49,18 @@
             "minimum_pre_commit_version": "0.15.0"
         },
         {
+            "id": "check-builtin-literals",
+            "name": "Check builtin type constructor use",
+            "description": "Require literal syntax when initializing empty or zero Python builtin types.",
+            "entry": "check-builtin-literals",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
+        },
+        {
             "id": "check-case-conflict",
             "name": "Check for case conflicts",
             "description": "Check for files that would conflict in case-insensitive filesystems",
@@ -386,7 +398,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.11.0"
+                "eslint@4.13.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -609,130 +621,6 @@
             "entry": "pre_commit_hooks/php-cs-fixer.sh",
             "language": "script",
             "files": "\\.php$"
-        }
-    ],
-    "git://github.com/pricematch/mirrors-rubocop": [
-        {
-            "id": "rubocop",
-            "name": "rubocop",
-            "entry": "rubocop",
-            "language": "ruby",
-            "files": "\\.(rb|rake)$",
-            "args": []
-        }
-    ],
-    "git://github.com/pricematch/mirrors-closure-linter": [
-        {
-            "id": "closure-linter",
-            "name": "closure-linter",
-            "entry": "gjslint",
-            "language": "python",
-            "files": "\\.js$"
-        },
-        {
-            "id": "closure-linter-fixer",
-            "name": "closure-linter-fixer",
-            "entry": "fixjsstyle",
-            "language": "python",
-            "files": "\\.js$"
-        }
-    ],
-    "git://github.com/pricematch/pricematch-pre-commit-hooks": [
-        {
-            "id": "do_not_commit",
-            "name": "Block if \"DO NOT COMMIT\" is found",
-            "entry": "DO NOT COMMIT",
-            "language": "pcre",
-            "files": ""
-        },
-        {
-            "id": "ruby_timezones",
-            "name": "Force explicit usage of timezones",
-            "entry": "(Date.today|Time.now|DateTime.now)([ ,)]|$)",
-            "language": "pcre",
-            "files": "\\.(rb|rake)$"
-        },
-        {
-            "id": "ruby",
-            "name": "ruby_syntax",
-            "entry": "ruby.py",
-            "language": "script",
-            "files": "\\.(rb|rake)$"
-        },
-        {
-            "id": "restrict_methods_on_reservation_table",
-            "name": "Only allow limited methods on the Reservation model in parsing",
-            "entry": "\\bReservation\\s*\\.(?!(mass|calendar|hotel_pms_res|set_canceled|update_from)).*",
-            "language": "pcre",
-            "files": "\\.rb$",
-            "args": [
-                "-bzo"
-            ]
-        },
-        {
-            "id": "no_commas_in_string_arrays",
-            "name": "Do not forget a comma in a %w() string array",
-            "entry": "\\%w\\([^)]*,[^)]*\\)",
-            "language": "pcre",
-            "files": "\\.(rb|rake)$",
-            "args": [
-                "-bzo"
-            ]
-        },
-        {
-            "id": "check_rails_env_with_methods",
-            "name": "Do not write \"Rails.env =\" to avoid assignment",
-            "entry": "Rails\\.env\\s*=",
-            "language": "pcre",
-            "files": "\\.(rb|rake)$"
-        },
-        {
-            "id": "remove_encoding_comment",
-            "name": "Remove the encoding comment at beginning of file",
-            "entry": "coding\\s*\\:\\s*utf\\-8",
-            "language": "pcre",
-            "files": "\\.(rb|rake)$"
-        },
-        {
-            "id": "forbid_describe_only",
-            "name": "Do not forget describe.only in test files",
-            "entry": "describe.only",
-            "language": "pcre",
-            "files": "\\.js$"
-        },
-        {
-            "id": "include_rails_helper_in_tests",
-            "name": "Start your spec files with the line `include 'rails_helper'`",
-            "entry": "\\A(?!(require\\s\\'rails_helper\\')).*",
-            "language": "pcre",
-            "files": "spec\\.rb$",
-            "args": [
-                "-bzo"
-            ]
-        },
-        {
-            "id": "no_puts_statements",
-            "name": "Do not leave puts statements in production code",
-            "entry": "[.\\s]?puts[(\\s]?.*",
-            "language": "pcre",
-            "files": "\\.rb$",
-            "args": [
-                "-bzo"
-            ]
-        },
-        {
-            "id": "remove_ipython_notebook_outputs",
-            "name": "Remove ipython notebook outputs",
-            "entry": "strip_ipynb.sh",
-            "files": "\\.ipynb$",
-            "language": "script"
-        },
-        {
-            "id": "no_httparty",
-            "name": "Use HypertextTransfer wrapper instead of HTTParty directly",
-            "entry": "HTTParty",
-            "language": "pcre",
-            "files": "\\.(rb|rake)$"
         }
     ],
     "git://github.com/elidupuis/mirrors-jscs": [
