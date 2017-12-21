@@ -398,7 +398,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.13.0"
+                "eslint@4.13.1"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -550,6 +550,18 @@
             ],
             "files": "",
             "minimum_pre_commit_version": "0.15.0"
+        }
+    ],
+    "git://github.com/asottile/yesqa": [
+        {
+            "id": "yesqa",
+            "name": "Strip unnecessary `# noqa`s",
+            "description": "Automatically remove unnecessary `# noqa` comments",
+            "entry": "yesqa",
+            "language": "python",
+            "types": [
+                "python"
+            ]
         }
     ],
     "git://github.com/asottile/cheetah_lint": [
