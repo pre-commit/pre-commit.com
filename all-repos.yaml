@@ -19,6 +19,7 @@
 - git://github.com/asottile/add-trailing-comma
 - git://github.com/asottile/pyupgrade
 - git://github.com/asottile/reorder_python_imports
+- git://github.com/asottile/yesqa
 - git://github.com/asottile/cheetah_lint
 - git://github.com/digitalpulp/pre-commit-php
 - git://github.com/elidupuis/mirrors-jscs
