@@ -718,7 +718,7 @@ implicit conflicts (such as with removed python imports).
 _new in 0.3.5_ pre-commit can be used to manage `pre-push` hooks.  Simply
 `pre-commit install --hook-type pre-push`.
 
-## pre-commit for commit messsages
+## pre-commit for commit messages
 
 _new in 0.15.4_ pre-commit can be used to manage `commit-msg` hooks.  Simply
 `pre-commit install --hook-type commit-msg`.
