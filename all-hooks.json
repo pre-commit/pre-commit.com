@@ -398,7 +398,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.13.1"
+                "eslint@4.14.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -1169,7 +1169,7 @@
             "id": "fmt",
             "name": "fmt",
             "description": "Format files with rustfmt.",
-            "entry": "rustfmt",
+            "entry": "cargo fmt --",
             "language": "system",
             "files": "\\.rs$",
             "args": [
