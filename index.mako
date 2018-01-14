@@ -417,6 +417,9 @@ match the `entry` – usually through `bin` in package.json.
 __Support:__ node hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
 
+_new in 1.5.0_ windows is now supported for node hooks.  Currently python3
+only due to [a bug in cpython](https://bugs.python.org/issue32539).
+
 ### python
 
 The hook repository must have a `setup.py`.  It will be installed via
