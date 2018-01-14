@@ -347,6 +347,8 @@ installed.  It has been tested on linux, macOS, and windows.</p>
 match the <code>entry</code> – usually through <code>bin</code> in package.json.</p>
 <p><strong>Support:</strong> node hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and <em>may</em> work under cygwin.</p>
+<p><em>new in 1.5.0</em> windows is now supported for node hooks.  Currently python3
+only due to <a href="https://bugs.python.org/issue32539">a bug in cpython</a>.</p>
 <h3 id="python">    python <small><a href="#python">¶</a></small></h3> <p>The hook repository must have a <code>setup.py</code>.  It will be installed via
 <code>pip install .</code>.  The installed package will provide an executable that will
 match the <code>entry</code> – usually through <code>console_scripts</code> or <code>scripts</code> in setup.py.</p>
