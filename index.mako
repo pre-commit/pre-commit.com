@@ -83,7 +83,7 @@ requirements-dev.txt):
 pre-commit
 ```
 
-Using [homebrew](http://brew.sh):
+Using [homebrew](https://brew.sh):
 
 ```
 brew install pre-commit
@@ -947,7 +947,7 @@ which may be faster, use something like
 
 ## Usage with tox
 
-[tox](http://tox.readthedocs.io/) is useful for configuring test / CI tools
+[tox](https://tox.readthedocs.io/) is useful for configuring test / CI tools
 such as pre-commit.  One feature of `tox>=2` is it will clear environment
 variables such that tests are more reproducible.  Under some conditions,
 pre-commit requires a few environment variables and so they must be
