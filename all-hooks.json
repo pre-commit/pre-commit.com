@@ -417,6 +417,16 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
+    "git://github.com/pre-commit/mirrors-isort": [
+        {
+            "id": "isort",
+            "name": "isort",
+            "entry": "isort",
+            "language": "python",
+            "files": "\\.py$",
+            "args": []
+        }
+    ],
     "git://github.com/pre-commit/mirrors-jshint": [
         {
             "id": "jshint",
@@ -1090,8 +1100,8 @@
             "description": "Rewrites all Terraform configuration files to a canonical format.",
             "entry": "terraform_fmt.sh",
             "language": "script",
-            "files": "\\.tf$",
-            "exclude": "\\.+.terraform\\/.*$"
+            "files": "(\\.tf|\\.tfvars)$",
+            "exclude": "\\.terraform\\/.*$"
         }
     ],
     "git://github.com/willthames/ansible-lint": [
