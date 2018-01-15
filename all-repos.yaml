@@ -5,6 +5,7 @@
 - git://github.com/pre-commit/mirrors-csslint
 - git://github.com/pre-commit/mirrors-eslint
 - git://github.com/pre-commit/mirrors-fixmyjs
+- git://github.com/pre-commit/mirrors-isort
 - git://github.com/pre-commit/mirrors-jshint
 - git://github.com/pre-commit/mirrors-puppet-lint
 - git://github.com/pre-commit/mirrors-pylint
