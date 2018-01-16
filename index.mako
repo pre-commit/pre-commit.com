@@ -67,7 +67,7 @@ Non Administrative Installation:
 
 
 ```
-curl https://raw.githubusercontent.com/pre-commit/pre-commit.github.io/real_master/install-local.py | python
+curl https://pre-commit.com/install-local.py | python -
 ```
 
 System Level Install:
