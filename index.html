@@ -715,7 +715,14 @@ per-hook basis by setting the <code>language_version</code>.</p>
 <p>Valid values for specific languages are listed below:</p>
 <ul>
 <li>python: Whatever system installed python interpreters you have. The value of
-this argument is passed as the <code>-p</code> to <code>virtualenv</code>.</li>
+this argument is passed as the <code>-p</code> to <code>virtualenv</code>.<ul>
+<li><em>new in 1.4.3</em>: on windows the
+<a href="https://www.python.org/dev/peps/pep-0394/">pep394</a> name will be
+translated into a py launcher call for portability.  So continue to use
+names like <code>python3</code> (<code>py -3</code>) or <code>python3.6</code> (<code>py -3.6</code>) even on
+windows.</li>
+</ul>
+</li>
 <li>node: See <a href="https://github.com/ekalinin/nodeenv#advanced">nodeenv</a>.</li>
 <li>ruby: See <a href="https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build">ruby-build</a>.</li>
 </ul>
