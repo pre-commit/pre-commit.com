@@ -208,7 +208,7 @@ repository's configuration.
 =r=
     =c= `verbose`
     =c= (optional) if `true`, forces the output of the hook to be printed even when
-        the hook passes.  _new in 1.5.3_.
+        the hook passes.  _new in 1.6.0_.
 ```
 
 One example of a complete configuration:
@@ -302,7 +302,7 @@ file that tells pre-commit:
 =r=
     =c= `verbose`
     =c= (optional) if `true`, forces the output of the hook to be printed even when
-        the hook passes.  _new in 1.5.3_.
+        the hook passes.  _new in 1.6.0_.
 =r=
     =c= `pass_filenames`
     =c= (optional: default `true`) if `true` this hook must take filenames as
