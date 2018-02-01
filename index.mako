@@ -937,6 +937,11 @@ This tells pre-commit to use ruby `2.1.5` to run the `scss-lint` hook.
 Valid values for specific languages are listed below:
 - python: Whatever system installed python interpreters you have. The value of
   this argument is passed as the `-p` to `virtualenv`.
+    - _new in 1.4.3_: on windows the
+      [pep394](https://www.python.org/dev/peps/pep-0394/) name will be
+      translated into a py launcher call for portability.  So continue to use
+      names like `python3` (`py -3`) or `python3.6` (`py -3.6`) even on
+      windows.
 - node: See [nodeenv](https://github.com/ekalinin/nodeenv#advanced).
 - ruby: See [ruby-build](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).
 
