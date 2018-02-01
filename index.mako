@@ -193,7 +193,7 @@ repository's configuration.
     =c= (optional) list of additional parameters to pass to the hook.
 =r=
     =c= `stages`
-    =c= (optional) configes the hook to the `commit`, `push`, or `commit-msg`
+    =c= (optional) confines the hook to the `commit`, `push`, or `commit-msg`
         stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
@@ -205,6 +205,10 @@ repository's configuration.
     =c= `always_run`
     =c= (optional) if `true`, this hook will run even if there are no matching
         files.  _new in 0.7.2_.
+=r=
+    =c= `verbose`
+    =c= (optional) if `true`, forces the output of the hook to be printed even when
+        the hook passes.  _new in 1.5.3_.
 ```
 
 One example of a complete configuration:
@@ -295,6 +299,10 @@ file that tells pre-commit:
     =c= `always_run`
     =c= (optional: default `false`) if `true` this hook will run even if there
         are no matching files. _new in 0.7.2_.
+=r=
+    =c= `verbose`
+    =c= (optional) if `true`, forces the output of the hook to be printed even when
+        the hook passes.  _new in 1.5.3_.
 =r=
     =c= `pass_filenames`
     =c= (optional: default `true`) if `true` this hook must take filenames as
