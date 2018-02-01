@@ -171,6 +171,9 @@ repository's configuration.
     =c= `id`
     =c= which hook from the repository to use.
 =r=
+    =c= `name`
+    =c= (optional) override the name of the hook - shown during hook execution.
+=r=
     =c= `language_version`
     =c= (optional) override the language version for the
         hook.  See [Overriding Language Version](#overriding-language-version).
