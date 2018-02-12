@@ -398,7 +398,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.16.0"
+                "eslint@4.17.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -1316,6 +1316,16 @@
             "types": [
                 "markdown"
             ]
+        }
+    ],
+    "git://github.com/noahsark769/xcodeproj-sort-pre-commit-hook": [
+        {
+            "id": "xcodeproj-sort",
+            "name": "Sort the xcode project file",
+            "description": "This hook sorts your .xcodeproj file",
+            "entry": "xcodeproj-sort",
+            "language": "ruby",
+            "files": ".*\\.pbxproj"
         }
     ]
 }
