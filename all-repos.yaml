@@ -63,3 +63,4 @@
 - git://github.com/prettier/prettier
 - git://github.com/adrienverge/yamllint
 - git://github.com/thlorenz/doctoc
+- git://github.com/noahsark769/xcodeproj-sort-pre-commit-hook
