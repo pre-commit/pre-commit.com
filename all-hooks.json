@@ -304,6 +304,7 @@
             "name": "Don't commit to branch",
             "entry": "no-commit-to-branch",
             "language": "python",
+            "pass_filenames": false,
             "always_run": true,
             "files": "",
             "minimum_pre_commit_version": "0.15.0"
@@ -370,7 +371,7 @@
             "files": "\\.(js|coffee)$",
             "args": [],
             "additional_dependencies": [
-                "coffeelint@2.0.7"
+                "coffeelint@2.1.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -398,7 +399,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.17.0"
+                "eslint@4.18.2"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -1059,6 +1060,14 @@
             "entry": "run-go-build.sh",
             "language": "script",
             "files": "\\.go$"
+        },
+        {
+            "id": "go-build-plugin",
+            "name": "go build plugin",
+            "description": "Makes sure Go code can build package as plugin",
+            "entry": "run-go-build-plugin.sh",
+            "language": "script",
+            "files": "\\.go$"
         }
     ],
     "git://github.com/jstewmon/check-swagger": [
@@ -1291,7 +1300,7 @@
             "name": "prettier",
             "entry": "prettier --write",
             "language": "node",
-            "files": "\\.(css|less|scss|html|ts|tsx|graphql|gql|json|js|jsx)$"
+            "files": "\\.(css|less|scss|html|ts|tsx|graphql|gql|json|js|jsx|md)$"
         }
     ],
     "git://github.com/adrienverge/yamllint": [

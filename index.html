@@ -154,14 +154,14 @@ running hooks after the first failure.  <em>new in 1.1.0</em>.</p>
 from.</p>
 <table class="table table-bordered"><tbody><tr><td><p><code>repo</code></p>
 </td><td><p>the repository url to <code>git clone</code> from</p>
-</td></tr><tr><td><p><code>sha</code></p>
-</td><td><p>the revision or tag to clone at</p>
+</td></tr><tr><td><p><code>rev</code></p>
+</td><td><p>the revision or tag to clone at.  <em>new in 1.7.0</em> previously <code>sha</code></p>
 </td></tr><tr><td><p><code>hooks</code></p>
 </td><td><p>A list of <a href="#pre-commit-configyaml---hooks">hook mappings</a>.</p>
 </td></tr></tbody></table><p>A sample repository with all defaults present:</p>
 <div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
 <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
-    <span class="l l-Scalar l-Scalar-Plain">sha</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.9.4</span>
+    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
@@ -204,14 +204,14 @@ the hook passes.  <em>new in 1.6.0</em>.</p>
 </td></tr></tbody></table><p>One example of a complete configuration:</p>
 <div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
 <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">git://github.com/pre-commit/pre-commit-hooks</span>
-    <span class="l l-Scalar l-Scalar-Plain">sha</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.9.1</span>
+    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
 </pre></div>
 <p>This configuration says to download the pre-commit-hooks project and run its
 trailing-whitespace hook.</p>
 <h2 id="updating-hooks-automatically">    Updating hooks automatically <small><a href="#updating-hooks-automatically">¶</a></small></h2> <p>You can update your hooks to the latest version automatically by running
-<code>pre-commit autoupdate</code>.  This will bring the hooks to the latest sha on the
+<code>pre-commit autoupdate</code>.  This will bring the hooks to the latest tag on the
 master branch.</p>
 
         </div>
@@ -424,7 +424,7 @@ interactively:</p>
 <span class="go">===============================================================================</span>
 <span class="go">repos:</span>
 <span class="go">-   repo: ../hook-repo</span>
-<span class="go">    sha: 84f01ac09fcd8610824f9626a590b83cfae9bcbd</span>
+<span class="go">    rev: 84f01ac09fcd8610824f9626a590b83cfae9bcbd</span>
 <span class="go">    hooks:</span>
 <span class="go">    -   id: foo</span>
 <span class="go">===============================================================================</span>
@@ -452,7 +452,8 @@ Defaults to <code>auto</code>.</li>
 <ul>
 <li><code>--bleeding-edge</code>: update to the bleeding edge of <code>master</code> instead of the
 latest tagged version (the default behaviour).</li>
-<li><code>--repo REPO</code>: <em>new in 1.4.1</em> Only update this repository.</li>
+<li><code>--repo REPO</code>: <em>new in 1.4.1</em> Only update this repository. <em>new in 1.7.0</em>
+This option may be specified multiple times.</li>
 </ul>
 <h2 id="pre-commit-clean">    pre-commit clean [options] <a href="#pre-commit-clean"></a> <small><a href="#pre-commit-clean">¶</a></small></h2> <p>Clean out cached pre-commit files.</p>
 <p>Options: (no additional options)</p>
@@ -585,7 +586,7 @@ setting the <code>stages</code> property in your <code>.pre-commit-config.yaml</
 arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code>
 as follows:</p>
 <div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">git://github.com/pre-commit/pre-commit-hooks</span>
-    <span class="l l-Scalar l-Scalar-Plain">sha</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.9.1</span>
+    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">flake8</span>
         <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">--max-line-length=131</span><span class="p p-Indicator">]</span>
@@ -595,7 +596,7 @@ as follows:</p>
 the <code>args</code> value and then a list of staged files.</p>
 <p>For example, assuming a <code>.pre-commit-config.yaml</code>:</p>
 <div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">git://github.com/path/to/your/hook/repo</span>
-    <span class="l l-Scalar l-Scalar-Plain">sha</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">badf00ddeadbeef</span>
+    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">badf00ddeadbeef</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-hook-script-id</span>
         <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">--myarg1=1</span><span class="p p-Indicator">,</span> <span class="nv">--myarg1=2</span><span class="p p-Indicator">]</span>
@@ -714,7 +715,7 @@ language (So for example if I’m running <code>python2.7</code> and a hook spec
 don’t want the default system installed version so you can override this on a
 per-hook basis by setting the <code>language_version</code>.</p>
 <div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">git://github.com/pre-commit/mirrors-scss-lint</span>
-    <span class="l l-Scalar l-Scalar-Plain">sha</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.54.0</span>
+    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.54.0</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
         <span class="l l-Scalar l-Scalar-Plain">language_version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
@@ -775,16 +776,16 @@ this requires the <code>HOMEPATH</code> environment variable:</p>
 <div class="highlight"><pre><span></span><span class="k">[testenv]</span>
 <span class="na">passenv</span> <span class="o">=</span> <span class="s">HOMEPATH SSH_AUTH_SOCK</span>
 </pre></div>
-<h2 id="using-the-latest-sha-for-a-repository">    Using the latest sha for a repository <small><a href="#using-the-latest-sha-for-a-repository">¶</a></small></h2> <p><code>pre-commit</code> configuration aims to give a repeatable and fast experience and
+<h2 id="using-the-latest-version-for-a-repository">    Using the latest version for a repository <small><a href="#using-the-latest-version-for-a-repository">¶</a></small></h2> <p><code>pre-commit</code> configuration aims to give a repeatable and fast experience and
 therefore intentionally doesn't provide facilities for "unpinned latest
 version" for hook repositories.</p>
 <p>Instead, <code>pre-commit</code> provides tools to make it easy to upgrade to the
 latest versions with <a href="#pre-commit-autoupdate"><code>pre-commit autoupdate</code></a>.  If
 you need the absolute latest version of a hook (instead of the latest tagged
 version), pass the <code>--bleeding-edge</code> parameter to <code>autoupdate</code>.</p>
-<p><code>pre-commit</code> assumes that the value of <code>sha</code> is an immutable ref (such as a
+<p><code>pre-commit</code> assumes that the value of <code>rev</code> is an immutable ref (such as a
 tag or SHA) and will cache based on that.  Using a branch name (or <code>HEAD</code>) for
-the value of <code>sha</code> is not supported and will only represent the state of
+the value of <code>rev</code> is not supported and will only represent the state of
 that mutable ref at the time of hook installation (and will <em>NOT</em> update
 automatically).</p>
 
