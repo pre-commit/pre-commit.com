@@ -143,8 +143,8 @@ from.
     =c= `repo`
     =c= the repository url to `git clone` from
 =r=
-    =c= `sha`
-    =c= the revision or tag to clone at
+    =c= `rev`
+    =c= the revision or tag to clone at.  _new in 1.7.0_ previously `sha`
 =r=
     =c= `hooks`
     =c= A list of [hook mappings](#pre-commit-configyaml---hooks).
@@ -155,7 +155,7 @@ A sample repository with all defaults present:
 ```yaml
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    sha: v0.9.4
+    rev: v1.2.3
     hooks:
     -   ...
 ```
@@ -219,7 +219,7 @@ One example of a complete configuration:
 ```yaml
 repos:
 -   repo: git://github.com/pre-commit/pre-commit-hooks
-    sha: v0.9.1
+    rev: v1.2.3
     hooks:
     -   id: trailing-whitespace
 ```
@@ -230,7 +230,7 @@ trailing-whitespace hook.
 ## Updating hooks automatically
 
 You can update your hooks to the latest version automatically by running
-`pre-commit autoupdate`.  This will bring the hooks to the latest sha on the
+`pre-commit autoupdate`.  This will bring the hooks to the latest tag on the
 master branch.
 ''')}
         </div>
@@ -537,7 +537,7 @@ Using config:
 ===============================================================================
 repos:
 -   repo: ../hook-repo
-    sha: 84f01ac09fcd8610824f9626a590b83cfae9bcbd
+    rev: 84f01ac09fcd8610824f9626a590b83cfae9bcbd
     hooks:
     -   id: foo
 ===============================================================================
@@ -570,7 +570,8 @@ Options:
 
 - `--bleeding-edge`: update to the bleeding edge of `master` instead of the
   latest tagged version (the default behaviour).
-- `--repo REPO`: _new in 1.4.1_ Only update this repository.
+- `--repo REPO`: _new in 1.4.1_ Only update this repository. _new in 1.7.0_
+  This option may be specified multiple times.
 
 ## pre-commit clean [options] [](#pre-commit-clean)
 
@@ -758,7 +759,7 @@ as follows:
 
 ```yaml
 -   repo: git://github.com/pre-commit/pre-commit-hooks
-    sha: v0.9.1
+    rev: v1.2.3
     hooks:
     -   id: flake8
         args: [--max-line-length=131]
@@ -775,7 +776,7 @@ For example, assuming a `.pre-commit-config.yaml`:
 
 ```yaml
 -   repo: git://github.com/path/to/your/hook/repo
-    sha: badf00ddeadbeef
+    rev: badf00ddeadbeef
     hooks:
     -   id: my-hook-script-id
         args: [--myarg1=1, --myarg1=2]
@@ -937,7 +938,7 @@ per-hook basis by setting the `language_version`.
 
 ```yaml
 -   repo: git://github.com/pre-commit/mirrors-scss-lint
-    sha: v0.54.0
+    rev: v0.54.0
     hooks:
     -   id: scss-lint
         language_version: 2.1.5
@@ -1015,7 +1016,7 @@ Or with both:
 passenv = HOMEPATH SSH_AUTH_SOCK
 ```
 
-## Using the latest sha for a repository
+## Using the latest version for a repository
 
 `pre-commit` configuration aims to give a repeatable and fast experience and
 therefore intentionally doesn't provide facilities for "unpinned latest
@@ -1026,9 +1027,9 @@ latest versions with [`pre-commit autoupdate`](#pre-commit-autoupdate).  If
 you need the absolute latest version of a hook (instead of the latest tagged
 version), pass the `--bleeding-edge` parameter to `autoupdate`.
 
-`pre-commit` assumes that the value of `sha` is an immutable ref (such as a
+`pre-commit` assumes that the value of `rev` is an immutable ref (such as a
 tag or SHA) and will cache based on that.  Using a branch name (or `HEAD`) for
-the value of `sha` is not supported and will only represent the state of
+the value of `rev` is not supported and will only represent the state of
 that mutable ref at the time of hook installation (and will *NOT* update
 automatically).
 ''')}
