@@ -1,66 +1,66 @@
 # This file is used to generate all-hooks.json
-- git://github.com/pre-commit/pre-commit-hooks
-- git://github.com/pre-commit/mirrors-autopep8
-- git://github.com/pre-commit/mirrors-coffeelint
-- git://github.com/pre-commit/mirrors-csslint
-- git://github.com/pre-commit/mirrors-eslint
-- git://github.com/pre-commit/mirrors-fixmyjs
-- git://github.com/pre-commit/mirrors-isort
-- git://github.com/pre-commit/mirrors-jshint
-- git://github.com/pre-commit/mirrors-puppet-lint
-- git://github.com/pre-commit/mirrors-pylint
-- git://github.com/pre-commit/mirrors-ruby-lint
-- git://github.com/pre-commit/mirrors-scss-lint
-- git://github.com/pre-commit/mirrors-yapf
-- git://github.com/FalconSocial/pre-commit-mirrors-pep257
-- git://github.com/FalconSocial/pre-commit-python-sorter
+- https://github.com/pre-commit/pre-commit-hooks
+- https://github.com/pre-commit/mirrors-autopep8
+- https://github.com/pre-commit/mirrors-coffeelint
+- https://github.com/pre-commit/mirrors-csslint
+- https://github.com/pre-commit/mirrors-eslint
+- https://github.com/pre-commit/mirrors-fixmyjs
+- https://github.com/pre-commit/mirrors-isort
+- https://github.com/pre-commit/mirrors-jshint
+- https://github.com/pre-commit/mirrors-puppet-lint
+- https://github.com/pre-commit/mirrors-pylint
+- https://github.com/pre-commit/mirrors-ruby-lint
+- https://github.com/pre-commit/mirrors-scss-lint
+- https://github.com/pre-commit/mirrors-yapf
+- https://github.com/FalconSocial/pre-commit-mirrors-pep257
+- https://github.com/FalconSocial/pre-commit-python-sorter
 # https://github.com/guykisel/pre-commit-robotframework-tidy/issues/1
-# - git://github.com/guykisel/pre-commit-robotframework-tidy
-- git://github.com/guykisel/prospector-mirror
-- git://github.com/asottile/add-trailing-comma
-- git://github.com/asottile/pyupgrade
-- git://github.com/asottile/reorder_python_imports
-- git://github.com/asottile/yesqa
-- git://github.com/asottile/cheetah_lint
-- git://github.com/digitalpulp/pre-commit-php
-- git://github.com/elidupuis/mirrors-jscs
-- git://github.com/elidupuis/mirrors-sass-lint
+# - https://github.com/guykisel/pre-commit-robotframework-tidy
+- https://github.com/guykisel/prospector-mirror
+- https://github.com/asottile/add-trailing-comma
+- https://github.com/asottile/pyupgrade
+- https://github.com/asottile/reorder_python_imports
+- https://github.com/asottile/yesqa
+- https://github.com/asottile/cheetah_lint
+- https://github.com/digitalpulp/pre-commit-php
+- https://github.com/elidupuis/mirrors-jscs
+- https://github.com/elidupuis/mirrors-sass-lint
 # https://github.com/elidupuis/mirrors-standard/issues/2
-# - git://github.com/elidupuis/mirrors-standard
-- git://github.com/Lucas-C/pre-commit-hooks
-- git://github.com/Lucas-C/pre-commit-hooks-bandit
-- git://github.com/Lucas-C/pre-commit-hooks-go
-- git://github.com/Lucas-C/pre-commit-hooks-java
-- git://github.com/Lucas-C/pre-commit-hooks-lxml
-- git://github.com/Lucas-C/pre-commit-hooks-markup
-- git://github.com/Lucas-C/pre-commit-hooks-nodejs
-- git://github.com/Lucas-C/pre-commit-hooks-safety
+# - https://github.com/elidupuis/mirrors-standard
+- https://github.com/Lucas-C/pre-commit-hooks
+- https://github.com/Lucas-C/pre-commit-hooks-bandit
+- https://github.com/Lucas-C/pre-commit-hooks-go
+- https://github.com/Lucas-C/pre-commit-hooks-java
+- https://github.com/Lucas-C/pre-commit-hooks-lxml
+- https://github.com/Lucas-C/pre-commit-hooks-markup
+- https://github.com/Lucas-C/pre-commit-hooks-nodejs
+- https://github.com/Lucas-C/pre-commit-hooks-safety
 - https://bitbucket.org/SamWhited/go-pre-commit.git
-- git://github.com/chriskuehl/puppet-pre-commit-hooks
-- git://github.com/dnephin/pre-commit-golang
-- git://github.com/troian/pre-commit-golang
+- https://github.com/chriskuehl/puppet-pre-commit-hooks
+- https://github.com/dnephin/pre-commit-golang
+- https://github.com/troian/pre-commit-golang
 # https://github.com/jordant/rubocop-pre-commit-hook/issues/4
-# - git://github.com/jordant/rubocop-pre-commit-hook
-- git://github.com/jstewmon/check-swagger
-- git://github.com/detailyang/pre-commit-shell
-- git://github.com/bemeurer/beautysh
+# - https://github.com/jordant/rubocop-pre-commit-hook
+- https://github.com/jstewmon/check-swagger
+- https://github.com/detailyang/pre-commit-shell
+- https://github.com/bemeurer/beautysh
 # https://github.com/sanmai-NL/pre-commit-hooks_R/issues/1
-# - git://github.com/sanmai-NL/pre-commit-hooks_R
+# - https://github.com/sanmai-NL/pre-commit-hooks_R
 # https://github.com/magicmark/pre-commit-es6-imports-reorder/issues/1
-# - git://github.com/magicmark/pre-commit-es6-imports-reorder
-- git://github.com/antonbabenko/pre-commit-terraform
-- git://github.com/willthames/ansible-lint
-- git://github.com/doublify/pre-commit-clang-format
-- git://github.com/doublify/pre-commit-go
-- git://github.com/doublify/pre-commit-hindent
-- git://github.com/doublify/pre-commit-isort
-- git://github.com/doublify/pre-commit-rust
-- git://github.com/chewse/pre-commit-mirrors-pydocstyle
-- git://github.com/kintoandar/pre-commit
-- git://github.com/awebdeveloper/pre-commit-stylelint
-- git://github.com/awebdeveloper/pre-commit-tslint
-- git://github.com/awebdeveloper/pre-commit-prettier
-- git://github.com/prettier/prettier
-- git://github.com/adrienverge/yamllint
-- git://github.com/thlorenz/doctoc
-- git://github.com/noahsark769/xcodeproj-sort-pre-commit-hook
+# - https://github.com/magicmark/pre-commit-es6-imports-reorder
+- https://github.com/antonbabenko/pre-commit-terraform
+- https://github.com/willthames/ansible-lint
+- https://github.com/doublify/pre-commit-clang-format
+- https://github.com/doublify/pre-commit-go
+- https://github.com/doublify/pre-commit-hindent
+- https://github.com/doublify/pre-commit-isort
+- https://github.com/doublify/pre-commit-rust
+- https://github.com/chewse/pre-commit-mirrors-pydocstyle
+- https://github.com/kintoandar/pre-commit
+- https://github.com/awebdeveloper/pre-commit-stylelint
+- https://github.com/awebdeveloper/pre-commit-tslint
+- https://github.com/awebdeveloper/pre-commit-prettier
+- https://github.com/prettier/prettier
+- https://github.com/adrienverge/yamllint
+- https://github.com/thlorenz/doctoc
+- https://github.com/noahsark769/xcodeproj-sort-pre-commit-hook

@@ -218,7 +218,7 @@ One example of a complete configuration:
 
 ```yaml
 repos:
--   repo: git://github.com/pre-commit/pre-commit-hooks
+-   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v1.2.3
     hooks:
     -   id: trailing-whitespace
@@ -663,8 +663,8 @@ Options:
   [`pre-commit run`](#pre-commit-run).
 
 Some example useful invocations:
-- `pre-commit try-repo git://github.com/pre-commit/pre-commit-hooks`: runs all
-  the hooks in the latest revision of `pre-commit/pre-commit-hooks`.
+- `pre-commit try-repo https://github.com/pre-commit/pre-commit-hooks`: runs
+  all the hooks in the latest revision of `pre-commit/pre-commit-hooks`.
 - `pre-commit try-repo ../path/to/repo`: run all the hooks in a repository on
   disk.
 - `pre-commit try-repo ../pre-commit-hooks flake8`: run only the `flake8` hook
@@ -758,7 +758,7 @@ arguments by specifying the `args` property in your `.pre-commit-config.yaml`
 as follows:
 
 ```yaml
--   repo: git://github.com/pre-commit/pre-commit-hooks
+-   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v1.2.3
     hooks:
     -   id: flake8
@@ -775,7 +775,7 @@ the `args` value and then a list of staged files.
 For example, assuming a `.pre-commit-config.yaml`:
 
 ```yaml
--   repo: git://github.com/path/to/your/hook/repo
+-   repo: https://github.com/path/to/your/hook/repo
     rev: badf00ddeadbeef
     hooks:
     -   id: my-hook-script-id
@@ -937,7 +937,7 @@ don’t want the default system installed version so you can override this on a
 per-hook basis by setting the `language_version`.
 
 ```yaml
--   repo: git://github.com/pre-commit/mirrors-scss-lint
+-   repo: https://github.com/pre-commit/mirrors-scss-lint
     rev: v0.54.0
     hooks:
     -   id: scss-lint

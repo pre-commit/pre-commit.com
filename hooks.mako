@@ -13,8 +13,8 @@ Also available in <a href="/all-hooks.json">json</a>.
 
 % for repository, hooks in all_hooks.items():
     <h3>
-        <a href="${repository.replace('git://', 'https://')}" target="_blank">
-            ${repository.replace('git://', '')}
+        <a href="${repository}" target="_blank">
+            ${repository.replace('https://', '')}
         </a>
     </h3>
     <ul>

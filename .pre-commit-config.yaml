@@ -18,7 +18,7 @@
         entry: scss-lint
         types: [scss]
         language: ruby
-        additional_dependencies: ['scss_lint:0.52.0']
+        additional_dependencies: ['scss_lint:0.57.0']
     -   id: no-github-dot-git
         name: No need for .git for github urls
         entry: 'github.*\.git'
