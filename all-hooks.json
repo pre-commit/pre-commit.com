@@ -1,5 +1,5 @@
 {
-    "git://github.com/pre-commit/pre-commit-hooks": [
+    "https://github.com/pre-commit/pre-commit-hooks": [
         {
             "id": "autopep8-wrapper",
             "name": "autopep8 wrapper",
@@ -350,7 +350,7 @@
             "minimum_pre_commit_version": "0.15.0"
         }
     ],
-    "git://github.com/pre-commit/mirrors-autopep8": [
+    "https://github.com/pre-commit/mirrors-autopep8": [
         {
             "id": "autopep8",
             "name": "autopep8",
@@ -362,7 +362,7 @@
             ]
         }
     ],
-    "git://github.com/pre-commit/mirrors-coffeelint": [
+    "https://github.com/pre-commit/mirrors-coffeelint": [
         {
             "id": "coffeelint",
             "name": "coffeelint",
@@ -376,7 +376,7 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
-    "git://github.com/pre-commit/mirrors-csslint": [
+    "https://github.com/pre-commit/mirrors-csslint": [
         {
             "id": "csslint",
             "name": "csslint",
@@ -390,7 +390,7 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
-    "git://github.com/pre-commit/mirrors-eslint": [
+    "https://github.com/pre-commit/mirrors-eslint": [
         {
             "id": "eslint",
             "name": "eslint",
@@ -404,7 +404,7 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
-    "git://github.com/pre-commit/mirrors-fixmyjs": [
+    "https://github.com/pre-commit/mirrors-fixmyjs": [
         {
             "id": "fixmyjs",
             "name": "fixmyjs",
@@ -418,7 +418,7 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
-    "git://github.com/pre-commit/mirrors-isort": [
+    "https://github.com/pre-commit/mirrors-isort": [
         {
             "id": "isort",
             "name": "isort",
@@ -428,7 +428,7 @@
             "args": []
         }
     ],
-    "git://github.com/pre-commit/mirrors-jshint": [
+    "https://github.com/pre-commit/mirrors-jshint": [
         {
             "id": "jshint",
             "name": "jshint",
@@ -442,7 +442,7 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
-    "git://github.com/pre-commit/mirrors-puppet-lint": [
+    "https://github.com/pre-commit/mirrors-puppet-lint": [
         {
             "id": "puppet-lint",
             "name": "puppet-lint",
@@ -452,7 +452,7 @@
             "args": []
         }
     ],
-    "git://github.com/pre-commit/mirrors-pylint": [
+    "https://github.com/pre-commit/mirrors-pylint": [
         {
             "id": "pylint",
             "name": "pylint",
@@ -462,7 +462,7 @@
             "args": []
         }
     ],
-    "git://github.com/pre-commit/mirrors-ruby-lint": [
+    "https://github.com/pre-commit/mirrors-ruby-lint": [
         {
             "id": "ruby-lint",
             "name": "ruby-lint",
@@ -472,7 +472,7 @@
             "args": []
         }
     ],
-    "git://github.com/pre-commit/mirrors-scss-lint": [
+    "https://github.com/pre-commit/mirrors-scss-lint": [
         {
             "id": "scss-lint",
             "name": "scss_lint",
@@ -482,7 +482,7 @@
             "args": []
         }
     ],
-    "git://github.com/pre-commit/mirrors-yapf": [
+    "https://github.com/pre-commit/mirrors-yapf": [
         {
             "id": "yapf",
             "name": "yapf",
@@ -494,7 +494,7 @@
             ]
         }
     ],
-    "git://github.com/FalconSocial/pre-commit-mirrors-pep257": [
+    "https://github.com/FalconSocial/pre-commit-mirrors-pep257": [
         {
             "id": "pep257",
             "name": "pep257",
@@ -503,7 +503,7 @@
             "files": "\\.py$"
         }
     ],
-    "git://github.com/FalconSocial/pre-commit-python-sorter": [
+    "https://github.com/FalconSocial/pre-commit-python-sorter": [
         {
             "id": "python-import-sorter",
             "name": "Sort python imports",
@@ -513,7 +513,7 @@
             "files": "\\.py$"
         }
     ],
-    "git://github.com/guykisel/prospector-mirror": [
+    "https://github.com/guykisel/prospector-mirror": [
         {
             "id": "prospector",
             "name": "prospector",
@@ -523,7 +523,7 @@
             "files": "\\.py$"
         }
     ],
-    "git://github.com/asottile/add-trailing-comma": [
+    "https://github.com/asottile/add-trailing-comma": [
         {
             "id": "add-trailing-comma",
             "name": "Add trailing commas",
@@ -535,7 +535,7 @@
             ]
         }
     ],
-    "git://github.com/asottile/pyupgrade": [
+    "https://github.com/asottile/pyupgrade": [
         {
             "id": "pyupgrade",
             "name": "pyupgrade",
@@ -549,7 +549,7 @@
             "minimum_pre_commit_version": "0.15.0"
         }
     ],
-    "git://github.com/asottile/reorder_python_imports": [
+    "https://github.com/asottile/reorder_python_imports": [
         {
             "id": "reorder-python-imports",
             "name": "Reorder python imports",
@@ -563,7 +563,7 @@
             "minimum_pre_commit_version": "0.15.0"
         }
     ],
-    "git://github.com/asottile/yesqa": [
+    "https://github.com/asottile/yesqa": [
         {
             "id": "yesqa",
             "name": "Strip unnecessary `# noqa`s",
@@ -575,7 +575,7 @@
             ]
         }
     ],
-    "git://github.com/asottile/cheetah_lint": [
+    "https://github.com/asottile/cheetah_lint": [
         {
             "id": "cheetah-reorder-imports",
             "name": "Reorder cheetah imports",
@@ -593,7 +593,7 @@
             "files": "\\.tmpl$"
         }
     ],
-    "git://github.com/digitalpulp/pre-commit-php": [
+    "https://github.com/digitalpulp/pre-commit-php": [
         {
             "id": "php-lint-all",
             "name": "PHP Syntax Check (Comprehensive)",
@@ -646,7 +646,7 @@
             "files": "\\.php$"
         }
     ],
-    "git://github.com/elidupuis/mirrors-jscs": [
+    "https://github.com/elidupuis/mirrors-jscs": [
         {
             "id": "jscs",
             "name": "jscs",
@@ -660,7 +660,7 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
-    "git://github.com/elidupuis/mirrors-sass-lint": [
+    "https://github.com/elidupuis/mirrors-sass-lint": [
         {
             "id": "sass-lint",
             "name": "sass-lint",
@@ -674,7 +674,7 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks": [
+    "https://github.com/Lucas-C/pre-commit-hooks": [
         {
             "id": "forbid-crlf",
             "name": "CRLF end-lines checker",
@@ -722,7 +722,7 @@
             "files": ".*/.*"
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks-bandit": [
+    "https://github.com/Lucas-C/pre-commit-hooks-bandit": [
         {
             "id": "python-bandit-vulnerability-check",
             "name": "bandit",
@@ -737,7 +737,7 @@
             "files": ""
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks-go": [
+    "https://github.com/Lucas-C/pre-commit-hooks-go": [
         {
             "id": "checkmake",
             "name": "Makefile linter/analyzer",
@@ -749,7 +749,7 @@
             "files": "Makefile"
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks-java": [
+    "https://github.com/Lucas-C/pre-commit-hooks-java": [
         {
             "id": "validate-html",
             "name": "HTML syntax validator using W3C v.Nu checker, with support for handlebars/jinja2 templates",
@@ -758,7 +758,7 @@
             "files": ".*\\.(html|hbs)$"
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks-lxml": [
+    "https://github.com/Lucas-C/pre-commit-hooks-lxml": [
         {
             "id": "forbid-html-img-without-alt-text",
             "name": "HTML img tag alt text checker",
@@ -810,7 +810,7 @@
             "files": "\\.(html|hbs)$"
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks-markup": [
+    "https://github.com/Lucas-C/pre-commit-hooks-markup": [
         {
             "id": "rst-linter",
             "name": "Check .rst files with the same linter used by pypi.org",
@@ -819,7 +819,7 @@
             "files": "\\.rst$"
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks-nodejs": [
+    "https://github.com/Lucas-C/pre-commit-hooks-nodejs": [
         {
             "id": "htmlhint",
             "name": "NodeJS HTML syntax linter (htmlhint)",
@@ -867,7 +867,7 @@
             "files": "^README.md$"
         }
     ],
-    "git://github.com/Lucas-C/pre-commit-hooks-safety": [
+    "https://github.com/Lucas-C/pre-commit-hooks-safety": [
         {
             "id": "python-safety-dependencies-check",
             "name": "safety",
@@ -919,7 +919,7 @@
             "files": "\\.go$"
         }
     ],
-    "git://github.com/chriskuehl/puppet-pre-commit-hooks": [
+    "https://github.com/chriskuehl/puppet-pre-commit-hooks": [
         {
             "id": "puppet-validate",
             "name": "Validate Puppet manifests",
@@ -962,7 +962,7 @@
             ]
         }
     ],
-    "git://github.com/dnephin/pre-commit-golang": [
+    "https://github.com/dnephin/pre-commit-golang": [
         {
             "id": "go-fmt",
             "name": "go fmt",
@@ -1012,7 +1012,7 @@
             "description": ""
         }
     ],
-    "git://github.com/troian/pre-commit-golang": [
+    "https://github.com/troian/pre-commit-golang": [
         {
             "id": "go-fmt",
             "name": "go fmt",
@@ -1070,7 +1070,7 @@
             "files": "\\.go$"
         }
     ],
-    "git://github.com/jstewmon/check-swagger": [
+    "https://github.com/jstewmon/check-swagger": [
         {
             "id": "check-swagger",
             "name": "check-swagger",
@@ -1080,7 +1080,7 @@
             "files": ".*swagger.*\\.(json|yaml|yml)"
         }
     ],
-    "git://github.com/detailyang/pre-commit-shell": [
+    "https://github.com/detailyang/pre-commit-shell": [
         {
             "id": "shell-lint",
             "name": "Shell Syntax Check",
@@ -1090,7 +1090,7 @@
             "files": "(\\.sh|\\.zsh|\\.ksh)$"
         }
     ],
-    "git://github.com/bemeurer/beautysh": [
+    "https://github.com/bemeurer/beautysh": [
         {
             "id": "beautysh",
             "name": "beautysh",
@@ -1102,7 +1102,7 @@
             ]
         }
     ],
-    "git://github.com/antonbabenko/pre-commit-terraform": [
+    "https://github.com/antonbabenko/pre-commit-terraform": [
         {
             "id": "terraform_fmt",
             "name": "Terraform fmt",
@@ -1131,7 +1131,7 @@
             "exclude": "\\.terraform\\/.*$"
         }
     ],
-    "git://github.com/willthames/ansible-lint": [
+    "https://github.com/willthames/ansible-lint": [
         {
             "id": "ansible-lint",
             "name": "Ansible-lint",
@@ -1141,7 +1141,7 @@
             "files": "\\.(yaml|yml)$"
         }
     ],
-    "git://github.com/doublify/pre-commit-clang-format": [
+    "https://github.com/doublify/pre-commit-clang-format": [
         {
             "id": "clang-format",
             "name": "clang-format",
@@ -1155,7 +1155,7 @@
             ]
         }
     ],
-    "git://github.com/doublify/pre-commit-go": [
+    "https://github.com/doublify/pre-commit-go": [
         {
             "id": "fmt",
             "name": "fmt",
@@ -1181,7 +1181,7 @@
             "files": "\\.go$"
         }
     ],
-    "git://github.com/doublify/pre-commit-hindent": [
+    "https://github.com/doublify/pre-commit-hindent": [
         {
             "id": "hindent",
             "name": "hindent",
@@ -1191,7 +1191,7 @@
             "files": "\\.(hs|lhs)$"
         }
     ],
-    "git://github.com/doublify/pre-commit-isort": [
+    "https://github.com/doublify/pre-commit-isort": [
         {
             "id": "isort",
             "name": "isort",
@@ -1201,7 +1201,7 @@
             "files": "\\.py$"
         }
     ],
-    "git://github.com/doublify/pre-commit-rust": [
+    "https://github.com/doublify/pre-commit-rust": [
         {
             "id": "fmt",
             "name": "fmt",
@@ -1214,7 +1214,7 @@
             ]
         }
     ],
-    "git://github.com/chewse/pre-commit-mirrors-pydocstyle": [
+    "https://github.com/chewse/pre-commit-mirrors-pydocstyle": [
         {
             "id": "pydocstyle",
             "name": "Verifying PEP257 Compliance",
@@ -1223,7 +1223,7 @@
             "files": "\\.py$"
         }
     ],
-    "git://github.com/kintoandar/pre-commit": [
+    "https://github.com/kintoandar/pre-commit": [
         {
             "id": "terraform_fmt",
             "name": "terraform_fmt",
@@ -1259,7 +1259,7 @@
             "files": "prometheus.yml$"
         }
     ],
-    "git://github.com/awebdeveloper/pre-commit-stylelint": [
+    "https://github.com/awebdeveloper/pre-commit-stylelint": [
         {
             "id": "stylelint",
             "name": "stylelint",
@@ -1270,7 +1270,7 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
-    "git://github.com/awebdeveloper/pre-commit-tslint": [
+    "https://github.com/awebdeveloper/pre-commit-tslint": [
         {
             "id": "tslint",
             "name": "tslint",
@@ -1281,7 +1281,7 @@
             "minimum_pre_commit_version": "0.12.0"
         }
     ],
-    "git://github.com/awebdeveloper/pre-commit-prettier": [
+    "https://github.com/awebdeveloper/pre-commit-prettier": [
         {
             "id": "prettier",
             "name": "prettier",
@@ -1294,7 +1294,7 @@
             "minimum_pre_commit_version": "0.12.0"
         }
     ],
-    "git://github.com/prettier/prettier": [
+    "https://github.com/prettier/prettier": [
         {
             "id": "prettier",
             "name": "prettier",
@@ -1303,7 +1303,7 @@
             "files": "\\.(css|less|scss|html|ts|tsx|graphql|gql|json|js|jsx|md)$"
         }
     ],
-    "git://github.com/adrienverge/yamllint": [
+    "https://github.com/adrienverge/yamllint": [
         {
             "id": "yamllint",
             "name": "yamllint",
@@ -1316,7 +1316,7 @@
             ]
         }
     ],
-    "git://github.com/thlorenz/doctoc": [
+    "https://github.com/thlorenz/doctoc": [
         {
             "id": "doctoc",
             "name": "doctoc",
@@ -1327,7 +1327,7 @@
             ]
         }
     ],
-    "git://github.com/noahsark769/xcodeproj-sort-pre-commit-hook": [
+    "https://github.com/noahsark769/xcodeproj-sort-pre-commit-hook": [
         {
             "id": "xcodeproj-sort",
             "name": "Sort the xcode project file",
