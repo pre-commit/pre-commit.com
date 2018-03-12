@@ -188,8 +188,8 @@ hook.  See <a href="#overriding-language-version">Overriding Language Version</a
 </td></tr><tr><td><p><code>args</code></p>
 </td><td><p>(optional) list of additional parameters to pass to the hook.</p>
 </td></tr><tr><td><p><code>stages</code></p>
-</td><td><p>(optional) confines the hook to the <code>commit</code>, <code>push</code>, or <code>commit-msg</code>
-stage.  See
+</td><td><p>(optional) confines the hook to the <code>commit</code>, <code>push</code>, <code>commit-msg</code>, or
+<code>manual</code> stage.  See
 <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
 </td></tr><tr><td><p><code>additional_dependencies</code></p>
 </td><td><p>(optional) a list of dependencies that will be installed in the
@@ -390,6 +390,7 @@ way to write a simple hook which prevents commits by file matching.  Specify
 the regex as the <code>entry</code>.  The <code>entry</code> may be any python
 <a href="#regular-expressions">regular expression</a>.  For case insensitive regexes you
 can apply the <code>(?i)</code> flag as the start of your entry, or use <code>args: [-i]</code>.</p>
+<p><em>new in 1.8.0</em> For multiline matches, use <code>args: [--multiline]</code>.</p>
 <p><strong>Support:</strong> pygrep hooks are supported on all platforms which pre-commit runs
 on.</p>
 <h3 id="script">    script <small><a href="#script">¶</a></small></h3> <p>Script hooks provide a way to write simple scripts which validate files. The
@@ -582,6 +583,11 @@ be run during the <code>push</code> stage.  Hooks can however be confined to a s
 setting the <code>stages</code> property in your <code>.pre-commit-config.yaml</code>.  The
 <code>stages</code> property is an array and can contain any of <code>commit</code>, <code>push</code>, and
 <code>commit-msg</code>.</p>
+<p><em>new in 1.8.0</em> An additional <code>manual</code> stage is available for one off execution
+that won't run in any hook context.  This special stage is useful for taking
+advantage of <code>pre-commit</code>'s cross-platform / cross-language package management
+without running it on every commit.  Hooks confied to <code>stages: [manual]</code> can
+be executed by running <code>pre-commit run --hook-stage manual &lt;hookid&gt;</code>.</p>
 <h2 id="passing-arguments-to-hooks">    Passing arguments to hooks <small><a href="#passing-arguments-to-hooks">¶</a></small></h2> <p>Sometimes hooks require arguments to run correctly. You can pass static
 arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code>
 as follows:</p>
