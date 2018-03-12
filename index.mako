@@ -196,8 +196,8 @@ repository's configuration.
     =c= (optional) list of additional parameters to pass to the hook.
 =r=
     =c= `stages`
-    =c= (optional) confines the hook to the `commit`, `push`, or `commit-msg`
-        stage.  See
+    =c= (optional) confines the hook to the `commit`, `push`, `commit-msg`, or
+        `manual` stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
     =c= `additional_dependencies`
@@ -487,6 +487,8 @@ the regex as the `entry`.  The `entry` may be any python
 [regular expression](#regular-expressions).  For case insensitive regexes you
 can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
 
+_new in 1.8.0_ For multiline matches, use `args: [--multiline]`.
+
 __Support:__ pygrep hooks are supported on all platforms which pre-commit runs
 on.
 
@@ -750,6 +752,12 @@ be run during the `push` stage.  Hooks can however be confined to a stage by
 setting the `stages` property in your `.pre-commit-config.yaml`.  The
 `stages` property is an array and can contain any of `commit`, `push`, and
 `commit-msg`.
+
+_new in 1.8.0_ An additional `manual` stage is available for one off execution
+that won't run in any hook context.  This special stage is useful for taking
+advantage of `pre-commit`'s cross-platform / cross-language package management
+without running it on every commit.  Hooks confied to `stages: [manual]` can
+be executed by running `pre-commit run --hook-stage manual <hookid>`.
 
 ## Passing arguments to hooks
 
