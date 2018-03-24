@@ -399,7 +399,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@4.18.2"
+                "eslint@4.19.1"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -672,6 +672,15 @@
                 "sass-lint@1.12.0"
             ],
             "minimum_pre_commit_version": "0.7.0"
+        }
+    ],
+    "https://github.com/jumanjihouse/pre-commit-hooks": [
+        {
+            "id": "git-check",
+            "name": "Check for conflict markers and core.whitespace errors",
+            "description": "Use git to check for conflict markers and core.whitespace errors, respecting .gitattributes",
+            "entry": "pre_commit_hooks/git-check.sh",
+            "language": "script"
         }
     ],
     "https://github.com/Lucas-C/pre-commit-hooks": [
