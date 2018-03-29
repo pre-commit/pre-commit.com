@@ -676,11 +676,40 @@
     ],
     "https://github.com/jumanjihouse/pre-commit-hooks": [
         {
+            "id": "forbid-binary",
+            "name": "Forbid binaries",
+            "description": "Forbid binary files from being committed",
+            "entry": "pre_commit_hooks/forbid-binary.sh",
+            "language": "script",
+            "types": [
+                "binary"
+            ]
+        },
+        {
             "id": "git-check",
             "name": "Check for conflict markers and core.whitespace errors",
             "description": "Use git to check for conflict markers and core.whitespace errors, respecting .gitattributes",
             "entry": "pre_commit_hooks/git-check.sh",
             "language": "script"
+        },
+        {
+            "id": "git-dirty",
+            "name": "Check if the git tree is dirty",
+            "description": "Detect if git tree contains modified, staged, or untracked files",
+            "entry": "pre_commit_hooks/git-dirty.sh",
+            "language": "script"
+        },
+        {
+            "id": "shellcheck",
+            "name": "Test shell scripts with shellcheck",
+            "description": "Shell scripts (based on mime type) conform to shellcheck",
+            "entry": "pre_commit_hooks/shellcheck.sh",
+            "language": "script",
+            "additional_dependencies": [
+                "bash",
+                "file",
+                "shellcheck"
+            ]
         }
     ],
     "https://github.com/Lucas-C/pre-commit-hooks": [
@@ -1344,6 +1373,17 @@
             "entry": "xcodeproj-sort",
             "language": "ruby",
             "files": ".*\\.pbxproj"
+        }
+    ],
+    "https://github.com/jorisroovers/gitlint": [
+        {
+            "id": "gitlint",
+            "name": "gitlint",
+            "language": "python",
+            "entry": "gitlint --msg-filename",
+            "stages": [
+                "commit-msg"
+            ]
         }
     ]
 }
