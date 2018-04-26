@@ -212,6 +212,10 @@ repository's configuration.
     =c= `verbose`
     =c= (optional) if `true`, forces the output of the hook to be printed even when
         the hook passes.  _new in 1.6.0_.
+=r=
+    =c= `log_file`
+    =c= (optional) if present, the hook output will additionally be written
+        to a file.  _new in 0.14.0_
 ```
 
 One example of a complete configuration:
