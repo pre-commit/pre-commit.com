@@ -399,7 +399,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@5.0.0-alpha.0"
+                "eslint@5.0.0-alpha.1"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -675,6 +675,16 @@
         }
     ],
     "https://github.com/jumanjihouse/pre-commit-hooks": [
+        {
+            "id": "fasterer",
+            "name": "Suggest speed improvements in Ruby",
+            "description": "Use fasterer to suggest speed improvements in Ruby",
+            "entry": "run-fasterer",
+            "language": "ruby",
+            "types": [
+                "ruby"
+            ]
+        },
         {
             "id": "forbid-binary",
             "name": "Forbid binaries",
@@ -1409,11 +1419,8 @@
         {
             "id": "gitlint",
             "name": "gitlint",
-            "language": "python",
             "entry": "gitlint --msg-filename",
-            "stages": [
-                "commit-msg"
-            ]
+            "language": "python"
         }
     ],
     "https://github.com/ambv/black": [
