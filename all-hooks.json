@@ -399,7 +399,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@5.0.0-alpha.1"
+                "eslint@5.0.0-alpha.2"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -575,6 +575,18 @@
             ]
         }
     ],
+    "https://github.com/asottile/seed-isort-config": [
+        {
+            "id": "seed-isort-config",
+            "name": "seed isort known_third_party",
+            "description": "Statically populate the `known_third_party` `isort` setting.",
+            "entry": "seed-isort-config",
+            "language": "python",
+            "always_run": true,
+            "pass_filenames": false,
+            "minimum_pre_commit_version": "0.14.0"
+        }
+    ],
     "https://github.com/asottile/cheetah_lint": [
         {
             "id": "cheetah-reorder-imports",
@@ -715,6 +727,26 @@
             "description": "Detect if git tree contains modified, staged, or untracked files",
             "entry": "pre_commit_hooks/git-dirty.sh",
             "language": "script"
+        },
+        {
+            "id": "reek",
+            "name": "Find ruby code smells",
+            "description": "Use reek to find ruby code smells",
+            "entry": "run-reek",
+            "language": "ruby",
+            "types": [
+                "ruby"
+            ]
+        },
+        {
+            "id": "rubocop",
+            "name": "Check Ruby style with rubocop and rubocop-rspec",
+            "description": "Enforce Ruby style guide with rubocop and rubocop-rspec",
+            "entry": "run-rubocop",
+            "language": "ruby",
+            "types": [
+                "ruby"
+            ]
         },
         {
             "id": "shellcheck",
