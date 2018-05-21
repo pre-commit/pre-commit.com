@@ -181,7 +181,7 @@
         {
             "id": "debug-statements",
             "name": "Debug Statements (Python)",
-            "description": "This hook checks that debug statements (pdb, ipdb, pudb) are not imported on commit.",
+            "description": "Check for debugger imports and py37+ `breakpoint()` calls in python source.",
             "entry": "debug-statement-hook",
             "language": "python",
             "types": [
@@ -399,7 +399,7 @@
             "files": "\\.js$",
             "args": [],
             "additional_dependencies": [
-                "eslint@5.0.0-alpha.2"
+                "eslint@5.0.0-alpha.3"
             ],
             "minimum_pre_commit_version": "0.7.0"
         }
@@ -1223,6 +1223,15 @@
             "exclude": "\\.terraform\\/.*$"
         },
         {
+            "id": "terraform_docs",
+            "name": "Terraform Docs",
+            "description": "Inserts input and output documentation into README.md (using terraform-docs).",
+            "entry": "terraform_docs.sh",
+            "language": "script",
+            "files": "(\\.tf)$",
+            "exclude": "\\.terraform\\/.*$"
+        },
+        {
             "id": "terraform_validate_no_variables",
             "name": "Terraform validate without variables",
             "description": "Validates all Terraform configuration files without checking whether all required variables were set (basic check).",
@@ -1466,6 +1475,26 @@
             "types": [
                 "python"
             ]
+        }
+    ],
+    "https://github.com/IamTheFij/ansible-pre-commit": [
+        {
+            "id": "encryption-check",
+            "name": "Ansible Vault Encryption Check",
+            "description": "Checks that vault files are encrypted",
+            "entry": "encryption-check.sh",
+            "files": "((^|/)vault|vault.y[a]{0,1}ml$|.vault$)",
+            "language": "script"
+        }
+    ],
+    "https://github.com/IamTheFij/docker-pre-commit": [
+        {
+            "id": "docker-compose-check",
+            "name": "Validate docker-compose files",
+            "description": "Checks that vault files are encrypted",
+            "entry": "compose-check.sh",
+            "files": "docker-compose.y[a]{0,1}ml$",
+            "language": "script"
         }
     ]
 }

@@ -133,7 +133,7 @@ Also available in <a href="/all-hooks.json">json</a>.
             </li>
             <li>
                 <code>debug-statements</code>
-                    - This hook checks that debug statements (pdb, ipdb, pudb) are not imported on commit.
+                    - Check for debugger imports and py37+ `breakpoint()` calls in python source.
             </li>
             <li>
                 <code>detect-aws-credentials</code>
@@ -809,6 +809,10 @@ https://pypi.python.org/pypi/beautysh
                     - Rewrites all Terraform configuration files to a canonical format.
             </li>
             <li>
+                <code>terraform_docs</code>
+                    - Inserts input and output documentation into README.md (using terraform-docs).
+            </li>
+            <li>
                 <code>terraform_validate_no_variables</code>
                     - Validates all Terraform configuration files without checking whether all required variables were set (basic check).
             </li>
@@ -1016,6 +1020,28 @@ https://pypi.python.org/pypi/beautysh
             <li>
                 <code>black</code>
                     - Black: The uncompromising Python code formatter
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/IamTheFij/ansible-pre-commit" target="_blank">
+            github.com/IamTheFij/ansible-pre-commit
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>encryption-check</code>
+                    - Checks that vault files are encrypted
+            </li>
+    </ul>
+    <h3>
+        <a href="https://github.com/IamTheFij/docker-pre-commit" target="_blank">
+            github.com/IamTheFij/docker-pre-commit
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>docker-compose-check</code>
+                    - Checks that vault files are encrypted
             </li>
     </ul>
 
