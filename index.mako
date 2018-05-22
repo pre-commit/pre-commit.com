@@ -350,6 +350,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [golang](#golang)
 - [node](#node)
 - [python](#python)
+- [python_venv](#python_venv)
 - [ruby](#ruby)
 - [swift](#swift)
 - [pcre](#pcre)
@@ -443,6 +444,22 @@ match the `entry` – usually through `console_scripts` or `scripts` in setup.py
 
 __Support:__ python hooks work without any system-level depedendencies.  It
 has been tested on linux, macOS, windows, and cygwin.
+
+
+### python_venv
+
+_new in 1.9.0_
+
+An alternate implementation of the [python](#python) language which uses the
+python 3 [`venv`](https://docs.python.org/3/library/venv.html) module.
+On many systems you need to additionally install the `python3-venv` system
+package to use this language.  This is otherwise a drop-in replacement for the
+python` language for situations where [`virtualenv` may not
+work](https://github.com/pre-commit/pre-commit/issues/631).
+
+__Support:__ python hooks work without any system-level depedendencies.  It
+has been tested on linux, macOS, windows, and cygwin.  Only python3
+environments can be created with this language.
 
 ### ruby
 
