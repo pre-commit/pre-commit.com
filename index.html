@@ -301,6 +301,7 @@ to provide both files or suggest users use <code>pre-commit&gt;=0.12.0</code>.</
 <li><a href="#golang">golang</a></li>
 <li><a href="#node">node</a></li>
 <li><a href="#python">python</a></li>
+<li><a href="#python_venv">python_venv</a></li>
 <li><a href="#ruby">ruby</a></li>
 <li><a href="#swift">swift</a></li>
 <li><a href="#pcre">pcre</a></li>
@@ -365,6 +366,16 @@ only due to <a href="https://bugs.python.org/issue32539">a bug in cpython</a>.</
 match the <code>entry</code> – usually through <code>console_scripts</code> or <code>scripts</code> in setup.py.</p>
 <p><strong>Support:</strong> python hooks work without any system-level depedendencies.  It
 has been tested on linux, macOS, windows, and cygwin.</p>
+<h3 id="python_venv">    python_venv <small><a href="#python_venv">¶</a></small></h3> <p><em>new in 1.9.0</em></p>
+<p>An alternate implementation of the <a href="#python">python</a> language which uses the
+python 3 <a href="https://docs.python.org/3/library/venv.html"><code>venv</code></a> module.
+On many systems you need to additionally install the <code>python3-venv</code> system
+package to use this language.  This is otherwise a drop-in replacement for the
+python<code>language for situations where [</code>virtualenv` may not
+work](<a href="https://github.com/pre-commit/pre-commit/issues/631">https://github.com/pre-commit/pre-commit/issues/631</a>).</p>
+<p><strong>Support:</strong> python hooks work without any system-level depedendencies.  It
+has been tested on linux, macOS, windows, and cygwin.  Only python3
+environments can be created with this language.</p>
 <h3 id="ruby">    ruby <small><a href="#ruby">¶</a></small></h3> <p>The hook repository must have a <code>*.gemspec</code>.  It will be installed via
 <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>.  The installed package will
 produce an executable that will match the <code>entry</code> – usually through
