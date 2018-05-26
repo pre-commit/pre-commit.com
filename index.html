@@ -303,6 +303,7 @@ to provide both files or suggest users use <code>pre-commit&gt;=0.12.0</code>.</
 <li><a href="#python">python</a></li>
 <li><a href="#python_venv">python_venv</a></li>
 <li><a href="#ruby">ruby</a></li>
+<li><a href="#rust">rust</a></li>
 <li><a href="#swift">swift</a></li>
 <li><a href="#pcre">pcre</a></li>
 <li><a href="#pygrep">pygrep</a></li>
@@ -382,6 +383,21 @@ produce an executable that will match the <code>entry</code> – usually through
 <code>exectuables</code> in your gemspec.</p>
 <p><strong>Support:</strong> ruby hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and <em>may</em> work under cygwin.</p>
+<h3 id="rust">    rust <small><a href="#rust">¶</a></small></h3> <p><em>new in 1.10.0</em></p>
+<p>Rust hooks are installed using the system installation of
+<a href="https://github.com/rust-lang/cargo">Cargo</a>, Rust's official package manager.</p>
+<p>Hook repositories must have a <code>Cargo.toml</code> file which produces at least one
+binary (<a href="https://github.com/chriskuehl/example-rust-pre-commit-hook">example</a>),
+whose name should match the <code>entry</code> definition for your hook. The repo will be
+installed via <code>cargo install --bins</code> (with the binaries stored in your
+pre-commit cache, not polluting your user-level Cargo installations).</p>
+<p>When specifying <code>additional_dependencies</code> for Rust, you can use the syntax
+<code>{package_name}:{package_version}</code> to specify a new library dependency (used to
+build <em>your</em> hook repo), or the special syntax
+<code>cli:{package_name}:{package_version}</code> for a CLI dependency (built separately,
+with binaries made available for use by hooks).</p>
+<p><strong>Support:</strong> Rust hooks currently require a pre-existing Rust installation.  It
+has been tested on linux, Windows, and macOS.</p>
 <h3 id="swift">    swift <small><a href="#swift">¶</a></small></h3> <p><em>new in 0.11.0</em></p>
 <p>The hook repository must have a <code>Package.swift</code>.  It will be installed via
 <code>swift build -c release</code>.  The <code>entry</code> should match an executable created by
