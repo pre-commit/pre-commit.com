@@ -352,6 +352,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [python](#python)
 - [python_venv](#python_venv)
 - [ruby](#ruby)
+- [rust](#rust)
 - [swift](#swift)
 - [pcre](#pcre)
 - [pygrep](#pygrep)
@@ -470,6 +471,28 @@ produce an executable that will match the `entry` – usually through
 
 __Support:__ ruby hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
+
+### rust
+
+_new in 1.10.0_
+
+Rust hooks are installed using the system installation of
+[Cargo](https://github.com/rust-lang/cargo), Rust's official package manager.
+
+Hook repositories must have a `Cargo.toml` file which produces at least one
+binary ([example](https://github.com/chriskuehl/example-rust-pre-commit-hook)),
+whose name should match the `entry` definition for your hook. The repo will be
+installed via `cargo install --bins` (with the binaries stored in your
+pre-commit cache, not polluting your user-level Cargo installations).
+
+When specifying `additional_dependencies` for Rust, you can use the syntax
+`{package_name}:{package_version}` to specify a new library dependency (used to
+build _your_ hook repo), or the special syntax
+`cli:{package_name}:{package_version}` for a CLI dependency (built separately,
+with binaries made available for use by hooks).
+
+__Support:__ Rust hooks currently require a pre-existing Rust installation.  It
+has been tested on linux, Windows, and macOS.
 
 ### swift
 
