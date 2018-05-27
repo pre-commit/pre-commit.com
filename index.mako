@@ -455,7 +455,7 @@ An alternate implementation of the [python](#python) language which uses the
 python 3 [`venv`](https://docs.python.org/3/library/venv.html) module.
 On many systems you need to additionally install the `python3-venv` system
 package to use this language.  This is otherwise a drop-in replacement for the
-python` language for situations where [`virtualenv` may not
+`python` language for situations where [`virtualenv` may not
 work](https://github.com/pre-commit/pre-commit/issues/631).
 
 __Support:__ python hooks work without any system-level depedendencies.  It
