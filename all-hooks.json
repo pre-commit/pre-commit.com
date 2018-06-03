@@ -396,12 +396,13 @@
             "name": "eslint",
             "entry": "eslint",
             "language": "node",
-            "files": "\\.js$",
+            "types": [
+                "javascript"
+            ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.0.0-alpha.3"
-            ],
-            "minimum_pre_commit_version": "0.7.0"
+                "eslint@5.0.0-alpha.4"
+            ]
         }
     ],
     "https://github.com/pre-commit/mirrors-fixmyjs": [
@@ -458,8 +459,11 @@
             "name": "pylint",
             "entry": "pylint",
             "language": "python",
-            "files": "\\.py$",
-            "args": []
+            "types": [
+                "python"
+            ],
+            "args": [],
+            "additional_dependencies": []
         }
     ],
     "https://github.com/pre-commit/mirrors-ruby-lint": [
@@ -585,6 +589,17 @@
             "always_run": true,
             "pass_filenames": false,
             "minimum_pre_commit_version": "0.14.0"
+        }
+    ],
+    "https://github.com/asottile/blacken-docs": [
+        {
+            "id": "blacken-docs",
+            "name": "blacken-docs",
+            "description": "Run `black` on python code blocks in documentation files",
+            "entry": "blacken-docs",
+            "language": "python",
+            "language_version": "python3.6",
+            "files": "\\.(rst|md|markdown)"
         }
     ],
     "https://github.com/asottile/cheetah_lint": [
