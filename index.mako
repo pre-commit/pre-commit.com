@@ -83,7 +83,7 @@ requirements-dev.txt):
 pre-commit
 ```
 
-Using [homebrew](https://brew.sh):
+Using [Homebrew](https://brew.sh):
 
 ```
 brew install pre-commit
