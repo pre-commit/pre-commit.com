@@ -354,7 +354,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [Ruby](#ruby)
 - [Rust](#rust)
 - [Swift](#swift)
-- [pcre](#pcre)
+- [PCRE](#pcre)
 - [pygrep](#pygrep)
 - [script](#script)
 - [system](#system)
@@ -374,7 +374,7 @@ as arguments to the run container  command. Docker allows you to use any
 language that's not supported by pre-commit as a builtin.
 
 __Support:__ Docker hooks are known to work on any system which has a working
-`docker` executable.  It has been tested on linux and macOS.  Hooks that are
+`docker` executable.  It has been tested on Linux and macOS.  Hooks that are
 run via `boot2docker` are known to be unable to make modifications to files.
 
 See [this repository](https://github.com/pre-commit/pre-commit-docker-flake8)
@@ -423,7 +423,7 @@ the `entry` should match an executable which will get installed into the
 `GOPATH`'s `bin` directory.
 
 __Support:__ Golang hooks are known to work on any system which has go
-installed.  It has been tested on linux, macOS, and Windows.
+installed.  It has been tested on Linux, macOS, and Windows.
 
 ### Node.js
 
@@ -432,7 +432,7 @@ The hook repository must have a `package.json`.  It will be installed via
 match the `entry` – usually through `bin` in package.json.
 
 __Support:__ Node.js hooks work without any system-level dependencies.  It has
-been tested on linux and macOS and _may_ work under cygwin.
+been tested on Linux and macOS and _may_ work under cygwin.
 
 _new in 1.5.0_ Windows is now supported for Node.js hooks.  Currently Python 3
 only due to [a bug in CPython](https://bugs.python.org/issue32539).
@@ -444,7 +444,7 @@ The hook repository must have a `setup.py`.  It will be installed via
 match the `entry` – usually through `console_scripts` or `scripts` in setup.py.
 
 __Support:__ Python hooks work without any system-level depedendencies.  It
-has been tested on linux, macOS, Windows, and cygwin.
+has been tested on Linux, macOS, Windows, and cygwin.
 
 
 ### python_venv
@@ -459,7 +459,7 @@ package to use this language.  This is otherwise a drop-in replacement for the
 work](https://github.com/pre-commit/pre-commit/issues/631).
 
 __Support:__ Python hooks work without any system-level depedendencies.  It
-has been tested on linux, macOS, Windows, and cygwin.  Only Python 3
+has been tested on Linux, macOS, Windows, and cygwin.  Only Python 3
 environments can be created with this language.
 
 ### Ruby
@@ -470,7 +470,7 @@ produce an executable that will match the `entry` – usually through
 `exectuables` in your gemspec.
 
 __Support:__ Ruby hooks work without any system-level dependencies.  It has
-been tested on linux and macOS and _may_ work under cygwin.
+been tested on Linux and macOS and _may_ work under cygwin.
 
 ### Rust
 
@@ -492,7 +492,7 @@ build _your_ hook repo), or the special syntax
 with binaries made available for use by hooks).
 
 __Support:__ Rust hooks currently require a pre-existing Rust installation.  It
-has been tested on linux, Windows, and macOS.
+has been tested on Linux, Windows, and macOS.
 
 ### Swift
 
@@ -503,22 +503,22 @@ The hook repository must have a `Package.swift`.  It will be installed via
 building the repository.
 
 __Support:__ Swift hooks are known to work on any system which has Swift
-installed.  It has been tested on linux and macOS.
+installed.  It has been tested on Linux and macOS.
 
-### pcre
+### PCRE
 
-_**deprecated**_: the pcre language will be removed in a later version.  Use
+_**deprecated**_: the PCRE language will be removed in a later version.  Use
 [pygrep](#pygrep) hooks instead (usually a drop-in replacement).
 
-"Perl Compatible Regular Expressions" – pcre hooks are a quick way to write a
+"Perl Compatible Regular Expressions" – PCRE hooks are a quick way to write a
 simple hook which prevents commits by file matching.  Specify the regex as the
 `entry`.
 
 macos does not ship with a functioning `grep -P` so you'll need
-`brew install grep` for pcre hooks to function.
+`brew install grep` for PCRE hooks to function.
 
-__Support:__ pcre hooks work on any system which has a functioning
-`grep -P` (or in the case of macOS: `ggrep -P`).  It has been tested on linux,
+__Support:__ PCRE hooks work on any system which has a functioning
+`grep -P` (or in the case of macOS: `ggrep -P`).  It has been tested on Linux,
 macOS, Windows, and cygwin.
 
 ### pygrep
