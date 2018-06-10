@@ -8,7 +8,7 @@ To add to this list, fork <a href="https://github.com/pre-commit/pre-commit.gith
 </p>
 
 <p>
-Also available in <a href="/all-hooks.json">json</a>.
+Also available in <a href="/all-hooks.json">JSON</a>.
 </p>
 
 % for repository, hooks in all_hooks.items():
