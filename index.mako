@@ -60,7 +60,7 @@ Using pip:
 pip install pre-commit
 ```
 
-Non Administrative Installation:
+Non-administrative installation:
 
 - _to upgrade: run again, to uninstall: pass `uninstall` to python_
 - _does not work on platforms without symlink support (windows)_
@@ -70,7 +70,7 @@ Non Administrative Installation:
 curl https://pre-commit.com/install-local.py | python -
 ```
 
-System Level Install:
+System-level install:
 
 ```
 curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit
@@ -920,7 +920,7 @@ Some of the common tags you'll find from identify:
 - [tags by extension / naming convention](https://github.com/chriskuehl/identify/blob/master/identify/extensions.py)
 - [tags by shebang (`#!`)](https://github.com/chriskuehl/identify/blob/master/identify/interpreters.py)
 
-To discovery the type of any file on disk, you can use `identify`'s cli:
+To discover the type of any file on disk, you can use `identify`'s cli:
 
 ```console
 $ identify-cli setup.py
@@ -1096,7 +1096,7 @@ support more languages/versions. We’d also like to get the
 .pre-commit-hooks.yaml files added to popular linters without maintaining
 forks / mirrors.
 
-Feel free to submit Bug Reports, Pull Requests, and Feature Requests.
+Feel free to submit bug reports, pull requests, and feature requests.
 
 ## Contributors
 
