@@ -345,7 +345,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 
 ## Supported languages
 
-- [docker](#docker)
+- [Docker](#docker)
 - [docker_image](#docker_image)
 - [golang](#golang)
 - [Node.js](#node)
@@ -359,7 +359,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [script](#script)
 - [system](#system)
 
-### docker
+### Docker
 
 _new in 0.10.0_
 
@@ -373,7 +373,7 @@ entrypoint. Your Docker `CMD` will not run when pre-commit passes a file list
 as arguments to the run container  command. Docker allows you to use any
 language that's not supported by pre-commit as a builtin.
 
-__Support:__ docker hooks are known to work on any system which has a working
+__Support:__ Docker hooks are known to work on any system which has a working
 `docker` executable.  It has been tested on linux and macOS.  Hooks that are
 run via `boot2docker` are known to be unable to make modifications to files.
 
@@ -385,12 +385,12 @@ for an example Docker-based hook.
 _new in 0.18.0_
 
 A more lightweight approach to `docker` hooks.  The `docker_image`
-"language" uses existing docker images to provide hook executables.
+"language" uses existing Docker images to provide hook executables.
 
 `docker_image` hooks can be conviently configured as [local](#repository-local)
 hooks.
 
-The `entry` specifies the docker tag to use.  If an image has an
+The `entry` specifies the Docker tag to use.  If an image has an
 `ENTRYPOINT` defined, nothing special is needed to hook up the executable.
 If the container does not specify an `ENTRYPOINT` or you want to change the
 entrypoint you can specify it as well in your `entry`.
