@@ -242,7 +242,7 @@ master branch.
         <div id="usage">
             <div class="page-header"><h1>Usage</h1></div>
 ${md('''
-Run `pre-commit install` to install pre-commit into your git hooks. pre-commit
+Run `pre-commit install` to install pre-commit into your Git hooks. pre-commit
 will now run on every commit. Every time you clone a project using pre-commit
 running `pre-commit install` should always be the first thing you do.
 
@@ -261,15 +261,15 @@ will download and build a copy of Node.js.
             <div class="page-header"><h1>Creating new hooks</h1></div>
 ${md('''
 pre-commit currently supports hooks written in
-[many languages](#supported-languages). As long as your git repo is an
+[many languages](#supported-languages). As long as your Git repo is an
 installable package (gem, npm, pypi, etc.) or exposes an executable, it can be
-used with pre-commit. Each git repo can support as many languages/hooks as you
+used with pre-commit. Each Git repo can support as many languages/hooks as you
 want.
 
 The hook must exit nonzero on failure or modify files in the working directory
 _(since 0.6.3)_.
 
-A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml
+A Git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml
 file that tells pre-commit:
 
 ```table
@@ -642,7 +642,7 @@ Some example useful invocations:
 
 - `pre-commit install`: default install invocation will run existing hook
   scripts alongside pre-commit.
-- `pre-commit install -f --install-hooks`: idempotently replace git hook
+- `pre-commit install -f --install-hooks`: idempotently replace Git hook
   scripts with pre-commit and also install hooks.
 
 ## pre-commit install-hooks [options] [](#pre-commit-install-hooks)
@@ -668,7 +668,7 @@ Options:
 - `-a`, `--all-files`: run on all the files in the repo.
 - `--files [FILES [FILES ...]]`: specific filenames to run hooks on.
 - `--source SOURCE` + `--origin ORIGIN`: run against the files changed between
-  `SOURCE...ORIGIN` in git.
+  `SOURCE...ORIGIN` in Git.
 - `--show-diff-on-failure`: _new in 0.13.4_ when hooks fail, run `git diff`
   directly afterward.
 - `-v`, `--verbose`: produce hook output independent of success.  Include hook
@@ -771,7 +771,7 @@ caught.
 
 pre-commit solves this by only running hooks on files that conflict or were
 manually edited during conflict resolution.  This also includes files which
-were automatically merged by git.  Git isn't perfect and this can often catch
+were automatically merged by Git.  Git isn't perfect and this can often catch
 implicit conflicts (such as with removed Python imports).
 
 ## pre-commit during push
