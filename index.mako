@@ -920,7 +920,7 @@ Some of the common tags you'll find from identify:
 - [tags by extension / naming convention](https://github.com/chriskuehl/identify/blob/master/identify/extensions.py)
 - [tags by shebang (`#!`)](https://github.com/chriskuehl/identify/blob/master/identify/interpreters.py)
 
-To discovery the type of any file on disk, you can use `identify`'s cli:
+To discover the type of any file on disk, you can use `identify`'s cli:
 
 ```console
 $ identify-cli setup.py
