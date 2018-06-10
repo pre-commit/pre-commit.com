@@ -432,7 +432,7 @@ The hook repository must have a `package.json`.  It will be installed via
 match the `entry` – usually through `bin` in package.json.
 
 __Support:__ Node.js hooks work without any system-level dependencies.  It has
-been tested on Linux and macOS and _may_ work under cygwin.
+been tested on Linux and macOS and _may_ work under Cygwin.
 
 _new in 1.5.0_ Windows is now supported for Node.js hooks.  Currently Python 3
 only due to [a bug in CPython](https://bugs.python.org/issue32539).
@@ -444,7 +444,7 @@ The hook repository must have a `setup.py`.  It will be installed via
 match the `entry` – usually through `console_scripts` or `scripts` in setup.py.
 
 __Support:__ Python hooks work without any system-level depedendencies.  It
-has been tested on Linux, macOS, Windows, and cygwin.
+has been tested on Linux, macOS, Windows, and Cygwin.
 
 
 ### python_venv
@@ -459,7 +459,7 @@ package to use this language.  This is otherwise a drop-in replacement for the
 work](https://github.com/pre-commit/pre-commit/issues/631).
 
 __Support:__ Python hooks work without any system-level depedendencies.  It
-has been tested on Linux, macOS, Windows, and cygwin.  Only Python 3
+has been tested on Linux, macOS, Windows, and Cygwin.  Only Python 3
 environments can be created with this language.
 
 ### Ruby
@@ -470,7 +470,7 @@ produce an executable that will match the `entry` – usually through
 `exectuables` in your gemspec.
 
 __Support:__ Ruby hooks work without any system-level dependencies.  It has
-been tested on Linux and macOS and _may_ work under cygwin.
+been tested on Linux and macOS and _may_ work under Cygwin.
 
 ### Rust
 
@@ -519,7 +519,7 @@ macos does not ship with a functioning `grep -P` so you'll need
 
 __Support:__ PCRE hooks work on any system which has a functioning
 `grep -P` (or in the case of macOS: `ggrep -P`).  It has been tested on Linux,
-macOS, Windows, and cygwin.
+macOS, Windows, and Cygwin.
 
 ### pygrep
 
