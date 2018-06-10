@@ -352,7 +352,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [Python](#python)
 - [python_venv](#python_venv)
 - [Ruby](#ruby)
-- [rust](#rust)
+- [Rust](#rust)
 - [swift](#swift)
 - [pcre](#pcre)
 - [pygrep](#pygrep)
@@ -472,7 +472,7 @@ produce an executable that will match the `entry` – usually through
 __Support:__ Ruby hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
 
-### rust
+### Rust
 
 _new in 1.10.0_
 
