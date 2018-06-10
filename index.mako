@@ -417,12 +417,12 @@ For example:
 
 _new in 0.12.0_
 
-The hook repository must contain go source code.  It will be installed via
+The hook repository must contain Go source code.  It will be installed via
 `go get ./...`.  pre-commit will create an isolated `GOPATH` for each hook and
 the `entry` should match an executable which will get installed into the
 `GOPATH`'s `bin` directory.
 
-__Support:__ Golang hooks are known to work on any system which has go
+__Support:__ Golang hooks are known to work on any system which has Go
 installed.  It has been tested on Linux, macOS, and Windows.
 
 ### Node.js
