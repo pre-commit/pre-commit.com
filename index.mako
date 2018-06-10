@@ -63,7 +63,7 @@ pip install pre-commit
 Non-administrative installation:
 
 - _to upgrade: run again, to uninstall: pass `uninstall` to Python_
-- _does not work on platforms without symlink support (windows)_
+- _does not work on platforms without symlink support (Windows)_
 
 
 ```
@@ -423,7 +423,7 @@ the `entry` should match an executable which will get installed into the
 `GOPATH`'s `bin` directory.
 
 __Support:__ golang hooks are known to work on any system which has go
-installed.  It has been tested on linux, macOS, and windows.
+installed.  It has been tested on linux, macOS, and Windows.
 
 ### Node.js
 
@@ -434,7 +434,7 @@ match the `entry` – usually through `bin` in package.json.
 __Support:__ Node.js hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
 
-_new in 1.5.0_ windows is now supported for Node.js hooks.  Currently Python 3
+_new in 1.5.0_ Windows is now supported for Node.js hooks.  Currently Python 3
 only due to [a bug in CPython](https://bugs.python.org/issue32539).
 
 ### Python
@@ -444,7 +444,7 @@ The hook repository must have a `setup.py`.  It will be installed via
 match the `entry` – usually through `console_scripts` or `scripts` in setup.py.
 
 __Support:__ Python hooks work without any system-level depedendencies.  It
-has been tested on linux, macOS, windows, and cygwin.
+has been tested on linux, macOS, Windows, and cygwin.
 
 
 ### python_venv
@@ -459,7 +459,7 @@ package to use this language.  This is otherwise a drop-in replacement for the
 work](https://github.com/pre-commit/pre-commit/issues/631).
 
 __Support:__ Python hooks work without any system-level depedendencies.  It
-has been tested on linux, macOS, windows, and cygwin.  Only Python 3
+has been tested on linux, macOS, Windows, and cygwin.  Only Python 3
 environments can be created with this language.
 
 ### ruby
@@ -519,7 +519,7 @@ macos does not ship with a functioning `grep -P` so you'll need
 
 __Support:__ pcre hooks work on any system which has a functioning
 `grep -P` (or in the case of macOS: `ggrep -P`).  It has been tested on linux,
-macOS, windows, and cygwin.
+macOS, Windows, and cygwin.
 
 ### pygrep
 
@@ -1001,11 +1001,11 @@ This tells pre-commit to use ruby `2.1.5` to run the `scss-lint` hook.
 Valid values for specific languages are listed below:
 - python: Whatever system installed Python interpreters you have. The value of
   this argument is passed as the `-p` to `virtualenv`.
-    - _new in 1.4.3_: on windows the
+    - _new in 1.4.3_: on Windows the
       [pep394](https://www.python.org/dev/peps/pep-0394/) name will be
       translated into a py launcher call for portability.  So continue to use
       names like `python3` (`py -3`) or `python3.6` (`py -3.6`) even on
-      windows.
+      Windows.
 - node: See [nodeenv](https://github.com/ekalinin/nodeenv#advanced).
 - ruby: See [ruby-build](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).
 
@@ -1053,7 +1053,7 @@ Add the following to your tox testenv:
 passenv = SSH_AUTH_SOCK
 ```
 
-pre-commit uses `os.path.expanduser` to create the cache directory, on windows
+pre-commit uses `os.path.expanduser` to create the cache directory, on Windows
 this requires the `HOMEPATH` environment variable:
 
 ```ini
