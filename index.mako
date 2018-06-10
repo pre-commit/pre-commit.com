@@ -347,7 +347,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 
 - [Docker](#docker)
 - [docker_image](#docker_image)
-- [golang](#golang)
+- [Golang](#golang)
 - [Node.js](#node)
 - [Python](#python)
 - [python_venv](#python_venv)
@@ -413,7 +413,7 @@ For example:
     entry: my.registry.example.com/docker-image-3:latest my-exe
 ```
 
-### golang
+### Golang
 
 _new in 0.12.0_
 
@@ -422,7 +422,7 @@ The hook repository must contain go source code.  It will be installed via
 the `entry` should match an executable which will get installed into the
 `GOPATH`'s `bin` directory.
 
-__Support:__ golang hooks are known to work on any system which has go
+__Support:__ Golang hooks are known to work on any system which has go
 installed.  It has been tested on linux, macOS, and Windows.
 
 ### Node.js
