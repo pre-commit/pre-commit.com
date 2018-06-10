@@ -353,7 +353,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [python_venv](#python_venv)
 - [Ruby](#ruby)
 - [Rust](#rust)
-- [swift](#swift)
+- [Swift](#swift)
 - [pcre](#pcre)
 - [pygrep](#pygrep)
 - [script](#script)
@@ -494,7 +494,7 @@ with binaries made available for use by hooks).
 __Support:__ Rust hooks currently require a pre-existing Rust installation.  It
 has been tested on linux, Windows, and macOS.
 
-### swift
+### Swift
 
 _new in 0.11.0_
 
@@ -502,7 +502,7 @@ The hook repository must have a `Package.swift`.  It will be installed via
 `swift build -c release`.  The `entry` should match an executable created by
 building the repository.
 
-__Support:__ swift hooks are known to work on any system which has swift
+__Support:__ Swift hooks are known to work on any system which has Swift
 installed.  It has been tested on linux and macOS.
 
 ### pcre
