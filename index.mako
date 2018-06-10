@@ -141,7 +141,7 @@ from.
 ```table
 =r=
     =c= `repo`
-    =c= the repository url to `git clone` from
+    =c= the repository URL to `git clone` from
 =r=
     =c= `rev`
     =c= the revision or tag to clone at.  _new in 1.7.0_ previously `sha`
