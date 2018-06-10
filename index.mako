@@ -1025,7 +1025,7 @@ variables such that tests are more reproducible.  Under some conditions,
 pre-commit requires a few environment variables and so they must be
 whitelisted.
 
-When cloning repos over ssh (`repo: git@github.com:...`), `git` requires the
+When cloning repos over SSH (`repo: git@github.com:...`), `git` requires the
 `SSH_AUTH_SOCK` variable and will otherwise fail:
 
 ```
