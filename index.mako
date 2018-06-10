@@ -275,7 +275,7 @@ file that tells pre-commit:
 ```table
 =r=
     =c= `id`
-    =c= the id of the hook - used in pre-commit-config.yaml.
+    =c= the ID of the hook - used in pre-commit-config.yaml.
 =r=
     =c= `name`
     =c= the name of the hook - shown during hook execution.
@@ -672,7 +672,7 @@ Options:
 - `--show-diff-on-failure`: _new in 0.13.4_ when hooks fail, run `git diff`
   directly afterward.
 - `-v`, `--verbose`: produce hook output independent of success.  Include hook
-  ids in output.
+  IDs in output.
 
 Some example useful invocations:
 - `pre-commit run`: this is what pre-commit runs by default when committing.
