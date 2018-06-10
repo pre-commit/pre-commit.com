@@ -351,7 +351,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [Node.js](#node)
 - [Python](#python)
 - [python_venv](#python_venv)
-- [ruby](#ruby)
+- [Ruby](#ruby)
 - [rust](#rust)
 - [swift](#swift)
 - [pcre](#pcre)
@@ -462,14 +462,14 @@ __Support:__ Python hooks work without any system-level depedendencies.  It
 has been tested on linux, macOS, Windows, and cygwin.  Only Python 3
 environments can be created with this language.
 
-### ruby
+### Ruby
 
 The hook repository must have a `*.gemspec`.  It will be installed via
 `gem build *.gemspec && gem install *.gem`.  The installed package will
 produce an executable that will match the `entry` – usually through
 `exectuables` in your gemspec.
 
-__Support:__ ruby hooks work without any system-level dependencies.  It has
+__Support:__ Ruby hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
 
 ### rust
@@ -996,7 +996,7 @@ per-hook basis by setting the `language_version`.
         language_version: 2.1.5
 ```
 
-This tells pre-commit to use ruby `2.1.5` to run the `scss-lint` hook.
+This tells pre-commit to use Ruby `2.1.5` to run the `scss-lint` hook.
 
 Valid values for specific languages are listed below:
 - python: Whatever system installed Python interpreters you have. The value of
