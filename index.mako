@@ -45,7 +45,7 @@ pre-commit manages the installation and execution of any hook written in any
 language before every commit. pre-commit is specifically designed to not
 require root access. If one of your developers doesn’t have Node.js installed
 but modifies a JavaScript file, pre-commit automatically handles downloading
-and building Node.js to run eslint without root.
+and building Node.js to run ESLint without root.
 ''')}
 
         <div id="install">
