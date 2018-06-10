@@ -359,7 +359,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [script](#script)
 - [system](#system)
 
-### Docker
+### Docker [](#docker)
 
 _new in 0.10.0_
 
@@ -413,7 +413,7 @@ For example:
     entry: my.registry.example.com/docker-image-3:latest my-exe
 ```
 
-### Golang
+### Golang [](#golang)
 
 _new in 0.12.0_
 
@@ -425,7 +425,7 @@ the `entry` should match an executable which will get installed into the
 __Support:__ Golang hooks are known to work on any system which has Go
 installed.  It has been tested on Linux, macOS, and Windows.
 
-### Node.js
+### Node.js [](#node)
 
 The hook repository must have a `package.json`.  It will be installed via
 `npm install .`.  The installed package will provide an executable that will
@@ -437,7 +437,7 @@ been tested on Linux and macOS and _may_ work under Cygwin.
 _new in 1.5.0_ Windows is now supported for Node.js hooks.  Currently Python 3
 only due to [a bug in CPython](https://bugs.python.org/issue32539).
 
-### Python
+### Python [](#python)
 
 The hook repository must have a `setup.py`.  It will be installed via
 `pip install .`.  The installed package will provide an executable that will
@@ -462,7 +462,7 @@ __Support:__ Python hooks work without any system-level depedendencies.  It
 has been tested on Linux, macOS, Windows, and Cygwin.  Only Python 3
 environments can be created with this language.
 
-### Ruby
+### Ruby [](#ruby)
 
 The hook repository must have a `*.gemspec`.  It will be installed via
 `gem build *.gemspec && gem install *.gem`.  The installed package will
@@ -472,7 +472,7 @@ produce an executable that will match the `entry` – usually through
 __Support:__ Ruby hooks work without any system-level dependencies.  It has
 been tested on Linux and macOS and _may_ work under Cygwin.
 
-### Rust
+### Rust [](#rust)
 
 _new in 1.10.0_
 
@@ -494,7 +494,7 @@ with binaries made available for use by hooks).
 __Support:__ Rust hooks currently require a pre-existing Rust installation.  It
 has been tested on Linux, Windows, and macOS.
 
-### Swift
+### Swift [](#swift)
 
 _new in 0.11.0_
 
@@ -505,7 +505,7 @@ building the repository.
 __Support:__ Swift hooks are known to work on any system which has Swift
 installed.  It has been tested on Linux and macOS.
 
-### PCRE
+### PCRE [](#pcre)
 
 _**deprecated**_: the PCRE language will be removed in a later version.  Use
 [pygrep](#pygrep) hooks instead (usually a drop-in replacement).
