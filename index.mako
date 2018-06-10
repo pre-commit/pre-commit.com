@@ -35,7 +35,7 @@ work for different project structures.
 We believe that you should always use the best industry standard linters.
 Some of the best linters are written in languages that you do not use in your
 project or have installed on your machine. For example scss-lint is a linter
-for SCSS written in Ruby. If you’re writing a project in node you should be
+for SCSS written in Ruby. If you’re writing a project in Node.js you should be
 able to use scss-lint as a pre-commit hook without adding a Gemfile to your
 project or understanding how to get scss-lint installed.
 
@@ -43,9 +43,9 @@ We built pre-commit to solve our hook issues. It is a multi-language package
 manager for pre-commit hooks. You specify a list of hooks you want and
 pre-commit manages the installation and execution of any hook written in any
 language before every commit. pre-commit is specifically designed to not
-require root access. If one of your developers doesn’t have node installed
+require root access. If one of your developers doesn’t have Node.js installed
 but modifies a JavaScript file, pre-commit automatically handles downloading
-and building node to run eslint without root.
+and building Node.js to run eslint without root.
 ''')}
 
         <div id="install">
@@ -252,8 +252,8 @@ If you want to manually run all pre-commit hooks on a repository, run
 
 The first time pre-commit runs on a file it will automatically download,
 install, and run the hook. Note that running a hook for the first time may be
-slow. For example: If the machine does not have node installed, pre-commit
-will download and build a copy of node.
+slow. For example: If the machine does not have Node.js installed, pre-commit
+will download and build a copy of Node.js.
 ''')}
         </div>
 
@@ -348,7 +348,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [docker](#docker)
 - [docker_image](#docker_image)
 - [golang](#golang)
-- [node](#node)
+- [Node.js](#node)
 - [python](#python)
 - [python_venv](#python_venv)
 - [ruby](#ruby)
@@ -425,16 +425,16 @@ the `entry` should match an executable which will get installed into the
 __Support:__ golang hooks are known to work on any system which has go
 installed.  It has been tested on linux, macOS, and windows.
 
-### node
+### Node.js
 
 The hook repository must have a `package.json`.  It will be installed via
 `npm install .`.  The installed package will provide an executable that will
 match the `entry` – usually through `bin` in package.json.
 
-__Support:__ node hooks work without any system-level dependencies.  It has
+__Support:__ Node.js hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
 
-_new in 1.5.0_ windows is now supported for node hooks.  Currently python3
+_new in 1.5.0_ windows is now supported for Node.js hooks.  Currently python3
 only due to [a bug in cpython](https://bugs.python.org/issue32539).
 
 ### python
