@@ -60,7 +60,7 @@ Using pip:
 pip install pre-commit
 ```
 
-Non Administrative Installation:
+Non-administrative installation:
 
 - _to upgrade: run again, to uninstall: pass `uninstall` to python_
 - _does not work on platforms without symlink support (windows)_
@@ -70,7 +70,7 @@ Non Administrative Installation:
 curl https://pre-commit.com/install-local.py | python -
 ```
 
-System Level Install:
+System-level install:
 
 ```
 curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit
