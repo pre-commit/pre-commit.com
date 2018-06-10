@@ -62,7 +62,7 @@ pip install pre-commit
 
 Non-administrative installation:
 
-- _to upgrade: run again, to uninstall: pass `uninstall` to python_
+- _to upgrade: run again, to uninstall: pass `uninstall` to Python_
 - _does not work on platforms without symlink support (windows)_
 
 
@@ -76,7 +76,7 @@ System-level install:
 curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit
 ```
 
-In a python project, add the following to your requirements.txt (or
+In a Python project, add the following to your requirements.txt (or
 requirements-dev.txt):
 
 ```
@@ -349,7 +349,7 @@ to provide both files or suggest users use `pre-commit>=0.12.0`.
 - [docker_image](#docker_image)
 - [golang](#golang)
 - [Node.js](#node)
-- [python](#python)
+- [Python](#python)
 - [python_venv](#python_venv)
 - [ruby](#ruby)
 - [rust](#rust)
@@ -434,16 +434,16 @@ match the `entry` – usually through `bin` in package.json.
 __Support:__ Node.js hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
 
-_new in 1.5.0_ windows is now supported for Node.js hooks.  Currently python3
-only due to [a bug in cpython](https://bugs.python.org/issue32539).
+_new in 1.5.0_ windows is now supported for Node.js hooks.  Currently Python 3
+only due to [a bug in CPython](https://bugs.python.org/issue32539).
 
-### python
+### Python
 
 The hook repository must have a `setup.py`.  It will be installed via
 `pip install .`.  The installed package will provide an executable that will
 match the `entry` – usually through `console_scripts` or `scripts` in setup.py.
 
-__Support:__ python hooks work without any system-level depedendencies.  It
+__Support:__ Python hooks work without any system-level depedendencies.  It
 has been tested on linux, macOS, windows, and cygwin.
 
 
@@ -451,15 +451,15 @@ has been tested on linux, macOS, windows, and cygwin.
 
 _new in 1.9.0_
 
-An alternate implementation of the [python](#python) language which uses the
-python 3 [`venv`](https://docs.python.org/3/library/venv.html) module.
+An alternate implementation of the [Python](#python) language which uses the
+Python 3 [`venv`](https://docs.python.org/3/library/venv.html) module.
 On many systems you need to additionally install the `python3-venv` system
 package to use this language.  This is otherwise a drop-in replacement for the
 `python` language for situations where [`virtualenv` may not
 work](https://github.com/pre-commit/pre-commit/issues/631).
 
-__Support:__ python hooks work without any system-level depedendencies.  It
-has been tested on linux, macOS, windows, and cygwin.  Only python3
+__Support:__ Python hooks work without any system-level depedendencies.  It
+has been tested on linux, macOS, windows, and cygwin.  Only Python 3
 environments can be created with this language.
 
 ### ruby
@@ -525,9 +525,9 @@ macOS, windows, and cygwin.
 
 _new in 1.2.0_
 
-A cross-platform python implementation of `grep` – pygrep hooks are a quick
+A cross-platform Python implementation of `grep` – pygrep hooks are a quick
 way to write a simple hook which prevents commits by file matching.  Specify
-the regex as the `entry`.  The `entry` may be any python
+the regex as the `entry`.  The `entry` may be any Python
 [regular expression](#regular-expressions).  For case insensitive regexes you
 can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
 
@@ -772,7 +772,7 @@ caught.
 pre-commit solves this by only running hooks on files that conflict or were
 manually edited during conflict resolution.  This also includes files which
 were automatically merged by git.  Git isn't perfect and this can often catch
-implicit conflicts (such as with removed python imports).
+implicit conflicts (such as with removed Python imports).
 
 ## pre-commit during push
 
@@ -907,7 +907,7 @@ with `files`.
 `types` is specified per hook as an array of tags.  The tags are discovered
 through a set of heuristics by the
 [identify](https://github.com/chriskuehl/identify) library.  `identify` was
-chosen as it is a small portable pure python library.
+chosen as it is a small portable pure Python library.
 
 Some of the common tags you'll find from identify:
 
@@ -957,10 +957,10 @@ If you'd like to use `types` with compatibility for older versions
 
 ## Regular expressions
 
-The patterns for `files` and `exclude` are python
+The patterns for `files` and `exclude` are Python
 [regular expressions](https://docs.python.org/3/library/re.html#regular-expression-syntax).
 
-As such, you can use any of the features that python regexes support.
+As such, you can use any of the features that Python regexes support.
 
 If you find that your regular expression is becoming unwieldy due to a long
 list of excluded / included things, you may find a
@@ -999,7 +999,7 @@ per-hook basis by setting the `language_version`.
 This tells pre-commit to use ruby `2.1.5` to run the `scss-lint` hook.
 
 Valid values for specific languages are listed below:
-- python: Whatever system installed python interpreters you have. The value of
+- python: Whatever system installed Python interpreters you have. The value of
   this argument is passed as the `-p` to `virtualenv`.
     - _new in 1.4.3_: on windows the
       [pep394](https://www.python.org/dev/peps/pep-0394/) name will be
