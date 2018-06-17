@@ -13,7 +13,7 @@ COL = '    =c= '
 INDENT = ' ' * 8
 
 
-def _render_table(code):
+def _render_table(code: str) -> str:
     """Renders our custom "table" type
 
     ```table
@@ -38,13 +38,13 @@ def _render_table(code):
     in_row = False
     col_buffer = None
 
-    def _maybe_end_col():
+    def _maybe_end_col() -> None:
         nonlocal col_buffer
         if col_buffer is not None:
             output.append(f'<td>{md(col_buffer)}</td>')
             col_buffer = None
 
-    def _maybe_end_row():
+    def _maybe_end_row() -> None:
         nonlocal in_row
         if in_row:
             output.append('</tr>')
@@ -75,7 +75,7 @@ def _render_table(code):
 
 
 class Renderer(markdown_code_blocks.CodeRenderer):
-    def header(self, text, level, raw=None):
+    def header(self, text: str, level: int, raw: str) -> str:
         match = ID_RE.search(raw)
         if match:
             h_id = match.group(1)
@@ -87,14 +87,14 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             f'</h{level}> '
         )
 
-    def block_code(self, code, lang):
+    def block_code(self, code: str, lang: str) -> str:
         if lang == 'table':
             return _render_table(code)
         else:
             return super().block_code(code, lang)
 
 
-def md(s):
+def md(s: str) -> str:
     html = markdown_code_blocks.highlight(s, Renderer=Renderer)
     # manually bless the highlighted output.
     return markupsafe.Markup(html)

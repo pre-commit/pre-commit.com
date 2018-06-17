@@ -1,7 +1,8 @@
 *.html
 *.pyc
 *.swp
+/.mypy_cache
 /all-hooks.json
-/node_modules
 /build
+/node_modules
 /venv
