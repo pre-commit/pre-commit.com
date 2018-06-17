@@ -401,7 +401,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.0.0-alpha.4"
+                "eslint@5.0.0-rc.0"
             ]
         }
     ],
@@ -1124,8 +1124,8 @@
             "id": "no-go-testing",
             "name": "Check files aren't using gos' testing package",
             "entry": "testing\\.T",
-            "files": "test_\\.go$",
-            "language": "pcre",
+            "files": "test_.*\\.go$",
+            "language": "pygrep",
             "description": "Checks that no files are using `testing.T`, if you want developers to use a different testing framework\n"
         },
         {
