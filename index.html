@@ -728,7 +728,8 @@ with <code>#!/usr/bin/env python3</code> will also be matched.</p>
 <p>If you'd like to use <code>types</code> with compatibility for older versions
 <a href="https://github.com/pre-commit/pre-commit/pull/551#issuecomment-312535540">here is a guide to ensuring compatibility</a>.</p>
 <h2 id="regular-expressions">    Regular expressions <small><a href="#regular-expressions">¶</a></small></h2> <p>The patterns for <code>files</code> and <code>exclude</code> are python
-<a href="https://docs.python.org/3/library/re.html#regular-expression-syntax">regular expressions</a>.</p>
+<a href="https://docs.python.org/3/library/re.html#regular-expression-syntax">regular expressions</a>
+and are matched with <a href="https://docs.python.org/3/library/re.html#re.search"><code>re.search</code></a>.</p>
 <p>As such, you can use any of the features that python regexes support.</p>
 <p>If you find that your regular expression is becoming unwieldy due to a long
 list of excluded / included things, you may find a
