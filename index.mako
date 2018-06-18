@@ -958,7 +958,8 @@ If you'd like to use `types` with compatibility for older versions
 ## Regular expressions
 
 The patterns for `files` and `exclude` are python
-[regular expressions](https://docs.python.org/3/library/re.html#regular-expression-syntax).
+[regular expressions](https://docs.python.org/3/library/re.html#regular-expression-syntax)
+and are matched with [`re.search`](https://docs.python.org/3/library/re.html#re.search).
 
 As such, you can use any of the features that python regexes support.
 
