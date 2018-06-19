@@ -1511,5 +1511,59 @@
             "files": "docker-compose.y[a]{0,1}ml$",
             "language": "script"
         }
+    ],
+    "https://github.com/mattlqx/pre-commit-ruby": [
+        {
+            "id": "rubocop",
+            "name": "Check Ruby style with rubocop",
+            "description": "Enforce Ruby style guide with rubocop",
+            "entry": "bin/rubocop-wrapper.sh",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "ruby"
+            ],
+            "verbose": true
+        },
+        {
+            "id": "rspec",
+            "name": "Unit test Ruby code with rspec",
+            "description": "Run rspec in changed paths with spec directories",
+            "entry": "bin/rspec-wrapper.rb",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "ruby"
+            ],
+            "verbose": true
+        },
+        {
+            "id": "foodcritic",
+            "name": "Enforce Chef style guide with foodcritic",
+            "description": "Enforce Chef style guide with foodcritic",
+            "entry": "bin/foodcritic-wrapper.rb",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "file"
+            ],
+            "files": "(?x)^(\n    .*/(recipes|attributes|resources|providers)/.*\\.rb|\n    .*/metadata\\.rb\n)$\n",
+            "exclude": ".*/test/.*\\.rb$",
+            "verbose": true
+        }
+    ],
+    "https://github.com/mattlqx/pre-commit-sign": [
+        {
+            "id": "sign-commit",
+            "name": "Sign commit",
+            "description": "Hashes some fields of the commit and adds a signature for verification by other systems",
+            "entry": "sign-commit",
+            "language": "ruby",
+            "pass_filenames": true,
+            "minimum_pre_commit_version": "0.15.4",
+            "stages": [
+                "commit-msg"
+            ]
+        }
     ]
 }
