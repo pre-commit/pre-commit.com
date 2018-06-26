@@ -47,7 +47,7 @@ require root access. If one of your developers doesn’t have node installed
 but modifies a JavaScript file, pre-commit automatically handles downloading
 and building node to run eslint without root.
 ''')}
-
+        </div>
         <div id="install">
             <div class="page-header"><h1>Installation</h1></div>
 ${md('''
