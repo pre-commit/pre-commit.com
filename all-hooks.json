@@ -443,6 +443,22 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
+    "https://github.com/pre-commit/mirrors-mypy": [
+        {
+            "id": "mypy",
+            "name": "mypy",
+            "entry": "mypy",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "args": [
+                "--ignore-missing-imports",
+                "--scripts-are-modules"
+            ],
+            "additional_dependencies": []
+        }
+    ],
     "https://github.com/pre-commit/mirrors-puppet-lint": [
         {
             "id": "puppet-lint",
