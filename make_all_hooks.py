@@ -16,7 +16,8 @@ def get_manifest(repo_path: str) -> Tuple[str, Dict[str, Any]]:
     print(f'*** {repo_path}')
     with tempfile.TemporaryDirectory() as directory:
         repo_dir = os.path.join(directory, 'repo')
-        subprocess.call(('git', 'clone', '-q', repo_path, repo_dir))
+        cmd = ('git', 'clone', '--depth', '1', '-q', repo_path, repo_dir)
+        subprocess.check_call(cmd)
         manifest_path = os.path.join(repo_dir, '.pre-commit-hooks.yaml')
         # Validate the manifest just to make sure it's ok.
         load_manifest(manifest_path)
