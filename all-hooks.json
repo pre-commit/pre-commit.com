@@ -401,7 +401,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.0.0-rc.0"
+                "eslint@5.0.1"
             ]
         }
     ],
@@ -1138,7 +1138,7 @@
         },
         {
             "id": "no-go-testing",
-            "name": "Check files aren't using gos' testing package",
+            "name": "Check files aren't using go's testing package",
             "entry": "testing\\.T",
             "files": "test_.*\\.go$",
             "language": "pygrep",
@@ -1151,6 +1151,14 @@
             "files": "\\.go$",
             "language": "script",
             "description": ""
+        },
+        {
+            "id": "golangci-lint",
+            "name": "golangci-lint",
+            "entry": "run-golangci-lint.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `golangci-lint`, requires https://github.com/golangci/golangci-lint"
         }
     ],
     "https://github.com/troian/pre-commit-golang": [
