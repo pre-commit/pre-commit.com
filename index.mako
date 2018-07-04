@@ -343,6 +343,44 @@ _new in 0.12.0_ Prior to 0.12.0 the file was `hooks.yaml`
 (now `.pre-commit-hooks.yaml`).  For backwards compatibility it is suggested
 to provide both files or suggest users use `pre-commit>=0.12.0`.
 
+## Developing hooks interactively
+
+Since the `repo` property of `.pre-commit-config.yaml` can refer to anything
+that `git clone ...` understands, it's often useful to point it at a local
+directory while developing hooks.
+
+[`pre-commit try-repo`](#pre-commit-try-repo) streamlines this process by
+enabling a quick way to try out a repository.  Here's how one might work
+interactively:
+
+```console
+~/work/hook-repo $ git checkout origin/master -b feature
+
+# ... make some changes
+
+~/work/hook-repo $ # A commit is needed so `pre-commit` can clone
+~/work/hook-repo $ git commit -m "Add new hook: foo"
+
+# In another terminal or tab
+
+~/work/other-repo $ pre-commit try-repo ../hook-repo foo --verbose --all-files
+===============================================================================
+Using config:
+===============================================================================
+repos:
+-   repo: ../hook-repo
+    rev: 84f01ac09fcd8610824f9626a590b83cfae9bcbd
+    hooks:
+    -   id: foo
+===============================================================================
+[INFO] Initializing environment for ../hook-repo.
+[foo] Foo................................................................Passed
+hookid: foo
+
+Hello from foo hook!
+
+```
+
 ## Supported languages
 
 - [docker](#docker)
@@ -556,44 +594,6 @@ This hook type will not be given a virtual environment to work with – if it
 needs additional dependencies the consumer must install them manually.
 
 __Support:__ the support of system hooks depend on the executables.
-
-## Developing hooks interactively
-
-Since the `repo` property of `.pre-commit-config.yaml` can refer to anything
-that `git clone ...` understands, it's often useful to point it at a local
-directory while developing hooks.
-
-[`pre-commit try-repo`](#pre-commit-try-repo) streamlines this process by
-enabling a quick way to try out a repository.  Here's how one might work
-interactively:
-
-```console
-~/work/hook-repo $ git checkout origin/master -b feature
-
-# ... make some changes
-
-~/work/hook-repo $ # A commit is needed so `pre-commit` can clone
-~/work/hook-repo $ git commit -m "Add new hook: foo"
-
-# In another terminal or tab
-
-~/work/other-repo $ pre-commit try-repo ../hook-repo foo --verbose --all-files
-===============================================================================
-Using config:
-===============================================================================
-repos:
--   repo: ../hook-repo
-    rev: 84f01ac09fcd8610824f9626a590b83cfae9bcbd
-    hooks:
-    -   id: foo
-===============================================================================
-[INFO] Initializing environment for ../hook-repo.
-[foo] Foo................................................................Passed
-hookid: foo
-
-Hello from foo hook!
-
-```
 ''')}
         </div>
 
