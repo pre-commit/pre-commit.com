@@ -401,7 +401,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.0.1"
+                "eslint@5.1.0"
             ]
         }
     ],
@@ -465,8 +465,11 @@
             "name": "puppet-lint",
             "entry": "puppet-lint",
             "language": "ruby",
-            "files": "\\.pp$",
-            "args": []
+            "types": [
+                "puppet"
+            ],
+            "args": [],
+            "additional_dependencies": []
         }
     ],
     "https://github.com/pre-commit/mirrors-pylint": [
@@ -718,6 +721,14 @@
         }
     ],
     "https://github.com/jumanjihouse/pre-commit-hooks": [
+        {
+            "id": "check-mailmap",
+            "name": "Detect if an email address needs to be added to mailmap",
+            "language": "script",
+            "entry": "pre_commit_hooks/check-mailmap",
+            "always_run": true,
+            "exclude": ".*"
+        },
         {
             "id": "fasterer",
             "name": "Suggest speed improvements in Ruby",
@@ -1588,6 +1599,16 @@
             "stages": [
                 "commit-msg"
             ]
+        }
+    ],
+    "https://github.com/mattlqx/pre-commit-search-and-replace": [
+        {
+            "id": "search-and-replace",
+            "name": "Search and replace strings",
+            "description": "Search and replace strings",
+            "entry": "bin/search-and-replace.rb",
+            "language": "script",
+            "pass_filenames": true
         }
     ]
 }
