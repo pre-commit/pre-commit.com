@@ -1610,5 +1610,18 @@
             "language": "script",
             "pass_filenames": true
         }
+    ],
+    "https://github.com/openstack-dev/bashate": [
+        {
+            "id": "bashate",
+            "name": "bashate",
+            "description": "This hook runs bashate for linting shell scripts",
+            "entry": "bashate",
+            "language": "python",
+            "types": [
+                "shell"
+            ],
+            "verbose": true
+        }
     ]
 }
