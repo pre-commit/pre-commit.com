@@ -425,7 +425,7 @@ _new in 0.18.0_
 A more lightweight approach to `docker` hooks.  The `docker_image`
 "language" uses existing docker images to provide hook executables.
 
-`docker_image` hooks can be conveniently configured as [local](#repository-local)
+`docker_image` hooks can be conveniently configured as [local](#repository-local-hooks)
 hooks.
 
 The `entry` specifies the docker tag to use.  If an image has an
