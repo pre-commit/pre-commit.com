@@ -435,12 +435,13 @@
             "name": "jshint",
             "entry": "jshint",
             "language": "node",
-            "files": "\\.js$",
+            "types": [
+                "javascript"
+            ],
             "args": [],
             "additional_dependencies": [
-                "jshint@2.9.5"
-            ],
-            "minimum_pre_commit_version": "0.7.0"
+                "jshint@2.9.6"
+            ]
         }
     ],
     "https://github.com/pre-commit/mirrors-mypy": [
@@ -1417,12 +1418,10 @@
             "id": "fmt",
             "name": "fmt",
             "description": "Format files with rustfmt.",
-            "entry": "cargo fmt --",
+            "entry": "rustfmt --",
             "language": "system",
             "files": "\\.rs$",
-            "args": [
-                "--write-mode=overwrite"
-            ]
+            "args": []
         }
     ],
     "https://github.com/chewse/pre-commit-mirrors-pydocstyle": [
@@ -1663,6 +1662,16 @@
             "types": [
                 "shell"
             ],
+            "verbose": true
+        }
+    ],
+    "https://github.com/alessandrojcm/commitlint-pre-commit-hook": [
+        {
+            "id": "commitlint",
+            "name": "commitlint",
+            "description": "Commitlint hook",
+            "language": "node",
+            "entry": "commitlint --edit",
             "verbose": true
         }
     ]
