@@ -79,3 +79,4 @@
 - https://github.com/openstack-dev/bashate
 - https://github.com/alessandrojcm/commitlint-pre-commit-hook
 - https://github.com/henryykt/pre-commit-perl
+- https://github.com/speshak/pre-commit-cfn-lint
