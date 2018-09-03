@@ -385,6 +385,7 @@ Hello from foo hook!
 
 - [docker](#docker)
 - [docker_image](#docker_image)
+- [fail](#fail)
 - [golang](#golang)
 - [node](#node)
 - [python](#python)
@@ -449,6 +450,29 @@ For example:
     name: ...
     language: docker_image
     entry: my.registry.example.com/docker-image-3:latest my-exe
+```
+
+### fail
+
+_new in 1.11.0_
+
+A lightweight `language` to forbid files by filename.  The `fail` language is
+especially useful for [local](#repository-local-hooks) hooks.
+
+The `entry` will be printed when the hook fails.  It is suggested to provide
+a brief description for `name` and more verbose fix instructions in `entry`.
+
+Here's an example which prevents any file except those ending with `.rst` from
+being added to the `changelog` directory:
+
+```yaml
+-   repo: local
+    hooks:
+    -   id: changelogs-rst
+        name: changelogs must be rst
+        entry: changelog filenames must end in .rst
+        language: fail
+        files: 'changelog/.*(?<!\.rst)$'
 ```
 
 ### golang
@@ -859,9 +883,9 @@ Repository-local hooks are useful when:
 You can configure repository-local hooks by specifying the `repo` as the
 sentinel `local`.
 
-_new in 0.13.0_ repository hooks can use any language which supports
-`additional_dependencies` or `docker_image` / `pcre` / `pygrep` / `script` /
-`system`.
+_new in 0.13.0_ local hooks can use any language which supports
+`additional_dependencies` or `docker_image` / `fail` / `pcre` / `pygrep` /
+`script` / `system`.
 This enables you to install things which previously would require a trivial
 mirror repository.
 
