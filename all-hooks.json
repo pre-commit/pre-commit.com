@@ -356,10 +356,13 @@
             "name": "autopep8",
             "entry": "autopep8",
             "language": "python",
-            "files": "\\.py$",
+            "types": [
+                "python"
+            ],
             "args": [
                 "-i"
-            ]
+            ],
+            "additional_dependencies": []
         }
     ],
     "https://github.com/pre-commit/mirrors-coffeelint": [
@@ -401,7 +404,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.2.0"
+                "eslint@5.5.0"
             ]
         }
     ],
@@ -512,10 +515,13 @@
             "name": "yapf",
             "entry": "yapf",
             "language": "python",
-            "files": "\\.py$",
+            "types": [
+                "python"
+            ],
             "args": [
                 "-i"
-            ]
+            ],
+            "additional_dependencies": []
         }
     ],
     "https://github.com/pre-commit/pygrep-hooks": [
@@ -660,7 +666,7 @@
             "description": "Run `black` on python code blocks in documentation files",
             "entry": "blacken-docs",
             "language": "python",
-            "language_version": "python3.6",
+            "language_version": "python3",
             "files": "\\.(rst|md|markdown)"
         }
     ],
@@ -786,7 +792,7 @@
             "id": "forbid-binary",
             "name": "Forbid binaries",
             "description": "Forbid binary files from being committed",
-            "entry": "pre_commit_hooks/forbid-binary.sh",
+            "entry": "pre_commit_hooks/forbid-binary",
             "language": "script",
             "types": [
                 "binary"
@@ -796,21 +802,21 @@
             "id": "forbid-space-in-indent",
             "name": "Forbid spaces in indentation",
             "description": "Forbid spaces in indentation",
-            "entry": "pre_commit_hooks/forbid-space-in-indent.sh",
+            "entry": "pre_commit_hooks/forbid-space-in-indent",
             "language": "script"
         },
         {
             "id": "git-check",
             "name": "Check for conflict markers and core.whitespace errors",
             "description": "Use git to check for conflict markers and core.whitespace errors, respecting .gitattributes",
-            "entry": "pre_commit_hooks/git-check.sh",
+            "entry": "pre_commit_hooks/git-check",
             "language": "script"
         },
         {
             "id": "git-dirty",
             "name": "Check if the git tree is dirty",
             "description": "Detect if git tree contains modified, staged, or untracked files",
-            "entry": "pre_commit_hooks/git-dirty.sh",
+            "entry": "pre_commit_hooks/git-dirty",
             "language": "script"
         },
         {
@@ -821,6 +827,19 @@
             "language": "ruby",
             "types": [
                 "ruby"
+            ]
+        },
+        {
+            "id": "require-ascii",
+            "name": "Check file encoding",
+            "description": "Ensure file is ascii-encoded",
+            "entry": "require-ascii.py",
+            "language": "python",
+            "types": [
+                "text"
+            ],
+            "additional_dependencies": [
+                "chardet"
             ]
         },
         {
@@ -837,7 +856,7 @@
             "id": "shellcheck",
             "name": "Test shell scripts with shellcheck",
             "description": "Shell scripts conform to shellcheck",
-            "entry": "pre_commit_hooks/shellcheck.sh",
+            "entry": "pre_commit_hooks/shellcheck",
             "language": "script",
             "types": [
                 "shell"
@@ -851,10 +870,32 @@
             ]
         },
         {
+            "id": "script-must-have-extension",
+            "name": "Non-executable shell script filename ends in .sh",
+            "description": "Non-executable shell script filename ends in .sh",
+            "entry": "pre_commit_hooks/script_must_have_extension",
+            "language": "script",
+            "types": [
+                "shell",
+                "non-executable"
+            ]
+        },
+        {
+            "id": "script-must-not-have-extension",
+            "name": "Executable shell script omits the filename extension",
+            "description": "Executable shell script omits the filename extension",
+            "entry": "pre_commit_hooks/script_must_not_have_extension",
+            "language": "script",
+            "types": [
+                "shell",
+                "executable"
+            ]
+        },
+        {
             "id": "shfmt",
             "name": "Check shell style with shfmt",
             "language": "script",
-            "entry": "pre_commit_hooks/shfmt.sh",
+            "entry": "pre_commit_hooks/shfmt",
             "types": [
                 "shell"
             ],
@@ -1213,6 +1254,14 @@
             "files": "\\.go$",
             "language": "script",
             "description": "Runs `golangci-lint`, requires https://github.com/golangci/golangci-lint"
+        },
+        {
+            "id": "go-critic",
+            "name": "go-critic",
+            "entry": "run-go-critic.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go-critic`, requires https://github.com/go-critic/go-critic"
         }
     ],
     "https://github.com/troian/pre-commit-golang": [
@@ -1290,7 +1339,9 @@
             "description": "Check Shell Syntax on ALL staged files with user friendly messages and colors",
             "entry": "pre_commit_hooks/shell-lint.sh",
             "language": "script",
-            "files": "(\\.sh|\\.zsh|\\.ksh)$"
+            "types": [
+                "shell"
+            ]
         }
     ],
     "https://github.com/bemeurer/beautysh": [
@@ -1562,7 +1613,7 @@
             "description": "Black: The uncompromising Python code formatter",
             "entry": "black",
             "language": "python",
-            "language_version": "python3.6",
+            "language_version": "python3",
             "types": [
                 "python"
             ]
@@ -1680,7 +1731,7 @@
             "id": "perlcritic",
             "name": "perlcritic",
             "entry": "run-perlcritic.sh",
-            "files": "\\.(pl|pm|t)$",
+            "files": "\\.(pl|pm|t|PL)$",
             "language": "script",
             "description": "Runs `perlcritic`, requires script in PATH"
         },
@@ -1688,7 +1739,7 @@
             "id": "perltidy",
             "name": "perltidy",
             "entry": "run-perltidy.sh",
-            "files": "\\.(pl|pm|t)$",
+            "files": "\\.(pl|pm|t|PL)$",
             "language": "script",
             "description": "Runs `perltidy`, requires script in PATH"
         }

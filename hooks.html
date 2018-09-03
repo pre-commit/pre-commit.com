@@ -549,12 +549,24 @@ Also available in <a href="/all-hooks.json">json</a>.
                     - Use reek to find ruby code smells
             </li>
             <li>
+                <code>require-ascii</code>
+                    - Ensure file is ascii-encoded
+            </li>
+            <li>
                 <code>rubocop</code>
                     - Enforce Ruby style guide with rubocop and rubocop-rspec
             </li>
             <li>
                 <code>shellcheck</code>
                     - Shell scripts conform to shellcheck
+            </li>
+            <li>
+                <code>script-must-have-extension</code>
+                    - Non-executable shell script filename ends in .sh
+            </li>
+            <li>
+                <code>script-must-not-have-extension</code>
+                    - Executable shell script omits the filename extension
             </li>
             <li>
                 <code>shfmt</code>
@@ -778,6 +790,10 @@ Also available in <a href="/all-hooks.json">json</a>.
             <li>
                 <code>golangci-lint</code>
                     - Runs `golangci-lint`, requires https://github.com/golangci/golangci-lint
+            </li>
+            <li>
+                <code>go-critic</code>
+                    - Runs `go-critic`, requires https://github.com/go-critic/go-critic
             </li>
     </ul>
     <h3>

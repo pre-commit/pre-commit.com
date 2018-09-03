@@ -329,6 +329,7 @@ interactively:</p>
 <h2 id="supported-languages">    Supported languages <small><a href="#supported-languages">¶</a></small></h2> <ul>
 <li><a href="#docker">docker</a></li>
 <li><a href="#docker_image">docker_image</a></li>
+<li><a href="#fail">fail</a></li>
 <li><a href="#golang">golang</a></li>
 <li><a href="#node">node</a></li>
 <li><a href="#python">python</a></li>
@@ -378,6 +379,21 @@ entrypoint you can specify it as well in your <code>entry</code>.</p>
     <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
     <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
     <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-3:latest my-exe</span>
+</pre></div>
+<h3 id="fail">    fail <small><a href="#fail">¶</a></small></h3> <p><em>new in 1.11.0</em></p>
+<p>A lightweight <code>language</code> to forbid files by filename.  The <code>fail</code> language is
+especially useful for <a href="#repository-local-hooks">local</a> hooks.</p>
+<p>The <code>entry</code> will be printed when the hook fails.  It is suggested to provide
+a brief description for <code>name</code> and more verbose fix instructions in <code>entry</code>.</p>
+<p>Here's an example which prevents any file except those ending with <code>.rst</code> from
+being added to the <code>changelog</code> directory:</p>
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">changelogs-rst</span>
+        <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">changelogs must be rst</span>
+        <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">changelog filenames must end in .rst</span>
+        <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">fail</span>
+        <span class="l l-Scalar l-Scalar-Plain">files</span><span class="p p-Indicator">:</span> <span class="s">&#39;changelog/.*(?&lt;!\.rst)$&#39;</span>
 </pre></div>
 <h3 id="golang">    golang <small><a href="#golang">¶</a></small></h3> <p><em>new in 0.12.0</em></p>
 <p>The hook repository must contain go source code.  It will be installed via
@@ -653,9 +669,9 @@ repository (such as your app's virtualenv for pylint).</li>
 </ul>
 <p>You can configure repository-local hooks by specifying the <code>repo</code> as the
 sentinel <code>local</code>.</p>
-<p><em>new in 0.13.0</em> repository hooks can use any language which supports
-<code>additional_dependencies</code> or <code>docker_image</code> / <code>pcre</code> / <code>pygrep</code> / <code>script</code> /
-<code>system</code>.
+<p><em>new in 0.13.0</em> local hooks can use any language which supports
+<code>additional_dependencies</code> or <code>docker_image</code> / <code>fail</code> / <code>pcre</code> / <code>pygrep</code> /
+<code>script</code> / <code>system</code>.
 This enables you to install things which previously would require a trivial
 mirror repository.</p>
 <p>A <code>local</code> hook must define <code>id</code>, <code>name</code>, <code>language</code>, <code>entry</code>, and <code>files</code> /
