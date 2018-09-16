@@ -404,7 +404,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.5.0"
+                "eslint@5.6.0"
             ]
         }
     ],
@@ -1742,6 +1742,23 @@
             "files": "\\.(pl|pm|t|PL)$",
             "language": "script",
             "description": "Runs `perltidy`, requires script in PATH"
+        }
+    ],
+    "https://github.com/juancarlospaco/pre-commit-nim": [
+        {
+            "id": "nimble-check",
+            "name": "nimble check",
+            "entry": "nimble check .",
+            "pass_filenames": false,
+            "language": "system",
+            "files": "\\.nim$"
+        },
+        {
+            "id": "nim-check",
+            "name": "nim check",
+            "entry": "bash -xc 'echo \"$@\" | xargs --verbose -n1 nim check' --",
+            "language": "system",
+            "files": "\\.nim$"
         }
     ]
 }
