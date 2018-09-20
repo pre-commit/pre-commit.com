@@ -16,8 +16,7 @@
 - https://github.com/pre-commit/pygrep-hooks
 - https://github.com/FalconSocial/pre-commit-mirrors-pep257
 - https://github.com/FalconSocial/pre-commit-python-sorter
-# https://github.com/guykisel/pre-commit-robotframework-tidy/issues/1
-# - https://github.com/guykisel/pre-commit-robotframework-tidy
+- https://github.com/guykisel/pre-commit-robotframework-tidy
 - https://github.com/guykisel/prospector-mirror
 - https://github.com/asottile/add-trailing-comma
 - https://github.com/asottile/pyupgrade
