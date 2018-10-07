@@ -235,6 +235,11 @@
             "types": [
                 "text"
             ],
+            "stages": [
+                "commit",
+                "push",
+                "manual"
+            ],
             "files": "",
             "minimum_pre_commit_version": "0.15.0"
         },
@@ -404,7 +409,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.6.0"
+                "eslint@5.6.1"
             ]
         }
     ],
@@ -505,8 +510,11 @@
             "name": "scss_lint",
             "entry": "scss-lint",
             "language": "ruby",
-            "files": "\\.scss$",
-            "args": []
+            "types": [
+                "scss"
+            ],
+            "args": [],
+            "additional_dependencies": []
         }
     ],
     "https://github.com/pre-commit/mirrors-yapf": [
@@ -549,7 +557,7 @@
             "id": "python-use-type-annotations",
             "name": "type annotations not comments",
             "description": "Enforce that python3.6+ type annotations are used instead of type comments",
-            "entry": "# type.*(?<!: ignore)$",
+            "entry": "# type(?!: *ignore *($|#))",
             "language": "pygrep",
             "types": [
                 "python"
@@ -1123,48 +1131,6 @@
             "files": "requirements"
         }
     ],
-    "https://bitbucket.org/SamWhited/go-pre-commit.git": [
-        {
-            "id": "gofmt",
-            "name": "Go Format",
-            "description": "Formats Go code.",
-            "entry": "gofmthook.sh",
-            "language": "script",
-            "files": "\\.go$"
-        },
-        {
-            "id": "gofix",
-            "name": "Go Fix",
-            "description": "Updates old Go APIs to the latest version.",
-            "entry": "go fix",
-            "language": "system",
-            "files": "\\.go$"
-        },
-        {
-            "id": "govet",
-            "name": "Go Vet",
-            "description": "Vets Go code for mistakes not caught by the compiler.",
-            "entry": "go vet",
-            "language": "system",
-            "files": "\\.go$"
-        },
-        {
-            "id": "gobuild",
-            "name": "Go Build",
-            "description": "Makes sure Go code can build.",
-            "entry": "go build",
-            "language": "system",
-            "files": "\\.go$"
-        },
-        {
-            "id": "gotest",
-            "name": "Go Test",
-            "description": "Runs tests against Go code.",
-            "entry": "go test",
-            "language": "system",
-            "files": "\\.go$"
-        }
-    ],
     "https://github.com/chriskuehl/puppet-pre-commit-hooks": [
         {
             "id": "puppet-validate",
@@ -1612,8 +1578,11 @@
         {
             "id": "gitlint",
             "name": "gitlint",
+            "language": "python",
             "entry": "gitlint --msg-filename",
-            "language": "python"
+            "stages": [
+                "commit-msg"
+            ]
         }
     ],
     "https://github.com/ambv/black": [
@@ -1710,7 +1679,10 @@
             "description": "Search and replace strings",
             "entry": "bin/search-and-replace.rb",
             "language": "script",
-            "pass_filenames": true
+            "pass_filenames": true,
+            "exclude_types": [
+                "binary"
+            ]
         }
     ],
     "https://github.com/openstack-dev/bashate": [
