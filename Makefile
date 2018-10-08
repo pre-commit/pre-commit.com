@@ -7,7 +7,7 @@ install-hooks: venv
 	venv/bin/pre-commit install
 
 build/main.css: venv node_modules build scss/main.scss scss/_variables.scss
-	venv/bin/sassc -s compressed scss/main.scss build/main.css
+	venv/bin/pysassc -s compressed scss/main.scss build/main.css
 
 all-hooks.json: venv make_all_hooks.py all-repos.yaml
 	venv/bin/python make_all_hooks.py

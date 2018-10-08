@@ -7,15 +7,16 @@
 - https://github.com/pre-commit/mirrors-fixmyjs
 - https://github.com/pre-commit/mirrors-isort
 - https://github.com/pre-commit/mirrors-jshint
+- https://github.com/pre-commit/mirrors-mypy
 - https://github.com/pre-commit/mirrors-puppet-lint
 - https://github.com/pre-commit/mirrors-pylint
 - https://github.com/pre-commit/mirrors-ruby-lint
 - https://github.com/pre-commit/mirrors-scss-lint
 - https://github.com/pre-commit/mirrors-yapf
+- https://github.com/pre-commit/pygrep-hooks
 - https://github.com/FalconSocial/pre-commit-mirrors-pep257
 - https://github.com/FalconSocial/pre-commit-python-sorter
-# https://github.com/guykisel/pre-commit-robotframework-tidy/issues/1
-# - https://github.com/guykisel/pre-commit-robotframework-tidy
+- https://github.com/guykisel/pre-commit-robotframework-tidy
 - https://github.com/guykisel/prospector-mirror
 - https://github.com/asottile/add-trailing-comma
 - https://github.com/asottile/pyupgrade
@@ -27,8 +28,6 @@
 - https://github.com/digitalpulp/pre-commit-php
 - https://github.com/elidupuis/mirrors-jscs
 - https://github.com/elidupuis/mirrors-sass-lint
-# https://github.com/elidupuis/mirrors-standard/issues/2
-# - https://github.com/elidupuis/mirrors-standard
 - https://github.com/jumanjihouse/pre-commit-hooks
 - https://github.com/Lucas-C/pre-commit-hooks
 - https://github.com/Lucas-C/pre-commit-hooks-bandit
@@ -38,19 +37,12 @@
 - https://github.com/Lucas-C/pre-commit-hooks-markup
 - https://github.com/Lucas-C/pre-commit-hooks-nodejs
 - https://github.com/Lucas-C/pre-commit-hooks-safety
-- https://bitbucket.org/SamWhited/go-pre-commit.git
 - https://github.com/chriskuehl/puppet-pre-commit-hooks
 - https://github.com/dnephin/pre-commit-golang
 - https://github.com/troian/pre-commit-golang
-# https://github.com/jordant/rubocop-pre-commit-hook/issues/4
-# - https://github.com/jordant/rubocop-pre-commit-hook
 - https://github.com/jstewmon/check-swagger
 - https://github.com/detailyang/pre-commit-shell
 - https://github.com/bemeurer/beautysh
-# https://github.com/sanmai-NL/pre-commit-hooks_R/issues/1
-# - https://github.com/sanmai-NL/pre-commit-hooks_R
-# https://github.com/magicmark/pre-commit-es6-imports-reorder/issues/1
-# - https://github.com/magicmark/pre-commit-es6-imports-reorder
 - https://github.com/antonbabenko/pre-commit-terraform
 - https://github.com/willthames/ansible-lint
 - https://github.com/doublify/pre-commit-clang-format
@@ -71,3 +63,10 @@
 - https://github.com/ambv/black
 - https://github.com/IamTheFij/ansible-pre-commit
 - https://github.com/IamTheFij/docker-pre-commit
+- https://github.com/mattlqx/pre-commit-ruby
+- https://github.com/mattlqx/pre-commit-sign
+- https://github.com/mattlqx/pre-commit-search-and-replace
+- https://github.com/openstack-dev/bashate
+- https://github.com/alessandrojcm/commitlint-pre-commit-hook
+- https://github.com/henryykt/pre-commit-perl
+- https://github.com/juancarlospaco/pre-commit-nim

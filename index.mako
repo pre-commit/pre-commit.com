@@ -47,7 +47,7 @@ require root access. If one of your developers doesn’t have Node.js installed
 but modifies a JavaScript file, pre-commit automatically handles downloading
 and building Node.js to run ESLint without root.
 ''')}
-
+        </div>
         <div id="install">
             <div class="page-header"><h1>Installation</h1></div>
 ${md('''
@@ -343,10 +343,49 @@ _new in 0.12.0_ Prior to 0.12.0 the file was `hooks.yaml`
 (now `.pre-commit-hooks.yaml`).  For backwards compatibility it is suggested
 to provide both files or suggest users use `pre-commit>=0.12.0`.
 
+## Developing hooks interactively
+
+Since the `repo` property of `.pre-commit-config.yaml` can refer to anything
+that `git clone ...` understands, it's often useful to point it at a local
+directory while developing hooks.
+
+[`pre-commit try-repo`](#pre-commit-try-repo) streamlines this process by
+enabling a quick way to try out a repository.  Here's how one might work
+interactively:
+
+```console
+~/work/hook-repo $ git checkout origin/master -b feature
+
+# ... make some changes
+
+~/work/hook-repo $ # A commit is needed so `pre-commit` can clone
+~/work/hook-repo $ git commit -m "Add new hook: foo"
+
+# In another terminal or tab
+
+~/work/other-repo $ pre-commit try-repo ../hook-repo foo --verbose --all-files
+===============================================================================
+Using config:
+===============================================================================
+repos:
+-   repo: ../hook-repo
+    rev: 84f01ac09fcd8610824f9626a590b83cfae9bcbd
+    hooks:
+    -   id: foo
+===============================================================================
+[INFO] Initializing environment for ../hook-repo.
+[foo] Foo................................................................Passed
+hookid: foo
+
+Hello from foo hook!
+
+```
+
 ## Supported languages
 
 - [Docker](#docker)
 - [docker_image](#docker_image)
+- [fail](#fail)
 - [Golang](#golang)
 - [Node.js](#node)
 - [Python](#python)
@@ -387,7 +426,7 @@ _new in 0.18.0_
 A more lightweight approach to `docker` hooks.  The `docker_image`
 "language" uses existing Docker images to provide hook executables.
 
-`docker_image` hooks can be conviently configured as [local](#repository-local)
+`docker_image` hooks can be conveniently configured as [local](#repository-local-hooks)
 hooks.
 
 The `entry` specifies the Docker tag to use.  If an image has an
@@ -411,6 +450,29 @@ For example:
     name: ...
     language: docker_image
     entry: my.registry.example.com/docker-image-3:latest my-exe
+```
+
+### fail
+
+_new in 1.11.0_
+
+A lightweight `language` to forbid files by filename.  The `fail` language is
+especially useful for [local](#repository-local-hooks) hooks.
+
+The `entry` will be printed when the hook fails.  It is suggested to provide
+a brief description for `name` and more verbose fix instructions in `entry`.
+
+Here's an example which prevents any file except those ending with `.rst` from
+being added to the `changelog` directory:
+
+```yaml
+-   repo: local
+    hooks:
+    -   id: changelogs-rst
+        name: changelogs must be rst
+        entry: changelog filenames must end in .rst
+        language: fail
+        files: 'changelog/.*(?<!\.rst)$'
 ```
 
 ### Golang [](#golang)
@@ -556,44 +618,6 @@ This hook type will not be given a virtual environment to work with – if it
 needs additional dependencies the consumer must install them manually.
 
 __Support:__ the support of system hooks depend on the executables.
-
-## Developing hooks interactively
-
-Since the `repo` property of `.pre-commit-config.yaml` can refer to anything
-that `git clone ...` understands, it's often useful to point it at a local
-directory while developing hooks.
-
-[`pre-commit try-repo`](#pre-commit-try-repo) streamlines this process by
-enabling a quick way to try out a repository.  Here's how one might work
-interactively:
-
-```console
-~/work/hook-repo $ git checkout origin/master -b feature
-
-# ... make some changes
-
-~/work/hook-repo $ # A commit is needed so `pre-commit` can clone
-~/work/hook-repo $ git commit -m "Add new hook: foo"
-
-# In another terminal or tab
-
-~/work/other-repo $ pre-commit try-repo ../hook-repo foo --verbose --all-files
-===============================================================================
-Using config:
-===============================================================================
-repos:
--   repo: ../hook-repo
-    rev: 84f01ac09fcd8610824f9626a590b83cfae9bcbd
-    hooks:
-    -   id: foo
-===============================================================================
-[INFO] Initializing environment for ../hook-repo.
-[foo] Foo................................................................Passed
-hookid: foo
-
-Hello from foo hook!
-
-```
 ''')}
         </div>
 
@@ -859,9 +883,9 @@ Repository-local hooks are useful when:
 You can configure repository-local hooks by specifying the `repo` as the
 sentinel `local`.
 
-_new in 0.13.0_ repository hooks can use any language which supports
-`additional_dependencies` or `docker_image` / `pcre` / `pygrep` / `script` /
-`system`.
+_new in 0.13.0_ local hooks can use any language which supports
+`additional_dependencies` or `docker_image` / `fail` / `pcre` / `pygrep` /
+`script` / `system`.
 This enables you to install things which previously would require a trivial
 mirror repository.
 
@@ -958,7 +982,8 @@ If you'd like to use `types` with compatibility for older versions
 ## Regular expressions
 
 The patterns for `files` and `exclude` are Python
-[regular expressions](https://docs.python.org/3/library/re.html#regular-expression-syntax).
+[regular expressions](https://docs.python.org/3/library/re.html#regular-expression-syntax)
+and are matched with [`re.search`](https://docs.python.org/3/library/re.html#re.search).
 
 As such, you can use any of the features that Python regexes support.
 
