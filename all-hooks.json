@@ -1742,5 +1742,14 @@
             "language": "system",
             "files": "\\.nim$"
         }
+    ],
+    "https://github.com/awslabs/cfn-python-lint": [
+        {
+            "id": "cfn-python-lint",
+            "name": "AWSLabs CloudFormation Linter",
+            "entry": "cfn-lint",
+            "language": "python",
+            "files": "\\.(json|yaml|yml)$"
+        }
     ]
 }
