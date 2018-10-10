@@ -1751,5 +1751,33 @@
             "language": "python",
             "files": "\\.(json|yaml|yml)$"
         }
+    ],
+    "https://github.com/thoughtworks/talisman": [
+        {
+            "id": "talisman-commit",
+            "name": "talisman",
+            "entry": "talisman -githook pre-commit",
+            "stages": [
+                "commit"
+            ],
+            "pass_filenames": false,
+            "types": [
+                "text"
+            ],
+            "language": "golang"
+        },
+        {
+            "id": "talisman-push",
+            "name": "talisman",
+            "entry": "talisman -githook pre-push",
+            "stages": [
+                "push"
+            ],
+            "pass_filenames": false,
+            "types": [
+                "text"
+            ],
+            "language": "golang"
+        }
     ]
 }
