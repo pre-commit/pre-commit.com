@@ -11,18 +11,14 @@
             ],
             "args": [
                 "-i"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-added-large-files",
             "name": "Check for added large files",
             "description": "Prevent giant files from being committed",
             "entry": "check-added-large-files",
-            "language": "python",
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            "language": "python"
         },
         {
             "id": "check-ast",
@@ -32,9 +28,7 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-byte-order-marker",
@@ -44,9 +38,7 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-builtin-literals",
@@ -56,18 +48,14 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-case-conflict",
             "name": "Check for case conflicts",
             "description": "Check for files that would conflict in case-insensitive filesystems",
             "entry": "check-case-conflict",
-            "language": "python",
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            "language": "python"
         },
         {
             "id": "check-docstring-first",
@@ -77,9 +65,7 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-executables-have-shebangs",
@@ -90,9 +76,7 @@
             "types": [
                 "text",
                 "executable"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-json",
@@ -102,9 +86,7 @@
             "language": "python",
             "types": [
                 "json"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "pretty-format-json",
@@ -114,9 +96,7 @@
             "language": "python",
             "types": [
                 "json"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-merge-conflict",
@@ -126,9 +106,7 @@
             "language": "python",
             "types": [
                 "text"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-symlinks",
@@ -138,9 +116,7 @@
             "language": "python",
             "types": [
                 "symlink"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-vcs-permalinks",
@@ -150,9 +126,7 @@
             "language": "python",
             "types": [
                 "text"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-xml",
@@ -162,9 +136,7 @@
             "language": "python",
             "types": [
                 "xml"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "check-yaml",
@@ -174,9 +146,7 @@
             "language": "python",
             "types": [
                 "yaml"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "debug-statements",
@@ -186,9 +156,7 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "detect-aws-credentials",
@@ -198,9 +166,7 @@
             "language": "python",
             "types": [
                 "text"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "detect-private-key",
@@ -210,9 +176,7 @@
             "language": "python",
             "types": [
                 "text"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "double-quote-string-fixer",
@@ -222,9 +186,7 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "end-of-file-fixer",
@@ -239,9 +201,7 @@
                 "commit",
                 "push",
                 "manual"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "file-contents-sorter",
@@ -259,9 +219,7 @@
             "description": "Add # -*- coding: utf-8 -*- to the top of python files",
             "types": [
                 "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "flake8",
@@ -271,18 +229,14 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "forbid-new-submodules",
             "name": "Forbid new submodules",
             "language": "python",
             "entry": "forbid-new-submodules",
-            "description": "Prevent addition of new git submodules",
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            "description": "Prevent addition of new git submodules"
         },
         {
             "id": "mixed-line-ending",
@@ -292,9 +246,7 @@
             "language": "python",
             "types": [
                 "text"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "name-tests-test",
@@ -310,9 +262,7 @@
             "entry": "no-commit-to-branch",
             "language": "python",
             "pass_filenames": false,
-            "always_run": true,
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            "always_run": true
         },
         {
             "id": "pyflakes",
@@ -322,9 +272,7 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         },
         {
             "id": "requirements-txt-fixer",
@@ -350,9 +298,7 @@
             "language": "python",
             "types": [
                 "text"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
+            ]
         }
     ],
     "https://github.com/pre-commit/mirrors-autopep8": [
@@ -409,7 +355,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.6.1"
+                "eslint@5.8.0"
             ]
         }
     ],
@@ -1537,7 +1483,7 @@
             "name": "prettier",
             "entry": "prettier --write",
             "language": "node",
-            "files": "\\.(css|less|scss|html|ts|tsx|graphql|gql|json|js|jsx|md)$"
+            "files": "\\.(css|less|scss|ts|tsx|graphql|gql|json|js|jsx|md)$"
         }
     ],
     "https://github.com/adrienverge/yamllint": [
@@ -1778,6 +1724,18 @@
                 "text"
             ],
             "language": "golang"
+        }
+    ],
+    "https://github.com/PyCQA/bandit": [
+        {
+            "id": "bandit",
+            "name": "bandit",
+            "description": "Bandit is a tool for finding common security issues in Python code",
+            "entry": "bandit",
+            "language": "python",
+            "types": [
+                "python"
+            ]
         }
     ]
 }
