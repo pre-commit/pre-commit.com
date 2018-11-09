@@ -1184,6 +1184,14 @@
             "files": "\\.go$",
             "language": "script",
             "description": "Runs `go-critic`, requires https://github.com/go-critic/go-critic"
+        },
+        {
+            "id": "go-unit-tests",
+            "name": "go-unit-tests",
+            "entry": "run-go-unit-tests.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go test`"
         }
     ],
     "https://github.com/troian/pre-commit-golang": [
@@ -1483,7 +1491,7 @@
             "name": "prettier",
             "entry": "prettier --write",
             "language": "node",
-            "files": "\\.(css|less|scss|ts|tsx|graphql|gql|json|js|jsx|md)$"
+            "files": "\\.(css|less|scss|graphql|gql|html|js|jsx|json|md|markdown|mdown|mkdn|mdx|ts|tsx|vue|yaml|yml)$"
         }
     ],
     "https://github.com/adrienverge/yamllint": [
@@ -1733,6 +1741,19 @@
             "description": "Bandit is a tool for finding common security issues in Python code",
             "entry": "bandit",
             "language": "python",
+            "types": [
+                "python"
+            ]
+        }
+    ],
+    "https://github.com/miki725/importanize": [
+        {
+            "id": "importanize",
+            "name": "importanize",
+            "description": "Organize python imports",
+            "entry": "importanize",
+            "language": "python",
+            "language_version": "python3",
             "types": [
                 "python"
             ]
