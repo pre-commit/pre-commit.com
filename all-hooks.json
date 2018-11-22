@@ -355,7 +355,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.8.0"
+                "eslint@5.9.0"
             ]
         }
     ],
@@ -1192,6 +1192,14 @@
             "files": "\\.go$",
             "language": "script",
             "description": "Runs `go test`"
+        },
+        {
+            "id": "go-build",
+            "name": "go-build",
+            "entry": "run-go-build.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go build`, requires golang"
         }
     ],
     "https://github.com/troian/pre-commit-golang": [
@@ -1732,6 +1740,18 @@
                 "text"
             ],
             "language": "golang"
+        }
+    ],
+    "https://gitlab.com/PyCQA/flake8": [
+        {
+            "id": "flake8",
+            "name": "flake8",
+            "description": "`flake8` is a command-line utility for enforcing style consistency across Python projects.",
+            "entry": "flake8",
+            "language": "python",
+            "types": [
+                "python"
+            ]
         }
     ],
     "https://github.com/PyCQA/bandit": [
