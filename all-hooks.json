@@ -3,7 +3,7 @@
         {
             "id": "autopep8-wrapper",
             "name": "autopep8 wrapper",
-            "description": "Runs autopep8 over python source.  If you configure additional arguments you'll want to at least include -i.",
+            "description": "This is deprecated, use pre-commit/mirrors-autopep8 instead.",
             "entry": "autopep8-wrapper",
             "language": "python",
             "types": [
@@ -1658,6 +1658,18 @@
                 "shell"
             ],
             "verbose": true
+        }
+    ],
+    "https://github.com/pryorda/dockerfilelint-precommit-hooks": [
+        {
+            "id": "dockerfilelint",
+            "name": "Dockerfile linter",
+            "entry": "dockerfilelint",
+            "language": "node",
+            "additional_dependencies": [
+                "dockerfilelint"
+            ],
+            "files": "Dockerfile.*"
         }
     ],
     "https://github.com/alessandrojcm/commitlint-pre-commit-hook": [

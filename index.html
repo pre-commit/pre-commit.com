@@ -145,7 +145,7 @@ running hooks after the first failure.  <em>new in 1.1.0</em>.</p>
 </td></tr><tr><td><p><code>repos</code></p>
 </td><td><p>A list of <a href="#pre-commit-configyaml---repos">repository mappings</a>.</p>
 </td></tr></tbody></table><p>A sample top-level with all defaults present:</p>
-<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">exclude</span><span class="p p-Indicator">:</span> <span class="s">&#39;^$&#39;</span>
+<div class="highlight yaml"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">exclude</span><span class="p p-Indicator">:</span> <span class="s">&#39;^$&#39;</span>
 <span class="l l-Scalar l-Scalar-Plain">fail_fast</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
 <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">...</span>
@@ -159,7 +159,7 @@ from.</p>
 </td></tr><tr><td><p><code>hooks</code></p>
 </td><td><p>A list of <a href="#pre-commit-configyaml---hooks">hook mappings</a>.</p>
 </td></tr></tbody></table><p>A sample repository with all defaults present:</p>
-<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
+<div class="highlight yaml"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
 <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
     <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
@@ -205,7 +205,7 @@ the hook passes.  <em>new in 1.6.0</em>.</p>
 </td><td><p>(optional) if present, the hook output will additionally be written
 to a file.  <em>new in 0.14.0</em></p>
 </td></tr></tbody></table><p>One example of a complete configuration:</p>
-<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
+<div class="highlight yaml"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
 <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
     <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
@@ -285,7 +285,7 @@ purposes only.</p>
 </td><td><p>(optional: default <code>0.0.0</code>) allows one to indicate a minimum
 compatible pre-commit version. <em>new in 0.6.7</em>.</p>
 </td></tr></tbody></table><p>For example:</p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
     <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Trim Trailing Whitespace</span>
     <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">This hook trims trailing whitespace.</span>
     <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace-fixer</span>
@@ -301,7 +301,7 @@ directory while developing hooks.</p>
 <p><a href="#pre-commit-try-repo"><code>pre-commit try-repo</code></a> streamlines this process by
 enabling a quick way to try out a repository.  Here's how one might work
 interactively:</p>
-<div class="highlight"><pre><span></span><span class="go">~/work/hook-repo $ git checkout origin/master -b feature</span>
+<div class="highlight console"><pre><span></span><span class="go">~/work/hook-repo $ git checkout origin/master -b feature</span>
 
 <span class="gp">#</span> ... make some changes
 
@@ -366,7 +366,7 @@ hooks.</p>
 If the container does not specify an <code>ENTRYPOINT</code> or you want to change the
 entrypoint you can specify it as well in your <code>entry</code>.</p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-provides-entrypoint</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-provides-entrypoint</span>
     <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
     <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
     <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-1:latest</span>
@@ -387,7 +387,7 @@ especially useful for <a href="#repository-local-hooks">local</a> hooks.</p>
 a brief description for <code>name</code> and more verbose fix instructions in <code>entry</code>.</p>
 <p>Here's an example which prevents any file except those ending with <code>.rst</code> from
 being added to the <code>changelog</code> directory:</p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">changelogs-rst</span>
         <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">changelogs must be rst</span>
@@ -600,7 +600,7 @@ or more hooks. pre-commit solves this by querying a <code>SKIP</code> environmen
 variable. The <code>SKIP</code> environment variable is a comma separated list of hook
 ids. This allows you to skip a single hook instead of <code>--no-verify</code>ing the
 entire commit.</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nv">SKIP</span><span class="o">=</span>flake8 git commit -m <span class="s2">&quot;foo&quot;</span>
+<div class="highlight console"><pre><span></span><span class="gp">$</span> <span class="nv">SKIP</span><span class="o">=</span>flake8 git commit -m <span class="s2">&quot;foo&quot;</span>
 </pre></div>
 <h2 id="pre-commit-during-commits">    pre-commit during commits <small><a href="#pre-commit-during-commits">¶</a></small></h2> <p>Running hooks on unstaged changes can lead to both false-positives and
 false-negatives during committing.  pre-commit only runs on the staged
@@ -637,7 +637,7 @@ be executed by running <code>pre-commit run --hook-stage manual &lt;hookid&gt;</
 <h2 id="passing-arguments-to-hooks">    Passing arguments to hooks <small><a href="#passing-arguments-to-hooks">¶</a></small></h2> <p>Sometimes hooks require arguments to run correctly. You can pass static
 arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code>
 as follows:</p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
     <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">flake8</span>
@@ -647,7 +647,7 @@ as follows:</p>
 <h3 id="arguments-pattern-in-hooks">    Arguments pattern in hooks <small><a href="#arguments-pattern-in-hooks">¶</a></small></h3> <p>If you are writing your own custom hook, your hook should expect to receive
 the <code>args</code> value and then a list of staged files.</p>
 <p>For example, assuming a <code>.pre-commit-config.yaml</code>:</p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/path/to/your/hook/repo</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/path/to/your/hook/repo</span>
     <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">badf00ddeadbeef</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-hook-script-id</span>
@@ -677,7 +677,7 @@ mirror repository.</p>
 <p>A <code>local</code> hook must define <code>id</code>, <code>name</code>, <code>language</code>, <code>entry</code>, and <code>files</code> /
 <code>types</code> as specified under <a href="#new-hooks">Creating new hooks</a>.</p>
 <p>Here's an example configuration with a few <code>local</code> hooks:</p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pylint</span>
         <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pylint</span>
@@ -721,7 +721,7 @@ chosen as it is a small portable pure python library.</p>
 <li><a href="https://github.com/chriskuehl/identify/blob/master/identify/interpreters.py">tags by shebang (<code>#!</code>)</a></li>
 </ul>
 <p>To discover the type of any file on disk, you can use <code>identify</code>'s cli:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> identify-cli setup.py
+<div class="highlight console"><pre><span></span><span class="gp">$</span> identify-cli setup.py
 <span class="go">[&quot;file&quot;, &quot;non-executable&quot;, &quot;python&quot;, &quot;text&quot;]</span>
 <span class="gp">$</span> identify-cli some-random-file
 <span class="go">[&quot;file&quot;, &quot;non-executable&quot;, &quot;text&quot;]</span>
@@ -733,7 +733,7 @@ chosen as it is a small portable pure python library.</p>
 <p><code>types</code> and <code>files</code> are evaluated with <code>AND</code> when filtering.  Tags within
 <code>types</code> are also evaluated using <code>AND</code>.</p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span>    <span class="l l-Scalar l-Scalar-Plain">files</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">^foo/</span>
+<div class="highlight yaml"><pre><span></span>    <span class="l l-Scalar l-Scalar-Plain">files</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">^foo/</span>
     <span class="l l-Scalar l-Scalar-Plain">types</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">,</span> <span class="nv">python</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>will match a file <code>foo/1.py</code> but will not match <code>setup.py</code>.</p>
@@ -752,7 +752,7 @@ list of excluded / included things, you may find a
 <a href="https://docs.python.org/3/library/re.html#re.VERBOSE">verbose</a> regular
 expression useful.  One can enable this with yaml's  multiline literals and
 the <code>(?x)</code> regex flag.</p>
-<div class="highlight"><pre><span></span><span class="c1"># ...</span>
+<div class="highlight yaml"><pre><span></span><span class="c1"># ...</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-hook</span>
         <span class="l l-Scalar l-Scalar-Plain">exclude</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">&gt;</span>
             <span class="no">(?x)^(</span>
@@ -767,7 +767,7 @@ language (So for example if I’m running <code>python2.7</code> and a hook spec
 <code>python</code>, pre-commit will run the hook using <code>python2.7</code>). Sometimes you
 don’t want the default system installed version so you can override this on a
 per-hook basis by setting the <code>language_version</code>.</p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-scss-lint</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-scss-lint</span>
     <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.54.0</span>
     <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
@@ -817,16 +817,16 @@ Errors:
 Check the log at /home/asottile/.cache/pre-commit/pre-commit.log
 </pre></div>
 <p>Add the following to your tox testenv:</p>
-<div class="highlight"><pre><span></span><span class="k">[testenv]</span>
+<div class="highlight ini"><pre><span></span><span class="k">[testenv]</span>
 <span class="na">passenv</span> <span class="o">=</span> <span class="s">SSH_AUTH_SOCK</span>
 </pre></div>
 <p>pre-commit uses <code>os.path.expanduser</code> to create the cache directory, on windows
 this requires the <code>HOMEPATH</code> environment variable:</p>
-<div class="highlight"><pre><span></span><span class="k">[testenv]</span>
+<div class="highlight ini"><pre><span></span><span class="k">[testenv]</span>
 <span class="na">passenv</span> <span class="o">=</span> <span class="s">HOMEPATH</span>
 </pre></div>
 <p>Or with both:</p>
-<div class="highlight"><pre><span></span><span class="k">[testenv]</span>
+<div class="highlight ini"><pre><span></span><span class="k">[testenv]</span>
 <span class="na">passenv</span> <span class="o">=</span> <span class="s">HOMEPATH SSH_AUTH_SOCK</span>
 </pre></div>
 <h2 id="using-the-latest-version-for-a-repository">    Using the latest version for a repository <small><a href="#using-the-latest-version-for-a-repository">¶</a></small></h2> <p><code>pre-commit</code> configuration aims to give a repeatable and fast experience and
