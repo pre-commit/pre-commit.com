@@ -145,9 +145,9 @@ running hooks after the first failure.  <em>new in 1.1.0</em>.</p>
 </td></tr><tr><td><p><code>repos</code></p>
 </td><td><p>A list of <a href="#pre-commit-configyaml---repos">repository mappings</a>.</p>
 </td></tr></tbody></table><p>A sample top-level with all defaults present:</p>
-<div class="highlight yaml"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">exclude</span><span class="p p-Indicator">:</span> <span class="s">&#39;^$&#39;</span>
-<span class="l l-Scalar l-Scalar-Plain">fail_fast</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
+<div class="highlight yaml"><pre><span></span><span class="nt">exclude</span><span class="p">:</span> <span class="s">&#39;^$&#39;</span>
+<span class="nt">fail_fast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">repos</span><span class="p">:</span>
 <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 <h2 id="pre-commit-configyaml---repos">    .pre-commit-config.yaml - repos <small><a href="#pre-commit-configyaml---repos">¶</a></small></h2> <p>The repository mapping tells pre-commit where to get the code for the hook
@@ -159,10 +159,10 @@ from.</p>
 </td></tr><tr><td><p><code>hooks</code></p>
 </td><td><p>A list of <a href="#pre-commit-configyaml---hooks">hook mappings</a>.</p>
 </td></tr></tbody></table><p>A sample repository with all defaults present:</p>
-<div class="highlight yaml"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
-    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
-    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
+<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+    <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
+    <span class="nt">hooks</span><span class="p">:</span>
     <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 <h2 id="pre-commit-configyaml---hooks">    .pre-commit-config.yaml - hooks <small><a href="#pre-commit-configyaml---hooks">¶</a></small></h2> <p>The hook mapping configures which hook from the repository is used and allows
@@ -205,11 +205,11 @@ the hook passes.  <em>new in 1.6.0</em>.</p>
 </td><td><p>(optional) if present, the hook output will additionally be written
 to a file.  <em>new in 0.14.0</em></p>
 </td></tr></tbody></table><p>One example of a complete configuration:</p>
-<div class="highlight yaml"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">repos</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
-    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
-    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+    <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
 </pre></div>
 <p>This configuration says to download the pre-commit-hooks project and run its
 trailing-whitespace hook.</p>
@@ -285,12 +285,12 @@ purposes only.</p>
 </td><td><p>(optional: default <code>0.0.0</code>) allows one to indicate a minimum
 compatible pre-commit version. <em>new in 0.6.7</em>.</p>
 </td></tr></tbody></table><p>For example:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Trim Trailing Whitespace</span>
-    <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">This hook trims trailing whitespace.</span>
-    <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace-fixer</span>
-    <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="l l-Scalar l-Scalar-Plain">types</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">text</span><span class="p p-Indicator">]</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Trim Trailing Whitespace</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This hook trims trailing whitespace.</span>
+    <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace-fixer</span>
+    <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">text</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p><em>new in 0.12.0</em> Prior to 0.12.0 the file was <code>hooks.yaml</code>
 (now <code>.pre-commit-hooks.yaml</code>).  For backwards compatibility it is suggested
@@ -366,19 +366,19 @@ hooks.</p>
 If the container does not specify an <code>ENTRYPOINT</code> or you want to change the
 entrypoint you can specify it as well in your <code>entry</code>.</p>
 <p>For example:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-provides-entrypoint</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-    <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
-    <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-1:latest</span>
-<span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-1</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-    <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
-    <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">--entrypoint my-exe my.registry.example.com/docker-image-2:latest</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-provides-entrypoint</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
+    <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-1:latest</span>
+<span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-1</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
+    <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">--entrypoint my-exe my.registry.example.com/docker-image-2:latest</span>
 <span class="c1"># Alternative equivalent solution</span>
-<span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-2</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-    <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
-    <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-3:latest my-exe</span>
+<span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-2</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker_image</span>
+    <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-3:latest my-exe</span>
 </pre></div>
 <h3 id="fail">    fail <small><a href="#fail">¶</a></small></h3> <p><em>new in 1.11.0</em></p>
 <p>A lightweight <code>language</code> to forbid files by filename.  The <code>fail</code> language is
@@ -387,13 +387,13 @@ especially useful for <a href="#repository-local-hooks">local</a> hooks.</p>
 a brief description for <code>name</code> and more verbose fix instructions in <code>entry</code>.</p>
 <p>Here's an example which prevents any file except those ending with <code>.rst</code> from
 being added to the <code>changelog</code> directory:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
-    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">changelogs-rst</span>
-        <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">changelogs must be rst</span>
-        <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">changelog filenames must end in .rst</span>
-        <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">fail</span>
-        <span class="l l-Scalar l-Scalar-Plain">files</span><span class="p p-Indicator">:</span> <span class="s">&#39;changelog/.*(?&lt;!\.rst)$&#39;</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">changelogs-rst</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">changelogs must be rst</span>
+        <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">changelog filenames must end in .rst</span>
+        <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fail</span>
+        <span class="nt">files</span><span class="p">:</span> <span class="s">&#39;changelog/.*(?&lt;!\.rst)$&#39;</span>
 </pre></div>
 <h3 id="golang">    golang <small><a href="#golang">¶</a></small></h3> <p><em>new in 0.12.0</em></p>
 <p>The hook repository must contain go source code.  It will be installed via
@@ -637,21 +637,21 @@ be executed by running <code>pre-commit run --hook-stage manual &lt;hookid&gt;</
 <h2 id="passing-arguments-to-hooks">    Passing arguments to hooks <small><a href="#passing-arguments-to-hooks">¶</a></small></h2> <p>Sometimes hooks require arguments to run correctly. You can pass static
 arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code>
 as follows:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
-    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
-    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">flake8</span>
-        <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">--max-line-length=131</span><span class="p p-Indicator">]</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+    <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">flake8</span>
+        <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">--max-line-length=131</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>This will pass <code>--max-line-length=131</code> to <code>flake8</code>.</p>
 <h3 id="arguments-pattern-in-hooks">    Arguments pattern in hooks <small><a href="#arguments-pattern-in-hooks">¶</a></small></h3> <p>If you are writing your own custom hook, your hook should expect to receive
 the <code>args</code> value and then a list of staged files.</p>
 <p>For example, assuming a <code>.pre-commit-config.yaml</code>:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/path/to/your/hook/repo</span>
-    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">badf00ddeadbeef</span>
-    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-hook-script-id</span>
-        <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">--myarg1=1</span><span class="p p-Indicator">,</span> <span class="nv">--myarg1=2</span><span class="p p-Indicator">]</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/path/to/your/hook/repo</span>
+    <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">badf00ddeadbeef</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-hook-script-id</span>
+        <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">--myarg1=1</span><span class="p p-Indicator">,</span> <span class="nv">--myarg1=2</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>When you next run <code>pre-commit</code>, your script will be called:</p>
 <div class="highlight"><pre><span></span>path/to/script-or-system-exe --myarg1=1 --myarg1=2 dir/file1 dir/file2 file3
@@ -677,25 +677,25 @@ mirror repository.</p>
 <p>A <code>local</code> hook must define <code>id</code>, <code>name</code>, <code>language</code>, <code>entry</code>, and <code>files</code> /
 <code>types</code> as specified under <a href="#new-hooks">Creating new hooks</a>.</p>
 <p>Here's an example configuration with a few <code>local</code> hooks:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
-    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pylint</span>
-        <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pylint</span>
-        <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python -m pylint.__main__</span>
-        <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">system</span>
-        <span class="l l-Scalar l-Scalar-Plain">types</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">python</span><span class="p p-Indicator">]</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">check-x</span>
-        <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Check X</span>
-        <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">./bin/check-x.sh</span>
-        <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">script</span>
-        <span class="l l-Scalar l-Scalar-Plain">files</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">\.x$</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
-        <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
-        <span class="l l-Scalar l-Scalar-Plain">entry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
-        <span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ruby</span>
-        <span class="l l-Scalar l-Scalar-Plain">language_version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
-        <span class="l l-Scalar l-Scalar-Plain">types</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">scss</span><span class="p p-Indicator">]</span>
-        <span class="l l-Scalar l-Scalar-Plain">additional_dependencies</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;scss_lint:0.52.0&#39;</span><span class="p p-Indicator">]</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pylint</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pylint</span>
+        <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python -m pylint.__main__</span>
+        <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">system</span>
+        <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">python</span><span class="p p-Indicator">]</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check-x</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Check X</span>
+        <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./bin/check-x.sh</span>
+        <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">script</span>
+        <span class="nt">files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\.x$</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
+        <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
+        <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ruby</span>
+        <span class="nt">language_version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
+        <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">scss</span><span class="p p-Indicator">]</span>
+        <span class="nt">additional_dependencies</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;scss_lint:0.52.0&#39;</span><span class="p p-Indicator">]</span>
 </pre></div>
 <h2 id="filtering-files-with-types">    Filtering files with types <small><a href="#filtering-files-with-types">¶</a></small></h2> <p><em>new in 0.15.0</em></p>
 <p>Filtering with <code>types</code> provides several advantages over traditional filtering
@@ -733,8 +733,8 @@ chosen as it is a small portable pure python library.</p>
 <p><code>types</code> and <code>files</code> are evaluated with <code>AND</code> when filtering.  Tags within
 <code>types</code> are also evaluated using <code>AND</code>.</p>
 <p>For example:</p>
-<div class="highlight yaml"><pre><span></span>    <span class="l l-Scalar l-Scalar-Plain">files</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">^foo/</span>
-    <span class="l l-Scalar l-Scalar-Plain">types</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">,</span> <span class="nv">python</span><span class="p p-Indicator">]</span>
+<div class="highlight yaml"><pre><span></span>    <span class="nt">files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^foo/</span>
+    <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">,</span> <span class="nv">python</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>will match a file <code>foo/1.py</code> but will not match <code>setup.py</code>.</p>
 <p>Files can also be matched by shebang.  With <code>types: python</code>, an <code>exe</code> starting
@@ -753,8 +753,8 @@ list of excluded / included things, you may find a
 expression useful.  One can enable this with yaml's  multiline literals and
 the <code>(?x)</code> regex flag.</p>
 <div class="highlight yaml"><pre><span></span><span class="c1"># ...</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-hook</span>
-        <span class="l l-Scalar l-Scalar-Plain">exclude</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">&gt;</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-hook</span>
+        <span class="nt">exclude</span><span class="p">:</span> <span class="p p-Indicator">&gt;</span>
             <span class="no">(?x)^(</span>
                 <span class="no">path/to/file1.py|</span>
                 <span class="no">path/to/file2.py|</span>
@@ -767,11 +767,11 @@ language (So for example if I’m running <code>python2.7</code> and a hook spec
 <code>python</code>, pre-commit will run the hook using <code>python2.7</code>). Sometimes you
 don’t want the default system installed version so you can override this on a
 per-hook basis by setting the <code>language_version</code>.</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">repo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-scss-lint</span>
-    <span class="l l-Scalar l-Scalar-Plain">rev</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.54.0</span>
-    <span class="l l-Scalar l-Scalar-Plain">hooks</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
-        <span class="l l-Scalar l-Scalar-Plain">language_version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-scss-lint</span>
+    <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.54.0</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
+        <span class="nt">language_version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
 </pre></div>
 <p>This tells pre-commit to use ruby <code>2.1.5</code> to run the <code>scss-lint</code> hook.</p>
 <p>Valid values for specific languages are listed below:</p>

@@ -355,7 +355,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.9.0"
+                "eslint@5.10.0"
             ]
         }
     ],
@@ -394,7 +394,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "jshint@2.9.6"
+                "jshint@2.9.7"
             ]
         }
     ],
@@ -1309,9 +1309,30 @@
             "name": "Terraform docs",
             "description": "Inserts input and output documentation into README.md (using terraform-docs).",
             "entry": "terraform_docs.sh",
+            "args": [
+                "--args=--with-aggregate-type-defaults"
+            ],
             "language": "script",
             "files": "(\\.tf)$",
             "exclude": "\\.terraform\\/.*$"
+        },
+        {
+            "id": "terraform_docs_without_aggregate_type_defaults",
+            "name": "Terraform docs (without aggregate type defaults)",
+            "description": "Inserts input and output documentation into README.md (using terraform-docs).",
+            "entry": "terraform_docs.sh",
+            "language": "script",
+            "files": "(\\.tf)$",
+            "exclude": "\\.terraform\\/.*$"
+        },
+        {
+            "id": "terraform_docs_replace",
+            "name": "Terraform docs (overwrite README.md)",
+            "language": "python",
+            "entry": "terraform_docs_replace",
+            "files": "(\\.tf)$",
+            "exclude": "\\.terraform\\/.*$",
+            "description": "Overwrite content of README.md with terraform-docs"
         },
         {
             "id": "terraform_validate_no_variables",
@@ -1332,7 +1353,7 @@
             "exclude": "\\.terraform\\/.*$"
         }
     ],
-    "https://github.com/willthames/ansible-lint": [
+    "https://github.com/ansible/ansible-lint": [
         {
             "id": "ansible-lint",
             "name": "Ansible-lint",
