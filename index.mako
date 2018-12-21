@@ -73,7 +73,7 @@ curl https://pre-commit.com/install-local.py | python -
 System-level install:
 
 ```
-curl https://bootstrap.pypa.io/get-pip.py | sudo python - pre-commit
+curl https://bootstrap.pypa.io/get-pip.py | python - pre-commit
 ```
 
 In a python project, add the following to your requirements.txt (or
