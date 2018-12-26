@@ -446,8 +446,11 @@
             "name": "ruby-lint",
             "entry": "ruby-lint",
             "language": "ruby",
-            "files": "\\.rb$",
-            "args": []
+            "types": [
+                "ruby"
+            ],
+            "args": [],
+            "additional_dependencies": []
         }
     ],
     "https://github.com/pre-commit/mirrors-scss-lint": [
@@ -1809,6 +1812,19 @@
             "language_version": "python3",
             "types": [
                 "python"
+            ]
+        }
+    ],
+    "https://github.com/motet-a/jinjalint": [
+        {
+            "id": "jinjalint",
+            "name": "jinjalint",
+            "description": "A linter which checks the indentation and the correctness of Jinja-like/HTML templates.",
+            "language": "python",
+            "language_version": "python3",
+            "entry": "jinjalint",
+            "types": [
+                "jinja"
             ]
         }
     ]
