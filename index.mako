@@ -165,6 +165,11 @@ repository's configuration.
     =c= `id`
     =c= which hook from the repository to use.
 =r=
+    =c= `alias`
+    =c= (optional) allows the hook to be referenced using an additional id when
+        using `pre-commit run <hookid>`
+        _new in 1.14.0_
+=r=
     =c= `name`
     =c= (optional) override the name of the hook - shown during hook execution.
 =r=
