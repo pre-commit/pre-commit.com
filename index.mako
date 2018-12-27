@@ -165,6 +165,14 @@ repository's configuration.
     =c= `id`
     =c= which hook from the repository to use.
 =r=
+    =c= `alias`
+    =c= (optional) Provide an alias to the hook. The `alias` allows
+        differentiation for when one wants to include the same hook more
+        than once, with, for example, different parameters. This allows
+        `pre-commit run <alias>` to target a specific entry of the hook to
+        run.
+        _new in 1.14.0_
+=r=
     =c= `name`
     =c= (optional) override the name of the hook - shown during hook execution.
 =r=
