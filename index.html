@@ -232,6 +232,24 @@ running <code>pre-commit install</code> should always be the first thing you do.
 install, and run the hook. Note that running a hook for the first time may be
 slow. For example: If the machine does not have node installed, pre-commit
 will download and build a copy of node.</p>
+<div class="highlight pre-commit"><pre><span></span>$ pre-commit install
+pre-commit installed at /home/asottile/workspace/pytest/.git/hooks/pre-commit
+$ git commit -m &quot;Add super awesome feature&quot;
+black....................................................................<span class=" -Color -Color-BGGreen">Passed</span>
+blacken-docs.........................................(no files to check)<span class=" -Color -Color-BlackBGCyan">Skipped</span>
+Trim Trailing Whitespace.................................................<span class=" -Color -Color-BGGreen">Passed</span>
+Fix End of Files.........................................................<span class=" -Color -Color-BGGreen">Passed</span>
+Check Yaml...........................................(no files to check)<span class=" -Color -Color-BlackBGCyan">Skipped</span>
+Debug Statements (Python)................................................<span class=" -Color -Color-BGGreen">Passed</span>
+Flake8...................................................................<span class=" -Color -Color-BGGreen">Passed</span>
+Reorder python imports...................................................<span class=" -Color -Color-BGGreen">Passed</span>
+pyupgrade................................................................<span class=" -Color -Color-BGGreen">Passed</span>
+rst ``code`` is two backticks........................(no files to check)<span class=" -Color -Color-BlackBGCyan">Skipped</span>
+rst..................................................(no files to check)<span class=" -Color -Color-BlackBGCyan">Skipped</span>
+changelog filenames..................................(no files to check)<span class=" -Color -Color-BlackBGCyan">Skipped</span>
+[master 146c6c2c] Add super awesome feature
+ 1 file changed, 1 insertion(+)
+</pre></div>
 
         </div>
 
@@ -302,30 +320,30 @@ directory while developing hooks.</p>
 <p><a href="#pre-commit-try-repo"><code>pre-commit try-repo</code></a> streamlines this process by
 enabling a quick way to try out a repository.  Here's how one might work
 interactively:</p>
-<div class="highlight console"><pre><span></span><span class="go">~/work/hook-repo $ git checkout origin/master -b feature</span>
+<div class="highlight pre-commit"><pre><span></span>~/work/hook-repo $ git checkout origin/master -b feature
 
-<span class="gp">#</span> ... make some changes
+# ... make some changes
 
-<span class="go">~/work/hook-repo $ # A commit is needed so `pre-commit` can clone</span>
-<span class="go">~/work/hook-repo $ git commit -m &quot;Add new hook: foo&quot;</span>
+~/work/hook-repo $ # A commit is needed so `pre-commit` can clone
+~/work/hook-repo $ git commit -m &quot;Add new hook: foo&quot;
 
-<span class="gp">#</span> In another terminal or tab
+# In another terminal or tab
 
-<span class="go">~/work/other-repo $ pre-commit try-repo ../hook-repo foo --verbose --all-files</span>
-<span class="go">===============================================================================</span>
-<span class="go">Using config:</span>
-<span class="go">===============================================================================</span>
-<span class="go">repos:</span>
-<span class="go">-   repo: ../hook-repo</span>
-<span class="go">    rev: 84f01ac09fcd8610824f9626a590b83cfae9bcbd</span>
-<span class="go">    hooks:</span>
-<span class="go">    -   id: foo</span>
-<span class="go">===============================================================================</span>
-<span class="go">[INFO] Initializing environment for ../hook-repo.</span>
-<span class="go">[foo] Foo................................................................Passed</span>
-<span class="go">hookid: foo</span>
+~/work/other-repo $ pre-commit try-repo ../hook-repo foo --verbose --all-files
+===============================================================================
+Using config:
+===============================================================================
+repos:
+-   repo: ../hook-repo
+    rev: 84f01ac09fcd8610824f9626a590b83cfae9bcbd
+    hooks:
+    -   id: foo
+===============================================================================
+[INFO] Initializing environment for ../hook-repo.
+[foo] Foo................................................................<span class=" -Color -Color-BGGreen">Passed</span>
+hookid: foo
 
-<span class="go">Hello from foo hook!</span>
+Hello from foo hook!
 </pre></div>
 <h2 id="supported-languages">    Supported languages <small><a href="#supported-languages">¶</a></small></h2> <ul>
 <li><a href="#docker">docker</a></li>
@@ -801,7 +819,7 @@ pre-commit requires a few environment variables and so they must be
 whitelisted.</p>
 <p>When cloning repos over ssh (<code>repo: git@github.com:...</code>), <code>git</code> requires the
 <code>SSH_AUTH_SOCK</code> variable and will otherwise fail:</p>
-<div class="highlight"><pre><span></span>[INFO] Initializing environment for git@github.com:pre-commit/pre-commit-hooks.
+<div class="highlight pre-commit"><pre><span></span>[INFO] Initializing environment for git@github.com:pre-commit/pre-commit-hooks.
 An unexpected error has occurred: CalledProcessError: Command: (&#39;/usr/bin/git&#39;, &#39;clone&#39;, &#39;--no-checkout&#39;, &#39;git@github.com:pre-commit/pre-commit-hooks&#39;, &#39;/home/asottile/.cache/pre-commit/repofdkwkq_v&#39;)
 Return code: 128
 Expected return code: 0
