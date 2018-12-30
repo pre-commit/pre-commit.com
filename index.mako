@@ -253,6 +253,26 @@ The first time pre-commit runs on a file it will automatically download,
 install, and run the hook. Note that running a hook for the first time may be
 slow. For example: If the machine does not have node installed, pre-commit
 will download and build a copy of node.
+
+```pre-commit
+$ pre-commit install
+pre-commit installed at /home/asottile/workspace/pytest/.git/hooks/pre-commit
+$ git commit -m "Add super awesome feature"
+black....................................................................Passed
+blacken-docs.........................................(no files to check)Skipped
+Trim Trailing Whitespace.................................................Passed
+Fix End of Files.........................................................Passed
+Check Yaml...........................................(no files to check)Skipped
+Debug Statements (Python)................................................Passed
+Flake8...................................................................Passed
+Reorder python imports...................................................Passed
+pyupgrade................................................................Passed
+rst ``code`` is two backticks........................(no files to check)Skipped
+rst..................................................(no files to check)Skipped
+changelog filenames..................................(no files to check)Skipped
+[master 146c6c2c] Add super awesome feature
+ 1 file changed, 1 insertion(+)
+```
 ''')}
         </div>
 
@@ -352,7 +372,7 @@ directory while developing hooks.
 enabling a quick way to try out a repository.  Here's how one might work
 interactively:
 
-```console
+```pre-commit
 ~/work/hook-repo $ git checkout origin/master -b feature
 
 # ... make some changes
@@ -1052,7 +1072,7 @@ whitelisted.
 When cloning repos over ssh (`repo: git@github.com:...`), `git` requires the
 `SSH_AUTH_SOCK` variable and will otherwise fail:
 
-```
+```pre-commit
 [INFO] Initializing environment for git@github.com:pre-commit/pre-commit-hooks.
 An unexpected error has occurred: CalledProcessError: Command: ('/usr/bin/git', 'clone', '--no-checkout', 'git@github.com:pre-commit/pre-commit-hooks', '/home/asottile/.cache/pre-commit/repofdkwkq_v')
 Return code: 128

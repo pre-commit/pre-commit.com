@@ -4,3 +4,4 @@ libsass
 markdown-code-blocks
 markdown-to-presentation>=0.0.12
 pre-commit>=0.13.6
+pygments-pre-commit
