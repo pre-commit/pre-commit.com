@@ -355,7 +355,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.11.1"
+                "eslint@5.12.0"
             ]
         }
     ],
@@ -1796,6 +1796,18 @@
             "name": "bandit",
             "description": "Bandit is a tool for finding common security issues in Python code",
             "entry": "bandit",
+            "language": "python",
+            "types": [
+                "python"
+            ]
+        }
+    ],
+    "https://github.com/PyCQA/pydocstyle": [
+        {
+            "id": "pydocstyle",
+            "name": "pydocstyle",
+            "description": "pydocstyle is a static analysis tool for checking compliance with Python docstring conventions.",
+            "entry": "pydocstyle",
             "language": "python",
             "types": [
                 "python"
