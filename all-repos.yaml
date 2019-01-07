@@ -30,7 +30,6 @@
 - https://github.com/elidupuis/mirrors-sass-lint
 - https://github.com/jumanjihouse/pre-commit-hooks
 - https://github.com/Lucas-C/pre-commit-hooks
-- https://github.com/Lucas-C/pre-commit-hooks-bandit
 - https://github.com/Lucas-C/pre-commit-hooks-go
 - https://github.com/Lucas-C/pre-commit-hooks-java
 - https://github.com/Lucas-C/pre-commit-hooks-lxml
@@ -50,7 +49,6 @@
 - https://github.com/doublify/pre-commit-hindent
 - https://github.com/doublify/pre-commit-isort
 - https://github.com/doublify/pre-commit-rust
-- https://github.com/chewse/pre-commit-mirrors-pydocstyle
 - https://github.com/kintoandar/pre-commit
 - https://github.com/awebdeveloper/pre-commit-stylelint
 - https://github.com/awebdeveloper/pre-commit-tslint
