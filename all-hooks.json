@@ -925,21 +925,6 @@
             "files": ".*/.*"
         }
     ],
-    "https://github.com/Lucas-C/pre-commit-hooks-bandit": [
-        {
-            "id": "python-bandit-vulnerability-check",
-            "name": "bandit",
-            "description": "Python code vulnerabilities checker",
-            "language": "python",
-            "entry": "bandit_analyzer",
-            "args": [
-                "-lll",
-                "--recursive",
-                "."
-            ],
-            "files": ""
-        }
-    ],
     "https://github.com/Lucas-C/pre-commit-hooks-go": [
         {
             "id": "checkmake",
@@ -1435,15 +1420,6 @@
             "language": "system",
             "files": "\\.rs$",
             "args": []
-        }
-    ],
-    "https://github.com/chewse/pre-commit-mirrors-pydocstyle": [
-        {
-            "id": "pydocstyle",
-            "name": "Verifying PEP257 Compliance",
-            "entry": "pydocstyle",
-            "language": "python",
-            "files": "\\.py$"
         }
     ],
     "https://github.com/kintoandar/pre-commit": [
