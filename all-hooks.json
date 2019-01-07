@@ -1828,5 +1828,17 @@
             ],
             "description": "Utility to prepend your commits with info from your branch."
         }
+    ],
+    "https://github.com/sqlalchemyorg/zimports": [
+        {
+            "id": "zimports",
+            "name": "zimports",
+            "description": "Python import rewriter",
+            "entry": "zimports",
+            "language": "python",
+            "types": [
+                "python"
+            ]
+        }
     ]
 }
