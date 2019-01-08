@@ -98,7 +98,7 @@ pre-commit config file describes what repositories and hooks are installed.
 
 ## .pre-commit-config.yaml - top level
 
-_new in 1.0.0_ The default configuration file top-level was changed from a
+_new in 1.0.0_: The default configuration file top-level was changed from a
 list to a map.  If you're using an old version of pre-commit, the top-level
 list is the same as the value of [`repos`](#pre-commit-configyaml---repos).
 If you'd like to migrate to the new configuration format, run
@@ -107,18 +107,47 @@ migrate your configuration.
 
 ```table
 =r=
+    =c= `repos`
+    =c= A list of [repository mappings](#pre-commit-configyaml---repos).
+=r=
+    =c= `default_language_version`
+    =c= (optional: default `{}`) a mapping from language to the default
+        `language_version` that should be used for that language.  This will
+        only override individual hooks that do not set `language_version`.
+
+        For example:
+
+        ```yaml
+        # by default use `python3.7` for `language: python` hooks
+        default_language_version:
+            python: python3.7
+        ```
+
+        _new in 1.14.0_
+=r=
+    =c= `default_stages`
+    =c= (optional: default (all stages)) a configuration-wide default for
+        the `stages` property of hooks.  This will only override individual
+        hooks that do not set `stages`.
+
+        For example:
+
+        ```yaml
+        # default all the hooks to only run on `commit` / `push`
+        default_stages: [commit, push]
+        ```
+
+        _new in 1.14.0_
+=r=
     =c= `exclude`
     =c= (optional: default `^$`) global file exclude pattern.  _new in 1.1.0_.
 =r=
     =c= `fail_fast`
     =c= (optional: default `false`) set to `true` to have pre-commit stop
         running hooks after the first failure.  _new in 1.1.0_.
-=r=
-    =c= `repos`
-    =c= A list of [repository mappings](#pre-commit-configyaml---repos).
 ```
 
-A sample top-level with all defaults present:
+A sample top-level:
 
 ```yaml
 exclude: '^$'
@@ -138,7 +167,7 @@ from.
     =c= the repository url to `git clone` from
 =r=
     =c= `rev`
-    =c= the revision or tag to clone at.  _new in 1.7.0_ previously `sha`
+    =c= the revision or tag to clone at.  _new in 1.7.0_: previously `sha`
 =r=
     =c= `hooks`
     =c= A list of [hook mappings](#pre-commit-configyaml---hooks).
@@ -167,8 +196,8 @@ repository's configuration.
 =r=
     =c= `alias`
     =c= (optional) allows the hook to be referenced using an additional id when
-        using `pre-commit run <hookid>`
-        _new in 1.14.0_
+        using `pre-commit run <hookid>`.
+        _new in 1.14.0_.
 =r=
     =c= `name`
     =c= (optional) override the name of the hook - shown during hook execution.
@@ -214,7 +243,7 @@ repository's configuration.
 =r=
     =c= `log_file`
     =c= (optional) if present, the hook output will additionally be written
-        to a file.  _new in 0.14.0_
+        to a file.  _new in 0.14.0_.
 ```
 
 One example of a complete configuration:
@@ -358,7 +387,7 @@ For example:
     types: [text]
 ```
 
-_new in 0.12.0_ Prior to 0.12.0 the file was `hooks.yaml`
+_new in 0.12.0_: Prior to 0.12.0 the file was `hooks.yaml`
 (now `.pre-commit-hooks.yaml`).  For backwards compatibility it is suggested
 to provide both files or suggest users use `pre-commit>=0.12.0`.
 
@@ -372,13 +401,15 @@ directory while developing hooks.
 enabling a quick way to try out a repository.  Here's how one might work
 interactively:
 
+_new in 1.14.0_: a commit is no longer necessary to `try-repo` on a local
+directory. `pre-commit` will clone any uncommitted changes.
+
 ```pre-commit
 ~/work/hook-repo $ git checkout origin/master -b feature
 
 # ... make some changes
 
-~/work/hook-repo $ # A commit is needed so `pre-commit` can clone
-~/work/hook-repo $ git commit -m "Add new hook: foo"
+# new in 1.14.0: a commit is no longer necessary for `try-repo`
 
 # In another terminal or tab
 
@@ -515,7 +546,7 @@ match the `entry` – usually through `bin` in package.json.
 __Support:__ node hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
 
-_new in 1.5.0_ windows is now supported for node hooks.  Currently python3
+_new in 1.5.0_: windows is now supported for node hooks.  Currently python3
 only due to [a bug in cpython](https://bugs.python.org/issue32539).
 
 ### python
@@ -612,7 +643,7 @@ the regex as the `entry`.  The `entry` may be any python
 [regular expression](#regular-expressions).  For case insensitive regexes you
 can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
 
-_new in 1.8.0_ For multiline matches, use `args: [--multiline]`.
+_new in 1.8.0_: For multiline matches, use `args: [--multiline]`.
 
 __Support:__ pygrep hooks are supported on all platforms which pre-commit runs
 on.
@@ -659,8 +690,20 @@ Options:
 
 - `--bleeding-edge`: update to the bleeding edge of `master` instead of the
   latest tagged version (the default behaviour).
-- `--repo REPO`: _new in 1.4.1_ Only update this repository. _new in 1.7.0_
+- `--repo REPO`: _new in 1.4.1_: Only update this repository. _new in 1.7.0_:
   This option may be specified multiple times.
+
+## pre-commit gc [options] [](#pre-commit-gc)
+
+_new in 1.14.0_
+
+Clean unused cached repos.
+
+`pre-commit` keeps a cache of installed hook repositories which grows over
+time.  This command can be run periodically to clean out unused repos from
+the cache directory.
+
+Options: (no additional options)
 
 ## pre-commit clean [options] [](#pre-commit-clean)
 
@@ -697,7 +740,9 @@ Options: (no additional options)
 
 ## pre-commit migrate-config [options] [](#pre-commit-migrate-config)
 
-_new in 1.0.0_ Migrate list configuration to the new map configuration format.
+_new in 1.0.0_
+
+Migrate list configuration to the new map configuration format.
 
 Options: (no additional options)
 
@@ -712,7 +757,7 @@ Options:
 - `--files [FILES [FILES ...]]`: specific filenames to run hooks on.
 - `--source SOURCE` + `--origin ORIGIN`: run against the files changed between
   `SOURCE...ORIGIN` in git.
-- `--show-diff-on-failure`: _new in 0.13.4_ when hooks fail, run `git diff`
+- `--show-diff-on-failure`: _new in 0.13.4_: when hooks fail, run `git diff`
   directly afterward.
 - `-v`, `--verbose`: produce hook output independent of success.  Include hook
   ids in output.
@@ -737,7 +782,9 @@ Options: (no additional options)
 
 ## pre-commit try-repo REPO [options] [](#pre-commit-try-repo)
 
-_new in 1.3.0_ Try the hooks in a repository, useful for developing new hooks.
+_new in 1.3.0_
+
+Try the hooks in a repository, useful for developing new hooks.
 `try-repo` can also be used for testing out a repository before adding it to
 your configuration.  `try-repo` prints a configuration it generates based on
 the remote hook repository before running the hooks.
@@ -819,12 +866,12 @@ implicit conflicts (such as with removed python imports).
 
 ## pre-commit during push
 
-_new in 0.3.5_ pre-commit can be used to manage `pre-push` hooks.  Simply
+_new in 0.3.5_: pre-commit can be used to manage `pre-push` hooks.  Simply
 `pre-commit install --hook-type pre-push`.
 
 ## pre-commit for commit messages
 
-_new in 0.15.4_ pre-commit can be used to manage `commit-msg` hooks.  Simply
+_new in 0.15.4_: pre-commit can be used to manage `commit-msg` hooks.  Simply
 `pre-commit install --hook-type commit-msg`.
 
 `commit-msg` hooks can be configured by setting `stages: [commit-msg]`.
@@ -840,7 +887,7 @@ setting the `stages` property in your `.pre-commit-config.yaml`.  The
 `stages` property is an array and can contain any of `commit`, `push`, and
 `commit-msg`.
 
-_new in 1.8.0_ An additional `manual` stage is available for one off execution
+_new in 1.8.0_: An additional `manual` stage is available for one off execution
 that won't run in any hook context.  This special stage is useful for taking
 advantage of `pre-commit`'s cross-platform / cross-language package management
 without running it on every commit.  Hooks confied to `stages: [manual]` can
@@ -902,7 +949,7 @@ Repository-local hooks are useful when:
 You can configure repository-local hooks by specifying the `repo` as the
 sentinel `local`.
 
-_new in 0.13.0_ local hooks can use any language which supports
+_new in 0.13.0_: local hooks can use any language which supports
 `additional_dependencies` or `docker_image` / `fail` / `pcre` / `pygrep` /
 `script` / `system`.
 This enables you to install things which previously would require a trivial
@@ -935,10 +982,43 @@ Here's an example configuration with a few `local` hooks:
         additional_dependencies: ['scss_lint:0.52.0']
 ```
 
+## meta hooks
+
+_new in 1.4.0_
+
+`pre-commit` provides several hooks which are useful for checking the
+pre-commit configuration itself.  These can be enabled using `repo: meta`.
+
+```yaml
+-   repo: meta
+    hooks:
+    -   id: ...
+```
+
+The currently available `meta` hooks:
+
+```table
+=r=
+    =c= `check-hooks-apply`
+    =c= ensures that the configured hooks apply to at least one file in the
+        repository.
+        _new in 1.4.0_.
+=r=
+    =c= `check-useless-excludes`
+    =c= ensures that `exclude` directives apply to _any_ file in the
+        repository.
+        _new in 1.4.0_.
+=r=
+    =c= `identity`
+    =c= a simple hook which prints all arguments passed to it, uesful for
+        debugging.
+        _new in 1.14.0_.
+```
+
+
 ## Filtering files with types
 
 _new in 0.15.0_
-
 
 Filtering with `types` provides several advantages over traditional filtering
 with `files`.
@@ -1052,6 +1132,18 @@ Valid values for specific languages are listed below:
       windows.
 - node: See [nodeenv](https://github.com/ekalinin/nodeenv#advanced).
 - ruby: See [ruby-build](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).
+
+_new in 1.14.0_: you can now set `default_language_version` at the
+[top level](#pre-commit-configyaml---top-level) in your configuration to
+control the default versions across all hooks of a language.
+
+```yaml
+default_language_version:
+    # force all unspecified python hooks to run python3
+    python: python3
+    # force all unspecified ruby hooks to run ruby 2.1.5
+    ruby: 2.1.5
+```
 
 ## Usage in continuous integration
 
