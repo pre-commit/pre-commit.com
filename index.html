@@ -140,9 +140,8 @@ migrate your configuration.</p>
 </td><td><p>(optional: default <code>{}</code>) a mapping from language to the default
 <code>language_version</code> that should be used for that language.  This will
 only override individual hooks that do not set <code>language_version</code>.</p>
-<p>For example:</p>
-<div class="highlight yaml"><pre><span></span><span class="c1"># by default use `python3.7` for `language: python` hooks</span>
-<span class="nt">default_language_version</span><span class="p">:</span>
+<p>For example to use <code>python3.7</code> for <code>language: python</code> hooks:</p>
+<div class="highlight yaml"><pre><span></span><span class="nt">default_language_version</span><span class="p">:</span>
     <span class="nt">python</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3.7</span>
 </pre></div>
 <p><em>new in 1.14.0</em></p>
@@ -151,8 +150,7 @@ only override individual hooks that do not set <code>language_version</code>.</p
 the <code>stages</code> property of hooks.  This will only override individual
 hooks that do not set <code>stages</code>.</p>
 <p>For example:</p>
-<div class="highlight yaml"><pre><span></span><span class="c1"># default all the hooks to only run on `commit` / `push`</span>
-<span class="nt">default_stages</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">commit</span><span class="p p-Indicator">,</span> <span class="nv">push</span><span class="p p-Indicator">]</span>
+<div class="highlight yaml"><pre><span></span><span class="nt">default_stages</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">commit</span><span class="p p-Indicator">,</span> <span class="nv">push</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p><em>new in 1.14.0</em></p>
 </td></tr><tr><td><p><code>exclude</code></p>
