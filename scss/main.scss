@@ -197,3 +197,17 @@ h1,
     .-Color-BlackBGYellow { background-color: #c4a000; color: #2e3436; }
     .-Color-BlackBGCyan { background-color: #06989a; color: #2e3436; }
 }
+
+@media (max-width: $screen-md-max) {
+    .table-bordered td:first-child {
+        background: #f5f5f5;
+    }
+
+    .table-bordered td {
+        display: block;
+    }
+
+    .table-bordered tr {
+        border: 0;
+    }
+}

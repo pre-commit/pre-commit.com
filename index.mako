@@ -115,10 +115,9 @@ migrate your configuration.
         `language_version` that should be used for that language.  This will
         only override individual hooks that do not set `language_version`.
 
-        For example:
+        For example to use `python3.7` for `language: python` hooks:
 
         ```yaml
-        # by default use `python3.7` for `language: python` hooks
         default_language_version:
             python: python3.7
         ```
@@ -133,7 +132,6 @@ migrate your configuration.
         For example:
 
         ```yaml
-        # default all the hooks to only run on `commit` / `push`
         default_stages: [commit, push]
         ```
 
