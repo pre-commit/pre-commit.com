@@ -4,6 +4,6 @@ libsass
 markdown-code-blocks
 markdown-to-presentation>=0.0.12
 # remove once merged and release
-git+https://github.com/asottile/mistune@nested_code_blocks
+git+https://github.com/lepture/mistune@449c2b5
 pre-commit>=0.13.6
 pygments-pre-commit
