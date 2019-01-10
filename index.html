@@ -101,21 +101,24 @@ and building node to run eslint without root.</p>
 <p>Before you can run hooks, you need to have the pre-commit package manager
 installed.</p>
 <p>Using pip:</p>
-<div class="highlight"><pre><span></span>pip install pre-commit
+<div class="highlight bash"><pre><span></span>pip install pre-commit
 </pre></div>
 <p>Non-administrative installation:</p>
 <ul>
 <li><em>to upgrade: run again, to uninstall: pass <code>uninstall</code> to python</em></li>
 <li><em>does not work on platforms without symlink support (windows)</em></li>
 </ul>
-<div class="highlight"><pre><span></span>curl https://pre-commit.com/install-local.py | python -
+<div class="highlight bash"><pre><span></span>curl https://pre-commit.com/install-local.py <span class="p">|</span> python -
 </pre></div>
 <p>In a python project, add the following to your requirements.txt (or
 requirements-dev.txt):</p>
 <div class="highlight"><pre><span></span>pre-commit
 </pre></div>
 <p>Using <a href="https://brew.sh">homebrew</a>:</p>
-<div class="highlight"><pre><span></span>brew install pre-commit
+<div class="highlight bash"><pre><span></span>brew install pre-commit
+</pre></div>
+<p>Using <a href="https://conda.io">conda</a> (via <a href="https://conda-forge.org">conda-forge</a>):</p>
+<div class="highlight bash"><pre><span></span>conda install -c conda-forge pre_commit
 </pre></div>
 
         </div>
