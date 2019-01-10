@@ -56,7 +56,7 @@ installed.
 
 Using pip:
 
-```
+```bash
 pip install pre-commit
 ```
 
@@ -66,7 +66,7 @@ Non-administrative installation:
 - _does not work on platforms without symlink support (windows)_
 
 
-```
+```bash
 curl https://pre-commit.com/install-local.py | python -
 ```
 
@@ -79,9 +79,17 @@ pre-commit
 
 Using [homebrew](https://brew.sh):
 
-```
+```bash
 brew install pre-commit
 ```
+
+Using [conda](https://conda.io) (via [conda-forge](https://conda-forge.org)):
+
+```bash
+conda config --add channels conda-forge
+conda install pre_commit
+```
+
 ''')}
         </div>
 
