@@ -86,8 +86,7 @@ brew install pre-commit
 Using [conda](https://conda.io) (via [conda-forge](https://conda-forge.org)):
 
 ```bash
-conda config --add channels conda-forge
-conda install pre_commit
+conda install -c conda-forge pre_commit
 ```
 
 ''')}
