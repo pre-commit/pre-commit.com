@@ -368,6 +368,10 @@ file that tells pre-commit:
     =c= (optional: default `true`) if `true` this hook must take filenames as
         positional arguments. _new in 0.14.0_.
 =r=
+    =c= `require_serial`
+    =c= (optional: default `false`) if `true` this hook will execute using a
+        a single process instead of in parallel. _new in 1.13.0_.
+=r=
     =c= `description`
     =c= (optional: default `''`) description of the hook.  used for metadata
         purposes only.
