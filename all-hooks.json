@@ -1874,5 +1874,21 @@
                 "python"
             ]
         }
+    ],
+    "https://github.com/peterdemin/pip-compile-multi": [
+        {
+            "id": "pip-compile-multi-verify",
+            "name": "pip-compile-multi verify",
+            "language": "python",
+            "entry": "pip-compile-multi verify",
+            "files": "^requirements/",
+            "pass_filenames": false,
+            "require_serial": true,
+            "types": [
+                "file",
+                "non-executable",
+                "text"
+            ]
+        }
     ]
 }
