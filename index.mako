@@ -385,7 +385,8 @@ file that tells pre-commit:
         compatible pre-commit version. _new in 0.6.7_.
 =r=
     =c= `args`
-    =c= (optional) See [Passing arguments to hooks](#passing-arguments-to-hooks).
+    =c= (optional: default `[]`) list of additional parameters to pass to the hook.
+
 ```
 
 For example:
