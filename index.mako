@@ -383,6 +383,9 @@ file that tells pre-commit:
     =c= `minimum_pre_commit_version`
     =c= (optional: default `0.0.0`) allows one to indicate a minimum
         compatible pre-commit version. _new in 0.6.7_.
+=r=
+    =c= `args`
+    =c= (optional) See [Passing arguments to hooks](#passing-arguments-to-hooks).
 ```
 
 For example:
