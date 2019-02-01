@@ -1023,7 +1023,7 @@ The currently available `meta` hooks:
         _new in 1.4.0_.
 =r=
     =c= `identity`
-    =c= a simple hook which prints all arguments passed to it, uesful for
+    =c= a simple hook which prints all arguments passed to it, useful for
         debugging.
         _new in 1.14.0_.
 ```
