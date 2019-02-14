@@ -76,6 +76,11 @@
             "types": [
                 "text",
                 "executable"
+            ],
+            "stages": [
+                "commit",
+                "push",
+                "manual"
             ]
         },
         {
@@ -299,6 +304,11 @@
             "language": "python",
             "types": [
                 "text"
+            ],
+            "stages": [
+                "commit",
+                "push",
+                "manual"
             ]
         }
     ],
@@ -356,7 +366,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "eslint@5.12.1"
+                "eslint@5.13.0"
             ]
         }
     ],
@@ -395,7 +405,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "jshint@2.9.7"
+                "jshint@2.10.1"
             ]
         }
     ],
@@ -1764,7 +1774,7 @@
         {
             "id": "talisman-commit",
             "name": "talisman",
-            "entry": "talisman -githook pre-commit",
+            "entry": "talisman --githook pre-commit",
             "stages": [
                 "commit"
             ],
@@ -1777,7 +1787,7 @@
         {
             "id": "talisman-push",
             "name": "talisman",
-            "entry": "talisman -githook pre-push",
+            "entry": "talisman --githook pre-push",
             "stages": [
                 "push"
             ],
