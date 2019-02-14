@@ -370,7 +370,7 @@ file that tells pre-commit:
 =r=
     =c= `require_serial`
     =c= (optional: default `false`) if `true` this hook will execute using a
-        a single process instead of in parallel. _new in 1.13.0_.
+        single process instead of in parallel. _new in 1.13.0_.
 =r=
     =c= `description`
     =c= (optional: default `''`) description of the hook.  used for metadata
