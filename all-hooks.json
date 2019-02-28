@@ -390,8 +390,11 @@
             "name": "isort",
             "entry": "isort",
             "language": "python",
-            "files": "\\.py$",
-            "args": []
+            "types": [
+                "python"
+            ],
+            "args": [],
+            "additional_dependencies": []
         }
     ],
     "https://github.com/pre-commit/mirrors-jshint": [
@@ -656,6 +659,30 @@
             "language": "python",
             "language_version": "python3",
             "files": "\\.(rst|md|markdown)"
+        }
+    ],
+    "https://github.com/asottile/dead": [
+        {
+            "id": "dead",
+            "name": "detect dead code",
+            "description": "dead simple python dead code detection",
+            "entry": "dead",
+            "language": "python",
+            "language_version": "python3",
+            "types": [
+                "python"
+            ]
+        }
+    ],
+    "https://github.com/asottile/setup-cfg-fmt": [
+        {
+            "id": "setup-cfg-fmt",
+            "name": "setup-cfg-fmt",
+            "description": "apply a consistent format to `setup.cfg` files",
+            "entry": "setup-cfg-fmt",
+            "language": "python",
+            "language_version": "python3",
+            "files": "(^|/)setup\\.cfg$"
         }
     ],
     "https://github.com/asottile/cheetah_lint": [
