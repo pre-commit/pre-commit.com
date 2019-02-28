@@ -1930,5 +1930,137 @@
                 "text"
             ]
         }
+    ],
+    "https://github.com/homebysix/pre-commit-macadmin": [
+        {
+            "id": "check-autopkg-recipe-list",
+            "name": "Check AutoPkg Recipe List",
+            "description": "This hook checks AutoPkg recipe lists (in txt, plist, yaml, or json format) for common issues.",
+            "entry": "check-autopkg-recipe-list",
+            "language": "python",
+            "files": "^recipe.?list\\.(plist|yaml|yml|json|txt)$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-autopkg-recipes",
+            "name": "Check AutoPkg Recipes",
+            "description": "This hook checks AutoPkg recipes to ensure they contain required top-level keys. (https://github.com/autopkg/autopkg/wiki/Recipe-Format)",
+            "entry": "check-autopkg-recipes",
+            "language": "python",
+            "files": "\\.recipe$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-jamf-extension-attributes",
+            "name": "Check Jamf EAs",
+            "description": "This hook checks Jamf extension attributes for common issues.",
+            "entry": "check-jamf-extension-attributes",
+            "language": "python",
+            "files": "(jamf|jss)/extension.?attributes/.*\\.(sh|bash|py|rb|js|pl)$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-jamf-scripts",
+            "name": "Check Jamf Scripts",
+            "description": "This hook checks Jamf scripts for common issues.",
+            "entry": "check-jamf-scripts",
+            "language": "python",
+            "files": "(jamf|jss)/scripts/.*\\.(sh|bash|py|rb|js|pl)$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-jamf-profiles",
+            "name": "Check Jamf Profiles",
+            "description": "This hook checks Jamf profiles for common issues.",
+            "entry": "check-jamf-profiles",
+            "language": "python",
+            "files": "(jamf|jss)/profiles/.*\\.(mobileconfig|plist)$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "forbid-autopkg-overrides",
+            "name": "Forbid AutoPkg Overrides",
+            "description": "This hook prevents AutoPkg overrides from being added to the repo.",
+            "entry": "forbid-autopkg-overrides",
+            "language": "python",
+            "files": "\\.recipe$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-munki-pkgsinfo",
+            "name": "Check Munki Pkginfo Files",
+            "description": "This hook checks Munki pkginfo files to ensure they are valid.",
+            "entry": "check-munki-pkgsinfo",
+            "language": "python",
+            "files": "^pkgsinfo/",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-munkiadmin-scripts",
+            "name": "Check MunkiAdmin Scripts",
+            "description": "This hook ensures MunkiAdmin scripts are executable.",
+            "entry": "check-munkiadmin-scripts",
+            "language": "python",
+            "files": "^MunkiAdmin/scripts/",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-munkipkg-buildinfo",
+            "name": "Check MunkiPkg Build-Info Files",
+            "description": "This hook checks MunkiPkg build-info files to ensure they are valid.",
+            "entry": "check-munkipkg-buildinfo",
+            "language": "python",
+            "files": "build-info\\.(plist|yml|yaml|json)$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-outset-scripts",
+            "name": "Check Outset Scripts",
+            "description": "This hook checks Outset scripts to ensure they're executable.",
+            "entry": "check-outset-scripts",
+            "language": "python",
+            "files": "usr/local/outset/(boot-once|boot-every|login-once|login-every|login-privileged-once|login-privileged-every|on-demand)/",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-plists",
+            "name": "Check Plists",
+            "description": "This hook checks XML property list (plist) files for basic syntax errors.",
+            "entry": "check-plists",
+            "language": "python",
+            "files": "\\.(plist|recipe|mobileconfig|pkginfo)$|^pkgsinfo/|^manifests/|^catalogs/",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "munki-makecatalogs",
+            "name": "Run Munki Makecatalogs",
+            "description": "This hook runs the \"makecatalogs\" command to ensure all referenced packages are present and catalogs are up to date.",
+            "entry": "munki-makecatalogs",
+            "language": "python",
+            "pass_filenames": false,
+            "always_run": true
+        }
     ]
 }
