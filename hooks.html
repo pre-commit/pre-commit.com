@@ -1236,7 +1236,7 @@ https://pypi.python.org/pypi/beautysh
     <ul>
             <li>
                 <code>cfn-python-lint</code>
-                    - AWSLabs CloudFormation Linter
+                    - AWS CloudFormation Linter
             </li>
     </ul>
     <h3>
@@ -1354,7 +1354,7 @@ https://pypi.python.org/pypi/beautysh
             </li>
             <li>
                 <code>check-autopkg-recipes</code>
-                    - This hook checks AutoPkg recipes to ensure they contain required top-level keys. (https://github.com/autopkg/autopkg/wiki/Recipe-Format)
+                    - This hook checks AutoPkg recipes to ensure they contain required top-level keys.
             </li>
             <li>
                 <code>check-jamf-extension-attributes</code>
@@ -1367,10 +1367,6 @@ https://pypi.python.org/pypi/beautysh
             <li>
                 <code>check-jamf-profiles</code>
                     - This hook checks Jamf profiles for common issues.
-            </li>
-            <li>
-                <code>forbid-autopkg-overrides</code>
-                    - This hook prevents AutoPkg overrides from being added to the repo.
             </li>
             <li>
                 <code>check-munki-pkgsinfo</code>
@@ -1391,6 +1387,14 @@ https://pypi.python.org/pypi/beautysh
             <li>
                 <code>check-plists</code>
                     - This hook checks XML property list (plist) files for basic syntax errors.
+            </li>
+            <li>
+                <code>forbid-autopkg-overrides</code>
+                    - This hook prevents AutoPkg overrides from being added to the repo.
+            </li>
+            <li>
+                <code>forbid-autopkg-trust-info</code>
+                    - This hook prevents AutoPkg recipes with trust info from being added to the repo.
             </li>
             <li>
                 <code>munki-makecatalogs</code>

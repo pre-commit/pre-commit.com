@@ -365,8 +365,9 @@
                 "javascript"
             ],
             "args": [],
+            "require_serial": false,
             "additional_dependencies": [
-                "eslint@5.14.1"
+                "eslint@5.15.2"
             ]
         }
     ],
@@ -408,7 +409,7 @@
             ],
             "args": [],
             "additional_dependencies": [
-                "jshint@2.10.1"
+                "jshint@2.10.2"
             ]
         }
     ],
@@ -425,6 +426,7 @@
                 "--ignore-missing-imports",
                 "--scripts-are-modules"
             ],
+            "require_serial": true,
             "additional_dependencies": []
         }
     ],
@@ -1794,7 +1796,7 @@
     "https://github.com/awslabs/cfn-python-lint": [
         {
             "id": "cfn-python-lint",
-            "name": "AWSLabs CloudFormation Linter",
+            "name": "AWS CloudFormation Linter",
             "entry": "cfn-lint",
             "language": "python",
             "files": "\\.(json|yaml|yml)$"
@@ -1946,7 +1948,7 @@
         {
             "id": "check-autopkg-recipes",
             "name": "Check AutoPkg Recipes",
-            "description": "This hook checks AutoPkg recipes to ensure they contain required top-level keys. (https://github.com/autopkg/autopkg/wiki/Recipe-Format)",
+            "description": "This hook checks AutoPkg recipes to ensure they contain required top-level keys.",
             "entry": "check-autopkg-recipes",
             "language": "python",
             "files": "\\.recipe$",
@@ -1983,17 +1985,6 @@
             "entry": "check-jamf-profiles",
             "language": "python",
             "files": "(jamf|jss)/profiles/.*\\.(mobileconfig|plist)$",
-            "types": [
-                "text"
-            ]
-        },
-        {
-            "id": "forbid-autopkg-overrides",
-            "name": "Forbid AutoPkg Overrides",
-            "description": "This hook prevents AutoPkg overrides from being added to the repo.",
-            "entry": "forbid-autopkg-overrides",
-            "language": "python",
-            "files": "\\.recipe$",
             "types": [
                 "text"
             ]
@@ -2048,7 +2039,29 @@
             "description": "This hook checks XML property list (plist) files for basic syntax errors.",
             "entry": "check-plists",
             "language": "python",
-            "files": "\\.(plist|recipe|mobileconfig|pkginfo)$|^pkgsinfo/|^manifests/|^catalogs/",
+            "files": "\\.(plist|recipe|mobileconfig|pkginfo)$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "forbid-autopkg-overrides",
+            "name": "Forbid AutoPkg Overrides",
+            "description": "This hook prevents AutoPkg overrides from being added to the repo.",
+            "entry": "forbid-autopkg-overrides",
+            "language": "python",
+            "files": "\\.recipe$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "forbid-autopkg-trust-info",
+            "name": "Forbid AutoPkg Trust Info",
+            "description": "This hook prevents AutoPkg recipes with trust info from being added to the repo.",
+            "entry": "forbid-autopkg-trust-info",
+            "language": "python",
+            "files": "\\.recipe$",
             "types": [
                 "text"
             ]
