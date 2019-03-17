@@ -1202,6 +1202,21 @@ Add the following to your tox testenv:
 passenv = SSH_AUTH_SOCK
 ```
 
+Likewise, when cloning repos over http/https (`repo: https://github.com:...`), you might
+be working behind a corporate http(s) proxy server, in which case `git` requires the
+`http_proxy`, `https_proxy` and `no_proxy` variables to be set, or the clone may fail
+
+If you need to retain proxy-variables, add the following to your tox testenv:
+
+Add the following to your tox testenv:
+
+```ini
+[testenv]
+passenv = http_proxy
+          https_proxy
+          no_proxy
+```
+
 pre-commit uses `os.path.expanduser` to create the cache directory, on windows
 this requires the `HOMEPATH` environment variable:
 
