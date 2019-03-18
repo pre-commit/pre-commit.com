@@ -367,7 +367,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@5.15.2"
+                "eslint@5.15.3"
             ]
         }
     ],
@@ -2074,6 +2074,38 @@
             "language": "python",
             "pass_filenames": false,
             "always_run": true
+        }
+    ],
+    "https://github.com/fortman/pre-commit-prometheus": [
+        {
+            "id": "check-config",
+            "stages": [
+                "commit"
+            ],
+            "name": "Check prometheus config files",
+            "description": "Check prometheus config files",
+            "language": "docker_image",
+            "entry": "--entrypoint /bin/promtool prom/prometheus:latest",
+            "files": "(?x)^(\n    \"\"\n)$\n",
+            "args": [
+                "check",
+                "config"
+            ]
+        },
+        {
+            "id": "check-rules",
+            "stages": [
+                "commit"
+            ],
+            "name": "Check prometheus rule files",
+            "description": "Check prometheus rule files",
+            "language": "docker_image",
+            "entry": "--entrypoint /bin/promtool prom/prometheus:latest",
+            "files": "(?x)^(\n    \"\"\n)$\n",
+            "args": [
+                "check",
+                "rules"
+            ]
         }
     ]
 }
