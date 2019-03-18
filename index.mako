@@ -1213,18 +1213,11 @@ passenv = http_proxy https_proxy no_proxy
 ```
 
 pre-commit uses `os.path.expanduser` to create the cache directory, on windows
-this requires the `HOMEPATH` environment variable:
+this requires the `USERPROFILE` environment variable:
 
 ```ini
 [testenv]
-passenv = HOMEPATH
-```
-
-Or with both:
-
-```ini
-[testenv]
-passenv = HOMEPATH SSH_AUTH_SOCK
+passenv = USERPROFILE
 ```
 
 ## Using the latest version for a repository
