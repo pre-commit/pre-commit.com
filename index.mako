@@ -150,6 +150,10 @@ migrate your configuration.
     =c= `fail_fast`
     =c= (optional: default `false`) set to `true` to have pre-commit stop
         running hooks after the first failure.  _new in 1.1.0_.
+=r=
+    =c= `minimum_pre_commit_version`
+    =c= (optional: default `'0'`) require a minimum version of pre-commit.
+        _new in 1.15.0_.
 ```
 
 A sample top-level:
@@ -381,7 +385,7 @@ file that tells pre-commit:
         [Overriding language version](#overriding-language-version).
 =r=
     =c= `minimum_pre_commit_version`
-    =c= (optional: default `0.0.0`) allows one to indicate a minimum
+    =c= (optional: default `'0'`) allows one to indicate a minimum
         compatible pre-commit version. _new in 0.6.7_.
 =r=
     =c= `args`
