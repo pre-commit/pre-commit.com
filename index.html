@@ -161,6 +161,9 @@ hooks that do not set <code>stages</code>.</p>
 </td></tr><tr><td><p><code>fail_fast</code></p>
 </td><td><p>(optional: default <code>false</code>) set to <code>true</code> to have pre-commit stop
 running hooks after the first failure.  <em>new in 1.1.0</em>.</p>
+</td></tr><tr><td><p><code>minimum_pre_commit_version</code></p>
+</td><td><p>(optional: default <code>'0'</code>) require a minimum version of pre-commit.
+<em>new in 1.15.0</em>.</p>
 </td></tr></tbody></table><p>A sample top-level:</p>
 <div class="highlight yaml"><pre><span></span><span class="nt">exclude</span><span class="p">:</span> <span class="s">&#39;^$&#39;</span>
 <span class="nt">fail_fast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
@@ -324,7 +327,7 @@ purposes only.</p>
 </td><td><p>(optional: default <code>default</code>) see
 <a href="#overriding-language-version">Overriding language version</a>.</p>
 </td></tr><tr><td><p><code>minimum_pre_commit_version</code></p>
-</td><td><p>(optional: default <code>0.0.0</code>) allows one to indicate a minimum
+</td><td><p>(optional: default <code>'0'</code>) allows one to indicate a minimum
 compatible pre-commit version. <em>new in 0.6.7</em>.</p>
 </td></tr><tr><td><p><code>args</code></p>
 </td><td><p>(optional: default <code>[]</code>) list of additional parameters to pass to the hook.</p>

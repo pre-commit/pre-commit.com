@@ -37,7 +37,7 @@
             "entry": "check-byte-order-marker",
             "language": "python",
             "types": [
-                "python"
+                "text"
             ]
         },
         {
@@ -1694,6 +1694,18 @@
             "files": "(?x)^(\n    .*/(recipes|attributes|resources|providers)/.*\\.rb|\n    .*/metadata\\.rb\n)$\n",
             "exclude": ".*/test/.*\\.rb$",
             "verbose": true
+        },
+        {
+            "id": "chef-cookbook-version",
+            "name": "Ensure Chef cookbook version bump",
+            "description": "Ensure Chef cookbook versions are bumped when contents are changed",
+            "entry": "bin/cookbook-wrapper.rb",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "file"
+            ],
+            "verbose": true
         }
     ],
     "https://github.com/mattlqx/pre-commit-sign": [
@@ -2086,7 +2098,7 @@
             "description": "Check prometheus config files",
             "language": "docker_image",
             "entry": "--entrypoint /bin/promtool prom/prometheus:latest",
-            "files": "(?x)^(\n    \"\"\n)$\n",
+            "files": "^$",
             "args": [
                 "check",
                 "config"
@@ -2101,7 +2113,7 @@
             "description": "Check prometheus rule files",
             "language": "docker_image",
             "entry": "--entrypoint /bin/promtool prom/prometheus:latest",
-            "files": "(?x)^(\n    \"\"\n)$\n",
+            "files": "^$",
             "args": [
                 "check",
                 "rules"
