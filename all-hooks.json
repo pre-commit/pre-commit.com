@@ -367,7 +367,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@5.15.3"
+                "eslint@5.16.0"
             ]
         }
     ],
@@ -2142,6 +2142,38 @@
                 "file",
                 "lua"
             ]
+        }
+    ],
+    "https://github.com/belminf/pre-commit-chef": [
+        {
+            "id": "cookstyle",
+            "name": "Chef-specific Rubocop linting with Cookstyle",
+            "entry": "run_cookstyle.rb",
+            "language": "ruby",
+            "pass_filenames": true,
+            "types": [
+                "ruby"
+            ],
+            "files": ".*",
+            "args": [
+                "-a",
+                "-D",
+                "-S"
+            ],
+            "require_serial": true
+        },
+        {
+            "id": "foodcritic",
+            "name": "Chef cookbook linting with Foodcritic",
+            "entry": "run_foodcritic.rb",
+            "language": "ruby",
+            "pass_filenames": true,
+            "types": [
+                "ruby"
+            ],
+            "files": "(?x)^(\n    (.*/)?(recipes|attributes|resources|providers)/.*\\.rb|\n    (.*/)?metadata\\.rb\n)$\n",
+            "exclude": ".*/test/.*\\.rb$",
+            "require_serial": true
         }
     ]
 }
