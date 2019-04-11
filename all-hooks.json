@@ -495,6 +495,7 @@
             "args": [
                 "-i"
             ],
+            "require_serial": false,
             "additional_dependencies": []
         }
     ],
@@ -2129,6 +2130,30 @@
             "entry": "hooks/circleci-config-validate.sh",
             "language": "script",
             "files": "^.circleci/config.yml$"
+        },
+        {
+            "id": "go-fmt",
+            "name": "go fmt",
+            "description": "Runs `go fmt` and asserts no changes are needed.",
+            "entry": "hooks/go-fmt.sh",
+            "language": "script",
+            "files": "\\.go$"
+        },
+        {
+            "id": "go-test",
+            "name": "go test",
+            "description": "Runs `go test` and asserts no tests are failing.",
+            "entry": "hooks/go-golangci-lint.sh",
+            "language": "script",
+            "files": "\\.go$"
+        },
+        {
+            "id": "go-golangci-lint",
+            "name": "golangci lint",
+            "description": "Runs `golangci-lint`, requires golangci-lint.",
+            "entry": "hooks/go-golangci-lint.sh",
+            "language": "script",
+            "files": "\\.go$"
         }
     ],
     "https://github.com/Calinou/pre-commit-luacheck": [
@@ -2174,6 +2199,16 @@
             "files": "(?x)^(\n    (.*/)?(recipes|attributes|resources|providers)/.*\\.rb|\n    (.*/)?metadata\\.rb\n)$\n",
             "exclude": ".*/test/.*\\.rb$",
             "require_serial": true
+        }
+    ],
+    "https://github.com/timothycrosley/isort": [
+        {
+            "id": "isort",
+            "name": "isort",
+            "entry": "isort",
+            "require_serial": true,
+            "additional_dependencies": [],
+            "language": "python"
         }
     ]
 }
