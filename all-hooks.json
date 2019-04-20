@@ -324,6 +324,7 @@
             "args": [
                 "-i"
             ],
+            "require_serial": false,
             "additional_dependencies": []
         }
     ],
@@ -367,7 +368,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@5.16.0"
+                "eslint@6.0.0-alpha.0"
             ]
         }
     ],
@@ -2143,9 +2144,26 @@
             "id": "go-test",
             "name": "go test",
             "description": "Runs `go test` and asserts no tests are failing.",
-            "entry": "hooks/go-golangci-lint.sh",
+            "entry": "hooks/go-test.sh",
             "language": "script",
             "files": "\\.go$"
+        },
+        {
+            "id": "go-mod-tidy",
+            "name": "go mod tidy",
+            "description": "Runs `go mod tidy` to ensure `go.mod` matches the project source.",
+            "entry": "hooks/go-mod-tidy.sh",
+            "language": "script",
+            "files": "\\.go$"
+        },
+        {
+            "id": "go-generate",
+            "name": "go generate",
+            "description": "Runs `go generate` against the projects go files.",
+            "entry": "hooks/go-generate.sh",
+            "language": "script",
+            "files": "\\.go$",
+            "always_run": true
         },
         {
             "id": "go-golangci-lint",
@@ -2207,8 +2225,10 @@
             "name": "isort",
             "entry": "isort",
             "require_serial": true,
-            "additional_dependencies": [],
-            "language": "python"
+            "language": "python",
+            "types": [
+                "python"
+            ]
         }
     ]
 }
