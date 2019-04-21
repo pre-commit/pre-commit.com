@@ -1216,14 +1216,6 @@ http(s) proxy server, in which case `git` requires the `http_proxy`,
 passenv = http_proxy https_proxy no_proxy
 ```
 
-pre-commit uses `os.path.expanduser` to create the cache directory, on windows
-this requires the `USERPROFILE` environment variable:
-
-```ini
-[testenv]
-passenv = USERPROFILE
-```
-
 ## Using the latest version for a repository
 
 `pre-commit` configuration aims to give a repeatable and fast experience and
