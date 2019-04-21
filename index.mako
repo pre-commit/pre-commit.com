@@ -898,7 +898,7 @@ _new in 0.15.4_: pre-commit can be used to manage `commit-msg` hooks.  Simply
 current contents of the commit message which can be validated.  If a hook
 exits nonzero, the commit will be aborted.
 
-_new in 0.16.0_: pre-commit can be used to manage `prepare-commit-msg` hooks.
+_new in 1.16.0_: pre-commit can be used to manage `prepare-commit-msg` hooks.
 Simply `pre-commit install --hook-type prepare-commit-msg`.
 
 `prepare-commit-msg` hooks can be used to create dynamic templates for commit
