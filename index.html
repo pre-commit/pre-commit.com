@@ -212,8 +212,8 @@ hook.  See <a href="#overriding-language-version">Overriding Language Version</a
 </td></tr><tr><td><p><code>args</code></p>
 </td><td><p>(optional) list of additional parameters to pass to the hook.</p>
 </td></tr><tr><td><p><code>stages</code></p>
-</td><td><p>(optional) confines the hook to the <code>commit</code>, <code>push</code>, <code>commit-msg</code>, or
-<code>manual</code> stage.  See
+</td><td><p>(optional) confines the hook to the <code>commit</code>, <code>push</code>, <code>prepare-commit-msg</code>,
+<code>commit-msg</code>, or <code>manual</code> stage.  See
 <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
 </td></tr><tr><td><p><code>additional_dependencies</code></p>
 </td><td><p>(optional) a list of dependencies that will be installed in the
@@ -563,8 +563,9 @@ the cache directory.</p>
 <ul>
 <li><code>-f</code>, <code>--overwrite</code>: overwrite existing hooks / remove migration mode.</li>
 <li><code>--install-hooks</code>: also install hook environments for all available hooks.</li>
-<li><code>-t {pre-commit,pre-push,commit-msg}</code>,
-<code>--hook-type {pre-commit,pre-push,commit-msg}</code>: which hook type to install.</li>
+<li><code>-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}</code>,
+<code>--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}</code>:
+which hook type to install.</li>
 <li><code>--allow-missing-config</code>: whether to allow the installed hook scripts to
 permit a missing configuration file.</li>
 </ul>
@@ -637,8 +638,9 @@ which are also supported by <code>pre-commit try-repo</code>.</li>
 <h2 id="pre-commit-uninstall">    pre-commit uninstall [options] <a href="#pre-commit-uninstall"></a> <small><a href="#pre-commit-uninstall">¶</a></small></h2> <p>Uninstall the pre-commit script.</p>
 <p>Options:</p>
 <ul>
-<li><code>-t {pre-commit,pre-push,commit-msg}</code>,
-<code>--hook-type {pre-commit,pre-push,commit-msg}</code>: which hook type to uninstall.</li>
+<li><code>-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}</code>,
+<code>--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}</code>: which hook
+type to uninstall.</li>
 </ul>
 
         </div>
@@ -680,11 +682,21 @@ implicit conflicts (such as with removed python imports).</p>
 <code>commit-msg</code> hooks will be passed a single filename -- this file contains the
 current contents of the commit message which can be validated.  If a hook
 exits nonzero, the commit will be aborted.</p>
+<p><em>new in 1.16.0</em>: pre-commit can be used to manage <code>prepare-commit-msg</code> hooks.
+Simply <code>pre-commit install --hook-type prepare-commit-msg</code>.</p>
+<p><code>prepare-commit-msg</code> hooks can be used to create dynamic templates for commit
+messages. <code>prepare-commit-msg</code> hooks can be configured by setting
+<code>stages: [prepare-commit-msg]</code>. <code>prepare-commit-msg</code> hooks will be passed a
+single filename -- this file contains any initial commit message (e.g. from
+<code>git commit -m "..."</code> or a template) and can be modified by the hook before
+the editor is shown. A hook may want to check for <code>GIT_EDITOR=:</code> as this
+indicates that no editor will be launched. If a hook exits nonzero,
+the commit will be aborted.</p>
 <h2 id="confining-hooks-to-run-at-certain-stages">    Confining hooks to run at certain stages <small><a href="#confining-hooks-to-run-at-certain-stages">¶</a></small></h2> <p>If pre-commit during push has been installed, then all hooks (by default) will
 be run during the <code>push</code> stage.  Hooks can however be confined to a stage by
 setting the <code>stages</code> property in your <code>.pre-commit-config.yaml</code>.  The
-<code>stages</code> property is an array and can contain any of <code>commit</code>, <code>push</code>, and
-<code>commit-msg</code>.</p>
+<code>stages</code> property is an array and can contain any of <code>commit</code>, <code>push</code>,
+<code>prepare-commit-msg</code> and <code>commit-msg</code>.</p>
 <p><em>new in 1.8.0</em>: An additional <code>manual</code> stage is available for one off execution
 that won't run in any hook context.  This special stage is useful for taking
 advantage of <code>pre-commit</code>'s cross-platform / cross-language package management
