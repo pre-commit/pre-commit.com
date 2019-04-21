@@ -912,11 +912,6 @@ http(s) proxy server, in which case <code>git</code> requires the <code>http_pro
 <div class="highlight ini"><pre><span></span><span class="k">[testenv]</span>
 <span class="na">passenv</span> <span class="o">=</span> <span class="s">http_proxy https_proxy no_proxy</span>
 </pre></div>
-<p>pre-commit uses <code>os.path.expanduser</code> to create the cache directory, on windows
-this requires the <code>USERPROFILE</code> environment variable:</p>
-<div class="highlight ini"><pre><span></span><span class="k">[testenv]</span>
-<span class="na">passenv</span> <span class="o">=</span> <span class="s">USERPROFILE</span>
-</pre></div>
 <h2 id="using-the-latest-version-for-a-repository">    Using the latest version for a repository <small><a href="#using-the-latest-version-for-a-repository">¶</a></small></h2> <p><code>pre-commit</code> configuration aims to give a repeatable and fast experience and
 therefore intentionally doesn't provide facilities for "unpinned latest
 version" for hook repositories.</p>
