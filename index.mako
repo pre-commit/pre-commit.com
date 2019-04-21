@@ -233,8 +233,8 @@ repository's configuration.
     =c= (optional) list of additional parameters to pass to the hook.
 =r=
     =c= `stages`
-    =c= (optional) confines the hook to the `commit`, `push`, `commit-msg`, or
-        `manual` stage.  See
+    =c= (optional) confines the hook to the `commit`, `push`, `prepare-commit-msg`,
+        `commit-msg`, or `manual` stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
     =c= `additional_dependencies`
@@ -736,8 +736,9 @@ Options:
 
 - `-f`, `--overwrite`: overwrite existing hooks / remove migration mode.
 - `--install-hooks`: also install hook environments for all available hooks.
-- `-t {pre-commit,pre-push,commit-msg}`,
-  `--hook-type {pre-commit,pre-push,commit-msg}`: which hook type to install.
+- `-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}`,
+  `--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}`:
+  which hook type to install.
 - `--allow-missing-config`: whether to allow the installed hook scripts to
   permit a missing configuration file.
 
@@ -831,8 +832,9 @@ Uninstall the pre-commit script.
 
 Options:
 
-- `-t {pre-commit,pre-push,commit-msg}`,
-  `--hook-type {pre-commit,pre-push,commit-msg}`: which hook type to uninstall.
+- `-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}`,
+  `--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}`: which hook
+  type to uninstall.
 ''')}
         </div>
 
@@ -896,13 +898,25 @@ _new in 0.15.4_: pre-commit can be used to manage `commit-msg` hooks.  Simply
 current contents of the commit message which can be validated.  If a hook
 exits nonzero, the commit will be aborted.
 
+_new in 1.16.0_: pre-commit can be used to manage `prepare-commit-msg` hooks.
+Simply `pre-commit install --hook-type prepare-commit-msg`.
+
+`prepare-commit-msg` hooks can be used to create dynamic templates for commit
+messages. `prepare-commit-msg` hooks can be configured by setting
+`stages: [prepare-commit-msg]`. `prepare-commit-msg` hooks will be passed a
+single filename -- this file contains any initial commit message (e.g. from
+`git commit -m "..."` or a template) and can be modified by the hook before
+the editor is shown. A hook may want to check for `GIT_EDITOR=:` as this
+indicates that no editor will be launched. If a hook exits nonzero,
+the commit will be aborted.
+
 ## Confining hooks to run at certain stages
 
 If pre-commit during push has been installed, then all hooks (by default) will
 be run during the `push` stage.  Hooks can however be confined to a stage by
 setting the `stages` property in your `.pre-commit-config.yaml`.  The
-`stages` property is an array and can contain any of `commit`, `push`, and
-`commit-msg`.
+`stages` property is an array and can contain any of `commit`, `push`,
+`prepare-commit-msg` and `commit-msg`.
 
 _new in 1.8.0_: An additional `manual` stage is available for one off execution
 that won't run in any hook context.  This special stage is useful for taking
