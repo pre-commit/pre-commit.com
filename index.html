@@ -396,7 +396,7 @@ Hello from foo hook!
 configuring Docker hooks, your <code>entry</code> should correspond to an executable
 inside the Docker container, and will be used to override the default container
 entrypoint. Your Docker <code>CMD</code> will not run when pre-commit passes a file list
-as arguments to the run container  command. Docker allows you to use any
+as arguments to the run container command. Docker allows you to use any
 language that's not supported by pre-commit as a builtin.</p>
 <p><strong>Support:</strong> docker hooks are known to work on any system which has a working
 <code>docker</code> executable.  It has been tested on linux and macOS.  Hooks that are
@@ -663,8 +663,8 @@ entire commit.</p>
 false-negatives during committing.  pre-commit only runs on the staged
 contents of files by temporarily saving the contents of your files at commit
 time and stashing the unstaged changes while running hooks.</p>
-<h2 id="pre-commit-during-merges">    pre-commit during merges <small><a href="#pre-commit-during-merges">¶</a></small></h2> <p>The biggest gripe we’ve had in the past with pre-commit  hooks was during
-merge conflict resolution.  When working on very large projects a merge often
+<h2 id="pre-commit-during-merges">    pre-commit during merges <small><a href="#pre-commit-during-merges">¶</a></small></h2> <p>The biggest gripe we’ve had in the past with pre-commit hooks was during merge 
+conflict resolution.  When working on very large projects a merge often
 results in hundreds of committed files. I shouldn’t need to run hooks on all
 of these files that I didn’t even touch!  This often led to running commit
 with <code>--no-verify</code> and allowed introduction of real bugs that hooks could have
@@ -837,7 +837,7 @@ and are matched with <a href="https://docs.python.org/3/library/re.html#re.searc
 <p>If you find that your regular expression is becoming unwieldy due to a long
 list of excluded / included things, you may find a
 <a href="https://docs.python.org/3/library/re.html#re.VERBOSE">verbose</a> regular
-expression useful.  One can enable this with yaml's  multiline literals and
+expression useful.  One can enable this with yaml's multiline literals and
 the <code>(?x)</code> regex flag.</p>
 <div class="highlight yaml"><pre><span></span><span class="c1"># ...</span>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-hook</span>
