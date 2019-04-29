@@ -476,7 +476,7 @@ Running Docker hooks requires a running Docker engine on your host.  For
 configuring Docker hooks, your `entry` should correspond to an executable
 inside the Docker container, and will be used to override the default container
 entrypoint. Your Docker `CMD` will not run when pre-commit passes a file list
-as arguments to the run container  command. Docker allows you to use any
+as arguments to the run container command. Docker allows you to use any
 language that's not supported by pre-commit as a builtin.
 
 __Support:__ docker hooks are known to work on any system which has a working
@@ -871,8 +871,8 @@ time and stashing the unstaged changes while running hooks.
 
 ## pre-commit during merges
 
-The biggest gripe we’ve had in the past with pre-commit  hooks was during
-merge conflict resolution.  When working on very large projects a merge often
+The biggest gripe we’ve had in the past with pre-commit hooks was during merge 
+conflict resolution.  When working on very large projects a merge often
 results in hundreds of committed files. I shouldn’t need to run hooks on all
 of these files that I didn’t even touch!  This often led to running commit
 with `--no-verify` and allowed introduction of real bugs that hooks could have
@@ -1120,7 +1120,7 @@ As such, you can use any of the features that python regexes support.
 If you find that your regular expression is becoming unwieldy due to a long
 list of excluded / included things, you may find a
 [verbose](https://docs.python.org/3/library/re.html#re.VERBOSE) regular
-expression useful.  One can enable this with yaml's  multiline literals and
+expression useful.  One can enable this with yaml's multiline literals and
 the `(?x)` regex flag.
 
 ```yaml
