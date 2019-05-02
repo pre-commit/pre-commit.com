@@ -1625,7 +1625,7 @@
             ]
         }
     ],
-    "https://github.com/ambv/black": [
+    "https://github.com/python/black": [
         {
             "id": "black",
             "name": "black",
@@ -2315,11 +2315,10 @@
         {
             "id": "nglint",
             "name": "nglint",
-            "entry": "npm run ng lint --silent",
-            "language": "node",
-            "args": [],
-            "pass_filenames": false,
-            "minimum_pre_commit_version": "0.14.0"
+            "description": "Runs ng lint",
+            "entry": "nglint.py",
+            "language": "script",
+            "minimum_pre_commit_version": "0.12.0"
         }
     ]
 }
