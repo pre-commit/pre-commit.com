@@ -368,7 +368,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@6.0.0-alpha.0"
+                "eslint@6.0.0-alpha.1"
             ]
         }
     ],
@@ -504,7 +504,7 @@
     "https://github.com/pre-commit/pygrep-hooks": [
         {
             "id": "python-check-blanket-noqa",
-            "name": "Check blanket noqa",
+            "name": "check blanket noqa",
             "description": "Enforce that `noqa` annotations always occur with specific codes",
             "entry": "# noqa(?!: )",
             "language": "pygrep",
@@ -518,6 +518,16 @@
             "description": "Prevent common mistakes of `assert mck.not_called()`, `assert mck.called_once_with(...)` and `mck.assert_called`.",
             "language": "pygrep",
             "entry": "(?x)(\n    assert .*\\.(\n        not_called|\n        called_\n    )|\n    \\.assert_(\n        any_call|\n        called|\n        called_once|\n        called_once_with|\n        called_with|\n        has_calls|\n        not_called\n    )($|[^(\\w])\n)\n",
+            "types": [
+                "python"
+            ]
+        },
+        {
+            "id": "python-no-eval",
+            "name": "check for eval()",
+            "description": "A quick check for the `eval()` built-in function",
+            "entry": "\\beval\\(",
+            "language": "pygrep",
             "types": [
                 "python"
             ]
@@ -1182,6 +1192,19 @@
             "additional_dependencies": [
                 "puppet-lint"
             ]
+        }
+    ],
+    "https://github.com/golangci/golangci-lint": [
+        {
+            "id": "golangci-lint",
+            "name": "golangci-lint",
+            "description": "Fast linters runner for Go.",
+            "entry": "golangci-lint run --fix",
+            "types": [
+                "go"
+            ],
+            "language": "golang",
+            "pass_filenames": false
         }
     ],
     "https://github.com/dnephin/pre-commit-golang": [
@@ -2174,14 +2197,6 @@
             "language": "script",
             "files": "\\.go$",
             "always_run": true
-        },
-        {
-            "id": "go-golangci-lint",
-            "name": "golangci lint",
-            "description": "Runs `golangci-lint`, requires golangci-lint.",
-            "entry": "hooks/go-golangci-lint.sh",
-            "language": "script",
-            "files": "\\.go$"
         },
         {
             "id": "forbid-binary",
