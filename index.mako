@@ -912,7 +912,7 @@ the commit will be aborted.
 
 ## Confining hooks to run at certain stages
 
-Since the `default_stage` top level configuration property of the
+Since the `default_stages` top level configuration property of the
 `.pre-commit-config.yaml` file is set to all stages by default, when installing
 hooks using the `-t`/`--hook-type` option (see [pre-commit
 install [options]](#pre-commit-install)), all hooks will be installed by default
@@ -922,10 +922,11 @@ to run at the `push` stage.
 
 Hooks can however be confined to a stage by setting the `stages` property in
 your `.pre-commit-config.yaml`.  The `stages` property is an array and can
-contain any of `commit`, `push`, `prepare-commit-msg` and `commit-msg`.
+contain any of `commit`, `push`, `prepare-commit-msg`, `commit-msg` and
+`manual`.
 
 If you do not want to have hooks installed by default on the stage passed
-during a `pre-commit install --hook-type ...`, please set the `default_stage`
+during a `pre-commit install --hook-type ...`, please set the `default_stages`
 top level configuration property to the desired stages, also as an array.
 
 _new in 1.8.0_: An additional `manual` stage is available for one off execution
