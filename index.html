@@ -691,11 +691,20 @@ single filename -- this file contains any initial commit message (e.g. from
 the editor is shown. A hook may want to check for <code>GIT_EDITOR=:</code> as this
 indicates that no editor will be launched. If a hook exits nonzero,
 the commit will be aborted.</p>
-<h2 id="confining-hooks-to-run-at-certain-stages">    Confining hooks to run at certain stages <small><a href="#confining-hooks-to-run-at-certain-stages">¶</a></small></h2> <p>If pre-commit during push has been installed, then all hooks (by default) will
-be run during the <code>push</code> stage.  Hooks can however be confined to a stage by
-setting the <code>stages</code> property in your <code>.pre-commit-config.yaml</code>.  The
-<code>stages</code> property is an array and can contain any of <code>commit</code>, <code>push</code>,
-<code>prepare-commit-msg</code> and <code>commit-msg</code>.</p>
+<h2 id="confining-hooks-to-run-at-certain-stages">    Confining hooks to run at certain stages <small><a href="#confining-hooks-to-run-at-certain-stages">¶</a></small></h2> <p>Since the <code>default_stages</code> top level configuration property of the
+<code>.pre-commit-config.yaml</code> file is set to all stages by default, when installing
+hooks using the <code>-t</code>/<code>--hook-type</code> option (see <a href="#pre-commit-install">pre-commit
+install [options]</a>), all hooks will be installed by default
+to run at the stage defined through that option. for instance,
+<code>pre-commit install --hook-type pre-push</code> will install by default all hooks
+to run at the <code>push</code> stage.</p>
+<p>Hooks can however be confined to a stage by setting the <code>stages</code> property in
+your <code>.pre-commit-config.yaml</code>.  The <code>stages</code> property is an array and can
+contain any of <code>commit</code>, <code>push</code>, <code>prepare-commit-msg</code>, <code>commit-msg</code> and
+<code>manual</code>.</p>
+<p>If you do not want to have hooks installed by default on the stage passed
+during a <code>pre-commit install --hook-type ...</code>, please set the <code>default_stages</code>
+top level configuration property to the desired stages, also as an array.</p>
 <p><em>new in 1.8.0</em>: An additional <code>manual</code> stage is available for one off execution
 that won't run in any hook context.  This special stage is useful for taking
 advantage of <code>pre-commit</code>'s cross-platform / cross-language package management
