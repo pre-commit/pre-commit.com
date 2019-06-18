@@ -368,7 +368,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@6.0.0-alpha.1"
+                "eslint@6.0.0-rc.0"
             ]
         }
     ],
@@ -674,7 +674,7 @@
             "entry": "blacken-docs",
             "language": "python",
             "language_version": "python3",
-            "files": "\\.(rst|md|markdown)"
+            "files": "\\.(rst|md|markdown)$"
         }
     ],
     "https://github.com/asottile/dead": [
@@ -1153,45 +1153,75 @@
     ],
     "https://github.com/chriskuehl/puppet-pre-commit-hooks": [
         {
-            "id": "puppet-validate",
-            "name": "Validate Puppet manifests",
-            "description": "Validate syntax of Puppet manifests",
-            "entry": "puppet-validate",
-            "language": "ruby",
-            "files": "\\.pp$",
+            "id": "epp-validate",
             "additional_dependencies": [
                 "puppet"
-            ]
+            ],
+            "description": "Validate syntax of Puppet EPP templates",
+            "entry": "epp-validate",
+            "files": "\\.epp$",
+            "language": "ruby",
+            "name": "Validate EPP templates"
         },
         {
             "id": "erb-validate",
-            "name": "Validate ERB templates",
             "description": "Validate syntax of Ruby ERB templates",
             "entry": "erb-validate",
+            "files": "\\.erb$",
             "language": "ruby",
-            "files": "\\.erb$"
+            "name": "Validate ERB templates"
         },
         {
-            "id": "epp-validate",
-            "name": "Validate EPP templates",
-            "description": "Validate syntax of Puppet EPP templates",
-            "entry": "epp-validate",
+            "id": "g10k-validate",
+            "description": "Validate syntax of Puppetfile using g10k",
+            "entry": "g10k-validate",
+            "files": "^Puppetfile$",
             "language": "ruby",
-            "files": "\\.epp$",
-            "additional_dependencies": [
-                "puppet"
-            ]
+            "name": "Validate g10k Puppetfile"
         },
         {
             "id": "puppet-lint",
-            "name": "puppet-lint",
-            "description": "Check Puppet manifests for stylistic problems",
-            "entry": "puppet-lint",
-            "language": "ruby",
-            "files": "\\.pp$",
             "additional_dependencies": [
                 "puppet-lint"
-            ]
+            ],
+            "description": "Check Puppet manifests for stylistic problems",
+            "entry": "puppet-lint",
+            "files": "\\.pp$",
+            "language": "ruby",
+            "name": "puppet-lint"
+        },
+        {
+            "id": "puppet-validate",
+            "additional_dependencies": [
+                "puppet"
+            ],
+            "description": "Validate syntax of Puppet manifests",
+            "entry": "puppet-validate",
+            "files": "\\.pp$",
+            "language": "ruby",
+            "name": "Validate Puppet manifests"
+        },
+        {
+            "id": "r10k-validate",
+            "additional_dependencies": [
+                "r10k"
+            ],
+            "description": "Validate syntax of Puppetfile using r10k",
+            "entry": "r10k-validate",
+            "files": "^Puppetfile$",
+            "language": "ruby",
+            "name": "Validate r10k Puppetfile"
+        },
+        {
+            "id": "ruby-validate",
+            "additional_dependencies": [
+                "ruby"
+            ],
+            "description": "Validate syntax of ruby code",
+            "entry": "ruby-validate",
+            "files": "\\.rb$",
+            "language": "ruby",
+            "name": "Validate ruby syntax"
         }
     ],
     "https://github.com/golangci/golangci-lint": [
@@ -1417,7 +1447,7 @@
         {
             "id": "terraform_docs_replace",
             "name": "Terraform docs (overwrite README.md)",
-            "description": "Overwrite content of README.md with terraform-docs",
+            "description": "Overwrite content of README.md with terraform-docs.",
             "require_serial": true,
             "entry": "terraform_docs_replace",
             "language": "python",
@@ -1425,19 +1455,10 @@
             "exclude": "\\.terraform\\/.*$"
         },
         {
-            "id": "terraform_validate_no_variables",
+            "id": "terraform_validate",
             "name": "Terraform validate without variables",
-            "description": "Validates all Terraform configuration files without checking whether all required variables were set (basic check).",
-            "entry": "terraform_validate_no_variables.sh",
-            "language": "script",
-            "files": "(\\.tf|\\.tfvars)$",
-            "exclude": "\\.terraform\\/.*$"
-        },
-        {
-            "id": "terraform_validate_with_variables",
-            "name": "Terraform validate with variables",
-            "description": "Validates all Terraform configuration files and checks whether all required variables were specified.",
-            "entry": "terraform_validate_with_variables.sh",
+            "description": "Validates all Terraform configuration files.",
+            "entry": "terraform_validate.sh",
             "language": "script",
             "files": "(\\.tf|\\.tfvars)$",
             "exclude": "\\.terraform\\/.*$"
@@ -2344,6 +2365,18 @@
             "entry": "nglint.py",
             "language": "script",
             "minimum_pre_commit_version": "0.12.0"
+        }
+    ],
+    "https://github.com/codespell-project/codespell": [
+        {
+            "id": "codespell",
+            "name": "codespell",
+            "description": "Checks for common misspellings in text files.",
+            "entry": "codespell",
+            "language": "python",
+            "types": [
+                "text"
+            ]
         }
     ]
 }
