@@ -871,7 +871,7 @@ time and stashing the unstaged changes while running hooks.
 
 ## pre-commit during merges
 
-The biggest gripe we’ve had in the past with pre-commit hooks was during merge 
+The biggest gripe we’ve had in the past with pre-commit hooks was during merge
 conflict resolution.  When working on very large projects a merge often
 results in hundreds of committed files. I shouldn’t need to run hooks on all
 of these files that I didn’t even touch!  This often led to running commit
