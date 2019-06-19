@@ -663,7 +663,7 @@ entire commit.</p>
 false-negatives during committing.  pre-commit only runs on the staged
 contents of files by temporarily saving the contents of your files at commit
 time and stashing the unstaged changes while running hooks.</p>
-<h2 id="pre-commit-during-merges">    pre-commit during merges <small><a href="#pre-commit-during-merges">¶</a></small></h2> <p>The biggest gripe we’ve had in the past with pre-commit hooks was during merge 
+<h2 id="pre-commit-during-merges">    pre-commit during merges <small><a href="#pre-commit-during-merges">¶</a></small></h2> <p>The biggest gripe we’ve had in the past with pre-commit hooks was during merge
 conflict resolution.  When working on very large projects a merge often
 results in hundreds of committed files. I shouldn’t need to run hooks on all
 of these files that I didn’t even touch!  This often led to running commit
