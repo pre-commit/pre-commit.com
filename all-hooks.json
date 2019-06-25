@@ -368,7 +368,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@6.0.0-rc.0"
+                "eslint@6.0.1"
             ]
         }
     ],
@@ -2410,6 +2410,19 @@
                 "python"
             ],
             "pass_filenames": false
+        }
+    ],
+    "https://github.com/marco-c/taskcluster_yml_validator": [
+        {
+            "id": "taskcluster_yml",
+            "name": "taskcluster_yml",
+            "description": "Checks for validity of .taskcluster.yml file.",
+            "entry": "taskcluster_yml_validator",
+            "language": "python",
+            "files": "^\\.taskcluster\\.yml$",
+            "args": [],
+            "require_serial": false,
+            "additional_dependencies": []
         }
     ]
 }
