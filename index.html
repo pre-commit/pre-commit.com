@@ -459,7 +459,7 @@ only due to <a href="https://bugs.python.org/issue32539">a bug in cpython</a>.</
 <h3 id="python">    python <small><a href="#python">¶</a></small></h3> <p>The hook repository must have a <code>setup.py</code>.  It will be installed via
 <code>pip install .</code>.  The installed package will provide an executable that will
 match the <code>entry</code> – usually through <code>console_scripts</code> or <code>scripts</code> in setup.py.</p>
-<p><strong>Support:</strong> python hooks work without any system-level depedendencies.  It
+<p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.</p>
 <h3 id="python_venv">    python_venv <small><a href="#python_venv">¶</a></small></h3> <p><em>new in 1.9.0</em></p>
 <p>An alternate implementation of the <a href="#python">python</a> language which uses the
@@ -468,13 +468,13 @@ On many systems you need to additionally install the <code>python3-venv</code> s
 package to use this language.  This is otherwise a drop-in replacement for the
 <code>python</code> language for situations where <a href="https://github.com/pre-commit/pre-commit/issues/631"><code>virtualenv</code> may not
 work</a>.</p>
-<p><strong>Support:</strong> python hooks work without any system-level depedendencies.  It
+<p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.  Only python3
 environments can be created with this language.</p>
 <h3 id="ruby">    ruby <small><a href="#ruby">¶</a></small></h3> <p>The hook repository must have a <code>*.gemspec</code>.  It will be installed via
 <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>.  The installed package will
 produce an executable that will match the <code>entry</code> – usually through
-<code>exectuables</code> in your gemspec.</p>
+<code>executables</code> in your gemspec.</p>
 <p><strong>Support:</strong> ruby hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and <em>may</em> work under cygwin.</p>
 <h3 id="rust">    rust <small><a href="#rust">¶</a></small></h3> <p><em>new in 1.10.0</em></p>
