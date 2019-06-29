@@ -572,7 +572,7 @@ The hook repository must have a `setup.py`.  It will be installed via
 `pip install .`.  The installed package will provide an executable that will
 match the `entry` – usually through `console_scripts` or `scripts` in setup.py.
 
-__Support:__ python hooks work without any system-level depedendencies.  It
+__Support:__ python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.
 
 
@@ -587,7 +587,7 @@ package to use this language.  This is otherwise a drop-in replacement for the
 `python` language for situations where [`virtualenv` may not
 work](https://github.com/pre-commit/pre-commit/issues/631).
 
-__Support:__ python hooks work without any system-level depedendencies.  It
+__Support:__ python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.  Only python3
 environments can be created with this language.
 
@@ -596,7 +596,7 @@ environments can be created with this language.
 The hook repository must have a `*.gemspec`.  It will be installed via
 `gem build *.gemspec && gem install *.gem`.  The installed package will
 produce an executable that will match the `entry` – usually through
-`exectuables` in your gemspec.
+`executables` in your gemspec.
 
 __Support:__ ruby hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
