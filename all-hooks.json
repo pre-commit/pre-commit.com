@@ -2009,7 +2009,7 @@
             "description": "This hook checks AutoPkg recipe lists (in txt, plist, yaml, or json format) for common issues.",
             "entry": "check-autopkg-recipe-list",
             "language": "python",
-            "files": "^recipe.?list\\.(plist|yaml|yml|json|txt)$",
+            "files": "recipe.?list\\.(plist|yaml|yml|json|txt)$",
             "types": [
                 "text"
             ]
@@ -2423,6 +2423,28 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": []
+        }
+    ],
+    "https://github.com/myint/docformatter": [
+        {
+            "id": "docformatter",
+            "name": "docformatter",
+            "description": "Formats docstrings to follow PEP 257.",
+            "entry": "docformatter",
+            "language": "python",
+            "types": [
+                "python"
+            ]
+        },
+        {
+            "id": "docformatter-venv",
+            "name": "docformatter-venv",
+            "description": "Formats docstrings to follow PEP 257. Uses python3 -m venv.",
+            "entry": "docformatter",
+            "language": "python_venv",
+            "types": [
+                "python"
+            ]
         }
     ]
 }
