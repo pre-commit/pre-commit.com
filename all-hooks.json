@@ -2431,6 +2431,9 @@
             "name": "docformatter",
             "description": "Formats docstrings to follow PEP 257.",
             "entry": "docformatter",
+            "args": [
+                "-i"
+            ],
             "language": "python",
             "types": [
                 "python"
@@ -2441,10 +2444,63 @@
             "name": "docformatter-venv",
             "description": "Formats docstrings to follow PEP 257. Uses python3 -m venv.",
             "entry": "docformatter",
+            "args": [
+                "-i"
+            ],
             "language": "python_venv",
             "types": [
                 "python"
             ]
+        }
+    ],
+    "https://github.com/lorenzwalthert/pre-commit-hooks": [
+        {
+            "id": "roxygenize",
+            "name": "roxygenize",
+            "description": "run roxygen2::roxygenize()",
+            "entry": "bin/roxygenize",
+            "language": "script",
+            "files": "^(R/|man/)"
+        },
+        {
+            "id": "use-tidy-description",
+            "name": "use-tidy-description",
+            "description": "run usethis::use_tidy_description()",
+            "entry": "bin/use-tidy-description",
+            "language": "script",
+            "files": "^DESCRIPTION$"
+        },
+        {
+            "id": "style-files",
+            "name": "style-files",
+            "description": "style files with styler",
+            "entry": "bin/style-files",
+            "language": "script",
+            "files": "(\\.R|\\.Rmd|\\.Rnw|\\.r|\\.rmd|\\.rnw)$"
+        },
+        {
+            "id": "no-browser-statement",
+            "name": "no-browser-statement",
+            "description": "check if a .R file contains a `browser()` statement",
+            "entry": "bin/no-browser-statement",
+            "language": "script",
+            "files": "\\.R$"
+        },
+        {
+            "id": "parsable-R",
+            "name": "parsable-R",
+            "description": "check if a .R file is parsable",
+            "entry": "bin/parsable-R",
+            "language": "script",
+            "files": "\\.R$"
+        },
+        {
+            "id": "readme-rmd-rendered",
+            "name": "readme-rmd-rendered",
+            "description": "make sure README.Rmd hasn't been edited more recently than README.md",
+            "entry": "bin/readme-rmd-rendered",
+            "language": "script",
+            "files": "README\\.[Rr]?md$"
         }
     ]
 }
