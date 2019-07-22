@@ -368,7 +368,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@6.0.1"
+                "eslint@6.1.0"
             ]
         }
     ],
@@ -1679,7 +1679,7 @@
             ]
         }
     ],
-    "https://github.com/python/black": [
+    "https://github.com/psf/black": [
         {
             "id": "black",
             "name": "black",
