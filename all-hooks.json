@@ -536,7 +536,7 @@
             "id": "python-no-log-warn",
             "name": "use logger.warning(",
             "description": "A quick check for the deprecated `.warn()` method of python loggers",
-            "entry": "\\.warn\\(",
+            "entry": "(?<!warnings)\\.warn\\(",
             "language": "pygrep",
             "types": [
                 "python"
@@ -2501,6 +2501,40 @@
             "entry": "bin/readme-rmd-rendered",
             "language": "script",
             "files": "README\\.[Rr]?md$"
+        }
+    ],
+    "https://github.com/FelixSeptem/pre-commit-golang": [
+        {
+            "id": "bazel-buildifier",
+            "name": "bazel buildifier",
+            "entry": "run-bazel-buildifier.sh",
+            "files": "BUILD",
+            "language": "script",
+            "description": "Runs `buildifier`, requires bazel buildifier"
+        },
+        {
+            "id": "go-imports",
+            "name": "go imports",
+            "entry": "run-go-imports.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go imports`, requires golang"
+        },
+        {
+            "id": "go-critic",
+            "name": "go-critic",
+            "entry": "run-go-critic.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go-critic`, requires go-critic"
+        },
+        {
+            "id": "golangci-lint",
+            "name": "golangci-lint",
+            "entry": "run-golangci-lint.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `golangci-lint`, requires golangci-lint"
         }
     ]
 }
