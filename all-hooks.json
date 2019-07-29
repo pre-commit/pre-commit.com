@@ -1290,8 +1290,11 @@
             "id": "golangci-lint",
             "name": "golangci-lint",
             "entry": "run-golangci-lint.sh",
-            "files": "\\.go$",
+            "types": [
+                "go"
+            ],
             "language": "script",
+            "pass_filenames": false,
             "description": "Runs `golangci-lint`, requires https://github.com/golangci/golangci-lint"
         },
         {
@@ -1404,7 +1407,7 @@
             "id": "beautysh",
             "name": "beautysh",
             "description": "A Bash beautifier for the masses.\nhttps://pypi.python.org/pypi/beautysh\n",
-            "entry": "beautysh -f",
+            "entry": "beautysh",
             "language": "python",
             "types": [
                 "shell"
@@ -2460,7 +2463,8 @@
             "description": "run roxygen2::roxygenize()",
             "entry": "bin/roxygenize",
             "language": "script",
-            "files": "^(R/|man/)"
+            "files": "^(R/|man/)",
+            "pass_filenames": false
         },
         {
             "id": "use-tidy-description",
@@ -2501,6 +2505,22 @@
             "entry": "bin/readme-rmd-rendered",
             "language": "script",
             "files": "README\\.[Rr]?md$"
+        },
+        {
+            "id": "spell-check",
+            "name": "spell-check",
+            "description": "perform a spell check with spelling::spell_check_files()",
+            "entry": "bin/spell-check",
+            "language": "script",
+            "exclude": "(\\.[rR]$|\\.py$|\\.gitignore$|\\.pre-commit)"
+        },
+        {
+            "id": "deps-in-desc",
+            "name": "deps-in-desc",
+            "description": "Check if dependencies that can be parsed from code are in DESCRIPTION.",
+            "entry": "bin/deps-in-desc",
+            "language": "script",
+            "files": "\\.[rR]$"
         }
     ],
     "https://github.com/FelixSeptem/pre-commit-golang": [
@@ -2508,7 +2528,7 @@
             "id": "bazel-buildifier",
             "name": "bazel buildifier",
             "entry": "run-bazel-buildifier.sh",
-            "files": "BUILD",
+            "files": "BUILD.bazel|BUILD",
             "language": "script",
             "description": "Runs `buildifier`, requires bazel buildifier"
         },
@@ -2535,6 +2555,27 @@
             "files": "\\.go$",
             "language": "script",
             "description": "Runs `golangci-lint`, requires golangci-lint"
+        }
+    ],
+    "https://gitlab.com/daverona-env/pre-commit-cpp": [
+        {
+            "id": "cpplint",
+            "name": "Compliance with Google C++ Style Guide",
+            "description": "Run cpplint against C/C++ header and source files",
+            "language": "python",
+            "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
+            "entry": "cpplint"
+        },
+        {
+            "id": "cppcheck",
+            "name": "Static analysis of C/C++ code",
+            "description": "Run cppcheck against C/C++ source files",
+            "language": "system",
+            "files": "\\.(c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
+            "entry": "cppcheck",
+            "args": [
+                "--error-exitcode=1"
+            ]
         }
     ]
 }
