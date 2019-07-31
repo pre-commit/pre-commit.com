@@ -2512,7 +2512,7 @@
             "description": "perform a spell check with spelling::spell_check_files()",
             "entry": "bin/spell-check",
             "language": "script",
-            "exclude": "(\\.[rR]$|\\.py$|\\.gitignore$|\\.pre-commit)"
+            "exclude": "(\\.[rR]$|\\.py$|^\\.gitignore$|^\\.pre-commit|^NAMESPACE$|^WORDLIST$)"
         },
         {
             "id": "deps-in-desc",
@@ -2559,8 +2559,19 @@
     ],
     "https://gitlab.com/daverona-env/pre-commit-cpp": [
         {
+            "id": "clang-format",
+            "name": "formatter of C/C++ code",
+            "description": "Run clang-format against C/C++ header and source files",
+            "language": "system",
+            "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
+            "entry": "clang-format -i",
+            "args": [
+                "-style=Google"
+            ]
+        },
+        {
             "id": "cpplint",
-            "name": "Compliance with Google C++ Style Guide",
+            "name": "linter for Google C++ Style Guide",
             "description": "Run cpplint against C/C++ header and source files",
             "language": "python",
             "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
@@ -2568,14 +2579,11 @@
         },
         {
             "id": "cppcheck",
-            "name": "Static analysis of C/C++ code",
+            "name": "static analyzer of C/C++ code",
             "description": "Run cppcheck against C/C++ source files",
             "language": "system",
             "files": "\\.(c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
-            "entry": "cppcheck",
-            "args": [
-                "--error-exitcode=1"
-            ]
+            "entry": "cppcheck --error-exitcode=1"
         }
     ]
 }
