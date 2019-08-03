@@ -537,7 +537,8 @@ needs additional dependencies the consumer must install them manually.</p>
 <p>All pre-commit commands take the following options:</p>
 <ul>
 <li><code>--color {auto,always,never}</code>: whether to use color in output.
-Defaults to <code>auto</code>.</li>
+Defaults to <code>auto</code>.  <em>new in 1.18.0</em>: can be overridden by using
+<code>PRE_COMMIT_COLOR={auto,always,never}</code> or disabled using <code>TERM=dumb</code>.</li>
 <li><code>-c CONFIG</code>, <code>--config CONFIG</code>: path to alternate config file</li>
 <li><code>-h</code>, <code>--help</code>: show help and available options.</li>
 </ul>
@@ -549,14 +550,29 @@ latest tagged version (the default behaviour).</li>
 <li><code>--repo REPO</code>: <em>new in 1.4.1</em>: Only update this repository. <em>new in 1.7.0</em>:
 This option may be specified multiple times.</li>
 </ul>
+<h2 id="pre-commit-clean">    pre-commit clean [options] <a href="#pre-commit-clean"></a> <small><a href="#pre-commit-clean">¶</a></small></h2> <p>Clean out cached pre-commit files.</p>
+<p>Options: (no additional options)</p>
 <h2 id="pre-commit-gc">    pre-commit gc [options] <a href="#pre-commit-gc"></a> <small><a href="#pre-commit-gc">¶</a></small></h2> <p><em>new in 1.14.0</em></p>
 <p>Clean unused cached repos.</p>
 <p><code>pre-commit</code> keeps a cache of installed hook repositories which grows over
 time.  This command can be run periodically to clean out unused repos from
 the cache directory.</p>
 <p>Options: (no additional options)</p>
-<h2 id="pre-commit-clean">    pre-commit clean [options] <a href="#pre-commit-clean"></a> <small><a href="#pre-commit-clean">¶</a></small></h2> <p>Clean out cached pre-commit files.</p>
-<p>Options: (no additional options)</p>
+<h2 id="pre-commit-init-templatedir">    pre-commit init-templatedir DIRECTORY [options] <a href="#pre-commit-init-templatedir"></a> <small><a href="#pre-commit-init-templatedir">¶</a></small></h2> <p><em>new in 1.18.0</em></p>
+<p>Install hook script in a directory intended for use with
+<code>git config init.templateDir</code>.</p>
+<p>Options:</p>
+<ul>
+<li><code>-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}</code>,
+<code>--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}</code>:
+which hook type to install.</li>
+</ul>
+<p>Some example useful invocations:</p>
+<div class="highlight bash"><pre><span></span>git config --global init.templateDir ~/.git-template
+pre-commit init-templatedir ~/.git-template
+</pre></div>
+<p>Now whenever a repository is cloned or created, it will have the hooks set up
+already!</p>
 <h2 id="pre-commit-install">    pre-commit install [options] <a href="#pre-commit-install"></a> <small><a href="#pre-commit-install">¶</a></small></h2> <p>Install the pre-commit script.</p>
 <p>Options:</p>
 <ul>
@@ -793,7 +809,37 @@ repository.
 </td><td><p>a simple hook which prints all arguments passed to it, useful for
 debugging.
 <em>new in 1.14.0</em>.</p>
-</td></tr></tbody></table><h2 id="filtering-files-with-types">    Filtering files with types <small><a href="#filtering-files-with-types">¶</a></small></h2> <p><em>new in 0.15.0</em></p>
+</td></tr></tbody></table><h2 id="automatically-enabling-pre-commit-on-repositories">    automatically enabling pre-commit on repositories <small><a href="#automatically-enabling-pre-commit-on-repositories">¶</a></small></h2> <p><em>new in 1.18.0</em></p>
+<p><code>pre-commit init-templatedir</code> can be used to set up a skeleton for <code>git</code>'s
+<code>init.templateDir</code> option.  This means that any newly cloned repository will
+automatically have the hooks set up without the need to run
+<code>pre-commit install</code>.</p>
+<p>To configure, first set <code>git</code>'s <code>init.templateDir</code> -- in this example I'm
+using <code>~/.git-template</code> as my template directory.</p>
+<div class="highlight console"><pre><span></span><span class="gp">$</span> git config --global init.templateDir ~/.git-template
+<span class="gp">$</span> pre-commit init-templatedir ~/.git-template
+<span class="go">pre-commit installed at /home/asottile/.git-template/hooks/pre-commit</span>
+</pre></div>
+<p>Now whenever you clone a pre-commit enabled repo, the hooks will already be
+set up!</p>
+<div class="highlight pre-commit"><pre><span></span>$ git clone -q git@github.com:asottile/pyupgrade
+$ cd pyupgrade
+$ git commit --allow-empty -m &#39;Hello world!&#39;
+Check docstring is first.............................(no files to check)<span class=" -Color -Color-BlackBGCyan">Skipped</span>
+Check Yaml...........................................(no files to check)<span class=" -Color -Color-BlackBGCyan">Skipped</span>
+Debug Statements (Python)............................(no files to check)<span class=" -Color -Color-BlackBGCyan">Skipped</span>
+...
+</pre></div>
+<p><code>init-templatedir</code> uses the <code>--allow-missing-config</code> option from
+<code>pre-commit install</code> so repos without a config will be skipped:</p>
+<div class="highlight console"><pre><span></span><span class="gp">$</span> git init sample
+<span class="go">Initialized empty Git repository in /tmp/sample/.git/</span>
+<span class="gp">$</span> <span class="nb">cd</span> sample
+<span class="gp">$</span> git commit --allow-empty -m <span class="s1">&#39;Initial commit&#39;</span>
+<span class="go">`.pre-commit-config.yaml` config file not found. Skipping `pre-commit`.</span>
+<span class="go">[master (root-commit) d1b39c1] Initial commit</span>
+</pre></div>
+<h2 id="filtering-files-with-types">    Filtering files with types <small><a href="#filtering-files-with-types">¶</a></small></h2> <p><em>new in 0.15.0</em></p>
 <p>Filtering with <code>types</code> provides several advantages over traditional filtering
 with <code>files</code>.</p>
 <ul>
