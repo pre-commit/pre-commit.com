@@ -695,7 +695,8 @@ ${md('''
 All pre-commit commands take the following options:
 
 - `--color {auto,always,never}`: whether to use color in output.
-  Defaults to `auto`.
+  Defaults to `auto`.  _new in 1.18.0_: can be overridden by using
+  `PRE_COMMIT_COLOR={auto,always,never}` or disabled using `TERM=dumb`.
 - `-c CONFIG`, `--config CONFIG`: path to alternate config file
 - `-h`, `--help`: show help and available options.
 
@@ -710,6 +711,12 @@ Options:
 - `--repo REPO`: _new in 1.4.1_: Only update this repository. _new in 1.7.0_:
   This option may be specified multiple times.
 
+## pre-commit clean [options] [](#pre-commit-clean)
+
+Clean out cached pre-commit files.
+
+Options: (no additional options)
+
 ## pre-commit gc [options] [](#pre-commit-gc)
 
 _new in 1.14.0_
@@ -722,11 +729,28 @@ the cache directory.
 
 Options: (no additional options)
 
-## pre-commit clean [options] [](#pre-commit-clean)
+## pre-commit init-templatedir DIRECTORY [options] [](#pre-commit-init-templatedir)
 
-Clean out cached pre-commit files.
+_new in 1.18.0_
 
-Options: (no additional options)
+Install hook script in a directory intended for use with
+`git config init.templateDir`.
+
+Options:
+
+- `-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}`,
+  `--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}`:
+  which hook type to install.
+
+Some example useful invocations:
+
+```bash
+git config --global init.templateDir ~/.git-template
+pre-commit init-templatedir ~/.git-template
+```
+
+Now whenever a repository is cloned or created, it will have the hooks set up
+already!
 
 ## pre-commit install [options] [](#pre-commit-install)
 
@@ -1057,6 +1081,48 @@ The currently available `meta` hooks:
         _new in 1.14.0_.
 ```
 
+## automatically enabling pre-commit on repositories
+
+_new in 1.18.0_
+
+`pre-commit init-templatedir` can be used to set up a skeleton for `git`'s
+`init.templateDir` option.  This means that any newly cloned repository will
+automatically have the hooks set up without the need to run
+`pre-commit install`.
+
+To configure, first set `git`'s `init.templateDir` -- in this example I'm
+using `~/.git-template` as my template directory.
+
+```console
+$ git config --global init.templateDir ~/.git-template
+$ pre-commit init-templatedir ~/.git-template
+pre-commit installed at /home/asottile/.git-template/hooks/pre-commit
+```
+
+Now whenever you clone a pre-commit enabled repo, the hooks will already be
+set up!
+
+```pre-commit
+$ git clone -q git@github.com:asottile/pyupgrade
+$ cd pyupgrade
+$ git commit --allow-empty -m 'Hello world!'
+Check docstring is first.............................(no files to check)Skipped
+Check Yaml...........................................(no files to check)Skipped
+Debug Statements (Python)............................(no files to check)Skipped
+...
+```
+
+`init-templatedir` uses the `--allow-missing-config` option from
+`pre-commit install` so repos without a config will be skipped:
+
+```console
+$ git init sample
+Initialized empty Git repository in /tmp/sample/.git/
+$ cd sample
+$ git commit --allow-empty -m 'Initial commit'
+`.pre-commit-config.yaml` config file not found. Skipping `pre-commit`.
+[master (root-commit) d1b39c1] Initial commit
+```
 
 ## Filtering files with types
 
