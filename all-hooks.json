@@ -2595,5 +2595,17 @@
             "files": "\\.(c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
             "entry": "cppcheck --error-exitcode=1"
         }
+    ],
+    "https://github.com/codingjoe/relint": [
+        {
+            "id": "relint",
+            "name": "relint",
+            "description": "Write your own linting rules using regular expressions.",
+            "entry": "relint",
+            "language": "python",
+            "types": [
+                "file"
+            ]
+        }
     ]
 }
