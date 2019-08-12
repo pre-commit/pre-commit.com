@@ -758,25 +758,38 @@ Install the pre-commit script.
 
 Options:
 
-- `-f`, `--overwrite`: overwrite existing hooks / remove migration mode.
-- `--install-hooks`: also install hook environments for all available hooks.
+- `-f`, `--overwrite`: Replace any existing git hooks with the pre-commit
+  script.
+- `--install-hooks`: Also install environments for all available hooks now
+  (rather than when they are first executed). See [`pre-commit
+  install-hooks`](#pre-commit-install-hooks).
 - `-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}`,
   `--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}`:
-  which hook type to install.
-- `--allow-missing-config`: whether to allow the installed hook scripts to
-  permit a missing configuration file.
+  Specify which hook type to install.
+- `--allow-missing-config`: Hook scripts will permit a missing configuration
+  file.
 
 Some example useful invocations:
 
-- `pre-commit install`: default install invocation will run existing hook
-  scripts alongside pre-commit.
-- `pre-commit install -f --install-hooks`: idempotently replace git hook
-  scripts with pre-commit and also install hooks.
+- `pre-commit install`: Default invocation. Installs the pre-commit script
+   alongside any existing git hooks.
+- `pre-commit install --install-hooks --overwrite`: Idempotently replaces
+   existing git hook scripts with pre-commit, and also installs hook
+   environments.
 
 ## pre-commit install-hooks [options] [](#pre-commit-install-hooks)
 
-Install hook environments for all environments in the config file.  You may
-find `pre-commit install --install-hooks` more useful.
+Install all missing environments for the available hooks. Unless this command or
+`install --install-hooks` is executed, each hook's environment is created the
+first time the hook is called.
+
+Each hook is initialized in a separate environment appropriate to the language
+the hook is written in. For example: python
+[virtualenv](https://virtualenv.pypa.io/en/stable/), ruby
+[rbenv](https://github.com/rbenv/rbenv), etc.
+
+This command does not install the pre-commit script. To install the script along with
+the hook environments in one command, use `pre-commit install --install hooks`.
 
 Options: (no additional options)
 
