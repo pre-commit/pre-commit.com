@@ -36,7 +36,7 @@ push: venv
 		--master-branch real_master \
 		--pages-branch master \
 		.nojekyll .travis.yml README.md CNAME \
-		build node_modules *.html *.png favicon.ico \
+		build node_modules *.html *.png *.svg favicon.ico \
 		all-hooks.json install-local.py
 
 clean:
