@@ -784,9 +784,7 @@ Install all missing environments for the available hooks. Unless this command or
 first time the hook is called.
 
 Each hook is initialized in a separate environment appropriate to the language
-the hook is written in. For example: python
-[virtualenv](https://virtualenv.pypa.io/en/stable/), ruby
-[rbenv](https://github.com/rbenv/rbenv), etc.
+the hook is written in. See [supported languages](#Supported-languages).
 
 This command does not install the pre-commit script. To install the script along with
 the hook environments in one command, use `pre-commit install --install hooks`.
