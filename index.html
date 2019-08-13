@@ -119,6 +119,72 @@ requirements-dev.txt):</p>
 <p>Using <a href="https://conda.io">conda</a> (via <a href="https://conda-forge.org">conda-forge</a>):</p>
 <div class="highlight bash"><pre><span></span>conda install -c conda-forge pre_commit
 </pre></div>
+<h2 id="quick-start">    Quick start <small><a href="#quick-start">¶</a></small></h2> <h3 id="1-install-pre-commit">    1. Install pre-commit <small><a href="#1-install-pre-commit">¶</a></small></h3> <ul>
+<li>follow the <a href="#install">install</a> instructions above</li>
+<li><code>pre-commit --version</code> should show you what version you're using</li>
+</ul>
+<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit --version
+<span class="go">pre-commit 1.18.1</span>
+</pre></div>
+<h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration">¶</a></small></h3> <ul>
+<li>create a file named <code>.pre-commit-config.yaml</code></li>
+<li>you can generate a very basic configuration using
+<a href="#pre-commit-sample-config"><code>pre-commit sample-config</code></a></li>
+<li>the full set of options for the configuration are listed <a href="#plugins">below</a></li>
+<li>this example uses a formatter for python code, however <code>pre-commit</code> works for
+any programming language</li>
+<li>other <a href="hooks.html">supported hooks</a> are available</li>
+</ul>
+<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+    <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v2.3.0</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check-yaml</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">end-of-file-fixer</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+<span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/psf/black</span>
+    <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19.3b0</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">black</span>
+</pre></div>
+<h3 id="3-install-the-git-hook-scripts">    3. Install the git hook scripts <small><a href="#3-install-the-git-hook-scripts">¶</a></small></h3> <ul>
+<li>run <code>pre-commit install</code> to set up the git hook scripts</li>
+</ul>
+<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install
+<span class="go">pre-commit installed at .git/hooks/pre-commit</span>
+</pre></div>
+<ul>
+<li>now <code>pre-commit</code> will run automatically on <code>git commit</code>!</li>
+</ul>
+<h3 id="4-optional-run-against-all-the-files">    4. (optional) Run against all the files <small><a href="#4-optional-run-against-all-the-files">¶</a></small></h3> <ul>
+<li>it's usually a good idea to run the hooks against all of the files when adding
+new hooks (usually <code>pre-commit</code> will only run on the changed files during
+git hooks)</li>
+</ul>
+<div class="highlight pre-commit"><pre><span></span>$ pre-commit run --all-files
+[INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Initializing environment for https://github.com/psf/black.
+[INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/psf/black.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+Check Yaml...............................................................<span class=" -Color -Color-BGGreen">Passed</span>
+Fix End of Files.........................................................<span class=" -Color -Color-BGGreen">Passed</span>
+Trim Trailing Whitespace.................................................<span class=" -Color -Color-BGRed">Failed</span>
+hookid: trailing-whitespace
+
+Files were modified by this hook. Additional output:
+
+Fixing sample.py
+
+black....................................................................<span class=" -Color -Color-BGGreen">Passed</span>
+</pre></div>
+<ul>
+<li>oops! looks like I had some trailing whitespace</li>
+<li>consider running that in <a href="#usage-in-continuous-integration">CI</a> too</li>
+</ul>
 
         </div>
 
