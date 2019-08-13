@@ -576,23 +576,32 @@ already!</p>
 <h2 id="pre-commit-install">    pre-commit install [options] <a href="#pre-commit-install"></a> <small><a href="#pre-commit-install">¶</a></small></h2> <p>Install the pre-commit script.</p>
 <p>Options:</p>
 <ul>
-<li><code>-f</code>, <code>--overwrite</code>: overwrite existing hooks / remove migration mode.</li>
-<li><code>--install-hooks</code>: also install hook environments for all available hooks.</li>
+<li><code>-f</code>, <code>--overwrite</code>: Replace any existing git hooks with the pre-commit
+script.</li>
+<li><code>--install-hooks</code>: Also install environments for all available hooks now
+(rather than when they are first executed). See <a href="#pre-commit-install-hooks"><code>pre-commit
+install-hooks</code></a>.</li>
 <li><code>-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}</code>,
 <code>--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}</code>:
-which hook type to install.</li>
-<li><code>--allow-missing-config</code>: whether to allow the installed hook scripts to
-permit a missing configuration file.</li>
+Specify which hook type to install.</li>
+<li><code>--allow-missing-config</code>: Hook scripts will permit a missing configuration
+file.</li>
 </ul>
 <p>Some example useful invocations:</p>
 <ul>
-<li><code>pre-commit install</code>: default install invocation will run existing hook
-scripts alongside pre-commit.</li>
-<li><code>pre-commit install -f --install-hooks</code>: idempotently replace git hook
-scripts with pre-commit and also install hooks.</li>
+<li><code>pre-commit install</code>: Default invocation. Installs the pre-commit script
+ alongside any existing git hooks.</li>
+<li><code>pre-commit install --install-hooks --overwrite</code>: Idempotently replaces
+ existing git hook scripts with pre-commit, and also installs hook
+ environments.</li>
 </ul>
-<h2 id="pre-commit-install-hooks">    pre-commit install-hooks [options] <a href="#pre-commit-install-hooks"></a> <small><a href="#pre-commit-install-hooks">¶</a></small></h2> <p>Install hook environments for all environments in the config file.  You may
-find <code>pre-commit install --install-hooks</code> more useful.</p>
+<h2 id="pre-commit-install-hooks">    pre-commit install-hooks [options] <a href="#pre-commit-install-hooks"></a> <small><a href="#pre-commit-install-hooks">¶</a></small></h2> <p>Install all missing environments for the available hooks. Unless this command or
+<code>install --install-hooks</code> is executed, each hook's environment is created the
+first time the hook is called.</p>
+<p>Each hook is initialized in a separate environment appropriate to the language
+the hook is written in. See <a href="#supported-languages">supported languages</a>.</p>
+<p>This command does not install the pre-commit script. To install the script along with
+the hook environments in one command, use <code>pre-commit install --install hooks</code>.</p>
 <p>Options: (no additional options)</p>
 <h2 id="pre-commit-migrate-config">    pre-commit migrate-config [options] <a href="#pre-commit-migrate-config"></a> <small><a href="#pre-commit-migrate-config">¶</a></small></h2> <p><em>new in 1.0.0</em></p>
 <p>Migrate list configuration to the new map configuration format.</p>
