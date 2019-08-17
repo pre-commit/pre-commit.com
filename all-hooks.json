@@ -2498,7 +2498,7 @@
             "description": "check if a .R file contains a `browser()` statement",
             "entry": "bin/no-browser-statement",
             "language": "script",
-            "files": "\\.R$"
+            "files": "\\.[rR]$"
         },
         {
             "id": "parsable-R",
@@ -2506,7 +2506,7 @@
             "description": "check if a .R file is parsable",
             "entry": "bin/parsable-R",
             "language": "script",
-            "files": "\\.R$"
+            "files": "\\.[rR]$"
         },
         {
             "id": "readme-rmd-rendered",
@@ -2529,6 +2529,14 @@
             "name": "deps-in-desc",
             "description": "Check if dependencies that can be parsed from code are in DESCRIPTION.",
             "entry": "bin/deps-in-desc",
+            "language": "script",
+            "files": "\\.[rR]$"
+        },
+        {
+            "id": "lintr",
+            "name": "lintr",
+            "description": "check if a .R file is lint free (using lintr)",
+            "entry": "bin/lintr",
             "language": "script",
             "files": "\\.[rR]$"
         }
