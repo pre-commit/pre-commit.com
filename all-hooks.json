@@ -378,7 +378,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@6.1.0"
+                "eslint@6.2.0"
             ]
         }
     ],
@@ -1562,6 +1562,15 @@
             "name": "cargo check",
             "description": "Check the package for errors.",
             "entry": "cargo check",
+            "language": "system",
+            "files": "\\.rs$",
+            "pass_filenames": false
+        },
+        {
+            "id": "clippy",
+            "name": "clippy",
+            "description": "Lint rust sources",
+            "entry": "cargo clippy -- -D warnings",
             "language": "system",
             "files": "\\.rs$",
             "pass_filenames": false
