@@ -2653,5 +2653,18 @@
             "files": "\\.nix$",
             "minimum_pre_commit_version": "1.18.1"
         }
+    ],
+    "https://github.com/d6e/beancount-check": [
+        {
+            "id": "beancount-check",
+            "name": "beancount-check",
+            "entry": "bean-check",
+            "language": "python",
+            "files": ".*(.beancount|.ledger)$",
+            "require_serial": true,
+            "additional_dependencies": [
+                "beancount"
+            ]
+        }
     ]
 }
