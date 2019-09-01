@@ -378,7 +378,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@6.2.2"
+                "eslint@6.3.0"
             ]
         }
     ],
