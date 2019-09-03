@@ -194,8 +194,8 @@ h1,
     // scss-lint:disable SelectorFormat
     .-Color-BGRed { background-color: #c00; }
     .-Color-BGGreen { background-color: #4e9a06; }
-    .-Color-BlackBGYellow { background-color: #c4a000; color: #2e3436; }
-    .-Color-BlackBGCyan { background-color: #06989a; color: #2e3436; }
+    .-Color-Black-BGYellow { background-color: #c4a000; color: #2e3436; }
+    .-Color-Black-BGCyan { background-color: #06989a; color: #2e3436; }
 }
 
 @media (max-width: $screen-md-max) {
