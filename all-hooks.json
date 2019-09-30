@@ -378,7 +378,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@6.4.0"
+                "eslint@6.5.0"
             ]
         }
     ],
@@ -2666,6 +2666,20 @@
             "additional_dependencies": [
                 "beancount"
             ]
+        }
+    ],
+    "https://github.com/iconmaster5326/cmake-format-pre-commit-hook": [
+        {
+            "id": "cmake-format",
+            "name": "cmake-format",
+            "entry": "cmake-format",
+            "language": "python",
+            "files": "^(CMake.*|.*\\.cmake.*)$",
+            "args": [
+                "-i"
+            ],
+            "require_serial": false,
+            "additional_dependencies": []
         }
     ]
 }
