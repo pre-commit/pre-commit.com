@@ -2672,6 +2672,7 @@
         {
             "id": "cmake-format",
             "name": "cmake-format",
+            "description": "Formats CMake list files.",
             "entry": "cmake-format",
             "language": "python",
             "files": "^(CMake.*|.*\\.cmake.*)$",
