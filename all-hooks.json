@@ -2675,7 +2675,7 @@
             "description": "Formats CMake list files.",
             "entry": "cmake-format",
             "language": "python",
-            "files": "^(CMake.*|.*\\.cmake.*)$",
+            "files": "^(CMakeLists.*|.*\\.cmake|.*\\.cmake.in)$",
             "args": [
                 "-i"
             ],
