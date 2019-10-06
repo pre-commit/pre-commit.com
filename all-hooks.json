@@ -2690,5 +2690,20 @@
             "require_serial": false,
             "additional_dependencies": []
         }
+    ],
+    "https://github.com/thg-consulting/inspectortiger": [
+        {
+            "id": "inspectortiger",
+            "name": "inspectortiger",
+            "description": "Inspectes your code",
+            "entry": "inspectortiger",
+            "language": "python",
+            "language_version": "python3.7",
+            "require_serial": true,
+            "verbose": true,
+            "types": [
+                "python"
+            ]
+        }
     ]
 }
