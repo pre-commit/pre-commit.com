@@ -452,6 +452,7 @@
                 "puppet"
             ],
             "args": [],
+            "require_serial": false,
             "additional_dependencies": []
         }
     ],
