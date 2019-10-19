@@ -518,7 +518,7 @@
             "id": "python-check-blanket-noqa",
             "name": "check blanket noqa",
             "description": "Enforce that `noqa` annotations always occur with specific codes",
-            "entry": "# noqa(?!: )",
+            "entry": "(?i)# noqa(?!: )",
             "language": "pygrep",
             "types": [
                 "python"
