@@ -2728,5 +2728,17 @@
             "language": "python",
             "language_version": "python3"
         }
+    ],
+    "https://github.com/Kuniwak/vint": [
+        {
+            "id": "vint",
+            "name": "Vint Vim script linting",
+            "description": "Lints all vim files",
+            "language": "python",
+            "entry": "vint",
+            "types": [
+                "vim"
+            ]
+        }
     ]
 }
