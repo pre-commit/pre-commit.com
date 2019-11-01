@@ -1521,9 +1521,10 @@
             "id": "ansible-lint",
             "name": "Ansible-lint",
             "description": "This hook runs ansible-lint.",
-            "entry": "ansible-lint",
+            "entry": "ansible-lint --force-color .",
             "language": "python",
-            "files": "\\.(yaml|yml)$"
+            "pass_filenames": false,
+            "always_run": true
         }
     ],
     "https://github.com/doublify/pre-commit-clang-format": [
