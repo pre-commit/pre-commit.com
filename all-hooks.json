@@ -2751,5 +2751,18 @@
             "files": "\\.(lisp|cl|asd|scm|el)$",
             "entry": "lisp-format -i"
         }
+    ],
+    "https://github.com/ryanrhee/shellcheck-py": [
+        {
+            "id": "shellcheck",
+            "name": "shellcheck",
+            "description": "Test shell scripts with shellcheck",
+            "entry": "shellcheck",
+            "language": "python",
+            "types": [
+                "shell"
+            ],
+            "require_serial": true
+        }
     ]
 }
