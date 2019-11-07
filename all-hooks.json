@@ -420,8 +420,9 @@
                 "javascript"
             ],
             "args": [],
+            "require_serial": false,
             "additional_dependencies": [
-                "jshint@2.10.2"
+                "jshint@2.10.3"
             ]
         }
     ],
@@ -695,6 +696,7 @@
             "name": "detect dead code",
             "description": "dead simple python dead code detection",
             "entry": "dead",
+            "pass_filenames": false,
             "language": "python",
             "language_version": "python3",
             "types": [
@@ -2522,8 +2524,7 @@
             "description": "run roxygen2::roxygenize()",
             "entry": "inst/bin/roxygenize",
             "language": "script",
-            "files": "^(R/|man/)",
-            "pass_filenames": false
+            "files": "^R/"
         },
         {
             "id": "use-tidy-description",
