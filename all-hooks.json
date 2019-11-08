@@ -2524,7 +2524,7 @@
             "description": "run roxygen2::roxygenize()",
             "entry": "inst/bin/roxygenize",
             "language": "script",
-            "files": "^R/"
+            "files": "^(R|man)/"
         },
         {
             "id": "use-tidy-description",
@@ -2764,6 +2764,19 @@
                 "shell"
             ],
             "require_serial": true
+        }
+    ],
+    "https://github.com/APIDevTools/swagger-cli": [
+        {
+            "id": "swagger-validation",
+            "name": "swagger-validation",
+            "entry": "swagger-cli",
+            "description": "Hook to validate swagger specs.",
+            "language": "node",
+            "files": "(openapi|swagger).*\\.(json|ya?ml)$",
+            "args": [
+                "validate"
+            ]
         }
     ]
 }
