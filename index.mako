@@ -1350,6 +1350,78 @@ everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
 `git diff-tree --no-commit-id --name-only -r $REVISION | xargs pre-commit run --files`.
 
+## Managing CI Caches
+
+`pre-commit` by default places its repository store in `~/.cache/pre-commit`
+-- this can be configured in two ways:
+
+- `PRE_COMMIT_HOME`: if set, pre-commit will use that location instead.
+- `XDG_CACHE_HOME`: if set, pre-commit will use `$XDG_CACHE_HOME/pre-commit`
+  following the [XDG Base Directory Specification].
+
+[XDG Base Directory Specification]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+
+### travis-ci example
+
+```yaml
+cache:
+  directories:
+  - $HOME/.cache/pre-commit
+```
+
+### appveyor example
+
+```yaml
+cache:
+- '%USERPROFILE%\.cache\pre-commit'
+```
+
+### azure pipelines example
+
+note: azure pipelines uses immutable caches so the python version and
+`.pre-commit-config.yaml` hash must be included in the cache key.  for a
+repository template, see [asottile@job--pre-commit.yml].
+
+[job--pre-commit.yml]: https://github.com/asottile/azure-pipeline-templates/blob/master/job--pre-commit.yml
+
+```yaml
+jobs:
+- job: precommit
+
+  # ...
+
+  variables:
+    PRE_COMMIT_HOME: $(Pipeline.Workspace)/pre-commit-cache
+
+  steps:
+
+  # ...
+
+  - script: echo "##vso[task.setvariable variable=PY]$(python -VV)"
+  - task: CacheBeta@0
+    inputs:
+      key: pre-commit | .pre-commit-config.yaml | "$(PY)"
+      path: $(PRE_COMMIT_HOME)
+```
+
+### github actions example
+
+**see the [official pre-commit github action]**
+
+[official pre-commit github action]: https://github.com/pre-commit/action
+
+like [azure pipelines](#azure-pipelines-example), github actions also uses
+immutable caches:
+
+```yaml
+    - name: set PY
+      run: echo "::set-env name=PY::$(python -VV | sha256sum | cut -d' ' -f1)"
+    - uses: actions/cache@v1
+      with:
+        path: ~/.cache/pre-commit
+        key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+```
+
 ## Usage with tox
 
 [tox](https://tox.readthedocs.io/) is useful for configuring test / CI tools
