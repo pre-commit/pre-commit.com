@@ -18,7 +18,7 @@ from template_lib import md
     </div>
     <div class="col-sm-9">
         <div id="intro">
-            <div class="page-header"><h1>Introduction</h1></div>
+            <div class="page-header">${md('# Introduction')}</div>
 ${md('''
 Git hook scripts are useful for identifying simple issues before submission to
 code review.  We run our hooks on every commit to automatically point out
@@ -49,7 +49,7 @@ and building node to run eslint without root.
 ''')}
         </div>
         <div id="install">
-            <div class="page-header"><h1>Installation</h1></div>
+            <div class="page-header">${md('# Installation')}</div>
 ${md('''
 Before you can run hooks, you need to have the pre-commit package manager
 installed.
@@ -171,9 +171,7 @@ black....................................................................Passed
         </div>
 
         <div id="plugins">
-            <div class="page-header">
-                <h1>Adding pre-commit plugins to your project</h1>
-            </div>
+            <div class="page-header">${md('# Adding pre-commit plugins to your project')}</div>
 ${md('''
 Once you have pre-commit installed, adding pre-commit plugins to your project
 is done with the `.pre-commit-config.yaml` configuration file.
@@ -355,7 +353,7 @@ master branch.
         </div>
 
         <div id="usage">
-            <div class="page-header"><h1>Usage</h1></div>
+            <div class="page-header">${md('# Usage')}</div>
 ${md('''
 Run `pre-commit install` to install pre-commit into your git hooks. pre-commit
 will now run on every commit. Every time you clone a project using pre-commit
@@ -393,7 +391,7 @@ changelog filenames..................................(no files to check)Skipped
         </div>
 
         <div id="new-hooks">
-            <div class="page-header"><h1>Creating new hooks</h1></div>
+            <div class="page-header">${md('# Creating new hooks')}</div>
 ${md('''
 pre-commit currently supports hooks written in
 [many languages](#supported-languages). As long as your git repo is an
@@ -767,7 +765,7 @@ __Support:__ the support of system hooks depend on the executables.
         </div>
 
         <div id="cli">
-            <div class="page-header"><h1>Command line interface</h1></div>
+            <div class="page-header">${md('# Command line interface')}</div>
 
 ${md('''
 All pre-commit commands take the following options:
@@ -952,7 +950,7 @@ Options:
         </div>
 
         <div id="advanced">
-            <div class="page-header"><h1>Advanced features</h1></div>
+            <div class="page-header">${md('# Advanced features')}</div>
 
 ${md('''
 ## Running in migration mode
@@ -1488,7 +1486,7 @@ automatically).
         </div>
 
         <div id="contributing">
-            <div class="page-header"><h1>Contributing</h1></div>
+            <div class="page-header">${md('# Contributing')}</div>
 
 ${md('''
 We’re looking to grow the project and get more contributors especially to
