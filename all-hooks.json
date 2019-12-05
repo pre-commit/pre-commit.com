@@ -2800,5 +2800,40 @@
             "pass_filenames": false,
             "files": ".gitlab-ci.yml"
         }
+    ],
+    "https://github.com/bmorcos/pre-commit-hooks-cpp": [
+        {
+            "id": "clang-format",
+            "name": "clang-format",
+            "description": "Format C code using clang-format.",
+            "language": "system",
+            "files": "\\.(c|cc|cxx|cpp|h|hpp|hxx)$",
+            "entry": "clang-format -i",
+            "args": [
+                "-style=Google"
+            ]
+        },
+        {
+            "id": "cpplint",
+            "name": "cpplint",
+            "description": "Check style of C code using cpplint.",
+            "language": "python",
+            "files": "\\.(c|cc|cxx|cpp|h|hpp|hxx)$",
+            "entry": "cpplint",
+            "args": [
+                "--verbose=3"
+            ]
+        },
+        {
+            "id": "cppcheck",
+            "name": "cppcheck",
+            "description": "Check correctness of C code using cppcheck.",
+            "language": "system",
+            "files": "\\.(c|cc|cxx|cpp|h|hpp|hxx)$",
+            "entry": "cppcheck --error-exitcode=1",
+            "args": [
+                "--enable=warning"
+            ]
+        }
     ]
 }
