@@ -40,6 +40,7 @@
 - https://github.com/Lucas-C/pre-commit-hooks-safety
 - https://github.com/chriskuehl/puppet-pre-commit-hooks
 - https://github.com/golangci/golangci-lint
+- https://github.com/Bahjat/pre-commit-golang
 - https://github.com/dnephin/pre-commit-golang
 - https://github.com/troian/pre-commit-golang
 - https://github.com/jstewmon/check-swagger
