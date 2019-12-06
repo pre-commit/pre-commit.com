@@ -793,6 +793,45 @@ Also available in <a href="/all-hooks.json">json</a>.
             </li>
     </ul>
     <h3>
+        <a href="https://github.com/Bahjat/pre-commit-golang" target="_blank">
+            github.com/Bahjat/pre-commit-golang
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>go-fmt-import</code>
+                    - Runs `goimport,gofmt`, requires golang
+            </li>
+            <li>
+                <code>go-vet</code>
+                    - Runs `go vet`, requires golang
+            </li>
+            <li>
+                <code>go-lint</code>
+                    - Runs `go lint`, requires golang
+            </li>
+            <li>
+                <code>go-unit-tests</code>
+                    - Runs `go test`, requires golang
+            </li>
+            <li>
+                <code>gofumpt</code>
+                    - Runs `gofumpt`, requires github.com/mvdan/gofumpt
+            </li>
+            <li>
+                <code>go-err-check</code>
+                    - Runs `errcheck`, requires github.com/kisielk/errcheck
+            </li>
+            <li>
+                <code>go-static-check</code>
+                    - Runs `staticcheck`, install https://staticcheck.io/docs/
+            </li>
+            <li>
+                <code>golangci-lint</code>
+                    - Runs `golangci-lint`, install https://github.com/golangci/golangci-lint
+            </li>
+    </ul>
+    <h3>
         <a href="https://github.com/dnephin/pre-commit-golang" target="_blank">
             github.com/dnephin/pre-commit-golang
         </a>
@@ -1667,6 +1706,10 @@ https://pypi.python.org/pypi/beautysh
             <li>
                 <code>readme-rmd-rendered</code>
                     - make sure README.Rmd hasn&#39;t been edited more recently than README.md
+            </li>
+            <li>
+                <code>codemeta-description-updated</code>
+                    - make sure codemeta.json is in sync with DESCRIPTION
             </li>
             <li>
                 <code>spell-check</code>

@@ -1251,6 +1251,72 @@
             "pass_filenames": false
         }
     ],
+    "https://github.com/Bahjat/pre-commit-golang": [
+        {
+            "id": "go-fmt-import",
+            "name": "go import/fmt",
+            "entry": "run-go-fmt-import.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `goimport,gofmt`, requires golang"
+        },
+        {
+            "id": "go-vet",
+            "name": "go vet",
+            "entry": "run-go-vet.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go vet`, requires golang"
+        },
+        {
+            "id": "go-lint",
+            "name": "golint",
+            "entry": "run-go-lint.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go lint`, requires golang"
+        },
+        {
+            "id": "go-unit-tests",
+            "name": "go unit test",
+            "entry": "run-go-unit-tests.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go test`, requires golang"
+        },
+        {
+            "id": "gofumpt",
+            "name": "gofumpt",
+            "entry": "run-go-gofumpt.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `gofumpt`, requires github.com/mvdan/gofumpt"
+        },
+        {
+            "id": "go-err-check",
+            "name": "go errcheck",
+            "entry": "run-go-err-check.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `errcheck`, requires github.com/kisielk/errcheck"
+        },
+        {
+            "id": "go-static-check",
+            "name": "go staticcheck",
+            "entry": "run-go-static-check.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `staticcheck`, install https://staticcheck.io/docs/"
+        },
+        {
+            "id": "golangci-lint",
+            "name": "go golangci-lint",
+            "entry": "run-golangci-lint.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `golangci-lint`, install https://github.com/golangci/golangci-lint"
+        }
+    ],
     "https://github.com/dnephin/pre-commit-golang": [
         {
             "id": "go-fmt",
@@ -2565,6 +2631,14 @@
             "entry": "inst/bin/readme-rmd-rendered",
             "language": "script",
             "files": "README\\.[Rr]?md$"
+        },
+        {
+            "id": "codemeta-description-updated",
+            "name": "codemeta-description-updated",
+            "description": "make sure codemeta.json is in sync with DESCRIPTION",
+            "entry": "inst/bin/codemeta-description-updated",
+            "language": "script",
+            "files": "^DESCRIPTION$"
         },
         {
             "id": "spell-check",
