@@ -18,7 +18,7 @@ from template_lib import md
     </div>
     <div class="col-sm-9">
         <div id="intro">
-            <div class="page-header"><h1>Introduction</h1></div>
+            <div class="page-header">${md('# Introduction')}</div>
 ${md('''
 Git hook scripts are useful for identifying simple issues before submission to
 code review.  We run our hooks on every commit to automatically point out
@@ -49,7 +49,7 @@ and building node to run eslint without root.
 ''')}
         </div>
         <div id="install">
-            <div class="page-header"><h1>Installation</h1></div>
+            <div class="page-header">${md('# Installation')}</div>
 ${md('''
 Before you can run hooks, you need to have the pre-commit package manager
 installed.
@@ -86,16 +86,92 @@ brew install pre-commit
 Using [conda](https://conda.io) (via [conda-forge](https://conda-forge.org)):
 
 ```bash
-conda install -c conda-forge pre_commit
+conda install -c conda-forge pre-commit
 ```
+
+## Quick start
+
+### 1. Install pre-commit
+
+- follow the [install](#install) instructions above
+- `pre-commit --version` should show you what version you're using
+
+```console
+$ pre-commit --version
+pre-commit 1.18.1
+```
+
+### 2. Add a pre-commit configuration
+
+- create a file named `.pre-commit-config.yaml`
+- you can generate a very basic configuration using
+  [`pre-commit sample-config`](#pre-commit-sample-config)
+- the full set of options for the configuration are listed [below](#plugins)
+- this example uses a formatter for python code, however `pre-commit` works for
+  any programming language
+- other [supported hooks](hooks.html) are available
+
+```yaml
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/psf/black
+    rev: 19.3b0
+    hooks:
+    -   id: black
+```
+
+### 3. Install the git hook scripts
+
+- run `pre-commit install` to set up the git hook scripts
+
+```console
+$ pre-commit install
+pre-commit installed at .git/hooks/pre-commit
+```
+
+- now `pre-commit` will run automatically on `git commit`!
+
+### 4. (optional) Run against all the files
+
+- it's usually a good idea to run the hooks against all of the files when adding
+  new hooks (usually `pre-commit` will only run on the changed files during
+  git hooks)
+
+```pre-commit
+$ pre-commit run --all-files
+[INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Initializing environment for https://github.com/psf/black.
+[INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/psf/black.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+Check Yaml...............................................................Passed
+Fix End of Files.........................................................Passed
+Trim Trailing Whitespace.................................................Failed
+hookid: trailing-whitespace
+
+Files were modified by this hook. Additional output:
+
+Fixing sample.py
+
+black....................................................................Passed
+```
+
+- oops! looks like I had some trailing whitespace
+- consider running that in [CI](#usage-in-continuous-integration) too
 
 ''')}
         </div>
 
         <div id="plugins">
-            <div class="page-header">
-                <h1>Adding pre-commit plugins to your project</h1>
-            </div>
+            <div class="page-header">${md('# Adding pre-commit plugins to your project')}</div>
 ${md('''
 Once you have pre-commit installed, adding pre-commit plugins to your project
 is done with the `.pre-commit-config.yaml` configuration file.
@@ -277,7 +353,7 @@ master branch.
         </div>
 
         <div id="usage">
-            <div class="page-header"><h1>Usage</h1></div>
+            <div class="page-header">${md('# Usage')}</div>
 ${md('''
 Run `pre-commit install` to install pre-commit into your git hooks. pre-commit
 will now run on every commit. Every time you clone a project using pre-commit
@@ -315,7 +391,7 @@ changelog filenames..................................(no files to check)Skipped
         </div>
 
         <div id="new-hooks">
-            <div class="page-header"><h1>Creating new hooks</h1></div>
+            <div class="page-header">${md('# Creating new hooks')}</div>
 ${md('''
 pre-commit currently supports hooks written in
 [many languages](#supported-languages). As long as your git repo is an
@@ -689,13 +765,14 @@ __Support:__ the support of system hooks depend on the executables.
         </div>
 
         <div id="cli">
-            <div class="page-header"><h1>Command line interface</h1></div>
+            <div class="page-header">${md('# Command line interface')}</div>
 
 ${md('''
 All pre-commit commands take the following options:
 
 - `--color {auto,always,never}`: whether to use color in output.
-  Defaults to `auto`.
+  Defaults to `auto`.  _new in 1.18.0_: can be overridden by using
+  `PRE_COMMIT_COLOR={auto,always,never}` or disabled using `TERM=dumb`.
 - `-c CONFIG`, `--config CONFIG`: path to alternate config file
 - `-h`, `--help`: show help and available options.
 
@@ -710,6 +787,12 @@ Options:
 - `--repo REPO`: _new in 1.4.1_: Only update this repository. _new in 1.7.0_:
   This option may be specified multiple times.
 
+## pre-commit clean [options] [](#pre-commit-clean)
+
+Clean out cached pre-commit files.
+
+Options: (no additional options)
+
 ## pre-commit gc [options] [](#pre-commit-gc)
 
 _new in 1.14.0_
@@ -722,11 +805,28 @@ the cache directory.
 
 Options: (no additional options)
 
-## pre-commit clean [options] [](#pre-commit-clean)
+## pre-commit init-templatedir DIRECTORY [options] [](#pre-commit-init-templatedir)
 
-Clean out cached pre-commit files.
+_new in 1.18.0_
 
-Options: (no additional options)
+Install hook script in a directory intended for use with
+`git config init.templateDir`.
+
+Options:
+
+- `-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}`,
+  `--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}`:
+  which hook type to install.
+
+Some example useful invocations:
+
+```bash
+git config --global init.templateDir ~/.git-template
+pre-commit init-templatedir ~/.git-template
+```
+
+Now whenever a repository is cloned or created, it will have the hooks set up
+already!
 
 ## pre-commit install [options] [](#pre-commit-install)
 
@@ -734,25 +834,36 @@ Install the pre-commit script.
 
 Options:
 
-- `-f`, `--overwrite`: overwrite existing hooks / remove migration mode.
-- `--install-hooks`: also install hook environments for all available hooks.
+- `-f`, `--overwrite`: Replace any existing git hooks with the pre-commit
+  script.
+- `--install-hooks`: Also install environments for all available hooks now
+  (rather than when they are first executed). See [`pre-commit
+  install-hooks`](#pre-commit-install-hooks).
 - `-t {pre-commit,pre-push,prepare-commit-msg,commit-msg}`,
   `--hook-type {pre-commit,pre-push,prepare-commit-msg,commit-msg}`:
-  which hook type to install.
-- `--allow-missing-config`: whether to allow the installed hook scripts to
-  permit a missing configuration file.
+  Specify which hook type to install.
+- `--allow-missing-config`: Hook scripts will permit a missing configuration
+  file.
 
 Some example useful invocations:
 
-- `pre-commit install`: default install invocation will run existing hook
-  scripts alongside pre-commit.
-- `pre-commit install -f --install-hooks`: idempotently replace git hook
-  scripts with pre-commit and also install hooks.
+- `pre-commit install`: Default invocation. Installs the pre-commit script
+   alongside any existing git hooks.
+- `pre-commit install --install-hooks --overwrite`: Idempotently replaces
+   existing git hook scripts with pre-commit, and also installs hook
+   environments.
 
 ## pre-commit install-hooks [options] [](#pre-commit-install-hooks)
 
-Install hook environments for all environments in the config file.  You may
-find `pre-commit install --install-hooks` more useful.
+Install all missing environments for the available hooks. Unless this command or
+`install --install-hooks` is executed, each hook's environment is created the
+first time the hook is called.
+
+Each hook is initialized in a separate environment appropriate to the language
+the hook is written in. See [supported languages](#supported-languages).
+
+This command does not install the pre-commit script. To install the script along with
+the hook environments in one command, use `pre-commit install --install hooks`.
 
 Options: (no additional options)
 
@@ -839,7 +950,7 @@ Options:
         </div>
 
         <div id="advanced">
-            <div class="page-header"><h1>Advanced features</h1></div>
+            <div class="page-header">${md('# Advanced features')}</div>
 
 ${md('''
 ## Running in migration mode
@@ -1057,6 +1168,48 @@ The currently available `meta` hooks:
         _new in 1.14.0_.
 ```
 
+## automatically enabling pre-commit on repositories
+
+_new in 1.18.0_
+
+`pre-commit init-templatedir` can be used to set up a skeleton for `git`'s
+`init.templateDir` option.  This means that any newly cloned repository will
+automatically have the hooks set up without the need to run
+`pre-commit install`.
+
+To configure, first set `git`'s `init.templateDir` -- in this example I'm
+using `~/.git-template` as my template directory.
+
+```console
+$ git config --global init.templateDir ~/.git-template
+$ pre-commit init-templatedir ~/.git-template
+pre-commit installed at /home/asottile/.git-template/hooks/pre-commit
+```
+
+Now whenever you clone a pre-commit enabled repo, the hooks will already be
+set up!
+
+```pre-commit
+$ git clone -q git@github.com:asottile/pyupgrade
+$ cd pyupgrade
+$ git commit --allow-empty -m 'Hello world!'
+Check docstring is first.............................(no files to check)Skipped
+Check Yaml...........................................(no files to check)Skipped
+Debug Statements (Python)............................(no files to check)Skipped
+...
+```
+
+`init-templatedir` uses the `--allow-missing-config` option from
+`pre-commit install` so repos without a config will be skipped:
+
+```console
+$ git init sample
+Initialized empty Git repository in /tmp/sample/.git/
+$ cd sample
+$ git commit --allow-empty -m 'Initial commit'
+`.pre-commit-config.yaml` config file not found. Skipping `pre-commit`.
+[master (root-commit) d1b39c1] Initial commit
+```
 
 ## Filtering files with types
 
@@ -1195,6 +1348,78 @@ everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
 `git diff-tree --no-commit-id --name-only -r $REVISION | xargs pre-commit run --files`.
 
+## Managing CI Caches
+
+`pre-commit` by default places its repository store in `~/.cache/pre-commit`
+-- this can be configured in two ways:
+
+- `PRE_COMMIT_HOME`: if set, pre-commit will use that location instead.
+- `XDG_CACHE_HOME`: if set, pre-commit will use `$XDG_CACHE_HOME/pre-commit`
+  following the [XDG Base Directory Specification].
+
+[XDG Base Directory Specification]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+
+### travis-ci example
+
+```yaml
+cache:
+  directories:
+  - $HOME/.cache/pre-commit
+```
+
+### appveyor example
+
+```yaml
+cache:
+- '%USERPROFILE%\.cache\pre-commit'
+```
+
+### azure pipelines example
+
+note: azure pipelines uses immutable caches so the python version and
+`.pre-commit-config.yaml` hash must be included in the cache key.  for a
+repository template, see [asottile@job--pre-commit.yml].
+
+[job--pre-commit.yml]: https://github.com/asottile/azure-pipeline-templates/blob/master/job--pre-commit.yml
+
+```yaml
+jobs:
+- job: precommit
+
+  # ...
+
+  variables:
+    PRE_COMMIT_HOME: $(Pipeline.Workspace)/pre-commit-cache
+
+  steps:
+
+  # ...
+
+  - script: echo "##vso[task.setvariable variable=PY]$(python -VV)"
+  - task: CacheBeta@0
+    inputs:
+      key: pre-commit | .pre-commit-config.yaml | "$(PY)"
+      path: $(PRE_COMMIT_HOME)
+```
+
+### github actions example
+
+**see the [official pre-commit github action]**
+
+[official pre-commit github action]: https://github.com/pre-commit/action
+
+like [azure pipelines](#azure-pipelines-example), github actions also uses
+immutable caches:
+
+```yaml
+    - name: set PY
+      run: echo "::set-env name=PY::$(python -VV | sha256sum | cut -d' ' -f1)"
+    - uses: actions/cache@v1
+      with:
+        path: ~/.cache/pre-commit
+        key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+```
+
 ## Usage with tox
 
 [tox](https://tox.readthedocs.io/) is useful for configuring test / CI tools
@@ -1261,7 +1486,7 @@ automatically).
         </div>
 
         <div id="contributing">
-            <div class="page-header"><h1>Contributing</h1></div>
+            <div class="page-header">${md('# Contributing')}</div>
 
 ${md('''
 We’re looking to grow the project and get more contributors especially to

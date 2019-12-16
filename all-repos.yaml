@@ -40,6 +40,7 @@
 - https://github.com/Lucas-C/pre-commit-hooks-safety
 - https://github.com/chriskuehl/puppet-pre-commit-hooks
 - https://github.com/golangci/golangci-lint
+- https://github.com/Bahjat/pre-commit-golang
 - https://github.com/dnephin/pre-commit-golang
 - https://github.com/troian/pre-commit-golang
 - https://github.com/jstewmon/check-swagger
@@ -99,3 +100,18 @@
 - https://github.com/FelixSeptem/pre-commit-golang
 - https://gitlab.com/daverona-env/pre-commit-cpp
 - https://github.com/ahonnecke/blacklist
+- https://github.com/codingjoe/relint
+- https://github.com/nix-community/nixpkgs-fmt
+- https://github.com/d6e/beancount-check
+- https://github.com/iconmaster5326/cmake-format-pre-commit-hook
+- https://github.com/thg-consulting/inspectortiger
+- https://gitlab.com/iamlikeme/nbhooks
+- https://github.com/Kuniwak/vint
+- https://github.com/eschulte/lisp-format
+- https://github.com/ryanrhee/shellcheck-py
+- https://github.com/APIDevTools/swagger-cli
+- https://github.com/kynan/nbstripout
+- https://gitlab.com/devopshq/gitlab-ci-linter
+- https://github.com/bmorcos/pre-commit-hooks-cpp
+- https://github.com/igorshubovych/markdownlint-cli
+
