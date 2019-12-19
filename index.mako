@@ -1264,6 +1264,17 @@ For example:
 
 will match a file `foo/1.py` but will not match `setup.py`.
 
+If you want to match a file path that isn't included in a `type` when using an
+existing hook you'll need to revert back to `files` only matching by overriding
+the `types` setting.  Here's an example of using `check-json` against non-json
+files:
+
+```yaml
+    -   id: check-json
+        types: [file]  # override `types: [json]`
+        files: \.(json|myext)$
+```
+
 Files can also be matched by shebang.  With `types: python`, an `exe` starting
 with `#!/usr/bin/env python3` will also be matched.
 
