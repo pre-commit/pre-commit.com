@@ -952,6 +952,14 @@ chosen as it is a small portable pure python library.</p>
     <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">,</span> <span class="nv">python</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>will match a file <code>foo/1.py</code> but will not match <code>setup.py</code>.</p>
+<p>If you want to match a file path that isn't included in a <code>type</code> when using an
+existing hook you'll need to revert back to <code>files</code> only matching by overriding
+the <code>types</code> setting.  Here's an example of using <code>check-json</code> against non-json
+files:</p>
+<div class="highlight yaml"><pre><span></span>    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check-json</span>
+        <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">]</span>  <span class="c1"># override `types: [json]`</span>
+        <span class="nt">files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\.(json|myext)$</span>
+</pre></div>
 <p>Files can also be matched by shebang.  With <code>types: python</code>, an <code>exe</code> starting
 with <code>#!/usr/bin/env python3</code> will also be matched.</p>
 <p>As with <code>files</code> and <code>exclude</code>, you can also exclude types if necessary using
