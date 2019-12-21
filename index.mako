@@ -1119,7 +1119,7 @@ Here's an example configuration with a few `local` hooks:
     hooks:
     -   id: pylint
         name: pylint
-        entry: python -m pylint.__main__
+        entry: pylint
         language: system
         types: [python]
     -   id: check-x
