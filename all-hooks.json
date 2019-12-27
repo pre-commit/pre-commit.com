@@ -2156,6 +2156,15 @@
             ]
         },
         {
+            "id": "check-git-config-email",
+            "name": "Check Git Config Email",
+            "description": "This hook checks to ensure the Git config email matches one of the specified domains.",
+            "entry": "check-git-config-email",
+            "language": "python",
+            "pass_filenames": false,
+            "always_run": true
+        },
+        {
             "id": "check-jamf-extension-attributes",
             "name": "Check Jamf EAs",
             "description": "This hook checks Jamf extension attributes for common issues.",
