@@ -1600,12 +1600,11 @@
             "id": "clang-format",
             "name": "clang-format",
             "description": "Format files with ClangFormat.",
-            "entry": "clang-format",
+            "entry": "clang-format -i",
             "language": "system",
             "files": "\\.(c|cc|cxx|cpp|frag|glsl|h|hpp|hxx|ih|ispc|ipp|java|js|m|mm|proto|vert)$",
             "args": [
-                "-fallback-style=none",
-                "-i"
+                "-fallback-style=none"
             ]
         }
     ],
