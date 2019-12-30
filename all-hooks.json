@@ -530,7 +530,7 @@
             "name": "check for not-real mock methods",
             "description": "Prevent common mistakes of `assert mck.not_called()`, `assert mck.called_once_with(...)` and `mck.assert_called`.",
             "language": "pygrep",
-            "entry": "(?x)(\n    assert .*\\.(\n        not_called|\n        called_\n    )|\n    \\.assert_(\n        any_call|\n        called|\n        called_once|\n        called_once_with|\n        called_with|\n        has_calls|\n        not_called\n    )($|[^(\\w])\n)\n",
+            "entry": "(?x)(\n    assert .*\\.(\n        not_called|\n        called_\n    )|\n    # ''.join(rf'(?<!\\b{s})' for s in dir(mock) if s.endswith('Mock')))\n    (?<!\\bAsyncMock)(?<!\\bMagicMock)(?<!\\bMock)(?<!\\bNonCallableMagicMock)(?<!\\bNonCallableMock)(?<!\\bPropertyMock)\n    \\.assert_(\n        any_call|\n        called|\n        called_once|\n        called_once_with|\n        called_with|\n        has_calls|\n        not_called\n    )($|[^(\\w])\n)\n",
             "types": [
                 "python"
             ]
