@@ -445,8 +445,8 @@ file that tells pre-commit:
         the hook passes.  _new in 1.6.0_.
 =r=
     =c= `pass_filenames`
-    =c= (optional: default `true`) if `true` this hook must take filenames as
-        positional arguments. _new in 0.14.0_.
+    =c= (optional: default `true`) if `false` no arguments will be passed to
+        the hook. _new in 0.14.0_.
 =r=
     =c= `require_serial`
     =c= (optional: default `false`) if `true` this hook will execute using a
