@@ -1,4 +1,8 @@
+import os
 import re
+import shlex
+import subprocess
+import sys
 
 import markdown_code_blocks
 import markupsafe
@@ -74,6 +78,14 @@ def _render_table(code: str) -> str:
     return ''.join(output)
 
 
+def _render_cmd(code: str) -> str:
+    cmdstr = code.strip()
+    path = f'{os.path.dirname(sys.executable)}{os.pathsep}{os.environ["PATH"]}'
+    env = {**os.environ, 'PATH': path}
+    output = subprocess.check_output(shlex.split(cmdstr), env=env).decode()
+    return str(md(f'```pre-commit\n$ {cmdstr}\n{output}```'))
+
+
 class Renderer(markdown_code_blocks.CodeRenderer):
     def header(self, text: str, level: int, raw: str) -> str:
         match = ID_RE.search(raw)
@@ -90,6 +102,8 @@ class Renderer(markdown_code_blocks.CodeRenderer):
     def block_code(self, code: str, lang: str) -> str:
         if lang == 'table':
             return _render_table(code)
+        elif lang == 'cmd':
+            return _render_cmd(code)
         else:
             return super().block_code(code, lang)
 
