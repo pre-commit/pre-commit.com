@@ -5,5 +5,5 @@ markdown-code-blocks
 markdown-to-presentation>=0.0.12
 # remove once merged and release
 git+https://github.com/lepture/mistune@449c2b5
-pre-commit>=0.13.6
-pygments-pre-commit
+pre-commit>=1.21.0
+pygments-pre-commit>=1.4.0
