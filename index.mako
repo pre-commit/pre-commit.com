@@ -96,9 +96,8 @@ conda install -c conda-forge pre-commit
 - follow the [install](#install) instructions above
 - `pre-commit --version` should show you what version you're using
 
-```console
-$ pre-commit --version
-pre-commit 1.18.1
+```cmd
+pre-commit --version
 ```
 
 ### 2. Add a pre-commit configuration
