@@ -1931,6 +1931,105 @@ https://pypi.python.org/pypi/beautysh
                     - Checks the style of Markdown/Commonmark files.
             </li>
     </ul>
+    <h3>
+        <a href="https://github.com/TekWizely/pre-commit-golang" target="_blank">
+            github.com/TekWizely/pre-commit-golang
+        </a>
+    </h3>
+    <ul>
+            <li>
+                <code>go-build-mod</code>
+                    - Run &#39;cd $(mod_root $FILE); go build -o /dev/null [$ARGS] ./...&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-build-pkg</code>
+                    - Run &#39;go build -o /dev/null [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-build-repo-mod</code>
+                    - Run &#39;cd $(mod_root); go build -o /dev/null [$ARGS] ./...&#39; for each module in the repo
+            </li>
+            <li>
+                <code>go-build-repo-pkg</code>
+                    - Run &#39;go build -o /dev/null [$ARGS] ./...&#39; in repo root folder
+            </li>
+            <li>
+                <code>go-critic</code>
+                    - Run &#39;gocritic check [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-fmt</code>
+                    - Run &#39;gofmt -l -d [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-imports</code>
+                    - Run &#39;goimports -l -d [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-lint</code>
+                    - Run &#39;golint -set_exit_status [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-returns</code>
+                    - Run &#39;goreturns -l -d [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-test-mod</code>
+                    - Run &#39;cd $(mod_root $FILE); go test [$ARGS] ./...&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-test-pkg</code>
+                    - Run &#39;go test [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-test-repo-mod</code>
+                    - Run &#39;cd $(mod_root); go test [$ARGS] ./...&#39; for each module in the repo
+            </li>
+            <li>
+                <code>go-test-repo-pkg</code>
+                    - Run &#39;go test [$ARGS] ./...&#39; in repo root folder
+            </li>
+            <li>
+                <code>go-vet-mod</code>
+                    - Run &#39;cd $(mod_root $FILE); go vet [$ARGS] ./...&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-vet-pkg</code>
+                    - Run &#39;go vet [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
+            </li>
+            <li>
+                <code>go-vet-repo-mod</code>
+                    - Run &#39;cd $(mod_root); go vet [$ARGS] ./...&#39; for each module in the repo
+            </li>
+            <li>
+                <code>go-vet-repo-pkg</code>
+                    - Run &#39;go vet [$ARGS] ./...&#39; in repo root folder
+            </li>
+            <li>
+                <code>go-vet</code>
+                    - Run &#39;go vet [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li>
+                <code>golangci-lint-mod</code>
+                    - Run &#39;cd $(mod_root $FILE); golangci-lint run [$ARGS] ./...&#39; for each staged .go file
+            </li>
+            <li>
+                <code>golangci-lint-pkg</code>
+                    - Run &#39;golangci-lint run [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
+            </li>
+            <li>
+                <code>golangci-lint-repo-mod</code>
+                    - Run &#39;cd $(mod_root); golangci-lint run [$ARGS] ./...&#39; for each module in the repo
+            </li>
+            <li>
+                <code>golangci-lint-repo-pkg</code>
+                    - Run &#39;golangci-lint run [$ARGS] ./...&#39; in repo root folder
+            </li>
+            <li>
+                <code>golangci-lint</code>
+                    - Run &#39;golangci-lint run [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+    </ul>
 
         </div>
         <footer class="pc-footer"><div class="container"></div></footer>
