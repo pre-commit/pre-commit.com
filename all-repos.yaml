@@ -9,7 +9,6 @@
 - https://github.com/pre-commit/mirrors-jshint
 - https://github.com/pre-commit/mirrors-mypy
 - https://github.com/pre-commit/mirrors-puppet-lint
-- https://github.com/pre-commit/mirrors-pylint
 - https://github.com/pre-commit/mirrors-ruby-lint
 - https://github.com/pre-commit/mirrors-scss-lint
 - https://github.com/pre-commit/mirrors-yapf
@@ -78,6 +77,7 @@
 - https://gitlab.com/PyCQA/flake8
 - https://github.com/PyCQA/bandit
 - https://github.com/PyCQA/pydocstyle
+- https://github.com/PyCQA/pylint
 - https://github.com/miki725/importanize
 - https://github.com/motet-a/jinjalint
 - https://github.com/milin/giticket
