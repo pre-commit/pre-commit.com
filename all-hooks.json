@@ -457,20 +457,6 @@
             "additional_dependencies": []
         }
     ],
-    "https://github.com/pre-commit/mirrors-pylint": [
-        {
-            "id": "pylint",
-            "name": "pylint",
-            "entry": "pylint",
-            "language": "python",
-            "types": [
-                "python"
-            ],
-            "args": [],
-            "require_serial": false,
-            "additional_dependencies": []
-        }
-    ],
     "https://github.com/pre-commit/mirrors-ruby-lint": [
         {
             "id": "ruby-lint",
@@ -569,7 +555,7 @@
             "id": "rst-backticks",
             "name": "rst ``code`` is two backticks",
             "description": "Detect common mistake of using single backticks when writing rst",
-            "entry": " `[^`]+[^_]`([^_]|$)",
+            "entry": "(^| )`[^`]+[^_]`([^_]|$)",
             "language": "pygrep",
             "types": [
                 "rst"
@@ -2063,6 +2049,19 @@
             "types": [
                 "python"
             ]
+        }
+    ],
+    "https://github.com/PyCQA/pylint": [
+        {
+            "id": "pylint",
+            "name": "pylint",
+            "entry": "pylint",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "args": [],
+            "additional_dependencies": []
         }
     ],
     "https://github.com/miki725/importanize": [
