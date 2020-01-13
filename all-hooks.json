@@ -2059,9 +2059,7 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "args": [],
-            "additional_dependencies": []
+            ]
         }
     ],
     "https://github.com/miki725/importanize": [
