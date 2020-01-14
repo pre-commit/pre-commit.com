@@ -422,7 +422,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "jshint@2.11.0-rc1"
+                "jshint@2.11.0"
             ]
         }
     ],
@@ -1865,6 +1865,18 @@
             ],
             "files": "(?x)^(\n    .*/(recipes|attributes|resources|providers)/.*\\.rb|\n    .*/metadata\\.rb\n)$\n",
             "exclude": ".*/test/.*\\.rb$",
+            "verbose": true
+        },
+        {
+            "id": "cookstyle",
+            "name": "Enforce Chef style guide with cookstyle",
+            "description": "Enforce Chef style guide with cookstyle",
+            "entry": "bin/cookstyle-wrapper.rb",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "file"
+            ],
             "verbose": true
         },
         {
