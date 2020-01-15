@@ -476,6 +476,8 @@ inside the Docker container, and will be used to override the default container
 entrypoint. Your Docker <code>CMD</code> will not run when pre-commit passes a file list
 as arguments to the run container command. Docker allows you to use any
 language that's not supported by pre-commit as a builtin.</p>
+<p>pre-commit will automatically mount the repository source as a volume using
+<code>-v $PWD:/src:rw,Z' and set the working directory using</code>--workdir /src`.</p>
 <p><strong>Support:</strong> docker hooks are known to work on any system which has a working
 <code>docker</code> executable.  It has been tested on linux and macOS.  Hooks that are
 run via <code>boot2docker</code> are known to be unable to make modifications to files.</p>
