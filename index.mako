@@ -575,6 +575,9 @@ entrypoint. Your Docker `CMD` will not run when pre-commit passes a file list
 as arguments to the run container command. Docker allows you to use any
 language that's not supported by pre-commit as a builtin.
 
+pre-commit will automatically mount the repository source as a volume using
+`-v $PWD:/src:rw,Z' and set the working directory using `--workdir /src`.
+
 __Support:__ docker hooks are known to work on any system which has a working
 `docker` executable.  It has been tested on linux and macOS.  Hooks that are
 run via `boot2docker` are known to be unable to make modifications to files.
