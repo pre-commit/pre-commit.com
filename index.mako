@@ -1467,7 +1467,7 @@ pre-commit can also be used as a tool for continuous integration.  For
 instance, adding `pre-commit run --all-files` as a CI step will ensure
 everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
-`git diff-tree --no-commit-id --name-only -r $REVISION | xargs pre-commit run --files`.
+`pre-commit run --origin HEAD --source origin/HEAD`.
 
 ## Managing CI Caches
 
