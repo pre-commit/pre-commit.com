@@ -1095,7 +1095,7 @@ control the default versions across all hooks of a language.</p>
 instance, adding <code>pre-commit run --all-files</code> as a CI step will ensure
 everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
-<code>git diff-tree --no-commit-id --name-only -r $REVISION | xargs pre-commit run --files</code>.</p>
+<code>pre-commit run --origin HEAD --source origin/HEAD</code>.</p>
 <h2 id="managing-ci-caches">    Managing CI Caches <small><a href="#managing-ci-caches">¶</a></small></h2> <p><code>pre-commit</code> by default places its repository store in <code>~/.cache/pre-commit</code>
 -- this can be configured in two ways:</p>
 <ul>
