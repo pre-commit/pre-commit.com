@@ -3222,5 +3222,15 @@
             "description": "Run 'golangci-lint run [$ARGS] $FILE' for each staged .go file",
             "pass_filenames": true
         }
+    ],
+    "https://github.com/markdownlint/markdownlint": [
+        {
+            "id": "markdownlint",
+            "name": "Markdownlint",
+            "description": "Run markdownlint on your Markdown files",
+            "entry": "mdl",
+            "language": "ruby",
+            "files": "\\.(md|mdown|markdown)$"
+        }
     ]
 }
