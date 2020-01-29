@@ -303,10 +303,9 @@ repository's configuration.
     =c= `types`
     =c= (optional) override the default file types to run on.  See
         [Filtering files with types](#filtering-files-with-types).
-        _new in 0.15.0_.
 =r=
     =c= `exclude_types`
-    =c= (optional) file types to exclude.  _new in 0.15.0_.
+    =c= (optional) file types to exclude.
 =r=
     =c= `args`
     =c= (optional) list of additional parameters to pass to the hook.
@@ -319,11 +318,11 @@ repository's configuration.
     =c= `additional_dependencies`
     =c= (optional) a list of dependencies that will be installed in the
         environment where this hook gets run.  One useful application is to
-        install plugins for hooks such as `eslint`.  _new in 0.6.6_.
+        install plugins for hooks such as `eslint`.
 =r=
     =c= `always_run`
     =c= (optional) if `true`, this hook will run even if there are no matching
-        files.  _new in 0.7.2_.
+        files.
 =r=
     =c= `verbose`
     =c= (optional) if `true`, forces the output of the hook to be printed even when
@@ -331,7 +330,7 @@ repository's configuration.
 =r=
     =c= `log_file`
     =c= (optional) if present, the hook output will additionally be written
-        to a file.  _new in 0.14.0_.
+        to a file.
 ```
 
 One example of a complete configuration:
@@ -402,8 +401,7 @@ installable package (gem, npm, pypi, etc.) or exposes an executable, it can be
 used with pre-commit. Each git repo can support as many languages/hooks as you
 want.
 
-The hook must exit nonzero on failure or modify files in the working directory
-_(since 0.6.3)_.
+The hook must exit nonzero on failure or modify files in the working directory.
 
 A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml
 file that tells pre-commit:
@@ -425,7 +423,6 @@ file that tells pre-commit:
 =r=
     =c= `files`
     =c= (optional: default `''`) the pattern of files to run on.
-        _new in 0.15.0_: now optional.
 =r=
     =c= `exclude`
     =c= (optional: default `^$`)  exclude files that were matched by `files`.
@@ -433,15 +430,13 @@ file that tells pre-commit:
     =c= `types`
     =c= (optional: default `[file]`)  list of file types to run on.  See
         [Filtering files with types](#filtering-files-with-types).
-        _new in 0.15.0_.
 =r=
     =c= `exclude_types`
     =c= (optional: default `[]`)  exclude files that were matched by `types`.
-        _new in 0.15.0_.
 =r=
     =c= `always_run`
     =c= (optional: default `false`) if `true` this hook will run even if there
-        are no matching files. _new in 0.7.2_.
+        are no matching files.
 =r=
     =c= `verbose`
     =c= (optional) if `true`, forces the output of the hook to be printed even when
@@ -449,7 +444,7 @@ file that tells pre-commit:
 =r=
     =c= `pass_filenames`
     =c= (optional: default `true`) if `false` no arguments will be passed to
-        the hook. _new in 0.14.0_.
+        the hook.
 =r=
     =c= `require_serial`
     =c= (optional: default `false`) if `true` this hook will execute using a
@@ -465,7 +460,7 @@ file that tells pre-commit:
 =r=
     =c= `minimum_pre_commit_version`
     =c= (optional: default `'0'`) allows one to indicate a minimum
-        compatible pre-commit version. _new in 0.6.7_.
+        compatible pre-commit version.
 =r=
     =c= `args`
     =c= (optional: default `[]`) list of additional parameters to pass to the hook.
@@ -482,10 +477,6 @@ For example:
     language: python
     types: [text]
 ```
-
-_new in 0.12.0_: Prior to 0.12.0 the file was `hooks.yaml`
-(now `.pre-commit-hooks.yaml`).  For backwards compatibility it is suggested
-to provide both files or suggest users use `pre-commit>=0.12.0`.
 
 ## Developing hooks interactively
 
@@ -541,7 +532,6 @@ Hello from foo hook!
 - [ruby](#ruby)
 - [rust](#rust)
 - [swift](#swift)
-- [pcre](#pcre)
 - [pygrep](#pygrep)
 - [script](#script)
 - [system](#system)
@@ -562,8 +552,6 @@ binary (such as [`miniconda`](https://docs.conda.io/en/latest/miniconda.html)).
 It has been tested on linux, macOS, and windows.
 
 ### docker
-
-_new in 0.10.0_
 
 The hook repository must have a `Dockerfile`.  It will be installed via
 `docker build .`.
@@ -586,8 +574,6 @@ See [this repository](https://github.com/pre-commit/pre-commit-docker-flake8)
 for an example Docker-based hook.
 
 ### docker_image
-
-_new in 0.18.0_
 
 A more lightweight approach to `docker` hooks.  The `docker_image`
 "language" uses existing docker images to provide hook executables.
@@ -642,8 +628,6 @@ being added to the `changelog` directory:
 ```
 
 ### golang
-
-_new in 0.12.0_
 
 The hook repository must contain go source code.  It will be installed via
 `go get ./...`.  pre-commit will create an isolated `GOPATH` for each hook and
@@ -724,30 +708,12 @@ has been tested on linux, Windows, and macOS.
 
 ### swift
 
-_new in 0.11.0_
-
 The hook repository must have a `Package.swift`.  It will be installed via
 `swift build -c release`.  The `entry` should match an executable created by
 building the repository.
 
 __Support:__ swift hooks are known to work on any system which has swift
 installed.  It has been tested on linux and macOS.
-
-### pcre
-
-_**deprecated**_: the pcre language will be removed in a later version.  Use
-[pygrep](#pygrep) hooks instead (usually a drop-in replacement).
-
-"Perl Compatible Regular Expressions" – pcre hooks are a quick way to write a
-simple hook which prevents commits by file matching.  Specify the regex as the
-`entry`.
-
-macos does not ship with a functioning `grep -P` so you'll need
-`brew install grep` for pcre hooks to function.
-
-__Support:__ pcre hooks work on any system which has a functioning
-`grep -P` (or in the case of macOS: `ggrep -P`).  It has been tested on linux,
-macOS, windows, and cygwin.
 
 ### pygrep
 
@@ -955,8 +921,7 @@ Options:
 - `--files [FILES [FILES ...]]`: specific filenames to run hooks on.
 - `--source SOURCE` + `--origin ORIGIN`: run against the files changed between
   `SOURCE...ORIGIN` in git.
-- `--show-diff-on-failure`: _new in 0.13.4_: when hooks fail, run `git diff`
-  directly afterward.
+- `--show-diff-on-failure`: when hooks fail, run `git diff` directly afterward.
 - `-v`, `--verbose`: produce hook output independent of success.  Include hook
   ids in output.
 
@@ -1083,8 +1048,6 @@ pre-merge-commit hook.
 
 ## pre-commit during push
 
-_new in 0.3.5_: pre-commit can be used to manage [pre-push] hooks.
-
 To use `pre-push` hooks with pre-commit, run:
 
 ```console
@@ -1092,11 +1055,19 @@ $ pre-commit install --hook-type pre-push
 pre-commit installed at .git/hooks/pre-push
 ```
 
+During a push, pre-commit will export the following environment variables:
+- `PRE_COMMIT_SOURCE`: the remote revision that is being pushed to.
+- `PRE_COMMIT_ORIGIN`: the local revision that is being pushed to the remote.
+- `PRE_COMMIT_REMOTE_NAME`: _new in 2.0.0_ which remote is being pushed to
+  (for example `origin`)
+- `PRE_COMMIT_REMOTE_URL`: _new in 2.0.0_ the url of the remote that is being
+  pushed to (for example `git@github.com:pre-commit/pre-commit`.
+
 [pre-push]: https://git-scm.com/docs/githooks#_pre_push
 
 ## pre-commit for commit messages
 
-_new in 0.15.4_: pre-commit can be used to manage [commit-msg] hooks.
+pre-commit can be used to manage [commit-msg] hooks.
 
 To use `commit-msg` hooks with pre-commit, run:
 
@@ -1212,9 +1183,8 @@ Repository-local hooks are useful when:
 You can configure repository-local hooks by specifying the `repo` as the
 sentinel `local`.
 
-_new in 0.13.0_: local hooks can use any language which supports
-`additional_dependencies` or `docker_image` / `fail` / `pcre` / `pygrep` /
-`script` / `system`.
+local hooks can use any language which supports `additional_dependencies` or
+`docker_image` / `fail` / `pygrep` / `script` / `system`.
 This enables you to install things which previously would require a trivial
 mirror repository.
 
@@ -1323,8 +1293,6 @@ $ git commit --allow-empty -m 'Initial commit'
 
 ## Filtering files with types
 
-_new in 0.15.0_
-
 Filtering with `types` provides several advantages over traditional filtering
 with `files`.
 
@@ -1423,8 +1391,8 @@ the `(?x)` regex flag.
 
 Sometimes you only want to run the hooks on a specific version of the
 language. For each language, they default to using the system installed
-language (So for example if I’m running `python2.7` and a hook specifies
-`python`, pre-commit will run the hook using `python2.7`). Sometimes you
+language (So for example if I’m running `python3.7` and a hook specifies
+`python`, pre-commit will run the hook using `python3.7`). Sometimes you
 don’t want the default system installed version so you can override this on a
 per-hook basis by setting the `language_version`.
 
@@ -1554,18 +1522,16 @@ When cloning repos over ssh (`repo: git@github.com:...`), `git` requires the
 
 ```pre-commit
 [INFO] Initializing environment for git@github.com:pre-commit/pre-commit-hooks.
-An unexpected error has occurred: CalledProcessError: Command: ('/usr/bin/git', 'clone', '--no-checkout', 'git@github.com:pre-commit/pre-commit-hooks', '/home/asottile/.cache/pre-commit/repofdkwkq_v')
-Return code: 128
-Expected return code: 0
-Output: (none)
-Errors:
-    Cloning into '/home/asottile/.cache/pre-commit/repofdkwkq_v'...
-    Permission denied (publickey).
+An unexpected error has occurred: CalledProcessError: command: ('/usr/bin/git', 'fetch', 'origin', '--tags')
+return code: 128
+expected return code: 0
+stdout: (none)
+stderr:
+    git@github.com: Permission denied (publickey).
     fatal: Could not read from remote repository.
 
     Please make sure you have the correct access rights
     and the repository exists.
-
 
 Check the log at /home/asottile/.cache/pre-commit/pre-commit.log
 ```
