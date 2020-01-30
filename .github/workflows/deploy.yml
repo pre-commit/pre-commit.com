@@ -3,6 +3,8 @@ on:
   pull_request:
   push:
     branches: [real_master]
+  schedule:
+    - cron: '30 8 * * *'
 
 jobs:
   build:
