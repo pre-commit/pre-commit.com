@@ -1,14 +1,10 @@
 # To build scss continuously I use `watch -n 0.1 make build/main.css`
 
-all: install-hooks check build/main.css all-hooks.json index.html hooks.html
+all: install-hooks build/main.css all-hooks.json index.html hooks.html
 
 .PHONY: install-hooks
 install-hooks: venv
 	venv/bin/pre-commit install
-
-.PHONY: check
-check: venv
-	venv/bin/pre-commit run --all-files --show-diff-on-failure
 
 build/main.css: venv node_modules build scss/main.scss scss/_variables.scss
 	venv/bin/pysassc -s compressed scss/main.scss build/main.css
@@ -35,7 +31,7 @@ push: venv
 	venv/bin/markdown-to-presentation push \
 		--master-branch real_master \
 		--pages-branch master \
-		.nojekyll .travis.yml README.md CNAME \
+		.nojekyll README.md CNAME \
 		build node_modules *.html *.png *.svg favicon.ico \
 		all-hooks.json install-local.py
 
