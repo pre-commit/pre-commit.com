@@ -238,7 +238,7 @@
         },
         {
             "id": "flake8",
-            "name": "Flake8",
+            "name": "Flake8 (deprecated, use gitlab.com/pycqa/flake8)",
             "description": "This hook runs flake8.",
             "entry": "flake8",
             "language": "python",
