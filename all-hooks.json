@@ -545,7 +545,7 @@
             "id": "python-use-type-annotations",
             "name": "type annotations not comments",
             "description": "Enforce that python3.6+ type annotations are used instead of type comments",
-            "entry": "# type(?!: *ignore *($|#))",
+            "entry": "# type(?!: *ignore([^a-zA-Z0-9]|$))",
             "language": "pygrep",
             "types": [
                 "python"
@@ -559,6 +559,16 @@
             "language": "pygrep",
             "types": [
                 "rst"
+            ]
+        },
+        {
+            "id": "text-unicode-replacement-char",
+            "name": "no unicode replacement chars",
+            "description": "Forbid files which have a UTF-8 Unicode replacement character",
+            "entry": "\ufffd",
+            "language": "pygrep",
+            "types": [
+                "text"
             ]
         }
     ],
