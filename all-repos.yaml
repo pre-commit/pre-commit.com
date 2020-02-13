@@ -98,7 +98,7 @@
 - https://github.com/myint/docformatter
 - https://github.com/lorenzwalthert/pre-commit-hooks
 - https://github.com/FelixSeptem/pre-commit-golang
-- https://gitlab.com/toscana/pre-commit-cpp
+- https://gitlab.com/daverona/pre-commit-cpp
 - https://github.com/codingjoe/relint
 - https://github.com/nix-community/nixpkgs-fmt
 - https://github.com/d6e/beancount-check
