@@ -3242,5 +3242,39 @@
             "language": "ruby",
             "files": "\\.(md|mdown|markdown)$"
         }
+    ],
+    "https://github.com/jguttman94/pre-commit-gradle": [
+        {
+            "id": "gradle-check",
+            "name": "gradle check",
+            "description": "Runs java unit tests using gradle check",
+            "entry": "gradle-check",
+            "language": "python",
+            "pass_filenames": false
+        },
+        {
+            "id": "gradle-build",
+            "name": "gradle build",
+            "description": "Builds java project using \"gradle build\"",
+            "entry": "gradle-build",
+            "language": "python",
+            "pass_filenames": false
+        },
+        {
+            "id": "gradle-spotless",
+            "name": "gradle spotless",
+            "description": "Lints java project using \"gradle spotlessJavaCheck spotlessJavaApply\"",
+            "entry": "gradle-spotless",
+            "language": "python",
+            "pass_filenames": false
+        },
+        {
+            "id": "gradle-task",
+            "name": "gradle task",
+            "description": "Runs arbitrary gradle tasks for java project",
+            "entry": "gradle-task",
+            "language": "python",
+            "pass_filenames": false
+        }
     ]
 }
