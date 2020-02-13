@@ -2739,7 +2739,7 @@
             "description": "Runs `golangci-lint` read local config file, requires golangci-lint"
         }
     ],
-    "https://gitlab.com/toscana/pre-commit-cpp": [
+    "https://gitlab.com/daverona/pre-commit-cpp": [
         {
             "id": "clang-format",
             "name": "formatter of C/C++ code",
