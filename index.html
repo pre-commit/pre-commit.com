@@ -1074,6 +1074,29 @@ control the default versions across all hooks of a language.</p>
     <span class="c1"># force all unspecified ruby hooks to run ruby 2.1.5</span>
     <span class="nt">ruby</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
 </pre></div>
+<h2 id="badging-your-repository">    badging your repository <small><a href="#badging-your-repository">¶</a></small></h2> <p>you can add a badge to your repository to show your contributors / users that
+you use pre-commit!</p>
+<p><a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white" alt="pre-commit"></a></p>
+<ul>
+<li><p>Markdown:</p>
+<div class="highlight md"><pre><span></span>[<span class="nt">![pre-commit</span>](<span class="na">https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white</span>)](https://github.com/pre-commit/pre-commit)
+</pre></div>
+</li>
+<li><p>HTML:</p>
+<div class="highlight html"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://github.com/pre-commit/pre-commit&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;pre-commit&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;max-width:100%;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</li>
+<li><p>reStructuredText:</p>
+<div class="highlight rst"><pre><span></span><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white
+   <span class="nc">:target:</span> https://github.com/pre-commit/pre-commit
+   <span class="nc">:alt:</span> pre-commit
+</pre></div>
+</li>
+<li><p>AsciiDoc:</p>
+<div class="highlight"><pre><span></span>image:https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white[pre-commit, link=https://github.com/pre-commit/pre-commit]
+</pre></div>
+</li>
+</ul>
 <h2 id="usage-in-continuous-integration">    Usage in continuous integration <small><a href="#usage-in-continuous-integration">¶</a></small></h2> <p>pre-commit can also be used as a tool for continuous integration.  For
 instance, adding <code>pre-commit run --all-files</code> as a CI step will ensure
 everything stays in tip-top shape.  To check only files which have changed,
