@@ -1429,29 +1429,38 @@ default_language_version:
     ruby: 2.1.5
 ```
 
-## Adding the pre-commit badge
+## badging your repository
 
-If you like you can add the pre-commit badge to your documentation:
+you can add a badge to your repository to show your contributors / users that
+you use pre-commit!
+
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 - Markdown:
-    ```md
-    [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-    ```
-- HTML:
-    ```html
-    <a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white" alt="pre-commit" style="max-width:100%;"></a>
-    ```
-- reStructuredText:
-    ```rst
-    .. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
-       :target: https://github.com/pre-commit/pre-commit
-       :alt: pre-commit
-    ```
-- AsciiDoc:
-    ```
-    image:https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white[pre-commit, link=https://github.com/pre-commit/pre-commit]
-    ```
 
+  ```md
+  [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+  ```
+
+- HTML:
+
+  ```html
+  <a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white" alt="pre-commit" style="max-width:100%;"></a>
+  ```
+
+- reStructuredText:
+
+  ```rst
+  .. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+     :target: https://github.com/pre-commit/pre-commit
+     :alt: pre-commit
+  ```
+
+- AsciiDoc:
+
+  ```
+  image:https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white[pre-commit, link=https://github.com/pre-commit/pre-commit]
+  ```
 
 ## Usage in continuous integration
 
