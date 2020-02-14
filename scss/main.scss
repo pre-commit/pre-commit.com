@@ -145,9 +145,7 @@ h1,
 }
 
 // vs.css: https://github.com/richleland/pygments-css
-.highlight.yaml,
-.highlight.ini,
-.highlight.bash {
+.highlight {
     .hll { background-color: #ffc; }
     .c { color: #008000; } /* Comment */
     .err { border: 1px solid #ff0; } /* Error */
@@ -197,6 +195,11 @@ h1,
     .-Color-Black-BGYellow { background-color: #c4a000; color: #2e3436; }
     .-Color-Black-BGCyan { background-color: #06989a; color: #2e3436; }
     .-Color-Faint { color: #ccc; }
+
+    .c1 { color: #06989a; }
+    .s { color: #8ae234; }
+    .s1 { color: #8ae234; }
+    .s2 { color: #8ae234; }
 }
 
 @media (max-width: $screen-md-max) {
