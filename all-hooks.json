@@ -3292,5 +3292,19 @@
             "language": "python",
             "files": ".*"
         }
+    ],
+    "https://github.com/dmitri-lerko/pre-commit-docker-kustomize": [
+        {
+            "id": "kustomize",
+            "name": "kustomize (via docker)",
+            "description": "kustomize provided by docker",
+            "entry": "kustomize build",
+            "language": "docker",
+            "args": [
+                "overlay/production-us"
+            ],
+            "always_run": true,
+            "pass_filenames": false
+        }
     ]
 }
