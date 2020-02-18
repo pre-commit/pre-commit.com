@@ -125,7 +125,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 2.0.1
+pre-commit 2.1.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -441,6 +441,7 @@ Hello from foo hook!
 <li><a href="#fail">fail</a></li>
 <li><a href="#golang">golang</a></li>
 <li><a href="#node">node</a></li>
+<li><a href="#perl">perl</a></li>
 <li><a href="#python">python</a></li>
 <li><a href="#python_venv">python_venv</a></li>
 <li><a href="#ruby">ruby</a></li>
@@ -525,6 +526,20 @@ match the <code>entry</code> – usually through <code>bin</code> in package.jso
 been tested on linux and macOS and <em>may</em> work under cygwin.</p>
 <p><em>new in 1.5.0</em>: windows is now supported for node hooks.  Currently python3
 only due to <a href="https://bugs.python.org/issue32539">a bug in cpython</a>.</p>
+<h3 id="perl">    perl <small><a href="#perl">¶</a></small></h3> <p><em>new in 2.1.0</em></p>
+<p>Perl hooks are installed using the system installation of
+<a href="https://perldoc.perl.org/5.30.0/cpan.html">cpan</a>, the CPAN package installer
+that comes with Perl.</p>
+<p>Hook repositories must have something that <code>cpan</code> supports, typically
+<code>Makefile.PL</code> or <code>Build.PL</code>, which it uses to install an executable to
+use in the <code>entry</code> definition for your hook. The repository will be installed
+via <code>cpan -T .</code> (with the installed files stored in your pre-commit cache,
+not polluting other Perl installations).</p>
+<p>When specifying <code>additional_dependencies</code> for Perl, you can use any of the
+<a href="https://perldoc.perl.org/5.30.0/CPAN.html#get%2c-make%2c-test%2c-install%2c-clean-modules-or-distributions">install argument formats understood by <code>cpan</code></a>.</p>
+<p><strong>Support:</strong> Perl hooks currently require a pre-existing Perl installation,
+including the <code>cpan</code> tool in <code>PATH</code>.  It has been tested on linux, macOS, and
+Windows.</p>
 <h3 id="python">    python <small><a href="#python">¶</a></small></h3> <p>The hook repository must be installable via <code>pip install .</code> (usually by either
 <code>setup.py</code> or <code>pyproject.toml</code>).  The installed package will provide an
 executable that will match the <code>entry</code> – usually through <code>console_scripts</code> or
