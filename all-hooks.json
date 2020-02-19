@@ -3306,5 +3306,22 @@
             "always_run": true,
             "pass_filenames": false
         }
+    ],
+    "https://github.com/perltidy/perltidy": [
+        {
+            "id": "perltidy",
+            "name": "perltidy",
+            "description": "Run the perltidy source code formatter on Perl source files",
+            "minimum_pre_commit_version": "2.1.0",
+            "entry": "perltidy --nostandard-output --backup-and-modify-in-place",
+            "args": [
+                "--standard-error-output",
+                "--backup-file-extension=/"
+            ],
+            "language": "perl",
+            "types": [
+                "perl"
+            ]
+        }
     ]
 }
