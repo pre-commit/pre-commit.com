@@ -407,6 +407,8 @@ directory while developing hooks.</p>
 <p><a href="#pre-commit-try-repo"><code>pre-commit try-repo</code></a> streamlines this process by
 enabling a quick way to try out a repository.  Here's how one might work
 interactively:</p>
+<p><em>note</em>: you may need to provide <code>--commit-msg-filename</code> when using this
+command with hook types <code>prepare-commit-msg</code> and <code>commit-msg</code>.</p>
 <p><em>new in 1.14.0</em>: a commit is no longer necessary to <code>try-repo</code> on a local
 directory. <code>pre-commit</code> will clone any uncommitted changes.</p>
 <div class="highlight pre-commit"><pre><span></span>~/work/hook-repo $ git checkout origin/master -b feature
