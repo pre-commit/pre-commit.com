@@ -1798,7 +1798,7 @@
             "id": "gitlint",
             "name": "gitlint",
             "language": "python",
-            "entry": "gitlint --msg-filename",
+            "entry": "gitlint --staged --msg-filename",
             "stages": [
                 "commit-msg"
             ]
@@ -2667,7 +2667,7 @@
         {
             "id": "codemeta-description-updated",
             "name": "codemeta-description-updated",
-            "description": "make sure codemeta.json is in sync with DESCRIPTION",
+            "description": "make sure codemeta.json is in sync with DESCRIPTION. It should be run after use-tidy-description.",
             "entry": "inst/bin/codemeta-description-updated",
             "language": "script",
             "files": "^DESCRIPTION$"
@@ -2678,7 +2678,8 @@
             "description": "perform a spell check with spelling::spell_check_files()",
             "entry": "inst/bin/spell-check",
             "language": "script",
-            "exclude": "(\\.[rR]$|\\.py$|/?\\.gitignore$|^\\.pre-commit|^NAMESPACE$|^inst/WORDLIST$)"
+            "exclude": "(\\.[rR]$|\\.py$|/?\\.gitignore$|^\\.pre-commit|^NAMESPACE$|^inst/WORDLIST$)",
+            "require_serial": true
         },
         {
             "id": "deps-in-desc",
