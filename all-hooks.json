@@ -1148,7 +1148,7 @@
             "additional_dependencies": [
                 "markdown-toc"
             ],
-            "files": "^README.md$"
+            "files": ".*\\.md$"
         }
     ],
     "https://github.com/Lucas-C/pre-commit-hooks-safety": [
