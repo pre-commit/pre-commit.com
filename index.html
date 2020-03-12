@@ -125,7 +125,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 2.1.1
+pre-commit 2.2.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -279,7 +279,7 @@ hook.  See <a href="#overriding-language-version">Overriding Language Version</a
 </td><td><p>(optional) list of additional parameters to pass to the hook.</p>
 </td></tr><tr><td><p><code>stages</code></p>
 </td><td><p>(optional) confines the hook to the <code>commit</code>, <code>merge-commit</code>, <code>push</code>,
-<code>prepare-commit-msg</code>, <code>commit-msg</code>, or <code>manual</code> stage.  See
+<code>prepare-commit-msg</code>, <code>commit-msg</code>, 'post-checkout', or <code>manual</code> stage.  See
 <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
 </td></tr><tr><td><p><code>additional_dependencies</code></p>
 </td><td><p>(optional) a list of dependencies that will be installed in the
@@ -676,8 +676,8 @@ the cache directory.</p>
 <code>git config init.templateDir</code>.</p>
 <p>Options:</p>
 <ul>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}</code>:
+<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}</code>,
+<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}</code>:
 which hook type to install.</li>
 </ul>
 <p>Some example useful invocations:</p>
@@ -694,8 +694,8 @@ script.</li>
 <li><code>--install-hooks</code>: Also install environments for all available hooks now
 (rather than when they are first executed). See <a href="#pre-commit-install-hooks"><code>pre-commit
 install-hooks</code></a>.</li>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}</code>:
+<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}</code>,
+<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}</code>:
 Specify which hook type to install.</li>
 <li><code>--allow-missing-config</code>: Hook scripts will permit a missing configuration
 file.</li>
@@ -853,6 +853,28 @@ single filename -- this file contains any initial commit message (e.g. from
 the editor is shown. A hook may want to check for <code>GIT_EDITOR=:</code> as this
 indicates that no editor will be launched. If a hook exits nonzero,
 the commit will be aborted.</p>
+<h2 id="pre-commit-for-switching-branches">    pre-commit for switching branches <small><a href="#pre-commit-for-switching-branches">¶</a></small></h2> <p><em>new in 2.2.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_checkout">post-checkout</a> hooks.</p>
+<p>To use <code>post-checkout</code> hooks with pre-commit run:</p>
+<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type post-checkout
+<span class="go">pre-commit installed at .git/hooks/post-checkout</span>
+</pre></div>
+<p><code>post-checkout</code> hooks can be used to perform repository validity checks,
+auto-display differences from the previous HEAD if different,
+or set working dir metadata properties. Since <code>post-checkout</code> doesn't operate
+on files, any hooks must set <code>always_run</code>:</p>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">post-checkout-local</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Post checkout</span>
+        <span class="nt">always_run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">stages</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">post-checkout</span><span class="p p-Indicator">]</span>
+        <span class="c1"># ...</span>
+</pre></div>
+<p><code>post-checkout</code> hooks have three environment variables they can check to
+do their work: <code>$PRE_COMMIT_FROM_REF</code>, <code>$PRE_COMMIT_TO_REF</code>,
+and <code>$PRE_COMMIT_CHECKOUT_TYPE</code>. These correspond to the first, second,
+and third arguments (respectively) that are normally passed to a regular
+post-checkout hook from Git.</p>
 <h2 id="confining-hooks-to-run-at-certain-stages">    Confining hooks to run at certain stages <small><a href="#confining-hooks-to-run-at-certain-stages">¶</a></small></h2> <p>Since the <code>default_stages</code> top level configuration property of the
 <code>.pre-commit-config.yaml</code> file is set to all stages by default, when installing
 hooks using the <code>-t</code>/<code>--hook-type</code> option (see <a href="#pre-commit-install">pre-commit
