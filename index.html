@@ -725,8 +725,12 @@ the hook environments in one command, use <code>pre-commit install --install hoo
 <li><code>[hook-id]</code>: specify a single hook-id to run only that hook.</li>
 <li><code>-a</code>, <code>--all-files</code>: run on all the files in the repo.</li>
 <li><code>--files [FILES [FILES ...]]</code>: specific filenames to run hooks on.</li>
-<li><code>--source SOURCE</code> + <code>--origin ORIGIN</code>: run against the files changed between
-<code>SOURCE...ORIGIN</code> in git.</li>
+<li><code>--from-ref FROM_REF</code> + <code>--to-ref TO_REF</code>: run against the files changed
+between <code>FROM_REF...TO_REF</code> in git.<ul>
+<li><em>new in 2.2.0</em>: prior to 2.2.0 the arguments were <code>--source</code> and
+<code>--origin</code>.</li>
+</ul>
+</li>
 <li><code>--show-diff-on-failure</code>: when hooks fail, run <code>git diff</code> directly afterward.</li>
 <li><code>-v</code>, <code>--verbose</code>: produce hook output independent of success.  Include hook
 ids in output.</li>
@@ -740,7 +744,7 @@ is a useful invocation if you are using pre-commit in CI.</li>
 <li><code>pre-commit run flake8</code>: run the <code>flake8</code> hook against all staged files.</li>
 <li><code>git ls-files -- '*.py' | xargs pre-commit run --files</code>: run all hooks
 against all <code>*.py</code> files in the repository.</li>
-<li><code>pre-commit run --source HEAD^^^ --origin HEAD</code>: run against the files that
+<li><code>pre-commit run --from-ref HEAD^^^ --to-ref HEAD</code>: run against the files that
 have changed between <code>HEAD^^^</code> and <code>HEAD</code>.  This form is useful when
 leveraged in a pre-receive hook.</li>
 </ul>
@@ -824,8 +828,14 @@ pre-merge-commit hook.</p>
 </pre></div>
 <p>During a push, pre-commit will export the following environment variables:</p>
 <ul>
-<li><code>PRE_COMMIT_SOURCE</code>: the remote revision that is being pushed to.</li>
-<li><code>PRE_COMMIT_ORIGIN</code>: the local revision that is being pushed to the remote.</li>
+<li><code>PRE_COMMIT_FROM_REF</code>: the remote revision that is being pushed to.<ul>
+<li><em>new in 2.2.0</em> prior to 2.2.0 the variable was <code>PRE_COMMIT_SOURCE</code>.</li>
+</ul>
+</li>
+<li><code>PRE_COMMIT_TO_REF</code>: the local revision that is being pushed to the remote.<ul>
+<li><em>new in 2.2.0</em> prior to 2.2.0 the variable was <code>PRE_COMMIT_ORIGIN</code>.</li>
+</ul>
+</li>
 <li><code>PRE_COMMIT_REMOTE_NAME</code>: <em>new in 2.0.0</em> which remote is being pushed to
 (for example <code>origin</code>)</li>
 <li><code>PRE_COMMIT_REMOTE_URL</code>: <em>new in 2.0.0</em> the url of the remote that is being
@@ -1140,7 +1150,7 @@ you use pre-commit!</p>
 instance, adding <code>pre-commit run --all-files</code> as a CI step will ensure
 everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
-<code>pre-commit run --origin HEAD --source origin/HEAD</code>.</p>
+<code>pre-commit run --from-ref origin.HEAD --to-ref HEAD</code></p>
 <h2 id="managing-ci-caches">    Managing CI Caches <small><a href="#managing-ci-caches">¶</a></small></h2> <p><code>pre-commit</code> by default places its repository store in <code>~/.cache/pre-commit</code>
 -- this can be configured in two ways:</p>
 <ul>
