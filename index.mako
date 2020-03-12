@@ -312,7 +312,7 @@ repository's configuration.
 =r=
     =c= `stages`
     =c= (optional) confines the hook to the `commit`, `merge-commit`, `push`,
-        `prepare-commit-msg`, `commit-msg`, or `manual` stage.  See
+        `prepare-commit-msg`, `commit-msg`, 'post-checkout', or `manual` stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
     =c= `additional_dependencies`
@@ -874,8 +874,8 @@ Install hook script in a directory intended for use with
 
 Options:
 
-- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}`,
-  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}`:
+- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`,
+  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`:
   which hook type to install.
 
 Some example useful invocations:
@@ -899,8 +899,8 @@ Options:
 - `--install-hooks`: Also install environments for all available hooks now
   (rather than when they are first executed). See [`pre-commit
   install-hooks`](#pre-commit-install-hooks).
-- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}`,
-  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}`:
+- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`,
+  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`:
   Specify which hook type to install.
 - `--allow-missing-config`: Hook scripts will permit a missing configuration
   file.
@@ -1126,6 +1126,40 @@ the commit will be aborted.
 
 [commit-msg]: https://git-scm.com/docs/githooks#_commit_msg
 [prepare-commit-msg]: https://git-scm.com/docs/githooks#_prepare_commit_msg
+
+
+## pre-commit for switching branches
+_new in 2.2.0_: pre-commit can be used to manage [post-checkout] hooks.
+
+To use `post-checkout` hooks with pre-commit run:
+
+```console
+$ pre-commit install --hook-type post-checkout
+pre-commit installed at .git/hooks/post-checkout
+```
+
+`post-checkout` hooks can be used to perform repository validity checks,
+auto-display differences from the previous HEAD if different,
+or set working dir metadata properties. Since `post-checkout` doesn't operate
+on files, any hooks must set `always_run`:
+
+```yaml
+-   repo: local
+    hooks:
+    -   id: post-checkout-local
+        name: Post checkout
+        always_run: true
+        stages: [post-checkout]
+        # ...
+```
+
+`post-checkout` hooks have three environment variables they can check to
+do their work: `$PRE_COMMIT_FROM_REF`, `$PRE_COMMIT_TO_REF`,
+and `$PRE_COMMIT_CHECKOUT_TYPE`. These correspond to the first, second,
+and third arguments (respectively) that are normally passed to a regular
+post-checkout hook from Git.
+
+[post-checkout]: https://git-scm.com/docs/githooks#_post_checkout
 
 ## Confining hooks to run at certain stages
 
