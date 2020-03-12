@@ -944,8 +944,10 @@ Options:
 - `[hook-id]`: specify a single hook-id to run only that hook.
 - `-a`, `--all-files`: run on all the files in the repo.
 - `--files [FILES [FILES ...]]`: specific filenames to run hooks on.
-- `--source SOURCE` + `--origin ORIGIN`: run against the files changed between
-  `SOURCE...ORIGIN` in git.
+- `--from-ref FROM_REF` + `--to-ref TO_REF`: run against the files changed
+  between `FROM_REF...TO_REF` in git.
+    - _new in 2.2.0_: prior to 2.2.0 the arguments were `--source` and
+      `--origin`.
 - `--show-diff-on-failure`: when hooks fail, run `git diff` directly afterward.
 - `-v`, `--verbose`: produce hook output independent of success.  Include hook
   ids in output.
@@ -958,7 +960,7 @@ Some example useful invocations:
 - `pre-commit run flake8`: run the `flake8` hook against all staged files.
 - `git ls-files -- '*.py' | xargs pre-commit run --files`: run all hooks
   against all `*.py` files in the repository.
-- `pre-commit run --source HEAD^^^ --origin HEAD`: run against the files that
+- `pre-commit run --from-ref HEAD^^^ --to-ref HEAD`: run against the files that
   have changed between `HEAD^^^` and `HEAD`.  This form is useful when
   leveraged in a pre-receive hook.
 
@@ -1081,8 +1083,10 @@ pre-commit installed at .git/hooks/pre-push
 ```
 
 During a push, pre-commit will export the following environment variables:
-- `PRE_COMMIT_SOURCE`: the remote revision that is being pushed to.
-- `PRE_COMMIT_ORIGIN`: the local revision that is being pushed to the remote.
+- `PRE_COMMIT_FROM_REF`: the remote revision that is being pushed to.
+    - _new in 2.2.0_ prior to 2.2.0 the variable was `PRE_COMMIT_SOURCE`.
+- `PRE_COMMIT_TO_REF`: the local revision that is being pushed to the remote.
+    - _new in 2.2.0_ prior to 2.2.0 the variable was `PRE_COMMIT_ORIGIN`.
 - `PRE_COMMIT_REMOTE_NAME`: _new in 2.0.0_ which remote is being pushed to
   (for example `origin`)
 - `PRE_COMMIT_REMOTE_URL`: _new in 2.0.0_ the url of the remote that is being
@@ -1527,7 +1531,7 @@ pre-commit can also be used as a tool for continuous integration.  For
 instance, adding `pre-commit run --all-files` as a CI step will ensure
 everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
-`pre-commit run --origin HEAD --source origin/HEAD`.
+`pre-commit run --from-ref origin.HEAD --to-ref HEAD`
 
 ## Managing CI Caches
 
