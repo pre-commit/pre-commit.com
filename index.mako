@@ -312,7 +312,7 @@ repository's configuration.
 =r=
     =c= `stages`
     =c= (optional) confines the hook to the `commit`, `merge-commit`, `push`,
-        `prepare-commit-msg`, `commit-msg`, or `manual` stage.  See
+        `prepare-commit-msg`, `commit-msg`, 'post-checkout', or `manual` stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
     =c= `additional_dependencies`
@@ -874,8 +874,8 @@ Install hook script in a directory intended for use with
 
 Options:
 
-- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}`,
-  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}`:
+- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`,
+  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`:
   which hook type to install.
 
 Some example useful invocations:
@@ -899,8 +899,8 @@ Options:
 - `--install-hooks`: Also install environments for all available hooks now
   (rather than when they are first executed). See [`pre-commit
   install-hooks`](#pre-commit-install-hooks).
-- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}`,
-  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}`:
+- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`,
+  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`:
   Specify which hook type to install.
 - `--allow-missing-config`: Hook scripts will permit a missing configuration
   file.
@@ -944,8 +944,10 @@ Options:
 - `[hook-id]`: specify a single hook-id to run only that hook.
 - `-a`, `--all-files`: run on all the files in the repo.
 - `--files [FILES [FILES ...]]`: specific filenames to run hooks on.
-- `--source SOURCE` + `--origin ORIGIN`: run against the files changed between
-  `SOURCE...ORIGIN` in git.
+- `--from-ref FROM_REF` + `--to-ref TO_REF`: run against the files changed
+  between `FROM_REF...TO_REF` in git.
+    - _new in 2.2.0_: prior to 2.2.0 the arguments were `--source` and
+      `--origin`.
 - `--show-diff-on-failure`: when hooks fail, run `git diff` directly afterward.
 - `-v`, `--verbose`: produce hook output independent of success.  Include hook
   ids in output.
@@ -958,7 +960,7 @@ Some example useful invocations:
 - `pre-commit run flake8`: run the `flake8` hook against all staged files.
 - `git ls-files -- '*.py' | xargs pre-commit run --files`: run all hooks
   against all `*.py` files in the repository.
-- `pre-commit run --source HEAD^^^ --origin HEAD`: run against the files that
+- `pre-commit run --from-ref HEAD^^^ --to-ref HEAD`: run against the files that
   have changed between `HEAD^^^` and `HEAD`.  This form is useful when
   leveraged in a pre-receive hook.
 
@@ -1081,8 +1083,10 @@ pre-commit installed at .git/hooks/pre-push
 ```
 
 During a push, pre-commit will export the following environment variables:
-- `PRE_COMMIT_SOURCE`: the remote revision that is being pushed to.
-- `PRE_COMMIT_ORIGIN`: the local revision that is being pushed to the remote.
+- `PRE_COMMIT_FROM_REF`: the remote revision that is being pushed to.
+    - _new in 2.2.0_ prior to 2.2.0 the variable was `PRE_COMMIT_SOURCE`.
+- `PRE_COMMIT_TO_REF`: the local revision that is being pushed to the remote.
+    - _new in 2.2.0_ prior to 2.2.0 the variable was `PRE_COMMIT_ORIGIN`.
 - `PRE_COMMIT_REMOTE_NAME`: _new in 2.0.0_ which remote is being pushed to
   (for example `origin`)
 - `PRE_COMMIT_REMOTE_URL`: _new in 2.0.0_ the url of the remote that is being
@@ -1126,6 +1130,40 @@ the commit will be aborted.
 
 [commit-msg]: https://git-scm.com/docs/githooks#_commit_msg
 [prepare-commit-msg]: https://git-scm.com/docs/githooks#_prepare_commit_msg
+
+
+## pre-commit for switching branches
+_new in 2.2.0_: pre-commit can be used to manage [post-checkout] hooks.
+
+To use `post-checkout` hooks with pre-commit run:
+
+```console
+$ pre-commit install --hook-type post-checkout
+pre-commit installed at .git/hooks/post-checkout
+```
+
+`post-checkout` hooks can be used to perform repository validity checks,
+auto-display differences from the previous HEAD if different,
+or set working dir metadata properties. Since `post-checkout` doesn't operate
+on files, any hooks must set `always_run`:
+
+```yaml
+-   repo: local
+    hooks:
+    -   id: post-checkout-local
+        name: Post checkout
+        always_run: true
+        stages: [post-checkout]
+        # ...
+```
+
+`post-checkout` hooks have three environment variables they can check to
+do their work: `$PRE_COMMIT_FROM_REF`, `$PRE_COMMIT_TO_REF`,
+and `$PRE_COMMIT_CHECKOUT_TYPE`. These correspond to the first, second,
+and third arguments (respectively) that are normally passed to a regular
+post-checkout hook from Git.
+
+[post-checkout]: https://git-scm.com/docs/githooks#_post_checkout
 
 ## Confining hooks to run at certain stages
 
@@ -1493,7 +1531,7 @@ pre-commit can also be used as a tool for continuous integration.  For
 instance, adding `pre-commit run --all-files` as a CI step will ensure
 everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
-`pre-commit run --origin HEAD --source origin/HEAD`.
+`pre-commit run --from-ref origin.HEAD --to-ref HEAD`
 
 ## Managing CI Caches
 
