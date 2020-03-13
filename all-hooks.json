@@ -3389,5 +3389,45 @@
             "files": "\\.java$",
             "require_serial": true
         }
+    ],
+    "https://github.com/JamesWoolfenden/pre-commit": [
+        {
+            "id": "terraform-fmt",
+            "name": "terraform-fmt",
+            "entry": "terraform-fmt",
+            "description": "Rewrite Terraform configuration files to a canonical format and style, cross platform compatible",
+            "language": "python",
+            "files": "(\\.tf|\\.tfvars)$",
+            "exclude": "\\.terraform\\/.*$"
+        },
+        {
+            "id": "checkov-scan",
+            "name": "checkov",
+            "description": "runs checkov over a project, cross platform compatible",
+            "entry": "checkov-scan",
+            "language": "python",
+            "language_version": "python3.7",
+            "files": "(\\.tf)$",
+            "exclude": "\\.terraform\\/.*$",
+            "always_run": false,
+            "pass_filenames": false,
+            "verbose": true,
+            "additional_dependencies": [
+                "checkov"
+            ]
+        },
+        {
+            "id": "tf2docs",
+            "name": "tf2docs",
+            "description": "builds markdown docs, cross platform compatible",
+            "entry": "tf2docs",
+            "language": "python",
+            "language_version": "python3.7",
+            "files": "(\\.tf)$",
+            "exclude": "\\.terraform\\/.*$",
+            "always_run": false,
+            "pass_filenames": false,
+            "verbose": true
+        }
     ]
 }
