@@ -3429,5 +3429,79 @@
             "pass_filenames": false,
             "verbose": true
         }
+    ],
+    "https://github.com/lietu/go-pre-commit": [
+        {
+            "id": "errcheck",
+            "name": "errcheck",
+            "entry": "go-pre-commit errcheck",
+            "files": "\\.go$",
+            "language": "system",
+            "description": "Check your Go source code with errcheck"
+        },
+        {
+            "id": "go-fmt-goimports",
+            "name": "go-fmt-goimports",
+            "entry": "go-pre-commit go-fmt-goimports",
+            "files": "\\.go$",
+            "language": "system",
+            "description": "Format your Go code with go fmt and goimports"
+        },
+        {
+            "id": "go-test",
+            "name": "go-test",
+            "entry": "go-pre-commit go-test",
+            "files": "\\.go$",
+            "language": "system",
+            "description": "Run your Go unit tests"
+        },
+        {
+            "id": "go-vet",
+            "name": "go-vet",
+            "entry": "go-pre-commit go-vet",
+            "files": "\\.go$",
+            "language": "system",
+            "description": "Check your Go source with go vet"
+        },
+        {
+            "id": "gofumports",
+            "name": "gofumports",
+            "entry": "go-pre-commit gofumports",
+            "files": "\\.go$",
+            "language": "system",
+            "description": "Format your Go code with gofumports"
+        },
+        {
+            "id": "gofumpt",
+            "name": "gofumpt",
+            "entry": "go-pre-commit gofumpt",
+            "files": "\\.go$",
+            "language": "system",
+            "description": "Format your Go code with gofumpt"
+        },
+        {
+            "id": "golangci-lint",
+            "name": "golangci-lint",
+            "entry": "go-pre-commit golangci-lint",
+            "files": "\\.go$",
+            "language": "system",
+            "description": "Check your Go code with golangci-lint"
+        },
+        {
+            "id": "golint",
+            "name": "golint",
+            "entry": "go-pre-commit golint",
+            "files": "\\.go$",
+            "language": "system",
+            "description": "Check your Go code with golint"
+        },
+        {
+            "id": "staticcheck",
+            "name": "staticcheck",
+            "entry": "go-pre-commit staticcheck",
+            "files": "\\.go$",
+            "language": "system",
+            "description": "Check your Go code with staticcheck"
+        }
     ]
 }
