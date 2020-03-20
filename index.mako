@@ -1202,6 +1202,7 @@ as follows:
     hooks:
     -   id: flake8
         args: [--max-line-length=131]
+        language_version: python3.8
 ```
 
 This will pass `--max-line-length=131` to `flake8`.
