@@ -749,6 +749,10 @@ way to write a simple hook which prevents commits by file matching.  Specify
 the regex as the `entry`.  The `entry` may be any python
 [regular expression](#regular-expressions).  For case insensitive regexes you
 can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
+The regex operates in bytes mode and is internally encoded using UTF-8 for
+that, so the hook will produce correct results only for files in which the
+literal characters present in the regex are encoded the same as they are in
+UTF-8.
 
 _new in 1.8.0_: For multiline matches, use `args: [--multiline]`.
 
