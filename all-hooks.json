@@ -2615,7 +2615,7 @@
             ]
         }
     ],
-    "https://github.com/lorenzwalthert/pre-commit-hooks": [
+    "https://github.com/lorenzwalthert/precommit": [
         {
             "id": "roxygenize",
             "name": "roxygenize",
