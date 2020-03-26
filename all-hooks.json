@@ -964,12 +964,22 @@
             ],
             "args": [
                 "-l",
-                "-i",
-                "2",
                 "-ci"
             ],
             "additional_dependencies": [
                 "shfmt"
+            ]
+        }
+    ],
+    "https://github.com/jumanjihouse/pre-commit-hook-yamlfmt": [
+        {
+            "id": "yamlfmt",
+            "name": "Format YAML files",
+            "description": "Format YAML files",
+            "entry": "yamlfmt",
+            "language": "python",
+            "types": [
+                "yaml"
             ]
         }
     ],
@@ -3502,6 +3512,93 @@
             "files": "\\.go$",
             "language": "system",
             "description": "Check your Go code with staticcheck"
+        }
+    ],
+    "https://github.com/macisamuele/language-formatters-pre-commit-hooks": [
+        {
+            "id": "pretty-format-golang",
+            "name": "Go Formatter",
+            "description": "Runs gofmt over golang source files.",
+            "entry": "pretty-format-golang",
+            "language": "python",
+            "types": [
+                "go"
+            ],
+            "files": "^.+\\.go$",
+            "minimum_pre_commit_version": "0.15.0"
+        },
+        {
+            "id": "pretty-format-ini",
+            "name": "Pretty format INI",
+            "description": "This hook sets a standard for formatting INI  files.",
+            "entry": "pretty-format-ini",
+            "language": "python",
+            "types": [
+                "ini"
+            ],
+            "files": "^.*\\.ini$",
+            "minimum_pre_commit_version": "0.15.0"
+        },
+        {
+            "id": "pretty-format-java",
+            "name": "Google Java Formatter",
+            "description": "Runs Google Java Formatter over Java source files",
+            "entry": "pretty-format-java",
+            "language": "python",
+            "types": [
+                "java"
+            ],
+            "files": "^.+\\.java$",
+            "minimum_pre_commit_version": "0.15.0"
+        },
+        {
+            "id": "pretty-format-kotlin",
+            "name": "KTLint",
+            "description": "Runs KTLint over Kotlin source files",
+            "entry": "pretty-format-kotlin",
+            "language": "python",
+            "types": [
+                "kotlin"
+            ],
+            "files": "^.+\\.kt$",
+            "minimum_pre_commit_version": "0.15.0",
+            "require_serial": true
+        },
+        {
+            "id": "pretty-format-rust",
+            "name": "cargo-fmt",
+            "description": "Runs cargo fmt over Rust source files",
+            "entry": "pretty-format-rust",
+            "language": "python",
+            "types": [
+                "rust"
+            ],
+            "files": "^.+\\.rs$",
+            "minimum_pre_commit_version": "0.15.0"
+        },
+        {
+            "id": "pretty-format-toml",
+            "name": "Pretty format TOML",
+            "description": "This hook sets a standard for formatting TOML files.",
+            "entry": "pretty-format-toml",
+            "language": "python",
+            "types": [
+                "toml"
+            ],
+            "files": "^.*\\.toml$",
+            "minimum_pre_commit_version": "0.15.0"
+        },
+        {
+            "id": "pretty-format-yaml",
+            "name": "Pretty format YAML",
+            "description": "This hook sets a standard for formatting YAML files.",
+            "entry": "pretty-format-yaml",
+            "language": "python",
+            "types": [
+                "yaml"
+            ],
+            "files": "^.*\\.(yaml|yml)$",
+            "minimum_pre_commit_version": "0.15.0"
         }
     ]
 }
