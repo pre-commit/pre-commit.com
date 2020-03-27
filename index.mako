@@ -923,7 +923,7 @@ Each hook is initialized in a separate environment appropriate to the language
 the hook is written in. See [supported languages](#supported-languages).
 
 This command does not install the pre-commit script. To install the script along with
-the hook environments in one command, use `pre-commit install --install hooks`.
+the hook environments in one command, use `pre-commit install --install-hooks`.
 
 Options: (no additional options)
 
