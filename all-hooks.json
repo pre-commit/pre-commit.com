@@ -961,13 +961,6 @@
             "entry": "pre_commit_hooks/shfmt",
             "types": [
                 "shell"
-            ],
-            "args": [
-                "-l",
-                "-ci"
-            ],
-            "additional_dependencies": [
-                "shfmt"
             ]
         }
     ],
@@ -2498,35 +2491,42 @@
         {
             "id": "clang-format",
             "name": "clang-format",
-            "entry": "hooks/clang-format",
+            "entry": "clang-format-hook",
             "description": "Formats C/CPP code",
             "files": "\\.(c|cc|cxx|cpp|h|hpp|hxx|m)$",
-            "language": "script",
-            "additional_dependencies": [
-                "clang-format"
-            ]
+            "language": "python"
         },
         {
             "id": "clang-tidy",
             "name": "clang-tidy",
-            "entry": "hooks/clang-tidy",
+            "entry": "clang-tidy-hook",
             "description": "Find warnings/errors in C/CPP code",
             "files": "\\.(c|cc|cxx|cpp|h|hpp|hxx|m)$",
-            "language": "script",
-            "additional_dependencies": [
-                "clang-tidy"
-            ]
+            "language": "python"
         },
         {
             "id": "oclint",
             "name": "oclint",
-            "entry": "hooks/oclint",
+            "entry": "oclint-hook",
             "description": "Find warnings/errors in C/CPP code",
             "files": "\\.(c|cc|cxx|cpp|h|hpp|hxx|m)$",
-            "language": "script",
-            "additional_dependencies": [
-                "oclint"
-            ]
+            "language": "python"
+        },
+        {
+            "id": "uncrustify",
+            "name": "uncrustify",
+            "entry": "uncrustify-hook",
+            "description": "Formats C/CPP code",
+            "files": "\\.(c|cc|cxx|cpp|h|hpp|hxx|m)$",
+            "language": "python"
+        },
+        {
+            "id": "cppcheck",
+            "name": "cppcheck",
+            "entry": "cppcheck-hook",
+            "description": "Find warnings/errors in C/CPP code",
+            "files": "\\.(c|cc|cxx|cpp|h|hpp|hxx|m)$",
+            "language": "python"
         }
     ],
     "https://github.com/dwightgunning/pre-commit-nglint": [
