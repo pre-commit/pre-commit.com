@@ -2688,7 +2688,7 @@
             "description": "perform a spell check with spelling::spell_check_files()",
             "entry": "inst/bin/spell-check",
             "language": "script",
-            "exclude": "(\\.[rR]$|\\.py$|/?\\.gitignore$|^\\.pre-commit|^NAMESPACE$|^inst/WORDLIST$)",
+            "exclude": "(\\.[rR]$|\\.py$|/?\\.gitignore$|^\\.pre-commit|^NAMESPACE$|^inst/WORDLIST$|^\\.travis.yml$)",
             "require_serial": true
         },
         {
