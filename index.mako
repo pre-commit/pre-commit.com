@@ -626,7 +626,7 @@ being added to the `changelog` directory:
     hooks:
     -   id: changelogs-rst
         name: changelogs must be rst
-        entry: changelog filenames must end in .rst
+        description: changelog filenames must end in .rst
         language: fail
         files: 'changelog/.*(?<!\.rst)$'
 ```
