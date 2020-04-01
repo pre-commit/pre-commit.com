@@ -117,7 +117,6 @@
 - https://github.com/TekWizely/pre-commit-golang
 - https://github.com/markdownlint/markdownlint
 - https://github.com/jguttman94/pre-commit-gradle
-- https://github.com/Yelp/detect-secrets
 - https://github.com/dmitri-lerko/pre-commit-docker-kustomize
 - https://github.com/perltidy/perltidy
 - https://github.com/talos-systems/conform
