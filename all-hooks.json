@@ -1557,7 +1557,7 @@
         },
         {
             "id": "terraform_validate",
-            "name": "Terraform validate without variables",
+            "name": "Terraform validate",
             "description": "Validates all Terraform configuration files.",
             "entry": "terraform_validate.sh",
             "language": "script",
