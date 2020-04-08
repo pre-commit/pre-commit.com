@@ -2878,7 +2878,7 @@
             "entry": "lisp-format -i"
         }
     ],
-    "https://github.com/ryanrhee/shellcheck-py": [
+    "https://github.com/shellcheck-py/shellcheck-py": [
         {
             "id": "shellcheck",
             "name": "shellcheck",
