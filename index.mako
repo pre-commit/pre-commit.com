@@ -1501,19 +1501,19 @@ you use pre-commit!
 
 - Markdown:
 
-  ```md
+  ```md#copyable
   [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
   ```
 
 - HTML:
 
-  ```html
+  ```html#copyable
   <a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white" alt="pre-commit" style="max-width:100%;"></a>
   ```
 
 - reStructuredText:
 
-  ```rst
+  ```rst#copyable
   .. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
      :target: https://github.com/pre-commit/pre-commit
      :alt: pre-commit
@@ -1521,7 +1521,7 @@ you use pre-commit!
 
 - AsciiDoc:
 
-  ```
+  ```#copyable
   image:https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white[pre-commit, link=https://github.com/pre-commit/pre-commit]
   ```
 
