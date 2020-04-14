@@ -3600,5 +3600,30 @@
             "files": "^.*\\.(yaml|yml)$",
             "minimum_pre_commit_version": "0.15.0"
         }
+    ],
+    "https://github.com/jlebar/pre-commit-hooks": [
+        {
+            "id": "bazel-buildifier",
+            "name": "bazel buildifier",
+            "description": "Runs `buildifier`, requires buildifier binary",
+            "entry": "buildifier",
+            "files": "^(.*/)?(BUILD\\.bazel|BUILD)$|\\.BUILD$",
+            "language": "system"
+        },
+        {
+            "id": "do-not-submit",
+            "name": "DO NOT SUBMIT",
+            "description": "Forbids the string \"DO NOT SUBMIT\".",
+            "entry": "check_do_not_submit.py",
+            "language": "script",
+            "files": ".*"
+        },
+        {
+            "id": "clang-format",
+            "name": "clang-format",
+            "entry": "clang_format.py",
+            "language": "script",
+            "require_serial": true
+        }
     ]
 }
