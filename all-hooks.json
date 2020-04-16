@@ -3625,5 +3625,16 @@
             "language": "script",
             "require_serial": true
         }
+    ],
+    "https://github.com/jazzband/pip-tools": [
+        {
+            "id": "pip-compile",
+            "name": "pip-compile",
+            "description": "Automatically compile requirements.",
+            "entry": "pip-compile",
+            "language": "python",
+            "files": "^requirements\\.(in|txt)$",
+            "pass_filenames": false
+        }
     ]
 }
