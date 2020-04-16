@@ -32,7 +32,7 @@ push: venv
 		--master-branch real_master \
 		--pages-branch master \
 		.nojekyll README.md CNAME \
-		build node_modules *.html *.png *.svg favicon.ico \
+		build assets node_modules *.html *.png *.svg favicon.ico \
 		all-hooks.json install-local.py
 
 clean:
