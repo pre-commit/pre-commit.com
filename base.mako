@@ -68,5 +68,6 @@
             ga('create', 'UA-104682927-1', 'auto');
             ga('send', 'pageview');
         </script>
+        <script src="assets/copyable.js"></script>
     </body>
 </html>

@@ -3,5 +3,28 @@
     "license": "MIT",
     "dependencies": {
         "bootstrap-sass": "3.4.1"
+    },
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "rules": {
+            "indent": [
+                "error",
+                4
+            ],
+            "quotes": [
+                "error",
+                "single"
+            ],
+            "semi": [
+                "error",
+                "always"
+            ]
+        },
+        "parserOptions": {
+            "ecmaVersion": 6
+        },
+        "env": {
+            "browser": true
+        }
     }
 }

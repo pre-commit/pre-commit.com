@@ -3,6 +3,7 @@ import re
 import shlex
 import subprocess
 import sys
+from typing import Optional
 
 import markdown_code_blocks
 import markupsafe
@@ -99,13 +100,22 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             f'</h{level}> '
         )
 
-    def block_code(self, code: str, lang: str) -> str:
+    def block_code(self, code: str, lang: Optional[str]) -> str:
+        copyable = False
+        if lang is not None:
+            copyable_s = '#copyable'
+            copyable = lang.endswith(copyable_s)
+            lang, _, _ = lang.partition(copyable_s)
         if lang == 'table':
-            return _render_table(code)
+            ret = _render_table(code)
         elif lang == 'cmd':
-            return _render_cmd(code)
+            ret = _render_cmd(code)
         else:
-            return super().block_code(code, lang)
+            ret = super().block_code(code, lang)
+        if copyable:
+            return f'<div class="copyable">{ret}</div>'
+        else:
+            return ret
 
 
 def md(s: str) -> str:
