@@ -2688,7 +2688,7 @@
             "description": "perform a spell check with spelling::spell_check_files()",
             "entry": "inst/bin/spell-check",
             "language": "script",
-            "exclude": "(\\.[rR]$|\\.py$|/?\\.gitignore$|^\\.pre-commit|^NAMESPACE$|^inst/WORDLIST$|^\\.travis.yml$)",
+            "exclude": "(?x)^( .*\\.[rR]| .*\\.py| (.*/|)\\.gitignore| (.*/|)\\.pre-commit-.*| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| data/.* )$\n",
             "require_serial": true
         },
         {
@@ -3635,6 +3635,20 @@
             "language": "python",
             "files": "^requirements\\.(in|txt)$",
             "pass_filenames": false
+        }
+    ],
+    "https://github.com/pappasam/toml-sort": [
+        {
+            "id": "toml-sort",
+            "name": "toml-sort",
+            "entry": "toml-sort",
+            "args": [
+                "--check"
+            ],
+            "language": "python",
+            "types": [
+                "toml"
+            ]
         }
     ]
 }
