@@ -2688,7 +2688,7 @@
             "description": "perform a spell check with spelling::spell_check_files()",
             "entry": "inst/bin/spell-check",
             "language": "script",
-            "exclude": "(?x)^( .*\\.[rR]| .*\\.py| (.*/|)\\.gitignore| (.*/|)\\.pre-commit-.*| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| data/.* )$\n",
+            "exclude": "(?x)^( .pre-commit-.*\\.yaml| .*\\.[rR]| .*\\.py| .*\\.feather| .*\\.rds| .*\\.Rds| .*\\.RData| (.*/|)\\.gitignore| (.*/|)\\.pre-commit-.*| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| data/.* )$\n",
             "require_serial": true
         },
         {
