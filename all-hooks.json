@@ -744,7 +744,7 @@
         {
             "id": "php-lint",
             "name": "PHP Syntax Check (Quick)",
-            "description": "Runs php -l on all staged files. Exits when it hits the first errored file",
+            "description": "Runs php -l on all staged PHP files. Exits when it hits the first errored file",
             "entry": "php -l",
             "language": "system",
             "files": "\\.php$"
@@ -760,7 +760,7 @@
         {
             "id": "php-cs",
             "name": "PHP Codesniffer",
-            "description": "Run php codesniffer against all staged files.",
+            "description": "Run php codesniffer against all staged PHP files.",
             "entry": "pre_commit_hooks/php-cs.sh",
             "language": "script",
             "files": "\\.php$"
@@ -768,7 +768,7 @@
         {
             "id": "php-cbf",
             "name": "PHP Codesniffer (Code Beutifier and Formatter)",
-            "description": "Run php codesniffer against all staged files.",
+            "description": "Run php codesniffer against all staged PHP files.",
             "entry": "pre_commit_hooks/php-cbf.sh",
             "language": "script",
             "files": "\\.php$"
@@ -776,8 +776,16 @@
         {
             "id": "php-cs-fixer",
             "name": "PHP Coding Standards Fixer",
-            "description": "Run php coding standards fixer against all staged files.",
+            "description": "Run php coding standards fixer against all staged PHP files.",
             "entry": "pre_commit_hooks/php-cs-fixer.sh",
+            "language": "script",
+            "files": "\\.php$"
+        },
+        {
+            "id": "php-stan",
+            "name": "PHPStan",
+            "description": "Run PHPStan against all staged PHP files.",
+            "entry": "pre_commit_hooks/php-stan.sh",
             "language": "script",
             "files": "\\.php$"
         }
@@ -2688,7 +2696,7 @@
             "description": "perform a spell check with spelling::spell_check_files()",
             "entry": "inst/bin/spell-check",
             "language": "script",
-            "exclude": "(?x)^( .pre-commit-.*\\.yaml| .*\\.[rR]| .*\\.py| .*\\.feather| .*\\.rds| .*\\.Rds| .*\\.RData| (.*/|)\\.gitignore| (.*/|)\\.pre-commit-.*| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| data/.* )$\n",
+            "exclude": "(?x)^( .pre-commit-.*\\.yaml| .*\\.[rR]| .*\\.py| .*\\.feather| .*\\.rds| .*\\.Rds| .*\\.RData| (.*/|)\\.Rprofile| (.*/|)\\.Renviron| (.*/|)\\.gitignore| (.*/|)\\.pre-commit-.*| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| data/.* )$\n",
             "require_serial": true
         },
         {
