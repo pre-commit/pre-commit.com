@@ -1589,6 +1589,13 @@
             "language": "script",
             "files": "(\\.hcl)$",
             "exclude": "\\.terraform\\/.*$"
+        },
+        {
+            "id": "terraform_tfsec",
+            "name": "Terraform validate with tfsec",
+            "description": "Static analysis of Terraform templates to spot potential security issues.",
+            "entry": "terraform_tfsec.sh",
+            "language": "script"
         }
     ],
     "https://github.com/ansible/ansible-lint": [
@@ -3656,6 +3663,19 @@
             "language": "python",
             "types": [
                 "toml"
+            ]
+        }
+    ],
+    "https://github.com/arenadotio/pre-commit-ocamlformat": [
+        {
+            "id": "ocamlformat",
+            "name": "ocamlformat",
+            "description": "Auto-formatter for OCaml code",
+            "entry": "ocamlformat",
+            "language": "system",
+            "files": "\\.mli?$",
+            "args": [
+                "-i"
             ]
         }
     ]
