@@ -2703,7 +2703,7 @@
             "description": "perform a spell check with spelling::spell_check_files()",
             "entry": "inst/bin/spell-check",
             "language": "script",
-            "exclude": "(?x)^( .pre-commit-.*\\.yaml| .*\\.[rR]| .*\\.py| .*\\.feather| .*\\.rds| .*\\.Rds| .*\\.RData| (.*/|)\\.Rprofile| (.*/|)\\.Renviron| (.*/|)\\.gitignore| (.*/|)\\.pre-commit-.*| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| data/.* )$\n",
+            "exclude": "(?x)^( data/.*|  (.*/|)\\.Rprofile| (.*/|)\\.Renviron| (.*/|)\\.gitignore| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| (.*/|)\\.pre-commit-.*| .*\\.[rR]| .*\\.py| .*\\.feather| .*\\.rds| .*\\.Rds| .*\\.sh| .*\\.RData )$\n",
             "require_serial": true
         },
         {
