@@ -908,9 +908,6 @@
             "language": "python",
             "types": [
                 "text"
-            ],
-            "additional_dependencies": [
-                "chardet"
             ]
         },
         {
@@ -2703,7 +2700,7 @@
             "description": "perform a spell check with spelling::spell_check_files()",
             "entry": "inst/bin/spell-check",
             "language": "script",
-            "exclude": "(?x)^( data/.*|  (.*/|)\\.Rprofile| (.*/|)\\.Renviron| (.*/|)\\.gitignore| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| (.*/|)\\.pre-commit-.*| .*\\.[rR]| .*\\.py| .*\\.feather| .*\\.rds| .*\\.Rds| .*\\.sh| .*\\.RData )$\n",
+            "exclude": "(?x)^( data/.*|  (.*/|)\\.Rprofile| (.*/|)\\.Renviron| (.*/|)\\.gitignore| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| (.*/|)\\.pre-commit-.*| .*\\.[rR]| .*\\.Rproj| .*\\.py| .*\\.feather| .*\\.rds| .*\\.Rds| .*\\.sh| .*\\.RData )$\n",
             "require_serial": true
         },
         {
