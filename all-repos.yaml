@@ -131,3 +131,4 @@
 - https://github.com/jazzband/pip-tools
 - https://github.com/pappasam/toml-sort
 - https://github.com/arenadotio/pre-commit-ocamlformat
+- https://github.com/mathieu-lemay/pre-commit-rust
