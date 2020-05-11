@@ -125,7 +125,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 2.3.0
+pre-commit 2.4.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -279,7 +279,8 @@ hook.  See <a href="#overriding-language-version">Overriding Language Version</a
 </td><td><p>(optional) list of additional parameters to pass to the hook.</p>
 </td></tr><tr><td><p><code>stages</code></p>
 </td><td><p>(optional) confines the hook to the <code>commit</code>, <code>merge-commit</code>, <code>push</code>,
-<code>prepare-commit-msg</code>, <code>commit-msg</code>, <code>post-checkout</code>, or <code>manual</code> stage.  See
+<code>prepare-commit-msg</code>, <code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>, or
+<code>manual</code> stage.  See
 <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
 </td></tr><tr><td><p><code>additional_dependencies</code></p>
 </td><td><p>(optional) a list of dependencies that will be installed in the
@@ -549,15 +550,13 @@ executable that will match the <code>entry</code> – usually through <code>cons
 <p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.</p>
 <h3 id="python_venv">    python_venv <small><a href="#python_venv">¶</a></small></h3> <p><em>new in 1.9.0</em></p>
-<p>An alternate implementation of the <a href="#python">python</a> language which uses the
-python 3 <a href="https://docs.python.org/3/library/venv.html"><code>venv</code></a> module.
-On many systems you need to additionally install the <code>python3-venv</code> system
-package to use this language.  This is otherwise a drop-in replacement for the
-<code>python</code> language for situations where <a href="https://github.com/pre-commit/pre-commit/issues/631"><code>virtualenv</code> may not
-work</a>.</p>
+<p><em>new in 2.4.0</em>: The <code>python_venv</code> language is now an alias to <code>python</code> since
+<code>virtualenv&gt;=20</code> creates equivalently structured environments.  Previously,
+this <code>language</code> created environments using the <a href="https://docs.python.org/3/library/venv.html">venv</a> module.</p>
+<p>This <code>language</code> will be removed eventually so it is suggested to use <code>python</code>
+instead.</p>
 <p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
-has been tested on linux, macOS, windows, and cygwin.  Only python3
-environments can be created with this language.</p>
+has been tested on linux, macOS, windows, and cygwin.</p>
 <h3 id="ruby">    ruby <small><a href="#ruby">¶</a></small></h3> <p>The hook repository must have a <code>*.gemspec</code>.  It will be installed via
 <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>.  The installed package will
 produce an executable that will match the <code>entry</code> – usually through
@@ -676,8 +675,8 @@ the cache directory.</p>
 <code>git config init.templateDir</code>.</p>
 <p>Options:</p>
 <ul>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}</code>:
+<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>,
+<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>:
 which hook type to install.</li>
 </ul>
 <p>Some example useful invocations:</p>
@@ -694,8 +693,8 @@ script.</li>
 <li><code>--install-hooks</code>: Also install environments for all available hooks now
 (rather than when they are first executed). See <a href="#pre-commit-install-hooks"><code>pre-commit
 install-hooks</code></a>.</li>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}</code>:
+<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>,
+<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>:
 Specify which hook type to install.</li>
 <li><code>--allow-missing-config</code>: Hook scripts will permit a missing configuration
 file.</li>
@@ -804,6 +803,22 @@ entire commit.</p>
 false-negatives during committing.  pre-commit only runs on the staged
 contents of files by temporarily saving the contents of your files at commit
 time and stashing the unstaged changes while running hooks.</p>
+<p><em>new in 2.4.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_commit">post-commit</a> hooks.</p>
+<p>To use <code>post-commit</code> hooks with pre-commit, run:</p>
+<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type post-commit
+<span class="go">pre-commit installed at .git/hooks/post-commit</span>
+</pre></div>
+<p><code>post-commit</code> hooks fire after the commit succeeds and cannot be used to
+prevent the commit from happening (use <code>pre-commit</code> instead).  Since
+<code>post-commit</code> does not operate on files, any hooks must set <code>always_run</code>:</p>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">post-commit-local</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">post commit</span>
+        <span class="nt">always_run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">stages</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">post-commit</span><span class="p p-Indicator">]</span>
+        <span class="c1"># ...</span>
+</pre></div>
 <h2 id="pre-commit-during-merges">    pre-commit during merges <small><a href="#pre-commit-during-merges">¶</a></small></h2> <p>The biggest gripe we’ve had in the past with pre-commit hooks was during merge
 conflict resolution.  When working on very large projects a merge often
 results in hundreds of committed files. I shouldn’t need to run hooks on all
@@ -851,7 +866,7 @@ pushed to (for example <code>git@github.com:pre-commit/pre-commit</code>.</li>
 current contents of the commit message which can be validated.  If a hook
 exits nonzero, the commit will be aborted.</p>
 <p><em>new in 1.16.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_prepare_commit_msg">prepare-commit-msg</a> hooks.</p>
-<p>To use <code>prepare-commit-msg</code> hooks with pre-commit run:</p>
+<p>To use <code>prepare-commit-msg</code> hooks with pre-commit, run:</p>
 <div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type prepare-commit-msg<span class="sb">`</span>
 <span class="go">pre-commit installed at .git/hooks/prepare-commit-msg</span>
 </pre></div>
@@ -864,7 +879,7 @@ the editor is shown. A hook may want to check for <code>GIT_EDITOR=:</code> as t
 indicates that no editor will be launched. If a hook exits nonzero,
 the commit will be aborted.</p>
 <h2 id="pre-commit-for-switching-branches">    pre-commit for switching branches <small><a href="#pre-commit-for-switching-branches">¶</a></small></h2> <p><em>new in 2.2.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_checkout">post-checkout</a> hooks.</p>
-<p>To use <code>post-checkout</code> hooks with pre-commit run:</p>
+<p>To use <code>post-checkout</code> hooks with pre-commit, run:</p>
 <div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type post-checkout
 <span class="go">pre-commit installed at .git/hooks/post-checkout</span>
 </pre></div>
