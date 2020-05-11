@@ -312,7 +312,8 @@ repository's configuration.
 =r=
     =c= `stages`
     =c= (optional) confines the hook to the `commit`, `merge-commit`, `push`,
-        `prepare-commit-msg`, `commit-msg`, `post-checkout`, or `manual` stage.  See
+        `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`, or
+        `manual` stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
     =c= `additional_dependencies`
@@ -688,16 +689,17 @@ has been tested on linux, macOS, windows, and cygwin.
 
 _new in 1.9.0_
 
-An alternate implementation of the [python](#python) language which uses the
-python 3 [`venv`](https://docs.python.org/3/library/venv.html) module.
-On many systems you need to additionally install the `python3-venv` system
-package to use this language.  This is otherwise a drop-in replacement for the
-`python` language for situations where [`virtualenv` may not
-work](https://github.com/pre-commit/pre-commit/issues/631).
+_new in 2.4.0_: The `python_venv` language is now an alias to `python` since
+`virtualenv>=20` creates equivalently structured environments.  Previously,
+this `language` created environments using the [venv] module.
+
+This `language` will be removed eventually so it is suggested to use `python`
+instead.
+
+[venv]: https://docs.python.org/3/library/venv.html
 
 __Support:__ python hooks work without any system-level dependencies.  It
-has been tested on linux, macOS, windows, and cygwin.  Only python3
-environments can be created with this language.
+has been tested on linux, macOS, windows, and cygwin.
 
 ### ruby
 
@@ -874,8 +876,8 @@ Install hook script in a directory intended for use with
 
 Options:
 
-- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`,
-  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`:
+- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}`,
+  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}`:
   which hook type to install.
 
 Some example useful invocations:
@@ -899,8 +901,8 @@ Options:
 - `--install-hooks`: Also install environments for all available hooks now
   (rather than when they are first executed). See [`pre-commit
   install-hooks`](#pre-commit-install-hooks).
-- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`,
-  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout}`:
+- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}`,
+  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}`:
   Specify which hook type to install.
 - `--allow-missing-config`: Hook scripts will permit a missing configuration
   file.
@@ -1041,6 +1043,31 @@ false-negatives during committing.  pre-commit only runs on the staged
 contents of files by temporarily saving the contents of your files at commit
 time and stashing the unstaged changes while running hooks.
 
+_new in 2.4.0_: pre-commit can be used to manage [post-commit] hooks.
+
+To use `post-commit` hooks with pre-commit, run:
+
+```console
+$ pre-commit install --hook-type post-commit
+pre-commit installed at .git/hooks/post-commit
+```
+
+`post-commit` hooks fire after the commit succeeds and cannot be used to
+prevent the commit from happening (use `pre-commit` instead).  Since
+`post-commit` does not operate on files, any hooks must set `always_run`:
+
+```yaml
+-   repo: local
+    hooks:
+    -   id: post-commit-local
+        name: post commit
+        always_run: true
+        stages: [post-commit]
+        # ...
+```
+
+[post-commit]: https://git-scm.com/docs/githooks#_post_commit
+
 ## pre-commit during merges
 
 The biggest gripe we’ve had in the past with pre-commit hooks was during merge
@@ -1112,7 +1139,7 @@ exits nonzero, the commit will be aborted.
 
 _new in 1.16.0_: pre-commit can be used to manage [prepare-commit-msg] hooks.
 
-To use `prepare-commit-msg` hooks with pre-commit run:
+To use `prepare-commit-msg` hooks with pre-commit, run:
 
 ```console
 $ pre-commit install --hook-type prepare-commit-msg`
@@ -1135,7 +1162,7 @@ the commit will be aborted.
 ## pre-commit for switching branches
 _new in 2.2.0_: pre-commit can be used to manage [post-checkout] hooks.
 
-To use `post-checkout` hooks with pre-commit run:
+To use `post-checkout` hooks with pre-commit, run:
 
 ```console
 $ pre-commit install --hook-type post-checkout
