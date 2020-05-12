@@ -1214,7 +1214,7 @@ top level configuration property to the desired stages, also as an array.
 _new in 1.8.0_: An additional `manual` stage is available for one off execution
 that won't run in any hook context.  This special stage is useful for taking
 advantage of `pre-commit`'s cross-platform / cross-language package management
-without running it on every commit.  Hooks confied to `stages: [manual]` can
+without running it on every commit.  Hooks confined to `stages: [manual]` can
 be executed by running `pre-commit run --hook-stage manual <hookid>`.
 
 ## Passing arguments to hooks
