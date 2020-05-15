@@ -2,16 +2,12 @@
     "https://github.com/pre-commit/pre-commit-hooks": [
         {
             "id": "autopep8-wrapper",
-            "name": "autopep8 wrapper",
-            "description": "This is deprecated, use pre-commit/mirrors-autopep8 instead.",
-            "entry": "autopep8-wrapper",
+            "name": "autopep8 wrapper (removed)",
+            "description": "(removed) use pre-commit/mirrors-autopep8 instead.",
+            "entry": "pre-commit-hooks-removed autopep8-wrapper autopep8 https://github.com/pre-commit/mirrors-autopep8",
             "language": "python",
-            "types": [
-                "python"
-            ],
-            "args": [
-                "-i"
-            ]
+            "always_run": true,
+            "pass_filenames": false
         },
         {
             "id": "check-added-large-files",
@@ -238,14 +234,12 @@
         },
         {
             "id": "flake8",
-            "name": "Flake8 (deprecated, use gitlab.com/pycqa/flake8)",
-            "description": "This hook runs flake8. (deprecated, use gitlab.com/pycqa/flake8)",
-            "entry": "flake8",
+            "name": "Flake8 (removed)",
+            "description": "(removed) use gitlab.com/pycqa/flake8 instead.",
+            "entry": "pre-commit-hooks-removed flake8 flake8 https://gitlab.com/pycqa/flake8",
             "language": "python",
-            "types": [
-                "python"
-            ],
-            "require_serial": true
+            "always_run": true,
+            "pass_filenames": false
         },
         {
             "id": "forbid-new-submodules",
@@ -282,13 +276,12 @@
         },
         {
             "id": "pyflakes",
-            "name": "Pyflakes (DEPRECATED, use flake8)",
-            "description": "This hook runs pyflakes. (This is deprecated, use flake8).",
-            "entry": "pyflakes",
+            "name": "Pyflakes (removed)",
+            "description": "(removed) use gitlab.com/pycqa/flake8 instead.",
+            "entry": "pre-commit-hooks-removed pyflakes flake8 https://gitlab.com/pycqa/flake8",
             "language": "python",
-            "types": [
-                "python"
-            ]
+            "always_run": true,
+            "pass_filenames": false
         },
         {
             "id": "requirements-txt-fixer",
