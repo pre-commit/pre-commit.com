@@ -3674,5 +3674,16 @@
                 "-i"
             ]
         }
+    ],
+    "https://github.com/myint/rstcheck": [
+        {
+            "id": "rstcheck",
+            "name": "rstcheck",
+            "entry": "rstcheck",
+            "language": "python",
+            "types": [
+                "rst"
+            ]
+        }
     ]
 }
