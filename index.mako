@@ -1579,6 +1579,17 @@ cache:
   - $HOME/.cache/pre-commit
 ```
 
+### gitlab example
+
+```yaml
+variables:
+  XDG_CACHE_HOME: "$CI_PROJECT_DIR/.cache/"
+
+cache:
+  paths:
+    - .cache/pre-commit
+```
+
 ### appveyor example
 
 ```yaml
