@@ -3685,5 +3685,26 @@
                 "rst"
             ]
         }
+    ],
+    "https://github.com/hcodes/yaspeller": [
+        {
+            "id": "yaspeller",
+            "name": "yaspeller",
+            "entry": "yaspeller",
+            "language": "node",
+            "types": [
+                "text"
+            ]
+        }
+    ],
+    "https://github.com/maltzj/google-style-precommit-hook": [
+        {
+            "id": "google-style-java",
+            "name": "Google Java Code Style for Java",
+            "description": "Formats code in Google's Java codestyle.",
+            "entry": "./format-code.sh",
+            "language": "script",
+            "files": "\\.java$"
+        }
     ]
 }
