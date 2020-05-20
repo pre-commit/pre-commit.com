@@ -1846,10 +1846,26 @@
         {
             "id": "docker-compose-check",
             "name": "Validate docker-compose files",
-            "description": "Checks that vault files are encrypted",
+            "description": "Checks that docker-compose files are valid",
+            "language": "script",
             "entry": "compose-check.sh",
-            "files": "docker-compose.y[a]{0,1}ml$",
-            "language": "script"
+            "files": "docker-compose.y[a]{0,1}ml$"
+        },
+        {
+            "id": "hadolint",
+            "name": "Lint Dockerfiles",
+            "description": "Runs hadolint Docker image to lint Dockerfiles",
+            "language": "docker_image",
+            "entry": "hadolint/hadolint hadolint",
+            "files": "Dockerfile"
+        },
+        {
+            "id": "hadolint-system",
+            "name": "Lint Dockerfiles",
+            "description": "Runs system hadolint to lint Dockerfiles",
+            "language": "system",
+            "entry": "hadolint",
+            "files": "Dockerfile"
         }
     ],
     "https://github.com/mattlqx/pre-commit-ruby": [
