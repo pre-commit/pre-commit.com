@@ -28,7 +28,6 @@ repos:
     rev: v0.770
     hooks:
     -   id: mypy
-        exclude: ^install-local.py$
 -   repo: https://github.com/pre-commit/mirrors-eslint
     rev: v7.0.0
     hooks:
