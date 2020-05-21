@@ -14,9 +14,12 @@ import tarfile
 
 
 if str is bytes:
-    from urllib import urlopen
+    from urllib import urlopen  # type: ignore
 else:
     from urllib.request import urlopen
+
+if False:
+    from typing import Generator
 
 
 TGZ = (
@@ -29,12 +32,14 @@ PKG_PATH = '/tmp/.virtualenv-pkg'
 
 
 def clean(dirname):
+    # type: (str) -> None
     if os.path.exists(dirname):
         shutil.rmtree(dirname)
 
 
 @contextlib.contextmanager
 def clean_path():
+    # type: (...) -> Generator[None, None, None]
     try:
         yield
     finally:
@@ -42,6 +47,7 @@ def clean_path():
 
 
 def virtualenv(path):
+    # type: (str) -> int
     clean(PKG_PATH)
     clean(path)
 
@@ -74,6 +80,7 @@ def virtualenv(path):
 
 
 def main():
+    # type: (...) -> int
     venv_path = os.path.join(os.environ['HOME'], '.pre-commit-venv')
     bin_dir = os.path.join(os.environ['HOME'], 'bin')
     script_src = os.path.join(venv_path, 'bin', 'pre-commit')
@@ -111,6 +118,8 @@ def main():
         print('It looks like {} is not on your path'.format(bin_dir))
         print('You may want to add it.')
         print('Often this does the trick: source ~/.profile')
+
+    return 0
 
 
 if __name__ == '__main__':
