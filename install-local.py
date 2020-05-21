@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 import contextlib
 import distutils.spawn
+import hashlib
 import io
 import os.path
 import shutil
@@ -23,6 +24,7 @@ TGZ = (
     '9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/'
     'virtualenv-15.1.0.tar.gz'
 )
+CHECKSUM = '02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a'
 PKG_PATH = '/tmp/.virtualenv-pkg'
 
 
@@ -44,8 +46,18 @@ def virtualenv(path):
     clean(path)
 
     print('Downloading ' + TGZ)
-    tar_contents = io.BytesIO(urlopen(TGZ).read())
-    with contextlib.closing(tarfile.open(fileobj=tar_contents)) as tarfile_obj:
+    tar_bytes = urlopen(TGZ).read()
+    checksum = hashlib.sha256(tar_bytes).hexdigest()
+    if checksum != CHECKSUM:
+        print(
+            'Checksums did not match. '
+            'Got {}, expected {}.'.format(checksum, CHECKSUM),
+            file=sys.stderr,
+        )
+        return False
+
+    tar_stream = io.BytesIO(tar_bytes)
+    with contextlib.closing(tarfile.open(fileobj=tar_stream)) as tarfile_obj:
         # Chop off the first path segment to avoid having the version in
         # the path
         for member in tarfile_obj.getmembers():
@@ -58,6 +70,7 @@ def virtualenv(path):
         return subprocess.call((
             sys.executable, os.path.join(PKG_PATH, 'virtualenv.py'), path,
         ))
+    return True
 
 
 def main():
@@ -74,7 +87,8 @@ def main():
         print('Cleaned ~/.pre-commit-venv ~/bin/pre-commit')
         return 0
 
-    virtualenv(venv_path)
+    if not virtualenv(venv_path):
+        return 1
 
     subprocess.check_call((
         os.path.join(venv_path, 'bin', 'pip'), 'install', 'pre-commit',
