@@ -61,7 +61,7 @@ def virtualenv(path):
             'Got {}, expected {}.'.format(checksum, CHECKSUM),
             file=sys.stderr,
         )
-        return False
+        return 1
 
     tar_stream = io.BytesIO(tar_bytes)
     with contextlib.closing(tarfile.open(fileobj=tar_stream)) as tarfile_obj:
@@ -77,7 +77,6 @@ def virtualenv(path):
         return subprocess.call((
             sys.executable, os.path.join(PKG_PATH, 'virtualenv.py'), path,
         ))
-    return True
 
 
 def main():
@@ -95,7 +94,7 @@ def main():
         print('Cleaned ~/.pre-commit-venv ~/bin/pre-commit')
         return 0
 
-    if not virtualenv(venv_path):
+    if virtualenv(venv_path):
         return 1
 
     subprocess.check_call((
