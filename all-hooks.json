@@ -371,7 +371,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@7.1.0"
+                "eslint@7.2.0"
             ]
         }
     ],
@@ -1754,7 +1754,7 @@
             "name": "tslint",
             "entry": "tslint",
             "language": "node",
-            "files": "\\.(ts)$",
+            "files": "\\.(ts|tsx)$",
             "args": [],
             "minimum_pre_commit_version": "0.12.0"
         }
@@ -1763,13 +1763,9 @@
         {
             "id": "prettier",
             "name": "prettier",
-            "entry": "prettier",
+            "entry": "prettier --write",
             "language": "node",
-            "files": "\\.(js)$",
-            "args": [
-                "--write"
-            ],
-            "minimum_pre_commit_version": "0.12.0"
+            "files": "\\.(css|less|scss|graphql|gql|html|js|jsx|json|md|markdown|mdown|mkdn|mdx|ts|tsx|vue|yaml|yml)$"
         }
     ],
     "https://github.com/prettier/prettier": [
@@ -3737,7 +3733,7 @@
             "name": "dotnet-format",
             "language": "docker_image",
             "files": "\\.cs",
-            "entry": "registry.hub.docker.com/jvstein/pre-commit-dotnet-format:v0.1 /usr/bin/dotnet-format-wrapper"
+            "entry": "registry.hub.docker.com/jvstein/pre-commit-dotnet-format:v0.2"
         }
     ]
 }
