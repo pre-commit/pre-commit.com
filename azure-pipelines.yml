@@ -1,6 +1,6 @@
 trigger:
   branches:
-    include: [real_master, test-me-*]
+    include: [master, test-me-*]
   tags:
     include: ['*']
 
