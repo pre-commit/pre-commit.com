@@ -29,8 +29,6 @@ node_modules: package.json
 
 push: venv
 	venv/bin/markdown-to-presentation push \
-		--master-branch real_master \
-		--pages-branch master \
 		.nojekyll README.md CNAME \
 		build assets node_modules *.html *.png *.svg favicon.ico \
 		all-hooks.json install-local.py

@@ -1,5 +1,5 @@
 {
-    "repository": "github.com/pre-commit/pre-commit.github.io",
+    "repository": "github.com/pre-commit/pre-commit.com",
     "license": "MIT",
     "dependencies": {
         "bootstrap-sass": "3.4.1"

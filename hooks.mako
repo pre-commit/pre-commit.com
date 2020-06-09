@@ -4,7 +4,7 @@
 <div class="page-header"><h1>Supported hooks</h1></div>
 
 <p>
-To add to this list, fork <a href="https://github.com/pre-commit/pre-commit.github.io">this repository</a>.
+To add to this list, fork <a href="https://github.com/pre-commit/pre-commit.com">this repository</a>.
 </p>
 
 <p>
