@@ -65,7 +65,7 @@
 - https://github.com/psf/black
 - https://github.com/IamTheFij/ansible-pre-commit
 - https://github.com/IamTheFij/docker-pre-commit
-# - https://github.com/mattlqx/pre-commit-ruby
+- https://github.com/mattlqx/pre-commit-ruby
 - https://github.com/mattlqx/pre-commit-sign
 - https://github.com/mattlqx/pre-commit-search-and-replace
 # - https://github.com/openstack-dev/bashate
