@@ -3652,5 +3652,18 @@
             "files": "\\.cs",
             "entry": "registry.hub.docker.com/jvstein/pre-commit-dotnet-format:v0.2"
         }
+    ],
+    "https://github.com/hakancelik96/unimport": [
+        {
+            "id": "unimport",
+            "name": "unimport",
+            "description": "A linter, formatter for finding and removing unused import statements",
+            "entry": "unimport",
+            "language": "python",
+            "language_version": "python3",
+            "types": [
+                "python"
+            ]
+        }
     ]
 }
