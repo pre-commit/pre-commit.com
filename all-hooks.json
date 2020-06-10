@@ -1872,71 +1872,6 @@
             "files": "Dockerfile"
         }
     ],
-    "https://github.com/mattlqx/pre-commit-ruby": [
-        {
-            "id": "rubocop",
-            "name": "Check Ruby style with rubocop",
-            "description": "Enforce Ruby style guide with rubocop",
-            "entry": "bin/rubocop-wrapper.sh",
-            "language": "script",
-            "pass_filenames": true,
-            "types": [
-                "ruby"
-            ],
-            "verbose": true
-        },
-        {
-            "id": "rspec",
-            "name": "Unit test Ruby code with rspec",
-            "description": "Run rspec in changed paths with spec directories",
-            "entry": "bin/rspec-wrapper.rb",
-            "language": "script",
-            "pass_filenames": true,
-            "types": [
-                "ruby"
-            ],
-            "verbose": true
-        },
-        {
-            "id": "foodcritic",
-            "name": "Enforce Chef style guide with foodcritic",
-            "description": "Enforce Chef style guide with foodcritic",
-            "entry": "bin/foodcritic-wrapper.rb",
-            "language": "script",
-            "pass_filenames": true,
-            "types": [
-                "file"
-            ],
-            "files": "(?x)^(\n    .*/(recipes|attributes|resources|providers)/.*\\.rb|\n    .*/metadata\\.rb\n)$\n",
-            "exclude": ".*/test/.*\\.rb$",
-            "verbose": true
-        },
-        {
-            "id": "cookstyle",
-            "name": "Enforce Chef style guide with cookstyle",
-            "description": "Enforce Chef style guide with cookstyle",
-            "entry": "bin/cookstyle-wrapper.rb",
-            "language": "script",
-            "pass_filenames": true,
-            "types": [
-                "ruby"
-            ],
-            "verbose": true,
-            "require_serial": true
-        },
-        {
-            "id": "chef-cookbook-version",
-            "name": "Ensure Chef cookbook version bump",
-            "description": "Ensure Chef cookbook versions are bumped when contents are changed",
-            "entry": "bin/cookbook-wrapper.rb",
-            "language": "script",
-            "pass_filenames": true,
-            "types": [
-                "file"
-            ],
-            "verbose": true
-        }
-    ],
     "https://github.com/mattlqx/pre-commit-sign": [
         {
             "id": "sign-commit",
@@ -1964,19 +1899,6 @@
             ]
         }
     ],
-    "https://github.com/openstack-dev/bashate": [
-        {
-            "id": "bashate",
-            "name": "bashate",
-            "description": "This hook runs bashate for linting shell scripts",
-            "entry": "bashate",
-            "language": "python",
-            "types": [
-                "shell"
-            ],
-            "verbose": true
-        }
-    ],
     "https://github.com/pryorda/dockerfilelint-precommit-hooks": [
         {
             "id": "dockerfilelint",
@@ -1987,16 +1909,6 @@
                 "dockerfilelint"
             ],
             "files": "Dockerfile.*"
-        }
-    ],
-    "https://github.com/alessandrojcm/commitlint-pre-commit-hook": [
-        {
-            "id": "commitlint",
-            "name": "commitlint",
-            "description": "Commitlint hook",
-            "language": "node",
-            "entry": "commitlint --edit",
-            "verbose": true
         }
     ],
     "https://github.com/henryykt/pre-commit-perl": [
@@ -2861,21 +2773,6 @@
             "additional_dependencies": []
         }
     ],
-    "https://github.com/thg-consulting/inspectortiger": [
-        {
-            "id": "inspectortiger",
-            "name": "inspectortiger",
-            "description": "Inspects your code",
-            "entry": "inspectortiger",
-            "language": "python",
-            "language_version": "python3.7",
-            "require_serial": true,
-            "verbose": true,
-            "types": [
-                "python"
-            ]
-        }
-    ],
     "https://gitlab.com/iamlikeme/nbhooks": [
         {
             "id": "nb-ensure-clean",
@@ -3429,46 +3326,6 @@
             "entry": "/bin/bash /opt/run_checkstyle.sh",
             "files": "\\.java$",
             "require_serial": true
-        }
-    ],
-    "https://github.com/JamesWoolfenden/pre-commit": [
-        {
-            "id": "terraform-fmt",
-            "name": "terraform-fmt",
-            "entry": "terraform-fmt",
-            "description": "Rewrite Terraform configuration files to a canonical format and style, cross platform compatible",
-            "language": "python",
-            "files": "(\\.tf|\\.tfvars)$",
-            "exclude": "\\.terraform\\/.*$"
-        },
-        {
-            "id": "checkov-scan",
-            "name": "checkov",
-            "description": "runs checkov over a project, cross platform compatible",
-            "entry": "checkov-scan",
-            "language": "python",
-            "language_version": "python3.7",
-            "files": "(\\.tf)$",
-            "exclude": "\\.terraform\\/.*$",
-            "always_run": false,
-            "pass_filenames": false,
-            "verbose": true,
-            "additional_dependencies": [
-                "checkov"
-            ]
-        },
-        {
-            "id": "tf2docs",
-            "name": "tf2docs",
-            "description": "builds markdown docs, cross platform compatible",
-            "entry": "tf2docs",
-            "language": "python",
-            "language_version": "python3.7",
-            "files": "(\\.tf)$",
-            "exclude": "\\.terraform\\/.*$",
-            "always_run": false,
-            "pass_filenames": false,
-            "verbose": true
         }
     ],
     "https://github.com/lietu/go-pre-commit": [
