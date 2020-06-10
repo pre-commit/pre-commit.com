@@ -1872,6 +1872,66 @@
             "files": "Dockerfile"
         }
     ],
+    "https://github.com/mattlqx/pre-commit-ruby": [
+        {
+            "id": "rubocop",
+            "name": "Check Ruby style with rubocop",
+            "description": "Enforce Ruby style guide with rubocop",
+            "entry": "bin/rubocop-wrapper.sh",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "ruby"
+            ]
+        },
+        {
+            "id": "rspec",
+            "name": "Unit test Ruby code with rspec",
+            "description": "Run rspec in changed paths with spec directories",
+            "entry": "bin/rspec-wrapper.rb",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "ruby"
+            ]
+        },
+        {
+            "id": "foodcritic",
+            "name": "Enforce Chef style guide with foodcritic",
+            "description": "Enforce Chef style guide with foodcritic",
+            "entry": "bin/foodcritic-wrapper.rb",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "file"
+            ],
+            "files": "(?x)^(\n    .*/(recipes|attributes|resources|providers)/.*\\.rb|\n    .*/metadata\\.rb\n)$\n",
+            "exclude": ".*/test/.*\\.rb$"
+        },
+        {
+            "id": "cookstyle",
+            "name": "Enforce Chef style guide with cookstyle",
+            "description": "Enforce Chef style guide with cookstyle",
+            "entry": "bin/cookstyle-wrapper.rb",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "ruby"
+            ],
+            "require_serial": true
+        },
+        {
+            "id": "chef-cookbook-version",
+            "name": "Ensure Chef cookbook version bump",
+            "description": "Ensure Chef cookbook versions are bumped when contents are changed",
+            "entry": "bin/cookbook-wrapper.rb",
+            "language": "script",
+            "pass_filenames": true,
+            "types": [
+                "file"
+            ]
+        }
+    ],
     "https://github.com/mattlqx/pre-commit-sign": [
         {
             "id": "sign-commit",
