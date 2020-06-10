@@ -104,7 +104,7 @@
 - https://github.com/nix-community/nixpkgs-fmt
 - https://github.com/d6e/beancount-check
 - https://github.com/iconmaster5326/cmake-format-pre-commit-hook
-- https://github.com/thg-consulting/inspectortiger
+# - https://github.com/thg-consulting/inspectortiger
 - https://gitlab.com/iamlikeme/nbhooks
 - https://github.com/Kuniwak/vint
 - https://github.com/eschulte/lisp-format
