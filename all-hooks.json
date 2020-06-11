@@ -1971,6 +1971,16 @@
             "files": "Dockerfile.*"
         }
     ],
+    "https://github.com/alessandrojcm/commitlint-pre-commit-hook": [
+        {
+            "id": "commitlint",
+            "name": "commitlint",
+            "description": "Commitlint hook",
+            "language": "node",
+            "entry": "commitlint --edit",
+            "verbose": false
+        }
+    ],
     "https://github.com/henryykt/pre-commit-perl": [
         {
             "id": "perlcritic",
