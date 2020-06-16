@@ -2098,7 +2098,8 @@
             "language": "python",
             "types": [
                 "python"
-            ]
+            ],
+            "require_serial": true
         }
     ],
     "https://github.com/miki725/importanize": [
