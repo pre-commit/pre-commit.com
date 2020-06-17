@@ -1638,7 +1638,7 @@ immutable caches:
 such as pre-commit.  One feature of `tox>=2` is it will clear environment
 variables such that tests are more reproducible.  Under some conditions,
 pre-commit requires a few environment variables and so they must be
-whitelisted.
+allowed to be passed through.
 
 When cloning repos over ssh (`repo: git@github.com:...`), `git` requires the
 `SSH_AUTH_SOCK` variable and will otherwise fail:
