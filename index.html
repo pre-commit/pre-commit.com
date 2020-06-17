@@ -1215,7 +1215,7 @@ immutable caches:</p>
 such as pre-commit.  One feature of <code>tox&gt;=2</code> is it will clear environment
 variables such that tests are more reproducible.  Under some conditions,
 pre-commit requires a few environment variables and so they must be
-whitelisted.</p>
+allowed to be passed through.</p>
 <p>When cloning repos over ssh (<code>repo: git@github.com:...</code>), <code>git</code> requires the
 <code>SSH_AUTH_SOCK</code> variable and will otherwise fail:</p>
 <div class="highlight pre-commit"><pre><span></span>[INFO] Initializing environment for git@github.com:pre-commit/pre-commit-hooks.
