@@ -202,33 +202,33 @@ list is the same as the value of <a href="#pre-commit-configyaml---repos"><code>
 If you'd like to migrate to the new configuration format, run
 <a href="#pre-commit-migrate-config"><code>pre-commit migrate-config</code></a> to automatically
 migrate your configuration.</p>
-<table class="table table-bordered"><tbody><tr><td><p><code>repos</code></p>
+<table class="table table-bordered"><tbody><tr><td><p><a id="top_level-repos" href="#top_level-repos"><code>repos</code></a></p>
 </td><td><p>A list of <a href="#pre-commit-configyaml---repos">repository mappings</a>.</p>
-</td></tr><tr><td><p><code>default_language_version</code></p>
+</td></tr><tr><td><p><a id="top_level-default_language_version" href="#top_level-default_language_version"><code>default_language_version</code></a></p>
 </td><td><p>(optional: default <code>{}</code>) a mapping from language to the default
-<code>language_version</code> that should be used for that language.  This will
-only override individual hooks that do not set <code>language_version</code>.</p>
+<a href="#config-language_version"><code>language_version</code></a> that should be used for that language.  This will
+only override individual hooks that do not set <a href="#config-language_version"><code>language_version</code></a>.</p>
 <p>For example to use <code>python3.7</code> for <code>language: python</code> hooks:</p>
 <div class="highlight yaml"><pre><span></span><span class="nt">default_language_version</span><span class="p">:</span>
     <span class="nt">python</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3.7</span>
 </pre></div>
 <p><em>new in 1.14.0</em></p>
-</td></tr><tr><td><p><code>default_stages</code></p>
+</td></tr><tr><td><p><a id="top_level-default_stages" href="#top_level-default_stages"><code>default_stages</code></a></p>
 </td><td><p>(optional: default (all stages)) a configuration-wide default for
-the <code>stages</code> property of hooks.  This will only override individual
-hooks that do not set <code>stages</code>.</p>
+the <a href="#config-stages"><code>stages</code></a> property of hooks.  This will only override individual
+hooks that do not set <a href="#config-stages"><code>stages</code></a>.</p>
 <p>For example:</p>
 <div class="highlight yaml"><pre><span></span><span class="nt">default_stages</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">commit</span><span class="p p-Indicator">,</span> <span class="nv">push</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p><em>new in 1.14.0</em></p>
-</td></tr><tr><td><p><code>files</code></p>
+</td></tr><tr><td><p><a id="top_level-files" href="#top_level-files"><code>files</code></a></p>
 </td><td><p>(optional: default <code>''</code>) global file include pattern.  <em>new in 1.21.0</em>.</p>
-</td></tr><tr><td><p><code>exclude</code></p>
+</td></tr><tr><td><p><a id="top_level-exclude" href="#top_level-exclude"><code>exclude</code></a></p>
 </td><td><p>(optional: default <code>^$</code>) global file exclude pattern.  <em>new in 1.1.0</em>.</p>
-</td></tr><tr><td><p><code>fail_fast</code></p>
+</td></tr><tr><td><p><a id="top_level-fail_fast" href="#top_level-fail_fast"><code>fail_fast</code></a></p>
 </td><td><p>(optional: default <code>false</code>) set to <code>true</code> to have pre-commit stop
 running hooks after the first failure.  <em>new in 1.1.0</em>.</p>
-</td></tr><tr><td><p><code>minimum_pre_commit_version</code></p>
+</td></tr><tr><td><p><a id="top_level-minimum_pre_commit_version" href="#top_level-minimum_pre_commit_version"><code>minimum_pre_commit_version</code></a></p>
 </td><td><p>(optional: default <code>'0'</code>) require a minimum version of pre-commit.
 <em>new in 1.15.0</em>.</p>
 </td></tr></tbody></table><p>A sample top-level:</p>
@@ -239,11 +239,11 @@ running hooks after the first failure.  <em>new in 1.1.0</em>.</p>
 </pre></div>
 <h2 id="pre-commit-configyaml---repos">    .pre-commit-config.yaml - repos <small><a href="#pre-commit-configyaml---repos">¶</a></small></h2> <p>The repository mapping tells pre-commit where to get the code for the hook
 from.</p>
-<table class="table table-bordered"><tbody><tr><td><p><code>repo</code></p>
+<table class="table table-bordered"><tbody><tr><td><p><a id="repos-repo" href="#repos-repo"><code>repo</code></a></p>
 </td><td><p>the repository url to <code>git clone</code> from</p>
-</td></tr><tr><td><p><code>rev</code></p>
+</td></tr><tr><td><p><a id="repos-rev" href="#repos-rev"><code>rev</code></a></p>
 </td><td><p>the revision or tag to clone at.  <em>new in 1.7.0</em>: previously <code>sha</code></p>
-</td></tr><tr><td><p><code>hooks</code></p>
+</td></tr><tr><td><p><a id="repos-hooks" href="#repos-hooks"><code>hooks</code></a></p>
 </td><td><p>A list of <a href="#pre-commit-configyaml---hooks">hook mappings</a>.</p>
 </td></tr></tbody></table><p>A sample repository with all defaults present:</p>
 <div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
@@ -255,44 +255,44 @@ from.</p>
 <h2 id="pre-commit-configyaml---hooks">    .pre-commit-config.yaml - hooks <small><a href="#pre-commit-configyaml---hooks">¶</a></small></h2> <p>The hook mapping configures which hook from the repository is used and allows
 for customization.  All optional keys will receive their default from the
 repository's configuration.</p>
-<table class="table table-bordered"><tbody><tr><td><p><code>id</code></p>
+<table class="table table-bordered"><tbody><tr><td><p><a id="config-id" href="#config-id"><code>id</code></a></p>
 </td><td><p>which hook from the repository to use.</p>
-</td></tr><tr><td><p><code>alias</code></p>
+</td></tr><tr><td><p><a id="config-alias" href="#config-alias"><code>alias</code></a></p>
 </td><td><p>(optional) allows the hook to be referenced using an additional id when
 using <code>pre-commit run &lt;hookid&gt;</code>.
 <em>new in 1.14.0</em>.</p>
-</td></tr><tr><td><p><code>name</code></p>
+</td></tr><tr><td><p><a id="config-name" href="#config-name"><code>name</code></a></p>
 </td><td><p>(optional) override the name of the hook - shown during hook execution.</p>
-</td></tr><tr><td><p><code>language_version</code></p>
+</td></tr><tr><td><p><a id="config-language_version" href="#config-language_version"><code>language_version</code></a></p>
 </td><td><p>(optional) override the language version for the
 hook.  See <a href="#overriding-language-version">Overriding Language Version</a>.</p>
-</td></tr><tr><td><p><code>files</code></p>
+</td></tr><tr><td><p><a id="config-files" href="#config-files"><code>files</code></a></p>
 </td><td><p>(optional) override the default pattern for files to run on.</p>
-</td></tr><tr><td><p><code>exclude</code></p>
+</td></tr><tr><td><p><a id="config-exclude" href="#config-exclude"><code>exclude</code></a></p>
 </td><td><p>(optional) file exclude pattern.</p>
-</td></tr><tr><td><p><code>types</code></p>
+</td></tr><tr><td><p><a id="config-types" href="#config-types"><code>types</code></a></p>
 </td><td><p>(optional) override the default file types to run on.  See
 <a href="#filtering-files-with-types">Filtering files with types</a>.</p>
-</td></tr><tr><td><p><code>exclude_types</code></p>
+</td></tr><tr><td><p><a id="config-exclude_types" href="#config-exclude_types"><code>exclude_types</code></a></p>
 </td><td><p>(optional) file types to exclude.</p>
-</td></tr><tr><td><p><code>args</code></p>
+</td></tr><tr><td><p><a id="config-args" href="#config-args"><code>args</code></a></p>
 </td><td><p>(optional) list of additional parameters to pass to the hook.</p>
-</td></tr><tr><td><p><code>stages</code></p>
+</td></tr><tr><td><p><a id="config-stages" href="#config-stages"><code>stages</code></a></p>
 </td><td><p>(optional) confines the hook to the <code>commit</code>, <code>merge-commit</code>, <code>push</code>,
 <code>prepare-commit-msg</code>, <code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>, or
 <code>manual</code> stage.  See
 <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
-</td></tr><tr><td><p><code>additional_dependencies</code></p>
+</td></tr><tr><td><p><a id="config-additional_dependencies" href="#config-additional_dependencies"><code>additional_dependencies</code></a></p>
 </td><td><p>(optional) a list of dependencies that will be installed in the
 environment where this hook gets run.  One useful application is to
 install plugins for hooks such as <code>eslint</code>.</p>
-</td></tr><tr><td><p><code>always_run</code></p>
+</td></tr><tr><td><p><a id="config-always_run" href="#config-always_run"><code>always_run</code></a></p>
 </td><td><p>(optional) if <code>true</code>, this hook will run even if there are no matching
 files.</p>
-</td></tr><tr><td><p><code>verbose</code></p>
+</td></tr><tr><td><p><a id="config-verbose" href="#config-verbose"><code>verbose</code></a></p>
 </td><td><p>(optional) if <code>true</code>, forces the output of the hook to be printed even when
 the hook passes.  <em>new in 1.6.0</em>.</p>
-</td></tr><tr><td><p><code>log_file</code></p>
+</td></tr><tr><td><p><a id="config-log_file" href="#config-log_file"><code>log_file</code></a></p>
 </td><td><p>(optional) if present, the hook output will additionally be written
 to a file.</p>
 </td></tr></tbody></table><p>One example of a complete configuration:</p>
@@ -353,46 +353,46 @@ want.</p>
 <p>The hook must exit nonzero on failure or modify files.</p>
 <p>A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml
 file that tells pre-commit:</p>
-<table class="table table-bordered"><tbody><tr><td><p><code>id</code></p>
+<table class="table table-bordered"><tbody><tr><td><p><a id="hooks-id" href="#hooks-id"><code>id</code></a></p>
 </td><td><p>the id of the hook - used in pre-commit-config.yaml.</p>
-</td></tr><tr><td><p><code>name</code></p>
+</td></tr><tr><td><p><a id="hooks-name" href="#hooks-name"><code>name</code></a></p>
 </td><td><p>the name of the hook - shown during hook execution.</p>
-</td></tr><tr><td><p><code>entry</code></p>
+</td></tr><tr><td><p><a id="hooks-entry" href="#hooks-entry"><code>entry</code></a></p>
 </td><td><p>the entry point - the executable to run.  <code>entry</code> can also contain
 arguments that will not be overridden such as <code>entry: autopep8 -i</code>.</p>
-</td></tr><tr><td><p><code>language</code></p>
+</td></tr><tr><td><p><a id="hooks-language" href="#hooks-language"><code>language</code></a></p>
 </td><td><p>the language of the hook - tells pre-commit how to install the hook.</p>
-</td></tr><tr><td><p><code>files</code></p>
+</td></tr><tr><td><p><a id="hooks-files" href="#hooks-files"><code>files</code></a></p>
 </td><td><p>(optional: default <code>''</code>) the pattern of files to run on.</p>
-</td></tr><tr><td><p><code>exclude</code></p>
-</td><td><p>(optional: default <code>^$</code>)  exclude files that were matched by <code>files</code>.</p>
-</td></tr><tr><td><p><code>types</code></p>
+</td></tr><tr><td><p><a id="hooks-exclude" href="#hooks-exclude"><code>exclude</code></a></p>
+</td><td><p>(optional: default <code>^$</code>)  exclude files that were matched by <a href="#hooks-files"><code>files</code></a>.</p>
+</td></tr><tr><td><p><a id="hooks-types" href="#hooks-types"><code>types</code></a></p>
 </td><td><p>(optional: default <code>[file]</code>)  list of file types to run on.  See
 <a href="#filtering-files-with-types">Filtering files with types</a>.</p>
-</td></tr><tr><td><p><code>exclude_types</code></p>
-</td><td><p>(optional: default <code>[]</code>)  exclude files that were matched by <code>types</code>.</p>
-</td></tr><tr><td><p><code>always_run</code></p>
+</td></tr><tr><td><p><a id="hooks-exclude_types" href="#hooks-exclude_types"><code>exclude_types</code></a></p>
+</td><td><p>(optional: default <code>[]</code>)  exclude files that were matched by <a href="#hooks-types"><code>types</code></a>.</p>
+</td></tr><tr><td><p><a id="hooks-always_run" href="#hooks-always_run"><code>always_run</code></a></p>
 </td><td><p>(optional: default <code>false</code>) if <code>true</code> this hook will run even if there
 are no matching files.</p>
-</td></tr><tr><td><p><code>verbose</code></p>
+</td></tr><tr><td><p><a id="hooks-verbose" href="#hooks-verbose"><code>verbose</code></a></p>
 </td><td><p>(optional) if <code>true</code>, forces the output of the hook to be printed even when
 the hook passes.  <em>new in 1.6.0</em>.</p>
-</td></tr><tr><td><p><code>pass_filenames</code></p>
+</td></tr><tr><td><p><a id="hooks-pass_filenames" href="#hooks-pass_filenames"><code>pass_filenames</code></a></p>
 </td><td><p>(optional: default <code>true</code>) if <code>false</code> no arguments will be passed to
 the hook.</p>
-</td></tr><tr><td><p><code>require_serial</code></p>
+</td></tr><tr><td><p><a id="hooks-require_serial" href="#hooks-require_serial"><code>require_serial</code></a></p>
 </td><td><p>(optional: default <code>false</code>) if <code>true</code> this hook will execute using a
 single process instead of in parallel. <em>new in 1.13.0</em>.</p>
-</td></tr><tr><td><p><code>description</code></p>
+</td></tr><tr><td><p><a id="hooks-description" href="#hooks-description"><code>description</code></a></p>
 </td><td><p>(optional: default <code>''</code>) description of the hook.  used for metadata
 purposes only.</p>
-</td></tr><tr><td><p><code>language_version</code></p>
+</td></tr><tr><td><p><a id="hooks-language_version" href="#hooks-language_version"><code>language_version</code></a></p>
 </td><td><p>(optional: default <code>default</code>) see
 <a href="#overriding-language-version">Overriding language version</a>.</p>
-</td></tr><tr><td><p><code>minimum_pre_commit_version</code></p>
+</td></tr><tr><td><p><a id="hooks-minimum_pre_commit_version" href="#hooks-minimum_pre_commit_version"><code>minimum_pre_commit_version</code></a></p>
 </td><td><p>(optional: default <code>'0'</code>) allows one to indicate a minimum
 compatible pre-commit version.</p>
-</td></tr><tr><td><p><code>args</code></p>
+</td></tr><tr><td><p><a id="hooks-args" href="#hooks-args"><code>args</code></a></p>
 </td><td><p>(optional: default <code>[]</code>) list of additional parameters to pass to the hook.</p>
 </td></tr></tbody></table><p>For example:</p>
 <div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
@@ -402,7 +402,7 @@ compatible pre-commit version.</p>
     <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
     <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">text</span><span class="p p-Indicator">]</span>
 </pre></div>
-<h2 id="developing-hooks-interactively">    Developing hooks interactively <small><a href="#developing-hooks-interactively">¶</a></small></h2> <p>Since the <code>repo</code> property of <code>.pre-commit-config.yaml</code> can refer to anything
+<h2 id="developing-hooks-interactively">    Developing hooks interactively <small><a href="#developing-hooks-interactively">¶</a></small></h2> <p>Since the <a href="#repos-repo"><code>repo</code></a> property of <code>.pre-commit-config.yaml</code> can refer to anything
 that <code>git clone ...</code> understands, it's often useful to point it at a local
 directory while developing hooks.</p>
 <p><a href="#pre-commit-try-repo"><code>pre-commit try-repo</code></a> streamlines this process by
@@ -457,8 +457,8 @@ Hello from foo hook!
 <h3 id="conda">    conda <small><a href="#conda">¶</a></small></h3> <p><em>new in 1.21.0</em></p>
 <p>The hook repository must contain an <code>environment.yml</code> file which will be used
 via <code>conda env create --file environment.yml ...</code> to create the environment.</p>
-<p>The <code>conda</code> language also supports <code>additional_dependencies</code> and will pass any
-of the values directly into <code>conda install</code>.  This language can therefore be
+<p>The <code>conda</code> language also supports <a href="#config-additional_dependencies"><code>additional_dependencies</code></a>
+and will pass any of the values directly into <code>conda install</code>.  This language can therefore be
 used with <a href="#repository-local-hooks">local</a> hooks.</p>
 <p><strong>Support:</strong> <code>conda</code> hooks work as long as there is a system-installed <code>conda</code>
 binary (such as <a href="https://docs.conda.io/en/latest/miniconda.html"><code>miniconda</code></a>).
@@ -466,7 +466,7 @@ It has been tested on linux, macOS, and windows.</p>
 <h3 id="docker">    docker <small><a href="#docker">¶</a></small></h3> <p>The hook repository must have a <code>Dockerfile</code>.  It will be installed via
 <code>docker build .</code>.</p>
 <p>Running Docker hooks requires a running Docker engine on your host.  For
-configuring Docker hooks, your <code>entry</code> should correspond to an executable
+configuring Docker hooks, your <a href="#hooks-entry"><code>entry</code></a> should correspond to an executable
 inside the Docker container, and will be used to override the default container
 entrypoint. Your Docker <code>CMD</code> will not run when pre-commit passes a file list
 as arguments to the run container command. Docker allows you to use any
@@ -482,10 +482,10 @@ for an example Docker-based hook.</p>
 "language" uses existing docker images to provide hook executables.</p>
 <p><code>docker_image</code> hooks can be conveniently configured as <a href="#repository-local-hooks">local</a>
 hooks.</p>
-<p>The <code>entry</code> specifies the docker tag to use.  If an image has an
+<p>The <a href="#hooks-entry"><code>entry</code></a> specifies the docker tag to use.  If an image has an
 <code>ENTRYPOINT</code> defined, nothing special is needed to hook up the executable.
 If the container does not specify an <code>ENTRYPOINT</code> or you want to change the
-entrypoint you can specify it as well in your <code>entry</code>.</p>
+entrypoint you can specify it as well in your <a href="#hooks-entry"><code>entry</code></a>.</p>
 <p>For example:</p>
 <div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile-provides-entrypoint</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
@@ -502,10 +502,10 @@ entrypoint you can specify it as well in your <code>entry</code>.</p>
     <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-3:latest my-exe</span>
 </pre></div>
 <h3 id="fail">    fail <small><a href="#fail">¶</a></small></h3> <p><em>new in 1.11.0</em></p>
-<p>A lightweight <code>language</code> to forbid files by filename.  The <code>fail</code> language is
+<p>A lightweight <a href="#hooks-language"><code>language</code></a> to forbid files by filename.  The <code>fail</code> language is
 especially useful for <a href="#repository-local-hooks">local</a> hooks.</p>
-<p>The <code>entry</code> will be printed when the hook fails.  It is suggested to provide
-a brief description for <code>name</code> and more verbose fix instructions in <code>entry</code>.</p>
+<p>The <a href="#hooks-entry"><code>entry</code></a> will be printed when the hook fails.  It is suggested to provide
+a brief description for <a href="#hooks-name"><code>name</code></a> and more verbose fix instructions in <a href="#hooks-entry"><code>entry</code></a>.</p>
 <p>Here's an example which prevents any file except those ending with <code>.rst</code> from
 being added to the <code>changelog</code> directory:</p>
 <div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
@@ -518,13 +518,13 @@ being added to the <code>changelog</code> directory:</p>
 </pre></div>
 <h3 id="golang">    golang <small><a href="#golang">¶</a></small></h3> <p>The hook repository must contain go source code.  It will be installed via
 <code>go get ./...</code>.  pre-commit will create an isolated <code>GOPATH</code> for each hook and
-the <code>entry</code> should match an executable which will get installed into the
+the <a href="#hooks-entry"><code>entry</code></a> should match an executable which will get installed into the
 <code>GOPATH</code>'s <code>bin</code> directory.</p>
 <p><strong>Support:</strong> golang hooks are known to work on any system which has go
 installed.  It has been tested on linux, macOS, and windows.</p>
 <h3 id="node">    node <small><a href="#node">¶</a></small></h3> <p>The hook repository must have a <code>package.json</code>.  It will be installed via
 <code>npm install .</code>.  The installed package will provide an executable that will
-match the <code>entry</code> – usually through <code>bin</code> in package.json.</p>
+match the <a href="#hooks-entry"><code>entry</code></a> – usually through <code>bin</code> in package.json.</p>
 <p><strong>Support:</strong> node hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and <em>may</em> work under cygwin.</p>
 <p><em>new in 1.5.0</em>: windows is now supported for node hooks.  Currently python3
@@ -535,31 +535,31 @@ only due to <a href="https://bugs.python.org/issue32539">a bug in cpython</a>.</
 that comes with Perl.</p>
 <p>Hook repositories must have something that <code>cpan</code> supports, typically
 <code>Makefile.PL</code> or <code>Build.PL</code>, which it uses to install an executable to
-use in the <code>entry</code> definition for your hook. The repository will be installed
+use in the <a href="#hooks-entry"><code>entry</code></a> definition for your hook. The repository will be installed
 via <code>cpan -T .</code> (with the installed files stored in your pre-commit cache,
 not polluting other Perl installations).</p>
-<p>When specifying <code>additional_dependencies</code> for Perl, you can use any of the
+<p>When specifying <a href="#config-additional_dependencies"><code>additional_dependencies</code></a> for Perl, you can use any of the
 <a href="https://perldoc.perl.org/5.30.0/CPAN.html#get%2c-make%2c-test%2c-install%2c-clean-modules-or-distributions">install argument formats understood by <code>cpan</code></a>.</p>
 <p><strong>Support:</strong> Perl hooks currently require a pre-existing Perl installation,
 including the <code>cpan</code> tool in <code>PATH</code>.  It has been tested on linux, macOS, and
 Windows.</p>
 <h3 id="python">    python <small><a href="#python">¶</a></small></h3> <p>The hook repository must be installable via <code>pip install .</code> (usually by either
 <code>setup.py</code> or <code>pyproject.toml</code>).  The installed package will provide an
-executable that will match the <code>entry</code> – usually through <code>console_scripts</code> or
+executable that will match the <a href="#hooks-entry"><code>entry</code></a> – usually through <code>console_scripts</code> or
 <code>scripts</code> in setup.py.</p>
 <p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.</p>
 <h3 id="python_venv">    python_venv <small><a href="#python_venv">¶</a></small></h3> <p><em>new in 1.9.0</em></p>
 <p><em>new in 2.4.0</em>: The <code>python_venv</code> language is now an alias to <code>python</code> since
 <code>virtualenv&gt;=20</code> creates equivalently structured environments.  Previously,
-this <code>language</code> created environments using the <a href="https://docs.python.org/3/library/venv.html">venv</a> module.</p>
-<p>This <code>language</code> will be removed eventually so it is suggested to use <code>python</code>
+this <a href="#hooks-language"><code>language</code></a> created environments using the <a href="https://docs.python.org/3/library/venv.html">venv</a> module.</p>
+<p>This <a href="#hooks-language"><code>language</code></a> will be removed eventually so it is suggested to use <code>python</code>
 instead.</p>
 <p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.</p>
 <h3 id="ruby">    ruby <small><a href="#ruby">¶</a></small></h3> <p>The hook repository must have a <code>*.gemspec</code>.  It will be installed via
 <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>.  The installed package will
-produce an executable that will match the <code>entry</code> – usually through
+produce an executable that will match the <a href="#hooks-entry"><code>entry</code></a> – usually through
 <code>executables</code> in your gemspec.</p>
 <p><strong>Support:</strong> ruby hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and <em>may</em> work under cygwin.</p>
@@ -568,10 +568,10 @@ been tested on linux and macOS and <em>may</em> work under cygwin.</p>
 <a href="https://github.com/rust-lang/cargo">Cargo</a>, Rust's official package manager.</p>
 <p>Hook repositories must have a <code>Cargo.toml</code> file which produces at least one
 binary (<a href="https://github.com/chriskuehl/example-rust-pre-commit-hook">example</a>),
-whose name should match the <code>entry</code> definition for your hook. The repo will be
+whose name should match the <a href="#hooks-entry"><code>entry</code></a> definition for your hook. The repo will be
 installed via <code>cargo install --bins</code> (with the binaries stored in your
 pre-commit cache, not polluting your user-level Cargo installations).</p>
-<p>When specifying <code>additional_dependencies</code> for Rust, you can use the syntax
+<p>When specifying <a href="#config-additional_dependencies"><code>additional_dependencies</code></a> for Rust, you can use the syntax
 <code>{package_name}:{package_version}</code> to specify a new library dependency (used to
 build <em>your</em> hook repo), or the special syntax
 <code>cli:{package_name}:{package_version}</code> for a CLI dependency (built separately,
@@ -579,21 +579,21 @@ with binaries made available for use by hooks).</p>
 <p><strong>Support:</strong> Rust hooks currently require a pre-existing Rust installation.  It
 has been tested on linux, Windows, and macOS.</p>
 <h3 id="swift">    swift <small><a href="#swift">¶</a></small></h3> <p>The hook repository must have a <code>Package.swift</code>.  It will be installed via
-<code>swift build -c release</code>.  The <code>entry</code> should match an executable created by
+<code>swift build -c release</code>.  The <a href="#hooks-entry"><code>entry</code></a> should match an executable created by
 building the repository.</p>
 <p><strong>Support:</strong> swift hooks are known to work on any system which has swift
 installed.  It has been tested on linux and macOS.</p>
 <h3 id="pygrep">    pygrep <small><a href="#pygrep">¶</a></small></h3> <p><em>new in 1.2.0</em></p>
 <p>A cross-platform python implementation of <code>grep</code> – pygrep hooks are a quick
 way to write a simple hook which prevents commits by file matching.  Specify
-the regex as the <code>entry</code>.  The <code>entry</code> may be any python
+the regex as the <a href="#hooks-entry"><code>entry</code></a>.  The <a href="#hooks-entry"><code>entry</code></a> may be any python
 <a href="#regular-expressions">regular expression</a>.  For case insensitive regexes you
 can apply the <code>(?i)</code> flag as the start of your entry, or use <code>args: [-i]</code>.</p>
 <p><em>new in 1.8.0</em>: For multiline matches, use <code>args: [--multiline]</code>.</p>
 <p><strong>Support:</strong> pygrep hooks are supported on all platforms which pre-commit runs
 on.</p>
 <h3 id="script">    script <small><a href="#script">¶</a></small></h3> <p>Script hooks provide a way to write simple scripts which validate files. The
-<code>entry</code> should be a path relative to the root of the hook repository.</p>
+<a href="#hooks-entry"><code>entry</code></a> should be a path relative to the root of the hook repository.</p>
 <p>This hook type will not be given a virtual environment to work with – if it
 needs additional dependencies the consumer must install them manually.</p>
 <p><strong>Support:</strong> the support of script hooks depend on the scripts themselves.</p>
@@ -622,7 +622,7 @@ Defaults to <code>auto</code>.  <em>new in 1.18.0</em>: can be overridden by usi
 <ul>
 <li><code>--bleeding-edge</code>: update to the bleeding edge of <code>master</code> instead of the
 latest tagged version (the default behaviour).</li>
-<li><code>--freeze</code>: <em>new in 1.21.0</em>): Store "frozen" hashes in <code>rev</code> instead of tag
+<li><code>--freeze</code>: <em>new in 1.21.0</em>): Store "frozen" hashes in <a href="#repos-rev"><code>rev</code></a> instead of tag
 names.</li>
 <li><code>--repo REPO</code>: <em>new in 1.4.1</em>: Only update this repository. <em>new in 1.7.0</em>:
 This option may be specified multiple times.</li>
@@ -900,19 +900,19 @@ do their work: <code>$PRE_COMMIT_FROM_REF</code>, <code>$PRE_COMMIT_TO_REF</code
 and <code>$PRE_COMMIT_CHECKOUT_TYPE</code>. These correspond to the first, second,
 and third arguments (respectively) that are normally passed to a regular
 post-checkout hook from Git.</p>
-<h2 id="confining-hooks-to-run-at-certain-stages">    Confining hooks to run at certain stages <small><a href="#confining-hooks-to-run-at-certain-stages">¶</a></small></h2> <p>Since the <code>default_stages</code> top level configuration property of the
+<h2 id="confining-hooks-to-run-at-certain-stages">    Confining hooks to run at certain stages <small><a href="#confining-hooks-to-run-at-certain-stages">¶</a></small></h2> <p>Since the <a href="#top_level-default_stages"><code>default_stages</code></a> top level configuration property of the
 <code>.pre-commit-config.yaml</code> file is set to all stages by default, when installing
 hooks using the <code>-t</code>/<code>--hook-type</code> option (see <a href="#pre-commit-install">pre-commit
 install [options]</a>), all hooks will be installed by default
 to run at the stage defined through that option. for instance,
 <code>pre-commit install --hook-type pre-push</code> will install by default all hooks
 to run at the <code>push</code> stage.</p>
-<p>Hooks can however be confined to a stage by setting the <code>stages</code> property in
-your <code>.pre-commit-config.yaml</code>.  The <code>stages</code> property is an array and can
-contain any of <code>commit</code>, <code>merge-commit</code>, <code>push</code>, <code>prepare-commit-msg</code>,
+<p>Hooks can however be confined to a stage by setting the <a href="#config-stages"><code>stages</code></a>
+property in your <code>.pre-commit-config.yaml</code>.  The <a href="#config-stages"><code>stages</code></a> property
+is an array and can contain any of <code>commit</code>, <code>merge-commit</code>, <code>push</code>, <code>prepare-commit-msg</code>,
 <code>commit-msg</code> and <code>manual</code>.</p>
 <p>If you do not want to have hooks installed by default on the stage passed
-during a <code>pre-commit install --hook-type ...</code>, please set the <code>default_stages</code>
+during a <code>pre-commit install --hook-type ...</code>, please set the <a href="#top_level-default_stages"><code>default_stages</code></a>
 top level configuration property to the desired stages, also as an array.</p>
 <p><em>new in 1.8.0</em>: An additional <code>manual</code> stage is available for one off execution
 that won't run in any hook context.  This special stage is useful for taking
@@ -920,7 +920,7 @@ advantage of <code>pre-commit</code>'s cross-platform / cross-language package m
 without running it on every commit.  Hooks confined to <code>stages: [manual]</code> can
 be executed by running <code>pre-commit run --hook-stage manual &lt;hookid&gt;</code>.</p>
 <h2 id="passing-arguments-to-hooks">    Passing arguments to hooks <small><a href="#passing-arguments-to-hooks">¶</a></small></h2> <p>Sometimes hooks require arguments to run correctly. You can pass static
-arguments by specifying the <code>args</code> property in your <code>.pre-commit-config.yaml</code>
+arguments by specifying the <a href="#config-args"><code>args</code></a> property in your <code>.pre-commit-config.yaml</code>
 as follows:</p>
 <div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
     <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
@@ -930,7 +930,7 @@ as follows:</p>
 </pre></div>
 <p>This will pass <code>--max-line-length=131</code> to <code>flake8</code>.</p>
 <h3 id="arguments-pattern-in-hooks">    Arguments pattern in hooks <small><a href="#arguments-pattern-in-hooks">¶</a></small></h3> <p>If you are writing your own custom hook, your hook should expect to receive
-the <code>args</code> value and then a list of staged files.</p>
+the <a href="#config-args"><code>args</code></a> value and then a list of staged files.</p>
 <p>For example, assuming a <code>.pre-commit-config.yaml</code>:</p>
 <div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/path/to/your/hook/repo</span>
     <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">badf00ddeadbeef</span>
@@ -941,7 +941,7 @@ the <code>args</code> value and then a list of staged files.</p>
 <p>When you next run <code>pre-commit</code>, your script will be called:</p>
 <div class="highlight"><pre><span></span>path/to/script-or-system-exe --myarg1=1 --myarg1=2 dir/file1 dir/file2 file3
 </pre></div>
-<p>If the <code>args</code> property is empty or not defined, your script will be called:</p>
+<p>If the <a href="#config-args"><code>args</code></a> property is empty or not defined, your script will be called:</p>
 <div class="highlight"><pre><span></span>path/to/script-or-system-exe dir/file1 dir/file2 file3
 </pre></div>
 <h2 id="repository-local-hooks">    Repository local hooks <small><a href="#repository-local-hooks">¶</a></small></h2> <p>Repository-local hooks are useful when:</p>
@@ -952,14 +952,15 @@ distribute the hook scripts with the repository.</li>
 repository (such as your app's virtualenv for pylint).</li>
 <li>The official repository for a linter doesn't have the pre-commit metadata.</li>
 </ul>
-<p>You can configure repository-local hooks by specifying the <code>repo</code> as the
+<p>You can configure repository-local hooks by specifying the <a href="#repos-repo"><code>repo</code></a> as the
 sentinel <code>local</code>.</p>
-<p>local hooks can use any language which supports <code>additional_dependencies</code> or
-<code>docker_image</code> / <code>fail</code> / <code>pygrep</code> / <code>script</code> / <code>system</code>.
+<p>local hooks can use any language which supports <a href="#config-additional_dependencies"><code>additional_dependencies</code></a>
+or <code>docker_image</code> / <code>fail</code> / <code>pygrep</code> / <code>script</code> / <code>system</code>.
 This enables you to install things which previously would require a trivial
 mirror repository.</p>
-<p>A <code>local</code> hook must define <code>id</code>, <code>name</code>, <code>language</code>, <code>entry</code>, and <code>files</code> /
-<code>types</code> as specified under <a href="#new-hooks">Creating new hooks</a>.</p>
+<p>A <code>local</code> hook must define <a href="#hooks-id"><code>id</code></a>, <a href="#hooks-name"><code>name</code></a>, <a href="#hooks-language"><code>language</code></a>,
+<a href="#hooks-entry"><code>entry</code></a>, and <a href="#hooks-files"><code>files</code></a> / <a href="#hooks-types"><code>types</code></a>
+as specified under <a href="#new-hooks">Creating new hooks</a>.</p>
 <p>Here's an example configuration with a few <code>local</code> hooks:</p>
 <div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
     <span class="nt">hooks</span><span class="p">:</span>
@@ -989,15 +990,15 @@ pre-commit configuration itself.  These can be enabled using <code>repo: meta</c
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 <p>The currently available <code>meta</code> hooks:</p>
-<table class="table table-bordered"><tbody><tr><td><p><code>check-hooks-apply</code></p>
+<table class="table table-bordered"><tbody><tr><td><p><a id="meta-check_hooks_apply" href="#meta-check_hooks_apply"><code>check-hooks-apply</code></a></p>
 </td><td><p>ensures that the configured hooks apply to at least one file in the
 repository.
 <em>new in 1.4.0</em>.</p>
-</td></tr><tr><td><p><code>check-useless-excludes</code></p>
+</td></tr><tr><td><p><a id="meta-check_useless_excludes" href="#meta-check_useless_excludes"><code>check-useless-excludes</code></a></p>
 </td><td><p>ensures that <code>exclude</code> directives apply to <em>any</em> file in the
 repository.
 <em>new in 1.4.0</em>.</p>
-</td></tr><tr><td><p><code>identity</code></p>
+</td></tr><tr><td><p><a id="meta-identity" href="#meta-identity"><code>identity</code></a></p>
 </td><td><p>a simple hook which prints all arguments passed to it, useful for
 debugging.
 <em>new in 1.14.0</em>.</p>
@@ -1107,7 +1108,7 @@ language. For each language, they default to using the system installed
 language (So for example if I’m running <code>python3.7</code> and a hook specifies
 <code>python</code>, pre-commit will run the hook using <code>python3.7</code>). Sometimes you
 don’t want the default system installed version so you can override this on a
-per-hook basis by setting the <code>language_version</code>.</p>
+per-hook basis by setting the <a href="#config-language_version"><code>language_version</code></a>.</p>
 <div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-scss-lint</span>
     <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.54.0</span>
     <span class="nt">hooks</span><span class="p">:</span>
@@ -1129,8 +1130,8 @@ windows.</li>
 <li>node: See <a href="https://github.com/ekalinin/nodeenv#advanced">nodeenv</a>.</li>
 <li>ruby: See <a href="https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build">ruby-build</a>.</li>
 </ul>
-<p><em>new in 1.14.0</em>: you can now set <code>default_language_version</code> at the
-<a href="#pre-commit-configyaml---top-level">top level</a> in your configuration to
+<p><em>new in 1.14.0</em>: you can now set <a href="#top_level-default_language_version"><code>default_language_version</code></a>
+at the <a href="#pre-commit-configyaml---top-level">top level</a> in your configuration to
 control the default versions across all hooks of a language.</p>
 <div class="highlight yaml"><pre><span></span><span class="nt">default_language_version</span><span class="p">:</span>
     <span class="c1"># force all unspecified python hooks to run python3</span>
@@ -1250,9 +1251,9 @@ version" for hook repositories.</p>
 latest versions with <a href="#pre-commit-autoupdate"><code>pre-commit autoupdate</code></a>.  If
 you need the absolute latest version of a hook (instead of the latest tagged
 version), pass the <code>--bleeding-edge</code> parameter to <code>autoupdate</code>.</p>
-<p><code>pre-commit</code> assumes that the value of <code>rev</code> is an immutable ref (such as a
+<p><code>pre-commit</code> assumes that the value of <a href="#repos-rev"><code>rev</code></a> is an immutable ref (such as a
 tag or SHA) and will cache based on that.  Using a branch name (or <code>HEAD</code>) for
-the value of <code>rev</code> is not supported and will only represent the state of
+the value of <a href="#repos-rev"><code>rev</code></a> is not supported and will only represent the state of
 that mutable ref at the time of hook installation (and will <em>NOT</em> update
 automatically).</p>
 
