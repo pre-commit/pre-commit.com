@@ -190,13 +190,13 @@ migrate your configuration.
 
 ```table
 =r=
-    =c= `repos`
+    =c= [`repos`](_#top_level-repos)
     =c= A list of [repository mappings](#pre-commit-configyaml---repos).
 =r=
-    =c= `default_language_version`
+    =c= [`default_language_version`](_#top_level-default_language_version)
     =c= (optional: default `{}`) a mapping from language to the default
-        `language_version` that should be used for that language.  This will
-        only override individual hooks that do not set `language_version`.
+        [`language_version`](#config-language_version) that should be used for that language.  This will
+        only override individual hooks that do not set [`language_version`](#config-language_version).
 
         For example to use `python3.7` for `language: python` hooks:
 
@@ -207,10 +207,10 @@ migrate your configuration.
 
         _new in 1.14.0_
 =r=
-    =c= `default_stages`
+    =c= [`default_stages`](_#top_level-default_stages)
     =c= (optional: default (all stages)) a configuration-wide default for
-        the `stages` property of hooks.  This will only override individual
-        hooks that do not set `stages`.
+        the [`stages`](#config-stages) property of hooks.  This will only override individual
+        hooks that do not set [`stages`](#config-stages).
 
         For example:
 
@@ -220,17 +220,17 @@ migrate your configuration.
 
         _new in 1.14.0_
 =r=
-    =c= `files`
+    =c= [`files`](_#top_level-files)
     =c= (optional: default `''`) global file include pattern.  _new in 1.21.0_.
 =r=
-    =c= `exclude`
+    =c= [`exclude`](_#top_level-exclude)
     =c= (optional: default `^$`) global file exclude pattern.  _new in 1.1.0_.
 =r=
-    =c= `fail_fast`
+    =c= [`fail_fast`](_#top_level-fail_fast)
     =c= (optional: default `false`) set to `true` to have pre-commit stop
         running hooks after the first failure.  _new in 1.1.0_.
 =r=
-    =c= `minimum_pre_commit_version`
+    =c= [`minimum_pre_commit_version`](_#top_level-minimum_pre_commit_version)
     =c= (optional: default `'0'`) require a minimum version of pre-commit.
         _new in 1.15.0_.
 ```
@@ -251,13 +251,13 @@ from.
 
 ```table
 =r=
-    =c= `repo`
+    =c= [`repo`](_#repos-repo)
     =c= the repository url to `git clone` from
 =r=
-    =c= `rev`
+    =c= [`rev`](_#repos-rev)
     =c= the revision or tag to clone at.  _new in 1.7.0_: previously `sha`
 =r=
-    =c= `hooks`
+    =c= [`hooks`](_#repos-hooks)
     =c= A list of [hook mappings](#pre-commit-configyaml---hooks).
 ```
 
@@ -279,57 +279,57 @@ repository's configuration.
 
 ```table
 =r=
-    =c= `id`
+    =c= [`id`](_#config-id)
     =c= which hook from the repository to use.
 =r=
-    =c= `alias`
+    =c= [`alias`](_#config-alias)
     =c= (optional) allows the hook to be referenced using an additional id when
         using `pre-commit run <hookid>`.
         _new in 1.14.0_.
 =r=
-    =c= `name`
+    =c= [`name`](_#config-name)
     =c= (optional) override the name of the hook - shown during hook execution.
 =r=
-    =c= `language_version`
+    =c= [`language_version`](_#config-language_version)
     =c= (optional) override the language version for the
         hook.  See [Overriding Language Version](#overriding-language-version).
 =r=
-    =c= `files`
+    =c= [`files`](_#config-files)
     =c= (optional) override the default pattern for files to run on.
 =r=
-    =c= `exclude`
+    =c= [`exclude`](_#config-exclude)
     =c= (optional) file exclude pattern.
 =r=
-    =c= `types`
+    =c= [`types`](_#config-types)
     =c= (optional) override the default file types to run on.  See
         [Filtering files with types](#filtering-files-with-types).
 =r=
-    =c= `exclude_types`
+    =c= [`exclude_types`](_#config-exclude_types)
     =c= (optional) file types to exclude.
 =r=
-    =c= `args`
+    =c= [`args`](_#config-args)
     =c= (optional) list of additional parameters to pass to the hook.
 =r=
-    =c= `stages`
+    =c= [`stages`](_#config-stages)
     =c= (optional) confines the hook to the `commit`, `merge-commit`, `push`,
         `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`, or
         `manual` stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
-    =c= `additional_dependencies`
+    =c= [`additional_dependencies`](_#config-additional_dependencies)
     =c= (optional) a list of dependencies that will be installed in the
         environment where this hook gets run.  One useful application is to
         install plugins for hooks such as `eslint`.
 =r=
-    =c= `always_run`
+    =c= [`always_run`](_#config-always_run)
     =c= (optional) if `true`, this hook will run even if there are no matching
         files.
 =r=
-    =c= `verbose`
+    =c= [`verbose`](_#config-verbose)
     =c= (optional) if `true`, forces the output of the hook to be printed even when
         the hook passes.  _new in 1.6.0_.
 =r=
-    =c= `log_file`
+    =c= [`log_file`](_#config-log_file)
     =c= (optional) if present, the hook output will additionally be written
         to a file.
 ```
@@ -409,61 +409,61 @@ file that tells pre-commit:
 
 ```table
 =r=
-    =c= `id`
+    =c= [`id`](_#hooks-id)
     =c= the id of the hook - used in pre-commit-config.yaml.
 =r=
-    =c= `name`
+    =c= [`name`](_#hooks-name)
     =c= the name of the hook - shown during hook execution.
 =r=
-    =c= `entry`
+    =c= [`entry`](_#hooks-entry)
     =c= the entry point - the executable to run.  `entry` can also contain
         arguments that will not be overridden such as `entry: autopep8 -i`.
 =r=
-    =c= `language`
+    =c= [`language`](_#hooks-language)
     =c= the language of the hook - tells pre-commit how to install the hook.
 =r=
-    =c= `files`
+    =c= [`files`](_#hooks-files)
     =c= (optional: default `''`) the pattern of files to run on.
 =r=
-    =c= `exclude`
-    =c= (optional: default `^$`)  exclude files that were matched by `files`.
+    =c= [`exclude`](_#hooks-exclude)
+    =c= (optional: default `^$`)  exclude files that were matched by [`files`](#hooks-files).
 =r=
-    =c= `types`
+    =c= [`types`](_#hooks-types)
     =c= (optional: default `[file]`)  list of file types to run on.  See
         [Filtering files with types](#filtering-files-with-types).
 =r=
-    =c= `exclude_types`
-    =c= (optional: default `[]`)  exclude files that were matched by `types`.
+    =c= [`exclude_types`](_#hooks-exclude_types)
+    =c= (optional: default `[]`)  exclude files that were matched by [`types`](#hooks-types).
 =r=
-    =c= `always_run`
+    =c= [`always_run`](_#hooks-always_run)
     =c= (optional: default `false`) if `true` this hook will run even if there
         are no matching files.
 =r=
-    =c= `verbose`
+    =c= [`verbose`](_#hooks-verbose)
     =c= (optional) if `true`, forces the output of the hook to be printed even when
         the hook passes.  _new in 1.6.0_.
 =r=
-    =c= `pass_filenames`
+    =c= [`pass_filenames`](_#hooks-pass_filenames)
     =c= (optional: default `true`) if `false` no arguments will be passed to
         the hook.
 =r=
-    =c= `require_serial`
+    =c= [`require_serial`](_#hooks-require_serial)
     =c= (optional: default `false`) if `true` this hook will execute using a
         single process instead of in parallel. _new in 1.13.0_.
 =r=
-    =c= `description`
+    =c= [`description`](_#hooks-description)
     =c= (optional: default `''`) description of the hook.  used for metadata
         purposes only.
 =r=
-    =c= `language_version`
+    =c= [`language_version`](_#hooks-language_version)
     =c= (optional: default `default`) see
         [Overriding language version](#overriding-language-version).
 =r=
-    =c= `minimum_pre_commit_version`
+    =c= [`minimum_pre_commit_version`](_#hooks-minimum_pre_commit_version)
     =c= (optional: default `'0'`) allows one to indicate a minimum
         compatible pre-commit version.
 =r=
-    =c= `args`
+    =c= [`args`](_#hooks-args)
     =c= (optional: default `[]`) list of additional parameters to pass to the hook.
 
 ```
@@ -481,7 +481,7 @@ For example:
 
 ## Developing hooks interactively
 
-Since the `repo` property of `.pre-commit-config.yaml` can refer to anything
+Since the [`repo`](#repos-repo) property of `.pre-commit-config.yaml` can refer to anything
 that `git clone ...` understands, it's often useful to point it at a local
 directory while developing hooks.
 
@@ -548,8 +548,8 @@ _new in 1.21.0_
 The hook repository must contain an `environment.yml` file which will be used
 via `conda env create --file environment.yml ...` to create the environment.
 
-The `conda` language also supports `additional_dependencies` and will pass any
-of the values directly into `conda install`.  This language can therefore be
+The `conda` language also supports [`additional_dependencies`](#config-additional_dependencies)
+and will pass any of the values directly into `conda install`.  This language can therefore be
 used with [local](#repository-local-hooks) hooks.
 
 __Support:__ `conda` hooks work as long as there is a system-installed `conda`
@@ -562,7 +562,7 @@ The hook repository must have a `Dockerfile`.  It will be installed via
 `docker build .`.
 
 Running Docker hooks requires a running Docker engine on your host.  For
-configuring Docker hooks, your `entry` should correspond to an executable
+configuring Docker hooks, your [`entry`](#hooks-entry) should correspond to an executable
 inside the Docker container, and will be used to override the default container
 entrypoint. Your Docker `CMD` will not run when pre-commit passes a file list
 as arguments to the run container command. Docker allows you to use any
@@ -586,10 +586,10 @@ A more lightweight approach to `docker` hooks.  The `docker_image`
 `docker_image` hooks can be conveniently configured as [local](#repository-local-hooks)
 hooks.
 
-The `entry` specifies the docker tag to use.  If an image has an
+The [`entry`](#hooks-entry) specifies the docker tag to use.  If an image has an
 `ENTRYPOINT` defined, nothing special is needed to hook up the executable.
 If the container does not specify an `ENTRYPOINT` or you want to change the
-entrypoint you can specify it as well in your `entry`.
+entrypoint you can specify it as well in your [`entry`](#hooks-entry).
 
 For example:
 
@@ -613,11 +613,11 @@ For example:
 
 _new in 1.11.0_
 
-A lightweight `language` to forbid files by filename.  The `fail` language is
+A lightweight [`language`](#hooks-language) to forbid files by filename.  The `fail` language is
 especially useful for [local](#repository-local-hooks) hooks.
 
-The `entry` will be printed when the hook fails.  It is suggested to provide
-a brief description for `name` and more verbose fix instructions in `entry`.
+The [`entry`](#hooks-entry) will be printed when the hook fails.  It is suggested to provide
+a brief description for [`name`](#hooks-name) and more verbose fix instructions in [`entry`](#hooks-entry).
 
 Here's an example which prevents any file except those ending with `.rst` from
 being added to the `changelog` directory:
@@ -636,7 +636,7 @@ being added to the `changelog` directory:
 
 The hook repository must contain go source code.  It will be installed via
 `go get ./...`.  pre-commit will create an isolated `GOPATH` for each hook and
-the `entry` should match an executable which will get installed into the
+the [`entry`](#hooks-entry) should match an executable which will get installed into the
 `GOPATH`'s `bin` directory.
 
 __Support:__ golang hooks are known to work on any system which has go
@@ -646,7 +646,7 @@ installed.  It has been tested on linux, macOS, and windows.
 
 The hook repository must have a `package.json`.  It will be installed via
 `npm install .`.  The installed package will provide an executable that will
-match the `entry` – usually through `bin` in package.json.
+match the [`entry`](#hooks-entry) – usually through `bin` in package.json.
 
 __Support:__ node hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and _may_ work under cygwin.
@@ -664,11 +664,11 @@ that comes with Perl.
 
 Hook repositories must have something that `cpan` supports, typically
 `Makefile.PL` or `Build.PL`, which it uses to install an executable to
-use in the `entry` definition for your hook. The repository will be installed
+use in the [`entry`](#hooks-entry) definition for your hook. The repository will be installed
 via `cpan -T .` (with the installed files stored in your pre-commit cache,
 not polluting other Perl installations).
 
-When specifying `additional_dependencies` for Perl, you can use any of the
+When specifying [`additional_dependencies`](#config-additional_dependencies) for Perl, you can use any of the
 [install argument formats understood by `cpan`](https://perldoc.perl.org/5.30.0/CPAN.html#get%2c-make%2c-test%2c-install%2c-clean-modules-or-distributions).
 
 __Support:__ Perl hooks currently require a pre-existing Perl installation,
@@ -679,7 +679,7 @@ Windows.
 
 The hook repository must be installable via `pip install .` (usually by either
 `setup.py` or `pyproject.toml`).  The installed package will provide an
-executable that will match the `entry` – usually through `console_scripts` or
+executable that will match the [`entry`](#hooks-entry) – usually through `console_scripts` or
 `scripts` in setup.py.
 
 __Support:__ python hooks work without any system-level dependencies.  It
@@ -691,9 +691,9 @@ _new in 1.9.0_
 
 _new in 2.4.0_: The `python_venv` language is now an alias to `python` since
 `virtualenv>=20` creates equivalently structured environments.  Previously,
-this `language` created environments using the [venv] module.
+this [`language`](#hooks-language) created environments using the [venv] module.
 
-This `language` will be removed eventually so it is suggested to use `python`
+This [`language`](#hooks-language) will be removed eventually so it is suggested to use `python`
 instead.
 
 [venv]: https://docs.python.org/3/library/venv.html
@@ -705,7 +705,7 @@ has been tested on linux, macOS, windows, and cygwin.
 
 The hook repository must have a `*.gemspec`.  It will be installed via
 `gem build *.gemspec && gem install *.gem`.  The installed package will
-produce an executable that will match the `entry` – usually through
+produce an executable that will match the [`entry`](#hooks-entry) – usually through
 `executables` in your gemspec.
 
 __Support:__ ruby hooks work without any system-level dependencies.  It has
@@ -720,11 +720,11 @@ Rust hooks are installed using the system installation of
 
 Hook repositories must have a `Cargo.toml` file which produces at least one
 binary ([example](https://github.com/chriskuehl/example-rust-pre-commit-hook)),
-whose name should match the `entry` definition for your hook. The repo will be
+whose name should match the [`entry`](#hooks-entry) definition for your hook. The repo will be
 installed via `cargo install --bins` (with the binaries stored in your
 pre-commit cache, not polluting your user-level Cargo installations).
 
-When specifying `additional_dependencies` for Rust, you can use the syntax
+When specifying [`additional_dependencies`](#config-additional_dependencies) for Rust, you can use the syntax
 `{package_name}:{package_version}` to specify a new library dependency (used to
 build _your_ hook repo), or the special syntax
 `cli:{package_name}:{package_version}` for a CLI dependency (built separately,
@@ -736,7 +736,7 @@ has been tested on linux, Windows, and macOS.
 ### swift
 
 The hook repository must have a `Package.swift`.  It will be installed via
-`swift build -c release`.  The `entry` should match an executable created by
+`swift build -c release`.  The [`entry`](#hooks-entry) should match an executable created by
 building the repository.
 
 __Support:__ swift hooks are known to work on any system which has swift
@@ -748,7 +748,7 @@ _new in 1.2.0_
 
 A cross-platform python implementation of `grep` – pygrep hooks are a quick
 way to write a simple hook which prevents commits by file matching.  Specify
-the regex as the `entry`.  The `entry` may be any python
+the regex as the [`entry`](#hooks-entry).  The [`entry`](#hooks-entry) may be any python
 [regular expression](#regular-expressions).  For case insensitive regexes you
 can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
 
@@ -760,7 +760,7 @@ on.
 ### script
 
 Script hooks provide a way to write simple scripts which validate files. The
-`entry` should be a path relative to the root of the hook repository.
+[`entry`](#hooks-entry) should be a path relative to the root of the hook repository.
 
 This hook type will not be given a virtual environment to work with – if it
 needs additional dependencies the consumer must install them manually.
@@ -800,7 +800,7 @@ Options:
 
 - `--bleeding-edge`: update to the bleeding edge of `master` instead of the
   latest tagged version (the default behaviour).
-- `--freeze`: _new in 1.21.0_): Store "frozen" hashes in `rev` instead of tag
+- `--freeze`: _new in 1.21.0_): Store "frozen" hashes in [`rev`](#repos-rev) instead of tag
   names.
 - `--repo REPO`: _new in 1.4.1_: Only update this repository. _new in 1.7.0_:
   This option may be specified multiple times.
@@ -1194,7 +1194,7 @@ post-checkout hook from Git.
 
 ## Confining hooks to run at certain stages
 
-Since the `default_stages` top level configuration property of the
+Since the [`default_stages`](#top_level-default_stages) top level configuration property of the
 `.pre-commit-config.yaml` file is set to all stages by default, when installing
 hooks using the `-t`/`--hook-type` option (see [pre-commit
 install [options]](#pre-commit-install)), all hooks will be installed by default
@@ -1202,13 +1202,13 @@ to run at the stage defined through that option. for instance,
 `pre-commit install --hook-type pre-push` will install by default all hooks
 to run at the `push` stage.
 
-Hooks can however be confined to a stage by setting the `stages` property in
-your `.pre-commit-config.yaml`.  The `stages` property is an array and can
-contain any of `commit`, `merge-commit`, `push`, `prepare-commit-msg`,
+Hooks can however be confined to a stage by setting the [`stages`](#config-stages)
+property in your `.pre-commit-config.yaml`.  The [`stages`](#config-stages) property
+is an array and can contain any of `commit`, `merge-commit`, `push`, `prepare-commit-msg`,
 `commit-msg` and `manual`.
 
 If you do not want to have hooks installed by default on the stage passed
-during a `pre-commit install --hook-type ...`, please set the `default_stages`
+during a `pre-commit install --hook-type ...`, please set the [`default_stages`](#top_level-default_stages)
 top level configuration property to the desired stages, also as an array.
 
 _new in 1.8.0_: An additional `manual` stage is available for one off execution
@@ -1220,7 +1220,7 @@ be executed by running `pre-commit run --hook-stage manual <hookid>`.
 ## Passing arguments to hooks
 
 Sometimes hooks require arguments to run correctly. You can pass static
-arguments by specifying the `args` property in your `.pre-commit-config.yaml`
+arguments by specifying the [`args`](#config-args) property in your `.pre-commit-config.yaml`
 as follows:
 
 ```yaml
@@ -1236,7 +1236,7 @@ This will pass `--max-line-length=131` to `flake8`.
 ### Arguments pattern in hooks
 
 If you are writing your own custom hook, your hook should expect to receive
-the `args` value and then a list of staged files.
+the [`args`](#config-args) value and then a list of staged files.
 
 For example, assuming a `.pre-commit-config.yaml`:
 
@@ -1254,7 +1254,7 @@ When you next run `pre-commit`, your script will be called:
 path/to/script-or-system-exe --myarg1=1 --myarg1=2 dir/file1 dir/file2 file3
 ```
 
-If the `args` property is empty or not defined, your script will be called:
+If the [`args`](#config-args) property is empty or not defined, your script will be called:
 
 ```
 path/to/script-or-system-exe dir/file1 dir/file2 file3
@@ -1270,16 +1270,17 @@ Repository-local hooks are useful when:
   repository (such as your app's virtualenv for pylint).
 - The official repository for a linter doesn't have the pre-commit metadata.
 
-You can configure repository-local hooks by specifying the `repo` as the
+You can configure repository-local hooks by specifying the [`repo`](#repos-repo) as the
 sentinel `local`.
 
-local hooks can use any language which supports `additional_dependencies` or
-`docker_image` / `fail` / `pygrep` / `script` / `system`.
+local hooks can use any language which supports [`additional_dependencies`](#config-additional_dependencies)
+or `docker_image` / `fail` / `pygrep` / `script` / `system`.
 This enables you to install things which previously would require a trivial
 mirror repository.
 
-A `local` hook must define `id`, `name`, `language`, `entry`, and `files` /
-`types` as specified under [Creating new hooks](#new-hooks).
+A `local` hook must define [`id`](#hooks-id), [`name`](#hooks-name), [`language`](#hooks-language),
+[`entry`](#hooks-entry), and [`files`](#hooks-files) / [`types`](#hooks-types)
+as specified under [Creating new hooks](#new-hooks).
 
 Here's an example configuration with a few `local` hooks:
 
@@ -1322,17 +1323,17 @@ The currently available `meta` hooks:
 
 ```table
 =r=
-    =c= `check-hooks-apply`
+    =c= [`check-hooks-apply`](_#meta-check_hooks_apply)
     =c= ensures that the configured hooks apply to at least one file in the
         repository.
         _new in 1.4.0_.
 =r=
-    =c= `check-useless-excludes`
+    =c= [`check-useless-excludes`](_#meta-check_useless_excludes)
     =c= ensures that `exclude` directives apply to _any_ file in the
         repository.
         _new in 1.4.0_.
 =r=
-    =c= `identity`
+    =c= [`identity`](_#meta-identity)
     =c= a simple hook which prints all arguments passed to it, useful for
         debugging.
         _new in 1.14.0_.
@@ -1484,7 +1485,7 @@ language. For each language, they default to using the system installed
 language (So for example if I’m running `python3.7` and a hook specifies
 `python`, pre-commit will run the hook using `python3.7`). Sometimes you
 don’t want the default system installed version so you can override this on a
-per-hook basis by setting the `language_version`.
+per-hook basis by setting the [`language_version`](#config-language_version).
 
 ```yaml
 -   repo: https://github.com/pre-commit/mirrors-scss-lint
@@ -1507,8 +1508,8 @@ Valid values for specific languages are listed below:
 - node: See [nodeenv](https://github.com/ekalinin/nodeenv#advanced).
 - ruby: See [ruby-build](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).
 
-_new in 1.14.0_: you can now set `default_language_version` at the
-[top level](#pre-commit-configyaml---top-level) in your configuration to
+_new in 1.14.0_: you can now set [`default_language_version`](#top_level-default_language_version)
+at the [top level](#pre-commit-configyaml---top-level) in your configuration to
 control the default versions across all hooks of a language.
 
 ```yaml
@@ -1687,9 +1688,9 @@ latest versions with [`pre-commit autoupdate`](#pre-commit-autoupdate).  If
 you need the absolute latest version of a hook (instead of the latest tagged
 version), pass the `--bleeding-edge` parameter to `autoupdate`.
 
-`pre-commit` assumes that the value of `rev` is an immutable ref (such as a
+`pre-commit` assumes that the value of [`rev`](#repos-rev) is an immutable ref (such as a
 tag or SHA) and will cache based on that.  Using a branch name (or `HEAD`) for
-the value of `rev` is not supported and will only represent the state of
+the value of [`rev`](#repos-rev) is not supported and will only represent the state of
 that mutable ref at the time of hook installation (and will *NOT* update
 automatically).
 ''')}

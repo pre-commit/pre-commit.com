@@ -16,6 +16,7 @@ SPECIAL_CHARS_RE = re.compile('[^a-z0-9 _-]')
 ROW = '=r='
 COL = '    =c= '
 INDENT = ' ' * 8
+SELF_LINK_PREFIX = '_#'
 
 
 def _render_table(code: str) -> str:
@@ -88,6 +89,15 @@ def _render_cmd(code: str) -> str:
 
 
 class Renderer(markdown_code_blocks.CodeRenderer):
+    def link(
+        self, link: str, text: Optional[str], title: Optional[str],
+    ) -> str:
+        if link.startswith(SELF_LINK_PREFIX):
+            a_id = link[len(SELF_LINK_PREFIX):]
+            return f'<a id="{a_id}" href="#{a_id}">{title}</a>'
+        else:
+            return super().link(link, text, title)
+
     def header(self, text: str, level: int, raw: str) -> str:
         match = ID_RE.search(raw)
         if match:
