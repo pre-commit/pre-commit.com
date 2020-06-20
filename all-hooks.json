@@ -371,7 +371,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@7.2.0"
+                "eslint@7.3.0"
             ]
         }
     ],
@@ -882,6 +882,15 @@
             "types": [
                 "markdown"
             ]
+        },
+        {
+            "id": "protect-first-parent",
+            "name": "Protect first parent",
+            "description": "Protect first parent from foxtrot merges",
+            "entry": "pre_commit_hooks/protect-first-parent",
+            "language": "script",
+            "always_run": true,
+            "pass_filenames": false
         },
         {
             "id": "reek",
