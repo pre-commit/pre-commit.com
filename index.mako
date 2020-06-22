@@ -1707,6 +1707,19 @@ forks / mirrors.
 
 Feel free to submit bug reports, pull requests, and feature requests.
 
+## Getting help
+
+There are several ways to get help for pre-commit:
+
+- Ask a question on [stackoverflow tagged `<kbd>pre-commit.com</kbd>`]
+- Create an issue on [pre-commit/pre-commit]
+- Ask in the #pre-commit channel in [asottile's twitch discord]
+
+[stackoverflow tagged `<kbd>pre-commit.com</kbd>`]: https://stackoverflow.com/questions/tagged/pre-commit.com
+[pre-commit/pre-commit]: https://github.com/pre-commit/pre-commit/issues/
+[asottile's twitch discord]: https://discord.gg/xDKGPaW
+
+
 ## Contributors
 
 - website by [Molly Finkle](https://github.com/mfnkl)
