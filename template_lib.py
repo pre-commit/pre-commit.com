@@ -110,6 +110,13 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             f'</h{level}> '
         )
 
+    def codespan(self, text: str) -> str:
+        if text.startswith('<kbd>'):
+            # we trust this content
+            return text
+        else:
+            return super().codespan(text)
+
     def block_code(self, code: str, lang: Optional[str]) -> str:
         copyable = False
         if lang is not None:
