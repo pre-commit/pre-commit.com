@@ -2363,6 +2363,21 @@
                 "check",
                 "rules"
             ]
+        },
+        {
+            "id": "test-rules",
+            "stages": [
+                "commit"
+            ],
+            "name": "Unit test prometheus rule files",
+            "description": "Unit test prometheus rule files",
+            "language": "docker_image",
+            "entry": "--entrypoint /bin/promtool prom/prometheus:latest",
+            "files": "^$",
+            "args": [
+                "test",
+                "rules"
+            ]
         }
     ],
     "https://github.com/syntaqx/git-hooks": [
@@ -2669,6 +2684,10 @@
             "id": "style-files",
             "name": "style-files",
             "description": "style files with styler",
+            "args": [
+                "--style_pkg=styler",
+                "--style_transformers=tidyverse_style(scope = \"tokens\")"
+            ],
             "entry": "inst/bin/style-files",
             "language": "script",
             "files": "(\\.R|\\.Rmd|\\.Rnw|\\.r|\\.rmd|\\.rnw)$"
