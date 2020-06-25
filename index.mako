@@ -1593,7 +1593,7 @@ note: azure pipelines uses immutable caches so the python version and
 `.pre-commit-config.yaml` hash must be included in the cache key.  for a
 repository template, see [asottile@job--pre-commit.yml].
 
-[job--pre-commit.yml]: https://github.com/asottile/azure-pipeline-templates/blob/master/job--pre-commit.yml
+[asottile@job--pre-commit.yml]: https://github.com/asottile/azure-pipeline-templates/blob/master/job--pre-commit.yml
 
 ```yaml
 jobs:
