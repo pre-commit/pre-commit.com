@@ -1646,6 +1646,33 @@ my_job:
       - ${PRE_COMMIT_HOME}
 ```
 
+### circleci example
+
+like [azure pipelines](#azure-pipelines-example), circleci also uses
+immutable caches:
+
+```yaml
+  steps:
+  - run:
+    command: |
+      cp .pre-commit-config.yaml pre-commit-cache-key.txt
+      python --version --version >> pre-commit-cache-key.txt
+  - restore_cache:
+    keys:
+    - v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}
+
+  # ...
+
+  - save_cache:
+    key: v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}
+    paths:
+      - ~/.cache/pre-commit
+```
+
+(source: [@chriselison])
+
+[@chriselison]: https://github.com/Unity-Technologies/ml-agents/pull/3094/files#diff-1d37e48f9ceff6d8030570cd36286a61
+
 ## Usage with tox
 
 [tox](https://tox.readthedocs.io/) is useful for configuring test / CI tools
