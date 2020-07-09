@@ -261,7 +261,7 @@ from.
     =c= A list of [hook mappings](#pre-commit-configyaml---hooks).
 ```
 
-A sample repository with all defaults present:
+A sample repository:
 
 ```yaml
 repos:
