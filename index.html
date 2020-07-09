@@ -1212,6 +1212,14 @@ immutable caches:</p>
         <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span>
         <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pre-commit|${{ env.PY }}|${{ hashFiles(&#39;.pre-commit-config.yaml&#39;) }}</span>
 </pre></div>
+<h3 id="gitlab-ci-example">    gitlab CI example <small><a href="#gitlab-ci-example">¶</a></small></h3> <p>See the <a href="https://docs.gitlab.com/ee/ci/caching/#good-caching-practices">Gitlab caching best practices</a> to fine tune the cache scope.</p>
+<div class="highlight yaml"><pre><span></span><span class="nt">my_job</span><span class="p">:</span>
+  <span class="nt">variables</span><span class="p">:</span>
+    <span class="nt">PRE_COMMIT_HOME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${CI_PROJECT_DIR}/.cache/pre-commit</span>
+  <span class="nt">cache</span><span class="p">:</span>
+    <span class="nt">paths</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${PRE_COMMIT_HOME}</span>
+</pre></div>
 <h2 id="usage-with-tox">    Usage with tox <small><a href="#usage-with-tox">¶</a></small></h2> <p><a href="https://tox.readthedocs.io/">tox</a> is useful for configuring test / CI tools
 such as pre-commit.  One feature of <code>tox&gt;=2</code> is it will clear environment
 variables such that tests are more reproducible.  Under some conditions,
