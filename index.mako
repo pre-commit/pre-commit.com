@@ -351,7 +351,7 @@ trailing-whitespace hook.
 
 You can update your hooks to the latest version automatically by running
 [`pre-commit autoupdate`](#pre-commit-autoupdate).  By default, this will
-bring the hooks to the latest tag on the master branch.
+bring the hooks to the latest tag on the default branch.
 ''')}
         </div>
 
@@ -798,10 +798,10 @@ Auto-update pre-commit config to the latest repos' versions.
 
 Options:
 
-- `--bleeding-edge`: update to the bleeding edge of `master` instead of the
-  latest tagged version (the default behaviour).
-- `--freeze`: _new in 1.21.0_): Store "frozen" hashes in [`rev`](#repos-rev) instead of tag
-  names.
+- `--bleeding-edge`: update to the bleeding edge of the default branch instead
+  of the latest tagged version (the default behaviour).
+- `--freeze`: _new in 1.21.0_): Store "frozen" hashes in [`rev`](#repos-rev)
+  instead of tag names.
 - `--repo REPO`: _new in 1.4.1_: Only update this repository. _new in 1.7.0_:
   This option may be specified multiple times.
 
