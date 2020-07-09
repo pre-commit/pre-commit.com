@@ -1633,6 +1633,19 @@ immutable caches:
         key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
 ```
 
+### gitlab CI example
+
+See the [Gitlab caching best practices](https://docs.gitlab.com/ee/ci/caching/#good-caching-practices) to fine tune the cache scope.
+
+```yaml
+my_job:
+  variables:
+    PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
+  cache:
+    paths:
+      - ${PRE_COMMIT_HOME}
+```
+
 ## Usage with tox
 
 [tox](https://tox.readthedocs.io/) is useful for configuring test / CI tools
