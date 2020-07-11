@@ -3721,5 +3721,15 @@
                 "python"
             ]
         }
+    ],
+    "https://github.com/PeterMosmans/jenkinslint": [
+        {
+            "id": "jenkinslint",
+            "name": "Lint Jenkinsfile",
+            "description": "Validates Jenkinsfiles using a Jenkins server",
+            "entry": "jenkinslint",
+            "language": "script",
+            "files": "^Jenkinsfile"
+        }
     ]
 }
