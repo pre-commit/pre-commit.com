@@ -389,20 +389,6 @@
             "minimum_pre_commit_version": "0.7.0"
         }
     ],
-    "https://github.com/pre-commit/mirrors-isort": [
-        {
-            "id": "isort",
-            "name": "isort",
-            "entry": "isort",
-            "language": "python",
-            "types": [
-                "python"
-            ],
-            "args": [],
-            "require_serial": false,
-            "additional_dependencies": []
-        }
-    ],
     "https://github.com/pre-commit/mirrors-jshint": [
         {
             "id": "jshint",
