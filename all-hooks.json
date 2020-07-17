@@ -2778,6 +2778,14 @@
             "files": "\\.go$",
             "language": "script",
             "description": "Runs `golangci-lint` read local config file, requires golangci-lint"
+        },
+        {
+            "id": "go-mod-tidy",
+            "name": "go mod tidy",
+            "entry": "run-go-mod-tidy.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go mod tidy` make sure latest and avaliable go mod file"
         }
     ],
     "https://gitlab.com/daverona/pre-commit-cpp": [
