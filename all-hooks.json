@@ -3712,5 +3712,17 @@
             "language": "script",
             "files": "^Jenkinsfile"
         }
+    ],
+    "https://github.com/nicklockwood/SwiftFormat": [
+        {
+            "id": "swiftformat",
+            "name": "SwiftFormat",
+            "description": "Check swift files for formating issues with SwiftFormat",
+            "entry": "swiftformat",
+            "language": "swift",
+            "types": [
+                "swift"
+            ]
+        }
     ]
 }
