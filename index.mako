@@ -1142,7 +1142,7 @@ _new in 1.16.0_: pre-commit can be used to manage [prepare-commit-msg] hooks.
 To use `prepare-commit-msg` hooks with pre-commit, run:
 
 ```console
-$ pre-commit install --hook-type prepare-commit-msg`
+$ pre-commit install --hook-type prepare-commit-msg
 pre-commit installed at .git/hooks/prepare-commit-msg
 ```
 
