@@ -2510,6 +2510,9 @@
             "language": "python",
             "types": [
                 "python"
+            ],
+            "args": [
+                "--filter-files"
             ]
         }
     ],
@@ -2815,6 +2818,33 @@
             "language": "system",
             "files": "\\.(c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
             "entry": "cppcheck --error-exitcode=1"
+        },
+        {
+            "id": "docker-clang-format",
+            "name": "formatter of C/C++ code",
+            "description": "Run clang-format against C/C++ header and source files in Docker container",
+            "language": "docker_image",
+            "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
+            "entry": "daverona/pre-commit-cpp clang-format -i",
+            "args": [
+                "-style=Google"
+            ]
+        },
+        {
+            "id": "docker-cpplint",
+            "name": "linter for Google C++ Style Guide",
+            "description": "Run cpplint against C/C++ header and source files in Docker container",
+            "language": "python",
+            "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
+            "entry": "daverona/pre-commit-cpp cpplint"
+        },
+        {
+            "id": "docker-cppcheck",
+            "name": "static analyzer of C/C++ code",
+            "description": "Run cppcheck against C/C++ source files in Docker container",
+            "language": "docker_image",
+            "files": "\\.(c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
+            "entry": "daverona/pre-commit-cpp cppcheck --error-exitcode=1"
         }
     ],
     "https://github.com/codingjoe/relint": [
