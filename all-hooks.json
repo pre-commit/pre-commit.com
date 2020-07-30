@@ -401,7 +401,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "jshint@2.11.1"
+                "jshint@2.11.2"
             ]
         }
     ],
