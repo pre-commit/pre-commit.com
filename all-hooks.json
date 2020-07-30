@@ -3766,5 +3766,31 @@
                 "markdown"
             ]
         }
+    ],
+    "https://gitlab.com/daverona/pre-commit-php": [
+        {
+            "id": "phpmd",
+            "name": "PHP Mess Detector",
+            "description": "Run phpmd to detect code smells and possible errors",
+            "language": "script",
+            "files": "\\.php$",
+            "entry": "scripts/phpmd.sh",
+            "args": [
+                "ansi",
+                "cleancode,codesize,controversial,design,naming,unusedcode"
+            ]
+        },
+        {
+            "id": "docker-phpmd",
+            "name": "PHP Mess Detector",
+            "description": "Run phpmd to detect code smells and possible errors in Docker container",
+            "language": "docker_image",
+            "files": "\\.php$",
+            "entry": "daverona/pre-commit-php phpmd.sh",
+            "args": [
+                "ansi",
+                "cleancode,codesize,controversial,design,naming,unusedcode"
+            ]
+        }
     ]
 }
