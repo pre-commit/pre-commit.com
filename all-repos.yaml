@@ -98,7 +98,7 @@
 - https://github.com/myint/docformatter
 - https://github.com/lorenzwalthert/precommit
 - https://github.com/FelixSeptem/pre-commit-golang
-- https://gitlab.com/daverona/pre-commit-cpp
+- https://gitlab.com/daverona/pre-commit/cpp
 - https://github.com/codingjoe/relint
 - https://github.com/nix-community/nixpkgs-fmt
 - https://github.com/d6e/beancount-check
@@ -138,4 +138,4 @@
 - https://github.com/PeterMosmans/jenkinslint
 - https://github.com/nicklockwood/SwiftFormat
 - https://github.com/hukkinj1/mdformat
-- https://gitlab.com/daverona/pre-commit-php
+- https://gitlab.com/daverona/pre-commit/php
