@@ -371,7 +371,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@7.5.0"
+                "eslint@7.6.0"
             ]
         }
     ],
@@ -2795,7 +2795,7 @@
         {
             "id": "clang-format",
             "name": "clang-format",
-            "description": "Run clang-format against C/C++ header and source files",
+            "description": "Run `clang-format` against C/C++ header and source files",
             "language": "system",
             "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
             "entry": "clang-format -i",
@@ -2806,7 +2806,7 @@
         {
             "id": "cpplint",
             "name": "cpplint",
-            "description": "Run cpplint against C/C++ header and source files",
+            "description": "Run `cpplint` against C/C++ header and source files",
             "language": "python",
             "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
             "entry": "cpplint"
@@ -2814,7 +2814,7 @@
         {
             "id": "cppcheck",
             "name": "cppcheck",
-            "description": "Run cppcheck against C/C++ source files",
+            "description": "Run `cppcheck` against C/C++ source files",
             "language": "system",
             "files": "\\.(c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
             "entry": "cppcheck --error-exitcode=1"
@@ -2822,10 +2822,10 @@
         {
             "id": "docker-clang-format",
             "name": "clang-format",
-            "description": "Run clang-format against C/C++ header and source files in Docker container",
+            "description": "Run `clang-format` against C/C++ header and source files in Docker container",
             "language": "docker_image",
             "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
-            "entry": "daverona/pre-commit-cpp clang-format -i",
+            "entry": "daverona/pre-commit-cpp:0.8.0 clang-format -i",
             "args": [
                 "-style=Google"
             ]
@@ -2833,18 +2833,18 @@
         {
             "id": "docker-cpplint",
             "name": "cpplint",
-            "description": "Run cpplint against C/C++ header and source files in Docker container",
+            "description": "Run `cpplint` against C/C++ header and source files in Docker container",
             "language": "python",
             "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
-            "entry": "daverona/pre-commit-cpp cpplint"
+            "entry": "daverona/pre-commit-cpp:0.8.0 cpplint"
         },
         {
             "id": "docker-cppcheck",
             "name": "cppcheck",
-            "description": "Run cppcheck against C/C++ source files in Docker container",
+            "description": "Run `cppcheck` against C/C++ source files in Docker container",
             "language": "docker_image",
             "files": "\\.(c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
-            "entry": "daverona/pre-commit-cpp cppcheck --error-exitcode=1"
+            "entry": "daverona/pre-commit-cpp:0.8.0 cppcheck --error-exitcode=1"
         }
     ],
     "https://github.com/codingjoe/relint": [
@@ -3771,10 +3771,10 @@
         {
             "id": "phpmd",
             "name": "PHP Mess Detector",
-            "description": "Run phpmd to detect code smells and possible errors",
+            "description": "Run `phpmd` to find possible bugs, suboptimal code, overcomplicated expressions, and so on",
             "language": "script",
             "files": "\\.php$",
-            "entry": "scripts/phpmd.sh",
+            "entry": "pre-commit-hooks/phpmd.sh",
             "args": [
                 "ansi",
                 "cleancode,codesize,controversial,design,naming,unusedcode"
@@ -3783,10 +3783,10 @@
         {
             "id": "docker-phpmd",
             "name": "PHP Mess Detector",
-            "description": "Run phpmd to detect code smells and possible errors in Docker container",
+            "description": "Run `phpmd` to find possible bugs, suboptimal code, overcomplicated expressions, and so on",
             "language": "docker_image",
             "files": "\\.php$",
-            "entry": "daverona/pre-commit-php phpmd.sh",
+            "entry": "daverona/pre-commit-php:0.6.0 phpmd.sh",
             "args": [
                 "ansi",
                 "cleancode,codesize,controversial,design,naming,unusedcode"
