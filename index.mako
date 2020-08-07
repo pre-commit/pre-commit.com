@@ -331,8 +331,8 @@ repository's configuration.
 =r=
     =c= [`log_file`](_#config-log_file)
     =c= (optional) if present, when the hook fails, the hook output will be
-        written to the specified file. This includes stdout and stderr. Use
-	[`verbose`](_#config-verbose) if you want the output regardless of
+        written to the specified file. This includes stdout and stderr.
+        Use [verbose](#config-verbose) if you want the output regardless of
         hook success or failure.
 ```
 
@@ -1284,14 +1284,15 @@ A `local` hook must define [`id`](#hooks-id), [`name`](#hooks-name), [`language`
 [`entry`](#hooks-entry), and [`files`](#hooks-files) / [`types`](#hooks-types)
 as specified under [Creating new hooks](#new-hooks).
 
-Here's an example configuration with a few `local` hooks:
+Here's an example configuration with a few `local` hooks. Note how the pylint
+hook redirects it's output to a log file for possible examination:
 
 ```yaml
 -   repo: local
     hooks:
     -   id: pylint
         name: pylint
-        entry: pylint
+        entry: pylint |& tee -a pylint.log
         language: system
         types: [python]
     -   id: check-x
