@@ -181,7 +181,7 @@ pre-commit config file describes what repositories and hooks are installed.
 
 ## .pre-commit-config.yaml - top level
 
-_new in 1.0.0_ : The default configuration file top-level was changed from a
+_new in 1.0.0_&thinsp;:&nbsp;: The default configuration file top-level was changed from a
 list to a map.  If you're using an old version of pre-commit, the top-level
 list is the same as the value of [`repos`](#pre-commit-configyaml---repos).
 If you'd like to migrate to the new configuration format, run
@@ -255,7 +255,7 @@ from.
     =c= the repository url to `git clone` from
 =r=
     =c= [`rev`](_#repos-rev)
-    =c= the revision or tag to clone at.  _new in 1.7.0_ : previously `sha`
+    =c= the revision or tag to clone at.  _new in 1.7.0_&thinsp;:&nbsp;: previously `sha`
 =r=
     =c= [`hooks`](_#repos-hooks)
     =c= A list of [hook mappings](#pre-commit-configyaml---hooks).
@@ -491,10 +491,10 @@ directory while developing hooks.
 enabling a quick way to try out a repository.  Here's how one might work
 interactively:
 
-_note_ : you may need to provide `--commit-msg-filename` when using this
+_note_&thinsp;: you may need to provide `--commit-msg-filename` when using this
 command with hook types `prepare-commit-msg` and `commit-msg`.
 
-_new in 1.14.0_ : a commit is no longer necessary to `try-repo` on a local
+_new in 1.14.0_&thinsp;:&nbsp;: a commit is no longer necessary to `try-repo` on a local
 directory. `pre-commit` will clone any uncommitted changes.
 
 ```pre-commit
@@ -651,9 +651,9 @@ The hook repository must have a `package.json`.  It will be installed via
 match the [`entry`](#hooks-entry) – usually through `bin` in package.json.
 
 __Support:__ node hooks work without any system-level dependencies.  It has
-been tested on linux and macOS and _may_ work under cygwin.
+been tested on linux and macOS and _may_&thinsp;work under cygwin.
 
-_new in 1.5.0_ : windows is now supported for node hooks.  Currently python3
+_new in 1.5.0_&thinsp;:&nbsp;: windows is now supported for node hooks.  Currently python3
 only due to [a bug in cpython](https://bugs.python.org/issue32539).
 
 ### perl
@@ -691,7 +691,7 @@ has been tested on linux, macOS, windows, and cygwin.
 
 _new in 1.9.0_
 
-_new in 2.4.0_ : The `python_venv` language is now an alias to `python` since
+_new in 2.4.0_&thinsp;&nbsp;: The `python_venv` language is now an alias to `python` since
 `virtualenv>=20` creates equivalently structured environments.  Previously,
 this [`language`](#hooks-language) created environments using the [venv] module.
 
@@ -711,7 +711,7 @@ produce an executable that will match the [`entry`](#hooks-entry) – usually th
 `executables` in your gemspec.
 
 __Support:__ ruby hooks work without any system-level dependencies.  It has
-been tested on linux and macOS and _may_ work under cygwin.
+been tested on linux and macOS and _may_&thinsp;work under cygwin.
 
 ### rust
 
@@ -728,7 +728,7 @@ pre-commit cache, not polluting your user-level Cargo installations).
 
 When specifying [`additional_dependencies`](#config-additional_dependencies) for Rust, you can use the syntax
 `{package_name}:{package_version}` to specify a new library dependency (used to
-build _your_ hook repo), or the special syntax
+build _your_&thinsp;hook repo), or the special syntax
 `cli:{package_name}:{package_version}` for a CLI dependency (built separately,
 with binaries made available for use by hooks).
 
@@ -754,7 +754,7 @@ the regex as the [`entry`](#hooks-entry).  The [`entry`](#hooks-entry) may be an
 [regular expression](#regular-expressions).  For case insensitive regexes you
 can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
 
-_new in 1.8.0_ : For multiline matches, use `args: [--multiline]`.
+_new in 1.8.0_&thinsp;&nbsp;: For multiline matches, use `args: [--multiline]`.
 
 __Support:__ pygrep hooks are supported on all platforms which pre-commit runs
 on.
@@ -789,7 +789,7 @@ ${md('''
 All pre-commit commands take the following options:
 
 - `--color {auto,always,never}`: whether to use color in output.
-  Defaults to `auto`.  _new in 1.18.0_ : can be overridden by using
+  Defaults to `auto`.  _new in 1.18.0_&thinsp;:&nbsp;: can be overridden by using
   `PRE_COMMIT_COLOR={auto,always,never}` or disabled using `TERM=dumb`.
 - `-c CONFIG`, `--config CONFIG`: path to alternate config file
 - `-h`, `--help`: show help and available options.
@@ -802,9 +802,9 @@ Options:
 
 - `--bleeding-edge`: update to the bleeding edge of the default branch instead
   of the latest tagged version (the default behaviour).
-- `--freeze`: _new in 1.21.0_ ): Store "frozen" hashes in [`rev`](#repos-rev)
+- `--freeze`: _new in 1.21.0_&thinsp;:&nbsp;:&nbsp;): Store "frozen" hashes in [`rev`](#repos-rev)
   instead of tag names.
-- `--repo REPO`: _new in 1.4.1_ : Only update this repository. _new in 1.7.0_ :
+- `--repo REPO`: _new in 1.4.1_&thinsp;:&nbsp;: Only update this repository. _new in 1.7.0_&thinsp;:&nbsp;:
   This option may be specified multiple times.
 
 Here are some sample invocations using this `.pre-commit-config.yaml`:
@@ -950,7 +950,7 @@ Options:
 - `--files [FILES [FILES ...]]`: specific filenames to run hooks on.
 - `--from-ref FROM_REF` + `--to-ref TO_REF`: run against the files changed
   between `FROM_REF...TO_REF` in git.
-    - _new in 2.2.0_ : prior to 2.2.0 the arguments were `--source` and
+    - _new in 2.2.0_&thinsp;:&nbsp;: prior to 2.2.0 the arguments were `--source` and
       `--origin`.
 - `--show-diff-on-failure`: when hooks fail, run `git diff` directly afterward.
 - `-v`, `--verbose`: produce hook output independent of success.  Include hook
@@ -1045,7 +1045,7 @@ false-negatives during committing.  pre-commit only runs on the staged
 contents of files by temporarily saving the contents of your files at commit
 time and stashing the unstaged changes while running hooks.
 
-_new in 2.4.0_ : pre-commit can be used to manage [post-commit] hooks.
+_new in 2.4.0_&thinsp;:&nbsp;: pre-commit can be used to manage [post-commit] hooks.
 
 To use `post-commit` hooks with pre-commit, run:
 
@@ -1086,7 +1086,7 @@ implicit conflicts (such as with removed python imports).
 
 ## pre-commit during clean merges
 
-_new in 1.21.0_ pre-commit can be used to manage [pre-merge-commit] hooks.
+_new in 1.21.0_&thinsp;:&nbsp;pre-commit can be used to manage [pre-merge-commit] hooks.
 
 To use `pre-merge-commit` hooks with pre-commit, run:
 
@@ -1113,12 +1113,12 @@ pre-commit installed at .git/hooks/pre-push
 
 During a push, pre-commit will export the following environment variables:
 - `PRE_COMMIT_FROM_REF`: the remote revision that is being pushed to.
-    - _new in 2.2.0_ prior to 2.2.0 the variable was `PRE_COMMIT_SOURCE`.
+    - _new in 2.2.0_&thinsp;:&nbsp;prior to 2.2.0 the variable was `PRE_COMMIT_SOURCE`.
 - `PRE_COMMIT_TO_REF`: the local revision that is being pushed to the remote.
-    - _new in 2.2.0_ prior to 2.2.0 the variable was `PRE_COMMIT_ORIGIN`.
-- `PRE_COMMIT_REMOTE_NAME`: _new in 2.0.0_ which remote is being pushed to
+    - _new in 2.2.0_&thinsp;:&nbsp;prior to 2.2.0 the variable was `PRE_COMMIT_ORIGIN`.
+- `PRE_COMMIT_REMOTE_NAME`: _new in 2.0.0_&thinsp;:&nbsp;which remote is being pushed to
   (for example `origin`)
-- `PRE_COMMIT_REMOTE_URL`: _new in 2.0.0_ the url of the remote that is being
+- `PRE_COMMIT_REMOTE_URL`: _new in 2.0.0_&thinsp;:&nbsp;the url of the remote that is being
   pushed to (for example `git@github.com:pre-commit/pre-commit`.
 
 [pre-push]: https://git-scm.com/docs/githooks#_pre_push
@@ -1139,7 +1139,7 @@ pre-commit installed at .git/hooks/commit-msg
 current contents of the commit message which can be validated.  If a hook
 exits nonzero, the commit will be aborted.
 
-_new in 1.16.0_ : pre-commit can be used to manage [prepare-commit-msg] hooks.
+_new in 1.16.0_&thinsp;:&nbsp;: pre-commit can be used to manage [prepare-commit-msg] hooks.
 
 To use `prepare-commit-msg` hooks with pre-commit, run:
 
@@ -1162,7 +1162,7 @@ the commit will be aborted.
 
 
 ## pre-commit for switching branches
-_new in 2.2.0_ : pre-commit can be used to manage [post-checkout] hooks.
+_new in 2.2.0_&thinsp;:&nbsp;: pre-commit can be used to manage [post-checkout] hooks.
 
 To use `post-checkout` hooks with pre-commit, run:
 
@@ -1213,7 +1213,7 @@ If you do not want to have hooks installed by default on the stage passed
 during a `pre-commit install --hook-type ...`, please set the [`default_stages`](#top_level-default_stages)
 top level configuration property to the desired stages, also as an array.
 
-_new in 1.8.0_ : An additional `manual` stage is available for one off execution
+_new in 1.8.0_&thinsp;:&nbsp;: An additional `manual` stage is available for one off execution
 that won't run in any hook context.  This special stage is useful for taking
 advantage of `pre-commit`'s cross-platform / cross-language package management
 without running it on every commit.  Hooks confined to `stages: [manual]` can
@@ -1332,7 +1332,7 @@ The currently available `meta` hooks:
         _new in 1.4.0_.
 =r=
     =c= [`check-useless-excludes`](_#meta-check_useless_excludes)
-    =c= ensures that `exclude` directives apply to _any_ file in the
+    =c= ensures that `exclude` directives apply to _any_&thinsp;file in the
         repository.
         _new in 1.4.0_.
 =r=
@@ -1503,7 +1503,7 @@ This tells pre-commit to use ruby `2.1.5` to run the `scss-lint` hook.
 Valid values for specific languages are listed below:
 - python: Whatever system installed python interpreters you have. The value of
   this argument is passed as the `-p` to `virtualenv`.
-    - _new in 1.4.3_ : on windows the
+    - _new in 1.4.3_&thinsp;:&nbsp;: on windows the
       [pep394](https://www.python.org/dev/peps/pep-0394/) name will be
       translated into a py launcher call for portability.  So continue to use
       names like `python3` (`py -3`) or `python3.6` (`py -3.6`) even on
@@ -1511,7 +1511,7 @@ Valid values for specific languages are listed below:
 - node: See [nodeenv](https://github.com/ekalinin/nodeenv#advanced).
 - ruby: See [ruby-build](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).
 
-_new in 1.14.0_ : you can now set [`default_language_version`](#top_level-default_language_version)
+_new in 1.14.0_&thinsp;:&nbsp;: you can now set [`default_language_version`](#top_level-default_language_version)
 at the [top level](#pre-commit-configyaml---top-level) in your configuration to
 control the default versions across all hooks of a language.
 
