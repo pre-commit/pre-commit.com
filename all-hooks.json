@@ -642,18 +642,6 @@
             ]
         }
     ],
-    "https://github.com/asottile/seed-isort-config": [
-        {
-            "id": "seed-isort-config",
-            "name": "seed isort known_third_party",
-            "description": "Statically populate the `known_third_party` `isort` setting.",
-            "entry": "seed-isort-config",
-            "language": "python",
-            "always_run": true,
-            "pass_filenames": false,
-            "minimum_pre_commit_version": "0.14.0"
-        }
-    ],
     "https://github.com/asottile/blacken-docs": [
         {
             "id": "blacken-docs",
@@ -1657,16 +1645,6 @@
             "entry": "hindent.sh",
             "language": "script",
             "files": "\\.(hs|lhs)$"
-        }
-    ],
-    "https://github.com/doublify/pre-commit-isort": [
-        {
-            "id": "isort",
-            "name": "isort",
-            "description": "Sort imports alphabetically with isort.",
-            "entry": "isort",
-            "language": "python",
-            "files": "\\.py$"
         }
     ],
     "https://github.com/doublify/pre-commit-rust": [
