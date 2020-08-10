@@ -6,3 +6,4 @@
 /build
 /node_modules
 /venv
+package-lock.json
