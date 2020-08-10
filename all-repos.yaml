@@ -20,7 +20,6 @@
 - https://github.com/asottile/pyupgrade
 - https://github.com/asottile/reorder_python_imports
 - https://github.com/asottile/yesqa
-- https://github.com/asottile/seed-isort-config
 - https://github.com/asottile/blacken-docs
 - https://github.com/asottile/dead
 - https://github.com/asottile/setup-cfg-fmt
@@ -50,7 +49,6 @@
 - https://github.com/doublify/pre-commit-clang-format
 - https://github.com/doublify/pre-commit-go
 - https://github.com/doublify/pre-commit-hindent
-- https://github.com/doublify/pre-commit-isort
 - https://github.com/doublify/pre-commit-rust
 - https://github.com/kintoandar/pre-commit
 - https://github.com/awebdeveloper/pre-commit-stylelint
