@@ -411,7 +411,7 @@ interactively:</p>
 <p><em>note</em>: you may need to provide <code>--commit-msg-filename</code> when using this
 command with hook types <code>prepare-commit-msg</code> and <code>commit-msg</code>.</p>
 <p><em>new in 1.14.0</em>: a commit is no longer necessary to <code>try-repo</code> on a local
-directory. <code>pre-commit</code> will clone any uncommitted changes.</p>
+directory. <code>pre-commit</code> will clone any tracked uncommitted changes.</p>
 <div class="highlight pre-commit"><pre><span></span>~/work/hook-repo $ git checkout origin/master -b feature
 
 # ... make some changes
