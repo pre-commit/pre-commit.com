@@ -493,7 +493,7 @@ _note_: you may need to provide `--commit-msg-filename` when using this
 command with hook types `prepare-commit-msg` and `commit-msg`.
 
 _new in 1.14.0_: a commit is no longer necessary to `try-repo` on a local
-directory. `pre-commit` will clone any uncommitted changes.
+directory. `pre-commit` will clone any tracked uncommitted changes.
 
 ```pre-commit
 ~/work/hook-repo $ git checkout origin/master -b feature
