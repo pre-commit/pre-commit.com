@@ -1669,9 +1669,9 @@ immutable caches:
       - ~/.cache/pre-commit
 ```
 
-(source: [@chriselison])
+(source: [@chriselion])
 
-[@chriselison]: https://github.com/Unity-Technologies/ml-agents/pull/3094/files#diff-1d37e48f9ceff6d8030570cd36286a61
+[@chriselion]: https://github.com/Unity-Technologies/ml-agents/pull/3094/files#diff-1d37e48f9ceff6d8030570cd36286a61
 
 ## Usage with tox
 
