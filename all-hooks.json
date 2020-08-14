@@ -541,6 +541,16 @@
             ]
         },
         {
+            "id": "rst-inline-touching-normal",
+            "name": "rst ``inline code`` next to normal text",
+            "description": "Detect mistake of inline code touching normal text in rst",
+            "entry": "\\w``\\w",
+            "language": "pygrep",
+            "types": [
+                "rst"
+            ]
+        },
+        {
             "id": "text-unicode-replacement-char",
             "name": "no unicode replacement chars",
             "description": "Forbid files which have a UTF-8 Unicode replacement character",
@@ -2092,6 +2102,28 @@
                 "python"
             ],
             "require_serial": true
+        }
+    ],
+    "https://github.com/PyCQA/doc8": [
+        {
+            "id": "doc8",
+            "name": "doc8",
+            "description": "This hook runs doc8 for linting docs",
+            "entry": "python -m doc8",
+            "language": "python",
+            "files": "\\.rst$"
+        }
+    ],
+    "https://github.com/PyCQA/prospector": [
+        {
+            "id": "prospector",
+            "name": "prospector",
+            "description": "Analyze Python code using Prospector",
+            "entry": "prospector",
+            "language": "python",
+            "types": [
+                "python"
+            ]
         }
     ],
     "https://github.com/miki725/importanize": [
