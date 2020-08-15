@@ -371,7 +371,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@7.6.0"
+                "eslint@7.7.0"
             ]
         }
     ],
@@ -2111,7 +2111,8 @@
             "description": "This hook runs doc8 for linting docs",
             "entry": "python -m doc8",
             "language": "python",
-            "files": "\\.rst$"
+            "files": "\\.rst$",
+            "require_serial": true
         }
     ],
     "https://github.com/PyCQA/prospector": [
