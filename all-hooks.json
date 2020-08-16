@@ -3820,5 +3820,37 @@
                 "cleancode,codesize,controversial,design,naming,unusedcode"
             ]
         }
+    ],
+    "https://github.com/anderseknert/pre-commit-opa": [
+        {
+            "id": "opa-test",
+            "name": "OPA test",
+            "description": "Runs OPA unit tests on all rego source files",
+            "entry": "opa test",
+            "args": [
+                "."
+            ],
+            "language": "system",
+            "files": "(\\.rego)$"
+        },
+        {
+            "id": "opa-fmt",
+            "name": "OPA fmt",
+            "description": "Formats Rego policy using opa fmt",
+            "entry": "opa fmt",
+            "args": [
+                "-w"
+            ],
+            "language": "system",
+            "files": "(\\.rego)$"
+        },
+        {
+            "id": "opa-check",
+            "name": "OPA check",
+            "description": "Check syntax of staged Rego files",
+            "entry": "opa check",
+            "language": "system",
+            "files": "(\\.rego)$"
+        }
     ]
 }
