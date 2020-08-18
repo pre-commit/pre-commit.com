@@ -3825,7 +3825,7 @@
         {
             "id": "opa-test",
             "name": "OPA test",
-            "description": "Runs OPA unit tests on all rego source files",
+            "description": "Runs OPA unit tests on rego source files",
             "entry": "opa test",
             "args": [
                 "."
@@ -3849,6 +3849,25 @@
             "name": "OPA check",
             "description": "Check syntax of staged Rego files",
             "entry": "opa check",
+            "language": "system",
+            "files": "(\\.rego)$"
+        },
+        {
+            "id": "conftest-test",
+            "name": "Conftest test",
+            "description": "Run `conftest test` on staged config files",
+            "entry": "conftest tests",
+            "language": "system",
+            "files": "(\\.rego|\\.yml|\\.yaml|\\.json|\\.ini|\\.toml|\\.conf|\\.hcl|\\.cue|\\.edn|\\.vcl|\\.xml|\\.jsonnet|Dockerfile)$"
+        },
+        {
+            "id": "conftest-verify",
+            "name": "Conftest verify",
+            "description": "Run `conftest verify` on rego files",
+            "entry": "conftest verify",
+            "args": [
+                "."
+            ],
             "language": "system",
             "files": "(\\.rego)$"
         }
