@@ -3871,5 +3871,18 @@
             "language": "system",
             "files": "(\\.rego)$"
         }
+    ],
+    "https://github.com/radix-ai/auto-smart-commit": [
+        {
+            "id": "auto-smart-commit",
+            "name": "Auto Jira smart commit",
+            "description": "Automatically transform your Git commit messages into Jira smart commits",
+            "entry": "auto-smart-commit.py",
+            "language": "script",
+            "stages": [
+                "prepare-commit-msg"
+            ],
+            "always_run": true
+        }
     ]
 }
