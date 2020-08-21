@@ -96,6 +96,8 @@
 - https://github.com/seddonym/import-linter
 - https://github.com/marco-c/taskcluster_yml_validator
 - https://github.com/myint/docformatter
+- https://github.com/myint/rstcheck
+- https://github.com/myint/autoflake
 - https://github.com/lorenzwalthert/precommit
 - https://github.com/FelixSeptem/pre-commit-golang
 - https://gitlab.com/daverona/pre-commit/cpp
@@ -130,7 +132,6 @@
 - https://github.com/jazzband/pip-tools
 - https://github.com/pappasam/toml-sort
 - https://github.com/arenadotio/pre-commit-ocamlformat
-- https://github.com/myint/rstcheck
 - https://github.com/hcodes/yaspeller
 - https://github.com/maltzj/google-style-precommit-hook
 - https://github.com/jvstein/pre-commit-dotnet-format
@@ -141,4 +142,3 @@
 - https://gitlab.com/daverona/pre-commit/php
 - https://github.com/anderseknert/pre-commit-opa
 - https://github.com/radix-ai/auto-smart-commit
-- https://github.com/myint/autoflake
