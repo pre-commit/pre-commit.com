@@ -2690,6 +2690,29 @@
             ]
         }
     ],
+    "https://github.com/myint/rstcheck": [
+        {
+            "id": "rstcheck",
+            "name": "rstcheck",
+            "entry": "rstcheck",
+            "language": "python",
+            "types": [
+                "rst"
+            ]
+        }
+    ],
+    "https://github.com/myint/autoflake": [
+        {
+            "id": "autoflake",
+            "name": "autoflake",
+            "entry": "autoflake",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "require_serial": true
+        }
+    ],
     "https://github.com/lorenzwalthert/precommit": [
         {
             "id": "roxygenize",
@@ -3728,17 +3751,6 @@
             ]
         }
     ],
-    "https://github.com/myint/rstcheck": [
-        {
-            "id": "rstcheck",
-            "name": "rstcheck",
-            "entry": "rstcheck",
-            "language": "python",
-            "types": [
-                "rst"
-            ]
-        }
-    ],
     "https://github.com/hcodes/yaspeller": [
         {
             "id": "yaspeller",
@@ -3891,18 +3903,6 @@
                 "prepare-commit-msg"
             ],
             "always_run": true
-        }
-    ],
-    "https://github.com/myint/autoflake": [
-        {
-            "id": "autoflake",
-            "name": "autoflake",
-            "entry": "autoflake",
-            "language": "python",
-            "types": [
-                "python"
-            ],
-            "require_serial": true
         }
     ]
 }
