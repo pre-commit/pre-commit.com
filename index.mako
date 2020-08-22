@@ -950,6 +950,7 @@ Options:
   between `FROM_REF...TO_REF` in git.
     - _new in 2.2.0_: prior to 2.2.0 the arguments were `--source` and
       `--origin`.
+- `--hook-stage STAGE`: select a [`stage` to run](#confining-hooks-to-run-at-certain-stages).
 - `--show-diff-on-failure`: when hooks fail, run `git diff` directly afterward.
 - `-v`, `--verbose`: produce hook output independent of success.  Include hook
   ids in output.
@@ -1198,7 +1199,7 @@ Since the [`default_stages`](#top_level-default_stages) top level configuration 
 `.pre-commit-config.yaml` file is set to all stages by default, when installing
 hooks using the `-t`/`--hook-type` option (see [pre-commit
 install [options]](#pre-commit-install)), all hooks will be installed by default
-to run at the stage defined through that option. for instance,
+to run at the stage defined through that option. For instance,
 `pre-commit install --hook-type pre-push` will install by default all hooks
 to run at the `push` stage.
 
@@ -1215,7 +1216,7 @@ _new in 1.8.0_: An additional `manual` stage is available for one off execution
 that won't run in any hook context.  This special stage is useful for taking
 advantage of `pre-commit`'s cross-platform / cross-language package management
 without running it on every commit.  Hooks confined to `stages: [manual]` can
-be executed by running `pre-commit run --hook-stage manual <hookid>`.
+be executed by running `pre-commit run --hook-stage manual [hookid]`.
 
 ## Passing arguments to hooks
 
