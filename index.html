@@ -730,6 +730,7 @@ between <code>FROM_REF...TO_REF</code> in git.<ul>
 <code>--origin</code>.</li>
 </ul>
 </li>
+<li><code>--hook-stage STAGE</code>: select a <a href="#confining-hooks-to-run-at-certain-stages"><code>stage</code> to run</a>.</li>
 <li><code>--show-diff-on-failure</code>: when hooks fail, run <code>git diff</code> directly afterward.</li>
 <li><code>-v</code>, <code>--verbose</code>: produce hook output independent of success.  Include hook
 ids in output.</li>
@@ -904,7 +905,7 @@ post-checkout hook from Git.</p>
 <code>.pre-commit-config.yaml</code> file is set to all stages by default, when installing
 hooks using the <code>-t</code>/<code>--hook-type</code> option (see <a href="#pre-commit-install">pre-commit
 install [options]</a>), all hooks will be installed by default
-to run at the stage defined through that option. for instance,
+to run at the stage defined through that option. For instance,
 <code>pre-commit install --hook-type pre-push</code> will install by default all hooks
 to run at the <code>push</code> stage.</p>
 <p>Hooks can however be confined to a stage by setting the <a href="#config-stages"><code>stages</code></a>
@@ -918,7 +919,7 @@ top level configuration property to the desired stages, also as an array.</p>
 that won't run in any hook context.  This special stage is useful for taking
 advantage of <code>pre-commit</code>'s cross-platform / cross-language package management
 without running it on every commit.  Hooks confined to <code>stages: [manual]</code> can
-be executed by running <code>pre-commit run --hook-stage manual &lt;hookid&gt;</code>.</p>
+be executed by running <code>pre-commit run --hook-stage manual [hookid]</code>.</p>
 <h2 id="passing-arguments-to-hooks">    Passing arguments to hooks <small><a href="#passing-arguments-to-hooks">¶</a></small></h2> <p>Sometimes hooks require arguments to run correctly. You can pass static
 arguments by specifying the <a href="#config-args"><code>args</code></a> property in your <code>.pre-commit-config.yaml</code>
 as follows:</p>

@@ -3876,7 +3876,7 @@
             "id": "conftest-test",
             "name": "Conftest test",
             "description": "Run `conftest test` on staged config files",
-            "entry": "conftest tests",
+            "entry": "conftest test",
             "language": "system",
             "files": "(\\.rego|\\.yml|\\.yaml|\\.json|\\.ini|\\.toml|\\.conf|\\.hcl|\\.cue|\\.edn|\\.vcl|\\.xml|\\.jsonnet|Dockerfile)$"
         },
