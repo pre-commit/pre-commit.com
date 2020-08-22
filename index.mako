@@ -1225,8 +1225,8 @@ arguments by specifying the [`args`](#config-args) property in your `.pre-commit
 as follows:
 
 ```yaml
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.2.3
+-   repo: https://gitlab.com/PyCQA/flake8
+    rev: 3.8.3
     hooks:
     -   id: flake8
         args: [--max-line-length=131]
