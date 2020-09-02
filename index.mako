@@ -800,7 +800,7 @@ Options:
 
 - `--bleeding-edge`: update to the bleeding edge of the default branch instead
   of the latest tagged version (the default behaviour).
-- `--freeze`: _new in 1.21.0_): Store "frozen" hashes in [`rev`](#repos-rev)
+- `--freeze`: _new in 1.21.0_: Store "frozen" hashes in [`rev`](#repos-rev)
   instead of tag names.
 - `--repo REPO`: _new in 1.4.1_: Only update this repository. _new in 1.7.0_:
   This option may be specified multiple times.
