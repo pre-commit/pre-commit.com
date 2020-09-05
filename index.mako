@@ -1560,7 +1560,7 @@ pre-commit can also be used as a tool for continuous integration.  For
 instance, adding `pre-commit run --all-files` as a CI step will ensure
 everything stays in tip-top shape.  To check only files which have changed,
 which may be faster, use something like
-`pre-commit run --from-ref origin.HEAD --to-ref HEAD`
+`pre-commit run --from-ref origin/HEAD --to-ref HEAD`
 
 ## Managing CI Caches
 
