@@ -3615,8 +3615,7 @@
             "types": [
                 "go"
             ],
-            "files": "^.+\\.go$",
-            "minimum_pre_commit_version": "0.15.0"
+            "minimum_pre_commit_version": "1"
         },
         {
             "id": "pretty-format-ini",
@@ -3627,8 +3626,7 @@
             "types": [
                 "ini"
             ],
-            "files": "^.*\\.ini$",
-            "minimum_pre_commit_version": "0.15.0"
+            "minimum_pre_commit_version": "1"
         },
         {
             "id": "pretty-format-java",
@@ -3639,9 +3637,8 @@
             "types": [
                 "java"
             ],
-            "files": "^.+\\.java$",
             "require_serial": true,
-            "minimum_pre_commit_version": "0.15.0"
+            "minimum_pre_commit_version": "1"
         },
         {
             "id": "pretty-format-kotlin",
@@ -3652,8 +3649,7 @@
             "types": [
                 "kotlin"
             ],
-            "files": "^.+\\.kt$",
-            "minimum_pre_commit_version": "0.15.0",
+            "minimum_pre_commit_version": "1",
             "require_serial": true
         },
         {
@@ -3665,8 +3661,7 @@
             "types": [
                 "rust"
             ],
-            "files": "^.+\\.rs$",
-            "minimum_pre_commit_version": "0.15.0"
+            "minimum_pre_commit_version": "1"
         },
         {
             "id": "pretty-format-toml",
@@ -3677,8 +3672,7 @@
             "types": [
                 "toml"
             ],
-            "files": "^.*\\.toml$",
-            "minimum_pre_commit_version": "0.15.0"
+            "minimum_pre_commit_version": "1"
         },
         {
             "id": "pretty-format-yaml",
@@ -3689,8 +3683,7 @@
             "types": [
                 "yaml"
             ],
-            "files": "^.*\\.(yaml|yml)$",
-            "minimum_pre_commit_version": "0.15.0"
+            "minimum_pre_commit_version": "1"
         }
     ],
     "https://github.com/jlebar/pre-commit-hooks": [
