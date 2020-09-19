@@ -3923,5 +3923,18 @@
             ],
             "always_run": true
         }
+    ],
+    "https://github.com/thibaudcolas/curlylint": [
+        {
+            "id": "curlylint",
+            "name": "curlylint",
+            "description": "A linter which checks the indentation and the correctness of Jinja-like/HTML templates.",
+            "language": "python",
+            "language_version": "python3",
+            "entry": "curlylint",
+            "types": [
+                "jinja"
+            ]
+        }
     ]
 }
