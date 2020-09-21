@@ -2482,6 +2482,16 @@
             "types": [
                 "shell"
             ],
+            "exclude_types": [
+                "awk",
+                "csh",
+                "expect",
+                "perl",
+                "python",
+                "ruby",
+                "tcsh",
+                "zsh"
+            ],
             "args": [
                 "-e",
                 "SC1091"
@@ -2497,6 +2507,16 @@
             "entry": "hooks/shfmt.sh",
             "types": [
                 "shell"
+            ],
+            "exclude_types": [
+                "awk",
+                "csh",
+                "expect",
+                "perl",
+                "python",
+                "ruby",
+                "tcsh",
+                "zsh"
             ],
             "args": [
                 "-l",
