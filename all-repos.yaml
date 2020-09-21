@@ -138,8 +138,9 @@
 # - https://github.com/hakancelik96/unimport
 - https://github.com/PeterMosmans/jenkinslint
 - https://github.com/nicklockwood/SwiftFormat
-- https://github.com/hukkinj1/mdformat
+- https://github.com/executablebooks/mdformat
 - https://gitlab.com/daverona/pre-commit/php
 - https://github.com/anderseknert/pre-commit-opa
 - https://github.com/radix-ai/auto-smart-commit
+- https://github.com/thibaudcolas/curlylint
 - https://github.com/ikamensh/flynt
