@@ -465,6 +465,12 @@ file that tells pre-commit:
 =r=
     =c= [`args`](_#hooks-args)
     =c= (optional: default `[]`) list of additional parameters to pass to the hook.
+=r=
+    =c= [`stages`](_#hooks-stages)
+    =c= (optional: default (all stages)) confines the hook to the `commit`, `merge-commit`,
+        `push`, `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`, or
+        `manual` stage.  See
+        [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 
 ```
 
