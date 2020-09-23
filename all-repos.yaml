@@ -104,7 +104,6 @@
 - https://github.com/codingjoe/relint
 - https://github.com/nix-community/nixpkgs-fmt
 - https://github.com/d6e/beancount-check
-- https://github.com/iconmaster5326/cmake-format-pre-commit-hook
 # - https://github.com/thg-consulting/inspectortiger
 - https://gitlab.com/iamlikeme/nbhooks
 - https://github.com/Kuniwak/vint
@@ -143,3 +142,4 @@
 - https://github.com/anderseknert/pre-commit-opa
 - https://github.com/radix-ai/auto-smart-commit
 - https://github.com/thibaudcolas/curlylint
+- https://github.com/cheshirekow/cmake-format-precommit
