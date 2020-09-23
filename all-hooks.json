@@ -2979,21 +2979,6 @@
             ]
         }
     ],
-    "https://github.com/iconmaster5326/cmake-format-pre-commit-hook": [
-        {
-            "id": "cmake-format",
-            "name": "cmake-format",
-            "description": "Formats CMake list files.",
-            "entry": "cmake-format",
-            "language": "python",
-            "files": "(CMakeLists.*|.*\\.cmake|.*\\.cmake.in)$",
-            "args": [
-                "-i"
-            ],
-            "require_serial": false,
-            "additional_dependencies": []
-        }
-    ],
     "https://gitlab.com/iamlikeme/nbhooks": [
         {
             "id": "nb-ensure-clean",
@@ -3954,6 +3939,31 @@
             "entry": "curlylint",
             "types": [
                 "jinja"
+            ]
+        }
+    ],
+    "https://github.com/cheshirekow/cmake-format-precommit": [
+        {
+            "id": "cmake-format",
+            "name": "cmake-format",
+            "description": "cmake-format can format your listfiles nicely so that they don't look like crap.",
+            "entry": "cmake-format",
+            "args": [
+                "--in-place"
+            ],
+            "language": "python",
+            "types": [
+                "cmake"
+            ]
+        },
+        {
+            "id": "cmake-lint",
+            "name": "cmake-lint",
+            "description": "cmake-lint will check your listfiles for style violations, common mistakes, and anti-patterns.",
+            "entry": "cmake-lint",
+            "language": "python",
+            "types": [
+                "cmake"
             ]
         }
     ]
