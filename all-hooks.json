@@ -3963,5 +3963,18 @@
                 "cmake"
             ]
         }
+    ],
+    "https://github.com/aorumbayev/pydantic-to-schema": [
+        {
+            "id": "pydantic-to-schema",
+            "name": "Convert pydantic models to json schemas",
+            "description": "Converts models from input path to output path as schemas",
+            "entry": "pydantic-to-schema",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "pass_filenames": false
+        }
     ]
 }
