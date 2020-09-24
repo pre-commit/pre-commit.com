@@ -1047,7 +1047,7 @@ with <code>files</code>.</p>
 </ul>
 <p><code>types</code> is specified per hook as an array of tags.  The tags are discovered
 through a set of heuristics by the
-<a href="https://github.com/chriskuehl/identify">identify</a> library.  <code>identify</code> was
+<a href="https://github.com/pre-commit/identify">identify</a> library.  <code>identify</code> was
 chosen as it is a small portable pure python library.</p>
 <p>Some of the common tags you'll find from identify:</p>
 <ul>
@@ -1057,8 +1057,8 @@ chosen as it is a small portable pure python library.</p>
 <li><code>executable</code> - whether the file has the executable bit set</li>
 <li><code>text</code> - whether the file looks like a text file</li>
 <li><code>binary</code> - whether the file looks like a binary file</li>
-<li><a href="https://github.com/chriskuehl/identify/blob/master/identify/extensions.py">tags by extension / naming convention</a></li>
-<li><a href="https://github.com/chriskuehl/identify/blob/master/identify/interpreters.py">tags by shebang (<code>#!</code>)</a></li>
+<li><a href="https://github.com/pre-commit/identify/blob/master/identify/extensions.py">tags by extension / naming convention</a></li>
+<li><a href="https://github.com/pre-commit/identify/blob/master/identify/interpreters.py">tags by shebang (<code>#!</code>)</a></li>
 </ul>
 <p>To discover the type of any file on disk, you can use <code>identify</code>'s cli:</p>
 <div class="highlight console"><pre><span></span><span class="gp">$</span> identify-cli setup.py
@@ -1069,7 +1069,7 @@ chosen as it is a small portable pure python library.</p>
 <span class="go">1</span>
 </pre></div>
 <p>If a file extension you use is not supported, please
-<a href="https://github.com/chriskuehl/identify">submit a pull request</a>!</p>
+<a href="https://github.com/pre-commit/identify">submit a pull request</a>!</p>
 <p><code>types</code> and <code>files</code> are evaluated with <code>AND</code> when filtering.  Tags within
 <code>types</code> are also evaluated using <code>AND</code>.</p>
 <p>For example:</p>
