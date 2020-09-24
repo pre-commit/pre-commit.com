@@ -1400,7 +1400,7 @@ with `files`.
 
 `types` is specified per hook as an array of tags.  The tags are discovered
 through a set of heuristics by the
-[identify](https://github.com/chriskuehl/identify) library.  `identify` was
+[identify](https://github.com/pre-commit/identify) library.  `identify` was
 chosen as it is a small portable pure python library.
 
 Some of the common tags you'll find from identify:
@@ -1411,8 +1411,8 @@ Some of the common tags you'll find from identify:
 - `executable` - whether the file has the executable bit set
 - `text` - whether the file looks like a text file
 - `binary` - whether the file looks like a binary file
-- [tags by extension / naming convention](https://github.com/chriskuehl/identify/blob/master/identify/extensions.py)
-- [tags by shebang (`#!`)](https://github.com/chriskuehl/identify/blob/master/identify/interpreters.py)
+- [tags by extension / naming convention](https://github.com/pre-commit/identify/blob/master/identify/extensions.py)
+- [tags by shebang (`#!`)](https://github.com/pre-commit/identify/blob/master/identify/interpreters.py)
 
 To discover the type of any file on disk, you can use `identify`'s cli:
 
@@ -1426,7 +1426,7 @@ $ identify-cli --filename-only some-random-file; echo $?
 ```
 
 If a file extension you use is not supported, please
-[submit a pull request](https://github.com/chriskuehl/identify)!
+[submit a pull request](https://github.com/pre-commit/identify)!
 
 `types` and `files` are evaluated with `AND` when filtering.  Tags within
 `types` are also evaluated using `AND`.
