@@ -1477,7 +1477,7 @@ the `(?x)` regex flag.
 ```yaml
 # ...
     -   id: my-hook
-        exclude: >
+        exclude: |
             (?x)^(
                 path/to/file1.py|
                 path/to/file2.py|
