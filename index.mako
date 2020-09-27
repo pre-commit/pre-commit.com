@@ -534,6 +534,7 @@ Hello from foo hook!
 - [conda](#conda)
 - [docker](#docker)
 - [docker_image](#docker_image)
+- [dotnet](#dotnet)
 - [fail](#fail)
 - [golang](#golang)
 - [node](#node)
@@ -614,6 +615,16 @@ For example:
     language: docker_image
     entry: my.registry.example.com/docker-image-3:latest my-exe
 ```
+
+### dotnet
+
+_new in 2.8.0_
+
+dotnet hooks are installed using the system installation of the dotnet CLI.
+
+Hook repositories must contain a dotnet CLI tool which can be `pack`ed and `install`ed as per [this](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create) example. The `entry` should match an executable created by building the repository. Additional dependencies are not currently supported.
+
+__Support:__ dotnet hooks are known to work on any system which has the dotnet CLI installed.  It has been tested on linux and windows.
 
 ### fail
 
