@@ -2768,10 +2768,6 @@
             "id": "style-files",
             "name": "style-files",
             "description": "style files with styler",
-            "args": [
-                "--style_pkg=styler",
-                "--style_transformers=tidyverse_style(scope = \"tokens\")"
-            ],
             "entry": "inst/bin/style-files",
             "language": "script",
             "files": "(\\.R|\\.Rmd|\\.Rnw|\\.r|\\.rmd|\\.rnw)$"
@@ -3975,6 +3971,19 @@
                 "python"
             ],
             "pass_filenames": false
+        }
+    ],
+    "https://github.com/hadialqattan/pycln": [
+        {
+            "id": "pycln",
+            "name": "pycln",
+            "description": "A formatter for finding and removing unused import statements.",
+            "entry": "pycln",
+            "language": "python",
+            "language_version": "python3",
+            "types": [
+                "python"
+            ]
         }
     ]
 }
