@@ -2571,7 +2571,7 @@
             "require_serial": true
         }
     ],
-    "https://github.com/timothycrosley/isort": [
+    "https://github.com/PyCQA/isort": [
         {
             "id": "isort",
             "name": "isort",
