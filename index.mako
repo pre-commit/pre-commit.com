@@ -100,9 +100,9 @@ conda install -c conda-forge pre-commit
 pre-commit --version
 ```
 
-### 2. Add a pre-commit configuration
+### 2. Add a pre-commit configuration to your project
 
-- create a file named `.pre-commit-config.yaml`
+- create a file named `.pre-commit-config.yaml` in the root level of your project
 - you can generate a very basic configuration using
   [`pre-commit sample-config`](#pre-commit-sample-config)
 - the full set of options for the configuration are listed [below](#plugins)
