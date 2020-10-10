@@ -3990,7 +3990,7 @@
         {
             "id": "nbqa",
             "name": "nbqa",
-            "description": "Quality Assurance for Jupyter Notebooks",
+            "description": "Run any standard Python code quality tool on a Jupyter Notebook",
             "entry": "nbqa",
             "language": "python",
             "language_version": "python3",

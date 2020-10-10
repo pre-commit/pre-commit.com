@@ -378,7 +378,7 @@ are no matching files.</p>
 </td><td><p>(optional) if <code>true</code>, forces the output of the hook to be printed even when
 the hook passes.  <em>new in 1.6.0</em>.</p>
 </td></tr><tr><td><p><a id="hooks-pass_filenames" href="#hooks-pass_filenames"><code>pass_filenames</code></a></p>
-</td><td><p>(optional: default <code>true</code>) if <code>false</code> no arguments will be passed to
+</td><td><p>(optional: default <code>true</code>) if <code>false</code> no filenames will be passed to
 the hook.</p>
 </td></tr><tr><td><p><a id="hooks-require_serial" href="#hooks-require_serial"><code>require_serial</code></a></p>
 </td><td><p>(optional: default <code>false</code>) if <code>true</code> this hook will execute using a
@@ -949,6 +949,18 @@ the <a href="#config-args"><code>args</code></a> value and then a list of staged
 </pre></div>
 <p>If the <a href="#config-args"><code>args</code></a> property is empty or not defined, your script will be called:</p>
 <div class="highlight"><pre><span></span>path/to/script-or-system-exe dir/file1 dir/file2 file3
+</pre></div>
+<p>When creating local hooks, there's no reason to put command arguments
+into <a href="#config-args"><code>args</code></a> as there is nothing which can override them --
+instead put your arguments directly in the hook <a href="#hooks-entry"><code>entry</code></a>.</p>
+<p>For example:</p>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check-requirements</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check requirements files</span>
+        <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">system</span>
+        <span class="nt">entry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python -m scripts.check_requirements --compare</span>
+        <span class="nt">files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^requirements.*.txt$</span>
 </pre></div>
 <h2 id="repository-local-hooks">    Repository local hooks <small><a href="#repository-local-hooks">¶</a></small></h2> <p>Repository-local hooks are useful when:</p>
 <ul>
