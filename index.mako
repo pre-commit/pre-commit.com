@@ -444,7 +444,7 @@ file that tells pre-commit:
         the hook passes.  _new in 1.6.0_.
 =r=
     =c= [`pass_filenames`](_#hooks-pass_filenames)
-    =c= (optional: default `true`) if `false` no arguments will be passed to
+    =c= (optional: default `true`) if `false` no filenames will be passed to
         the hook.
 =r=
     =c= [`require_serial`](_#hooks-require_serial)
@@ -1265,6 +1265,22 @@ If the [`args`](#config-args) property is empty or not defined, your script will
 
 ```
 path/to/script-or-system-exe dir/file1 dir/file2 file3
+```
+
+When creating local hooks, there's no reason to put command arguments
+into [`args`](#config-args) as there is nothing which can override them --
+instead put your arguments directly in the hook [`entry`](#hooks-entry).
+
+For example:
+
+```yaml
+-   repo: local
+    hooks:
+    -   id: check-requirements
+        name: check requirements files
+        language: system
+        entry: python -m scripts.check_requirements --compare
+        files: ^requirements.*.txt$
 ```
 
 ## Repository local hooks
