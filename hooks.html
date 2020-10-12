@@ -85,7 +85,7 @@ Also available in <a href="/all-hooks.json">json</a>.
             </li>
             <li>
                 <code>check-byte-order-marker</code>
-                    - Forbid files which have a UTF-8 byte-order marker
+                    - forbid files which have a UTF-8 byte-order marker
             </li>
             <li>
                 <code>check-builtin-literals</code>
@@ -158,6 +158,10 @@ Also available in <a href="/all-hooks.json">json</a>.
             <li>
                 <code>file-contents-sorter</code>
                     - Sort the lines in specified files (defaults to alphabetical). You must provide list of target files as input in your .pre-commit-config.yaml file.
+            </li>
+            <li>
+                <code>fix-byte-order-marker</code>
+                    - removes UTF-8 byte order marker
             </li>
             <li>
                 <code>fix-encoding-pragma</code>
