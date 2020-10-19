@@ -4027,7 +4027,7 @@
         {
             "id": "nbqa-mypy",
             "name": "nbqa-mypy",
-            "description": "Run 'black' on a Jupyter Notebook",
+            "description": "Run 'mypy' on a Jupyter Notebook",
             "entry": "nbqa mypy",
             "language": "python",
             "language_version": "python3",
@@ -4097,18 +4097,6 @@
             ],
             "additional_dependencies": [
                 "pylint"
-            ]
-        },
-        {
-            "id": "nbqa-doctest",
-            "name": "nbqa-doctest",
-            "description": "Run 'doctest' on a Jupyter Notebook",
-            "entry": "nbqa doctest",
-            "language": "python",
-            "language_version": "python3",
-            "require_serial": true,
-            "types": [
-                "jupyter"
             ]
         }
     ]
