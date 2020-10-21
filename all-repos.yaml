@@ -54,7 +54,7 @@
 - https://github.com/awebdeveloper/pre-commit-stylelint
 - https://github.com/awebdeveloper/pre-commit-tslint
 - https://github.com/awebdeveloper/pre-commit-prettier
-- https://github.com/prettier/prettier
+- https://github.com/prettier/pre-commit
 - https://github.com/adrienverge/yamllint
 - https://github.com/thlorenz/doctoc
 - https://github.com/noahsark769/xcodeproj-sort-pre-commit-hook
