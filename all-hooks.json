@@ -1794,12 +1794,20 @@
             "files": "\\.(css|less|scss|graphql|gql|html|js|jsx|json|md|markdown|mdown|mkdn|mdx|ts|tsx|vue|yaml|yml)$"
         }
     ],
-    "https://github.com/prettier/prettier": [
+    "https://github.com/prettier/pre-commit": [
         {
             "id": "prettier",
             "name": "prettier",
-            "entry": "prettier --write --list-different --ignore-unknown",
-            "language": "node"
+            "entry": "prettier",
+            "args": [
+                "--write",
+                "--list-different",
+                "--ignore-unknown"
+            ],
+            "language": "node",
+            "additional_dependencies": [
+                "prettier@2.1.2"
+            ]
         }
     ],
     "https://github.com/adrienverge/yamllint": [
