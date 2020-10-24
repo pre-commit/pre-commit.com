@@ -381,7 +381,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@7.11.0"
+                "eslint@7.12.0"
             ]
         }
     ],
