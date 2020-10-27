@@ -381,7 +381,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@7.12.0"
+                "eslint@7.12.1"
             ]
         }
     ],
@@ -548,6 +548,16 @@
             "language": "pygrep",
             "types": [
                 "rst"
+            ]
+        },
+        {
+            "id": "rst-directive-colons",
+            "name": "rst directives end with two colons",
+            "description": "Detect mistake of rst directive not ending with double colon",
+            "entry": "^\\s*\\.\\. [a-z]+:$",
+            "language": "pygrep",
+            "types": [
+                "text"
             ]
         },
         {
@@ -1798,12 +1808,7 @@
         {
             "id": "prettier",
             "name": "prettier",
-            "entry": "prettier",
-            "args": [
-                "--write",
-                "--list-different",
-                "--ignore-unknown"
-            ],
+            "entry": "prettier --write --list-different --ignore-unknown",
             "language": "node",
             "additional_dependencies": [
                 "prettier@2.1.2"
@@ -2498,9 +2503,7 @@
                 "shell"
             ],
             "exclude_types": [
-                "awk",
                 "csh",
-                "expect",
                 "perl",
                 "python",
                 "ruby",
@@ -2524,9 +2527,7 @@
                 "shell"
             ],
             "exclude_types": [
-                "awk",
                 "csh",
-                "expect",
                 "perl",
                 "python",
                 "ruby",
