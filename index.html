@@ -45,7 +45,7 @@
                 <p>A framework for managing and maintaining multi-language <span class="nowrap">pre-commit</span> hooks.</p>
            <p><a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=master"><img src="https://dev.azure.com/asottile/asottile/_apis/build/status/pre-commit.pre-commit?branchName=master" alt="Build Status" style="max-width:100%;"></a>
 <a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=master"><img src="https://img.shields.io/azure-devops/coverage/asottile/asottile/21/master.svg" alt="Azure DevOps Coverage" style="max-width:100%;"></a>
-<a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white" alt="pre-commit" style="max-width:100%;"></a></p>
+<a href="https://results.pre-commit.ci/latest/github/pre-commit/pre-commit/master"><img src="https://results.pre-commit.ci/badge/github/pre-commit/pre-commit/master.svg" alt="pre-commit.ci status" style="max-width:100%;"></a></p>
             <p><iframe src="https://ghbtns.com/github-btn.html?user=pre-commit&amp;repo=pre-commit&amp;type=watch&amp;count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="104px" height="20"></iframe>
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://pre-commit.com" data-text="pre-commit - A framework for managing and maintaining multi-language pre-commit hooks.">Tweet</a>
@@ -114,6 +114,11 @@ installed.</p>
 requirements-dev.txt):</p>
 <div class="highlight"><pre><span></span>pre-commit
 </pre></div>
+<p>As a 0-dependency <a href="https://docs.python.org/3/library/zipapp.html">zipapp</a>:</p>
+<ul>
+<li>locate and download the <code>.pyz</code> file from the <a href="https://github.com/pre-commit/pre-commit/releases">github releases</a></li>
+<li>run <code>python pre-commit-#.#.#.pyz ...</code> in place of <code>pre-commit ...</code></li>
+</ul>
 <p>Using <a href="https://brew.sh">homebrew</a>:</p>
 <div class="highlight bash"><pre><span></span>brew install pre-commit
 </pre></div>
@@ -444,6 +449,7 @@ Hello from foo hook!
 </pre></div>
 <h2 id="supported-languages">    Supported languages <small><a href="#supported-languages">¶</a></small></h2> <ul>
 <li><a href="#conda">conda</a></li>
+<li><a href="#coursier">coursier</a></li>
 <li><a href="#docker">docker</a></li>
 <li><a href="#docker_image">docker_image</a></li>
 <li><a href="#dotnet">dotnet</a></li>
@@ -469,6 +475,9 @@ used with <a href="#repository-local-hooks">local</a> hooks.</p>
 <p><strong>Support:</strong> <code>conda</code> hooks work as long as there is a system-installed <code>conda</code>
 binary (such as <a href="https://docs.conda.io/en/latest/miniconda.html"><code>miniconda</code></a>).
 It has been tested on linux, macOS, and windows.</p>
+<h3 id="coursier">    coursier <small><a href="#coursier">¶</a></small></h3> <p><em>new in 2.8.0</em></p>
+<p><strong>Support:</strong> <code>coursier</code> hooks are known to work on any system which has the <code>cs</code>
+package manager installed.  It has been tested on linux.</p>
 <h3 id="docker">    docker <small><a href="#docker">¶</a></small></h3> <p>The hook repository must have a <code>Dockerfile</code>.  It will be installed via
 <code>docker build .</code>.</p>
 <p>Running Docker hooks requires a running Docker engine on your host.  For
@@ -509,8 +518,12 @@ entrypoint you can specify it as well in your <a href="#hooks-entry"><code>entry
 </pre></div>
 <h3 id="dotnet">    dotnet <small><a href="#dotnet">¶</a></small></h3> <p><em>new in 2.8.0</em></p>
 <p>dotnet hooks are installed using the system installation of the dotnet CLI.</p>
-<p>Hook repositories must contain a dotnet CLI tool which can be <code>pack</code>ed and <code>install</code>ed as per <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create">this</a> example. The <code>entry</code> should match an executable created by building the repository. Additional dependencies are not currently supported.</p>
-<p><strong>Support:</strong> dotnet hooks are known to work on any system which has the dotnet CLI installed.  It has been tested on linux and windows.</p>
+<p>Hook repositories must contain a dotnet CLI tool which can be <code>pack</code>ed and
+<code>install</code>ed as per <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create">this</a>
+example. The <code>entry</code> should match an executable created by building the
+repository. Additional dependencies are not currently supported.</p>
+<p><strong>Support:</strong> dotnet hooks are known to work on any system which has the dotnet
+CLI installed.  It has been tested on linux and windows.</p>
 <h3 id="fail">    fail <small><a href="#fail">¶</a></small></h3> <p><em>new in 1.11.0</em></p>
 <p>A lightweight <a href="#hooks-language"><code>language</code></a> to forbid files by filename.  The <code>fail</code> language is
 especially useful for <a href="#repository-local-hooks">local</a> hooks.</p>
@@ -599,7 +612,8 @@ way to write a simple hook which prevents commits by file matching.  Specify
 the regex as the <a href="#hooks-entry"><code>entry</code></a>.  The <a href="#hooks-entry"><code>entry</code></a> may be any python
 <a href="#regular-expressions">regular expression</a>.  For case insensitive regexes you
 can apply the <code>(?i)</code> flag as the start of your entry, or use <code>args: [-i]</code>.</p>
-<p><em>new in 1.8.0</em>: For multiline matches, use <code>args: [--multiline]</code>.</p>
+<p><em>new in 1.8.0</em>: For multiline matches, use <code>args: [--multiline]</code>.
+<em>new in 2.8.0</em>: To require all files to match, use <code>args: [--negate]</code>.</p>
 <p><strong>Support:</strong> pygrep hooks are supported on all platforms which pre-commit runs
 on.</p>
 <h3 id="script">    script <small><a href="#script">¶</a></small></h3> <p>Script hooks provide a way to write simple scripts which validate files. The
@@ -626,6 +640,12 @@ Defaults to <code>auto</code>.  <em>new in 1.18.0</em>: can be overridden by usi
 <code>PRE_COMMIT_COLOR={auto,always,never}</code> or disabled using <code>TERM=dumb</code>.</li>
 <li><code>-c CONFIG</code>, <code>--config CONFIG</code>: path to alternate config file</li>
 <li><code>-h</code>, <code>--help</code>: show help and available options.</li>
+</ul>
+<p><em>new in 2.8.0</em>: <code>pre-commit</code> now exits with more specific codes:</p>
+<ul>
+<li><code>1</code>: a detected / expected error</li>
+<li><code>3</code>: an unexpected error</li>
+<li><code>130</code>: the process was interrupted by <code>^C</code></li>
 </ul>
 <h2 id="pre-commit-autoupdate">    pre-commit autoupdate [options] <a href="#pre-commit-autoupdate"></a> <small><a href="#pre-commit-autoupdate">¶</a></small></h2> <p>Auto-update pre-commit config to the latest repos' versions.</p>
 <p>Options:</p>
