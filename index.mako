@@ -77,6 +77,14 @@ requirements-dev.txt):
 pre-commit
 ```
 
+As a 0-dependency [zipapp]:
+
+- locate and download the `.pyz` file from the [github releases]
+- run `python pre-commit-#.#.#.pyz ...` in place of `pre-commit ...`
+
+[zipapp]: https://docs.python.org/3/library/zipapp.html
+[github releases]: https://github.com/pre-commit/pre-commit/releases
+
 Using [homebrew](https://brew.sh):
 
 ```bash
@@ -532,6 +540,7 @@ Hello from foo hook!
 ## Supported languages
 
 - [conda](#conda)
+- [coursier](#coursier)
 - [docker](#docker)
 - [docker_image](#docker_image)
 - [dotnet](#dotnet)
@@ -562,6 +571,13 @@ used with [local](#repository-local-hooks) hooks.
 __Support:__ `conda` hooks work as long as there is a system-installed `conda`
 binary (such as [`miniconda`](https://docs.conda.io/en/latest/miniconda.html)).
 It has been tested on linux, macOS, and windows.
+
+### coursier
+
+_new in 2.8.0_
+
+__Support:__ `coursier` hooks are known to work on any system which has the `cs`
+package manager installed.  It has been tested on linux.
 
 ### docker
 
@@ -622,9 +638,13 @@ _new in 2.8.0_
 
 dotnet hooks are installed using the system installation of the dotnet CLI.
 
-Hook repositories must contain a dotnet CLI tool which can be `pack`ed and `install`ed as per [this](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create) example. The `entry` should match an executable created by building the repository. Additional dependencies are not currently supported.
+Hook repositories must contain a dotnet CLI tool which can be `pack`ed and
+`install`ed as per [this](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create)
+example. The `entry` should match an executable created by building the
+repository. Additional dependencies are not currently supported.
 
-__Support:__ dotnet hooks are known to work on any system which has the dotnet CLI installed.  It has been tested on linux and windows.
+__Support:__ dotnet hooks are known to work on any system which has the dotnet
+CLI installed.  It has been tested on linux and windows.
 
 ### fail
 
@@ -770,6 +790,7 @@ the regex as the [`entry`](#hooks-entry).  The [`entry`](#hooks-entry) may be an
 can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
 
 _new in 1.8.0_: For multiline matches, use `args: [--multiline]`.
+_new in 2.8.0_: To require all files to match, use `args: [--negate]`.
 
 __Support:__ pygrep hooks are supported on all platforms which pre-commit runs
 on.
@@ -808,6 +829,11 @@ All pre-commit commands take the following options:
   `PRE_COMMIT_COLOR={auto,always,never}` or disabled using `TERM=dumb`.
 - `-c CONFIG`, `--config CONFIG`: path to alternate config file
 - `-h`, `--help`: show help and available options.
+
+_new in 2.8.0_: `pre-commit` now exits with more specific codes:
+- `1`: a detected / expected error
+- `3`: an unexpected error
+- `130`: the process was interrupted by `^C`
 
 ## pre-commit autoupdate [options] [](#pre-commit-autoupdate)
 
