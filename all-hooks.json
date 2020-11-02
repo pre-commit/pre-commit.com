@@ -1854,7 +1854,11 @@
             "id": "gitlint",
             "name": "gitlint",
             "language": "python",
-            "entry": "gitlint --staged --msg-filename",
+            "entry": "gitlint",
+            "args": [
+                "--staged",
+                "--msg-filename"
+            ],
             "stages": [
                 "commit-msg"
             ]
