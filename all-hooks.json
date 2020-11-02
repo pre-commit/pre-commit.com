@@ -4136,5 +4136,18 @@
                 "gdscript"
             ]
         }
+    ],
+    "https://github.com/avilaton/add-msg-issue-prefix-hook": [
+        {
+            "id": "add-msg-issue-prefix",
+            "name": "Add issue as commit message prefix",
+            "description": "Searches the branch name for something looking like a jira issue name and prepends the commit message with it",
+            "entry": "add-msg-issue-prefix",
+            "language": "python",
+            "always_run": true,
+            "stages": [
+                "prepare-commit-msg"
+            ]
+        }
     ]
 }
