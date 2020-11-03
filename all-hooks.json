@@ -4149,5 +4149,16 @@
                 "prepare-commit-msg"
             ]
         }
+    ],
+    "https://github.com/dustinsand/pre-commit-jvm": [
+        {
+            "id": "detekt",
+            "name": "detekt",
+            "description": "Runs the Detekt static code analyzer.",
+            "language": "docker",
+            "entry": "/bin/bash /opt/detekt/run_detekt.sh",
+            "files": "\\.kt$",
+            "require_serial": true
+        }
     ]
 }
