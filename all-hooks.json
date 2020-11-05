@@ -4155,8 +4155,9 @@
             "id": "detekt",
             "name": "detekt",
             "description": "Runs the Detekt static code analyzer.",
-            "language": "docker",
-            "entry": "/bin/bash /opt/detekt/run_detekt.sh",
+            "language": "coursier",
+            "entry": "detekt",
+            "pass_filenames": false,
             "files": "\\.kt$",
             "require_serial": true
         }
