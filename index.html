@@ -476,8 +476,16 @@ used with <a href="#repository-local-hooks">local</a> hooks.</p>
 binary (such as <a href="https://docs.conda.io/en/latest/miniconda.html"><code>miniconda</code></a>).
 It has been tested on linux, macOS, and windows.</p>
 <h3 id="coursier">    coursier <small><a href="#coursier">¶</a></small></h3> <p><em>new in 2.8.0</em></p>
+<p>The hook repository must have a <code>.pre-commit-channel</code> folder and that folder must contain
+the coursier
+<a href="https://get-coursier.io/docs/2.0.0-RC6-10/cli-install.html#application-descriptor-reference">application descriptors</a>
+for the hook to install. For configuring coursier hooks, your
+<a href="#hooks-entry"><code>entry</code></a> should correspond to an executable installed from the
+repository's <code>.pre-commit-channel</code> folder.</p>
 <p><strong>Support:</strong> <code>coursier</code> hooks are known to work on any system which has the <code>cs</code>
-package manager installed.  It has been tested on linux.</p>
+package manager installed. The specific coursier applications you install may depend
+on various versions of the JVM, consult the hooks' documentation for clarification.
+It has been tested on linux.</p>
 <h3 id="docker">    docker <small><a href="#docker">¶</a></small></h3> <p>The hook repository must have a <code>Dockerfile</code>.  It will be installed via
 <code>docker build .</code>.</p>
 <p>Running Docker hooks requires a running Docker engine on your host.  For
