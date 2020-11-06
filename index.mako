@@ -576,17 +576,17 @@ It has been tested on linux, macOS, and windows.
 
 _new in 2.8.0_
 
-The hook repository muist have a `.pre-commit-channel` folder and that folder must contain
+The hook repository must have a `.pre-commit-channel` folder and that folder must contain
 the coursier
 [application descriptors](https://get-coursier.io/docs/2.0.0-RC6-10/cli-install.html#application-descriptor-reference)
 for the hook to install. For configuring coursier hooks, your
 [`entry`](#hooks-entry) should correspond to an executable installed from the
-repositories `.pre-commit-channel` folder.
+repository's `.pre-commit-channel` folder.
 
 __Support:__ `coursier` hooks are known to work on any system which has the `cs`
 package manager installed. The specific coursier applications you install may depend
-on various versions of the JVM, consult the hooks documentation for clarificaiton.
-This integration has been tested on linus
+on various versions of the JVM, consult the hooks' documentation for clarification.
+It has been tested on linux.
 
 ### docker
 
