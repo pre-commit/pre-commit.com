@@ -4154,12 +4154,22 @@
     "https://github.com/dustinsand/pre-commit-jvm": [
         {
             "id": "detekt",
-            "name": "detekt",
-            "description": "Runs the Detekt static code analyzer.",
+            "name": "Detekt",
+            "description": "Runs the Detekt static code analyzer on Kotlin source files.",
             "language": "coursier",
             "entry": "detekt",
             "pass_filenames": false,
             "files": "\\.kt$",
+            "require_serial": true
+        },
+        {
+            "id": "pmd",
+            "name": "PMD",
+            "description": "Runs the PMD static code analyzer on Java source files.",
+            "language": "coursier",
+            "entry": "pmd",
+            "pass_filenames": false,
+            "files": "\\.java$",
             "require_serial": true
         }
     ],
@@ -4177,6 +4187,24 @@
             ],
             "require_serial": false,
             "additional_dependencies": []
+        }
+    ],
+    "https://gitlab.com/jvenom/elixir-pre-commit-hooks": [
+        {
+            "id": "mix-format",
+            "name": "mix format",
+            "description": "Formats Elixir files with mix format.",
+            "language": "system",
+            "entry": "mix format",
+            "files": "\\.exs?$"
+        },
+        {
+            "id": "mix-test",
+            "name": "mix test",
+            "description": "Runs Elixir tests with mix test.",
+            "language": "system",
+            "entry": "mix test",
+            "files": "\\.exs?$"
         }
     ]
 }
