@@ -4164,6 +4164,33 @@
             "require_serial": true
         },
         {
+            "id": "google-java-formatter-jdk8",
+            "name": "Google Java Formatter",
+            "description": "Runs the Google Java Formatter on Java source files. Minimum supported runtime version is JDK 8.",
+            "language": "coursier",
+            "entry": "google-java-format-jdk8",
+            "files": "\\.java$",
+            "require_serial": true
+        },
+        {
+            "id": "google-java-formatter-jdk11",
+            "name": "Google Java Formatter",
+            "description": "Runs the Google Java Formatter on Java source files. Minimum supported runtime version is JDK 11.",
+            "language": "coursier",
+            "entry": "google-java-format-jdk11",
+            "files": "\\.java$",
+            "require_serial": true
+        },
+        {
+            "id": "ktlint",
+            "name": "ktlint",
+            "description": "Runs the ktlint linter and formatter on Kotlin source files.",
+            "language": "coursier",
+            "entry": "ktlint",
+            "files": "\\.kt$",
+            "require_serial": true
+        },
+        {
             "id": "pmd",
             "name": "PMD",
             "description": "Runs the PMD static code analyzer on Java source files.",
