@@ -380,7 +380,6 @@
             ],
             "args": [],
             "require_serial": false,
-            "pass_filenames": false,
             "additional_dependencies": [
                 "eslint@7.13.0"
             ]
@@ -2218,6 +2217,18 @@
                 "commit-msg"
             ],
             "description": "Utility to prepend your commits with info from your branch."
+        }
+    ],
+    "https://github.com/milin/gitown": [
+        {
+            "id": "gitown",
+            "name": "gitown",
+            "entry": "gitown",
+            "language": "python",
+            "stages": [
+                "commit"
+            ],
+            "description": "Keep your CODEOWNERS file up to date to streamline code review process."
         }
     ],
     "https://github.com/sqlalchemyorg/zimports": [
