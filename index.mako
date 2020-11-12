@@ -1805,6 +1805,16 @@ automatically).
 ''')}
         </div>
 
+        <div id="license">
+            <div class="page-header">${md('# License')}</div>
+
+${md('''
+pre-commit is made available under the terms of [the MIT license].
+
+[the MIT license]: https://github.com/pre-commit/pre-commit/blob/master/LICENSE
+''')}
+        </div>
+
         <div id="contributing">
             <div class="page-header">${md('# Contributing')}</div>
 
