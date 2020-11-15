@@ -7,6 +7,7 @@
 - https://github.com/pre-commit/mirrors-fixmyjs
 - https://github.com/pre-commit/mirrors-jshint
 - https://github.com/pre-commit/mirrors-mypy
+- https://github.com/pre-commit/mirrors-prettier
 - https://github.com/pre-commit/mirrors-puppet-lint
 - https://github.com/pre-commit/mirrors-ruby-lint
 - https://github.com/pre-commit/mirrors-scss-lint
@@ -53,8 +54,6 @@
 - https://github.com/kintoandar/pre-commit
 - https://github.com/awebdeveloper/pre-commit-stylelint
 - https://github.com/awebdeveloper/pre-commit-tslint
-- https://github.com/awebdeveloper/pre-commit-prettier
-- https://github.com/prettier/pre-commit
 - https://github.com/adrienverge/yamllint
 - https://github.com/thlorenz/doctoc
 - https://github.com/noahsark769/xcodeproj-sort-pre-commit-hook
