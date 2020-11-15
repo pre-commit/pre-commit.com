@@ -432,6 +432,22 @@
             "additional_dependencies": []
         }
     ],
+    "https://github.com/pre-commit/mirrors-prettier": [
+        {
+            "id": "prettier",
+            "name": "prettier",
+            "entry": "prettier --write --list-different --ignore-unknown",
+            "language": "node",
+            "types": [
+                "text"
+            ],
+            "args": [],
+            "require_serial": false,
+            "additional_dependencies": [
+                "prettier@2.1.2"
+            ]
+        }
+    ],
     "https://github.com/pre-commit/mirrors-puppet-lint": [
         {
             "id": "puppet-lint",
@@ -1793,26 +1809,6 @@
             "files": "\\.(ts|tsx)$",
             "args": [],
             "minimum_pre_commit_version": "0.12.0"
-        }
-    ],
-    "https://github.com/awebdeveloper/pre-commit-prettier": [
-        {
-            "id": "prettier",
-            "name": "prettier",
-            "entry": "prettier --write",
-            "language": "node",
-            "files": "\\.(css|less|scss|graphql|gql|html|js|jsx|json|md|markdown|mdown|mkdn|mdx|ts|tsx|vue|yaml|yml)$"
-        }
-    ],
-    "https://github.com/prettier/pre-commit": [
-        {
-            "id": "prettier",
-            "name": "prettier",
-            "entry": "prettier --write --list-different --ignore-unknown",
-            "language": "node",
-            "additional_dependencies": [
-                "prettier@2.1.2"
-            ]
         }
     ],
     "https://github.com/adrienverge/yamllint": [
