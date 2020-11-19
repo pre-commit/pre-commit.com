@@ -60,6 +60,11 @@ Using pip:
 pip install pre-commit
 ```
 
+Using [pipx](https://pipxproject.github.io/pipx/):
+```bash
+pipx install pre-commit
+```
+
 Non-administrative installation:
 
 - _to upgrade: run again, to uninstall: pass `uninstall` to python_
