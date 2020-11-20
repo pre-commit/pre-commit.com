@@ -213,3 +213,15 @@ h1,
         display: block;
     }
 }
+
+h1,
+h2,
+h3 {
+    small {
+        display: none;
+    }
+
+    &:hover small {
+        display: inline;
+    }
+}
