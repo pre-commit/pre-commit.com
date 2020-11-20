@@ -844,7 +844,7 @@ _new in 2.8.0_: `pre-commit` now exits with more specific codes:
 - `3`: an unexpected error
 - `130`: the process was interrupted by `^C`
 
-## pre-commit autoupdate [options] [](#pre-commit-autoupdate)
+## pre-commit autoupdate [options] #pre-commit-autoupdate
 
 Auto-update pre-commit config to the latest repos' versions.
 
@@ -901,13 +901,13 @@ $ grep rev: .pre-commit-config.yaml
     rev: 34a269fd7650d264e4de7603157c10d0a9bb8211  # frozen: v1.25.2
 ```
 
-## pre-commit clean [options] [](#pre-commit-clean)
+## pre-commit clean [options] #pre-commit-clean
 
 Clean out cached pre-commit files.
 
 Options: (no additional options)
 
-## pre-commit gc [options] [](#pre-commit-gc)
+## pre-commit gc [options] #pre-commit-gc
 
 _new in 1.14.0_
 
@@ -919,7 +919,7 @@ the cache directory.
 
 Options: (no additional options)
 
-## pre-commit init-templatedir DIRECTORY [options] [](#pre-commit-init-templatedir)
+## pre-commit init-templatedir DIRECTORY [options] #pre-commit-init-templatedir
 
 _new in 1.18.0_
 
@@ -942,7 +942,7 @@ pre-commit init-templatedir ~/.git-template
 Now whenever a repository is cloned or created, it will have the hooks set up
 already!
 
-## pre-commit install [options] [](#pre-commit-install)
+## pre-commit install [options] #pre-commit-install
 
 Install the pre-commit script.
 
@@ -967,7 +967,7 @@ Some example useful invocations:
    existing git hook scripts with pre-commit, and also installs hook
    environments.
 
-## pre-commit install-hooks [options] [](#pre-commit-install-hooks)
+## pre-commit install-hooks [options] #pre-commit-install-hooks
 
 Install all missing environments for the available hooks. Unless this command or
 `install --install-hooks` is executed, each hook's environment is created the
@@ -981,7 +981,7 @@ the hook environments in one command, use `pre-commit install --install-hooks`.
 
 Options: (no additional options)
 
-## pre-commit migrate-config [options] [](#pre-commit-migrate-config)
+## pre-commit migrate-config [options] #pre-commit-migrate-config
 
 _new in 1.0.0_
 
@@ -989,7 +989,7 @@ Migrate list configuration to the new map configuration format.
 
 Options: (no additional options)
 
-## pre-commit run [hook-id] [options] [](#pre-commit-run)
+## pre-commit run [hook-id] [options] #pre-commit-run
 
 Run hooks.
 
@@ -1019,13 +1019,13 @@ Some example useful invocations:
   have changed between `HEAD^^^` and `HEAD`.  This form is useful when
   leveraged in a pre-receive hook.
 
-## pre-commit sample-config [options] [](#pre-commit-sample-config)
+## pre-commit sample-config [options] #pre-commit-sample-config
 
 Produce a sample `.pre-commit-config.yaml`.
 
 Options: (no additional options)
 
-## pre-commit try-repo REPO [options] [](#pre-commit-try-repo)
+## pre-commit try-repo REPO [options] #pre-commit-try-repo
 
 _new in 1.3.0_
 
@@ -1053,7 +1053,7 @@ Some example useful invocations:
 - See [`pre-commit run`](#pre-commit-run) for more useful `run` invocations
   which are also supported by `pre-commit try-repo`.
 
-## pre-commit uninstall [options] [](#pre-commit-uninstall)
+## pre-commit uninstall [options] #pre-commit-uninstall
 
 Uninstall the pre-commit script.
 
