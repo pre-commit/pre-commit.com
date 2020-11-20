@@ -1,8 +1,6 @@
 mako
 libsass
-markdown-code-blocks
+markdown-code-blocks>=3.0.0
 markdown-to-presentation>=0.0.12
-# remove once merged and release
-git+https://github.com/lepture/mistune@449c2b5
 pre-commit>=1.21.0
 pygments-pre-commit>=1.4.0

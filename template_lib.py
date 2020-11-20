@@ -9,7 +9,7 @@ import markdown_code_blocks
 import markupsafe
 
 
-ID_RE = re.compile(r'\[\]\(#([a-z0-9-]+)\)')
+ID_RE = re.compile(r' #([a-z0-9-]+)$')
 SPECIAL_CHARS_RE = re.compile('[^a-z0-9 _-]')
 
 
@@ -94,16 +94,17 @@ class Renderer(markdown_code_blocks.CodeRenderer):
     ) -> str:
         if link.startswith(SELF_LINK_PREFIX):
             a_id = link[len(SELF_LINK_PREFIX):]
-            return f'<a id="{a_id}" href="#{a_id}">{title}</a>'
+            return f'<a id="{a_id}" href="#{a_id}">{text}</a>'
         else:
             return super().link(link, text, title)
 
-    def header(self, text: str, level: int, raw: str) -> str:
-        match = ID_RE.search(raw)
+    def heading(self, text: str, level: int) -> str:
+        match = ID_RE.search(text)
+        text = ID_RE.sub('', text)
         if match:
-            h_id = match.group(1)
+            h_id = match[1]
         else:
-            h_id = SPECIAL_CHARS_RE.sub('', raw.lower()).replace(' ', '-')
+            h_id = SPECIAL_CHARS_RE.sub('', text.lower()).replace(' ', '-')
         return (
             f'<h{level} id="{h_id}">'
             f'    {text} <small><a href="#{h_id}">¶</a></small>'
@@ -117,18 +118,18 @@ class Renderer(markdown_code_blocks.CodeRenderer):
         else:
             return super().codespan(text)
 
-    def block_code(self, code: str, lang: Optional[str]) -> str:
+    def block_code(self, code: str, info: Optional[str] = None) -> str:
         copyable = False
-        if lang is not None:
+        if info is not None:
             copyable_s = '#copyable'
-            copyable = lang.endswith(copyable_s)
-            lang, _, _ = lang.partition(copyable_s)
-        if lang == 'table':
+            copyable = info.endswith(copyable_s)
+            info, _, _ = info.partition(copyable_s)
+        if info == 'table':
             ret = _render_table(code)
-        elif lang == 'cmd':
+        elif info == 'cmd':
             ret = _render_cmd(code)
         else:
-            ret = super().block_code(code, lang)
+            ret = super().block_code(code, info)
         if copyable:
             return f'<div class="copyable">{ret}</div>'
         else:
