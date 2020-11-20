@@ -446,6 +446,7 @@ Foo......................................................................<span c
 <span class=" -Color -Color-Faint">- duration: 0.02s</span>
 
 Hello from foo hook!
+
 </pre></div>
 <h2 id="supported-languages">    Supported languages <small><a href="#supported-languages">¶</a></small></h2> <ul>
 <li><a href="#conda">conda</a></li>
@@ -502,7 +503,7 @@ run via <code>boot2docker</code> are known to be unable to make modifications to
 <p>See <a href="https://github.com/pre-commit/pre-commit-docker-flake8">this repository</a>
 for an example Docker-based hook.</p>
 <h3 id="docker_image">    docker_image <small><a href="#docker_image">¶</a></small></h3> <p>A more lightweight approach to <code>docker</code> hooks.  The <code>docker_image</code>
-"language" uses existing docker images to provide hook executables.</p>
+&quot;language&quot; uses existing docker images to provide hook executables.</p>
 <p><code>docker_image</code> hooks can be conveniently configured as <a href="#repository-local-hooks">local</a>
 hooks.</p>
 <p>The <a href="#hooks-entry"><code>entry</code></a> specifies the docker tag to use.  If an image has an
@@ -655,12 +656,12 @@ Defaults to <code>auto</code>.  <em>new in 1.18.0</em>: can be overridden by usi
 <li><code>3</code>: an unexpected error</li>
 <li><code>130</code>: the process was interrupted by <code>^C</code></li>
 </ul>
-<h2 id="pre-commit-autoupdate">    pre-commit autoupdate [options] <a href="#pre-commit-autoupdate"></a> <small><a href="#pre-commit-autoupdate">¶</a></small></h2> <p>Auto-update pre-commit config to the latest repos' versions.</p>
+<h2 id="pre-commit-autoupdate">    pre-commit autoupdate [options] <small><a href="#pre-commit-autoupdate">¶</a></small></h2> <p>Auto-update pre-commit config to the latest repos' versions.</p>
 <p>Options:</p>
 <ul>
 <li><code>--bleeding-edge</code>: update to the bleeding edge of the default branch instead
 of the latest tagged version (the default behaviour).</li>
-<li><code>--freeze</code>: <em>new in 1.21.0</em>: Store "frozen" hashes in <a href="#repos-rev"><code>rev</code></a>
+<li><code>--freeze</code>: <em>new in 1.21.0</em>: Store &quot;frozen&quot; hashes in <a href="#repos-rev"><code>rev</code></a>
 instead of tag names.</li>
 <li><code>--repo REPO</code>: <em>new in 1.4.1</em>: Only update this repository. <em>new in 1.7.0</em>:
 This option may be specified multiple times.</li>
@@ -700,15 +701,15 @@ This option may be specified multiple times.</li>
 <span class="go">    rev: 0161422b4e09b47536ea13f49e786eb3616fe0d7  # frozen: v2.4.0</span>
 <span class="go">    rev: 34a269fd7650d264e4de7603157c10d0a9bb8211  # frozen: v1.25.2</span>
 </pre></div>
-<h2 id="pre-commit-clean">    pre-commit clean [options] <a href="#pre-commit-clean"></a> <small><a href="#pre-commit-clean">¶</a></small></h2> <p>Clean out cached pre-commit files.</p>
+<h2 id="pre-commit-clean">    pre-commit clean [options] <small><a href="#pre-commit-clean">¶</a></small></h2> <p>Clean out cached pre-commit files.</p>
 <p>Options: (no additional options)</p>
-<h2 id="pre-commit-gc">    pre-commit gc [options] <a href="#pre-commit-gc"></a> <small><a href="#pre-commit-gc">¶</a></small></h2> <p><em>new in 1.14.0</em></p>
+<h2 id="pre-commit-gc">    pre-commit gc [options] <small><a href="#pre-commit-gc">¶</a></small></h2> <p><em>new in 1.14.0</em></p>
 <p>Clean unused cached repos.</p>
 <p><code>pre-commit</code> keeps a cache of installed hook repositories which grows over
 time.  This command can be run periodically to clean out unused repos from
 the cache directory.</p>
 <p>Options: (no additional options)</p>
-<h2 id="pre-commit-init-templatedir">    pre-commit init-templatedir DIRECTORY [options] <a href="#pre-commit-init-templatedir"></a> <small><a href="#pre-commit-init-templatedir">¶</a></small></h2> <p><em>new in 1.18.0</em></p>
+<h2 id="pre-commit-init-templatedir">    pre-commit init-templatedir DIRECTORY [options] <small><a href="#pre-commit-init-templatedir">¶</a></small></h2> <p><em>new in 1.18.0</em></p>
 <p>Install hook script in a directory intended for use with
 <code>git config init.templateDir</code>.</p>
 <p>Options:</p>
@@ -723,14 +724,13 @@ pre-commit init-templatedir ~/.git-template
 </pre></div>
 <p>Now whenever a repository is cloned or created, it will have the hooks set up
 already!</p>
-<h2 id="pre-commit-install">    pre-commit install [options] <a href="#pre-commit-install"></a> <small><a href="#pre-commit-install">¶</a></small></h2> <p>Install the pre-commit script.</p>
+<h2 id="pre-commit-install">    pre-commit install [options] <small><a href="#pre-commit-install">¶</a></small></h2> <p>Install the pre-commit script.</p>
 <p>Options:</p>
 <ul>
 <li><code>-f</code>, <code>--overwrite</code>: Replace any existing git hooks with the pre-commit
 script.</li>
 <li><code>--install-hooks</code>: Also install environments for all available hooks now
-(rather than when they are first executed). See <a href="#pre-commit-install-hooks"><code>pre-commit
-install-hooks</code></a>.</li>
+(rather than when they are first executed). See <a href="#pre-commit-install-hooks"><code>pre-commit install-hooks</code></a>.</li>
 <li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>,
 <code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>:
 Specify which hook type to install.</li>
@@ -745,7 +745,7 @@ file.</li>
  existing git hook scripts with pre-commit, and also installs hook
  environments.</li>
 </ul>
-<h2 id="pre-commit-install-hooks">    pre-commit install-hooks [options] <a href="#pre-commit-install-hooks"></a> <small><a href="#pre-commit-install-hooks">¶</a></small></h2> <p>Install all missing environments for the available hooks. Unless this command or
+<h2 id="pre-commit-install-hooks">    pre-commit install-hooks [options] <small><a href="#pre-commit-install-hooks">¶</a></small></h2> <p>Install all missing environments for the available hooks. Unless this command or
 <code>install --install-hooks</code> is executed, each hook's environment is created the
 first time the hook is called.</p>
 <p>Each hook is initialized in a separate environment appropriate to the language
@@ -753,10 +753,10 @@ the hook is written in. See <a href="#supported-languages">supported languages</
 <p>This command does not install the pre-commit script. To install the script along with
 the hook environments in one command, use <code>pre-commit install --install-hooks</code>.</p>
 <p>Options: (no additional options)</p>
-<h2 id="pre-commit-migrate-config">    pre-commit migrate-config [options] <a href="#pre-commit-migrate-config"></a> <small><a href="#pre-commit-migrate-config">¶</a></small></h2> <p><em>new in 1.0.0</em></p>
+<h2 id="pre-commit-migrate-config">    pre-commit migrate-config [options] <small><a href="#pre-commit-migrate-config">¶</a></small></h2> <p><em>new in 1.0.0</em></p>
 <p>Migrate list configuration to the new map configuration format.</p>
 <p>Options: (no additional options)</p>
-<h2 id="pre-commit-run">    pre-commit run [hook-id] [options] <a href="#pre-commit-run"></a> <small><a href="#pre-commit-run">¶</a></small></h2> <p>Run hooks.</p>
+<h2 id="pre-commit-run">    pre-commit run [hook-id] [options] <small><a href="#pre-commit-run">¶</a></small></h2> <p>Run hooks.</p>
 <p>Options:</p>
 <ul>
 <li><code>[hook-id]</code>: specify a single hook-id to run only that hook.</li>
@@ -786,9 +786,9 @@ against all <code>*.py</code> files in the repository.</li>
 have changed between <code>HEAD^^^</code> and <code>HEAD</code>.  This form is useful when
 leveraged in a pre-receive hook.</li>
 </ul>
-<h2 id="pre-commit-sample-config">    pre-commit sample-config [options] <a href="#pre-commit-sample-config"></a> <small><a href="#pre-commit-sample-config">¶</a></small></h2> <p>Produce a sample <code>.pre-commit-config.yaml</code>.</p>
+<h2 id="pre-commit-sample-config">    pre-commit sample-config [options] <small><a href="#pre-commit-sample-config">¶</a></small></h2> <p>Produce a sample <code>.pre-commit-config.yaml</code>.</p>
 <p>Options: (no additional options)</p>
-<h2 id="pre-commit-try-repo">    pre-commit try-repo REPO [options] <a href="#pre-commit-try-repo"></a> <small><a href="#pre-commit-try-repo">¶</a></small></h2> <p><em>new in 1.3.0</em></p>
+<h2 id="pre-commit-try-repo">    pre-commit try-repo REPO [options] <small><a href="#pre-commit-try-repo">¶</a></small></h2> <p><em>new in 1.3.0</em></p>
 <p>Try the hooks in a repository, useful for developing new hooks.
 <code>try-repo</code> can also be used for testing out a repository before adding it to
 your configuration.  <code>try-repo</code> prints a configuration it generates based on
@@ -813,7 +813,7 @@ configured in a local <code>../pre-commit-hooks</code> repository.</li>
 <li>See <a href="#pre-commit-run"><code>pre-commit run</code></a> for more useful <code>run</code> invocations
 which are also supported by <code>pre-commit try-repo</code>.</li>
 </ul>
-<h2 id="pre-commit-uninstall">    pre-commit uninstall [options] <a href="#pre-commit-uninstall"></a> <small><a href="#pre-commit-uninstall">¶</a></small></h2> <p>Uninstall the pre-commit script.</p>
+<h2 id="pre-commit-uninstall">    pre-commit uninstall [options] <small><a href="#pre-commit-uninstall">¶</a></small></h2> <p>Uninstall the pre-commit script.</p>
 <p>Options:</p>
 <ul>
 <li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}</code>,
@@ -913,7 +913,7 @@ exits nonzero, the commit will be aborted.</p>
 messages. <code>prepare-commit-msg</code> hooks can be configured by setting
 <code>stages: [prepare-commit-msg]</code>. <code>prepare-commit-msg</code> hooks will be passed a
 single filename -- this file contains any initial commit message (e.g. from
-<code>git commit -m "..."</code> or a template) and can be modified by the hook before
+<code>git commit -m &quot;...&quot;</code> or a template) and can be modified by the hook before
 the editor is shown. A hook may want to check for <code>GIT_EDITOR=:</code> as this
 indicates that no editor will be launched. If a hook exits nonzero,
 the commit will be aborted.</p>
@@ -1192,7 +1192,7 @@ control the default versions across all hooks of a language.</p>
 </pre></div>
 <h2 id="badging-your-repository">    badging your repository <small><a href="#badging-your-repository">¶</a></small></h2> <p>you can add a badge to your repository to show your contributors / users that
 you use pre-commit!</p>
-<p><a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white" alt="pre-commit"></a></p>
+<p><a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white" alt="pre-commit" /></a></p>
 <ul>
 <li><p>Markdown:</p>
 <div class="copyable"><div class="highlight md"><pre><span></span>[<span class="nt">![pre-commit</span>](<span class="na">https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white</span>)](https://github.com/pre-commit/pre-commit)
@@ -1323,8 +1323,8 @@ http(s) proxy server, in which case <code>git</code> requires the <code>http_pro
 <span class="na">passenv</span> <span class="o">=</span> <span class="s">http_proxy https_proxy no_proxy</span>
 </pre></div>
 <h2 id="using-the-latest-version-for-a-repository">    Using the latest version for a repository <small><a href="#using-the-latest-version-for-a-repository">¶</a></small></h2> <p><code>pre-commit</code> configuration aims to give a repeatable and fast experience and
-therefore intentionally doesn't provide facilities for "unpinned latest
-version" for hook repositories.</p>
+therefore intentionally doesn't provide facilities for &quot;unpinned latest
+version&quot; for hook repositories.</p>
 <p>Instead, <code>pre-commit</code> provides tools to make it easy to upgrade to the
 latest versions with <a href="#pre-commit-autoupdate"><code>pre-commit autoupdate</code></a>.  If
 you need the absolute latest version of a hook (instead of the latest tagged
