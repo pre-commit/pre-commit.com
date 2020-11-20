@@ -151,3 +151,6 @@
 - https://github.com/dustinsand/pre-commit-jvm
 - https://github.com/alan-turing-institute/CleverCSV-pre-commit
 - https://gitlab.com/jvenom/elixir-pre-commit-hooks
+- https://github.com/Cretezy/flutter-format-pre-commit
+- https://github.com/dluksza/flutter-analyze-pre-commit
+- https://github.com/fluttercommunity/import_sorter
