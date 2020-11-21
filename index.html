@@ -130,7 +130,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 2.8.2
+pre-commit 2.9.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -276,7 +276,10 @@ hook.  See <a href="#overriding-language-version">Overriding Language Version</a
 </td></tr><tr><td><p><a id="config-exclude" href="#config-exclude"><code>exclude</code></a></p>
 </td><td><p>(optional) file exclude pattern.</p>
 </td></tr><tr><td><p><a id="config-types" href="#config-types"><code>types</code></a></p>
-</td><td><p>(optional) override the default file types to run on.  See
+</td><td><p>(optional) override the default file types to run on (AND).  See
+<a href="#filtering-files-with-types">Filtering files with types</a>.</p>
+</td></tr><tr><td><p><a id="config-types_or" href="#config-types_or"><code>types_or</code></a></p>
+</td><td><p>(optional) override the default file types to run on (OR).  See
 <a href="#filtering-files-with-types">Filtering files with types</a>.</p>
 </td></tr><tr><td><p><a id="config-exclude_types" href="#config-exclude_types"><code>exclude_types</code></a></p>
 </td><td><p>(optional) file types to exclude.</p>
@@ -372,7 +375,10 @@ arguments that will not be overridden such as <code>entry: autopep8 -i</code>.</
 </td></tr><tr><td><p><a id="hooks-exclude" href="#hooks-exclude"><code>exclude</code></a></p>
 </td><td><p>(optional: default <code>^$</code>)  exclude files that were matched by <a href="#hooks-files"><code>files</code></a>.</p>
 </td></tr><tr><td><p><a id="hooks-types" href="#hooks-types"><code>types</code></a></p>
-</td><td><p>(optional: default <code>[file]</code>)  list of file types to run on.  See
+</td><td><p>(optional: default <code>[file]</code>)  list of file types to run on (AND).  See
+<a href="#filtering-files-with-types">Filtering files with types</a>.</p>
+</td></tr><tr><td><p><a id="hooks-types_or" href="#hooks-types_or"><code>types_or</code></a></p>
+</td><td><p>(optional: default <code>[file]</code>)  list of file types to run on (OR).  See
 <a href="#filtering-files-with-types">Filtering files with types</a>.</p>
 </td></tr><tr><td><p><a id="hooks-exclude_types" href="#hooks-exclude_types"><code>exclude_types</code></a></p>
 </td><td><p>(optional: default <code>[]</code>)  exclude files that were matched by <a href="#hooks-types"><code>types</code></a>.</p>
@@ -1115,13 +1121,20 @@ chosen as it is a small portable pure python library.</p>
 </pre></div>
 <p>If a file extension you use is not supported, please
 <a href="https://github.com/pre-commit/identify">submit a pull request</a>!</p>
-<p><code>types</code> and <code>files</code> are evaluated with <code>AND</code> when filtering.  Tags within
-<code>types</code> are also evaluated using <code>AND</code>.</p>
+<p><code>types</code>, <code>types_or</code>, and <code>files</code> are evaluated together with <code>AND</code> when
+filtering.  Tags within <code>types</code> are also evaluated using <code>AND</code>.
+Tags within <code>types_or</code> are evaluated using <code>OR</code>.</p>
 <p>For example:</p>
 <div class="highlight yaml"><pre><span></span>    <span class="nt">files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^foo/</span>
     <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">,</span> <span class="nv">python</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>will match a file <code>foo/1.py</code> but will not match <code>setup.py</code>.</p>
+<p>Another example:</p>
+<div class="highlight yaml"><pre><span></span>    <span class="nt">files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^foo/</span>
+    <span class="nt">types_or</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">javascript</span><span class="p p-Indicator">,</span> <span class="nv">jsx</span><span class="p p-Indicator">,</span> <span class="nv">ts</span><span class="p p-Indicator">,</span> <span class="nv">tsx</span><span class="p p-Indicator">]</span>
+</pre></div>
+<p>will match any of <code>foo/bar.js</code> / <code>foo/bar.jsx</code> / <code>foo/bar.ts</code> / <code>foo/bar.tsx</code>
+but not <code>baz.js</code>.</p>
 <p>If you want to match a file path that isn't included in a <code>type</code> when using an
 existing hook you'll need to revert back to <code>files</code> only matching by overriding
 the <code>types</code> setting.  Here's an example of using <code>check-json</code> against non-json
@@ -1345,6 +1358,12 @@ support more languages/versions. We’d also like to get the
 .pre-commit-hooks.yaml files added to popular linters without maintaining
 forks / mirrors.</p>
 <p>Feel free to submit bug reports, pull requests, and feature requests.</p>
+<h2 id="sponsoring">    Sponsoring <small><a href="#sponsoring">¶</a></small></h2> <p>If you or your company would like to support the development of pre-commit one
+can contribute in the following ways:</p>
+<ul>
+<li><a href="https://github.com/sponsors/asottile">GitHub Sponsors (asottile)</a></li>
+<li><a href="https://opencollective.com/pre-commit">Open Collective</a></li>
+</ul>
 <h2 id="getting-help">    Getting help <small><a href="#getting-help">¶</a></small></h2> <p>There are several ways to get help for pre-commit:</p>
 <ul>
 <li>Ask a question on <a href="https://stackoverflow.com/questions/tagged/pre-commit.com">stackoverflow tagged <kbd>pre-commit.com</kbd></a></li>
