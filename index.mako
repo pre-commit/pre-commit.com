@@ -309,7 +309,11 @@ repository's configuration.
     =c= (optional) file exclude pattern.
 =r=
     =c= [`types`](_#config-types)
-    =c= (optional) override the default file types to run on.  See
+    =c= (optional) override the default file types to run on (AND).  See
+        [Filtering files with types](#filtering-files-with-types).
+=r=
+    =c= [`types_or`](_#config-types_or)
+    =c= (optional) override the default file types to run on (OR).  See
         [Filtering files with types](#filtering-files-with-types).
 =r=
     =c= [`exclude_types`](_#config-exclude_types)
@@ -437,7 +441,11 @@ file that tells pre-commit:
     =c= (optional: default `^$`)  exclude files that were matched by [`files`](#hooks-files).
 =r=
     =c= [`types`](_#hooks-types)
-    =c= (optional: default `[file]`)  list of file types to run on.  See
+    =c= (optional: default `[file]`)  list of file types to run on (AND).  See
+        [Filtering files with types](#filtering-files-with-types).
+=r=
+    =c= [`types_or`](_#hooks-types_or)
+    =c= (optional: default `[file]`)  list of file types to run on (OR).  See
         [Filtering files with types](#filtering-files-with-types).
 =r=
     =c= [`exclude_types`](_#hooks-exclude_types)
@@ -1490,8 +1498,9 @@ $ identify-cli --filename-only some-random-file; echo $?
 If a file extension you use is not supported, please
 [submit a pull request](https://github.com/pre-commit/identify)!
 
-`types` and `files` are evaluated with `AND` when filtering.  Tags within
-`types` are also evaluated using `AND`.
+`types`, `types_or`, and `files` are evaluated together with `AND` when
+filtering.  Tags within `types` are also evaluated using `AND`.
+Tags within `types_or` are evaluated using `OR`.
 
 For example:
 
@@ -1501,6 +1510,16 @@ For example:
 ```
 
 will match a file `foo/1.py` but will not match `setup.py`.
+
+Another example:
+
+```yaml
+    files: ^foo/
+    types_or: [javascript, jsx, ts, tsx]
+```
+
+will match any of `foo/bar.js` / `foo/bar.jsx` / `foo/bar.ts` / `foo/bar.tsx`
+but not `baz.js`.
 
 If you want to match a file path that isn't included in a `type` when using an
 existing hook you'll need to revert back to `files` only matching by overriding
@@ -1815,6 +1834,14 @@ support more languages/versions. We’d also like to get the
 forks / mirrors.
 
 Feel free to submit bug reports, pull requests, and feature requests.
+
+## Sponsoring
+
+If you or your company would like to support the development of pre-commit one
+can contribute in the following ways:
+
+- [GitHub Sponsors (asottile)](https://github.com/sponsors/asottile)
+- [Open Collective](https://opencollective.com/pre-commit)
 
 ## Getting help
 
