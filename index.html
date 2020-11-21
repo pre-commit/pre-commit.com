@@ -280,7 +280,8 @@ hook.  See <a href="#overriding-language-version">Overriding Language Version</a
 <a href="#filtering-files-with-types">Filtering files with types</a>.</p>
 </td></tr><tr><td><p><a id="config-types_or" href="#config-types_or"><code>types_or</code></a></p>
 </td><td><p>(optional) override the default file types to run on (OR).  See
-<a href="#filtering-files-with-types">Filtering files with types</a>.</p>
+<a href="#filtering-files-with-types">Filtering files with types</a>.
+<em>new in 2.9.0</em>.</p>
 </td></tr><tr><td><p><a id="config-exclude_types" href="#config-exclude_types"><code>exclude_types</code></a></p>
 </td><td><p>(optional) file types to exclude.</p>
 </td></tr><tr><td><p><a id="config-args" href="#config-args"><code>args</code></a></p>
@@ -379,7 +380,8 @@ arguments that will not be overridden such as <code>entry: autopep8 -i</code>.</
 <a href="#filtering-files-with-types">Filtering files with types</a>.</p>
 </td></tr><tr><td><p><a id="hooks-types_or" href="#hooks-types_or"><code>types_or</code></a></p>
 </td><td><p>(optional: default <code>[file]</code>)  list of file types to run on (OR).  See
-<a href="#filtering-files-with-types">Filtering files with types</a>.</p>
+<a href="#filtering-files-with-types">Filtering files with types</a>.
+<em>new in 2.9.0</em>.</p>
 </td></tr><tr><td><p><a id="hooks-exclude_types" href="#hooks-exclude_types"><code>exclude_types</code></a></p>
 </td><td><p>(optional: default <code>[]</code>)  exclude files that were matched by <a href="#hooks-types"><code>types</code></a>.</p>
 </td></tr><tr><td><p><a id="hooks-always_run" href="#hooks-always_run"><code>always_run</code></a></p>
@@ -1122,8 +1124,8 @@ chosen as it is a small portable pure python library.</p>
 <p>If a file extension you use is not supported, please
 <a href="https://github.com/pre-commit/identify">submit a pull request</a>!</p>
 <p><code>types</code>, <code>types_or</code>, and <code>files</code> are evaluated together with <code>AND</code> when
-filtering.  Tags within <code>types</code> are also evaluated using <code>AND</code>.
-Tags within <code>types_or</code> are evaluated using <code>OR</code>.</p>
+filtering.  Tags within <code>types</code> are also evaluated using <code>AND</code>.</p>
+<p><em>new in 2.9.0</em>: Tags within <code>types_or</code> are evaluated using <code>OR</code>.</p>
 <p>For example:</p>
 <div class="highlight yaml"><pre><span></span>    <span class="nt">files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^foo/</span>
     <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">,</span> <span class="nv">python</span><span class="p p-Indicator">]</span>
