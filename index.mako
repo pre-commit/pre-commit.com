@@ -315,6 +315,7 @@ repository's configuration.
     =c= [`types_or`](_#config-types_or)
     =c= (optional) override the default file types to run on (OR).  See
         [Filtering files with types](#filtering-files-with-types).
+        _new in 2.9.0_.
 =r=
     =c= [`exclude_types`](_#config-exclude_types)
     =c= (optional) file types to exclude.
@@ -447,6 +448,7 @@ file that tells pre-commit:
     =c= [`types_or`](_#hooks-types_or)
     =c= (optional: default `[file]`)  list of file types to run on (OR).  See
         [Filtering files with types](#filtering-files-with-types).
+        _new in 2.9.0_.
 =r=
     =c= [`exclude_types`](_#hooks-exclude_types)
     =c= (optional: default `[]`)  exclude files that were matched by [`types`](#hooks-types).
@@ -1500,7 +1502,8 @@ If a file extension you use is not supported, please
 
 `types`, `types_or`, and `files` are evaluated together with `AND` when
 filtering.  Tags within `types` are also evaluated using `AND`.
-Tags within `types_or` are evaluated using `OR`.
+
+_new in 2.9.0_: Tags within `types_or` are evaluated using `OR`.
 
 For example:
 
