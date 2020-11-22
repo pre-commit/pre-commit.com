@@ -4319,5 +4319,18 @@
             "require_serial": true,
             "description": "Dart package to automatically organize your dart imports. Any dart project supported!    \nWill sort imports alphabetically and then group them in the following order:\n1. Dart imports\n2. Flutter imports\n3. Package imports\n4. Project imports\n"
         }
+    ],
+    "https://github.com/editorconfig-checker/editorconfig-checker.python": [
+        {
+            "id": "editorconfig-checker",
+            "name": "editorconfig-checker",
+            "description": "`editorconfig-checker` is a tool to check if your files consider your .editorconfig-rules.",
+            "entry": "editorconfig-checker",
+            "language": "python",
+            "types": [
+                "text"
+            ],
+            "require_serial": true
+        }
     ]
 }
