@@ -446,7 +446,7 @@ file that tells pre-commit:
         [Filtering files with types](#filtering-files-with-types).
 =r=
     =c= [`types_or`](_#hooks-types_or)
-    =c= (optional: default `[file]`)  list of file types to run on (OR).  See
+    =c= (optional: default `[]`)  list of file types to run on (OR).  See
         [Filtering files with types](#filtering-files-with-types).
         _new in 2.9.0_.
 =r=
