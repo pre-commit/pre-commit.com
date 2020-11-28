@@ -949,6 +949,18 @@ git config --global init.templateDir ~/.git-template
 pre-commit init-templatedir ~/.git-template
 ```
 
+For Windows cmd.exe use `%HOMEPATH%` instead of `~`:
+
+```batch
+pre-commit init-templatedir %HOMEPATH%\.git-template
+```
+
+For Windows PowerShell use `$HOME` instead of `~`:
+
+```powershell
+pre-commit init-templatedir $HOME\.git-template
+```
+
 Now whenever a repository is cloned or created, it will have the hooks set up
 already!
 
