@@ -730,6 +730,12 @@ which hook type to install.</li>
 <div class="highlight bash"><pre><span></span>git config --global init.templateDir ~/.git-template
 pre-commit init-templatedir ~/.git-template
 </pre></div>
+<p>For Windows cmd.exe use <code>%HOMEPATH%</code> instead of <code>~</code>:</p>
+<div class="highlight batch"><pre><span></span>pre-commit init-templatedir <span class="nv">%HOMEPATH%</span>\.git-template
+</pre></div>
+<p>For Windows PowerShell use <code>$HOME</code> instead of <code>~</code>:</p>
+<div class="highlight powershell"><pre><span></span><span class="n">pre-commit</span> <span class="n">init-templatedir</span> <span class="nv">$HOME</span><span class="p">\.</span><span class="n">git-template</span>
+</pre></div>
 <p>Now whenever a repository is cloned or created, it will have the hooks set up
 already!</p>
 <h2 id="pre-commit-install">    pre-commit install [options] <small><a href="#pre-commit-install">¶</a></small></h2> <p>Install the pre-commit script.</p>
