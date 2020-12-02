@@ -1729,7 +1729,7 @@ immutable caches:
 
 ```yaml
     - name: set PY
-      run: echo "::set-env name=PY::$(python -VV | sha256sum | cut -d' ' -f1)"
+      run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
     - uses: actions/cache@v1
       with:
         path: ~/.cache/pre-commit
