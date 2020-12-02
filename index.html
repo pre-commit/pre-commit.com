@@ -1278,7 +1278,7 @@ repository template, see <a href="https://github.com/asottile/azure-pipeline-tem
 <p>like <a href="#azure-pipelines-example">azure pipelines</a>, github actions also uses
 immutable caches:</p>
 <div class="highlight yaml"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">set PY</span>
-      <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;::set-env name=PY::$(python -VV | sha256sum | cut -d&#39; &#39; -f1)&quot;</span>
+      <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;PY=$(python -VV | sha256sum | cut -d&#39; &#39; -f1)&quot; &gt;&gt; $GITHUB_ENV</span>
     <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/cache@v1</span>
       <span class="nt">with</span><span class="p">:</span>
         <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span>
