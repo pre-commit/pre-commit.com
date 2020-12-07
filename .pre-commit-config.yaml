@@ -39,7 +39,7 @@ repos:
     hooks:
     -   id: mypy
 -   repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v7.14.0
+    rev: v7.15.0
     hooks:
     -   id: eslint
         args: [--fix]
