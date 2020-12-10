@@ -4332,5 +4332,18 @@
             ],
             "require_serial": true
         }
+    ],
+    "https://gitlab.com/pablodiehl/pre-commit-lua-formatter": [
+        {
+            "id": "lua-formatter",
+            "name": "Lua Formatter",
+            "description": "Formats Lua files using Lua Formatter.",
+            "entry": "luaformatter -a",
+            "language": "system",
+            "types": [
+                "file",
+                "lua"
+            ]
+        }
     ]
 }
