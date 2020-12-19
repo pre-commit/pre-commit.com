@@ -4347,5 +4347,21 @@
                 "lua"
             ]
         }
+    ],
+    "https://github.com/frnmst/md-toc": [
+        {
+            "id": "md-toc",
+            "name": "Update markdown table-of-contents",
+            "description": "Replace TOC marker with a table of contents",
+            "language": "python",
+            "types": [
+                "markdown"
+            ],
+            "entry": "md_toc",
+            "args": [
+                "-p",
+                "github"
+            ]
+        }
     ]
 }
