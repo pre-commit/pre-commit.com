@@ -2622,7 +2622,9 @@
             "require_serial": true,
             "language": "python",
             "language_version": "python3",
-            "types": [
+            "types_or": [
+                "cython",
+                "pyi",
                 "python"
             ],
             "args": [
