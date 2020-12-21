@@ -2629,7 +2629,8 @@
             ],
             "args": [
                 "--filter-files"
-            ]
+            ],
+            "minimum_pre_commit_version": "2.9.0"
         }
     ],
     "https://github.com/pocc/pre-commit-hooks": [
