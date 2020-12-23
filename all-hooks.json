@@ -4366,5 +4366,17 @@
                 "github"
             ]
         }
+    ],
+    "https://github.com/mgedmin/check-manifest": [
+        {
+            "id": "check-manifest",
+            "name": "check-manifest",
+            "description": "Check the completeness of MANIFEST.in for Python packages.",
+            "entry": "check-manifest",
+            "language": "python",
+            "language_version": "python3",
+            "pass_filenames": false,
+            "always_run": true
+        }
     ]
 }
