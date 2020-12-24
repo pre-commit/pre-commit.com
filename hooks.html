@@ -57,6 +57,45 @@
 
 <div class="page-header"><h1>Supported hooks</h1></div>
 
+<div class="row">
+    <div class="col-xs-6 form-group">
+        <label for="search-hook-id">Filter hook id:</label>
+        <input id="search-hook-id" type="text" placeholder="filter hook id" class="form-control"></input>
+    </div>
+    <div class="col-xs-6 form-group">
+        <label for="search-hook-id">Filter hook type:</label>
+        <select id="select-hook-type" class="form-control">
+            <option value="">--</option>
+                <option value="cmake">cmake</option>
+                <option value="csv">csv</option>
+                <option value="cython">cython</option>
+                <option value="file">file</option>
+                <option value="gdscript">gdscript</option>
+                <option value="go">go</option>
+                <option value="javascript">javascript</option>
+                <option value="jinja">jinja</option>
+                <option value="jupyter">jupyter</option>
+                <option value="lua">lua</option>
+                <option value="markdown">markdown</option>
+                <option value="non-executable">non-executable</option>
+                <option value="perl">perl</option>
+                <option value="puppet">puppet</option>
+                <option value="pyi">pyi</option>
+                <option value="python">python</option>
+                <option value="rst">rst</option>
+                <option value="ruby">ruby</option>
+                <option value="rust">rust</option>
+                <option value="scss">scss</option>
+                <option value="shell">shell</option>
+                <option value="swift">swift</option>
+                <option value="text">text</option>
+                <option value="toml">toml</option>
+                <option value="vim">vim</option>
+                <option value="yaml">yaml</option>
+        </select>
+    </div>
+</div>
+
 <p>
 To add to this list, fork <a href="https://github.com/pre-commit/pre-commit.com">this repository</a>.
 </p>
@@ -65,2627 +104,2628 @@ To add to this list, fork <a href="https://github.com/pre-commit/pre-commit.com"
 Also available in <a href="/all-hooks.json">json</a>.
 </p>
 
-    <h3>
+<div id="hooks">
+    <h3 data-repo="https://github.com/pre-commit/pre-commit-hooks">
         <a href="https://github.com/pre-commit/pre-commit-hooks" target="_blank">
             github.com/pre-commit/pre-commit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/pre-commit-hooks">
+            <li data-id="autopep8-wrapper" data-types="">
                 <code>autopep8-wrapper</code>
                     - (removed) use pre-commit/mirrors-autopep8 instead.
             </li>
-            <li>
+            <li data-id="check-added-large-files" data-types="">
                 <code>check-added-large-files</code>
                     - Prevent giant files from being committed
             </li>
-            <li>
+            <li data-id="check-ast" data-types="python">
                 <code>check-ast</code>
                     - Simply check whether the files parse as valid python.
             </li>
-            <li>
+            <li data-id="check-byte-order-marker" data-types="text">
                 <code>check-byte-order-marker</code>
                     - forbid files which have a UTF-8 byte-order marker
             </li>
-            <li>
+            <li data-id="check-builtin-literals" data-types="python">
                 <code>check-builtin-literals</code>
                     - Require literal syntax when initializing empty or zero Python builtin types.
             </li>
-            <li>
+            <li data-id="check-case-conflict" data-types="">
                 <code>check-case-conflict</code>
                     - Check for files that would conflict in case-insensitive filesystems
             </li>
-            <li>
+            <li data-id="check-docstring-first" data-types="python">
                 <code>check-docstring-first</code>
                     - Checks a common error of defining a docstring after code.
             </li>
-            <li>
+            <li data-id="check-executables-have-shebangs" data-types="text, executable">
                 <code>check-executables-have-shebangs</code>
                     - Ensures that (non-binary) executables have a shebang.
             </li>
-            <li>
+            <li data-id="check-json" data-types="json">
                 <code>check-json</code>
                     - This hook checks json files for parseable syntax.
             </li>
-            <li>
+            <li data-id="pretty-format-json" data-types="json">
                 <code>pretty-format-json</code>
                     - This hook sets a standard for formatting JSON files.
             </li>
-            <li>
+            <li data-id="check-merge-conflict" data-types="text">
                 <code>check-merge-conflict</code>
                     - Check for files that contain merge conflict strings.
             </li>
-            <li>
+            <li data-id="check-symlinks" data-types="symlink">
                 <code>check-symlinks</code>
                     - Checks for symlinks which do not point to anything.
             </li>
-            <li>
+            <li data-id="check-toml" data-types="toml">
                 <code>check-toml</code>
                     - This hook checks toml files for parseable syntax.
             </li>
-            <li>
+            <li data-id="check-vcs-permalinks" data-types="text">
                 <code>check-vcs-permalinks</code>
                     - Ensures that links to vcs websites are permalinks.
             </li>
-            <li>
+            <li data-id="check-xml" data-types="xml">
                 <code>check-xml</code>
                     - This hook checks xml files for parseable syntax.
             </li>
-            <li>
+            <li data-id="check-yaml" data-types="yaml">
                 <code>check-yaml</code>
                     - This hook checks yaml files for parseable syntax.
             </li>
-            <li>
+            <li data-id="debug-statements" data-types="python">
                 <code>debug-statements</code>
                     - Check for debugger imports and py37+ `breakpoint()` calls in python source.
             </li>
-            <li>
+            <li data-id="destroyed-symlinks" data-types="file">
                 <code>destroyed-symlinks</code>
                     - Detects symlinks which are changed to regular files with a content of a path which that symlink was pointing to.
             </li>
-            <li>
+            <li data-id="detect-aws-credentials" data-types="text">
                 <code>detect-aws-credentials</code>
                     - Detects *your* aws credentials from the aws cli credentials file
             </li>
-            <li>
+            <li data-id="detect-private-key" data-types="text">
                 <code>detect-private-key</code>
                     - Detects the presence of private keys
             </li>
-            <li>
+            <li data-id="double-quote-string-fixer" data-types="python">
                 <code>double-quote-string-fixer</code>
                     - This hook replaces double quoted strings with single quoted strings
             </li>
-            <li>
+            <li data-id="end-of-file-fixer" data-types="text">
                 <code>end-of-file-fixer</code>
                     - Ensures that a file is either empty, or ends with one newline.
             </li>
-            <li>
+            <li data-id="file-contents-sorter" data-types="">
                 <code>file-contents-sorter</code>
                     - Sort the lines in specified files (defaults to alphabetical). You must provide list of target files as input in your .pre-commit-config.yaml file.
             </li>
-            <li>
+            <li data-id="fix-byte-order-marker" data-types="text">
                 <code>fix-byte-order-marker</code>
                     - removes UTF-8 byte order marker
             </li>
-            <li>
+            <li data-id="fix-encoding-pragma" data-types="python">
                 <code>fix-encoding-pragma</code>
                     - Add # -*- coding: utf-8 -*- to the top of python files
             </li>
-            <li>
+            <li data-id="flake8" data-types="">
                 <code>flake8</code>
                     - (removed) use gitlab.com/pycqa/flake8 instead.
             </li>
-            <li>
+            <li data-id="forbid-new-submodules" data-types="">
                 <code>forbid-new-submodules</code>
                     - Prevent addition of new git submodules
             </li>
-            <li>
+            <li data-id="mixed-line-ending" data-types="text">
                 <code>mixed-line-ending</code>
                     - Replaces or checks mixed line ending
             </li>
-            <li>
+            <li data-id="name-tests-test" data-types="">
                 <code>name-tests-test</code>
                     - This verifies that test files are named correctly
             </li>
-            <li>
+            <li data-id="no-commit-to-branch" data-types="">
                 <code>no-commit-to-branch</code>
                     - Don&#39;t commit to branch
             </li>
-            <li>
+            <li data-id="pyflakes" data-types="">
                 <code>pyflakes</code>
                     - (removed) use gitlab.com/pycqa/flake8 instead.
             </li>
-            <li>
+            <li data-id="requirements-txt-fixer" data-types="">
                 <code>requirements-txt-fixer</code>
                     - Sorts entries in requirements.txt
             </li>
-            <li>
+            <li data-id="sort-simple-yaml" data-types="">
                 <code>sort-simple-yaml</code>
                     - Sorts simple YAML files which consist only of top-level keys, preserving comments and blocks.
             </li>
-            <li>
+            <li data-id="trailing-whitespace" data-types="text">
                 <code>trailing-whitespace</code>
                     - This hook trims trailing whitespace.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-autopep8">
         <a href="https://github.com/pre-commit/mirrors-autopep8" target="_blank">
             github.com/pre-commit/mirrors-autopep8
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-autopep8">
+            <li data-id="autopep8" data-types="python">
                 <code>autopep8</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-coffeelint">
         <a href="https://github.com/pre-commit/mirrors-coffeelint" target="_blank">
             github.com/pre-commit/mirrors-coffeelint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-coffeelint">
+            <li data-id="coffeelint" data-types="">
                 <code>coffeelint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-csslint">
         <a href="https://github.com/pre-commit/mirrors-csslint" target="_blank">
             github.com/pre-commit/mirrors-csslint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-csslint">
+            <li data-id="csslint" data-types="">
                 <code>csslint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-eslint">
         <a href="https://github.com/pre-commit/mirrors-eslint" target="_blank">
             github.com/pre-commit/mirrors-eslint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-eslint">
+            <li data-id="eslint" data-types="javascript">
                 <code>eslint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-fixmyjs">
         <a href="https://github.com/pre-commit/mirrors-fixmyjs" target="_blank">
             github.com/pre-commit/mirrors-fixmyjs
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-fixmyjs">
+            <li data-id="fixmyjs" data-types="">
                 <code>fixmyjs</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-jshint">
         <a href="https://github.com/pre-commit/mirrors-jshint" target="_blank">
             github.com/pre-commit/mirrors-jshint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-jshint">
+            <li data-id="jshint" data-types="javascript">
                 <code>jshint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-mypy">
         <a href="https://github.com/pre-commit/mirrors-mypy" target="_blank">
             github.com/pre-commit/mirrors-mypy
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-mypy">
+            <li data-id="mypy" data-types="python">
                 <code>mypy</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-prettier">
         <a href="https://github.com/pre-commit/mirrors-prettier" target="_blank">
             github.com/pre-commit/mirrors-prettier
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-prettier">
+            <li data-id="prettier" data-types="text">
                 <code>prettier</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-puppet-lint">
         <a href="https://github.com/pre-commit/mirrors-puppet-lint" target="_blank">
             github.com/pre-commit/mirrors-puppet-lint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-puppet-lint">
+            <li data-id="puppet-lint" data-types="puppet">
                 <code>puppet-lint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-ruby-lint">
         <a href="https://github.com/pre-commit/mirrors-ruby-lint" target="_blank">
             github.com/pre-commit/mirrors-ruby-lint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-ruby-lint">
+            <li data-id="ruby-lint" data-types="ruby">
                 <code>ruby-lint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-scss-lint">
         <a href="https://github.com/pre-commit/mirrors-scss-lint" target="_blank">
             github.com/pre-commit/mirrors-scss-lint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-scss-lint">
+            <li data-id="scss-lint" data-types="scss">
                 <code>scss-lint</code>
                     - scss_lint
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-yapf">
         <a href="https://github.com/pre-commit/mirrors-yapf" target="_blank">
             github.com/pre-commit/mirrors-yapf
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/mirrors-yapf">
+            <li data-id="yapf" data-types="python">
                 <code>yapf</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pre-commit/pygrep-hooks">
         <a href="https://github.com/pre-commit/pygrep-hooks" target="_blank">
             github.com/pre-commit/pygrep-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pre-commit/pygrep-hooks">
+            <li data-id="python-check-blanket-noqa" data-types="python">
                 <code>python-check-blanket-noqa</code>
                     - Enforce that `noqa` annotations always occur with specific codes. Sample annotations: `# noqa: F401`, `# noqa: F401,W203`
             </li>
-            <li>
+            <li data-id="python-check-mock-methods" data-types="python">
                 <code>python-check-mock-methods</code>
                     - Prevent common mistakes of `assert mck.not_called()`, `assert mck.called_once_with(...)` and `mck.assert_called`.
             </li>
-            <li>
+            <li data-id="python-no-eval" data-types="python">
                 <code>python-no-eval</code>
                     - A quick check for the `eval()` built-in function
             </li>
-            <li>
+            <li data-id="python-no-log-warn" data-types="python">
                 <code>python-no-log-warn</code>
                     - A quick check for the deprecated `.warn()` method of python loggers
             </li>
-            <li>
+            <li data-id="python-use-type-annotations" data-types="python">
                 <code>python-use-type-annotations</code>
                     - Enforce that python3.6+ type annotations are used instead of type comments
             </li>
-            <li>
+            <li data-id="rst-backticks" data-types="rst">
                 <code>rst-backticks</code>
                     - Detect common mistake of using single backticks when writing rst
             </li>
-            <li>
+            <li data-id="rst-directive-colons" data-types="text">
                 <code>rst-directive-colons</code>
                     - Detect mistake of rst directive not ending with double colon
             </li>
-            <li>
+            <li data-id="rst-inline-touching-normal" data-types="rst">
                 <code>rst-inline-touching-normal</code>
                     - Detect mistake of inline code touching normal text in rst
             </li>
-            <li>
+            <li data-id="text-unicode-replacement-char" data-types="text">
                 <code>text-unicode-replacement-char</code>
                     - Forbid files which have a UTF-8 Unicode replacement character
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/FalconSocial/pre-commit-mirrors-pep257">
         <a href="https://github.com/FalconSocial/pre-commit-mirrors-pep257" target="_blank">
             github.com/FalconSocial/pre-commit-mirrors-pep257
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/FalconSocial/pre-commit-mirrors-pep257">
+            <li data-id="pep257" data-types="">
                 <code>pep257</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/FalconSocial/pre-commit-python-sorter">
         <a href="https://github.com/FalconSocial/pre-commit-python-sorter" target="_blank">
             github.com/FalconSocial/pre-commit-python-sorter
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/FalconSocial/pre-commit-python-sorter">
+            <li data-id="python-import-sorter" data-types="">
                 <code>python-import-sorter</code>
                     - This hook sorts python imports.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/guykisel/pre-commit-robotframework-tidy">
         <a href="https://github.com/guykisel/pre-commit-robotframework-tidy" target="_blank">
             github.com/guykisel/pre-commit-robotframework-tidy
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/guykisel/pre-commit-robotframework-tidy">
+            <li data-id="robotframework-tidy-wrapper" data-types="">
                 <code>robotframework-tidy-wrapper</code>
                     - Runs Robot Framework&#39;s tidy tool.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/guykisel/prospector-mirror">
         <a href="https://github.com/guykisel/prospector-mirror" target="_blank">
             github.com/guykisel/prospector-mirror
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/guykisel/prospector-mirror">
+            <li data-id="prospector" data-types="">
                 <code>prospector</code>
                     - This hook runs Prospector: https://github.com/landscapeio/prospector
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/asottile/add-trailing-comma">
         <a href="https://github.com/asottile/add-trailing-comma" target="_blank">
             github.com/asottile/add-trailing-comma
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/asottile/add-trailing-comma">
+            <li data-id="add-trailing-comma" data-types="python">
                 <code>add-trailing-comma</code>
                     - Automatically add trailing commas to calls and literals.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/asottile/pyupgrade">
         <a href="https://github.com/asottile/pyupgrade" target="_blank">
             github.com/asottile/pyupgrade
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/asottile/pyupgrade">
+            <li data-id="pyupgrade" data-types="python">
                 <code>pyupgrade</code>
                     - Automatically upgrade syntax for newer versions.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/asottile/reorder_python_imports">
         <a href="https://github.com/asottile/reorder_python_imports" target="_blank">
             github.com/asottile/reorder_python_imports
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/asottile/reorder_python_imports">
+            <li data-id="reorder-python-imports" data-types="python">
                 <code>reorder-python-imports</code>
                     - This hook reorders imports in python files.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/asottile/yesqa">
         <a href="https://github.com/asottile/yesqa" target="_blank">
             github.com/asottile/yesqa
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/asottile/yesqa">
+            <li data-id="yesqa" data-types="python">
                 <code>yesqa</code>
                     - Automatically remove unnecessary `# noqa` comments
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/asottile/blacken-docs">
         <a href="https://github.com/asottile/blacken-docs" target="_blank">
             github.com/asottile/blacken-docs
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/asottile/blacken-docs">
+            <li data-id="blacken-docs" data-types="">
                 <code>blacken-docs</code>
                     - Run `black` on python code blocks in documentation files
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/asottile/dead">
         <a href="https://github.com/asottile/dead" target="_blank">
             github.com/asottile/dead
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/asottile/dead">
+            <li data-id="dead" data-types="python">
                 <code>dead</code>
                     - dead simple python dead code detection
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/asottile/setup-cfg-fmt">
         <a href="https://github.com/asottile/setup-cfg-fmt" target="_blank">
             github.com/asottile/setup-cfg-fmt
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/asottile/setup-cfg-fmt">
+            <li data-id="setup-cfg-fmt" data-types="">
                 <code>setup-cfg-fmt</code>
                     - apply a consistent format to `setup.cfg` files
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/asottile/cheetah_lint">
         <a href="https://github.com/asottile/cheetah_lint" target="_blank">
             github.com/asottile/cheetah_lint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/asottile/cheetah_lint">
+            <li data-id="cheetah-reorder-imports" data-types="">
                 <code>cheetah-reorder-imports</code>
                     - This hook reorders imports in cheetah files.
             </li>
-            <li>
+            <li data-id="cheetah-flake" data-types="">
                 <code>cheetah-flake</code>
                     - Lint cheetah code using flake8 and some other checks.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/digitalpulp/pre-commit-php">
         <a href="https://github.com/digitalpulp/pre-commit-php" target="_blank">
             github.com/digitalpulp/pre-commit-php
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/digitalpulp/pre-commit-php">
+            <li data-id="php-lint-all" data-types="">
                 <code>php-lint-all</code>
                     - Check PHP Syntax on ALL PHP staged files with user friendly messages and colors
             </li>
-            <li>
+            <li data-id="php-lint" data-types="">
                 <code>php-lint</code>
                     - Runs php -l on all staged PHP files. Exits when it hits the first errored file
             </li>
-            <li>
+            <li data-id="php-unit" data-types="">
                 <code>php-unit</code>
                     - Run the full php unit test. Checks which PHPUnit executable is available first and then runs it. Preference order is vendor/bin, phpunit and phpunit.phar.
             </li>
-            <li>
+            <li data-id="php-cs" data-types="">
                 <code>php-cs</code>
                     - Run php codesniffer against all staged PHP files.
             </li>
-            <li>
+            <li data-id="php-cbf" data-types="">
                 <code>php-cbf</code>
                     - Run php codesniffer against all staged PHP files.
             </li>
-            <li>
+            <li data-id="php-cs-fixer" data-types="">
                 <code>php-cs-fixer</code>
                     - Run php coding standards fixer against all staged PHP files.
             </li>
-            <li>
+            <li data-id="php-stan" data-types="">
                 <code>php-stan</code>
                     - Run PHPStan against all staged PHP files.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/elidupuis/mirrors-jscs">
         <a href="https://github.com/elidupuis/mirrors-jscs" target="_blank">
             github.com/elidupuis/mirrors-jscs
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/elidupuis/mirrors-jscs">
+            <li data-id="jscs" data-types="">
                 <code>jscs</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/elidupuis/mirrors-sass-lint">
         <a href="https://github.com/elidupuis/mirrors-sass-lint" target="_blank">
             github.com/elidupuis/mirrors-sass-lint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/elidupuis/mirrors-sass-lint">
+            <li data-id="sass-lint" data-types="">
                 <code>sass-lint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/jumanjihouse/pre-commit-hooks">
         <a href="https://github.com/jumanjihouse/pre-commit-hooks" target="_blank">
             github.com/jumanjihouse/pre-commit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/jumanjihouse/pre-commit-hooks">
+            <li data-id="bundler-audit" data-types="">
                 <code>bundler-audit</code>
                     - Check for vulnerable gem versions and insecure sources
             </li>
-            <li>
+            <li data-id="check-mailmap" data-types="">
                 <code>check-mailmap</code>
                     - Detect if an email address needs to be added to mailmap
             </li>
-            <li>
+            <li data-id="fasterer" data-types="ruby">
                 <code>fasterer</code>
                     - Use fasterer to suggest speed improvements in Ruby
             </li>
-            <li>
+            <li data-id="forbid-binary" data-types="binary">
                 <code>forbid-binary</code>
                     - Forbid binary files from being committed
             </li>
-            <li>
+            <li data-id="forbid-space-in-indent" data-types="">
                 <code>forbid-space-in-indent</code>
                     - Forbid spaces in indentation
             </li>
-            <li>
+            <li data-id="git-check" data-types="">
                 <code>git-check</code>
                     - Use git to check for conflict markers and core.whitespace errors, respecting .gitattributes
             </li>
-            <li>
+            <li data-id="git-dirty" data-types="">
                 <code>git-dirty</code>
                     - Detect if git tree contains modified, staged, or untracked files
             </li>
-            <li>
+            <li data-id="markdownlint" data-types="markdown">
                 <code>markdownlint</code>
                     - Check markdown files and flag style issues
             </li>
-            <li>
+            <li data-id="protect-first-parent" data-types="">
                 <code>protect-first-parent</code>
                     - Protect first parent from foxtrot merges
             </li>
-            <li>
+            <li data-id="reek" data-types="ruby">
                 <code>reek</code>
                     - Use reek to find ruby code smells
             </li>
-            <li>
+            <li data-id="require-ascii" data-types="text">
                 <code>require-ascii</code>
                     - Ensure file is ascii-encoded
             </li>
-            <li>
+            <li data-id="rubocop" data-types="ruby">
                 <code>rubocop</code>
                     - Enforce Ruby style guide with rubocop and rubocop-rspec
             </li>
-            <li>
+            <li data-id="shellcheck" data-types="shell">
                 <code>shellcheck</code>
                     - Shell scripts conform to shellcheck
             </li>
-            <li>
+            <li data-id="script-must-have-extension" data-types="shell, non-executable">
                 <code>script-must-have-extension</code>
                     - Non-executable shell script filename ends in .sh
             </li>
-            <li>
+            <li data-id="script-must-not-have-extension" data-types="shell, executable">
                 <code>script-must-not-have-extension</code>
                     - Executable shell script omits the filename extension
             </li>
-            <li>
+            <li data-id="shfmt" data-types="shell">
                 <code>shfmt</code>
                     - Check shell style with shfmt
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/jumanjihouse/pre-commit-hook-yamlfmt">
         <a href="https://github.com/jumanjihouse/pre-commit-hook-yamlfmt" target="_blank">
             github.com/jumanjihouse/pre-commit-hook-yamlfmt
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/jumanjihouse/pre-commit-hook-yamlfmt">
+            <li data-id="yamlfmt" data-types="yaml">
                 <code>yamlfmt</code>
                     - Format YAML files
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Lucas-C/pre-commit-hooks">
         <a href="https://github.com/Lucas-C/pre-commit-hooks" target="_blank">
             github.com/Lucas-C/pre-commit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Lucas-C/pre-commit-hooks">
+            <li data-id="forbid-crlf" data-types="">
                 <code>forbid-crlf</code>
                     - Forbid files containing CRLF end-lines to be committed
             </li>
-            <li>
+            <li data-id="remove-crlf" data-types="">
                 <code>remove-crlf</code>
                     - Replace CRLF end-lines by LF ones before committing
             </li>
-            <li>
+            <li data-id="forbid-tabs" data-types="">
                 <code>forbid-tabs</code>
                     - Forbid files containing tabs to be committed
             </li>
-            <li>
+            <li data-id="remove-tabs" data-types="">
                 <code>remove-tabs</code>
                     - Replace tabs by whitespaces before committing
             </li>
-            <li>
+            <li data-id="insert-license" data-types="">
                 <code>insert-license</code>
                     - Insert a short license disclaimer as a header comment in source files
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Lucas-C/pre-commit-hooks-go">
         <a href="https://github.com/Lucas-C/pre-commit-hooks-go" target="_blank">
             github.com/Lucas-C/pre-commit-hooks-go
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Lucas-C/pre-commit-hooks-go">
+            <li data-id="checkmake" data-types="">
                 <code>checkmake</code>
                     - Makefile linter/analyzer
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Lucas-C/pre-commit-hooks-java">
         <a href="https://github.com/Lucas-C/pre-commit-hooks-java" target="_blank">
             github.com/Lucas-C/pre-commit-hooks-java
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Lucas-C/pre-commit-hooks-java">
+            <li data-id="validate-html" data-types="">
                 <code>validate-html</code>
                     - HTML syntax validator using W3C v.Nu checker, with support for handlebars/jinja2 templates
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Lucas-C/pre-commit-hooks-lxml">
         <a href="https://github.com/Lucas-C/pre-commit-hooks-lxml" target="_blank">
             github.com/Lucas-C/pre-commit-hooks-lxml
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Lucas-C/pre-commit-hooks-lxml">
+            <li data-id="forbid-html-img-without-alt-text" data-types="">
                 <code>forbid-html-img-without-alt-text</code>
                     - List every &lt;img&gt; tag without a alt= or data-ng-attr-alt= attribute
             </li>
-            <li>
+            <li data-id="forbid-non-std-html-attributes" data-types="">
                 <code>forbid-non-std-html-attributes</code>
                     - Detect any non-standard attribute that is not prefixed with data-
             </li>
-            <li>
+            <li data-id="detect-missing-css-classes" data-types="">
                 <code>detect-missing-css-classes</code>
                     - Detect unused or missing CSS classes definitions, and abort if any of the later ones is found
             </li>
-            <li>
+            <li data-id="html-tags-blacklist" data-types="">
                 <code>html-tags-blacklist</code>
                     - Forbid some HTML tags
             </li>
-            <li>
+            <li data-id="html-attributes-blacklist" data-types="">
                 <code>html-attributes-blacklist</code>
                     - Forbid some HTML attributes
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Lucas-C/pre-commit-hooks-markup">
         <a href="https://github.com/Lucas-C/pre-commit-hooks-markup" target="_blank">
             github.com/Lucas-C/pre-commit-hooks-markup
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Lucas-C/pre-commit-hooks-markup">
+            <li data-id="rst-linter" data-types="">
                 <code>rst-linter</code>
                     - Check .rst files with the same linter used by pypi.org
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Lucas-C/pre-commit-hooks-nodejs">
         <a href="https://github.com/Lucas-C/pre-commit-hooks-nodejs" target="_blank">
             github.com/Lucas-C/pre-commit-hooks-nodejs
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Lucas-C/pre-commit-hooks-nodejs">
+            <li data-id="htmlhint" data-types="">
                 <code>htmlhint</code>
                     - NodeJS HTML syntax linter (htmlhint)
             </li>
-            <li>
+            <li data-id="htmllint" data-types="">
                 <code>htmllint</code>
                     - NodeJS HTML syntax linter (htmllint)
             </li>
-            <li>
+            <li data-id="dockerfile_lint" data-types="">
                 <code>dockerfile_lint</code>
                     - Dockerfile linter
             </li>
-            <li>
+            <li data-id="markdown-toc" data-types="">
                 <code>markdown-toc</code>
                     - Insert a table of contents in Markdown files, like a README.md
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Lucas-C/pre-commit-hooks-safety">
         <a href="https://github.com/Lucas-C/pre-commit-hooks-safety" target="_blank">
             github.com/Lucas-C/pre-commit-hooks-safety
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Lucas-C/pre-commit-hooks-safety">
+            <li data-id="python-safety-dependencies-check" data-types="">
                 <code>python-safety-dependencies-check</code>
                     - Analyze your Python requirements for known security vulnerabilities
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/chriskuehl/puppet-pre-commit-hooks">
         <a href="https://github.com/chriskuehl/puppet-pre-commit-hooks" target="_blank">
             github.com/chriskuehl/puppet-pre-commit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/chriskuehl/puppet-pre-commit-hooks">
+            <li data-id="epp-validate" data-types="">
                 <code>epp-validate</code>
                     - Validate syntax of Puppet EPP templates
             </li>
-            <li>
+            <li data-id="erb-validate" data-types="">
                 <code>erb-validate</code>
                     - Validate syntax of Ruby ERB templates
             </li>
-            <li>
+            <li data-id="g10k-validate" data-types="">
                 <code>g10k-validate</code>
                     - Validate syntax of Puppetfile using g10k
             </li>
-            <li>
+            <li data-id="puppet-lint" data-types="">
                 <code>puppet-lint</code>
                     - Check Puppet manifests for stylistic problems
             </li>
-            <li>
+            <li data-id="puppet-validate" data-types="">
                 <code>puppet-validate</code>
                     - Validate syntax of Puppet manifests
             </li>
-            <li>
+            <li data-id="r10k-validate" data-types="">
                 <code>r10k-validate</code>
                     - Validate syntax of Puppetfile using r10k
             </li>
-            <li>
+            <li data-id="ruby-validate" data-types="">
                 <code>ruby-validate</code>
                     - Validate syntax of ruby code
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/golangci/golangci-lint">
         <a href="https://github.com/golangci/golangci-lint" target="_blank">
             github.com/golangci/golangci-lint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/golangci/golangci-lint">
+            <li data-id="golangci-lint" data-types="go">
                 <code>golangci-lint</code>
                     - Fast linters runner for Go.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Bahjat/pre-commit-golang">
         <a href="https://github.com/Bahjat/pre-commit-golang" target="_blank">
             github.com/Bahjat/pre-commit-golang
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Bahjat/pre-commit-golang">
+            <li data-id="go-fmt-import" data-types="">
                 <code>go-fmt-import</code>
                     - Runs `goimport,gofmt`, requires golang
             </li>
-            <li>
+            <li data-id="go-vet" data-types="">
                 <code>go-vet</code>
                     - Runs `go vet`, requires golang
             </li>
-            <li>
+            <li data-id="go-lint" data-types="">
                 <code>go-lint</code>
                     - Runs `go lint`, requires golang
             </li>
-            <li>
+            <li data-id="go-unit-tests" data-types="">
                 <code>go-unit-tests</code>
                     - Runs `go test`, requires golang
             </li>
-            <li>
+            <li data-id="gofumpt" data-types="">
                 <code>gofumpt</code>
                     - Runs `gofumpt`, requires github.com/mvdan/gofumpt
             </li>
-            <li>
+            <li data-id="go-err-check" data-types="">
                 <code>go-err-check</code>
                     - Runs `errcheck`, requires github.com/kisielk/errcheck
             </li>
-            <li>
+            <li data-id="go-static-check" data-types="">
                 <code>go-static-check</code>
                     - Runs `staticcheck`, install https://staticcheck.io/docs/
             </li>
-            <li>
+            <li data-id="golangci-lint" data-types="">
                 <code>golangci-lint</code>
                     - Runs `golangci-lint`, install https://github.com/golangci/golangci-lint
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/dnephin/pre-commit-golang">
         <a href="https://github.com/dnephin/pre-commit-golang" target="_blank">
             github.com/dnephin/pre-commit-golang
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/dnephin/pre-commit-golang">
+            <li data-id="go-fmt" data-types="">
                 <code>go-fmt</code>
                     - Runs `gofmt`, requires golang
             </li>
-            <li>
+            <li data-id="go-imports" data-types="">
                 <code>go-imports</code>
                     - Runs `goimports`, requires golang
             </li>
-            <li>
+            <li data-id="go-vet" data-types="">
                 <code>go-vet</code>
                     - Runs `go vet`, requires golang
             </li>
-            <li>
+            <li data-id="go-lint" data-types="">
                 <code>go-lint</code>
                     - Runs `golint`, requires https://github.com/golang/lint
             </li>
-            <li>
+            <li data-id="go-cyclo" data-types="">
                 <code>go-cyclo</code>
                     - Runs `gocyclo`, requires https://github.com/fzipp/gocyclo
             </li>
-            <li>
+            <li data-id="validate-toml" data-types="">
                 <code>validate-toml</code>
                     - Runs `tomlv`, requires https://github.com/BurntSushi/toml/tree/master/cmd/tomlv&#34;
 
             </li>
-            <li>
+            <li data-id="no-go-testing" data-types="">
                 <code>no-go-testing</code>
                     - Checks that no files are using `testing.T`, if you want developers to use a different testing framework
 
             </li>
-            <li>
+            <li data-id="gometalinter" data-types="">
                 <code>gometalinter</code>
                     - 
             </li>
-            <li>
+            <li data-id="golangci-lint" data-types="go">
                 <code>golangci-lint</code>
                     - Runs `golangci-lint`, requires https://github.com/golangci/golangci-lint
             </li>
-            <li>
+            <li data-id="go-critic" data-types="">
                 <code>go-critic</code>
                     - Runs `go-critic`, requires https://github.com/go-critic/go-critic
             </li>
-            <li>
+            <li data-id="go-unit-tests" data-types="">
                 <code>go-unit-tests</code>
                     - Runs `go test`
             </li>
-            <li>
+            <li data-id="go-build" data-types="">
                 <code>go-build</code>
                     - Runs `go build`, requires golang
             </li>
-            <li>
+            <li data-id="go-mod-tidy" data-types="">
                 <code>go-mod-tidy</code>
                     - Runs `go mod tidy -v`, requires golang
             </li>
-            <li>
+            <li data-id="go-mod-vendor" data-types="">
                 <code>go-mod-vendor</code>
                     - Runs `go mod vendor`, requires golang
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/troian/pre-commit-golang">
         <a href="https://github.com/troian/pre-commit-golang" target="_blank">
             github.com/troian/pre-commit-golang
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/troian/pre-commit-golang">
+            <li data-id="go-fmt" data-types="">
                 <code>go-fmt</code>
                     - Runs `gofmt`, requires golang
             </li>
-            <li>
+            <li data-id="go-imports" data-types="">
                 <code>go-imports</code>
                     - Runs `goimports`, requires golang
             </li>
-            <li>
+            <li data-id="go-vet" data-types="">
                 <code>go-vet</code>
                     - Runs `go vet`, requires golang
             </li>
-            <li>
+            <li data-id="go-lint" data-types="">
                 <code>go-lint</code>
                     - Runs `golint`, requires https://github.com/golang/lint
             </li>
-            <li>
+            <li data-id="go-metalinter" data-types="">
                 <code>go-metalinter</code>
                     - Runs `gometalinter`, requires https://github.com/alecthomas/gometalinter
             </li>
-            <li>
+            <li data-id="go-build" data-types="">
                 <code>go-build</code>
                     - Makes sure Go code can build
             </li>
-            <li>
+            <li data-id="go-build-plugin" data-types="">
                 <code>go-build-plugin</code>
                     - Makes sure Go code can build package as plugin
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/jstewmon/check-swagger">
         <a href="https://github.com/jstewmon/check-swagger" target="_blank">
             github.com/jstewmon/check-swagger
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/jstewmon/check-swagger">
+            <li data-id="check-swagger" data-types="">
                 <code>check-swagger</code>
                     - Hook to validate swagger specs.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/detailyang/pre-commit-shell">
         <a href="https://github.com/detailyang/pre-commit-shell" target="_blank">
             github.com/detailyang/pre-commit-shell
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/detailyang/pre-commit-shell">
+            <li data-id="shell-lint" data-types="shell">
                 <code>shell-lint</code>
                     - Check Shell Syntax on ALL staged files with user friendly messages and colors
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/bemeurer/beautysh">
         <a href="https://github.com/bemeurer/beautysh" target="_blank">
             github.com/bemeurer/beautysh
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/bemeurer/beautysh">
+            <li data-id="beautysh" data-types="shell">
                 <code>beautysh</code>
                     - A Bash beautifier for the masses.
 https://pypi.python.org/pypi/beautysh
 
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/antonbabenko/pre-commit-terraform">
         <a href="https://github.com/antonbabenko/pre-commit-terraform" target="_blank">
             github.com/antonbabenko/pre-commit-terraform
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/antonbabenko/pre-commit-terraform">
+            <li data-id="terraform_fmt" data-types="">
                 <code>terraform_fmt</code>
                     - Rewrites all Terraform configuration files to a canonical format.
             </li>
-            <li>
+            <li data-id="terraform_docs" data-types="">
                 <code>terraform_docs</code>
                     - Inserts input and output documentation into README.md (using terraform-docs).
             </li>
-            <li>
+            <li data-id="terraform_docs_without_aggregate_type_defaults" data-types="">
                 <code>terraform_docs_without_aggregate_type_defaults</code>
                     - Inserts input and output documentation into README.md (using terraform-docs). Identical to terraform_docs.
             </li>
-            <li>
+            <li data-id="terraform_docs_replace" data-types="">
                 <code>terraform_docs_replace</code>
                     - Overwrite content of README.md with terraform-docs.
             </li>
-            <li>
+            <li data-id="terraform_validate" data-types="">
                 <code>terraform_validate</code>
                     - Validates all Terraform configuration files.
             </li>
-            <li>
+            <li data-id="terraform_tflint" data-types="">
                 <code>terraform_tflint</code>
                     - Validates all Terraform configuration files with TFLint.
             </li>
-            <li>
+            <li data-id="terragrunt_fmt" data-types="">
                 <code>terragrunt_fmt</code>
                     - Rewrites all Terragrunt configuration files to a canonical format.
             </li>
-            <li>
+            <li data-id="terragrunt_validate" data-types="">
                 <code>terragrunt_validate</code>
                     - Validates all Terragrunt configuration files.
             </li>
-            <li>
+            <li data-id="terraform_tfsec" data-types="">
                 <code>terraform_tfsec</code>
                     - Static analysis of Terraform templates to spot potential security issues.
             </li>
-            <li>
+            <li data-id="checkov" data-types="">
                 <code>checkov</code>
                     - Runs checkov on Terraform templates.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/ansible/ansible-lint">
         <a href="https://github.com/ansible/ansible-lint" target="_blank">
             github.com/ansible/ansible-lint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/ansible/ansible-lint">
+            <li data-id="ansible-lint" data-types="">
                 <code>ansible-lint</code>
                     - This hook runs ansible-lint.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/doublify/pre-commit-clang-format">
         <a href="https://github.com/doublify/pre-commit-clang-format" target="_blank">
             github.com/doublify/pre-commit-clang-format
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/doublify/pre-commit-clang-format">
+            <li data-id="clang-format" data-types="">
                 <code>clang-format</code>
                     - Format files with ClangFormat.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/doublify/pre-commit-go">
         <a href="https://github.com/doublify/pre-commit-go" target="_blank">
             github.com/doublify/pre-commit-go
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/doublify/pre-commit-go">
+            <li data-id="fmt" data-types="">
                 <code>fmt</code>
                     - Format files with go fmt.
             </li>
-            <li>
+            <li data-id="vet" data-types="">
                 <code>vet</code>
                     - Check files with go vet.
             </li>
-            <li>
+            <li data-id="fix" data-types="">
                 <code>fix</code>
                     - Fix files with go fix.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/doublify/pre-commit-hindent">
         <a href="https://github.com/doublify/pre-commit-hindent" target="_blank">
             github.com/doublify/pre-commit-hindent
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/doublify/pre-commit-hindent">
+            <li data-id="hindent" data-types="">
                 <code>hindent</code>
                     - Format files with hindent.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/doublify/pre-commit-rust">
         <a href="https://github.com/doublify/pre-commit-rust" target="_blank">
             github.com/doublify/pre-commit-rust
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/doublify/pre-commit-rust">
+            <li data-id="fmt" data-types="rust">
                 <code>fmt</code>
                     - Format files with cargo fmt.
             </li>
-            <li>
+            <li data-id="cargo-check" data-types="rust">
                 <code>cargo-check</code>
                     - Check the package for errors.
             </li>
-            <li>
+            <li data-id="clippy" data-types="rust">
                 <code>clippy</code>
                     - Lint rust sources
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/kintoandar/pre-commit">
         <a href="https://github.com/kintoandar/pre-commit" target="_blank">
             github.com/kintoandar/pre-commit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/kintoandar/pre-commit">
+            <li data-id="terraform_fmt" data-types="">
                 <code>terraform_fmt</code>
                     - Formats terraform scripts into the correct checkstyle
             </li>
-            <li>
+            <li data-id="terraform_validate" data-types="">
                 <code>terraform_validate</code>
                     - Validates terraform scripts syntax
             </li>
-            <li>
+            <li data-id="prometheus_check_rules" data-types="">
                 <code>prometheus_check_rules</code>
                     - Validates prometheus rules
             </li>
-            <li>
+            <li data-id="prometheus_check_config" data-types="">
                 <code>prometheus_check_config</code>
                     - Validates prometheus configuration
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/awebdeveloper/pre-commit-stylelint">
         <a href="https://github.com/awebdeveloper/pre-commit-stylelint" target="_blank">
             github.com/awebdeveloper/pre-commit-stylelint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/awebdeveloper/pre-commit-stylelint">
+            <li data-id="stylelint" data-types="">
                 <code>stylelint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/awebdeveloper/pre-commit-tslint">
         <a href="https://github.com/awebdeveloper/pre-commit-tslint" target="_blank">
             github.com/awebdeveloper/pre-commit-tslint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/awebdeveloper/pre-commit-tslint">
+            <li data-id="tslint" data-types="">
                 <code>tslint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/adrienverge/yamllint">
         <a href="https://github.com/adrienverge/yamllint" target="_blank">
             github.com/adrienverge/yamllint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/adrienverge/yamllint">
+            <li data-id="yamllint" data-types="file, yaml">
                 <code>yamllint</code>
                     - This hook runs yamllint.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/thlorenz/doctoc">
         <a href="https://github.com/thlorenz/doctoc" target="_blank">
             github.com/thlorenz/doctoc
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/thlorenz/doctoc">
+            <li data-id="doctoc" data-types="markdown">
                 <code>doctoc</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/noahsark769/xcodeproj-sort-pre-commit-hook">
         <a href="https://github.com/noahsark769/xcodeproj-sort-pre-commit-hook" target="_blank">
             github.com/noahsark769/xcodeproj-sort-pre-commit-hook
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/noahsark769/xcodeproj-sort-pre-commit-hook">
+            <li data-id="xcodeproj-sort" data-types="">
                 <code>xcodeproj-sort</code>
                     - This hook sorts your .xcodeproj file
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/jorisroovers/gitlint">
         <a href="https://github.com/jorisroovers/gitlint" target="_blank">
             github.com/jorisroovers/gitlint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/jorisroovers/gitlint">
+            <li data-id="gitlint" data-types="">
                 <code>gitlint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/psf/black">
         <a href="https://github.com/psf/black" target="_blank">
             github.com/psf/black
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/psf/black">
+            <li data-id="black" data-types="python">
                 <code>black</code>
                     - Black: The uncompromising Python code formatter
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/IamTheFij/ansible-pre-commit">
         <a href="https://github.com/IamTheFij/ansible-pre-commit" target="_blank">
             github.com/IamTheFij/ansible-pre-commit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/IamTheFij/ansible-pre-commit">
+            <li data-id="encryption-check" data-types="">
                 <code>encryption-check</code>
                     - Checks that vault files are encrypted
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/IamTheFij/docker-pre-commit">
         <a href="https://github.com/IamTheFij/docker-pre-commit" target="_blank">
             github.com/IamTheFij/docker-pre-commit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/IamTheFij/docker-pre-commit">
+            <li data-id="docker-compose-check" data-types="">
                 <code>docker-compose-check</code>
                     - Checks that docker-compose files are valid
             </li>
-            <li>
+            <li data-id="hadolint" data-types="">
                 <code>hadolint</code>
                     - Runs hadolint Docker image to lint Dockerfiles
             </li>
-            <li>
+            <li data-id="hadolint-system" data-types="">
                 <code>hadolint-system</code>
                     - Runs system hadolint to lint Dockerfiles
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/mattlqx/pre-commit-ruby">
         <a href="https://github.com/mattlqx/pre-commit-ruby" target="_blank">
             github.com/mattlqx/pre-commit-ruby
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/mattlqx/pre-commit-ruby">
+            <li data-id="rubocop" data-types="ruby">
                 <code>rubocop</code>
                     - Enforce Ruby style guide with rubocop
             </li>
-            <li>
+            <li data-id="rspec" data-types="ruby">
                 <code>rspec</code>
                     - Run rspec in changed paths with spec directories
             </li>
-            <li>
+            <li data-id="foodcritic" data-types="file">
                 <code>foodcritic</code>
                     - Enforce Chef style guide with foodcritic
             </li>
-            <li>
+            <li data-id="cookstyle" data-types="ruby">
                 <code>cookstyle</code>
                     - Enforce Chef style guide with cookstyle
             </li>
-            <li>
+            <li data-id="chef-cookbook-version" data-types="file">
                 <code>chef-cookbook-version</code>
                     - Ensure Chef cookbook versions are bumped when contents are changed
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/mattlqx/pre-commit-sign">
         <a href="https://github.com/mattlqx/pre-commit-sign" target="_blank">
             github.com/mattlqx/pre-commit-sign
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/mattlqx/pre-commit-sign">
+            <li data-id="sign-commit" data-types="">
                 <code>sign-commit</code>
                     - Hashes some fields of the commit and adds a signature for verification by other systems
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/mattlqx/pre-commit-search-and-replace">
         <a href="https://github.com/mattlqx/pre-commit-search-and-replace" target="_blank">
             github.com/mattlqx/pre-commit-search-and-replace
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/mattlqx/pre-commit-search-and-replace">
+            <li data-id="search-and-replace" data-types="">
                 <code>search-and-replace</code>
                     - Search and replace strings
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pryorda/dockerfilelint-precommit-hooks">
         <a href="https://github.com/pryorda/dockerfilelint-precommit-hooks" target="_blank">
             github.com/pryorda/dockerfilelint-precommit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pryorda/dockerfilelint-precommit-hooks">
+            <li data-id="dockerfilelint" data-types="">
                 <code>dockerfilelint</code>
                     - Dockerfile linter
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/alessandrojcm/commitlint-pre-commit-hook">
         <a href="https://github.com/alessandrojcm/commitlint-pre-commit-hook" target="_blank">
             github.com/alessandrojcm/commitlint-pre-commit-hook
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/alessandrojcm/commitlint-pre-commit-hook">
+            <li data-id="commitlint" data-types="">
                 <code>commitlint</code>
                     - Commitlint hook
             </li>
-            <li>
+            <li data-id="commitlint-travis" data-types="">
                 <code>commitlint-travis</code>
                     - Lint all relevant commits for a change or PR on Travis CI
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/henryykt/pre-commit-perl">
         <a href="https://github.com/henryykt/pre-commit-perl" target="_blank">
             github.com/henryykt/pre-commit-perl
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/henryykt/pre-commit-perl">
+            <li data-id="perlcritic" data-types="">
                 <code>perlcritic</code>
                     - Runs `perlcritic`, requires script in PATH
             </li>
-            <li>
+            <li data-id="perltidy" data-types="">
                 <code>perltidy</code>
                     - Runs `perltidy`, requires script in PATH
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/juancarlospaco/pre-commit-nim">
         <a href="https://github.com/juancarlospaco/pre-commit-nim" target="_blank">
             github.com/juancarlospaco/pre-commit-nim
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/juancarlospaco/pre-commit-nim">
+            <li data-id="nimble-check" data-types="">
                 <code>nimble-check</code>
                     - nimble check
             </li>
-            <li>
+            <li data-id="nim-check" data-types="">
                 <code>nim-check</code>
                     - nim check
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/awslabs/cfn-python-lint">
         <a href="https://github.com/awslabs/cfn-python-lint" target="_blank">
             github.com/awslabs/cfn-python-lint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/awslabs/cfn-python-lint">
+            <li data-id="cfn-python-lint" data-types="">
                 <code>cfn-python-lint</code>
                     - AWS CloudFormation Linter
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/thoughtworks/talisman">
         <a href="https://github.com/thoughtworks/talisman" target="_blank">
             github.com/thoughtworks/talisman
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/thoughtworks/talisman">
+            <li data-id="talisman-commit" data-types="text">
                 <code>talisman-commit</code>
                     - talisman
             </li>
-            <li>
+            <li data-id="talisman-push" data-types="text">
                 <code>talisman-push</code>
                     - talisman
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://gitlab.com/PyCQA/flake8">
         <a href="https://gitlab.com/PyCQA/flake8" target="_blank">
             gitlab.com/PyCQA/flake8
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://gitlab.com/PyCQA/flake8">
+            <li data-id="flake8" data-types="python">
                 <code>flake8</code>
                     - `flake8` is a command-line utility for enforcing style consistency across Python projects.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/PyCQA/bandit">
         <a href="https://github.com/PyCQA/bandit" target="_blank">
             github.com/PyCQA/bandit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/PyCQA/bandit">
+            <li data-id="bandit" data-types="python">
                 <code>bandit</code>
                     - Bandit is a tool for finding common security issues in Python code
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/PyCQA/pydocstyle">
         <a href="https://github.com/PyCQA/pydocstyle" target="_blank">
             github.com/PyCQA/pydocstyle
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/PyCQA/pydocstyle">
+            <li data-id="pydocstyle" data-types="python">
                 <code>pydocstyle</code>
                     - pydocstyle is a static analysis tool for checking compliance with Python docstring conventions.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/PyCQA/pylint">
         <a href="https://github.com/PyCQA/pylint" target="_blank">
             github.com/PyCQA/pylint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/PyCQA/pylint">
+            <li data-id="pylint" data-types="python">
                 <code>pylint</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/PyCQA/doc8">
         <a href="https://github.com/PyCQA/doc8" target="_blank">
             github.com/PyCQA/doc8
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/PyCQA/doc8">
+            <li data-id="doc8" data-types="">
                 <code>doc8</code>
                     - This hook runs doc8 for linting docs
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/PyCQA/prospector">
         <a href="https://github.com/PyCQA/prospector" target="_blank">
             github.com/PyCQA/prospector
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/PyCQA/prospector">
+            <li data-id="prospector" data-types="python">
                 <code>prospector</code>
                     - Analyze Python code using Prospector
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/miki725/importanize">
         <a href="https://github.com/miki725/importanize" target="_blank">
             github.com/miki725/importanize
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/miki725/importanize">
+            <li data-id="importanize" data-types="python">
                 <code>importanize</code>
                     - Organize python imports
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/motet-a/jinjalint">
         <a href="https://github.com/motet-a/jinjalint" target="_blank">
             github.com/motet-a/jinjalint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/motet-a/jinjalint">
+            <li data-id="jinjalint" data-types="jinja">
                 <code>jinjalint</code>
                     - A linter which checks the indentation and the correctness of Jinja-like/HTML templates.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/milin/giticket">
         <a href="https://github.com/milin/giticket" target="_blank">
             github.com/milin/giticket
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/milin/giticket">
+            <li data-id="giticket" data-types="">
                 <code>giticket</code>
                     - Utility to prepend your commits with info from your branch.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/milin/gitown">
         <a href="https://github.com/milin/gitown" target="_blank">
             github.com/milin/gitown
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/milin/gitown">
+            <li data-id="gitown" data-types="">
                 <code>gitown</code>
                     - Keep your CODEOWNERS file up to date to streamline code review process.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/sqlalchemyorg/zimports">
         <a href="https://github.com/sqlalchemyorg/zimports" target="_blank">
             github.com/sqlalchemyorg/zimports
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/sqlalchemyorg/zimports">
+            <li data-id="zimports" data-types="python">
                 <code>zimports</code>
                     - Python import rewriter
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/peterdemin/pip-compile-multi">
         <a href="https://github.com/peterdemin/pip-compile-multi" target="_blank">
             github.com/peterdemin/pip-compile-multi
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/peterdemin/pip-compile-multi">
+            <li data-id="pip-compile-multi-verify" data-types="file, non-executable, text">
                 <code>pip-compile-multi-verify</code>
                     - pip-compile-multi verify
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/homebysix/pre-commit-macadmin">
         <a href="https://github.com/homebysix/pre-commit-macadmin" target="_blank">
             github.com/homebysix/pre-commit-macadmin
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/homebysix/pre-commit-macadmin">
+            <li data-id="check-autopkg-recipe-list" data-types="text">
                 <code>check-autopkg-recipe-list</code>
                     - This hook checks AutoPkg recipe lists (in txt, plist, yaml, or json format) for common issues.
             </li>
-            <li>
+            <li data-id="check-autopkg-recipes" data-types="text">
                 <code>check-autopkg-recipes</code>
                     - This hook checks AutoPkg recipes to ensure they contain required top-level keys.
             </li>
-            <li>
+            <li data-id="check-git-config-email" data-types="">
                 <code>check-git-config-email</code>
                     - This hook checks to ensure the Git config email matches one of the specified domains.
             </li>
-            <li>
+            <li data-id="check-jamf-extension-attributes" data-types="text">
                 <code>check-jamf-extension-attributes</code>
                     - This hook checks Jamf extension attributes for common issues.
             </li>
-            <li>
+            <li data-id="check-jamf-scripts" data-types="text">
                 <code>check-jamf-scripts</code>
                     - This hook checks Jamf scripts for common issues.
             </li>
-            <li>
+            <li data-id="check-jamf-profiles" data-types="text">
                 <code>check-jamf-profiles</code>
                     - This hook checks Jamf profiles for common issues.
             </li>
-            <li>
+            <li data-id="check-munki-pkgsinfo" data-types="text">
                 <code>check-munki-pkgsinfo</code>
                     - This hook checks Munki pkginfo files to ensure they are valid.
             </li>
-            <li>
+            <li data-id="check-munkiadmin-scripts" data-types="text">
                 <code>check-munkiadmin-scripts</code>
                     - This hook ensures MunkiAdmin scripts are executable.
             </li>
-            <li>
+            <li data-id="check-munkipkg-buildinfo" data-types="text">
                 <code>check-munkipkg-buildinfo</code>
                     - This hook checks MunkiPkg build-info files to ensure they are valid.
             </li>
-            <li>
+            <li data-id="check-outset-scripts" data-types="text">
                 <code>check-outset-scripts</code>
                     - This hook checks Outset scripts to ensure they&#39;re executable.
             </li>
-            <li>
+            <li data-id="check-plists" data-types="text">
                 <code>check-plists</code>
                     - This hook checks XML property list (plist) files for basic syntax errors.
             </li>
-            <li>
+            <li data-id="forbid-autopkg-overrides" data-types="text">
                 <code>forbid-autopkg-overrides</code>
                     - This hook prevents AutoPkg overrides from being added to the repo.
             </li>
-            <li>
+            <li data-id="forbid-autopkg-trust-info" data-types="text">
                 <code>forbid-autopkg-trust-info</code>
                     - This hook prevents AutoPkg recipes with trust info from being added to the repo.
             </li>
-            <li>
+            <li data-id="munki-makecatalogs" data-types="">
                 <code>munki-makecatalogs</code>
                     - This hook runs the &#34;makecatalogs&#34; command to ensure all referenced packages are present and catalogs are up to date.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/fortman/pre-commit-prometheus">
         <a href="https://github.com/fortman/pre-commit-prometheus" target="_blank">
             github.com/fortman/pre-commit-prometheus
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/fortman/pre-commit-prometheus">
+            <li data-id="check-config" data-types="">
                 <code>check-config</code>
                     - Check prometheus config files
             </li>
-            <li>
+            <li data-id="check-rules" data-types="">
                 <code>check-rules</code>
                     - Check prometheus rule files
             </li>
-            <li>
+            <li data-id="test-rules" data-types="">
                 <code>test-rules</code>
                     - Unit test prometheus rule files
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/syntaqx/git-hooks">
         <a href="https://github.com/syntaqx/git-hooks" target="_blank">
             github.com/syntaqx/git-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/syntaqx/git-hooks">
+            <li data-id="circleci-config-validate" data-types="">
                 <code>circleci-config-validate</code>
                     - Test if the CircleCI config is well formed.
             </li>
-            <li>
+            <li data-id="go-fmt" data-types="">
                 <code>go-fmt</code>
                     - Runs `go fmt` and asserts no changes are needed.
             </li>
-            <li>
+            <li data-id="go-test" data-types="">
                 <code>go-test</code>
                     - Runs `go test` and asserts no tests are failing.
             </li>
-            <li>
+            <li data-id="go-mod-tidy" data-types="">
                 <code>go-mod-tidy</code>
                     - Runs `go mod tidy` to ensure `go.mod` matches the project source.
             </li>
-            <li>
+            <li data-id="go-generate" data-types="">
                 <code>go-generate</code>
                     - Runs `go generate` against the projects go files.
             </li>
-            <li>
+            <li data-id="forbid-binary" data-types="binary">
                 <code>forbid-binary</code>
                     - Forbid binary files from being committed
             </li>
-            <li>
+            <li data-id="shellcheck" data-types="shell">
                 <code>shellcheck</code>
                     - Shell scripts conform to shellcheck
             </li>
-            <li>
+            <li data-id="shfmt" data-types="shell">
                 <code>shfmt</code>
                     - Check shell style with shfmt
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Calinou/pre-commit-luacheck">
         <a href="https://github.com/Calinou/pre-commit-luacheck" target="_blank">
             github.com/Calinou/pre-commit-luacheck
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Calinou/pre-commit-luacheck">
+            <li data-id="luacheck" data-types="file, lua">
                 <code>luacheck</code>
                     - Lints Lua files using Luacheck.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/belminf/pre-commit-chef">
         <a href="https://github.com/belminf/pre-commit-chef" target="_blank">
             github.com/belminf/pre-commit-chef
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/belminf/pre-commit-chef">
+            <li data-id="cookstyle" data-types="ruby">
                 <code>cookstyle</code>
                     - Chef-specific Rubocop linting with Cookstyle
             </li>
-            <li>
+            <li data-id="foodcritic" data-types="ruby">
                 <code>foodcritic</code>
                     - Chef cookbook linting with Foodcritic
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/PyCQA/isort">
         <a href="https://github.com/PyCQA/isort" target="_blank">
             github.com/PyCQA/isort
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/PyCQA/isort">
+            <li data-id="isort" data-types="cython, pyi, python">
                 <code>isort</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pocc/pre-commit-hooks">
         <a href="https://github.com/pocc/pre-commit-hooks" target="_blank">
             github.com/pocc/pre-commit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pocc/pre-commit-hooks">
+            <li data-id="clang-format" data-types="">
                 <code>clang-format</code>
                     - Formats C/CPP code
             </li>
-            <li>
+            <li data-id="clang-tidy" data-types="">
                 <code>clang-tidy</code>
                     - Find warnings/errors in C/CPP code
             </li>
-            <li>
+            <li data-id="oclint" data-types="">
                 <code>oclint</code>
                     - Find warnings/errors in C/CPP code
             </li>
-            <li>
+            <li data-id="uncrustify" data-types="">
                 <code>uncrustify</code>
                     - Formats C/CPP code
             </li>
-            <li>
+            <li data-id="cppcheck" data-types="">
                 <code>cppcheck</code>
                     - Find warnings/errors in C/CPP code
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/dwightgunning/pre-commit-nglint">
         <a href="https://github.com/dwightgunning/pre-commit-nglint" target="_blank">
             github.com/dwightgunning/pre-commit-nglint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/dwightgunning/pre-commit-nglint">
+            <li data-id="nglint" data-types="">
                 <code>nglint</code>
                     - Runs ng lint
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/codespell-project/codespell">
         <a href="https://github.com/codespell-project/codespell" target="_blank">
             github.com/codespell-project/codespell
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/codespell-project/codespell">
+            <li data-id="codespell" data-types="text">
                 <code>codespell</code>
                     - Checks for common misspellings in text files.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://gitlab.com/smop/pre-commit-hooks">
         <a href="https://gitlab.com/smop/pre-commit-hooks" target="_blank">
             gitlab.com/smop/pre-commit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://gitlab.com/smop/pre-commit-hooks">
+            <li data-id="check-poetry" data-types="">
                 <code>check-poetry</code>
                     - Validates the structure of the pyproject.toml file
             </li>
-            <li>
+            <li data-id="check-gitlab-ci" data-types="">
                 <code>check-gitlab-ci</code>
                     - Validates .gitlab-ci.yml file
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/seddonym/import-linter">
         <a href="https://github.com/seddonym/import-linter" target="_blank">
             github.com/seddonym/import-linter
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/seddonym/import-linter">
+            <li data-id="import-linter" data-types="python">
                 <code>import-linter</code>
                     - Import Linter allows you to define and enforce rules for the internal and external imports within your Python project.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/marco-c/taskcluster_yml_validator">
         <a href="https://github.com/marco-c/taskcluster_yml_validator" target="_blank">
             github.com/marco-c/taskcluster_yml_validator
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/marco-c/taskcluster_yml_validator">
+            <li data-id="taskcluster_yml" data-types="">
                 <code>taskcluster_yml</code>
                     - Checks for validity of .taskcluster.yml file.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/myint/docformatter">
         <a href="https://github.com/myint/docformatter" target="_blank">
             github.com/myint/docformatter
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/myint/docformatter">
+            <li data-id="docformatter" data-types="python">
                 <code>docformatter</code>
                     - Formats docstrings to follow PEP 257.
             </li>
-            <li>
+            <li data-id="docformatter-venv" data-types="python">
                 <code>docformatter-venv</code>
                     - Formats docstrings to follow PEP 257. Uses python3 -m venv.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/myint/rstcheck">
         <a href="https://github.com/myint/rstcheck" target="_blank">
             github.com/myint/rstcheck
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/myint/rstcheck">
+            <li data-id="rstcheck" data-types="rst">
                 <code>rstcheck</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/myint/autoflake">
         <a href="https://github.com/myint/autoflake" target="_blank">
             github.com/myint/autoflake
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/myint/autoflake">
+            <li data-id="autoflake" data-types="python">
                 <code>autoflake</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/lorenzwalthert/precommit">
         <a href="https://github.com/lorenzwalthert/precommit" target="_blank">
             github.com/lorenzwalthert/precommit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/lorenzwalthert/precommit">
+            <li data-id="roxygenize" data-types="">
                 <code>roxygenize</code>
                     - run roxygen2::roxygenize()
             </li>
-            <li>
+            <li data-id="use-tidy-description" data-types="">
                 <code>use-tidy-description</code>
                     - run usethis::use_tidy_description()
             </li>
-            <li>
+            <li data-id="style-files" data-types="">
                 <code>style-files</code>
                     - style files with styler
             </li>
-            <li>
+            <li data-id="no-browser-statement" data-types="">
                 <code>no-browser-statement</code>
                     - check if a .R file contains a `browser()` statement
             </li>
-            <li>
+            <li data-id="parsable-R" data-types="">
                 <code>parsable-R</code>
                     - check if a .R file is parsable
             </li>
-            <li>
+            <li data-id="readme-rmd-rendered" data-types="">
                 <code>readme-rmd-rendered</code>
                     - make sure README.Rmd hasn&#39;t been edited more recently than README.md
             </li>
-            <li>
+            <li data-id="codemeta-description-updated" data-types="">
                 <code>codemeta-description-updated</code>
                     - make sure codemeta.json is in sync with DESCRIPTION. It should be run after use-tidy-description.
             </li>
-            <li>
+            <li data-id="spell-check" data-types="">
                 <code>spell-check</code>
                     - perform a spell check with spelling::spell_check_files()
             </li>
-            <li>
+            <li data-id="deps-in-desc" data-types="">
                 <code>deps-in-desc</code>
                     - Check if dependencies that can be parsed from code are in DESCRIPTION.
             </li>
-            <li>
+            <li data-id="lintr" data-types="">
                 <code>lintr</code>
                     - check if a .R file is lint free (using lintr)
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/FelixSeptem/pre-commit-golang">
         <a href="https://github.com/FelixSeptem/pre-commit-golang" target="_blank">
             github.com/FelixSeptem/pre-commit-golang
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/FelixSeptem/pre-commit-golang">
+            <li data-id="bazel-buildifier" data-types="">
                 <code>bazel-buildifier</code>
                     - Runs `buildifier`, requires bazel buildifier
             </li>
-            <li>
+            <li data-id="go-imports" data-types="">
                 <code>go-imports</code>
                     - Runs `go imports`, requires golang
             </li>
-            <li>
+            <li data-id="go-critic" data-types="">
                 <code>go-critic</code>
                     - Runs `go-critic`, requires go-critic
             </li>
-            <li>
+            <li data-id="golangci-lint" data-types="">
                 <code>golangci-lint</code>
                     - Runs `golangci-lint`, requires golangci-lint
             </li>
-            <li>
+            <li data-id="golangci-lint-conf" data-types="">
                 <code>golangci-lint-conf</code>
                     - Runs `golangci-lint` read local config file, requires golangci-lint
             </li>
-            <li>
+            <li data-id="go-mod-tidy" data-types="">
                 <code>go-mod-tidy</code>
                     - Runs `go mod tidy` make sure latest and avaliable go mod file
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://gitlab.com/daverona/pre-commit/cpp">
         <a href="https://gitlab.com/daverona/pre-commit/cpp" target="_blank">
             gitlab.com/daverona/pre-commit/cpp
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://gitlab.com/daverona/pre-commit/cpp">
+            <li data-id="clang-format" data-types="">
                 <code>clang-format</code>
                     - Run `clang-format` against C/C++ header and source files
             </li>
-            <li>
+            <li data-id="cpplint" data-types="">
                 <code>cpplint</code>
                     - Run `cpplint` against C/C++ header and source files
             </li>
-            <li>
+            <li data-id="cppcheck" data-types="">
                 <code>cppcheck</code>
                     - Run `cppcheck` against C/C++ source files
             </li>
-            <li>
+            <li data-id="docker-clang-format" data-types="">
                 <code>docker-clang-format</code>
                     - Run `clang-format` against C/C++ header and source files in Docker container
             </li>
-            <li>
+            <li data-id="docker-cpplint" data-types="">
                 <code>docker-cpplint</code>
                     - Run `cpplint` against C/C++ header and source files in Docker container
             </li>
-            <li>
+            <li data-id="docker-cppcheck" data-types="">
                 <code>docker-cppcheck</code>
                     - Run `cppcheck` against C/C++ source files in Docker container
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/codingjoe/relint">
         <a href="https://github.com/codingjoe/relint" target="_blank">
             github.com/codingjoe/relint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/codingjoe/relint">
+            <li data-id="relint" data-types="file">
                 <code>relint</code>
                     - Write your own linting rules using regular expressions.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/nix-community/nixpkgs-fmt">
         <a href="https://github.com/nix-community/nixpkgs-fmt" target="_blank">
             github.com/nix-community/nixpkgs-fmt
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/nix-community/nixpkgs-fmt">
+            <li data-id="nixpkgs-fmt" data-types="">
                 <code>nixpkgs-fmt</code>
                     - Format nix code with nixpkgs-fmt.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/d6e/beancount-check">
         <a href="https://github.com/d6e/beancount-check" target="_blank">
             github.com/d6e/beancount-check
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/d6e/beancount-check">
+            <li data-id="beancount-check" data-types="">
                 <code>beancount-check</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://gitlab.com/iamlikeme/nbhooks">
         <a href="https://gitlab.com/iamlikeme/nbhooks" target="_blank">
             gitlab.com/iamlikeme/nbhooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://gitlab.com/iamlikeme/nbhooks">
+            <li data-id="nb-ensure-clean" data-types="">
                 <code>nb-ensure-clean</code>
                     - Ensure that committed Jupyter notebooks contain no outputs.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Kuniwak/vint">
         <a href="https://github.com/Kuniwak/vint" target="_blank">
             github.com/Kuniwak/vint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Kuniwak/vint">
+            <li data-id="vint" data-types="vim">
                 <code>vint</code>
                     - Lints all vim files
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/eschulte/lisp-format">
         <a href="https://github.com/eschulte/lisp-format" target="_blank">
             github.com/eschulte/lisp-format
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/eschulte/lisp-format">
+            <li data-id="lisp-format" data-types="">
                 <code>lisp-format</code>
                     - Run lisp-format against lisp files
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/shellcheck-py/shellcheck-py">
         <a href="https://github.com/shellcheck-py/shellcheck-py" target="_blank">
             github.com/shellcheck-py/shellcheck-py
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/shellcheck-py/shellcheck-py">
+            <li data-id="shellcheck" data-types="shell">
                 <code>shellcheck</code>
                     - Test shell scripts with shellcheck
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/APIDevTools/swagger-cli">
         <a href="https://github.com/APIDevTools/swagger-cli" target="_blank">
             github.com/APIDevTools/swagger-cli
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/APIDevTools/swagger-cli">
+            <li data-id="swagger-validation" data-types="">
                 <code>swagger-validation</code>
                     - Hook to validate swagger specs.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/kynan/nbstripout">
         <a href="https://github.com/kynan/nbstripout" target="_blank">
             github.com/kynan/nbstripout
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/kynan/nbstripout">
+            <li data-id="nbstripout" data-types="jupyter">
                 <code>nbstripout</code>
                     - nbstripout: strip output from Jupyter and IPython notebooks
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://gitlab.com/devopshq/gitlab-ci-linter">
         <a href="https://gitlab.com/devopshq/gitlab-ci-linter" target="_blank">
             gitlab.com/devopshq/gitlab-ci-linter
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://gitlab.com/devopshq/gitlab-ci-linter">
+            <li data-id="gitlab-ci-linter" data-types="">
                 <code>gitlab-ci-linter</code>
                     - Validates .gitlab-ci.yml file (pure-python version without dependencies)
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/bmorcos/pre-commit-hooks-cpp">
         <a href="https://github.com/bmorcos/pre-commit-hooks-cpp" target="_blank">
             github.com/bmorcos/pre-commit-hooks-cpp
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/bmorcos/pre-commit-hooks-cpp">
+            <li data-id="clang-format" data-types="">
                 <code>clang-format</code>
                     - Format C code using clang-format.
             </li>
-            <li>
+            <li data-id="cpplint" data-types="">
                 <code>cpplint</code>
                     - Check style of C code using cpplint.
             </li>
-            <li>
+            <li data-id="cppcheck" data-types="">
                 <code>cppcheck</code>
                     - Check correctness of C code using cppcheck.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/igorshubovych/markdownlint-cli">
         <a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">
             github.com/igorshubovych/markdownlint-cli
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/igorshubovych/markdownlint-cli">
+            <li data-id="markdownlint" data-types="markdown">
                 <code>markdownlint</code>
                     - Checks the style of Markdown/Commonmark files.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/TekWizely/pre-commit-golang">
         <a href="https://github.com/TekWizely/pre-commit-golang" target="_blank">
             github.com/TekWizely/pre-commit-golang
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/TekWizely/pre-commit-golang">
+            <li data-id="go-build-mod" data-types="">
                 <code>go-build-mod</code>
                     - Run &#39;cd $(mod_root $FILE); go build -o /dev/null [$ARGS] ./...&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-build-pkg" data-types="go">
                 <code>go-build-pkg</code>
                     - Run &#39;go build -o /dev/null [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-build-repo-mod" data-types="">
                 <code>go-build-repo-mod</code>
                     - Run &#39;cd $(mod_root); go build -o /dev/null [$ARGS] ./...&#39; for each module in the repo
             </li>
-            <li>
+            <li data-id="go-build-repo-pkg" data-types="go">
                 <code>go-build-repo-pkg</code>
                     - Run &#39;go build -o /dev/null [$ARGS] ./...&#39; in repo root folder
             </li>
-            <li>
+            <li data-id="go-critic" data-types="go">
                 <code>go-critic</code>
                     - Run &#39;gocritic check [$ARGS] $FILE&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-fmt" data-types="go">
                 <code>go-fmt</code>
                     - Run &#39;gofmt -l -d [$ARGS] $FILE&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-imports" data-types="go">
                 <code>go-imports</code>
                     - Run &#39;goimports -l -d [$ARGS] $FILE&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-lint" data-types="go">
                 <code>go-lint</code>
                     - Run &#39;golint -set_exit_status [$ARGS] $FILE&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-returns" data-types="go">
                 <code>go-returns</code>
                     - Run &#39;goreturns -l -d [$ARGS] $FILE&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-test-mod" data-types="">
                 <code>go-test-mod</code>
                     - Run &#39;cd $(mod_root $FILE); go test [$ARGS] ./...&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-test-pkg" data-types="go">
                 <code>go-test-pkg</code>
                     - Run &#39;go test [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-test-repo-mod" data-types="">
                 <code>go-test-repo-mod</code>
                     - Run &#39;cd $(mod_root); go test [$ARGS] ./...&#39; for each module in the repo
             </li>
-            <li>
+            <li data-id="go-test-repo-pkg" data-types="go">
                 <code>go-test-repo-pkg</code>
                     - Run &#39;go test [$ARGS] ./...&#39; in repo root folder
             </li>
-            <li>
+            <li data-id="go-vet-mod" data-types="">
                 <code>go-vet-mod</code>
                     - Run &#39;cd $(mod_root $FILE); go vet [$ARGS] ./...&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-vet-pkg" data-types="go">
                 <code>go-vet-pkg</code>
                     - Run &#39;go vet [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="go-vet-repo-mod" data-types="">
                 <code>go-vet-repo-mod</code>
                     - Run &#39;cd $(mod_root); go vet [$ARGS] ./...&#39; for each module in the repo
             </li>
-            <li>
+            <li data-id="go-vet-repo-pkg" data-types="go">
                 <code>go-vet-repo-pkg</code>
                     - Run &#39;go vet [$ARGS] ./...&#39; in repo root folder
             </li>
-            <li>
+            <li data-id="go-vet" data-types="go">
                 <code>go-vet</code>
                     - Run &#39;go vet [$ARGS] $FILE&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="golangci-lint-mod" data-types="">
                 <code>golangci-lint-mod</code>
                     - Run &#39;cd $(mod_root $FILE); golangci-lint run [$ARGS] ./...&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="golangci-lint-pkg" data-types="go">
                 <code>golangci-lint-pkg</code>
                     - Run &#39;golangci-lint run [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
             </li>
-            <li>
+            <li data-id="golangci-lint-repo-mod" data-types="">
                 <code>golangci-lint-repo-mod</code>
                     - Run &#39;cd $(mod_root); golangci-lint run [$ARGS] ./...&#39; for each module in the repo
             </li>
-            <li>
+            <li data-id="golangci-lint-repo-pkg" data-types="go">
                 <code>golangci-lint-repo-pkg</code>
                     - Run &#39;golangci-lint run [$ARGS] ./...&#39; in repo root folder
             </li>
-            <li>
+            <li data-id="golangci-lint" data-types="go">
                 <code>golangci-lint</code>
                     - Run &#39;golangci-lint run [$ARGS] $FILE&#39; for each staged .go file
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/markdownlint/markdownlint">
         <a href="https://github.com/markdownlint/markdownlint" target="_blank">
             github.com/markdownlint/markdownlint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/markdownlint/markdownlint">
+            <li data-id="markdownlint" data-types="">
                 <code>markdownlint</code>
                     - Run markdownlint on your Markdown files
             </li>
-            <li>
+            <li data-id="markdownlint_docker" data-types="">
                 <code>markdownlint_docker</code>
                     - Run markdown lint on your Markdown files using the project docker image
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/jguttman94/pre-commit-gradle">
         <a href="https://github.com/jguttman94/pre-commit-gradle" target="_blank">
             github.com/jguttman94/pre-commit-gradle
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/jguttman94/pre-commit-gradle">
+            <li data-id="gradle-check" data-types="">
                 <code>gradle-check</code>
                     - Runs java unit tests using gradle check
             </li>
-            <li>
+            <li data-id="gradle-build" data-types="">
                 <code>gradle-build</code>
                     - Builds java project using &#34;gradle build&#34;
             </li>
-            <li>
+            <li data-id="gradle-spotless" data-types="">
                 <code>gradle-spotless</code>
                     - Lints java project using &#34;gradle spotlessJavaCheck spotlessJavaApply&#34;
             </li>
-            <li>
+            <li data-id="gradle-task" data-types="">
                 <code>gradle-task</code>
                     - Runs arbitrary gradle tasks for java project
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Yelp/detect-secrets">
         <a href="https://github.com/Yelp/detect-secrets" target="_blank">
             github.com/Yelp/detect-secrets
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Yelp/detect-secrets">
+            <li data-id="detect-secrets" data-types="">
                 <code>detect-secrets</code>
                     - Detects high entropy strings that are likely to be passwords.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/dmitri-lerko/pre-commit-docker-kustomize">
         <a href="https://github.com/dmitri-lerko/pre-commit-docker-kustomize" target="_blank">
             github.com/dmitri-lerko/pre-commit-docker-kustomize
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/dmitri-lerko/pre-commit-docker-kustomize">
+            <li data-id="kustomize" data-types="">
                 <code>kustomize</code>
                     - kustomize provided by docker
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/perltidy/perltidy">
         <a href="https://github.com/perltidy/perltidy" target="_blank">
             github.com/perltidy/perltidy
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/perltidy/perltidy">
+            <li data-id="perltidy" data-types="perl">
                 <code>perltidy</code>
                     - Run the perltidy source code formatter on Perl source files
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/talos-systems/conform">
         <a href="https://github.com/talos-systems/conform" target="_blank">
             github.com/talos-systems/conform
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/talos-systems/conform">
+            <li data-id="conform" data-types="">
                 <code>conform</code>
                     - Run &#39;conform enforce&#39; for policy enforcement
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/twu/skjold">
         <a href="https://github.com/twu/skjold" target="_blank">
             github.com/twu/skjold
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/twu/skjold">
+            <li data-id="skjold" data-types="">
                 <code>skjold</code>
                     - Security audit Python project dependencies against security advisory databases.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/woile/commitizen">
         <a href="https://github.com/woile/commitizen" target="_blank">
             github.com/woile/commitizen
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/woile/commitizen">
+            <li data-id="commitizen" data-types="">
                 <code>commitizen</code>
                     - Check whether the commit message follows commiting rules
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/gherynos/pre-commit-java">
         <a href="https://github.com/gherynos/pre-commit-java" target="_blank">
             github.com/gherynos/pre-commit-java
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/gherynos/pre-commit-java">
+            <li data-id="pmd" data-types="">
                 <code>pmd</code>
                     - Runs the PMD static code analyzer.
             </li>
-            <li>
+            <li data-id="cpd" data-types="">
                 <code>cpd</code>
                     - Runs the Copy/Paste Detector (CPD).
             </li>
-            <li>
+            <li data-id="checkstyle" data-types="">
                 <code>checkstyle</code>
                     - Runs the Checkstyle static code analysis tool.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/lietu/go-pre-commit">
         <a href="https://github.com/lietu/go-pre-commit" target="_blank">
             github.com/lietu/go-pre-commit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/lietu/go-pre-commit">
+            <li data-id="errcheck" data-types="">
                 <code>errcheck</code>
                     - Check your Go source code with errcheck
             </li>
-            <li>
+            <li data-id="go-fmt-goimports" data-types="">
                 <code>go-fmt-goimports</code>
                     - Format your Go code with go fmt and goimports
             </li>
-            <li>
+            <li data-id="go-test" data-types="">
                 <code>go-test</code>
                     - Run your Go unit tests
             </li>
-            <li>
+            <li data-id="go-vet" data-types="">
                 <code>go-vet</code>
                     - Check your Go source with go vet
             </li>
-            <li>
+            <li data-id="gofumports" data-types="">
                 <code>gofumports</code>
                     - Format your Go code with gofumports
             </li>
-            <li>
+            <li data-id="gofumpt" data-types="">
                 <code>gofumpt</code>
                     - Format your Go code with gofumpt
             </li>
-            <li>
+            <li data-id="golangci-lint" data-types="">
                 <code>golangci-lint</code>
                     - Check your Go code with golangci-lint
             </li>
-            <li>
+            <li data-id="golint" data-types="">
                 <code>golint</code>
                     - Check your Go code with golint
             </li>
-            <li>
+            <li data-id="staticcheck" data-types="">
                 <code>staticcheck</code>
                     - Check your Go code with staticcheck
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/macisamuele/language-formatters-pre-commit-hooks">
         <a href="https://github.com/macisamuele/language-formatters-pre-commit-hooks" target="_blank">
             github.com/macisamuele/language-formatters-pre-commit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/macisamuele/language-formatters-pre-commit-hooks">
+            <li data-id="pretty-format-golang" data-types="go">
                 <code>pretty-format-golang</code>
                     - Runs gofmt over golang source files.
             </li>
-            <li>
+            <li data-id="pretty-format-ini" data-types="ini">
                 <code>pretty-format-ini</code>
                     - This hook sets a standard for formatting INI  files.
             </li>
-            <li>
+            <li data-id="pretty-format-java" data-types="java">
                 <code>pretty-format-java</code>
                     - Runs Google Java Formatter over Java source files
             </li>
-            <li>
+            <li data-id="pretty-format-kotlin" data-types="kotlin">
                 <code>pretty-format-kotlin</code>
                     - Runs KTLint over Kotlin source files
             </li>
-            <li>
+            <li data-id="pretty-format-rust" data-types="rust">
                 <code>pretty-format-rust</code>
                     - Runs cargo fmt over Rust source files
             </li>
-            <li>
+            <li data-id="pretty-format-toml" data-types="toml">
                 <code>pretty-format-toml</code>
                     - This hook sets a standard for formatting TOML files.
             </li>
-            <li>
+            <li data-id="pretty-format-yaml" data-types="yaml">
                 <code>pretty-format-yaml</code>
                     - This hook sets a standard for formatting YAML files.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/jlebar/pre-commit-hooks">
         <a href="https://github.com/jlebar/pre-commit-hooks" target="_blank">
             github.com/jlebar/pre-commit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/jlebar/pre-commit-hooks">
+            <li data-id="bazel-buildifier" data-types="">
                 <code>bazel-buildifier</code>
                     - Runs `buildifier`, requires buildifier binary
             </li>
-            <li>
+            <li data-id="do-not-submit" data-types="">
                 <code>do-not-submit</code>
                     - Forbids the string &#34;DO NOT SUBMIT&#34;.
             </li>
-            <li>
+            <li data-id="clang-format-diff" data-types="">
                 <code>clang-format-diff</code>
             </li>
-            <li>
+            <li data-id="clang-format-whole-file" data-types="">
                 <code>clang-format-whole-file</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/jazzband/pip-tools">
         <a href="https://github.com/jazzband/pip-tools" target="_blank">
             github.com/jazzband/pip-tools
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/jazzband/pip-tools">
+            <li data-id="pip-compile" data-types="">
                 <code>pip-compile</code>
                     - Automatically compile requirements.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/pappasam/toml-sort">
         <a href="https://github.com/pappasam/toml-sort" target="_blank">
             github.com/pappasam/toml-sort
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/pappasam/toml-sort">
+            <li data-id="toml-sort" data-types="toml">
                 <code>toml-sort</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/arenadotio/pre-commit-ocamlformat">
         <a href="https://github.com/arenadotio/pre-commit-ocamlformat" target="_blank">
             github.com/arenadotio/pre-commit-ocamlformat
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/arenadotio/pre-commit-ocamlformat">
+            <li data-id="ocamlformat" data-types="">
                 <code>ocamlformat</code>
                     - Auto-formatter for OCaml code
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/hcodes/yaspeller">
         <a href="https://github.com/hcodes/yaspeller" target="_blank">
             github.com/hcodes/yaspeller
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/hcodes/yaspeller">
+            <li data-id="yaspeller" data-types="text">
                 <code>yaspeller</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/maltzj/google-style-precommit-hook">
         <a href="https://github.com/maltzj/google-style-precommit-hook" target="_blank">
             github.com/maltzj/google-style-precommit-hook
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/maltzj/google-style-precommit-hook">
+            <li data-id="google-style-java" data-types="">
                 <code>google-style-java</code>
                     - Formats code in Google&#39;s Java codestyle.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/jvstein/pre-commit-dotnet-format">
         <a href="https://github.com/jvstein/pre-commit-dotnet-format" target="_blank">
             github.com/jvstein/pre-commit-dotnet-format
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/jvstein/pre-commit-dotnet-format">
+            <li data-id="dotnet-format" data-types="">
                 <code>dotnet-format</code>
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/PeterMosmans/jenkinslint">
         <a href="https://github.com/PeterMosmans/jenkinslint" target="_blank">
             github.com/PeterMosmans/jenkinslint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/PeterMosmans/jenkinslint">
+            <li data-id="jenkinslint" data-types="">
                 <code>jenkinslint</code>
                     - Validates Jenkinsfiles using a Jenkins server
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/nicklockwood/SwiftFormat">
         <a href="https://github.com/nicklockwood/SwiftFormat" target="_blank">
             github.com/nicklockwood/SwiftFormat
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/nicklockwood/SwiftFormat">
+            <li data-id="swiftformat" data-types="swift">
                 <code>swiftformat</code>
                     - Check swift files for formating issues with SwiftFormat
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/executablebooks/mdformat">
         <a href="https://github.com/executablebooks/mdformat" target="_blank">
             github.com/executablebooks/mdformat
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/executablebooks/mdformat">
+            <li data-id="mdformat" data-types="markdown">
                 <code>mdformat</code>
                     - CommonMark compliant Markdown formatter
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://gitlab.com/daverona/pre-commit/php">
         <a href="https://gitlab.com/daverona/pre-commit/php" target="_blank">
             gitlab.com/daverona/pre-commit/php
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://gitlab.com/daverona/pre-commit/php">
+            <li data-id="phpmd" data-types="">
                 <code>phpmd</code>
                     - Run `phpmd` to find possible bugs, suboptimal code, overcomplicated expressions, and so on
             </li>
-            <li>
+            <li data-id="docker-phpmd" data-types="">
                 <code>docker-phpmd</code>
                     - Run `phpmd` to find possible bugs, suboptimal code, overcomplicated expressions, and so on
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/anderseknert/pre-commit-opa">
         <a href="https://github.com/anderseknert/pre-commit-opa" target="_blank">
             github.com/anderseknert/pre-commit-opa
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/anderseknert/pre-commit-opa">
+            <li data-id="opa-test" data-types="">
                 <code>opa-test</code>
                     - Runs OPA unit tests on rego source files
             </li>
-            <li>
+            <li data-id="opa-fmt" data-types="">
                 <code>opa-fmt</code>
                     - Formats Rego policy using opa fmt
             </li>
-            <li>
+            <li data-id="opa-check" data-types="">
                 <code>opa-check</code>
                     - Check syntax of staged Rego files
             </li>
-            <li>
+            <li data-id="conftest-test" data-types="">
                 <code>conftest-test</code>
                     - Run `conftest test` on staged config files
             </li>
-            <li>
+            <li data-id="conftest-verify" data-types="">
                 <code>conftest-verify</code>
                     - Run `conftest verify` on rego files
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/radix-ai/auto-smart-commit">
         <a href="https://github.com/radix-ai/auto-smart-commit" target="_blank">
             github.com/radix-ai/auto-smart-commit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/radix-ai/auto-smart-commit">
+            <li data-id="auto-smart-commit" data-types="">
                 <code>auto-smart-commit</code>
                     - Automatically transform your Git commit messages into Jira smart commits
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/thibaudcolas/curlylint">
         <a href="https://github.com/thibaudcolas/curlylint" target="_blank">
             github.com/thibaudcolas/curlylint
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/thibaudcolas/curlylint">
+            <li data-id="curlylint" data-types="">
                 <code>curlylint</code>
                     - A linter which checks the indentation and the correctness of Jinja-like/HTML templates.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/cheshirekow/cmake-format-precommit">
         <a href="https://github.com/cheshirekow/cmake-format-precommit" target="_blank">
             github.com/cheshirekow/cmake-format-precommit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/cheshirekow/cmake-format-precommit">
+            <li data-id="cmake-format" data-types="cmake">
                 <code>cmake-format</code>
                     - cmake-format can format your listfiles nicely so that they don&#39;t look like crap.
             </li>
-            <li>
+            <li data-id="cmake-lint" data-types="cmake">
                 <code>cmake-lint</code>
                     - cmake-lint will check your listfiles for style violations, common mistakes, and anti-patterns.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/aorumbayev/pydantic-to-schema">
         <a href="https://github.com/aorumbayev/pydantic-to-schema" target="_blank">
             github.com/aorumbayev/pydantic-to-schema
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/aorumbayev/pydantic-to-schema">
+            <li data-id="pydantic-to-schema" data-types="python">
                 <code>pydantic-to-schema</code>
                     - Converts models from input path to output path as schemas
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/hadialqattan/pycln">
         <a href="https://github.com/hadialqattan/pycln" target="_blank">
             github.com/hadialqattan/pycln
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/hadialqattan/pycln">
+            <li data-id="pycln" data-types="python">
                 <code>pycln</code>
                     - A formatter for finding and removing unused import statements.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/nbQA-dev/nbQA">
         <a href="https://github.com/nbQA-dev/nbQA" target="_blank">
             github.com/nbQA-dev/nbQA
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/nbQA-dev/nbQA">
+            <li data-id="nbqa" data-types="jupyter">
                 <code>nbqa</code>
                     - Run any standard Python code quality tool on a Jupyter Notebook
             </li>
-            <li>
+            <li data-id="nbqa-autoflake" data-types="jupyter">
                 <code>nbqa-autoflake</code>
                     - Run &#39;autoflake&#39; on a Jupyter Notebook
             </li>
-            <li>
+            <li data-id="nbqa-black" data-types="jupyter">
                 <code>nbqa-black</code>
                     - Run &#39;black&#39; on a Jupyter Notebook
             </li>
-            <li>
+            <li data-id="nbqa-check-ast" data-types="jupyter">
                 <code>nbqa-check-ast</code>
                     - Run &#39;check-ast&#39; on a Jupyter Notebook
             </li>
-            <li>
+            <li data-id="nbqa-flake8" data-types="jupyter">
                 <code>nbqa-flake8</code>
                     - Run &#39;flake8&#39; on a Jupyter Notebook
             </li>
-            <li>
+            <li data-id="nbqa-isort" data-types="jupyter">
                 <code>nbqa-isort</code>
                     - Run &#39;isort&#39; on a Jupyter Notebook
             </li>
-            <li>
+            <li data-id="nbqa-mypy" data-types="jupyter">
                 <code>nbqa-mypy</code>
                     - Run &#39;mypy&#39; on a Jupyter Notebook
             </li>
-            <li>
+            <li data-id="nbqa-pylint" data-types="jupyter">
                 <code>nbqa-pylint</code>
                     - Run &#39;pylint&#39; on a Jupyter Notebook
             </li>
-            <li>
+            <li data-id="nbqa-pyupgrade" data-types="jupyter">
                 <code>nbqa-pyupgrade</code>
                     - Run &#39;pyupgrade&#39; on a Jupyter Notebook
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Scony/godot-gdscript-toolkit">
         <a href="https://github.com/Scony/godot-gdscript-toolkit" target="_blank">
             github.com/Scony/godot-gdscript-toolkit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Scony/godot-gdscript-toolkit">
+            <li data-id="gdlint" data-types="gdscript">
                 <code>gdlint</code>
                     - gdlint - linter for GDScript
             </li>
-            <li>
+            <li data-id="gdformat" data-types="gdscript">
                 <code>gdformat</code>
                     - gdformat - formater for GDScript
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/avilaton/add-msg-issue-prefix-hook">
         <a href="https://github.com/avilaton/add-msg-issue-prefix-hook" target="_blank">
             github.com/avilaton/add-msg-issue-prefix-hook
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/avilaton/add-msg-issue-prefix-hook">
+            <li data-id="add-msg-issue-prefix" data-types="">
                 <code>add-msg-issue-prefix</code>
                     - Searches the branch name for something looking like a jira issue name and prepends the commit message with it
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/dustinsand/pre-commit-jvm">
         <a href="https://github.com/dustinsand/pre-commit-jvm" target="_blank">
             github.com/dustinsand/pre-commit-jvm
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/dustinsand/pre-commit-jvm">
+            <li data-id="detekt" data-types="">
                 <code>detekt</code>
                     - Runs the Detekt static code analyzer on Kotlin source files.
             </li>
-            <li>
+            <li data-id="google-java-formatter-jdk8" data-types="">
                 <code>google-java-formatter-jdk8</code>
                     - Runs the Google Java Formatter on Java source files. Minimum supported runtime version is JDK 8.
             </li>
-            <li>
+            <li data-id="google-java-formatter-jdk11" data-types="">
                 <code>google-java-formatter-jdk11</code>
                     - Runs the Google Java Formatter on Java source files. Minimum supported runtime version is JDK 11.
             </li>
-            <li>
+            <li data-id="ktlint" data-types="">
                 <code>ktlint</code>
                     - Runs the ktlint linter and formatter on Kotlin source files.
             </li>
-            <li>
+            <li data-id="pmd" data-types="">
                 <code>pmd</code>
                     - Runs the PMD static code analyzer on Java source files.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/alan-turing-institute/CleverCSV-pre-commit">
         <a href="https://github.com/alan-turing-institute/CleverCSV-pre-commit" target="_blank">
             github.com/alan-turing-institute/CleverCSV-pre-commit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/alan-turing-institute/CleverCSV-pre-commit">
+            <li data-id="clevercsv-standardize" data-types="csv">
                 <code>clevercsv-standardize</code>
                     - CleverCSV Standardize
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://gitlab.com/jvenom/elixir-pre-commit-hooks">
         <a href="https://gitlab.com/jvenom/elixir-pre-commit-hooks" target="_blank">
             gitlab.com/jvenom/elixir-pre-commit-hooks
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://gitlab.com/jvenom/elixir-pre-commit-hooks">
+            <li data-id="mix-format" data-types="">
                 <code>mix-format</code>
                     - Formats Elixir files with mix format.
             </li>
-            <li>
+            <li data-id="mix-test" data-types="">
                 <code>mix-test</code>
                     - Runs Elixir tests with mix test.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/Cretezy/flutter-format-pre-commit">
         <a href="https://github.com/Cretezy/flutter-format-pre-commit" target="_blank">
             github.com/Cretezy/flutter-format-pre-commit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/Cretezy/flutter-format-pre-commit">
+            <li data-id="flutter-format" data-types="">
                 <code>flutter-format</code>
                     - Format Flutter Code
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/dluksza/flutter-analyze-pre-commit">
         <a href="https://github.com/dluksza/flutter-analyze-pre-commit" target="_blank">
             github.com/dluksza/flutter-analyze-pre-commit
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/dluksza/flutter-analyze-pre-commit">
+            <li data-id="flutter-analyze" data-types="">
                 <code>flutter-analyze</code>
                     - Flutter Code Analyze
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/fluttercommunity/import_sorter">
         <a href="https://github.com/fluttercommunity/import_sorter" target="_blank">
             github.com/fluttercommunity/import_sorter
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/fluttercommunity/import_sorter">
+            <li data-id="dart-import-sorter" data-types="">
                 <code>dart-import-sorter</code>
                     - Dart package to automatically organize your dart imports. Any dart project supported!    
 Will sort imports alphabetically and then group them in the following order:
@@ -2695,7 +2735,7 @@ Will sort imports alphabetically and then group them in the following order:
 4. Project imports
 
             </li>
-            <li>
+            <li data-id="flutter-import-sorter" data-types="">
                 <code>flutter-import-sorter</code>
                     - Dart package to automatically organize your dart imports. Any dart project supported!    
 Will sort imports alphabetically and then group them in the following order:
@@ -2706,50 +2746,53 @@ Will sort imports alphabetically and then group them in the following order:
 
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/editorconfig-checker/editorconfig-checker.python">
         <a href="https://github.com/editorconfig-checker/editorconfig-checker.python" target="_blank">
             github.com/editorconfig-checker/editorconfig-checker.python
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/editorconfig-checker/editorconfig-checker.python">
+            <li data-id="editorconfig-checker" data-types="text">
                 <code>editorconfig-checker</code>
                     - `editorconfig-checker` is a tool to check if your files consider your .editorconfig-rules.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://gitlab.com/pablodiehl/pre-commit-lua-formatter">
         <a href="https://gitlab.com/pablodiehl/pre-commit-lua-formatter" target="_blank">
             gitlab.com/pablodiehl/pre-commit-lua-formatter
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://gitlab.com/pablodiehl/pre-commit-lua-formatter">
+            <li data-id="lua-formatter" data-types="file, lua">
                 <code>lua-formatter</code>
                     - Formats Lua files using Lua Formatter.
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/frnmst/md-toc">
         <a href="https://github.com/frnmst/md-toc" target="_blank">
             github.com/frnmst/md-toc
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/frnmst/md-toc">
+            <li data-id="md-toc" data-types="markdown">
                 <code>md-toc</code>
                     - Replace TOC marker with a table of contents
             </li>
     </ul>
-    <h3>
+    <h3 data-repo="https://github.com/mgedmin/check-manifest">
         <a href="https://github.com/mgedmin/check-manifest" target="_blank">
             github.com/mgedmin/check-manifest
         </a>
     </h3>
-    <ul>
-            <li>
+    <ul data-repo="https://github.com/mgedmin/check-manifest">
+            <li data-id="check-manifest" data-types="">
                 <code>check-manifest</code>
                     - Check the completeness of MANIFEST.in for Python packages.
             </li>
     </ul>
+</div>
+
+<script src="assets/filter_repos.js"></script>
 
         </div>
         <footer class="pc-footer"><div class="container"></div></footer>
