@@ -25,7 +25,14 @@ def get_env() -> Dict[str, Any]:
         open('all-hooks.json').read(),
         object_pairs_hook=collections.OrderedDict,
     )
-    return {'all_hooks': all_hooks}
+    all_types = {
+        hook_type
+        for properties in all_hooks.values()
+        for hook_type in (
+            properties[0].get("types", []) + properties[0].get("types_or", [])
+        )
+    }
+    return {'all_hooks': all_hooks, 'all_types': all_types}
 
 
 def main() -> int:
