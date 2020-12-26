@@ -1,150 +1,120 @@
 @import 'scss/variables';
-@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'node_modules/bootstrap/scss/bootstrap';
 
+// flush footer to bottom
+html {
+    height: 100%;
+}
 
 body {
+    min-height: 100%;
     position: relative;
+    padding-bottom: 40px;
 }
 
-pre {
-    margin-bottom: 20px;
+footer {
+    // scss-lint:disable ImportantRule
+    position: absolute  !important;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 
-code {
-    // Allow wrapping of code
-    white-space: normal;
+// additional spacing for sticky object
+.sticky-top {
+    top: $spacer * 3;
 }
 
-.nowrap {
-    white-space: nowrap;
-}
 
+// show anchor on hover
 h1,
-.page-header:first-child {
-    margin-top: 0;
-}
-
-// Navbar
-
-.pc-navbar-brand {
-    padding: 13px 15px;
-}
-
-.logo {
-    height: 44px;
-    width: 44px;
-    display: block;
-    background: url('../logo.png');
-}
-
-.pc-navbar-collapse {
-    @include box-shadow(none);
-}
-
-.pc-navbar .btn {
-    margin: 18px 15px;
-    padding: 6px 12px;
-}
-
-
-// Top shelf
-
-.top-shelf {
-    margin-bottom: 40px;
-    background: $pc-green-light;
-    color: white;
-
-    .container {
-        position: relative;
-    }
-
-    .pc-logo-top-shelf {
-        float: right;
-        margin: -30px 20px 0 40px;
-    }
-
-    h1 {
-        font-weight: bold;
-        margin: 40px 0 20px;
-
-        a {
-            color: $pc-yellow;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-    }
-
-    p {
-        margin-bottom: 10px;
-        font-size: $font-size-h3;
-    }
-}
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    .top-shelf h1 {
-        font-size: $font-size-h2;
-        margin-top: 20px;
-    }
-}
-
-
-// Sidebar
-
-.pc-sidenav.affix {
-    top: 40px;
-}
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    .pc-sidenav.affix {
-        width: 158px;
-    }
-}
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-    .pc-sidenav.affix {
-        width: 213px;
-    }
-}
-
-
-@media (min-width: $screen-lg-min) {
-    .pc-sidenav.affix {
-        width: 263px;
-    }
-}
-
-
-// Footer
-
-.pc-footer {
-    margin-top: 40px;
-    background: $pc-green-dark;
-    color: white;
-    text-align: center;
-
-    .container {
-        padding: 40px;
-    }
-
-    a:hover {
-        color: white;
-    }
-}
-
-.page-hooks {
-    .top-shelf {
+h2,
+h3 {
+    small {
         display: none;
     }
 
-    .pc-main-content {
-        margin-top: 30px;
+    &:hover small {
+        display: inline;
     }
 }
 
-// vs.css: https://github.com/richleland/pygments-css
+
+// underline headline
+.page-header {
+    padding-bottom: 10px;
+    margin: 44px 0 22px;
+    border-bottom: $border-width solid $border-color;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+// wrap table headers
+@include media-breakpoint-down(md) {
+    .table-bordered td:first-child {
+        background: $table-accent-bg;
+    }
+
+    .table-bordered td {
+        display: block;
+    }
+}
+
+// remove double spacing in tables
+td>p {
+    margin: 0;
+}
+
+
+// code boxes
+pre {
+    background-color: $pre-background;
+    color: $pre-color;
+    border: 1px solid darken($pre-background, 15%);
+    border-radius: $border-radius;
+    padding: 0.5rem;
+}
+
+.highlight.pre-commit,
+.highlight.console {
+    pre {
+        background-color: $console-background;
+        color: $console-color;
+        border: 1px solid darken($console-background, 15%);
+    }
+
+    // pygments
+    // scss-lint:disable SelectorFormat
+    .-Color-BGRed { background-color: #c00; }
+    .-Color-BGGreen { background-color: #4e9a06; }
+    .-Color-Black-BGYellow { background-color: #c4a000; color: #2e3436; }
+    .-Color-Black-BGCyan { background-color: #06989a; color: #2e3436; }
+    .-Color-Faint { color: #ccc; }
+    .c1 { color: #06989a; }
+    .s { color: #8ae234; }
+    .s1 { color: #8ae234; }
+    .s2 { color: #8ae234; }
+}
+
+code {
+    // scss-lint:disable ImportantRule
+    color: $code-color !important;
+    background-color: $code-background;
+    padding: $kbd-padding-y $kbd-padding-x;
+    border-radius: $border-radius;
+}
+
+
+// copyable
+.copyable img {
+    cursor: pointer;
+}
+
+
+// https://github.com/richleland/pygments-css/blob/master/vs.css
 .highlight {
     .hll { background-color: #ffc; }
     .c { color: #008000; } /* Comment */
@@ -182,46 +152,4 @@ h1,
     // git diff highlights
     .gi { color: #070; }
     .gd { color: #911; }
-}
-
-// pygments-pre-commit
-.highlight.pre-commit,
-.highlight.console {
-    pre { border: 0; background-color: #2d0922; color: #fff; }
-
-    // scss-lint:disable SelectorFormat
-    .-Color-BGRed { background-color: #c00; }
-    .-Color-BGGreen { background-color: #4e9a06; }
-    .-Color-Black-BGYellow { background-color: #c4a000; color: #2e3436; }
-    .-Color-Black-BGCyan { background-color: #06989a; color: #2e3436; }
-    .-Color-Faint { color: #ccc; }
-
-    .c1 { color: #06989a; }
-    .s { color: #8ae234; }
-    .s1 { color: #8ae234; }
-    .s2 { color: #8ae234; }
-}
-
-.copyable img { cursor: pointer; }
-
-@media (max-width: $screen-md-max) {
-    .table-bordered td:first-child {
-        background: #f5f5f5;
-    }
-
-    .table-bordered td {
-        display: block;
-    }
-}
-
-h1,
-h2,
-h3 {
-    small {
-        display: none;
-    }
-
-    &:hover small {
-        display: inline;
-    }
 }
