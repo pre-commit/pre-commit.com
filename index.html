@@ -1,74 +1,97 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="build/main.css">
-        <link rel="icon" href="favicon.ico">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+        <link rel="stylesheet" href="build/main.css">
+
         <title>pre-commit</title>
     </head>
-    <body class="page-index" data-spy="scroll" data-target=".pc-sidebar">
-        <header class="navbar navbar-default pc-nav" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".pc-navbar-collapse">
-                        <span class="sr-only">Toggle navigtaion</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="/" class="navbar-brand pc-navbar-brand">
-                        <i class="logo"></i>
-                    </a>
+    <body data-spy="scroll" data-target="#content-navigation">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <div class="container-md">
+                <a class="navbar-brand" href="/">
+                    <img src="logo.svg" width="55" height="55" alt="" loading="lazy">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Documentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hooks.html">Supported hooks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/pre-commit/demo-repo#readme">Demo</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="https://github.com/pre-commit/pre-commit" role="button" class="btn btn-outline-info my-2 my-sm-0">Download on GitHub</a>
+                        </li>
+                    </ul>
                 </div>
-                <nav class="navbar-collapse pc-navbar pc-navbar-collapse collapse" role="navigation">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/">Documentation</a></li>
-                        <li><a href="hooks.html">Supported hooks</a></li>
-                        <li><a href="https://github.com/pre-commit/demo-repo#readme">Demo</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://github.com/pre-commit/pre-commit" class="btn btn-default">Download on GitHub</a></li>
-                    </ul>
-                </nav>
+            </div>
+        </nav>
+
+        <header class="bg-light">
+            <div class="container-md py-4 py-lg-0">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1 class="display-4 pb-3 text-secondary">pre-commit</h1>
+                        <p class="lead text-white">
+                            A framework for managing and maintaining multi-language <span class="text-nowrap">pre-commit</span> hooks.
+                        </p>
+                        <div class="mb-3">
+                            <a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=master">
+                                <img src="https://dev.azure.com/asottile/asottile/_apis/build/status/pre-commit.pre-commit?branchName=master" alt="Build Status" style="max-width:100%;">
+                            </a>
+                            <a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=master">
+                                <img src="https://img.shields.io/azure-devops/coverage/asottile/asottile/21/master.svg" alt="Azure DevOps Coverage" style="max-width:100%;">
+                            </a>
+                            <a href="https://results.pre-commit.ci/latest/github/pre-commit/pre-commit/master">
+                                <img src="https://results.pre-commit.ci/badge/github/pre-commit/pre-commit/master.svg" alt="pre-commit.ci status" style="max-width:100%;">
+                            </a>
+                        </div>
+                        <div>
+                            <a class="github-button" href="https://github.com/pre-commit/pre-commit" data-show-count="true" aria-label="Star pre-commit/pre-commit on GitHub">Star</a>
+                            <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://pre-commit.com" data-text="pre-commit - A framework for managing and maintaining multi-language pre-commit hooks.">Tweet</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        </div>
+                    </div>
+                    <img src="logo-top-shelf.png" alt="pre-commit logo" class="d-none d-lg-block"></img>
+                </div>
             </div>
         </header>
-        <div class="top-shelf">
-            <div class="container">
-                <img class="pc-logo-top-shelf hidden-xs hidden-sm" src="logo-top-shelf.png">
-                <h1>
-                    <a href="https://github.com/pre-commit/pre-commit">
-                        pre-commit
-                    </a>
-                </h1>
-                <p>A framework for managing and maintaining multi-language <span class="nowrap">pre-commit</span> hooks.</p>
-           <p><a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=master"><img src="https://dev.azure.com/asottile/asottile/_apis/build/status/pre-commit.pre-commit?branchName=master" alt="Build Status" style="max-width:100%;"></a>
-<a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=master"><img src="https://img.shields.io/azure-devops/coverage/asottile/asottile/21/master.svg" alt="Azure DevOps Coverage" style="max-width:100%;"></a>
-<a href="https://results.pre-commit.ci/latest/github/pre-commit/pre-commit/master"><img src="https://results.pre-commit.ci/badge/github/pre-commit/pre-commit/master.svg" alt="pre-commit.ci status" style="max-width:100%;"></a></p>
-            <p><iframe src="https://ghbtns.com/github-btn.html?user=pre-commit&amp;repo=pre-commit&amp;type=watch&amp;count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="104px" height="20"></iframe>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://pre-commit.com" data-text="pre-commit - A framework for managing and maintaining multi-language pre-commit hooks.">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
-        </div>
-        </div>
-        <div class="container pc-main-content">
+
+        <main class="container-md my-4">
             
 
 <div class="row">
-    <div class="col-sm-3 hidden-xs pc-sidebar">
-        <ul class="nav nav-pills nav-stacked pc-sidenav" data-spy="affix" data-offset-top="400">
-            <li class="active"><a href="#intro">Introduction</a></li>
-            <li><a href="#install">Installation</a></li>
-            <li><a href="#plugins">Adding plugins</a></li>
-            <li><a href="#usage">Usage</a></li>
-            <li><a href="#new-hooks">Creating new hooks</a></li>
-            <li><a href="#cli">Command line interface</a></li>
-            <li><a href="#advanced">Advanced features</a></li>
-            <li><a href="#contributing">Contributing</a></li>
-        </ul>
+    <div class="col-sm-3 d-none d-lg-block">
+        <nav class="nav flex-column nav-pills sticky-top" aria-orientation="vertical" id="content-navigation">
+          <a class="nav-link active" href="#intro" role="tab">Introduction</a>
+          <a class="nav-link" href="#install" role="tab">Installation</a>
+          <a class="nav-link" href="#plugins" role="tab">Adding plugins</a>
+          <a class="nav-link" href="#usage" role="tab">Usage</a>
+          <a class="nav-link" href="#new-hooks" role="tab">Creating new hooks</a>
+          <a class="nav-link" href="#cli" role="tab">Command line interface</a>
+          <a class="nav-link" href="#advanced" role="tab">Advanced features</a>
+          <a class="nav-link" href="#contributing" role="tab">Contributing</a>
+        </nav>
     </div>
-    <div class="col-sm-9">
+    <div class="col-lg-9 col-12">
         <div id="intro">
             <div class="page-header"><h1 id="introduction">    Introduction <small><a href="#introduction">¶</a></small></h1> </div>
 <p>Git hook scripts are useful for identifying simple issues before submission to
@@ -1392,16 +1415,19 @@ can contribute in the following ways:</p>
     </div>
 </div>
 
-        </div>
-        <footer class="pc-footer"><div class="container"></div></footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+        </main>
+
+        <footer class="navbar navbar-expand navbar-dark bg-primary">
+            <div class="container-md">&nbsp;</div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
             ga('create', 'UA-104682927-1', 'auto');
             ga('send', 'pageview');
         </script>
