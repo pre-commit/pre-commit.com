@@ -4309,9 +4309,11 @@
         {
             "id": "dart-import-sorter",
             "name": "Dart Import Sorter",
-            "entry": "pub run import_sorter:main",
+            "entry": "dart pub run import_sorter:main",
             "language": "system",
-            "files": "\\.dart$",
+            "types": [
+                "dart"
+            ],
             "require_serial": true,
             "description": "Dart package to automatically organize your dart imports. Any dart project supported!    \nWill sort imports alphabetically and then group them in the following order:\n1. Dart imports\n2. Flutter imports\n3. Package imports\n4. Project imports\n"
         },
@@ -4320,7 +4322,9 @@
             "name": "Flutter Import Sorter",
             "entry": "flutter pub run import_sorter:main",
             "language": "system",
-            "files": "\\.dart$",
+            "types": [
+                "dart"
+            ],
             "require_serial": true,
             "description": "Dart package to automatically organize your dart imports. Any dart project supported!    \nWill sort imports alphabetically and then group them in the following order:\n1. Dart imports\n2. Flutter imports\n3. Package imports\n4. Project imports\n"
         }
