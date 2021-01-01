@@ -4384,5 +4384,16 @@
             "pass_filenames": false,
             "always_run": true
         }
+    ],
+    "https://github.com/ecugol/pre-commit-hooks-django": [
+        {
+            "id": "check-untracked-migrations",
+            "name": "Untracked Django migrations checker",
+            "description": "Forbid untracked Django migrations",
+            "entry": "check-untracked-migrations",
+            "language": "python",
+            "always_run": true,
+            "pass_filenames": false
+        }
     ]
 }
