@@ -2028,8 +2028,7 @@
             "name": "commitlint",
             "description": "Commitlint hook",
             "language": "node",
-            "entry": "commitlint --edit",
-            "verbose": false
+            "entry": "commitlint --edit"
         },
         {
             "id": "commitlint-travis",
