@@ -4394,5 +4394,17 @@
             "always_run": true,
             "pass_filenames": false
         }
+    ],
+    "https://github.com/PrincetonUniversity/blocklint": [
+        {
+            "id": "blocklint",
+            "name": "blocklint",
+            "description": "`blocklint` is a command-line utility for inclusive language highlighting.",
+            "entry": "blocklint",
+            "language": "python",
+            "types": [
+                "text"
+            ]
+        }
     ]
 }
