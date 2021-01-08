@@ -3459,7 +3459,7 @@
         {
             "id": "gradle-spotless",
             "name": "gradle spotless",
-            "description": "Lints java project using \"gradle spotlessJavaCheck spotlessJavaApply\"",
+            "description": "Lints the project using \"gradle spotlessCheck spotlessApply\"",
             "entry": "gradle-spotless",
             "language": "python",
             "pass_filenames": false
@@ -4411,6 +4411,7 @@
         {
             "id": "check-jsonschema",
             "name": "Validate files with jsonschema",
+            "description": "Validate JSON or YAML files against a jsonschema on disk or fetched via HTTP(S)",
             "entry": "check-jsonschema",
             "language": "python",
             "types_or": [
@@ -4421,12 +4422,58 @@
         },
         {
             "id": "check-github-workflows",
-            "name": "Check GitHub Workflows",
+            "name": "Validate GitHub Workflows",
+            "description": "Validate GitHub Workflows against the schema provided by Schemastore",
             "entry": "check-jsonschema --schemafile \"https://json.schemastore.org/github-workflow\"",
             "language": "python",
             "files": "^\\.github/workflows/",
             "types": [
                 "yaml"
+            ]
+        },
+        {
+            "id": "check-github-actions",
+            "name": "Validate GitHub Actions",
+            "description": "Validate GitHub Actions against the schema provided by Schemastore",
+            "entry": "check-jsonschema --schemafile \"https://json.schemastore.org/github-action\"",
+            "language": "python",
+            "files": "(?x)^(\n  action.(yml|yaml)|\n  \\.github/actions/.*\n)$\n",
+            "types": [
+                "yaml"
+            ]
+        },
+        {
+            "id": "check-azure-pipelines",
+            "name": "Validate Azure Pipelines",
+            "description": "Validate Azure Pipelines config against the schema provided by Microsoft",
+            "entry": "check-jsonschema --schemafile \"https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/v1.174.2/service-schema.json\"",
+            "language": "python",
+            "files": "^(\\.)?azure-pipelines.(yml|yaml)$",
+            "types": [
+                "yaml"
+            ]
+        },
+        {
+            "id": "check-travis",
+            "name": "Validate Travis Config",
+            "description": "Validate Travis config against the schema provided by Schemastore",
+            "entry": "check-jsonschema --schemafile \"https://json.schemastore.org/travis\"",
+            "language": "python",
+            "files": "^\\.travis.(yml|yaml)$",
+            "types": [
+                "yaml"
+            ]
+        }
+    ],
+    "https://github.com/sirosen/fix-smartquotes": [
+        {
+            "id": "fix-smartquotes",
+            "name": "Fix smartquote characters",
+            "description": "Replace \"smartquote\" characters with regular quotes",
+            "entry": "fix-smartquotes",
+            "language": "python",
+            "types": [
+                "text"
             ]
         }
     ]
