@@ -4406,5 +4406,28 @@
                 "text"
             ]
         }
+    ],
+    "https://github.com/sirosen/check-jsonschema": [
+        {
+            "id": "check-jsonschema",
+            "name": "Validate files with jsonschema",
+            "entry": "check-jsonschema",
+            "language": "python",
+            "types_or": [
+                "json",
+                "yaml"
+            ],
+            "minimum_pre_commit_version": "2.9.0"
+        },
+        {
+            "id": "check-github-workflows",
+            "name": "Check GitHub Workflows",
+            "entry": "check-jsonschema --schemafile \"https://json.schemastore.org/github-workflow\"",
+            "language": "python",
+            "files": "^\\.github/workflows/",
+            "types": [
+                "yaml"
+            ]
+        }
     ]
 }
