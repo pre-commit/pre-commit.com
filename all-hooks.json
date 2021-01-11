@@ -1669,7 +1669,10 @@
             "entry": "ansible-lint --force-color",
             "language": "python",
             "pass_filenames": false,
-            "always_run": true
+            "always_run": true,
+            "additional_dependencies": [
+                ".[community,yamllint]"
+            ]
         }
     ],
     "https://github.com/doublify/pre-commit-clang-format": [
