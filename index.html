@@ -179,7 +179,7 @@ any programming language</li>
 <h3 id="3-install-the-git-hook-scripts">    3. Install the git hook scripts <small><a href="#3-install-the-git-hook-scripts">¶</a></small></h3> <ul>
 <li>run <code>pre-commit install</code> to set up the git hook scripts</li>
 </ul>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install
 <span class="go">pre-commit installed at .git/hooks/pre-commit</span>
 </pre></div>
 <ul>
@@ -709,26 +709,26 @@ This option may be specified multiple times.</li>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pyupgrade</span>
         <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">--py36-plus</span><span class="p p-Indicator">]</span>
 </pre></div>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> : default: update to latest tag on default branch
-<span class="gp">$</span> pre-commit autoupdate  <span class="c1"># by default: pick tags</span>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>: default: update to latest tag on default branch
+<span class="gp">$ </span>pre-commit autoupdate  <span class="c1"># by default: pick tags</span>
 <span class="go">Updating https://github.com/pre-commit/pre-commit-hooks ... updating v2.1.0 -&gt; v2.4.0.</span>
 <span class="go">Updating https://github.com/asottile/pyupgrade ... updating v1.25.0 -&gt; v1.25.2.</span>
-<span class="gp">$</span> grep rev: .pre-commit-config.yaml
+<span class="gp">$ </span>grep rev: .pre-commit-config.yaml
 <span class="go">    rev: v2.4.0</span>
 <span class="go">    rev: v1.25.2</span>
 </pre></div>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> : update a specific repository to the latest revision of the default branch
-<span class="gp">$</span> pre-commit autoupdate --bleeding-edge --repo https://github.com/pre-commit/pre-commit-hooks
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>: update a specific repository to the latest revision of the default branch
+<span class="gp">$ </span>pre-commit autoupdate --bleeding-edge --repo https://github.com/pre-commit/pre-commit-hooks
 <span class="go">Updating https://github.com/pre-commit/pre-commit-hooks ... updating v2.1.0 -&gt; 5df1a4bf6f04a1ed3a643167b38d502575e29aef.</span>
-<span class="gp">$</span> grep rev: .pre-commit-config.yaml
+<span class="gp">$ </span>grep rev: .pre-commit-config.yaml
 <span class="go">    rev: 5df1a4bf6f04a1ed3a643167b38d502575e29aef</span>
 <span class="go">    rev: v1.25.0</span>
 </pre></div>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> : update to frozen versions
-<span class="gp">$</span> pre-commit autoupdate --freeze
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>: update to frozen versions
+<span class="gp">$ </span>pre-commit autoupdate --freeze
 <span class="go">Updating https://github.com/pre-commit/pre-commit-hooks ... updating v2.1.0 -&gt; v2.4.0 (frozen).</span>
 <span class="go">Updating https://github.com/asottile/pyupgrade ... updating v1.25.0 -&gt; v1.25.2 (frozen).</span>
-<span class="gp">$</span> grep rev: .pre-commit-config.yaml
+<span class="gp">$ </span>grep rev: .pre-commit-config.yaml
 <span class="go">    rev: 0161422b4e09b47536ea13f49e786eb3616fe0d7  # frozen: v2.4.0</span>
 <span class="go">    rev: 34a269fd7650d264e4de7603157c10d0a9bb8211  # frozen: v1.25.2</span>
 </pre></div>
@@ -873,7 +873,7 @@ or more hooks. pre-commit solves this by querying a <code>SKIP</code> environmen
 variable. The <code>SKIP</code> environment variable is a comma separated list of hook
 ids. This allows you to skip a single hook instead of <code>--no-verify</code>ing the
 entire commit.</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> <span class="nv">SKIP</span><span class="o">=</span>flake8 git commit -m <span class="s2">&quot;foo&quot;</span>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span><span class="nv">SKIP</span><span class="o">=</span>flake8 git commit -m <span class="s2">&quot;foo&quot;</span>
 </pre></div>
 <h2 id="pre-commit-during-commits">    pre-commit during commits <small><a href="#pre-commit-during-commits">¶</a></small></h2> <p>Running hooks on unstaged changes can lead to both false-positives and
 false-negatives during committing.  pre-commit only runs on the staged
@@ -881,7 +881,7 @@ contents of files by temporarily saving the contents of your files at commit
 time and stashing the unstaged changes while running hooks.</p>
 <p><em>new in 2.4.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_commit">post-commit</a> hooks.</p>
 <p>To use <code>post-commit</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type post-commit
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type post-commit
 <span class="go">pre-commit installed at .git/hooks/post-commit</span>
 </pre></div>
 <p><code>post-commit</code> hooks fire after the commit succeeds and cannot be used to
@@ -907,14 +907,14 @@ were automatically merged by git.  Git isn't perfect and this can often catch
 implicit conflicts (such as with removed python imports).</p>
 <h2 id="pre-commit-during-clean-merges">    pre-commit during clean merges <small><a href="#pre-commit-during-clean-merges">¶</a></small></h2> <p><em>new in 1.21.0</em> pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_pre_merge_commit">pre-merge-commit</a> hooks.</p>
 <p>To use <code>pre-merge-commit</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type pre-merge-commit
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type pre-merge-commit
 <span class="go">pre-commit installed at .git/hooks/pre-merge-commit</span>
 </pre></div>
 <p>The hook fires after a merge succeeds but before the merge commit is created.</p>
 <p>Note that you need to be using at least git 2.24 which added support for the
 pre-merge-commit hook.</p>
 <h2 id="pre-commit-during-push">    pre-commit during push <small><a href="#pre-commit-during-push">¶</a></small></h2> <p>To use <code>pre-push</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type pre-push
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type pre-push
 <span class="go">pre-commit installed at .git/hooks/pre-push</span>
 </pre></div>
 <p>During a push, pre-commit will export the following environment variables:</p>
@@ -934,7 +934,7 @@ pushed to (for example <code>git@github.com:pre-commit/pre-commit</code>.</li>
 </ul>
 <h2 id="pre-commit-for-commit-messages">    pre-commit for commit messages <small><a href="#pre-commit-for-commit-messages">¶</a></small></h2> <p>pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_commit_msg">commit-msg</a> hooks.</p>
 <p>To use <code>commit-msg</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type commit-msg
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type commit-msg
 <span class="go">pre-commit installed at .git/hooks/commit-msg</span>
 </pre></div>
 <p><code>commit-msg</code> hooks can be configured by setting <code>stages: [commit-msg]</code>.
@@ -943,7 +943,7 @@ current contents of the commit message which can be validated.  If a hook
 exits nonzero, the commit will be aborted.</p>
 <p><em>new in 1.16.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_prepare_commit_msg">prepare-commit-msg</a> hooks.</p>
 <p>To use <code>prepare-commit-msg</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type prepare-commit-msg
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type prepare-commit-msg
 <span class="go">pre-commit installed at .git/hooks/prepare-commit-msg</span>
 </pre></div>
 <p><code>prepare-commit-msg</code> hooks can be used to create dynamic templates for commit
@@ -956,7 +956,7 @@ indicates that no editor will be launched. If a hook exits nonzero,
 the commit will be aborted.</p>
 <h2 id="pre-commit-for-switching-branches">    pre-commit for switching branches <small><a href="#pre-commit-for-switching-branches">¶</a></small></h2> <p><em>new in 2.2.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_checkout">post-checkout</a> hooks.</p>
 <p>To use <code>post-checkout</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> pre-commit install --hook-type post-checkout
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type post-checkout
 <span class="go">pre-commit installed at .git/hooks/post-checkout</span>
 </pre></div>
 <p><code>post-checkout</code> hooks can be used to perform repository validity checks,
@@ -1097,8 +1097,8 @@ automatically have the hooks set up without the need to run
 <code>pre-commit install</code>.</p>
 <p>To configure, first set <code>git</code>'s <code>init.templateDir</code> -- in this example I'm
 using <code>~/.git-template</code> as my template directory.</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> git config --global init.templateDir ~/.git-template
-<span class="gp">$</span> pre-commit init-templatedir ~/.git-template
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>git config --global init.templateDir ~/.git-template
+<span class="gp">$ </span>pre-commit init-templatedir ~/.git-template
 <span class="go">pre-commit installed at /home/asottile/.git-template/hooks/pre-commit</span>
 </pre></div>
 <p>Now whenever you clone a pre-commit enabled repo, the hooks will already be
@@ -1113,10 +1113,10 @@ Debug Statements (Python)............................(no files to check)<span cl
 </pre></div>
 <p><code>init-templatedir</code> uses the <code>--allow-missing-config</code> option from
 <code>pre-commit install</code> so repos without a config will be skipped:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> git init sample
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>git init sample
 <span class="go">Initialized empty Git repository in /tmp/sample/.git/</span>
-<span class="gp">$</span> <span class="nb">cd</span> sample
-<span class="gp">$</span> git commit --allow-empty -m <span class="s1">&#39;Initial commit&#39;</span>
+<span class="gp">$ </span><span class="nb">cd</span> sample
+<span class="gp">$ </span>git commit --allow-empty -m <span class="s1">&#39;Initial commit&#39;</span>
 <span class="go">`.pre-commit-config.yaml` config file not found. Skipping `pre-commit`.</span>
 <span class="go">[master (root-commit) d1b39c1] Initial commit</span>
 </pre></div>
@@ -1143,11 +1143,11 @@ chosen as it is a small portable pure python library.</p>
 <li><a href="https://github.com/pre-commit/identify/blob/master/identify/interpreters.py">tags by shebang (<code>#!</code>)</a></li>
 </ul>
 <p>To discover the type of any file on disk, you can use <code>identify</code>'s cli:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$</span> identify-cli setup.py
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>identify-cli setup.py
 <span class="go">[&quot;file&quot;, &quot;non-executable&quot;, &quot;python&quot;, &quot;text&quot;]</span>
-<span class="gp">$</span> identify-cli some-random-file
+<span class="gp">$ </span>identify-cli some-random-file
 <span class="go">[&quot;file&quot;, &quot;non-executable&quot;, &quot;text&quot;]</span>
-<span class="gp">$</span> identify-cli --filename-only some-random-file<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="gp">$ </span>identify-cli --filename-only some-random-file<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
 <span class="go">1</span>
 </pre></div>
 <p>If a file extension you use is not supported, please
