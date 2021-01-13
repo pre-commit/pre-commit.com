@@ -3880,7 +3880,8 @@
             "language": "python",
             "types": [
                 "markdown"
-            ]
+            ],
+            "minimum_pre_commit_version": "1.0.0"
         }
     ],
     "https://gitlab.com/daverona/pre-commit/php": [
