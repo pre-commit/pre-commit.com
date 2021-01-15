@@ -4480,5 +4480,17 @@
                 "text"
             ]
         }
+    ],
+    "https://github.com/sondrelg/pep585-upgrade": [
+        {
+            "id": "upgrade-type-hints",
+            "name": "Upgrade type hints",
+            "description": "Upgrades type hints to new types introduced in PEP 585",
+            "entry": "upgrade-type-hints-script",
+            "language": "python",
+            "types": [
+                "python"
+            ]
+        }
     ]
 }
