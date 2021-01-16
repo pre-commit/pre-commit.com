@@ -4492,5 +4492,19 @@
                 "python"
             ]
         }
+    ],
+    "https://github.com/jendrikseipp/vulture": [
+        {
+            "id": "vulture",
+            "name": "vulture",
+            "language": "python",
+            "entry": "vulture",
+            "description": "Find unused Python code.",
+            "types": [
+                "python"
+            ],
+            "pass_filenames": false,
+            "require_serial": true
+        }
     ]
 }
