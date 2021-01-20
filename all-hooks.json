@@ -4506,5 +4506,19 @@
             "pass_filenames": false,
             "require_serial": true
         }
+    ],
+    "https://github.com/MarcoGorelli/no-string-hints": [
+        {
+            "id": "no-string-hints",
+            "name": "no-string-hints",
+            "description": "Automatically remove string literals in type annotations.",
+            "entry": "no_string_hints",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
+        }
     ]
 }
