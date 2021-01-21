@@ -4520,5 +4520,19 @@
             "files": "",
             "minimum_pre_commit_version": "0.15.0"
         }
+    ],
+    "https://github.com/mwouts/jupytext": [
+        {
+            "id": "jupytext",
+            "name": "jupytext",
+            "description": "Runs jupytext on all notebooks and paired files.",
+            "language": "python",
+            "entry": "jupytext --ignore-unmatched --alert-untracked",
+            "pass_filenames": true,
+            "require_serial": true,
+            "types": [
+                "jupyter"
+            ]
+        }
     ]
 }
