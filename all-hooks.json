@@ -4397,6 +4397,21 @@
             "language": "python",
             "always_run": true,
             "pass_filenames": false
+        },
+        {
+            "id": "check-unapplied-migrations",
+            "name": "Check unapplied migrations with manage.py migrate --check",
+            "entry": "sh -c 'python `find . -name \"manage.py\"` migrate --check'",
+            "pass_filenames": false,
+            "language": "system",
+            "always_run": true
+        },
+        {
+            "id": "po-location-format",
+            "name": "Changes location format for .po files",
+            "entry": "po-location-format",
+            "language": "python",
+            "files": "\\.po$"
         }
     ],
     "https://github.com/PrincetonUniversity/blocklint": [
@@ -4533,6 +4548,48 @@
             "types": [
                 "jupyter"
             ]
+        }
+    ],
+    "https://github.com/ejba/pre-commit-maven": [
+        {
+            "id": "maven",
+            "name": "maven",
+            "description": "Runs arbitrary maven commands for java projects",
+            "entry": "maven",
+            "language": "python",
+            "pass_filenames": false
+        },
+        {
+            "id": "maven-test",
+            "name": "maven test",
+            "description": "Runs maven test build lifecycle",
+            "entry": "maven-test",
+            "language": "python",
+            "pass_filenames": false
+        },
+        {
+            "id": "maven-compile",
+            "name": "maven compile",
+            "description": "Runs maven compile build lifecycle",
+            "entry": "maven-compile",
+            "language": "python",
+            "pass_filenames": false
+        },
+        {
+            "id": "maven-spotless-check",
+            "name": "maven spotless check",
+            "description": "Runs spotless:check goal",
+            "entry": "maven-spotless-check",
+            "language": "python",
+            "pass_filenames": false
+        },
+        {
+            "id": "maven-spotless-apply",
+            "name": "maven spotless apply",
+            "description": "Runs spotless:apply goal",
+            "entry": "maven-spotless-apply",
+            "language": "python",
+            "pass_filenames": false
         }
     ]
 }
