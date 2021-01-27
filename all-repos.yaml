@@ -46,7 +46,7 @@
 - https://github.com/detailyang/pre-commit-shell
 - https://github.com/bemeurer/beautysh
 - https://github.com/antonbabenko/pre-commit-terraform
-- https://github.com/ansible/ansible-lint
+- https://github.com/ansible-community/ansible-lint
 - https://github.com/doublify/pre-commit-clang-format
 - https://github.com/doublify/pre-commit-go
 - https://github.com/doublify/pre-commit-hindent
