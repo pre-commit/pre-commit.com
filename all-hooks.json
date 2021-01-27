@@ -1661,7 +1661,7 @@
             "require_serial": true
         }
     ],
-    "https://github.com/ansible/ansible-lint": [
+    "https://github.com/ansible-community/ansible-lint": [
         {
             "id": "ansible-lint",
             "name": "Ansible-lint",
