@@ -1198,7 +1198,7 @@
             "description": "Analyze your Python requirements for known security vulnerabilities",
             "entry": "safety_check",
             "language": "python",
-            "files": "requirements"
+            "files": "pyproject\\.toml|requirements"
         }
     ],
     "https://github.com/chriskuehl/puppet-pre-commit-hooks": [
