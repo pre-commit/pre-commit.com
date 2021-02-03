@@ -4654,8 +4654,10 @@
             "name": "Lint Dockerfiles",
             "description": "Runs hadolint to lint Dockerfiles",
             "language": "system",
-            "entry": "hadolint",
-            "files": "Dockerfile"
+            "types": [
+                "dockerfile"
+            ],
+            "entry": "hadolint"
         }
     ]
 }
