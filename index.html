@@ -1120,6 +1120,20 @@ Debug Statements (Python)............................(no files to check)<span cl
 <span class="go">`.pre-commit-config.yaml` config file not found. Skipping `pre-commit`.</span>
 <span class="go">[master (root-commit) d1b39c1] Initial commit</span>
 </pre></div>
+<p>To still require opt-in, but prompt the user to set up pre-commit use a
+template hook as follows (for example in <code>~/.git-template/hooks/pre-commit</code>).</p>
+<div class="highlight bash"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="k">if</span> <span class="o">[</span> -f .pre-commit-config.yaml <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s1">&#39;pre-commit configuration detected, but `pre-commit install` was never run&#39;</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+</pre></div>
+<p>With this, a forgotten <code>pre-commit install</code> produces an error on commit:</p>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>git clone -q https://github.com/asottile/pyupgrade
+<span class="gp">$ </span><span class="nb">cd</span> pyupgrade/
+<span class="gp">$ </span>git commit -m <span class="s1">&#39;foo&#39;</span>
+<span class="go">pre-commit configuration detected, but `pre-commit install` was never run</span>
+</pre></div>
 <h2 id="filtering-files-with-types">    Filtering files with types <small><a href="#filtering-files-with-types">¶</a></small></h2> <p>Filtering with <code>types</code> provides several advantages over traditional filtering
 with <code>files</code>.</p>
 <ul>
