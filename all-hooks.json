@@ -570,7 +570,7 @@
             "id": "rst-backticks",
             "name": "rst ``code`` is two backticks",
             "description": "Detect common mistake of using single backticks when writing rst",
-            "entry": "(^| )`[^`]+`([^_]|$)",
+            "entry": "^(?!    ).*(^| )`[^`]+`([^_]|$)",
             "language": "pygrep",
             "types": [
                 "rst"
@@ -4660,6 +4660,18 @@
                 "dockerfile"
             ],
             "entry": "hadolint"
+        }
+    ],
+    "https://github.com/google/go-jsonnet": [
+        {
+            "id": "jsonnet-format",
+            "name": "Format fix for jsonnet/libsonnet files",
+            "entry": "jsonnetfmt -i",
+            "language": "golang",
+            "files": "\\.(jsonnet|libsonnet)$",
+            "additional_dependencies": [
+                "github.com/google/go-jsonnet/cmd/jsonnetfmt"
+            ]
         }
     ]
 }
