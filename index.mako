@@ -1473,6 +1473,26 @@ $ git commit --allow-empty -m 'Initial commit'
 [master (root-commit) d1b39c1] Initial commit
 ```
 
+To still require opt-in, but prompt the user to set up pre-commit use a
+template hook as follows (for example in `~/.git-template/hooks/pre-commit`).
+
+```bash
+#!/usr/bin/env bash
+if [ -f .pre-commit-config.yaml ]; then
+    echo 'pre-commit configuration detected, but `pre-commit install` was never run' 1>&2
+    exit 1
+fi
+```
+
+With this, a forgotten `pre-commit install` produces an error on commit:
+
+```console
+$ git clone -q https://github.com/asottile/pyupgrade
+$ cd pyupgrade/
+$ git commit -m 'foo'
+pre-commit configuration detected, but `pre-commit install` was never run
+```
+
 ## Filtering files with types
 
 Filtering with `types` provides several advantages over traditional filtering
