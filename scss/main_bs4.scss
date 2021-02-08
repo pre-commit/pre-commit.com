@@ -64,7 +64,7 @@ h3 {
 }
 
 // remove double spacing in tables
-td>p {
+td > :last-child {
     margin: 0;
 }
 
