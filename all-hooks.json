@@ -3958,6 +3958,7 @@
             "args": [
                 "."
             ],
+            "pass_filenames": false,
             "language": "system",
             "files": "(\\.rego)$"
         }
