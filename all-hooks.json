@@ -4674,5 +4674,14 @@
                 "github.com/google/go-jsonnet/cmd/jsonnetfmt"
             ]
         }
+    ],
+    "https://github.com/guid-empty/flutter-dependency-validation-pre-commit": [
+        {
+            "id": "flutter-dependency-validation",
+            "name": "Pubspec.yaml dependencies validation",
+            "entry": "run",
+            "language": "script",
+            "files": "pubspec.yaml"
+        }
     ]
 }
