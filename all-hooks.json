@@ -4683,5 +4683,15 @@
             "language": "script",
             "files": "pubspec.yaml"
         }
+    ],
+    "https://github.com/cpplint/cpplint": [
+        {
+            "id": "cpplint",
+            "name": "cpplint",
+            "description": "Static code analysis of C/C++ files",
+            "language": "python",
+            "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
+            "entry": "cpplint"
+        }
     ]
 }
