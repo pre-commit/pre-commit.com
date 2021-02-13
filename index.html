@@ -1283,10 +1283,14 @@ which may be faster, use something like
 <li><code>XDG_CACHE_HOME</code>: if set, pre-commit will use <code>$XDG_CACHE_HOME/pre-commit</code>
 following the <a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG Base Directory Specification</a>.</li>
 </ul>
-<h3 id="travis-ci-example">    travis-ci example <small><a href="#travis-ci-example">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span>
-  <span class="nt">directories</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/pre-commit</span>
-</pre></div>
+<h3 id="pre-commitci-example">    pre-commit.ci example <small><a href="#pre-commitci-example">¶</a></small></h3> <p>no additional configuration is needed to run in <a href="https://pre-commit.ci">pre-commit.ci</a>!</p>
+<p>pre-commit.ci also has the following benefits:</p>
+<ul>
+<li>it's faster than other free CI solutions</li>
+<li>it will autofix pull requests</li>
+<li>it will periodically autoupdate your configuration</li>
+</ul>
+<p><a href="https://github.com/pre-commit-ci-demo/demo#results"><img src="https://raw.githubusercontent.com/pre-commit-ci-demo/demo/master/img/2020-12-15_noop.svg" alt="pre-commit.ci speed comparison" /></a></p>
 <h3 id="appveyor-example">    appveyor example <small><a href="#appveyor-example">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="s">&#39;%USERPROFILE%\.cache\pre-commit&#39;</span>
 </pre></div>
@@ -1311,6 +1315,25 @@ repository template, see <a href="https://github.com/asottile/azure-pipeline-tem
       <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pre-commit | .pre-commit-config.yaml | &quot;$(PY)&quot;</span>
       <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$(PRE_COMMIT_HOME)</span>
 </pre></div>
+<h3 id="circleci-example">    circleci example <small><a href="#circleci-example">¶</a></small></h3> <p>like <a href="#azure-pipelines-example">azure pipelines</a>, circleci also uses immutable
+caches:</p>
+<div class="highlight yaml"><pre><span></span>  <span class="nt">steps</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span>
+    <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+      <span class="no">cp .pre-commit-config.yaml pre-commit-cache-key.txt</span>
+      <span class="no">python --version --version &gt;&gt; pre-commit-cache-key.txt</span>
+  <span class="p p-Indicator">-</span> <span class="nt">restore_cache</span><span class="p">:</span>
+    <span class="nt">keys</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span>
+
+  <span class="c1"># ...</span>
+
+  <span class="p p-Indicator">-</span> <span class="nt">save_cache</span><span class="p">:</span>
+    <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span>
+    <span class="nt">paths</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span>
+</pre></div>
+<p>(source: <a href="https://github.com/Unity-Technologies/ml-agents/pull/3094/files#diff-1d37e48f9ceff6d8030570cd36286a61">@chriselion</a>)</p>
 <h3 id="github-actions-example">    github actions example <small><a href="#github-actions-example">¶</a></small></h3> <p><strong>see the <a href="https://github.com/pre-commit/action">official pre-commit github action</a></strong></p>
 <p>like <a href="#azure-pipelines-example">azure pipelines</a>, github actions also uses
 immutable caches:</p>
@@ -1329,25 +1352,10 @@ immutable caches:</p>
     <span class="nt">paths</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${PRE_COMMIT_HOME}</span>
 </pre></div>
-<h3 id="circleci-example">    circleci example <small><a href="#circleci-example">¶</a></small></h3> <p>like <a href="#azure-pipelines-example">azure pipelines</a>, circleci also uses
-immutable caches:</p>
-<div class="highlight yaml"><pre><span></span>  <span class="nt">steps</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span>
-    <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-      <span class="no">cp .pre-commit-config.yaml pre-commit-cache-key.txt</span>
-      <span class="no">python --version --version &gt;&gt; pre-commit-cache-key.txt</span>
-  <span class="p p-Indicator">-</span> <span class="nt">restore_cache</span><span class="p">:</span>
-    <span class="nt">keys</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span>
-
-  <span class="c1"># ...</span>
-
-  <span class="p p-Indicator">-</span> <span class="nt">save_cache</span><span class="p">:</span>
-    <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span>
-    <span class="nt">paths</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span>
+<h3 id="travis-ci-example">    travis-ci example <small><a href="#travis-ci-example">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span>
+  <span class="nt">directories</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/pre-commit</span>
 </pre></div>
-<p>(source: <a href="https://github.com/Unity-Technologies/ml-agents/pull/3094/files#diff-1d37e48f9ceff6d8030570cd36286a61">@chriselion</a>)</p>
 <h2 id="usage-with-tox">    Usage with tox <small><a href="#usage-with-tox">¶</a></small></h2> <p><a href="https://tox.readthedocs.io/">tox</a> is useful for configuring test / CI tools
 such as pre-commit.  One feature of <code>tox&gt;=2</code> is it will clear environment
 variables such that tests are more reproducible.  Under some conditions,
