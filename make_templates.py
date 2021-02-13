@@ -5,6 +5,20 @@ from typing import Any
 from typing import Dict
 
 import mako.lookup
+import markupsafe
+
+from template_lib import md
+
+SECTIONS = (
+    ('Introduction', 'sections/intro.md'),
+    ('Installation', 'sections/install.md'),
+    ('Adding pre-commit plugins to your project', 'sections/plugins.md'),
+    ('Usage', 'sections/usage.md'),
+    ('Creating new hooks', 'sections/new-hooks.md'),
+    ('Command line interface', 'sections/cli.md'),
+    ('Advanced features', 'sections/advanced.md'),
+    ('Contributing', 'sections/contributing.md'),
+)
 
 
 template_lookup = mako.lookup.TemplateLookup(
@@ -21,6 +35,22 @@ ALL_TEMPLATES = [
 
 
 def get_env() -> Dict[str, Any]:
+    body_parts = []
+    for title, filename in SECTIONS:
+        div_id, _ = os.path.splitext(os.path.basename(filename))
+        title_rendered = md(f'# {title}')
+        with open(filename) as f:
+            rendered = md(f.read())
+        body_parts.append(
+            markupsafe.Markup(
+                f'<div id="{div_id}">\n'
+                f'    <div class="page-header">{title_rendered}</div>\n'
+                f'    {rendered}\n'
+                f'</div>\n',
+            ),
+        )
+    body = markupsafe.Markup().join(body_parts)
+
     all_hooks = json.loads(
         open('all-hooks.json').read(),
         object_pairs_hook=collections.OrderedDict,
@@ -32,7 +62,7 @@ def get_env() -> Dict[str, Any]:
             properties[0].get("types", []) + properties[0].get("types_or", [])
         )
     }
-    return {'all_hooks': all_hooks, 'all_types': all_types}
+    return {'all_hooks': all_hooks, 'all_types': all_types, 'body': body}
 
 
 def main() -> int:

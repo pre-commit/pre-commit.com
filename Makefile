@@ -10,7 +10,7 @@ build/main_bs4.css: venv node_modules build scss/main_bs4.scss scss/_variables.s
 all-hooks.json: venv make_all_hooks.py all-repos.yaml
 	venv/bin/python make_all_hooks.py
 
-index.html hooks.html: venv all-hooks.json base.mako index.mako hooks.mako make_templates.py
+index.html hooks.html: venv all-hooks.json base.mako index.mako hooks.mako make_templates.py sections/*.md
 	venv/bin/python make_templates.py
 
 venv: requirements-dev.txt Makefile
