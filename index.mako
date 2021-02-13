@@ -1695,13 +1695,19 @@ which may be faster, use something like
 
 [XDG Base Directory Specification]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
-### travis-ci example
+### pre-commit.ci example
 
-```yaml
-cache:
-  directories:
-  - $HOME/.cache/pre-commit
-```
+no additional configuration is needed to run in [pre-commit.ci]!
+
+pre-commit.ci also has the following benefits:
+
+- it's faster than other free CI solutions
+- it will autofix pull requests
+- it will periodically autoupdate your configuration
+
+[![pre-commit.ci speed comparison](https://raw.githubusercontent.com/pre-commit-ci-demo/demo/master/img/2020-12-15_noop.svg)](https://github.com/pre-commit-ci-demo/demo#results)
+
+[pre-commit.ci]: https://pre-commit.ci
 
 ### appveyor example
 
@@ -1738,6 +1744,33 @@ jobs:
       path: $(PRE_COMMIT_HOME)
 ```
 
+### circleci example
+
+like [azure pipelines](#azure-pipelines-example), circleci also uses immutable
+caches:
+
+```yaml
+  steps:
+  - run:
+    command: |
+      cp .pre-commit-config.yaml pre-commit-cache-key.txt
+      python --version --version >> pre-commit-cache-key.txt
+  - restore_cache:
+    keys:
+    - v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}
+
+  # ...
+
+  - save_cache:
+    key: v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}
+    paths:
+      - ~/.cache/pre-commit
+```
+
+(source: [@chriselion])
+
+[@chriselion]: https://github.com/Unity-Technologies/ml-agents/pull/3094/files#diff-1d37e48f9ceff6d8030570cd36286a61
+
 ### github actions example
 
 **see the [official pre-commit github action]**
@@ -1769,32 +1802,13 @@ my_job:
       - ${PRE_COMMIT_HOME}
 ```
 
-### circleci example
-
-like [azure pipelines](#azure-pipelines-example), circleci also uses
-immutable caches:
+### travis-ci example
 
 ```yaml
-  steps:
-  - run:
-    command: |
-      cp .pre-commit-config.yaml pre-commit-cache-key.txt
-      python --version --version >> pre-commit-cache-key.txt
-  - restore_cache:
-    keys:
-    - v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}
-
-  # ...
-
-  - save_cache:
-    key: v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}
-    paths:
-      - ~/.cache/pre-commit
+cache:
+  directories:
+  - $HOME/.cache/pre-commit
 ```
-
-(source: [@chriselion])
-
-[@chriselion]: https://github.com/Unity-Technologies/ml-agents/pull/3094/files#diff-1d37e48f9ceff6d8030570cd36286a61
 
 ## Usage with tox
 
