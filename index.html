@@ -93,8 +93,8 @@
     </div>
     <div class="col-lg-9 col-12">
         <div id="intro">
-            <div class="page-header"><h1 id="introduction">    Introduction <small><a href="#introduction">¶</a></small></h1> </div>
-<p>Git hook scripts are useful for identifying simple issues before submission to
+    <div class="page-header"><h1 id="introduction">    Introduction <small><a href="#introduction">¶</a></small></h1> </div>
+    <p>Git hook scripts are useful for identifying simple issues before submission to
 code review.  We run our hooks on every commit to automatically point out
 issues in code such as missing semicolons, trailing whitespace, and debug
 statements.  By pointing these issues out before code review, this allows a
@@ -118,10 +118,10 @@ require root access. If one of your developers doesn’t have node installed
 but modifies a JavaScript file, pre-commit automatically handles downloading
 and building node to run eslint without root.</p>
 
-        </div>
-        <div id="install">
-            <div class="page-header"><h1 id="installation">    Installation <small><a href="#installation">¶</a></small></h1> </div>
-<p>Before you can run hooks, you need to have the pre-commit package manager
+</div>
+<div id="install">
+    <div class="page-header"><h1 id="installation">    Installation <small><a href="#installation">¶</a></small></h1> </div>
+    <p>Before you can run hooks, you need to have the pre-commit package manager
 installed.</p>
 <p>Using pip:</p>
 <div class="highlight bash"><pre><span></span>pip install pre-commit
@@ -216,11 +216,10 @@ black....................................................................<span c
 <li>consider running that in <a href="#usage-in-continuous-integration">CI</a> too</li>
 </ul>
 
-        </div>
-
-        <div id="plugins">
-            <div class="page-header"><h1 id="adding-pre-commit-plugins-to-your-project">    Adding pre-commit plugins to your project <small><a href="#adding-pre-commit-plugins-to-your-project">¶</a></small></h1> </div>
-<p>Once you have pre-commit installed, adding pre-commit plugins to your project
+</div>
+<div id="plugins">
+    <div class="page-header"><h1 id="adding-pre-commit-plugins-to-your-project">    Adding pre-commit plugins to your project <small><a href="#adding-pre-commit-plugins-to-your-project">¶</a></small></h1> </div>
+    <p>Once you have pre-commit installed, adding pre-commit plugins to your project
 is done with the <code>.pre-commit-config.yaml</code> configuration file.</p>
 <p>Add a file called <code>.pre-commit-config.yaml</code> to the root of your project. The
 pre-commit config file describes what repositories and hooks are installed.</p>
@@ -340,11 +339,10 @@ trailing-whitespace hook.</p>
 <a href="#pre-commit-autoupdate"><code>pre-commit autoupdate</code></a>.  By default, this will
 bring the hooks to the latest tag on the default branch.</p>
 
-        </div>
-
-        <div id="usage">
-            <div class="page-header"><h1 id="usage">    Usage <small><a href="#usage">¶</a></small></h1> </div>
-<p>Run <code>pre-commit install</code> to install pre-commit into your git hooks. pre-commit
+</div>
+<div id="usage">
+    <div class="page-header"><h1 id="usage">    Usage <small><a href="#usage">¶</a></small></h1> </div>
+    <p>Run <code>pre-commit install</code> to install pre-commit into your git hooks. pre-commit
 will now run on every commit. Every time you clone a project using pre-commit
 running <code>pre-commit install</code> should always be the first thing you do.</p>
 <p>If you want to manually run all pre-commit hooks on a repository, run
@@ -373,11 +371,10 @@ changelog filenames..................................(no files to check)<span cl
  1 file changed, 1 insertion(+)
 </pre></div>
 
-        </div>
-
-        <div id="new-hooks">
-            <div class="page-header"><h1 id="creating-new-hooks">    Creating new hooks <small><a href="#creating-new-hooks">¶</a></small></h1> </div>
-<p>pre-commit currently supports hooks written in
+</div>
+<div id="new-hooks">
+    <div class="page-header"><h1 id="creating-new-hooks">    Creating new hooks <small><a href="#creating-new-hooks">¶</a></small></h1> </div>
+    <p>pre-commit currently supports hooks written in
 <a href="#supported-languages">many languages</a>. As long as your git repo is an
 installable package (gem, npm, pypi, etc.) or exposes an executable, it can be
 used with pre-commit. Each git repo can support as many languages/hooks as you
@@ -668,12 +665,10 @@ requirements that don't allow them to run in isolation such as pylint).</p>
 needs additional dependencies the consumer must install them manually.</p>
 <p><strong>Support:</strong> the support of system hooks depend on the executables.</p>
 
-        </div>
-
-        <div id="cli">
-            <div class="page-header"><h1 id="command-line-interface">    Command line interface <small><a href="#command-line-interface">¶</a></small></h1> </div>
-
-<p>All pre-commit commands take the following options:</p>
+</div>
+<div id="cli">
+    <div class="page-header"><h1 id="command-line-interface">    Command line interface <small><a href="#command-line-interface">¶</a></small></h1> </div>
+    <p>All pre-commit commands take the following options:</p>
 <ul>
 <li><code>--color {auto,always,never}</code>: whether to use color in output.
 Defaults to <code>auto</code>.  <em>new in 1.18.0</em>: can be overridden by using
@@ -858,12 +853,10 @@ which are also supported by <code>pre-commit try-repo</code>.</li>
 type to uninstall.</li>
 </ul>
 
-        </div>
-
-        <div id="advanced">
-            <div class="page-header"><h1 id="advanced-features">    Advanced features <small><a href="#advanced-features">¶</a></small></h1> </div>
-
-<h2 id="running-in-migration-mode">    Running in migration mode <small><a href="#running-in-migration-mode">¶</a></small></h2> <p>By default, if you have existing hooks <code>pre-commit install</code> will install in a
+</div>
+<div id="advanced">
+    <div class="page-header"><h1 id="advanced-features">    Advanced features <small><a href="#advanced-features">¶</a></small></h1> </div>
+    <h2 id="running-in-migration-mode">    Running in migration mode <small><a href="#running-in-migration-mode">¶</a></small></h2> <p>By default, if you have existing hooks <code>pre-commit install</code> will install in a
 migration mode which runs both your existing hooks and hooks for pre-commit.
 To disable this behavior, pass <code>-f</code> / <code>--overwrite</code> to the <code>install</code> command.
 If you decide not to use pre-commit, <code>pre-commit uninstall</code> will
@@ -1401,12 +1394,10 @@ the value of <a href="#repos-rev"><code>rev</code></a> is not supported and will
 that mutable ref at the time of hook installation (and will <em>NOT</em> update
 automatically).</p>
 
-        </div>
-
-        <div id="contributing">
-            <div class="page-header"><h1 id="contributing">    Contributing <small><a href="#contributing">¶</a></small></h1> </div>
-
-<p>We’re looking to grow the project and get more contributors especially to
+</div>
+<div id="contributing">
+    <div class="page-header"><h1 id="contributing">    Contributing <small><a href="#contributing">¶</a></small></h1> </div>
+    <p>We’re looking to grow the project and get more contributors especially to
 support more languages/versions. We’d also like to get the
 .pre-commit-hooks.yaml files added to popular linters without maintaining
 forks / mirrors.</p>
@@ -1433,7 +1424,8 @@ can contribute in the following ways:</p>
 <li>and users like you!</li>
 </ul>
 
-        </div>
+</div>
+
     </div>
 </div>
 
