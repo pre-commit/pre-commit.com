@@ -4693,5 +4693,19 @@
             "files": "\\.(h\\+\\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\\+\\+|cxx|tpp|txx)$",
             "entry": "cpplint"
         }
+    ],
+    "https://github.com/MarcoGorelli/abs-imports": [
+        {
+            "id": "abs-imports",
+            "name": "abs-imports",
+            "description": "Automatically remove string literals in type annotations.",
+            "entry": "abs_imports",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
+        }
     ]
 }
