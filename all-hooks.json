@@ -964,9 +964,6 @@
             "args": [
                 "-e",
                 "SC1091"
-            ],
-            "additional_dependencies": [
-                "shellcheck"
             ]
         },
         {
