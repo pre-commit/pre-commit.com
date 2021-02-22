@@ -2286,7 +2286,7 @@
             "description": "This hook checks AutoPkg recipes to ensure they contain required top-level keys.",
             "entry": "check-autopkg-recipes",
             "language": "python",
-            "files": "\\.recipe$",
+            "files": "\\.recipe(\\.plist|\\.yaml|\\.json)?$",
             "types": [
                 "text"
             ]
@@ -2394,7 +2394,7 @@
             "description": "This hook prevents AutoPkg overrides from being added to the repo.",
             "entry": "forbid-autopkg-overrides",
             "language": "python",
-            "files": "\\.recipe$",
+            "files": "\\.recipe(\\.plist|\\.yaml|\\.json)?$",
             "types": [
                 "text"
             ]
@@ -2405,7 +2405,7 @@
             "description": "This hook prevents AutoPkg recipes with trust info from being added to the repo.",
             "entry": "forbid-autopkg-trust-info",
             "language": "python",
-            "files": "\\.recipe$",
+            "files": "\\.recipe(\\.plist|\\.yaml|\\.json)?$",
             "types": [
                 "text"
             ]
@@ -4697,7 +4697,7 @@
             "id": "abs-imports",
             "name": "abs-imports",
             "description": "Automatically remove string literals in type annotations.",
-            "entry": "abs-imports",
+            "entry": "abs_imports",
             "language": "python",
             "types": [
                 "python"
