@@ -583,7 +583,7 @@
             "entry": "^\\s*\\.\\. [a-z]+:$",
             "language": "pygrep",
             "types": [
-                "text"
+                "rst"
             ]
         },
         {
