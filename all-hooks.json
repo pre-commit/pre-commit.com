@@ -4699,5 +4699,18 @@
             "files": "",
             "minimum_pre_commit_version": "0.15.0"
         }
+    ],
+    "https://github.com/domdfcoding/flake2lint": [
+        {
+            "id": "flake2lint",
+            "name": "Flake8 -> PyLint",
+            "description": "Augment Flake8 noqa comments with PyLint comments.",
+            "entry": "flake2lint",
+            "language": "python",
+            "types_or": [
+                "python",
+                "pyi"
+            ]
+        }
     ]
 }
