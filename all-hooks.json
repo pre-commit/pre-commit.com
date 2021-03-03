@@ -3146,7 +3146,6 @@
             "description": "Checks the style of Markdown/Commonmark files.",
             "entry": "markdownlint",
             "language": "node",
-            "language_version": "latest",
             "types": [
                 "markdown"
             ],
