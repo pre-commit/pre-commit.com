@@ -153,7 +153,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 2.10.1
+pre-commit 2.11.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -310,8 +310,8 @@ hook.  See <a href="#overriding-language-version">Overriding Language Version</a
 </td><td><p>(optional) list of additional parameters to pass to the hook.</p>
 </td></tr><tr><td><p><a id="config-stages" href="#config-stages"><code>stages</code></a></p>
 </td><td><p>(optional) confines the hook to the <code>commit</code>, <code>merge-commit</code>, <code>push</code>,
-<code>prepare-commit-msg</code>, <code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>, or
-<code>manual</code> stage.  See
+<code>prepare-commit-msg</code>, <code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>,
+<code>post-merge</code>, or <code>manual</code> stage.  See
 <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
 </td></tr><tr><td><p><a id="config-additional_dependencies" href="#config-additional_dependencies"><code>additional_dependencies</code></a></p>
 </td><td><p>(optional) a list of dependencies that will be installed in the
@@ -429,8 +429,8 @@ compatible pre-commit version.</p>
 </td><td><p>(optional: default <code>[]</code>) list of additional parameters to pass to the hook.</p>
 </td></tr><tr><td><p><a id="hooks-stages" href="#hooks-stages"><code>stages</code></a></p>
 </td><td><p>(optional: default (all stages)) confines the hook to the <code>commit</code>, <code>merge-commit</code>,
-<code>push</code>, <code>prepare-commit-msg</code>, <code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>, or
-<code>manual</code> stage.  See
+<code>push</code>, <code>prepare-commit-msg</code>, <code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>,
+<code>post-merge</code>, or <code>manual</code> stage.  See
 <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
 </td></tr></tbody></table><p>For example:</p>
 <div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
@@ -488,6 +488,7 @@ Hello from foo hook!
 <li><a href="#perl">perl</a></li>
 <li><a href="#python">python</a></li>
 <li><a href="#python_venv">python_venv</a></li>
+<li><a href="#r">r</a></li>
 <li><a href="#ruby">ruby</a></li>
 <li><a href="#rust">rust</a></li>
 <li><a href="#swift">swift</a></li>
@@ -617,6 +618,7 @@ this <a href="#hooks-language"><code>language</code></a> created environments us
 instead.</p>
 <p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.</p>
+<h3 id="r">    r <small><a href="#r">¶</a></small></h3> <p><em>new in 2.11.0</em></p>
 <h3 id="ruby">    ruby <small><a href="#ruby">¶</a></small></h3> <p>The hook repository must have a <code>*.gemspec</code>.  It will be installed via
 <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>.  The installed package will
 produce an executable that will match the <a href="#hooks-entry"><code>entry</code></a> – usually through
@@ -740,8 +742,8 @@ the cache directory.</p>
 <code>git config init.templateDir</code>.</p>
 <p>Options:</p>
 <ul>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>:
+<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge}</code>,
+<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge}</code>:
 which hook type to install.</li>
 </ul>
 <p>Some example useful invocations:</p>
@@ -763,8 +765,8 @@ already!</p>
 script.</li>
 <li><code>--install-hooks</code>: Also install environments for all available hooks now
 (rather than when they are first executed). See <a href="#pre-commit-install-hooks"><code>pre-commit install-hooks</code></a>.</li>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit}</code>:
+<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge}</code>,
+<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge}</code>:
 Specify which hook type to install.</li>
 <li><code>--allow-missing-config</code>: Hook scripts will permit a missing configuration
 file.</li>
@@ -848,9 +850,9 @@ which are also supported by <code>pre-commit try-repo</code>.</li>
 <h2 id="pre-commit-uninstall">    pre-commit uninstall [options] <small><a href="#pre-commit-uninstall">¶</a></small></h2> <p>Uninstall the pre-commit script.</p>
 <p>Options:</p>
 <ul>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg}</code>: which hook
-type to uninstall.</li>
+<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge}</code>,
+<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge}</code>:
+which hook type to uninstall.</li>
 </ul>
 
 </div>
@@ -898,6 +900,12 @@ caught.</p>
 manually edited during conflict resolution.  This also includes files which
 were automatically merged by git.  Git isn't perfect and this can often catch
 implicit conflicts (such as with removed python imports).</p>
+<p><em>new in 2.11.0</em> pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_merge">post-merge</a> hooks.</p>
+<p>To use <code>post-merge</code> hooks with pre-commit, run:</p>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type post-merge
+<span class="go">pre-commit installed at .git/hooks/post-merge</span>
+</pre></div>
+<p>The hook fires after a successful <code>git merge</code>.</p>
 <h2 id="pre-commit-during-clean-merges">    pre-commit during clean merges <small><a href="#pre-commit-during-clean-merges">¶</a></small></h2> <p><em>new in 1.21.0</em> pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_pre_merge_commit">pre-merge-commit</a> hooks.</p>
 <p>To use <code>pre-merge-commit</code> hooks with pre-commit, run:</p>
 <div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type pre-merge-commit
@@ -979,7 +987,7 @@ to run at the <code>push</code> stage.</p>
 <p>Hooks can however be confined to a stage by setting the <a href="#config-stages"><code>stages</code></a>
 property in your <code>.pre-commit-config.yaml</code>.  The <a href="#config-stages"><code>stages</code></a> property
 is an array and can contain any of <code>commit</code>, <code>merge-commit</code>, <code>push</code>, <code>prepare-commit-msg</code>,
-<code>commit-msg</code> and <code>manual</code>.</p>
+<code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>, <code>post-merge</code>, and <code>manual</code>.</p>
 <p>If you do not want to have hooks installed by default on the stage passed
 during a <code>pre-commit install --hook-type ...</code>, please set the <a href="#top_level-default_stages"><code>default_stages</code></a>
 top level configuration property to the desired stages, also as an array.</p>
