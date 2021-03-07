@@ -2096,6 +2096,22 @@ https://pypi.python.org/pypi/beautysh
                 <code>go-returns</code>
                     - Run &#39;goreturns -l -d [$ARGS] $FILE&#39; for each staged .go file
             </li>
+            <li data-id="go-sec-mod" data-types="">
+                <code>go-sec-mod</code>
+                    - Run &#39;cd $(mod_root $FILE); gosec [$ARGS] ./...&#39; for each staged .go file
+            </li>
+            <li data-id="go-sec-pkg" data-types="go">
+                <code>go-sec-pkg</code>
+                    - Run &#39;gosec [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
+            </li>
+            <li data-id="go-sec-repo-mod" data-types="">
+                <code>go-sec-repo-mod</code>
+                    - Run &#39;cd $(mod_root); gosec [$ARGS] ./...&#39; for each module in the repo
+            </li>
+            <li data-id="go-sec-repo-pkg" data-types="go">
+                <code>go-sec-repo-pkg</code>
+                    - Run &#39;gosec [$ARGS] ./...&#39; in repo root folder
+            </li>
             <li data-id="go-test-mod" data-types="">
                 <code>go-test-mod</code>
                     - Run &#39;cd $(mod_root $FILE); go test [$ARGS] ./...&#39; for each staged .go file
