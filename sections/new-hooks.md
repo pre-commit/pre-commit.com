@@ -75,8 +75,8 @@ file that tells pre-commit:
 =r=
     =c= [`stages`](_#hooks-stages)
     =c= (optional: default (all stages)) confines the hook to the `commit`, `merge-commit`,
-        `push`, `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`, or
-        `manual` stage.  See
+        `push`, `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`,
+        `post-merge`, or `manual` stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 
 ```
@@ -149,6 +149,7 @@ Hello from foo hook!
 - [perl](#perl)
 - [python](#python)
 - [python_venv](#python_venv)
+- [r](#r)
 - [ruby](#ruby)
 - [rust](#rust)
 - [swift](#swift)
@@ -345,6 +346,10 @@ instead.
 
 __Support:__ python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.
+
+### r
+
+_new in 2.11.0_
 
 ### ruby
 
