@@ -64,6 +64,19 @@ manually edited during conflict resolution.  This also includes files which
 were automatically merged by git.  Git isn't perfect and this can often catch
 implicit conflicts (such as with removed python imports).
 
+_new in 2.11.0_ pre-commit can be used to manage [post-merge] hooks.
+
+To use `post-merge` hooks with pre-commit, run:
+
+```console
+$ pre-commit install --hook-type post-merge
+pre-commit installed at .git/hooks/post-merge
+```
+
+The hook fires after a successful `git merge`.
+
+[post-merge]: https://git-scm.com/docs/githooks#_post_merge
+
 ## pre-commit during clean merges
 
 _new in 1.21.0_ pre-commit can be used to manage [pre-merge-commit] hooks.
@@ -187,7 +200,7 @@ to run at the `push` stage.
 Hooks can however be confined to a stage by setting the [`stages`](#config-stages)
 property in your `.pre-commit-config.yaml`.  The [`stages`](#config-stages) property
 is an array and can contain any of `commit`, `merge-commit`, `push`, `prepare-commit-msg`,
-`commit-msg` and `manual`.
+`commit-msg`, `post-checkout`, `post-commit`, `post-merge`, and `manual`.
 
 If you do not want to have hooks installed by default on the stage passed
 during a `pre-commit install --hook-type ...`, please set the [`default_stages`](#top_level-default_stages)
