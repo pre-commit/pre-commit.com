@@ -351,6 +351,22 @@ has been tested on linux, macOS, windows, and cygwin.
 
 _new in 2.11.0_
 
+This hook repository must have a `renv.lock` file that will be restored with
+[`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html) on
+hook installation. If the repository is an R package (i.e. has `Type: Package`
+in `DESCRIPTION`), it is installed. The supported syntax in [`entry`](#hooks-entry) is
+`Rscript -e {expression}` or `Rscript path/relative/to/hook/root`. The
+R Startup process is skipped (emulating `--vanilla`), as all configuration
+should be exposed via [`args`](#hooks-args) for maximal transparency and portability.
+
+When specifying [`additional_dependencies`](#config-additional_dependencies)
+for R, you can use any of the install argument formats understood by
+[`renv::install()`](https://rstudio.github.io/renv/reference/install.html#examples).
+
+__Support:__ `r` hooks work as long as [`R`](https://www.r-project.org) is
+installed and on `PATH`. It has been tested on linux, macOS, and windows.
+
+
 ### ruby
 
 The hook repository must have a `*.gemspec`.  It will be installed via
