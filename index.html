@@ -619,6 +619,18 @@ instead.</p>
 <p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.</p>
 <h3 id="r">    r <small><a href="#r">¶</a></small></h3> <p><em>new in 2.11.0</em></p>
+<p>This hook repository must have a <code>renv.lock</code> file that will be restored with
+<a href="https://rstudio.github.io/renv/reference/restore.html"><code>renv::restore()</code></a> on
+hook installation. If the repository is an R package (i.e. has <code>Type: Package</code>
+in <code>DESCRIPTION</code>), it is installed. The supported syntax in <a href="#hooks-entry"><code>entry</code></a> is
+<code>Rscript -e {expression}</code> or <code>Rscript path/relative/to/hook/root</code>. The
+R Startup process is skipped (emulating <code>--vanilla</code>), as all configuration
+should be exposed via <a href="#hooks-args"><code>args</code></a> for maximal transparency and portability.</p>
+<p>When specifying <a href="#config-additional_dependencies"><code>additional_dependencies</code></a>
+for R, you can use any of the install argument formats understood by
+<a href="https://rstudio.github.io/renv/reference/install.html#examples"><code>renv::install()</code></a>.</p>
+<p><strong>Support:</strong> <code>r</code> hooks work as long as <a href="https://www.r-project.org"><code>R</code></a> is
+installed and on <code>PATH</code>. It has been tested on linux, macOS, and windows.</p>
 <h3 id="ruby">    ruby <small><a href="#ruby">¶</a></small></h3> <p>The hook repository must have a <code>*.gemspec</code>.  It will be installed via
 <code>gem build *.gemspec &amp;&amp; gem install *.gem</code>.  The installed package will
 produce an executable that will match the <a href="#hooks-entry"><code>entry</code></a> – usually through
