@@ -4564,10 +4564,10 @@
     ],
     "https://github.com/MarcoGorelli/no-string-hints": [
         {
-            "id": "no-string-hints",
-            "name": "no-string-hints",
+            "id": "dequote-annotations",
+            "name": "dequote-annotations",
             "description": "Automatically remove string literals in type annotations.",
-            "entry": "no_string_hints",
+            "entry": "dequote_annotations",
             "language": "python",
             "types": [
                 "python"
