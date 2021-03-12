@@ -4567,7 +4567,7 @@
             "id": "dequote-annotations",
             "name": "dequote-annotations",
             "description": "Automatically remove string literals in type annotations.",
-            "entry": "dequote_annotations",
+            "entry": "dequote-annotations",
             "language": "python",
             "types": [
                 "python"
