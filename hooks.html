@@ -58,6 +58,7 @@
         <label for="search-hook-id">Filter hook type:</label>
         <select id="select-hook-type" class="form-control form-control-sm">
             <option value="">--</option>
+                <option value="c#">c#</option>
                 <option value="cmake">cmake</option>
                 <option value="csv">csv</option>
                 <option value="cython">cython</option>
@@ -87,6 +88,7 @@
                 <option value="terraform">terraform</option>
                 <option value="text">text</option>
                 <option value="toml">toml</option>
+                <option value="vb">vb</option>
                 <option value="vim">vim</option>
                 <option value="yaml">yaml</option>
         </select>
@@ -3047,6 +3049,17 @@ Will sort imports alphabetically and then group them in the following order:
             <li data-id="flake2lint" data-types="python, pyi">
                 <code>flake2lint</code>
                     - Augment Flake8 noqa comments with PyLint comments.
+            </li>
+    </ul>
+    <h3 data-repo="https://github.com/dotnet/format">
+        <a href="https://github.com/dotnet/format" target="_blank">
+            github.com/dotnet/format
+        </a>
+    </h3>
+    <ul data-repo="https://github.com/dotnet/format">
+            <li data-id="dotnet-format" data-types="c#, vb">
+                <code>dotnet-format</code>
+                    - dotnet format
             </li>
     </ul>
 </div>

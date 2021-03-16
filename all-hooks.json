@@ -4758,5 +4758,17 @@
                 "pyi"
             ]
         }
+    ],
+    "https://github.com/dotnet/format": [
+        {
+            "id": "dotnet-format",
+            "name": "dotnet format",
+            "language": "dotnet",
+            "types_or": [
+                "c#",
+                "vb"
+            ],
+            "entry": "dotnet-format --include"
+        }
     ]
 }
