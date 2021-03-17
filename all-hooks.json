@@ -2819,7 +2819,8 @@
             "description": "style files with styler",
             "entry": "inst/bin/style-files",
             "language": "script",
-            "files": "(\\.R|\\.Rmd|\\.Rnw|\\.r|\\.rmd|\\.rnw)$"
+            "files": "(\\.R|\\.Rmd|\\.Rnw|\\.r|\\.rmd|\\.rnw)$",
+            "exclude": "renv/activate\\.R"
         },
         {
             "id": "no-browser-statement",
@@ -2859,7 +2860,7 @@
             "description": "perform a spell check with spelling::spell_check_files()",
             "entry": "inst/bin/spell-check",
             "language": "script",
-            "exclude": "(?x)^( data/.*|  (.*/|)\\.Rprofile| (.*/|)\\.Renviron| (.*/|)\\.gitignore| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| (.*/|)\\.pre-commit-.*| .*\\.[rR]| .*\\.Rproj| .*\\.py| .*\\.feather| .*\\.rds| .*\\.Rds| .*\\.sh| .*\\.RData )$\n",
+            "exclude": "(?x)^( data/.*|  (.*/|)\\.Rprofile| (.*/|)\\.Renviron| (.*/|)renv\\.lock| (.*/|)renv/settings\\.dcf| (.*/|)\\.gitignore| (.*/|)NAMESPACE| (.*/|)WORDLIST| (.*/|)\\.travis.yml| (.*/|)appveyor.yml| (.*/|)\\.Rbuildignore| (.*/|)\\.pre-commit-.*| .*\\.[rR]| .*\\.Rproj| .*\\.py| .*\\.feather| .*\\.rds| .*\\.Rds| .*\\.sh| .*\\.RData )$\n",
             "require_serial": true
         },
         {
@@ -2868,7 +2869,8 @@
             "description": "Check if dependencies that can be parsed from code are in DESCRIPTION.",
             "entry": "inst/bin/deps-in-desc",
             "language": "script",
-            "files": "(\\.[rR]profile|\\.R|\\.Rmd|\\.Rnw|\\.r|\\.rmd|\\.rnw)$"
+            "files": "(\\.[rR]profile|\\.R|\\.Rmd|\\.Rnw|\\.r|\\.rmd|\\.rnw)$",
+            "exclude": "renv/activate\\.R"
         },
         {
             "id": "lintr",
@@ -2876,7 +2878,8 @@
             "description": "check if a .R file is lint free (using lintr)",
             "entry": "inst/bin/lintr",
             "language": "script",
-            "files": "\\.[rR]$"
+            "files": "\\.[rR]$",
+            "exclude": "renv/activate\\.R"
         }
     ],
     "https://github.com/FelixSeptem/pre-commit-golang": [
