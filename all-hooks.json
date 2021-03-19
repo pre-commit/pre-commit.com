@@ -3790,7 +3790,7 @@
             "name": "bazel buildifier",
             "description": "Runs `buildifier`, requires buildifier binary",
             "entry": "buildifier",
-            "files": "^(.*/)?(BUILD\\.bazel|BUILD)$|\\.BUILD$|\\.bzl$",
+            "files": "^(.*/)?(BUILD\\.bazel|BUILD|WORKSPACE)$|\\.BUILD$|\\.bzl$",
             "language": "system"
         },
         {
@@ -4782,6 +4782,42 @@
             "language": "system",
             "files": "Vagrantfile",
             "entry": "vagrant validate"
+        }
+    ],
+    "https://github.com/AleksaC/hadolint-py": [
+        {
+            "id": "hadolint",
+            "name": "Hadolint",
+            "description": "Lint Dockerfiles using hadolint",
+            "entry": "hadolint",
+            "language": "python",
+            "types": [
+                "dockerfile"
+            ]
+        }
+    ],
+    "https://github.com/AleksaC/circleci-cli-py": [
+        {
+            "id": "circle-ci-validator",
+            "name": "CircleCI Config Validation",
+            "description": "Validate CircleCI config",
+            "entry": "env CIRCLECI_CLI_SKIP_UPDATE_CHECK=true circleci config validate -c",
+            "language": "python",
+            "files": "\\.circleci/config.yml"
+        }
+    ],
+    "https://github.com/AleksaC/mirrors-cfn-nag": [
+        {
+            "id": "cfn-nag",
+            "name": "cfn-nag",
+            "entry": "cfn_nag_scan_wrapper",
+            "language": "ruby",
+            "files": "\\.(json|yaml|yml|template)$",
+            "args": [
+                "--fail-on-warnings",
+                "--input-path"
+            ],
+            "require_serial": false
         }
     ]
 }
