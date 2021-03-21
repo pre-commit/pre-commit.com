@@ -4565,20 +4565,6 @@
             "require_serial": true
         }
     ],
-    "https://github.com/MarcoGorelli/no-string-hints": [
-        {
-            "id": "dequote-annotations",
-            "name": "dequote-annotations",
-            "description": "Automatically remove string literals in type annotations.",
-            "entry": "dequote-annotations",
-            "language": "python",
-            "types": [
-                "python"
-            ],
-            "files": "",
-            "minimum_pre_commit_version": "0.15.0"
-        }
-    ],
     "https://github.com/mwouts/jupytext": [
         {
             "id": "jupytext",
@@ -4735,7 +4721,7 @@
             "entry": "cpplint"
         }
     ],
-    "https://github.com/MarcoGorelli/abs-imports": [
+    "https://github.com/MarcoGorelli/absolufy-imports": [
         {
             "id": "absolufy-imports",
             "name": "absolufy-imports",
