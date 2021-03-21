@@ -164,7 +164,6 @@
 - https://github.com/sirosen/fix-smartquotes
 - https://github.com/sondrelg/pep585-upgrade
 - https://github.com/jendrikseipp/vulture
-- https://github.com/MarcoGorelli/no-string-hints
 - https://github.com/mwouts/jupytext
 - https://github.com/ejba/pre-commit-maven
 - https://github.com/terraform-linters/tflint
@@ -174,7 +173,7 @@
 - https://github.com/google/go-jsonnet
 - https://github.com/guid-empty/flutter-dependency-validation-pre-commit
 - https://github.com/cpplint/cpplint
-- https://github.com/MarcoGorelli/abs-imports
+- https://github.com/MarcoGorelli/absolufy-imports
 - https://github.com/domdfcoding/flake2lint
 - https://github.com/dotnet/format
 - https://github.com/ashwin153/pre-commit-vagrant
