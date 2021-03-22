@@ -4774,7 +4774,7 @@
         {
             "id": "hadolint",
             "name": "Hadolint",
-            "description": "Lint Dockerfiles using hadolint",
+            "description": "Lint Dockerfiles using hadolint without needing docker or system installation",
             "entry": "hadolint",
             "language": "python",
             "types": [
@@ -4796,6 +4796,7 @@
         {
             "id": "cfn-nag",
             "name": "cfn-nag",
+            "description": "Wrapper around cfn_nag_scan that allows it to be ran on multiple files within a single hook",
             "entry": "cfn_nag_scan_wrapper",
             "language": "ruby",
             "files": "\\.(json|yaml|yml|template)$",
@@ -4804,6 +4805,18 @@
                 "--input-path"
             ],
             "require_serial": false
+        }
+    ],
+    "https://github.com/cmake-lint/cmake-lint": [
+        {
+            "id": "cmakelint",
+            "name": "CMake Lint",
+            "description": "This hook lints CMake files for style issues.",
+            "entry": "cmakelint",
+            "language": "python",
+            "types": [
+                "cmake"
+            ]
         }
     ]
 }
