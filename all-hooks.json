@@ -4786,7 +4786,7 @@
         {
             "id": "circle-ci-validator",
             "name": "CircleCI Config Validation",
-            "description": "Validate CircleCI config",
+            "description": "Validate CircleCI config without having to install the cli globally",
             "entry": "env CIRCLECI_CLI_SKIP_UPDATE_CHECK=true circleci config validate -c",
             "language": "python",
             "files": "\\.circleci/config.yml"
@@ -4817,6 +4817,17 @@
             "types": [
                 "cmake"
             ]
+        }
+    ],
+    "https://github.com/priv-kweihmann/oelint-adv": [
+        {
+            "id": "oelint-adv",
+            "name": "Advanced oelint",
+            "description": "Based on the OpenEmbedded Styleguide and work done by oe-stylize-tool this module offers a (nearly) complete linter for bitbake-recipes.",
+            "entry": "oelint-adv",
+            "language": "python",
+            "language_version": "python3",
+            "files": ".*\\.(bb)|(bbappend)$"
         }
     ]
 }
