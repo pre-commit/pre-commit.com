@@ -3919,6 +3919,7 @@
             "description": "CommonMark compliant Markdown formatter",
             "entry": "mdformat",
             "language": "python",
+            "language_version": "python3",
             "types": [
                 "markdown"
             ],
