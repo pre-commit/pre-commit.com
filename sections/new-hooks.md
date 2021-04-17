@@ -40,7 +40,7 @@ file that tells pre-commit:
         _new in 2.9.0_.
 =r=
     =c= [`exclude_types`](_#hooks-exclude_types)
-    =c= (optional: default `[]`)  exclude files that were matched by [`types`](#hooks-types).
+    =c= (optional: default `[]`)  the pattern of files to exclude.
 =r=
     =c= [`always_run`](_#hooks-always_run)
     =c= (optional: default `false`) if `true` this hook will run even if there
