@@ -1550,7 +1550,7 @@
             ]
         }
     ],
-    "https://github.com/bemeurer/beautysh": [
+    "https://github.com/lovesegfault/beautysh": [
         {
             "id": "beautysh",
             "name": "beautysh",
@@ -2076,7 +2076,7 @@
             "files": "\\.nim$"
         }
     ],
-    "https://github.com/awslabs/cfn-python-lint": [
+    "https://github.com/aws-cloudformation/cfn-python-lint": [
         {
             "id": "cfn-python-lint",
             "name": "AWS CloudFormation Linter",
@@ -3035,7 +3035,7 @@
             "language_version": "python3"
         }
     ],
-    "https://github.com/Kuniwak/vint": [
+    "https://github.com/Vimjas/vint": [
         {
             "id": "vint",
             "name": "Vint Vim script linting",
@@ -3588,7 +3588,7 @@
             "files": "^(poetry\\.lock|Pipfile\\.lock|requirements.*\\.txt)$"
         }
     ],
-    "https://github.com/woile/commitizen": [
+    "https://github.com/commitizen-tools/commitizen": [
         {
             "id": "commitizen",
             "name": "commitizen check",
@@ -4540,7 +4540,7 @@
             ]
         }
     ],
-    "https://github.com/sondrelg/pep585-upgrade": [
+    "https://github.com/snok/pep585-upgrade": [
         {
             "id": "upgrade-type-hints",
             "name": "Upgrade type hints",
