@@ -4621,6 +4621,14 @@
             "entry": "maven-spotless-apply",
             "language": "python",
             "pass_filenames": false
+        },
+        {
+            "id": "maven-checkstyle",
+            "name": "maven checkstyle check",
+            "description": "Runs checkstyle:check goal",
+            "entry": "maven-checkstyle",
+            "language": "python",
+            "pass_filenames": false
         }
     ],
     "https://github.com/terraform-linters/tflint": [
