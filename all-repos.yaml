@@ -44,7 +44,7 @@
 - https://github.com/troian/pre-commit-golang
 - https://github.com/jstewmon/check-swagger
 - https://github.com/detailyang/pre-commit-shell
-- https://github.com/bemeurer/beautysh
+- https://github.com/lovesegfault/beautysh
 - https://github.com/antonbabenko/pre-commit-terraform
 - https://github.com/ansible-community/ansible-lint
 - https://github.com/doublify/pre-commit-clang-format
@@ -69,7 +69,7 @@
 - https://github.com/alessandrojcm/commitlint-pre-commit-hook
 - https://github.com/henryykt/pre-commit-perl
 - https://github.com/juancarlospaco/pre-commit-nim
-- https://github.com/awslabs/cfn-python-lint
+- https://github.com/aws-cloudformation/cfn-python-lint
 - https://github.com/thoughtworks/talisman
 - https://github.com/PyCQA/flake8
 - https://github.com/PyCQA/bandit
@@ -106,7 +106,7 @@
 - https://github.com/d6e/beancount-check
 # - https://github.com/thg-consulting/inspectortiger
 - https://gitlab.com/iamlikeme/nbhooks
-- https://github.com/Kuniwak/vint
+- https://github.com/Vimjas/vint
 - https://github.com/eschulte/lisp-format
 - https://github.com/shellcheck-py/shellcheck-py
 - https://github.com/APIDevTools/swagger-cli
@@ -122,7 +122,7 @@
 - https://github.com/perltidy/perltidy
 - https://github.com/talos-systems/conform
 - https://github.com/twu/skjold
-- https://github.com/woile/commitizen
+- https://github.com/commitizen-tools/commitizen
 - https://github.com/gherynos/pre-commit-java
 # - https://github.com/JamesWoolfenden/pre-commit
 - https://github.com/lietu/go-pre-commit
@@ -162,7 +162,7 @@
 - https://github.com/PrincetonUniversity/blocklint
 - https://github.com/sirosen/check-jsonschema
 - https://github.com/sirosen/fix-smartquotes
-- https://github.com/sondrelg/pep585-upgrade
+- https://github.com/snok/pep585-upgrade
 - https://github.com/jendrikseipp/vulture
 - https://github.com/mwouts/jupytext
 - https://github.com/ejba/pre-commit-maven
