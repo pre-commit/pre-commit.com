@@ -3701,6 +3701,14 @@
             "files": "\\.go$",
             "language": "system",
             "description": "Check your Go code with staticcheck"
+        },
+        {
+            "id": "go-mod-tidy",
+            "name": "go-mod-tidy",
+            "entry": "go-pre-commit go-mod-tidy",
+            "files": "",
+            "language": "system",
+            "description": "Prune no-longer required commits from go.mod"
         }
     ],
     "https://github.com/macisamuele/language-formatters-pre-commit-hooks": [
@@ -4872,6 +4880,32 @@
             "language": "python",
             "language_version": "python3",
             "files": ".*\\.(bb)|(bbappend)$"
+        }
+    ],
+    "https://github.com/jggomez/pre-commit-android-kotlin": [
+        {
+            "id": "ktlint",
+            "name": "ktlint",
+            "description": "Runs ktlint",
+            "entry": "./gradlew ktlintFormat",
+            "pass_filenames": false,
+            "language": "system"
+        },
+        {
+            "id": "unit_tests",
+            "name": "unittests",
+            "description": "Runs unit tests",
+            "entry": "./gradlew test",
+            "pass_filenames": false,
+            "language": "system"
+        },
+        {
+            "id": "build",
+            "name": "build",
+            "description": "Building App",
+            "entry": "./gradlew assembleDebug",
+            "pass_filenames": false,
+            "language": "system"
         }
     ]
 }
