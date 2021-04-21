@@ -4901,5 +4901,24 @@
             "pass_filenames": false,
             "language": "system"
         }
+    ],
+    "https://github.com/Carreau/velin": [
+        {
+            "id": "velin",
+            "name": "Velin",
+            "description": "This hook attempt to reformat docstrings using numpydoc format.",
+            "entry": "velin",
+            "language": "python",
+            "language_version": "python3",
+            "types": [
+                "text"
+            ],
+            "types_or": [
+                "python"
+            ],
+            "args": [
+                "--write"
+            ]
+        }
     ]
 }
