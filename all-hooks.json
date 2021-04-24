@@ -4927,5 +4927,15 @@
                 "--write"
             ]
         }
+    ],
+    "https://github.com/chrismgrayftsinc/jsonnetfmt": [
+        {
+            "id": "jsonnetfmt",
+            "name": "Format jsonnet files",
+            "description": "This hook formats jsonnet files",
+            "entry": "jsonnetfmt",
+            "language": "golang",
+            "files": "\\.(lib|j)sonnet$"
+        }
     ]
 }
