@@ -4937,5 +4937,14 @@
             "language": "golang",
             "files": "\\.(lib|j)sonnet$"
         }
+    ],
+    "https://github.com/zricethezav/gitleaks": [
+        {
+            "id": "gitleaks",
+            "name": "Detect hardcoded secrets",
+            "description": "Detect hardcoded secrets using Gitleaks",
+            "entry": "gitleaks",
+            "language": "golang"
+        }
     ]
 }
