@@ -4947,5 +4947,27 @@
             "entry": "gitleaks",
             "language": "golang"
         }
+    ],
+    "https://github.com/hugoh/pre-commit-fish": [
+        {
+            "id": "fish_syntax",
+            "name": "Fish syntax check",
+            "description": "Check Fish shell syntax",
+            "entry": "fish --no-execute",
+            "language": "system",
+            "types": [
+                "fish"
+            ]
+        },
+        {
+            "id": "fish_indent",
+            "name": "Fish indent check",
+            "description": "Check Fish shell indentation",
+            "entry": "pre-commit-hooks/fish_indent.fish",
+            "language": "script",
+            "types": [
+                "fish"
+            ]
+        }
     ]
 }
