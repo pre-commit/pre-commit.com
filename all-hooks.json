@@ -4969,5 +4969,17 @@
                 "fish"
             ]
         }
+    ],
+    "https://github.com/redwarp/optimize-png-hooks": [
+        {
+            "id": "optimize-png",
+            "name": "Optimize PNG",
+            "description": "Optimizes PNG files",
+            "entry": "optimize_png",
+            "language": "rust",
+            "types": [
+                "png"
+            ]
+        }
     ]
 }
