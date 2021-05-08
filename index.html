@@ -324,8 +324,8 @@ files.</p>
 </td><td><p>(optional) if <code>true</code>, forces the output of the hook to be printed even when
 the hook passes.  <em>new in 1.6.0</em>.</p>
 </td></tr><tr><td><p><a id="config-log_file" href="#config-log_file"><code>log_file</code></a></p>
-</td><td><p>(optional) if present, the hook output will additionally be written
-to a file.</p>
+</td><td><p>(optional) if present, the hook output will additionally be written to
+a file when the hook fails or <a href="#config-verbose">verbose</a> is <code>true</code>.</p>
 </td></tr></tbody></table><p>One example of a complete configuration:</p>
 <div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
 <span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
