@@ -469,7 +469,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@2.2.1"
+                "prettier@2.3.0"
             ]
         }
     ],
