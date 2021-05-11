@@ -1,156 +1,488 @@
 /*!
-  * Bootstrap modal.js v4.6.0 (https://getbootstrap.com/)
+  * Bootstrap modal.js v5.0.0 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery'), require('./util.js')) :
-  typeof define === 'function' && define.amd ? define(['jquery', './util'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Modal = factory(global.jQuery, global.Util));
-}(this, (function ($, Util) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/event-handler', './dom/manipulator', './dom/selector-engine', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Modal = factory(global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+}(this, (function (EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-  var $__default = /*#__PURE__*/_interopDefaultLegacy($);
-  var Util__default = /*#__PURE__*/_interopDefaultLegacy(Util);
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
+  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
 
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.0): util/index.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+  const MILLISECONDS_MULTIPLIER = 1000;
+  const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+
+  const toType = obj => {
+    if (obj === null || obj === undefined) {
+      return `${obj}`;
     }
-  }
 
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
+    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+  };
 
-  function _extends() {
-    _extends = Object.assign || function (target) {
-      for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
+  const getSelector = element => {
+    let selector = element.getAttribute('data-bs-target');
 
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
+    if (!selector || selector === '#') {
+      let hrefAttr = element.getAttribute('href'); // The only valid content that could double as a selector are IDs or classes,
+      // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
+      // `document.querySelector` will rightfully complain it is invalid.
+      // See https://github.com/twbs/bootstrap/issues/32273
+
+      if (!hrefAttr || !hrefAttr.includes('#') && !hrefAttr.startsWith('.')) {
+        return null;
+      } // Just in case some CMS puts out a full URL with the anchor appended
+
+
+      if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
+        hrefAttr = `#${hrefAttr.split('#')[1]}`;
       }
 
-      return target;
-    };
+      selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
+    }
 
-    return _extends.apply(this, arguments);
+    return selector;
+  };
+
+  const getElementFromSelector = element => {
+    const selector = getSelector(element);
+    return selector ? document.querySelector(selector) : null;
+  };
+
+  const getTransitionDurationFromElement = element => {
+    if (!element) {
+      return 0;
+    } // Get transition-duration of the element
+
+
+    let {
+      transitionDuration,
+      transitionDelay
+    } = window.getComputedStyle(element);
+    const floatTransitionDuration = Number.parseFloat(transitionDuration);
+    const floatTransitionDelay = Number.parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
+
+    if (!floatTransitionDuration && !floatTransitionDelay) {
+      return 0;
+    } // If multiple durations are defined, take the first
+
+
+    transitionDuration = transitionDuration.split(',')[0];
+    transitionDelay = transitionDelay.split(',')[0];
+    return (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
+  };
+
+  const triggerTransitionEnd = element => {
+    element.dispatchEvent(new Event(TRANSITION_END));
+  };
+
+  const isElement = obj => (obj[0] || obj).nodeType;
+
+  const emulateTransitionEnd = (element, duration) => {
+    let called = false;
+    const durationPadding = 5;
+    const emulatedDuration = duration + durationPadding;
+
+    function listener() {
+      called = true;
+      element.removeEventListener(TRANSITION_END, listener);
+    }
+
+    element.addEventListener(TRANSITION_END, listener);
+    setTimeout(() => {
+      if (!called) {
+        triggerTransitionEnd(element);
+      }
+    }, emulatedDuration);
+  };
+
+  const typeCheckConfig = (componentName, config, configTypes) => {
+    Object.keys(configTypes).forEach(property => {
+      const expectedTypes = configTypes[property];
+      const value = config[property];
+      const valueType = value && isElement(value) ? 'element' : toType(value);
+
+      if (!new RegExp(expectedTypes).test(valueType)) {
+        throw new TypeError(`${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`);
+      }
+    });
+  };
+
+  const isVisible = element => {
+    if (!element) {
+      return false;
+    }
+
+    if (element.style && element.parentNode && element.parentNode.style) {
+      const elementStyle = getComputedStyle(element);
+      const parentNodeStyle = getComputedStyle(element.parentNode);
+      return elementStyle.display !== 'none' && parentNodeStyle.display !== 'none' && elementStyle.visibility !== 'hidden';
+    }
+
+    return false;
+  };
+
+  const reflow = element => element.offsetHeight;
+
+  const getjQuery = () => {
+    const {
+      jQuery
+    } = window;
+
+    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+      return jQuery;
+    }
+
+    return null;
+  };
+
+  const onDOMContentLoaded = callback => {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback);
+    } else {
+      callback();
+    }
+  };
+
+  const isRTL = () => document.documentElement.dir === 'rtl';
+
+  const defineJQueryPlugin = (name, plugin) => {
+    onDOMContentLoaded(() => {
+      const $ = getjQuery();
+      /* istanbul ignore if */
+
+      if ($) {
+        const JQUERY_NO_CONFLICT = $.fn[name];
+        $.fn[name] = plugin.jQueryInterface;
+        $.fn[name].Constructor = plugin;
+
+        $.fn[name].noConflict = () => {
+          $.fn[name] = JQUERY_NO_CONFLICT;
+          return plugin.jQueryInterface;
+        };
+      }
+    });
+  };
+
+  const execute = callback => {
+    if (typeof callback === 'function') {
+      callback();
+    }
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.0): util/scrollBar.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+  const SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
+  const SELECTOR_STICKY_CONTENT = '.sticky-top';
+
+  const getWidth = () => {
+    // https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth#usage_notes
+    const documentWidth = document.documentElement.clientWidth;
+    return Math.abs(window.innerWidth - documentWidth);
+  };
+
+  const hide = (width = getWidth()) => {
+    _disableOverFlow(); // give padding to element to balances the hidden scrollbar width
+
+
+    _setElementAttributes('body', 'paddingRight', calculatedValue => calculatedValue + width); // trick: We adjust positive paddingRight and negative marginRight to sticky-top elements, to keep shown fullwidth
+
+
+    _setElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight', calculatedValue => calculatedValue + width);
+
+    _setElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight', calculatedValue => calculatedValue - width);
+  };
+
+  const _disableOverFlow = () => {
+    const actualValue = document.body.style.overflow;
+
+    if (actualValue) {
+      Manipulator__default['default'].setDataAttribute(document.body, 'overflow', actualValue);
+    }
+
+    document.body.style.overflow = 'hidden';
+  };
+
+  const _setElementAttributes = (selector, styleProp, callback) => {
+    const scrollbarWidth = getWidth();
+    SelectorEngine__default['default'].find(selector).forEach(element => {
+      if (element !== document.body && window.innerWidth > element.clientWidth + scrollbarWidth) {
+        return;
+      }
+
+      const actualValue = element.style[styleProp];
+      const calculatedValue = window.getComputedStyle(element)[styleProp];
+      Manipulator__default['default'].setDataAttribute(element, styleProp, actualValue);
+      element.style[styleProp] = `${callback(Number.parseFloat(calculatedValue))}px`;
+    });
+  };
+
+  const reset = () => {
+    _resetElementAttributes('body', 'overflow');
+
+    _resetElementAttributes('body', 'paddingRight');
+
+    _resetElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight');
+
+    _resetElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight');
+  };
+
+  const _resetElementAttributes = (selector, styleProp) => {
+    SelectorEngine__default['default'].find(selector).forEach(element => {
+      const value = Manipulator__default['default'].getDataAttribute(element, styleProp);
+
+      if (typeof value === 'undefined') {
+        element.style.removeProperty(styleProp);
+      } else {
+        Manipulator__default['default'].removeDataAttribute(element, styleProp);
+        element.style[styleProp] = value;
+      }
+    });
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.0): util/backdrop.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+  const Default$1 = {
+    isVisible: true,
+    // if false, we use the backdrop helper without adding any element to the dom
+    isAnimated: false,
+    rootElement: document.body,
+    // give the choice to place backdrop under different elements
+    clickCallback: null
+  };
+  const DefaultType$1 = {
+    isVisible: 'boolean',
+    isAnimated: 'boolean',
+    rootElement: 'element',
+    clickCallback: '(function|null)'
+  };
+  const NAME$1 = 'backdrop';
+  const CLASS_NAME_BACKDROP = 'modal-backdrop';
+  const CLASS_NAME_FADE$1 = 'fade';
+  const CLASS_NAME_SHOW$1 = 'show';
+  const EVENT_MOUSEDOWN = `mousedown.bs.${NAME$1}`;
+
+  class Backdrop {
+    constructor(config) {
+      this._config = this._getConfig(config);
+      this._isAppended = false;
+      this._element = null;
+    }
+
+    show(callback) {
+      if (!this._config.isVisible) {
+        execute(callback);
+        return;
+      }
+
+      this._append();
+
+      if (this._config.isAnimated) {
+        reflow(this._getElement());
+      }
+
+      this._getElement().classList.add(CLASS_NAME_SHOW$1);
+
+      this._emulateAnimation(() => {
+        execute(callback);
+      });
+    }
+
+    hide(callback) {
+      if (!this._config.isVisible) {
+        execute(callback);
+        return;
+      }
+
+      this._getElement().classList.remove(CLASS_NAME_SHOW$1);
+
+      this._emulateAnimation(() => {
+        this.dispose();
+        execute(callback);
+      });
+    } // Private
+
+
+    _getElement() {
+      if (!this._element) {
+        const backdrop = document.createElement('div');
+        backdrop.className = CLASS_NAME_BACKDROP;
+
+        if (this._config.isAnimated) {
+          backdrop.classList.add(CLASS_NAME_FADE$1);
+        }
+
+        this._element = backdrop;
+      }
+
+      return this._element;
+    }
+
+    _getConfig(config) {
+      config = { ...Default$1,
+        ...(typeof config === 'object' ? config : {})
+      };
+      typeCheckConfig(NAME$1, config, DefaultType$1);
+      return config;
+    }
+
+    _append() {
+      if (this._isAppended) {
+        return;
+      }
+
+      this._config.rootElement.appendChild(this._getElement());
+
+      EventHandler__default['default'].on(this._getElement(), EVENT_MOUSEDOWN, () => {
+        execute(this._config.clickCallback);
+      });
+      this._isAppended = true;
+    }
+
+    dispose() {
+      if (!this._isAppended) {
+        return;
+      }
+
+      EventHandler__default['default'].off(this._element, EVENT_MOUSEDOWN);
+
+      this._getElement().parentNode.removeChild(this._element);
+
+      this._isAppended = false;
+    }
+
+    _emulateAnimation(callback) {
+      if (!this._config.isAnimated) {
+        execute(callback);
+        return;
+      }
+
+      const backdropTransitionDuration = getTransitionDurationFromElement(this._getElement());
+      EventHandler__default['default'].one(this._getElement(), 'transitionend', () => execute(callback));
+      emulateTransitionEnd(this._getElement(), backdropTransitionDuration);
+    }
+
   }
 
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.0): modal.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  var NAME = 'modal';
-  var VERSION = '4.6.0';
-  var DATA_KEY = 'bs.modal';
-  var EVENT_KEY = "." + DATA_KEY;
-  var DATA_API_KEY = '.data-api';
-  var JQUERY_NO_CONFLICT = $__default['default'].fn[NAME];
-  var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
-
-  var Default = {
+  const NAME = 'modal';
+  const DATA_KEY = 'bs.modal';
+  const EVENT_KEY = `.${DATA_KEY}`;
+  const DATA_API_KEY = '.data-api';
+  const ESCAPE_KEY = 'Escape';
+  const Default = {
     backdrop: true,
     keyboard: true,
-    focus: true,
-    show: true
+    focus: true
   };
-  var DefaultType = {
+  const DefaultType = {
     backdrop: '(boolean|string)',
     keyboard: 'boolean',
-    focus: 'boolean',
-    show: 'boolean'
+    focus: 'boolean'
   };
-  var EVENT_HIDE = "hide" + EVENT_KEY;
-  var EVENT_HIDE_PREVENTED = "hidePrevented" + EVENT_KEY;
-  var EVENT_HIDDEN = "hidden" + EVENT_KEY;
-  var EVENT_SHOW = "show" + EVENT_KEY;
-  var EVENT_SHOWN = "shown" + EVENT_KEY;
-  var EVENT_FOCUSIN = "focusin" + EVENT_KEY;
-  var EVENT_RESIZE = "resize" + EVENT_KEY;
-  var EVENT_CLICK_DISMISS = "click.dismiss" + EVENT_KEY;
-  var EVENT_KEYDOWN_DISMISS = "keydown.dismiss" + EVENT_KEY;
-  var EVENT_MOUSEUP_DISMISS = "mouseup.dismiss" + EVENT_KEY;
-  var EVENT_MOUSEDOWN_DISMISS = "mousedown.dismiss" + EVENT_KEY;
-  var EVENT_CLICK_DATA_API = "click" + EVENT_KEY + DATA_API_KEY;
-  var CLASS_NAME_SCROLLABLE = 'modal-dialog-scrollable';
-  var CLASS_NAME_SCROLLBAR_MEASURER = 'modal-scrollbar-measure';
-  var CLASS_NAME_BACKDROP = 'modal-backdrop';
-  var CLASS_NAME_OPEN = 'modal-open';
-  var CLASS_NAME_FADE = 'fade';
-  var CLASS_NAME_SHOW = 'show';
-  var CLASS_NAME_STATIC = 'modal-static';
-  var SELECTOR_DIALOG = '.modal-dialog';
-  var SELECTOR_MODAL_BODY = '.modal-body';
-  var SELECTOR_DATA_TOGGLE = '[data-toggle="modal"]';
-  var SELECTOR_DATA_DISMISS = '[data-dismiss="modal"]';
-  var SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
-  var SELECTOR_STICKY_CONTENT = '.sticky-top';
+  const EVENT_HIDE = `hide${EVENT_KEY}`;
+  const EVENT_HIDE_PREVENTED = `hidePrevented${EVENT_KEY}`;
+  const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
+  const EVENT_SHOW = `show${EVENT_KEY}`;
+  const EVENT_SHOWN = `shown${EVENT_KEY}`;
+  const EVENT_FOCUSIN = `focusin${EVENT_KEY}`;
+  const EVENT_RESIZE = `resize${EVENT_KEY}`;
+  const EVENT_CLICK_DISMISS = `click.dismiss${EVENT_KEY}`;
+  const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY}`;
+  const EVENT_MOUSEUP_DISMISS = `mouseup.dismiss${EVENT_KEY}`;
+  const EVENT_MOUSEDOWN_DISMISS = `mousedown.dismiss${EVENT_KEY}`;
+  const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
+  const CLASS_NAME_OPEN = 'modal-open';
+  const CLASS_NAME_FADE = 'fade';
+  const CLASS_NAME_SHOW = 'show';
+  const CLASS_NAME_STATIC = 'modal-static';
+  const SELECTOR_DIALOG = '.modal-dialog';
+  const SELECTOR_MODAL_BODY = '.modal-body';
+  const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="modal"]';
+  const SELECTOR_DATA_DISMISS = '[data-bs-dismiss="modal"]';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
 
-  var Modal = /*#__PURE__*/function () {
-    function Modal(element, config) {
+  class Modal extends BaseComponent__default['default'] {
+    constructor(element, config) {
+      super(element);
       this._config = this._getConfig(config);
-      this._element = element;
-      this._dialog = element.querySelector(SELECTOR_DIALOG);
-      this._backdrop = null;
+      this._dialog = SelectorEngine__default['default'].findOne(SELECTOR_DIALOG, this._element);
+      this._backdrop = this._initializeBackDrop();
       this._isShown = false;
-      this._isBodyOverflowing = false;
       this._ignoreBackdropClick = false;
       this._isTransitioning = false;
-      this._scrollbarWidth = 0;
     } // Getters
 
 
-    var _proto = Modal.prototype;
+    static get Default() {
+      return Default;
+    }
 
-    // Public
-    _proto.toggle = function toggle(relatedTarget) {
+    static get DATA_KEY() {
+      return DATA_KEY;
+    } // Public
+
+
+    toggle(relatedTarget) {
       return this._isShown ? this.hide() : this.show(relatedTarget);
-    };
+    }
 
-    _proto.show = function show(relatedTarget) {
-      var _this = this;
-
+    show(relatedTarget) {
       if (this._isShown || this._isTransitioning) {
         return;
       }
 
-      if ($__default['default'](this._element).hasClass(CLASS_NAME_FADE)) {
+      if (this._isAnimated()) {
         this._isTransitioning = true;
       }
 
-      var showEvent = $__default['default'].Event(EVENT_SHOW, {
-        relatedTarget: relatedTarget
+      const showEvent = EventHandler__default['default'].trigger(this._element, EVENT_SHOW, {
+        relatedTarget
       });
-      $__default['default'](this._element).trigger(showEvent);
 
-      if (this._isShown || showEvent.isDefaultPrevented()) {
+      if (this._isShown || showEvent.defaultPrevented) {
         return;
       }
 
       this._isShown = true;
-
-      this._checkScrollbar();
-
-      this._setScrollbar();
+      hide();
+      document.body.classList.add(CLASS_NAME_OPEN);
 
       this._adjustDialog();
 
@@ -158,25 +490,19 @@
 
       this._setResizeEvent();
 
-      $__default['default'](this._element).on(EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, function (event) {
-        return _this.hide(event);
-      });
-      $__default['default'](this._dialog).on(EVENT_MOUSEDOWN_DISMISS, function () {
-        $__default['default'](_this._element).one(EVENT_MOUSEUP_DISMISS, function (event) {
-          if ($__default['default'](event.target).is(_this._element)) {
-            _this._ignoreBackdropClick = true;
+      EventHandler__default['default'].on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, event => this.hide(event));
+      EventHandler__default['default'].on(this._dialog, EVENT_MOUSEDOWN_DISMISS, () => {
+        EventHandler__default['default'].one(this._element, EVENT_MOUSEUP_DISMISS, event => {
+          if (event.target === this._element) {
+            this._ignoreBackdropClick = true;
           }
         });
       });
 
-      this._showBackdrop(function () {
-        return _this._showElement(relatedTarget);
-      });
-    };
+      this._showBackdrop(() => this._showElement(relatedTarget));
+    }
 
-    _proto.hide = function hide(event) {
-      var _this2 = this;
-
+    hide(event) {
       if (event) {
         event.preventDefault();
       }
@@ -185,17 +511,17 @@
         return;
       }
 
-      var hideEvent = $__default['default'].Event(EVENT_HIDE);
-      $__default['default'](this._element).trigger(hideEvent);
+      const hideEvent = EventHandler__default['default'].trigger(this._element, EVENT_HIDE);
 
-      if (!this._isShown || hideEvent.isDefaultPrevented()) {
+      if (hideEvent.defaultPrevented) {
         return;
       }
 
       this._isShown = false;
-      var transition = $__default['default'](this._element).hasClass(CLASS_NAME_FADE);
 
-      if (transition) {
+      const isAnimated = this._isAnimated();
+
+      if (isAnimated) {
         this._isTransitioning = true;
       }
 
@@ -203,93 +529,69 @@
 
       this._setResizeEvent();
 
-      $__default['default'](document).off(EVENT_FOCUSIN);
-      $__default['default'](this._element).removeClass(CLASS_NAME_SHOW);
-      $__default['default'](this._element).off(EVENT_CLICK_DISMISS);
-      $__default['default'](this._dialog).off(EVENT_MOUSEDOWN_DISMISS);
+      EventHandler__default['default'].off(document, EVENT_FOCUSIN);
 
-      if (transition) {
-        var transitionDuration = Util__default['default'].getTransitionDurationFromElement(this._element);
-        $__default['default'](this._element).one(Util__default['default'].TRANSITION_END, function (event) {
-          return _this2._hideModal(event);
-        }).emulateTransitionEnd(transitionDuration);
+      this._element.classList.remove(CLASS_NAME_SHOW);
+
+      EventHandler__default['default'].off(this._element, EVENT_CLICK_DISMISS);
+      EventHandler__default['default'].off(this._dialog, EVENT_MOUSEDOWN_DISMISS);
+
+      if (isAnimated) {
+        const transitionDuration = getTransitionDurationFromElement(this._element);
+        EventHandler__default['default'].one(this._element, 'transitionend', event => this._hideModal(event));
+        emulateTransitionEnd(this._element, transitionDuration);
       } else {
         this._hideModal();
       }
-    };
+    }
 
-    _proto.dispose = function dispose() {
-      [window, this._element, this._dialog].forEach(function (htmlElement) {
-        return $__default['default'](htmlElement).off(EVENT_KEY);
-      });
+    dispose() {
+      [window, this._dialog].forEach(htmlElement => EventHandler__default['default'].off(htmlElement, EVENT_KEY));
+      super.dispose();
       /**
        * `document` has 2 events `EVENT_FOCUSIN` and `EVENT_CLICK_DATA_API`
        * Do not move `document` in `htmlElements` array
        * It will remove `EVENT_CLICK_DATA_API` event that should remain
        */
 
-      $__default['default'](document).off(EVENT_FOCUSIN);
-      $__default['default'].removeData(this._element, DATA_KEY);
+      EventHandler__default['default'].off(document, EVENT_FOCUSIN);
       this._config = null;
-      this._element = null;
       this._dialog = null;
+
+      this._backdrop.dispose();
+
       this._backdrop = null;
       this._isShown = null;
-      this._isBodyOverflowing = null;
       this._ignoreBackdropClick = null;
       this._isTransitioning = null;
-      this._scrollbarWidth = null;
-    };
+    }
 
-    _proto.handleUpdate = function handleUpdate() {
+    handleUpdate() {
       this._adjustDialog();
     } // Private
-    ;
 
-    _proto._getConfig = function _getConfig(config) {
-      config = _extends({}, Default, config);
-      Util__default['default'].typeCheckConfig(NAME, config, DefaultType);
+
+    _initializeBackDrop() {
+      return new Backdrop({
+        isVisible: Boolean(this._config.backdrop),
+        // 'static' option will be translated to true, and booleans will keep their value
+        isAnimated: this._isAnimated()
+      });
+    }
+
+    _getConfig(config) {
+      config = { ...Default,
+        ...Manipulator__default['default'].getDataAttributes(this._element),
+        ...config
+      };
+      typeCheckConfig(NAME, config, DefaultType);
       return config;
-    };
+    }
 
-    _proto._triggerBackdropTransition = function _triggerBackdropTransition() {
-      var _this3 = this;
+    _showElement(relatedTarget) {
+      const isAnimated = this._isAnimated();
 
-      var hideEventPrevented = $__default['default'].Event(EVENT_HIDE_PREVENTED);
-      $__default['default'](this._element).trigger(hideEventPrevented);
-
-      if (hideEventPrevented.isDefaultPrevented()) {
-        return;
-      }
-
-      var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
-
-      if (!isModalOverflowing) {
-        this._element.style.overflowY = 'hidden';
-      }
-
-      this._element.classList.add(CLASS_NAME_STATIC);
-
-      var modalTransitionDuration = Util__default['default'].getTransitionDurationFromElement(this._dialog);
-      $__default['default'](this._element).off(Util__default['default'].TRANSITION_END);
-      $__default['default'](this._element).one(Util__default['default'].TRANSITION_END, function () {
-        _this3._element.classList.remove(CLASS_NAME_STATIC);
-
-        if (!isModalOverflowing) {
-          $__default['default'](_this3._element).one(Util__default['default'].TRANSITION_END, function () {
-            _this3._element.style.overflowY = '';
-          }).emulateTransitionEnd(_this3._element, modalTransitionDuration);
-        }
-      }).emulateTransitionEnd(modalTransitionDuration);
-
-      this._element.focus();
-    };
-
-    _proto._showElement = function _showElement(relatedTarget) {
-      var _this4 = this;
-
-      var transition = $__default['default'](this._element).hasClass(CLASS_NAME_FADE);
-      var modalBody = this._dialog ? this._dialog.querySelector(SELECTOR_MODAL_BODY) : null;
+      const modalBody = SelectorEngine__default['default'].findOne(SELECTOR_MODAL_BODY, this._dialog);
 
       if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
         // Don't move modal's DOM position
@@ -304,87 +606,76 @@
 
       this._element.setAttribute('role', 'dialog');
 
-      if ($__default['default'](this._dialog).hasClass(CLASS_NAME_SCROLLABLE) && modalBody) {
+      this._element.scrollTop = 0;
+
+      if (modalBody) {
         modalBody.scrollTop = 0;
-      } else {
-        this._element.scrollTop = 0;
       }
 
-      if (transition) {
-        Util__default['default'].reflow(this._element);
+      if (isAnimated) {
+        reflow(this._element);
       }
 
-      $__default['default'](this._element).addClass(CLASS_NAME_SHOW);
+      this._element.classList.add(CLASS_NAME_SHOW);
 
       if (this._config.focus) {
         this._enforceFocus();
       }
 
-      var shownEvent = $__default['default'].Event(EVENT_SHOWN, {
-        relatedTarget: relatedTarget
-      });
-
-      var transitionComplete = function transitionComplete() {
-        if (_this4._config.focus) {
-          _this4._element.focus();
+      const transitionComplete = () => {
+        if (this._config.focus) {
+          this._element.focus();
         }
 
-        _this4._isTransitioning = false;
-        $__default['default'](_this4._element).trigger(shownEvent);
+        this._isTransitioning = false;
+        EventHandler__default['default'].trigger(this._element, EVENT_SHOWN, {
+          relatedTarget
+        });
       };
 
-      if (transition) {
-        var transitionDuration = Util__default['default'].getTransitionDurationFromElement(this._dialog);
-        $__default['default'](this._dialog).one(Util__default['default'].TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
+      if (isAnimated) {
+        const transitionDuration = getTransitionDurationFromElement(this._dialog);
+        EventHandler__default['default'].one(this._dialog, 'transitionend', transitionComplete);
+        emulateTransitionEnd(this._dialog, transitionDuration);
       } else {
         transitionComplete();
       }
-    };
+    }
 
-    _proto._enforceFocus = function _enforceFocus() {
-      var _this5 = this;
+    _enforceFocus() {
+      EventHandler__default['default'].off(document, EVENT_FOCUSIN); // guard against infinite focus loop
 
-      $__default['default'](document).off(EVENT_FOCUSIN) // Guard against infinite focus loop
-      .on(EVENT_FOCUSIN, function (event) {
-        if (document !== event.target && _this5._element !== event.target && $__default['default'](_this5._element).has(event.target).length === 0) {
-          _this5._element.focus();
+      EventHandler__default['default'].on(document, EVENT_FOCUSIN, event => {
+        if (document !== event.target && this._element !== event.target && !this._element.contains(event.target)) {
+          this._element.focus();
         }
       });
-    };
+    }
 
-    _proto._setEscapeEvent = function _setEscapeEvent() {
-      var _this6 = this;
-
+    _setEscapeEvent() {
       if (this._isShown) {
-        $__default['default'](this._element).on(EVENT_KEYDOWN_DISMISS, function (event) {
-          if (_this6._config.keyboard && event.which === ESCAPE_KEYCODE) {
+        EventHandler__default['default'].on(this._element, EVENT_KEYDOWN_DISMISS, event => {
+          if (this._config.keyboard && event.key === ESCAPE_KEY) {
             event.preventDefault();
-
-            _this6.hide();
-          } else if (!_this6._config.keyboard && event.which === ESCAPE_KEYCODE) {
-            _this6._triggerBackdropTransition();
+            this.hide();
+          } else if (!this._config.keyboard && event.key === ESCAPE_KEY) {
+            this._triggerBackdropTransition();
           }
         });
-      } else if (!this._isShown) {
-        $__default['default'](this._element).off(EVENT_KEYDOWN_DISMISS);
-      }
-    };
-
-    _proto._setResizeEvent = function _setResizeEvent() {
-      var _this7 = this;
-
-      if (this._isShown) {
-        $__default['default'](window).on(EVENT_RESIZE, function (event) {
-          return _this7.handleUpdate(event);
-        });
       } else {
-        $__default['default'](window).off(EVENT_RESIZE);
+        EventHandler__default['default'].off(this._element, EVENT_KEYDOWN_DISMISS);
       }
-    };
+    }
 
-    _proto._hideModal = function _hideModal() {
-      var _this8 = this;
+    _setResizeEvent() {
+      if (this._isShown) {
+        EventHandler__default['default'].on(window, EVENT_RESIZE, () => this._adjustDialog());
+      } else {
+        EventHandler__default['default'].off(window, EVENT_RESIZE);
+      }
+    }
 
+    _hideModal() {
       this._element.style.display = 'none';
 
       this._element.setAttribute('aria-hidden', true);
@@ -395,222 +686,113 @@
 
       this._isTransitioning = false;
 
-      this._showBackdrop(function () {
-        $__default['default'](document.body).removeClass(CLASS_NAME_OPEN);
+      this._backdrop.hide(() => {
+        document.body.classList.remove(CLASS_NAME_OPEN);
 
-        _this8._resetAdjustments();
+        this._resetAdjustments();
 
-        _this8._resetScrollbar();
-
-        $__default['default'](_this8._element).trigger(EVENT_HIDDEN);
+        reset();
+        EventHandler__default['default'].trigger(this._element, EVENT_HIDDEN);
       });
-    };
+    }
 
-    _proto._removeBackdrop = function _removeBackdrop() {
-      if (this._backdrop) {
-        $__default['default'](this._backdrop).remove();
-        this._backdrop = null;
-      }
-    };
-
-    _proto._showBackdrop = function _showBackdrop(callback) {
-      var _this9 = this;
-
-      var animate = $__default['default'](this._element).hasClass(CLASS_NAME_FADE) ? CLASS_NAME_FADE : '';
-
-      if (this._isShown && this._config.backdrop) {
-        this._backdrop = document.createElement('div');
-        this._backdrop.className = CLASS_NAME_BACKDROP;
-
-        if (animate) {
-          this._backdrop.classList.add(animate);
-        }
-
-        $__default['default'](this._backdrop).appendTo(document.body);
-        $__default['default'](this._element).on(EVENT_CLICK_DISMISS, function (event) {
-          if (_this9._ignoreBackdropClick) {
-            _this9._ignoreBackdropClick = false;
-            return;
-          }
-
-          if (event.target !== event.currentTarget) {
-            return;
-          }
-
-          if (_this9._config.backdrop === 'static') {
-            _this9._triggerBackdropTransition();
-          } else {
-            _this9.hide();
-          }
-        });
-
-        if (animate) {
-          Util__default['default'].reflow(this._backdrop);
-        }
-
-        $__default['default'](this._backdrop).addClass(CLASS_NAME_SHOW);
-
-        if (!callback) {
+    _showBackdrop(callback) {
+      EventHandler__default['default'].on(this._element, EVENT_CLICK_DISMISS, event => {
+        if (this._ignoreBackdropClick) {
+          this._ignoreBackdropClick = false;
           return;
         }
 
-        if (!animate) {
-          callback();
+        if (event.target !== event.currentTarget) {
           return;
         }
 
-        var backdropTransitionDuration = Util__default['default'].getTransitionDurationFromElement(this._backdrop);
-        $__default['default'](this._backdrop).one(Util__default['default'].TRANSITION_END, callback).emulateTransitionEnd(backdropTransitionDuration);
-      } else if (!this._isShown && this._backdrop) {
-        $__default['default'](this._backdrop).removeClass(CLASS_NAME_SHOW);
-
-        var callbackRemove = function callbackRemove() {
-          _this9._removeBackdrop();
-
-          if (callback) {
-            callback();
-          }
-        };
-
-        if ($__default['default'](this._element).hasClass(CLASS_NAME_FADE)) {
-          var _backdropTransitionDuration = Util__default['default'].getTransitionDurationFromElement(this._backdrop);
-
-          $__default['default'](this._backdrop).one(Util__default['default'].TRANSITION_END, callbackRemove).emulateTransitionEnd(_backdropTransitionDuration);
-        } else {
-          callbackRemove();
+        if (this._config.backdrop === true) {
+          this.hide();
+        } else if (this._config.backdrop === 'static') {
+          this._triggerBackdropTransition();
         }
-      } else if (callback) {
-        callback();
+      });
+
+      this._backdrop.show(callback);
+    }
+
+    _isAnimated() {
+      return this._element.classList.contains(CLASS_NAME_FADE);
+    }
+
+    _triggerBackdropTransition() {
+      const hideEvent = EventHandler__default['default'].trigger(this._element, EVENT_HIDE_PREVENTED);
+
+      if (hideEvent.defaultPrevented) {
+        return;
       }
+
+      const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+
+      if (!isModalOverflowing) {
+        this._element.style.overflowY = 'hidden';
+      }
+
+      this._element.classList.add(CLASS_NAME_STATIC);
+
+      const modalTransitionDuration = getTransitionDurationFromElement(this._dialog);
+      EventHandler__default['default'].off(this._element, 'transitionend');
+      EventHandler__default['default'].one(this._element, 'transitionend', () => {
+        this._element.classList.remove(CLASS_NAME_STATIC);
+
+        if (!isModalOverflowing) {
+          EventHandler__default['default'].one(this._element, 'transitionend', () => {
+            this._element.style.overflowY = '';
+          });
+          emulateTransitionEnd(this._element, modalTransitionDuration);
+        }
+      });
+      emulateTransitionEnd(this._element, modalTransitionDuration);
+
+      this._element.focus();
     } // ----------------------------------------------------------------------
     // the following methods are used to handle overflowing modals
-    // todo (fat): these should probably be refactored out of modal.js
     // ----------------------------------------------------------------------
-    ;
 
-    _proto._adjustDialog = function _adjustDialog() {
-      var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
 
-      if (!this._isBodyOverflowing && isModalOverflowing) {
-        this._element.style.paddingLeft = this._scrollbarWidth + "px";
+    _adjustDialog() {
+      const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+      const scrollbarWidth = getWidth();
+      const isBodyOverflowing = scrollbarWidth > 0;
+
+      if (!isBodyOverflowing && isModalOverflowing && !isRTL() || isBodyOverflowing && !isModalOverflowing && isRTL()) {
+        this._element.style.paddingLeft = `${scrollbarWidth}px`;
       }
 
-      if (this._isBodyOverflowing && !isModalOverflowing) {
-        this._element.style.paddingRight = this._scrollbarWidth + "px";
+      if (isBodyOverflowing && !isModalOverflowing && !isRTL() || !isBodyOverflowing && isModalOverflowing && isRTL()) {
+        this._element.style.paddingRight = `${scrollbarWidth}px`;
       }
-    };
+    }
 
-    _proto._resetAdjustments = function _resetAdjustments() {
+    _resetAdjustments() {
       this._element.style.paddingLeft = '';
       this._element.style.paddingRight = '';
-    };
-
-    _proto._checkScrollbar = function _checkScrollbar() {
-      var rect = document.body.getBoundingClientRect();
-      this._isBodyOverflowing = Math.round(rect.left + rect.right) < window.innerWidth;
-      this._scrollbarWidth = this._getScrollbarWidth();
-    };
-
-    _proto._setScrollbar = function _setScrollbar() {
-      var _this10 = this;
-
-      if (this._isBodyOverflowing) {
-        // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
-        //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
-        var fixedContent = [].slice.call(document.querySelectorAll(SELECTOR_FIXED_CONTENT));
-        var stickyContent = [].slice.call(document.querySelectorAll(SELECTOR_STICKY_CONTENT)); // Adjust fixed content padding
-
-        $__default['default'](fixedContent).each(function (index, element) {
-          var actualPadding = element.style.paddingRight;
-          var calculatedPadding = $__default['default'](element).css('padding-right');
-          $__default['default'](element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this10._scrollbarWidth + "px");
-        }); // Adjust sticky content margin
-
-        $__default['default'](stickyContent).each(function (index, element) {
-          var actualMargin = element.style.marginRight;
-          var calculatedMargin = $__default['default'](element).css('margin-right');
-          $__default['default'](element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this10._scrollbarWidth + "px");
-        }); // Adjust body padding
-
-        var actualPadding = document.body.style.paddingRight;
-        var calculatedPadding = $__default['default'](document.body).css('padding-right');
-        $__default['default'](document.body).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + this._scrollbarWidth + "px");
-      }
-
-      $__default['default'](document.body).addClass(CLASS_NAME_OPEN);
-    };
-
-    _proto._resetScrollbar = function _resetScrollbar() {
-      // Restore fixed content padding
-      var fixedContent = [].slice.call(document.querySelectorAll(SELECTOR_FIXED_CONTENT));
-      $__default['default'](fixedContent).each(function (index, element) {
-        var padding = $__default['default'](element).data('padding-right');
-        $__default['default'](element).removeData('padding-right');
-        element.style.paddingRight = padding ? padding : '';
-      }); // Restore sticky content
-
-      var elements = [].slice.call(document.querySelectorAll("" + SELECTOR_STICKY_CONTENT));
-      $__default['default'](elements).each(function (index, element) {
-        var margin = $__default['default'](element).data('margin-right');
-
-        if (typeof margin !== 'undefined') {
-          $__default['default'](element).css('margin-right', margin).removeData('margin-right');
-        }
-      }); // Restore body padding
-
-      var padding = $__default['default'](document.body).data('padding-right');
-      $__default['default'](document.body).removeData('padding-right');
-      document.body.style.paddingRight = padding ? padding : '';
-    };
-
-    _proto._getScrollbarWidth = function _getScrollbarWidth() {
-      // thx d.walsh
-      var scrollDiv = document.createElement('div');
-      scrollDiv.className = CLASS_NAME_SCROLLBAR_MEASURER;
-      document.body.appendChild(scrollDiv);
-      var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
-      document.body.removeChild(scrollDiv);
-      return scrollbarWidth;
     } // Static
-    ;
 
-    Modal._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
+
+    static jQueryInterface(config, relatedTarget) {
       return this.each(function () {
-        var data = $__default['default'](this).data(DATA_KEY);
+        const data = Modal.getInstance(this) || new Modal(this, typeof config === 'object' ? config : {});
 
-        var _config = _extends({}, Default, $__default['default'](this).data(), typeof config === 'object' && config ? config : {});
-
-        if (!data) {
-          data = new Modal(this, _config);
-          $__default['default'](this).data(DATA_KEY, data);
+        if (typeof config !== 'string') {
+          return;
         }
 
-        if (typeof config === 'string') {
-          if (typeof data[config] === 'undefined') {
-            throw new TypeError("No method named \"" + config + "\"");
-          }
-
-          data[config](relatedTarget);
-        } else if (_config.show) {
-          data.show(relatedTarget);
+        if (typeof data[config] === 'undefined') {
+          throw new TypeError(`No method named "${config}"`);
         }
+
+        data[config](relatedTarget);
       });
-    };
+    }
 
-    _createClass(Modal, null, [{
-      key: "VERSION",
-      get: function get() {
-        return VERSION;
-      }
-    }, {
-      key: "Default",
-      get: function get() {
-        return Default;
-      }
-    }]);
-
-    return Modal;
-  }();
+  }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
@@ -618,50 +800,36 @@
    */
 
 
-  $__default['default'](document).on(EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-    var _this11 = this;
+  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+    const target = getElementFromSelector(this);
 
-    var target;
-    var selector = Util__default['default'].getSelectorFromElement(this);
-
-    if (selector) {
-      target = document.querySelector(selector);
-    }
-
-    var config = $__default['default'](target).data(DATA_KEY) ? 'toggle' : _extends({}, $__default['default'](target).data(), $__default['default'](this).data());
-
-    if (this.tagName === 'A' || this.tagName === 'AREA') {
+    if (['A', 'AREA'].includes(this.tagName)) {
       event.preventDefault();
     }
 
-    var $target = $__default['default'](target).one(EVENT_SHOW, function (showEvent) {
-      if (showEvent.isDefaultPrevented()) {
-        // Only register focus restorer if modal will actually get shown
+    EventHandler__default['default'].one(target, EVENT_SHOW, showEvent => {
+      if (showEvent.defaultPrevented) {
+        // only register focus restorer if modal will actually get shown
         return;
       }
 
-      $target.one(EVENT_HIDDEN, function () {
-        if ($__default['default'](_this11).is(':visible')) {
-          _this11.focus();
+      EventHandler__default['default'].one(target, EVENT_HIDDEN, () => {
+        if (isVisible(this)) {
+          this.focus();
         }
       });
     });
-
-    Modal._jQueryInterface.call($__default['default'](target), config, this);
+    const data = Modal.getInstance(target) || new Modal(target);
+    data.toggle(this);
   });
   /**
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
+   * add .Modal to jQuery only if jQuery is present
    */
 
-  $__default['default'].fn[NAME] = Modal._jQueryInterface;
-  $__default['default'].fn[NAME].Constructor = Modal;
-
-  $__default['default'].fn[NAME].noConflict = function () {
-    $__default['default'].fn[NAME] = JQUERY_NO_CONFLICT;
-    return Modal._jQueryInterface;
-  };
+  defineJQueryPlugin(NAME, Modal);
 
   return Modal;
 

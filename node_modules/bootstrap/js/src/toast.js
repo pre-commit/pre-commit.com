@@ -1,12 +1,21 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.6.0): toast.js
+ * Bootstrap (v5.0.0): toast.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import $ from 'jquery'
-import Util from './util'
+import {
+  defineJQueryPlugin,
+  emulateTransitionEnd,
+  getTransitionDurationFromElement,
+  reflow,
+  typeCheckConfig
+} from './util/index'
+import Data from './dom/data'
+import EventHandler from './dom/event-handler'
+import Manipulator from './dom/manipulator'
+import BaseComponent from './base-component'
 
 /**
  * ------------------------------------------------------------------------
@@ -15,10 +24,8 @@ import Util from './util'
  */
 
 const NAME = 'toast'
-const VERSION = '4.6.0'
 const DATA_KEY = 'bs.toast'
 const EVENT_KEY = `.${DATA_KEY}`
-const JQUERY_NO_CONFLICT = $.fn[NAME]
 
 const EVENT_CLICK_DISMISS = `click.dismiss${EVENT_KEY}`
 const EVENT_HIDE = `hide${EVENT_KEY}`
@@ -40,10 +47,10 @@ const DefaultType = {
 const Default = {
   animation: true,
   autohide: true,
-  delay: 500
+  delay: 5000
 }
 
-const SELECTOR_DATA_DISMISS = '[data-dismiss="toast"]'
+const SELECTOR_DATA_DISMISS = '[data-bs-dismiss="toast"]'
 
 /**
  * ------------------------------------------------------------------------
@@ -51,19 +58,16 @@ const SELECTOR_DATA_DISMISS = '[data-dismiss="toast"]'
  * ------------------------------------------------------------------------
  */
 
-class Toast {
+class Toast extends BaseComponent {
   constructor(element, config) {
-    this._element = element
+    super(element)
+
     this._config = this._getConfig(config)
     this._timeout = null
     this._setListeners()
   }
 
   // Getters
-
-  static get VERSION() {
-    return VERSION
-  }
 
   static get DefaultType() {
     return DefaultType
@@ -73,13 +77,16 @@ class Toast {
     return Default
   }
 
+  static get DATA_KEY() {
+    return DATA_KEY
+  }
+
   // Public
 
   show() {
-    const showEvent = $.Event(EVENT_SHOW)
+    const showEvent = EventHandler.trigger(this._element, EVENT_SHOW)
 
-    $(this._element).trigger(showEvent)
-    if (showEvent.isDefaultPrevented()) {
+    if (showEvent.defaultPrevented) {
       return
     }
 
@@ -93,7 +100,7 @@ class Toast {
       this._element.classList.remove(CLASS_NAME_SHOWING)
       this._element.classList.add(CLASS_NAME_SHOW)
 
-      $(this._element).trigger(EVENT_SHOWN)
+      EventHandler.trigger(this._element, EVENT_SHOWN)
 
       if (this._config.autohide) {
         this._timeout = setTimeout(() => {
@@ -103,14 +110,13 @@ class Toast {
     }
 
     this._element.classList.remove(CLASS_NAME_HIDE)
-    Util.reflow(this._element)
+    reflow(this._element)
     this._element.classList.add(CLASS_NAME_SHOWING)
     if (this._config.animation) {
-      const transitionDuration = Util.getTransitionDurationFromElement(this._element)
+      const transitionDuration = getTransitionDurationFromElement(this._element)
 
-      $(this._element)
-        .one(Util.TRANSITION_END, complete)
-        .emulateTransitionEnd(transitionDuration)
+      EventHandler.one(this._element, 'transitionend', complete)
+      emulateTransitionEnd(this._element, transitionDuration)
     } else {
       complete()
     }
@@ -121,14 +127,26 @@ class Toast {
       return
     }
 
-    const hideEvent = $.Event(EVENT_HIDE)
+    const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE)
 
-    $(this._element).trigger(hideEvent)
-    if (hideEvent.isDefaultPrevented()) {
+    if (hideEvent.defaultPrevented) {
       return
     }
 
-    this._close()
+    const complete = () => {
+      this._element.classList.add(CLASS_NAME_HIDE)
+      EventHandler.trigger(this._element, EVENT_HIDDEN)
+    }
+
+    this._element.classList.remove(CLASS_NAME_SHOW)
+    if (this._config.animation) {
+      const transitionDuration = getTransitionDurationFromElement(this._element)
+
+      EventHandler.one(this._element, 'transitionend', complete)
+      emulateTransitionEnd(this._element, transitionDuration)
+    } else {
+      complete()
+    }
   }
 
   dispose() {
@@ -138,10 +156,7 @@ class Toast {
       this._element.classList.remove(CLASS_NAME_SHOW)
     }
 
-    $(this._element).off(EVENT_CLICK_DISMISS)
-
-    $.removeData(this._element, DATA_KEY)
-    this._element = null
+    super.dispose()
     this._config = null
   }
 
@@ -150,39 +165,17 @@ class Toast {
   _getConfig(config) {
     config = {
       ...Default,
-      ...$(this._element).data(),
+      ...Manipulator.getDataAttributes(this._element),
       ...(typeof config === 'object' && config ? config : {})
     }
 
-    Util.typeCheckConfig(
-      NAME,
-      config,
-      this.constructor.DefaultType
-    )
+    typeCheckConfig(NAME, config, this.constructor.DefaultType)
 
     return config
   }
 
   _setListeners() {
-    $(this._element).on(EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, () => this.hide())
-  }
-
-  _close() {
-    const complete = () => {
-      this._element.classList.add(CLASS_NAME_HIDE)
-      $(this._element).trigger(EVENT_HIDDEN)
-    }
-
-    this._element.classList.remove(CLASS_NAME_SHOW)
-    if (this._config.animation) {
-      const transitionDuration = Util.getTransitionDurationFromElement(this._element)
-
-      $(this._element)
-        .one(Util.TRANSITION_END, complete)
-        .emulateTransitionEnd(transitionDuration)
-    } else {
-      complete()
-    }
+    EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, () => this.hide())
   }
 
   _clearTimeout() {
@@ -192,15 +185,13 @@ class Toast {
 
   // Static
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
-      const $element = $(this)
-      let data = $element.data(DATA_KEY)
+      let data = Data.get(this, DATA_KEY)
       const _config = typeof config === 'object' && config
 
       if (!data) {
         data = new Toast(this, _config)
-        $element.data(DATA_KEY, data)
       }
 
       if (typeof config === 'string') {
@@ -218,13 +209,9 @@ class Toast {
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
+ * add .Toast to jQuery only if jQuery is present
  */
 
-$.fn[NAME] = Toast._jQueryInterface
-$.fn[NAME].Constructor = Toast
-$.fn[NAME].noConflict = () => {
-  $.fn[NAME] = JQUERY_NO_CONFLICT
-  return Toast._jQueryInterface
-}
+defineJQueryPlugin(NAME, Toast)
 
 export default Toast

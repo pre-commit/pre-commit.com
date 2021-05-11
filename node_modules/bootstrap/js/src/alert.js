@@ -1,12 +1,19 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.6.0): alert.js
+ * Bootstrap (v5.0.0): alert.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import $ from 'jquery'
-import Util from './util'
+import {
+  defineJQueryPlugin,
+  emulateTransitionEnd,
+  getElementFromSelector,
+  getTransitionDurationFromElement
+} from './util/index'
+import Data from './dom/data'
+import EventHandler from './dom/event-handler'
+import BaseComponent from './base-component'
 
 /**
  * ------------------------------------------------------------------------
@@ -15,13 +22,11 @@ import Util from './util'
  */
 
 const NAME = 'alert'
-const VERSION = '4.6.0'
 const DATA_KEY = 'bs.alert'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
-const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-const SELECTOR_DISMISS = '[data-dismiss="alert"]'
+const SELECTOR_DISMISS = '[data-bs-dismiss="alert"]'
 
 const EVENT_CLOSE = `close${EVENT_KEY}`
 const EVENT_CLOSED = `closed${EVENT_KEY}`
@@ -37,95 +42,66 @@ const CLASS_NAME_SHOW = 'show'
  * ------------------------------------------------------------------------
  */
 
-class Alert {
-  constructor(element) {
-    this._element = element
-  }
-
+class Alert extends BaseComponent {
   // Getters
 
-  static get VERSION() {
-    return VERSION
+  static get DATA_KEY() {
+    return DATA_KEY
   }
 
   // Public
 
   close(element) {
-    let rootElement = this._element
-    if (element) {
-      rootElement = this._getRootElement(element)
-    }
-
+    const rootElement = element ? this._getRootElement(element) : this._element
     const customEvent = this._triggerCloseEvent(rootElement)
 
-    if (customEvent.isDefaultPrevented()) {
+    if (customEvent === null || customEvent.defaultPrevented) {
       return
     }
 
     this._removeElement(rootElement)
   }
 
-  dispose() {
-    $.removeData(this._element, DATA_KEY)
-    this._element = null
-  }
-
   // Private
 
   _getRootElement(element) {
-    const selector = Util.getSelectorFromElement(element)
-    let parent = false
-
-    if (selector) {
-      parent = document.querySelector(selector)
-    }
-
-    if (!parent) {
-      parent = $(element).closest(`.${CLASS_NAME_ALERT}`)[0]
-    }
-
-    return parent
+    return getElementFromSelector(element) || element.closest(`.${CLASS_NAME_ALERT}`)
   }
 
   _triggerCloseEvent(element) {
-    const closeEvent = $.Event(EVENT_CLOSE)
-
-    $(element).trigger(closeEvent)
-    return closeEvent
+    return EventHandler.trigger(element, EVENT_CLOSE)
   }
 
   _removeElement(element) {
-    $(element).removeClass(CLASS_NAME_SHOW)
+    element.classList.remove(CLASS_NAME_SHOW)
 
-    if (!$(element).hasClass(CLASS_NAME_FADE)) {
+    if (!element.classList.contains(CLASS_NAME_FADE)) {
       this._destroyElement(element)
       return
     }
 
-    const transitionDuration = Util.getTransitionDurationFromElement(element)
+    const transitionDuration = getTransitionDurationFromElement(element)
 
-    $(element)
-      .one(Util.TRANSITION_END, event => this._destroyElement(element, event))
-      .emulateTransitionEnd(transitionDuration)
+    EventHandler.one(element, 'transitionend', () => this._destroyElement(element))
+    emulateTransitionEnd(element, transitionDuration)
   }
 
   _destroyElement(element) {
-    $(element)
-      .detach()
-      .trigger(EVENT_CLOSED)
-      .remove()
+    if (element.parentNode) {
+      element.parentNode.removeChild(element)
+    }
+
+    EventHandler.trigger(element, EVENT_CLOSED)
   }
 
   // Static
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
-      const $element = $(this)
-      let data = $element.data(DATA_KEY)
+      let data = Data.get(this, DATA_KEY)
 
       if (!data) {
         data = new Alert(this)
-        $element.data(DATA_KEY, data)
       }
 
       if (config === 'close') {
@@ -134,7 +110,7 @@ class Alert {
     })
   }
 
-  static _handleDismiss(alertInstance) {
+  static handleDismiss(alertInstance) {
     return function (event) {
       if (event) {
         event.preventDefault()
@@ -151,23 +127,15 @@ class Alert {
  * ------------------------------------------------------------------------
  */
 
-$(document).on(
-  EVENT_CLICK_DATA_API,
-  SELECTOR_DISMISS,
-  Alert._handleDismiss(new Alert())
-)
+EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DISMISS, Alert.handleDismiss(new Alert()))
 
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
+ * add .Alert to jQuery only if jQuery is present
  */
 
-$.fn[NAME] = Alert._jQueryInterface
-$.fn[NAME].Constructor = Alert
-$.fn[NAME].noConflict = () => {
-  $.fn[NAME] = JQUERY_NO_CONFLICT
-  return Alert._jQueryInterface
-}
+defineJQueryPlugin(NAME, Alert)
 
 export default Alert
