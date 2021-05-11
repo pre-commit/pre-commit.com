@@ -3,14 +3,14 @@
 
 <div class="page-header"><h1>Supported hooks</h1></div>
 
-<div class="form-row">
-    <div class="col form-group">
-        <label for="search-hook-id">Filter hook id:</label>
+<div class="row mb-4">
+    <div class="col">
+        <label for="search-hook-id" class="mb-2">Filter hook id:</label>
         <input id="search-hook-id" type="text" placeholder="filter hook id" class="form-control form-control-sm"></input>
     </div>
-    <div class="col form-group">
-        <label for="search-hook-id">Filter hook type:</label>
-        <select id="select-hook-type" class="form-control form-control-sm">
+    <div class="col">
+        <label for="search-hook-id" class="mb-2">Filter hook type:</label>
+        <select id="select-hook-type" class="form-select form-select-sm">
             <option value="">--</option>
             % for hook_type in sorted(all_types, key=str.lower):
                 <option value="${hook_type}">${hook_type}</option>

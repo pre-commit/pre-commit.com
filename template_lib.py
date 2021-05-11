@@ -107,7 +107,7 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             h_id = SPECIAL_CHARS_RE.sub('', text.lower()).replace(' ', '-')
         return (
             f'<h{level} id="{h_id}">'
-            f'    {text} <small><a href="#{h_id}">¶</a></small>'
+            f'    {text} <small><a href="#{h_id}" class="text-decoration-none">¶</a></small>'  # noqa: E501
             f'</h{level}> '
         )
 
