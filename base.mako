@@ -7,18 +7,18 @@
 
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-        <link rel="stylesheet" href="build/main_bs4.css">
+        <link rel="stylesheet" href="build/main_bs5.css">
 
         <title>pre-commit</title>
     </head>
-    <body data-spy="scroll" data-target="#content-navigation">
+    <body data-bs-spy="scroll" data-bs-target="#content-navigation">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="container-md">
                 <a class="navbar-brand" href="/">
                     <img src="logo.svg" width="55" height="55" alt="" loading="lazy">
                 </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" >
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" >
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -35,7 +35,7 @@
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a href="https://github.com/pre-commit/pre-commit" role="button" class="btn btn-outline-info my-2 my-sm-0">Download on GitHub</a>
                         </li>
@@ -49,7 +49,7 @@
             <div class="container-md py-4 py-lg-0">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h1 class="display-4 pb-3 text-secondary">pre-commit</h1>
+                        <h1 class="display-5 pb-3 text-secondary fw-bold">pre-commit</h1>
                         <p class="lead text-white">
                             A framework for managing and maintaining multi-language <span class="text-nowrap">pre-commit</span> hooks.
                         </p>
@@ -88,8 +88,7 @@
             <div class="container-md">&nbsp;</div>
         </footer>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
