@@ -4,8 +4,8 @@ all: install-hooks build/main_bs4.css all-hooks.json index.html hooks.html
 install-hooks: venv
 	venv/bin/pre-commit install
 
-build/main_bs4.css: venv node_modules build scss/main_bs4.scss scss/_variables.scss
-	venv/bin/pysassc -s compressed scss/main_bs4.scss build/main_bs4.css
+build/main_bs4.css: node_modules build scss/main_bs4.scss scss/_variables.scss
+	node_modules/.bin/node-sass --output-style=compressed scss/main_bs4.scss build/main_bs4.css
 
 all-hooks.json: venv make_all_hooks.py all-repos.yaml
 	venv/bin/python make_all_hooks.py

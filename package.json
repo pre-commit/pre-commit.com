@@ -2,7 +2,8 @@
     "repository": "github.com/pre-commit/pre-commit.com",
     "license": "MIT",
     "dependencies": {
-        "bootstrap": "^4.5.3"
+        "bootstrap": "^4.5.3",
+        "node-sass": "^6.0.0"
     },
     "eslintConfig": {
         "extends": "eslint:recommended",
