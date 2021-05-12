@@ -1,15 +1,6 @@
 {
     "https://github.com/pre-commit/pre-commit-hooks": [
         {
-            "id": "autopep8-wrapper",
-            "name": "autopep8 wrapper (removed)",
-            "description": "(removed) use pre-commit/mirrors-autopep8 instead.",
-            "entry": "pre-commit-hooks-removed autopep8-wrapper autopep8 https://github.com/pre-commit/mirrors-autopep8",
-            "language": "python",
-            "always_run": true,
-            "pass_filenames": false
-        },
-        {
             "id": "check-added-large-files",
             "name": "Check for added large files",
             "description": "Prevent giant files from being committed",
@@ -268,15 +259,6 @@
             ]
         },
         {
-            "id": "flake8",
-            "name": "Flake8 (removed)",
-            "description": "(removed) use gitlab.com/pycqa/flake8 instead.",
-            "entry": "pre-commit-hooks-removed flake8 flake8 https://gitlab.com/pycqa/flake8",
-            "language": "python",
-            "always_run": true,
-            "pass_filenames": false
-        },
-        {
             "id": "forbid-new-submodules",
             "name": "Forbid new submodules",
             "language": "python",
@@ -308,15 +290,6 @@
             "language": "python",
             "pass_filenames": false,
             "always_run": true
-        },
-        {
-            "id": "pyflakes",
-            "name": "Pyflakes (removed)",
-            "description": "(removed) use gitlab.com/pycqa/flake8 instead.",
-            "entry": "pre-commit-hooks-removed pyflakes flake8 https://gitlab.com/pycqa/flake8",
-            "language": "python",
-            "always_run": true,
-            "pass_filenames": false
         },
         {
             "id": "requirements-txt-fixer",
