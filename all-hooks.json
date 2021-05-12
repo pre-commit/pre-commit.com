@@ -4980,5 +4980,23 @@
                 "png"
             ]
         }
+    ],
+    "https://github.com/nbyl/pre-commit-license-checks": [
+        {
+            "id": "license-check-pipenv",
+            "name": "Check the licenses of the pipenv environment",
+            "description": "This hook scans the local Pipfile against a configured list of allowed open source licenses.",
+            "entry": "license-check-pipenv",
+            "files": "Pipfile",
+            "language": "python"
+        },
+        {
+            "id": "license-check-npm",
+            "name": "Check the licenses of the npm environment.",
+            "description": "This hook scans the package. a configured list of allowed open source licenses.",
+            "entry": "license-check-npm",
+            "files": "package.json",
+            "language": "python"
+        }
     ]
 }
