@@ -5,7 +5,7 @@ install-hooks: venv
 	venv/bin/pre-commit install
 
 build/main_bs5.css: node_modules build scss/main_bs5.scss scss/_variables.scss
-	node_modules/.bin/node-sass --output-style=compressed scss/main_bs5.scss build/main_bs5.css
+	node_modules/.bin/sass --style=compressed --load-path=. scss/main_bs5.scss build/main_bs5.css
 
 all-hooks.json: venv make_all_hooks.py all-repos.yaml
 	venv/bin/python make_all_hooks.py
