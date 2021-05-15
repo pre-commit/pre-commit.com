@@ -20,7 +20,7 @@
                 for (let j = 0; j < repoHooks.length; j += 1) {
                     const repoHook = repoHooks[j];
                     const hookId = repoHook.dataset.id.toLowerCase();
-                    const hookTypes = repoHook.dataset.types;
+                    const hookTypes = repoHook.dataset.types.split(', ');
 
                     if (hookId.includes(id) && hookTypes.includes(type)) {
                         repoHook.hidden = false;
