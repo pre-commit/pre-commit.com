@@ -4998,5 +4998,102 @@
             "files": "package.json",
             "language": "python"
         }
+    ],
+    "https://github.com/jonasbb/pre-commit-latex-hooks": [
+        {
+            "id": "csquotes",
+            "name": "All quotation marks should use csquotes",
+            "description": "Ensure the use of LaTeX csquotes and prohibits manual quotation marks.",
+            "entry": "``.*''",
+            "language": "pygrep",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
+        },
+        {
+            "id": "cleveref-capitalization",
+            "name": "Ensure the correct usage of \\cref",
+            "description": "Ensure that \\Cref at a sentence start is capitalized and nowhere else in the sentence.",
+            "entry": "^((\\s*\\\\cref)|[^%\\s]+\\\\Cref).*$",
+            "language": "pygrep",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
+        },
+        {
+            "id": "tilde-cite",
+            "name": "Each \\cite needs a ~",
+            "description": "Line breaks should never occur before the citation, thus they need to be protected with the ~.",
+            "entry": "[^~]\\\\cite",
+            "language": "pygrep",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
+        },
+        {
+            "id": "american-eg-ie",
+            "name": "US English requires a comma after \"e.g.\" and \"i.e.\"",
+            "description": "US English requires a comma after \"e.g.\" and \"i.e.\"",
+            "entry": "((e\\.g\\.)|(i\\.e\\.))[^,]",
+            "language": "pygrep",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
+        },
+        {
+            "id": "no-space-in-cite",
+            "name": "Ensure there are no whitespace characters in the \\cite command",
+            "entry": "\\\\cite\\{([^\\}]*\\s)+[^\\}]*\\}",
+            "language": "pygrep",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
+        },
+        {
+            "id": "consistent-spelling",
+            "name": "Ensure consistency between different spelling variants",
+            "description": "Ensure that all variants (specified by regex) are written the same way.",
+            "entry": "consistent_spelling",
+            "language": "python",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0",
+            "require_serial": true,
+            "language_version": "python3"
+        },
+        {
+            "id": "ensure-labels-for-sections",
+            "name": "Ensure each section has a matching label",
+            "entry": "ensure-labels",
+            "language": "rust",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
+        },
+        {
+            "id": "cispa-syssec-forbidden-words",
+            "name": "Forbidden words for CISPA SysSec",
+            "entry": "(?i)blacklist|whitelist",
+            "language": "pygrep",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
+        }
     ]
 }
