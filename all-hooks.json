@@ -4994,11 +4994,11 @@
     ],
     "https://github.com/nbyl/pre-commit-license-checks": [
         {
-            "id": "license-check-pipenv",
-            "name": "Check the licenses of the pipenv environment",
-            "description": "This hook scans the local Pipfile against a configured list of allowed open source licenses.",
-            "entry": "license-check-pipenv",
-            "files": "Pipfile",
+            "id": "license-check-maven",
+            "name": "Check the licenses of the maven environment.",
+            "description": "This hook scans the the maven dependency list againt a configured list of allowed open source licenses.",
+            "entry": "license-check-maven",
+            "files": "pom.xml",
             "language": "python"
         },
         {
@@ -5007,6 +5007,14 @@
             "description": "This hook scans the package. a configured list of allowed open source licenses.",
             "entry": "license-check-npm",
             "files": "package.json",
+            "language": "python"
+        },
+        {
+            "id": "license-check-pipenv",
+            "name": "Check the licenses of the pipenv environment",
+            "description": "This hook scans the local Pipfile against a configured list of allowed open source licenses.",
+            "entry": "license-check-pipenv",
+            "files": "Pipfile",
             "language": "python"
         }
     ],
@@ -5105,6 +5113,18 @@
                 "tex"
             ],
             "minimum_pre_commit_version": "2.8.0"
+        }
+    ],
+    "https://github.com/dfm/black_nbconvert": [
+        {
+            "id": "black_nbconvert",
+            "name": "black_nbconvert",
+            "description": "Apply black to ipynb files",
+            "entry": "black_nbconvert",
+            "language": "python",
+            "language_version": "python3",
+            "require_serial": true,
+            "files": "\\.ipynb$"
         }
     ]
 }
