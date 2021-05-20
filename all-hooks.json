@@ -4745,13 +4745,24 @@
     "https://github.com/google/go-jsonnet": [
         {
             "id": "jsonnet-format",
-            "name": "Format fix for jsonnet/libsonnet files",
-            "entry": "jsonnetfmt -i",
+            "name": "jsonnetfmt",
+            "description": "Automatically format jsonnet files.",
+            "entry": "jsonnetfmt",
+            "args": [
+                "-i"
+            ],
             "language": "golang",
             "files": "\\.(jsonnet|libsonnet)$",
-            "additional_dependencies": [
-                "github.com/google/go-jsonnet/cmd/jsonnetfmt"
-            ]
+            "minimum_pre_commit_version": "2.10.1"
+        },
+        {
+            "id": "jsonnet-lint",
+            "name": "jsonnet-lint",
+            "description": "Lint jsonnet files.",
+            "entry": "jsonnet-lint",
+            "language": "golang",
+            "files": "\\.(jsonnet|libsonnet)$",
+            "minimum_pre_commit_version": "2.10.1"
         }
     ],
     "https://github.com/guid-empty/flutter-dependency-validation-pre-commit": [
