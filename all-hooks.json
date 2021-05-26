@@ -4729,7 +4729,7 @@
             "types": [
                 "dockerfile"
             ],
-            "entry": "hadolint/hadolint:v2.3.0 hadolint"
+            "entry": "hadolint/hadolint:v2.4.1 hadolint"
         },
         {
             "id": "hadolint",
@@ -4993,6 +4993,14 @@
         }
     ],
     "https://github.com/nbyl/pre-commit-license-checks": [
+        {
+            "id": "license-check-gradle",
+            "name": "Check the licenses of the gradle environment.",
+            "description": "This hook scans the the gradle dependency list againt a configured list of allowed open source licenses.",
+            "entry": "license-check-gradle",
+            "files": "build.gradle",
+            "language": "python"
+        },
         {
             "id": "license-check-maven",
             "name": "Check the licenses of the maven environment.",
