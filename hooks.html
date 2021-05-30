@@ -2097,6 +2097,18 @@ https://pypi.python.org/pypi/beautysh
                 <code>go-returns</code>
                     - Run &#39;goreturns -l -d [$ARGS] $FILE&#39; for each staged .go file
             </li>
+            <li data-id="go-revive" data-types="go">
+                <code>go-revive</code>
+                    - Run &#39;revive [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li data-id="go-revive-mod" data-types="">
+                <code>go-revive-mod</code>
+                    - Run &#39;cd $(mod_root $FILE); revive [$ARGS] ./...&#39; for each staged .go file
+            </li>
+            <li data-id="go-revive-repo-mod" data-types="">
+                <code>go-revive-repo-mod</code>
+                    - Run &#39;cd $(mod_root); revive [$ARGS] ./...&#39; for each module in the repo
+            </li>
             <li data-id="go-sec-mod" data-types="">
                 <code>go-sec-mod</code>
                     - Run &#39;cd $(mod_root $FILE); gosec [$ARGS] ./...&#39; for each staged .go file
