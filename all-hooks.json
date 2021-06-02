@@ -3052,7 +3052,7 @@
             "id": "lisp-format",
             "name": "formatter of lisp code",
             "description": "Run lisp-format against lisp files",
-            "language": "system",
+            "language": "script",
             "files": "\\.(lisp|cl|asd|scm|el)$",
             "entry": "lisp-format -i"
         }
