@@ -379,7 +379,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@7.27.0"
+                "eslint@7.28.0"
             ]
         }
     ],
@@ -1766,7 +1766,9 @@
             "description": "Formats terraform scripts into the correct checkstyle",
             "entry": "bin/tf_fmt.sh",
             "language": "script",
-            "files": "\\.tf$",
+            "types": [
+                "terraform"
+            ],
             "exclude": "\\.terraform\\/.*$"
         },
         {
@@ -1775,7 +1777,9 @@
             "description": "Validates terraform scripts syntax",
             "entry": "bin/tf_validate.sh",
             "language": "script",
-            "files": "\\.tf$",
+            "types": [
+                "terraform"
+            ],
             "exclude": "\\.terraform\\/.*$"
         },
         {
