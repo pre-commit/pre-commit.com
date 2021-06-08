@@ -5069,7 +5069,7 @@
             "id": "cleveref-capitalization",
             "name": "Ensure the correct usage of \\cref",
             "description": "Ensure that \\Cref at a sentence start is capitalized and nowhere else in the sentence.",
-            "entry": "^((\\s*\\\\cref)|[^%\\s]+\\\\Cref).*$",
+            "entry": "(?x)\n^(\n  (?:\\s*\\\\(?:cref|crefrange|cpageref|cpagerefrange|namecref|namecrefs)\\b)\n  |\n  (?:[^%\\\\s]+\\\\(?:Cref|Crefrange|Cpageref|Cpagerefrange|nameCref|nameCrefs)\\b)\n).*$\n",
             "language": "pygrep",
             "types": [
                 "file",
