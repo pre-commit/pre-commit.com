@@ -5020,6 +5020,14 @@
     ],
     "https://github.com/nbyl/pre-commit-license-checks": [
         {
+            "id": "license-check-configuration-lint",
+            "name": "Check the configuration files for pre-commit-license-check.",
+            "description": "This hook scans the the gradle dependency list againt a configured list of allowed open source licenses.",
+            "entry": "license-check-configuration-lint",
+            "files": ".*license-check.*\\.yaml",
+            "language": "python"
+        },
+        {
             "id": "license-check-gradle",
             "name": "Check the licenses of the gradle environment.",
             "description": "This hook scans the the gradle dependency list againt a configured list of allowed open source licenses.",
@@ -5159,6 +5167,21 @@
             "language_version": "python3",
             "require_serial": true,
             "files": "\\.ipynb$"
+        }
+    ],
+    "https://github.com/crate-ci/typos": [
+        {
+            "id": "typos",
+            "name": "typos",
+            "description": "Source code spell checker",
+            "language": "rust",
+            "entry": "typos",
+            "args": [
+                "--write-changes"
+            ],
+            "types": [
+                "text"
+            ]
         }
     ]
 }
