@@ -373,6 +373,10 @@ Also available in <a href="/all-hooks.json">json</a>.
                 <code>python-check-blanket-noqa</code>
                     - Enforce that `noqa` annotations always occur with specific codes. Sample annotations: `# noqa: F401`, `# noqa: F401,W203`
             </li>
+            <li data-id="python-check-blanket-type-ignore" data-types="python">
+                <code>python-check-blanket-type-ignore</code>
+                    - Enforce that `# type: ignore` annotations always occur with specific codes. Sample annotations: `# type: ignore[attr-defined]`, `# type: ignore[attr-defined, name-defined]`
+            </li>
             <li data-id="python-check-mock-methods" data-types="python">
                 <code>python-check-mock-methods</code>
                     - Prevent common mistakes of `assert mck.not_called()`, `assert mck.called_once_with(...)` and `mck.assert_called`.

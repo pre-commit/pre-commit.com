@@ -515,6 +515,16 @@
             ]
         },
         {
+            "id": "python-check-blanket-type-ignore",
+            "name": "check blanket type ignore",
+            "description": "Enforce that `# type: ignore` annotations always occur with specific codes. Sample annotations: `# type: ignore[attr-defined]`, `# type: ignore[attr-defined, name-defined]`",
+            "entry": "# type:? *ignore(?!\\[|\\w)",
+            "language": "pygrep",
+            "types": [
+                "python"
+            ]
+        },
+        {
             "id": "python-check-mock-methods",
             "name": "check for not-real mock methods",
             "description": "Prevent common mistakes of `assert mck.not_called()`, `assert mck.called_once_with(...)` and `mck.assert_called`.",
