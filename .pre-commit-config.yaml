@@ -38,6 +38,7 @@ repos:
     rev: v0.902
     hooks:
     -   id: mypy
+        additional_dependencies: [types-all]
 -   repo: https://github.com/pre-commit/mirrors-eslint
     rev: v7.28.0
     hooks:
