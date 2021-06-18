@@ -5193,5 +5193,17 @@
                 "text"
             ]
         }
+    ],
+    "https://github.com/snakemake/snakefmt": [
+        {
+            "id": "snakefmt",
+            "name": "snakefmt",
+            "description": "Snakefmt: The uncompromising Snakemake formatter",
+            "entry": "snakefmt",
+            "language": "python",
+            "language_version": "python3",
+            "require_serial": true,
+            "files": "\\.smk$|Snakefile"
+        }
     ]
 }
