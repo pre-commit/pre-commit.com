@@ -40,7 +40,7 @@ repos:
     -   id: mypy
         additional_dependencies: [types-all]
 -   repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v7.28.0
+    rev: v7.29.0
     hooks:
     -   id: eslint
         args: [--fix]
