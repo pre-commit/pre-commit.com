@@ -3623,18 +3623,6 @@
             ]
         }
     ],
-    "https://github.com/twu/skjold": [
-        {
-            "id": "skjold",
-            "name": "skjold",
-            "description": "Security audit Python project dependencies against security advisory databases.",
-            "entry": "skjold audit",
-            "language": "python",
-            "language_version": "python3",
-            "require_serial": true,
-            "files": "^(poetry\\.lock|Pipfile\\.lock|requirements.*\\.txt)$"
-        }
-    ],
     "https://github.com/commitizen-tools/commitizen": [
         {
             "id": "commitizen",
