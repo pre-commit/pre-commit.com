@@ -121,7 +121,7 @@
 - https://github.com/dmitri-lerko/pre-commit-docker-kustomize
 - https://github.com/perltidy/perltidy
 - https://github.com/talos-systems/conform
-- https://github.com/twu/skjold
+# - https://github.com/twu/skjold
 - https://github.com/commitizen-tools/commitizen
 - https://github.com/gherynos/pre-commit-java
 # - https://github.com/JamesWoolfenden/pre-commit
