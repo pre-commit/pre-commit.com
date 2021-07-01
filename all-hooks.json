@@ -5234,5 +5234,16 @@
             "pass_filenames": false,
             "always_run": true
         }
+    ],
+    "https://github.com/tox-dev/tox-ini-fmt": [
+        {
+            "id": "tox-ini-fmt",
+            "name": "tox-ini-fmt",
+            "description": "apply a consistent format to `tox.ini` files",
+            "entry": "tox-ini-fmt",
+            "language": "python",
+            "language_version": "python3",
+            "files": "(^|/)tox\\.ini$"
+        }
     ]
 }
