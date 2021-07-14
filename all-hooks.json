@@ -5245,5 +5245,22 @@
             "language_version": "python3",
             "files": "(^|/)tox\\.ini$"
         }
+    ],
+    "https://github.com/janosh/format-ipy-cells": [
+        {
+            "id": "format-ipy-cells",
+            "name": "Format iPython Cells",
+            "description": "Format Cells in Interactive Python Notebooks.",
+            "entry": "format-ipy-cells",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "stages": [
+                "commit",
+                "push",
+                "manual"
+            ]
+        }
     ]
 }
