@@ -2211,7 +2211,7 @@
             "args": [
                 "--filter-files"
             ],
-            "minimum_pre_commit_version": "2.9.0"
+            "minimum_pre_commit_version": "2.9.2"
         }
     ],
     "https://github.com/miki725/importanize": [
