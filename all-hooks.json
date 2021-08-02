@@ -4798,7 +4798,7 @@
             "types": [
                 "dockerfile"
             ],
-            "entry": "hadolint/hadolint:v2.6.0 hadolint"
+            "entry": "hadolint/hadolint:v2.6.1 hadolint"
         },
         {
             "id": "hadolint",
