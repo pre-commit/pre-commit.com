@@ -5105,10 +5105,10 @@
     ],
     "https://github.com/jonasbb/pre-commit-latex-hooks": [
         {
-            "id": "csquotes",
-            "name": "All quotation marks should use csquotes",
-            "description": "Ensure the use of LaTeX csquotes and prohibits manual quotation marks.",
-            "entry": "``.*''",
+            "id": "american-eg-ie",
+            "name": "US English requires a comma after \"e.g.\" and \"i.e.\"",
+            "description": "US English requires a comma after \"e.g.\" and \"i.e.\"",
+            "entry": "((e\\.g\\.)|(i\\.e\\.))[^,]",
             "language": "pygrep",
             "types": [
                 "file",
@@ -5129,33 +5129,9 @@
             "minimum_pre_commit_version": "2.8.0"
         },
         {
-            "id": "tilde-cite",
-            "name": "Each \\cite needs a ~",
-            "description": "Line breaks should never occur before the citation, thus they need to be protected with the ~.",
-            "entry": "[^~]\\\\cite",
-            "language": "pygrep",
-            "types": [
-                "file",
-                "tex"
-            ],
-            "minimum_pre_commit_version": "2.8.0"
-        },
-        {
-            "id": "american-eg-ie",
-            "name": "US English requires a comma after \"e.g.\" and \"i.e.\"",
-            "description": "US English requires a comma after \"e.g.\" and \"i.e.\"",
-            "entry": "((e\\.g\\.)|(i\\.e\\.))[^,]",
-            "language": "pygrep",
-            "types": [
-                "file",
-                "tex"
-            ],
-            "minimum_pre_commit_version": "2.8.0"
-        },
-        {
-            "id": "no-space-in-cite",
-            "name": "Ensure there are no whitespace characters in the \\cite command",
-            "entry": "\\\\cite\\{([^\\}]*\\s)+[^\\}]*\\}",
+            "id": "cispa-syssec-forbidden-words",
+            "name": "Forbidden words for CISPA SysSec",
+            "entry": "(?i)blacklist|whitelist",
             "language": "pygrep",
             "types": [
                 "file",
@@ -5178,6 +5154,18 @@
             "language_version": "python3"
         },
         {
+            "id": "csquotes",
+            "name": "All quotation marks should use csquotes",
+            "description": "Ensure the use of LaTeX csquotes and prohibits manual quotation marks.",
+            "entry": "``.*''",
+            "language": "pygrep",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
+        },
+        {
             "id": "ensure-labels-for-sections",
             "name": "Ensure each section has a matching label",
             "entry": "ensure-labels",
@@ -5189,9 +5177,21 @@
             "minimum_pre_commit_version": "2.8.0"
         },
         {
-            "id": "cispa-syssec-forbidden-words",
-            "name": "Forbidden words for CISPA SysSec",
-            "entry": "(?i)blacklist|whitelist",
+            "id": "no-space-in-cite",
+            "name": "Ensure there are no whitespace characters in the \\cite command",
+            "entry": "\\\\cite\\{([^\\}]*\\s)+[^\\}]*\\}",
+            "language": "pygrep",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
+        },
+        {
+            "id": "tilde-cite",
+            "name": "Each \\cite needs a ~",
+            "description": "Line breaks should never occur before the citation, thus they need to be protected with the ~.",
+            "entry": "[^~]\\\\cite",
             "language": "pygrep",
             "types": [
                 "file",
@@ -5294,6 +5294,16 @@
                 "push",
                 "manual"
             ]
+        }
+    ],
+    "https://github.com/FalcoSuessgott/lint-gitlab-ci": [
+        {
+            "id": "gitlab-ci",
+            "name": "Validate .gitlab-ci",
+            "description": "lints .gitlab-ci.yml",
+            "entry": "lint-gitlab-ci.sh",
+            "language": "script",
+            "files": ".gitlab-ci.yml"
         }
     ]
 }
