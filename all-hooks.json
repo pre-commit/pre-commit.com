@@ -1894,6 +1894,24 @@
                 "python",
                 "pyi"
             ]
+        },
+        {
+            "id": "black-jupyter",
+            "name": "black-jupyter",
+            "description": "Black: The uncompromising Python code formatter (with Jupyter Notebook support)",
+            "entry": "black",
+            "language": "python",
+            "language_version": "python3",
+            "minimum_pre_commit_version": "2.9.2",
+            "require_serial": true,
+            "types_or": [
+                "python",
+                "pyi",
+                "jupyter"
+            ],
+            "additional_dependencies": [
+                ".[jupyter]"
+            ]
         }
     ],
     "https://github.com/IamTheFij/ansible-pre-commit": [
@@ -3170,6 +3188,76 @@
         }
     ],
     "https://github.com/TekWizely/pre-commit-golang": [
+        {
+            "id": "my-cmd",
+            "name": "my-cmd",
+            "entry": "my-cmd.sh",
+            "types": [
+                "go"
+            ],
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run '$ARGS[0] [$ARGS[1:]] $FILE' for each staged .go file",
+            "pass_filenames": true
+        },
+        {
+            "id": "my-cmd-mod",
+            "name": "my-cmd-mod",
+            "entry": "my-cmd-mod.sh",
+            "files": "(\\.go$)|(\\bgo\\.mod$)",
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run 'cd $(mod_root $FILE); $ARGS[0] [$ARGS[1:]] ./...' for each staged .go file",
+            "pass_filenames": true,
+            "require_serial": true
+        },
+        {
+            "id": "my-cmd-pkg",
+            "name": "my-cmd-pkg",
+            "entry": "my-cmd-pkg.sh",
+            "types": [
+                "go"
+            ],
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run '$ARGS[0] [$ARGS[1:]] ./$(dirname $FILE)' for each staged .go file",
+            "pass_filenames": true,
+            "require_serial": true
+        },
+        {
+            "id": "my-cmd-repo",
+            "name": "my-cmd-repo",
+            "entry": "my-cmd-repo.sh",
+            "types": [
+                "go"
+            ],
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run '$ARGS[0] [$ARGS[1:]]' in the repo root folder",
+            "pass_filenames": false
+        },
+        {
+            "id": "my-cmd-repo-mod",
+            "name": "my-cmd-repo-mod",
+            "entry": "my-cmd-repo-mod.sh",
+            "files": "(\\.go$)|(\\bgo\\.mod$)",
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run 'cd $(mod_root); $ARGS[0] [$ARGS[1:]] /...' for each module in the repo",
+            "pass_filenames": false
+        },
+        {
+            "id": "my-cmd-repo-pkg",
+            "name": "my-cmd-repo-pkg",
+            "entry": "my-cmd-repo-pkg.sh",
+            "types": [
+                "go"
+            ],
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run '$ARGS[0] [$ARGS[1:]] ./...' in repo root folder",
+            "pass_filenames": false
+        },
         {
             "id": "go-build-mod",
             "name": "go-build-mod",
