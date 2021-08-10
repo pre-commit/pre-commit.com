@@ -2117,17 +2117,45 @@ https://pypi.python.org/pypi/beautysh
                 <code>go-fmt</code>
                     - Run &#39;gofmt -l -d [$ARGS] $FILE&#39; for each staged .go file
             </li>
+            <li data-id="go-fmt-repo" data-types="go">
+                <code>go-fmt-repo</code>
+                    - Run &#39;gofmt -l -d [$ARGS] .&#39; in repo root folder
+            </li>
+            <li data-id="go-fumpt" data-types="go">
+                <code>go-fumpt</code>
+                    - Run &#39;fumpt -l -d [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li data-id="go-fumpt-repo" data-types="go">
+                <code>go-fumpt-repo</code>
+                    - Run &#39;fumpt -l -d [$ARGS] .&#39; in repo root folder
+            </li>
             <li data-id="go-imports" data-types="go">
                 <code>go-imports</code>
                     - Run &#39;goimports -l -d [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li data-id="go-imports-repo" data-types="go">
+                <code>go-imports-repo</code>
+                    - Run &#39;goimports -l -d [$ARGS] .&#39; in repo root folder
             </li>
             <li data-id="go-lint" data-types="go">
                 <code>go-lint</code>
                     - Run &#39;golint -set_exit_status [$ARGS] $FILE&#39; for each staged .go file
             </li>
+            <li data-id="go-mod-tidy" data-types="">
+                <code>go-mod-tidy</code>
+                    - Run &#39;cd $(mod_root $FILE); go mod tidy [$ARGS]&#39; for each staged .go file
+            </li>
+            <li data-id="go-mod-tidy-repo" data-types="">
+                <code>go-mod-tidy-repo</code>
+                    - Run &#39;cd $(mod_root); go mod tidy [$ARGS]&#39; for each module in the repo
+            </li>
             <li data-id="go-returns" data-types="go">
                 <code>go-returns</code>
                     - Run &#39;goreturns -l -d [$ARGS] $FILE&#39; for each staged .go file
+            </li>
+            <li data-id="go-returns-repo" data-types="go">
+                <code>go-returns-repo</code>
+                    - Run &#39;goreturns -l -d [$ARGS] .&#39; in repo root folder
             </li>
             <li data-id="go-revive" data-types="go">
                 <code>go-revive</code>

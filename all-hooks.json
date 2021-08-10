@@ -3329,6 +3329,42 @@
             "pass_filenames": true
         },
         {
+            "id": "go-fmt-repo",
+            "name": "go-fmt-repo",
+            "entry": "go-fmt-repo.sh",
+            "types": [
+                "go"
+            ],
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run 'gofmt -l -d [$ARGS] .' in repo root folder",
+            "pass_filenames": false
+        },
+        {
+            "id": "go-fumpt",
+            "name": "go-fumpt",
+            "entry": "go-fumpt.sh",
+            "types": [
+                "go"
+            ],
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run 'fumpt -l -d [$ARGS] $FILE' for each staged .go file",
+            "pass_filenames": true
+        },
+        {
+            "id": "go-fumpt-repo",
+            "name": "go-fumpt-repo",
+            "entry": "go-fumpt-repo.sh",
+            "types": [
+                "go"
+            ],
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run 'fumpt -l -d [$ARGS] .' in repo root folder",
+            "pass_filenames": false
+        },
+        {
             "id": "go-imports",
             "name": "go-imports",
             "entry": "go-imports.sh",
@@ -3339,6 +3375,18 @@
             "language": "script",
             "description": "Run 'goimports -l -d [$ARGS] $FILE' for each staged .go file",
             "pass_filenames": true
+        },
+        {
+            "id": "go-imports-repo",
+            "name": "go-imports-repo",
+            "entry": "go-imports-repo.sh",
+            "types": [
+                "go"
+            ],
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run 'goimports -l -d [$ARGS] .' in repo root folder",
+            "pass_filenames": false
         },
         {
             "id": "go-lint",
@@ -3353,6 +3401,27 @@
             "pass_filenames": true
         },
         {
+            "id": "go-mod-tidy",
+            "name": "go-mod-tidy",
+            "entry": "go-mod-tidy.sh",
+            "files": "(\\.go$)|(\\bgo\\.mod$)",
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run 'cd $(mod_root $FILE); go mod tidy [$ARGS]' for each staged .go file",
+            "pass_filenames": true,
+            "require_serial": true
+        },
+        {
+            "id": "go-mod-tidy-repo",
+            "name": "go-mod-tidy-repo",
+            "entry": "go-mod-tidy-repo.sh",
+            "files": "(\\.go$)|(\\bgo\\.mod$)",
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run 'cd $(mod_root); go mod tidy [$ARGS]' for each module in the repo",
+            "pass_filenames": false
+        },
+        {
             "id": "go-returns",
             "name": "go-returns",
             "entry": "go-returns.sh",
@@ -3363,6 +3432,18 @@
             "language": "script",
             "description": "Run 'goreturns -l -d [$ARGS] $FILE' for each staged .go file",
             "pass_filenames": true
+        },
+        {
+            "id": "go-returns-repo",
+            "name": "go-returns-repo",
+            "entry": "go-returns-repo.sh",
+            "types": [
+                "go"
+            ],
+            "exclude": "(^|/)vendor/",
+            "language": "script",
+            "description": "Run 'goreturns -l -d [$ARGS] .' in repo root folder",
+            "pass_filenames": false
         },
         {
             "id": "go-revive",
