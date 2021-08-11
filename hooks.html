@@ -2185,6 +2185,22 @@ https://pypi.python.org/pypi/beautysh
                 <code>go-sec-repo-pkg</code>
                     - Run &#39;gosec [$ARGS] ./...&#39; in repo root folder
             </li>
+            <li data-id="go-staticcheck-mod" data-types="">
+                <code>go-staticcheck-mod</code>
+                    - Run &#39;cd $(mod_root $FILE); staticcheck [$ARGS] ./...&#39; for each staged .go file
+            </li>
+            <li data-id="go-staticcheck-pkg" data-types="go">
+                <code>go-staticcheck-pkg</code>
+                    - Run &#39;staticcheck [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
+            </li>
+            <li data-id="go-staticcheck-repo-mod" data-types="">
+                <code>go-staticcheck-repo-mod</code>
+                    - Run &#39;cd $(mod_root); staticcheck [$ARGS] ./...&#39; for each module in the repo
+            </li>
+            <li data-id="go-staticcheck-repo-pkg" data-types="go">
+                <code>go-staticcheck-repo-pkg</code>
+                    - Run &#39;staticcheck [$ARGS] ./...&#39; in repo root folder
+            </li>
             <li data-id="go-test-mod" data-types="">
                 <code>go-test-mod</code>
                     - Run &#39;cd $(mod_root $FILE); go test [$ARGS] ./...&#39; for each staged .go file
@@ -2901,6 +2917,10 @@ Will sort imports alphabetically and then group them in the following order:
             <li data-id="check-unapplied-migrations" data-types="">
                 <code>check-unapplied-migrations</code>
                     - Check unapplied migrations with manage.py migrate --check
+            </li>
+            <li data-id="check-absent-migrations" data-types="">
+                <code>check-absent-migrations</code>
+                    - Check absent migrations with manage.py makemigrations --check --dry-run
             </li>
             <li data-id="po-location-format" data-types="">
                 <code>po-location-format</code>
