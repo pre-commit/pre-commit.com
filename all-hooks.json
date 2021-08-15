@@ -379,7 +379,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@7.32.0"
+                "eslint@8.0.0-beta.0"
             ]
         }
     ],
@@ -4265,6 +4265,17 @@
             "entry": "conftest test",
             "language": "system",
             "files": "(\\.rego|\\.yml|\\.yaml|\\.json|\\.ini|\\.toml|\\.conf|\\.hcl|\\.cue|\\.edn|\\.vcl|\\.xml|\\.jsonnet|Dockerfile)$"
+        },
+        {
+            "id": "conftest-fmt",
+            "name": "Conftest fmt",
+            "description": "Run `conftest fmt` on staged Rego files",
+            "entry": "conftest fmt",
+            "language": "system",
+            "args": [
+                "."
+            ],
+            "files": "(\\.rego)$"
         },
         {
             "id": "conftest-verify",
