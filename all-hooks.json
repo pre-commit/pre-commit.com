@@ -263,7 +263,10 @@
             "name": "Forbid new submodules",
             "language": "python",
             "entry": "forbid-new-submodules",
-            "description": "Prevent addition of new git submodules"
+            "description": "Prevent addition of new git submodules",
+            "types": [
+                "directory"
+            ]
         },
         {
             "id": "mixed-line-ending",
