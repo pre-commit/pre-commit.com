@@ -1890,7 +1890,6 @@
             "description": "Black: The uncompromising Python code formatter",
             "entry": "black",
             "language": "python",
-            "language_version": "python3",
             "minimum_pre_commit_version": "2.9.2",
             "require_serial": true,
             "types_or": [
@@ -1904,7 +1903,6 @@
             "description": "Black: The uncompromising Python code formatter (with Jupyter Notebook support)",
             "entry": "black",
             "language": "python",
-            "language_version": "python3",
             "minimum_pre_commit_version": "2.9.2",
             "require_serial": true,
             "types_or": [
@@ -5552,6 +5550,16 @@
             "entry": "lint-gitlab-ci.sh",
             "language": "script",
             "files": ".gitlab-ci.yml"
+        }
+    ],
+    "https://github.com/rapidsai/frigate": [
+        {
+            "id": "frigate",
+            "name": "frigate",
+            "entry": "frigate hook",
+            "language": "python",
+            "pass_filenames": false,
+            "always_run": true
         }
     ]
 }
