@@ -4702,10 +4702,21 @@
     "https://github.com/editorconfig-checker/editorconfig-checker.python": [
         {
             "id": "editorconfig-checker",
-            "name": "editorconfig-checker",
+            "name": "Check .editorconfig rules",
             "description": "`editorconfig-checker` is a tool to check if your files consider your .editorconfig-rules.",
             "entry": "ec",
             "language": "python",
+            "types": [
+                "text"
+            ],
+            "require_serial": true
+        },
+        {
+            "id": "editorconfig-checker-system",
+            "name": "Check .editorconfig rules",
+            "description": "Runs system executable of `editorconfig-checker` to lint text files according to `.editorconfig` rules",
+            "language": "system",
+            "entry": "ec",
             "types": [
                 "text"
             ],
