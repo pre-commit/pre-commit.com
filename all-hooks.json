@@ -3136,8 +3136,8 @@
             "entry": "gitlab-ci-linter",
             "language": "python",
             "language_version": "python3",
-            "pass_filenames": false,
-            "files": ".gitlab-ci.yml"
+            "pass_filenames": true,
+            "files": ".*.gitlab-ci.yml"
         }
     ],
     "https://github.com/bmorcos/pre-commit-hooks-cpp": [
