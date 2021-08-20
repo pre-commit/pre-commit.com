@@ -20,7 +20,9 @@
 </div>
 
 <p>
-To add to this list, fork <a href="https://github.com/pre-commit/pre-commit.com">this repository</a>.
+To add your own hooks to this list, fork <a href="https://github.com/pre-commit/pre-commit.com">this repository</a>.
+The name of your repository should not suggest that it is affiliated with the
+`pre-commit` project. Avoid names such as `pre-commit-XXX` for example.
 </p>
 
 <p>
