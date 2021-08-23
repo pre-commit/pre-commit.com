@@ -5552,16 +5552,6 @@
             "files": ".gitlab-ci.yml"
         }
     ],
-    "https://github.com/rapidsai/frigate": [
-        {
-            "id": "frigate",
-            "name": "frigate",
-            "entry": "frigate hook",
-            "language": "python",
-            "pass_filenames": false,
-            "always_run": true
-        }
-    ],
     "https://github.com/comkieffer/xml-linter-hook": [
         {
             "id": "xmllint",
