@@ -102,7 +102,7 @@ directory while developing hooks.
 enabling a quick way to try out a repository.  Here's how one might work
 interactively:
 
-_note_: you may need to provide `--commit-msg-filename` when using this
+_note_: you may need to provide `--hook-stage` and `--commit-msg-filename` when using this
 command with hook types `prepare-commit-msg` and `commit-msg`.
 
 _new in 1.14.0_: a commit is no longer necessary to `try-repo` on a local
