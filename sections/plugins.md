@@ -143,7 +143,7 @@ repository's configuration.
     =c= [`stages`](_#config-stages)
     =c= (optional) confines the hook to the `commit`, `merge-commit`, `push`,
         `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`,
-        `post-merge`, or `manual` stage.  See
+        `post-merge`, `post-rewrite`, or `manual` stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
     =c= [`additional_dependencies`](_#config-additional_dependencies)

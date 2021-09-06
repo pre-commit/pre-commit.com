@@ -76,7 +76,7 @@ file that tells pre-commit:
     =c= [`stages`](_#hooks-stages)
     =c= (optional: default (all stages)) confines the hook to the `commit`, `merge-commit`,
         `push`, `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`,
-        `post-merge`, or `manual` stage.  See
+        `post-merge`, `post-rewrite`, or `manual` stage.  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 
 ```
@@ -140,6 +140,7 @@ Hello from foo hook!
 
 - [conda](#conda)
 - [coursier](#coursier)
+- [dart](#dart)
 - [docker](#docker)
 - [docker_image](#docker_image)
 - [dotnet](#dotnet)
@@ -187,6 +188,26 @@ __Support:__ `coursier` hooks are known to work on any system which has the `cs`
 package manager installed. The specific coursier applications you install may depend
 on various versions of the JVM, consult the hooks' documentation for clarification.
 It has been tested on linux.
+
+### dart
+
+_new in 2.15.0_
+
+The hook repository must have a `pubspec.yaml` -- this must contain an
+`executables` section which will list the binaries that will be available
+after installation.  Match the [`entry`](#hooks-entry) to an executable.
+
+`pre-commit` will build each executable using `dart compile exe bin/{executable}.dart`.
+
+`language: dart` also supports [`additional_dependencies`](#config-additional_dependencies).
+to specify a version for a dependency, separate the package name by a `:`:
+
+```yaml
+        additional_dependencies: ['hello_world_dart:1.0.0']
+```
+
+__Support:__ `dart` hooks are known to work on any system which has the `dart`
+sdk installed.  It has been tested on linux, macOS, and windows.
 
 ### docker
 
