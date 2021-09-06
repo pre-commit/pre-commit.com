@@ -187,6 +187,28 @@ post-checkout hook from Git.
 
 [post-checkout]: https://git-scm.com/docs/githooks#_post_checkout
 
+## pre-commit for rewriting
+
+_new in 2.15.0_: pre-commit can be used to manage [post-rewrite] hooks.
+
+To use `post-rewrite` hooks with pre-commit, run:
+
+```console
+$ pre-commit install --hook-type post-rewrite
+pre-commit installed at .git/hooks/post-rewrite
+```
+
+`post-rewrite` is triggered after git commands which modify history such as
+`git commit --amend` and `git rebase`.
+
+since `post-rewrite` does not operate on any files, you must set
+[`always_run: true`](#hooks-always_run).
+
+`git` tells the `post-rewrite` hook which command triggered the rewrite.
+`pre-commit` exposes this as `$PRE_COMMIT_REWRITE_COMMAND`.
+
+[post-rewrite]: https://git-scm.com/docs/githooks#_post_rewrite
+
 ## Confining hooks to run at certain stages
 
 Since the [`default_stages`](#top_level-default_stages) top level configuration property of the
@@ -200,7 +222,7 @@ to run at the `push` stage.
 Hooks can however be confined to a stage by setting the [`stages`](#config-stages)
 property in your `.pre-commit-config.yaml`.  The [`stages`](#config-stages) property
 is an array and can contain any of `commit`, `merge-commit`, `push`, `prepare-commit-msg`,
-`commit-msg`, `post-checkout`, `post-commit`, `post-merge`, and `manual`.
+`commit-msg`, `post-checkout`, `post-commit`, `post-merge`, `post-rewrite`, and `manual`.
 
 If you do not want to have hooks installed by default on the stage passed
 during a `pre-commit install --hook-type ...`, please set the [`default_stages`](#top_level-default_stages)

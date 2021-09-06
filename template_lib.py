@@ -1,9 +1,11 @@
+from __future__ import annotations
+
+import html
 import os
 import re
 import shlex
 import subprocess
 import sys
-from typing import Optional
 
 import markdown_code_blocks
 import markupsafe
@@ -90,7 +92,7 @@ def _render_cmd(code: str) -> str:
 
 class Renderer(markdown_code_blocks.CodeRenderer):
     def link(
-        self, link: str, text: Optional[str], title: Optional[str],
+        self, link: str, text: str | None, title: str | None,
     ) -> str:
         if link.startswith(SELF_LINK_PREFIX):
             a_id = link[len(SELF_LINK_PREFIX):]
@@ -118,7 +120,21 @@ class Renderer(markdown_code_blocks.CodeRenderer):
         else:
             return super().codespan(text)
 
-    def block_code(self, code: str, info: Optional[str] = None) -> str:
+    def image(
+            self,
+            src: str,
+            alt: str = '',
+            title: str | None = None,
+    ) -> str:
+        return (
+            f'<img '
+            f'    src="{html.escape(src)}"'
+            f'    alt="{html.escape(alt)}"'
+            f'    class="img-fluid img-thumbnail"'
+            f'>'
+        )
+
+    def block_code(self, code: str, info: str | None = None) -> str:
         copyable = False
         if info is not None:
             copyable_s = '#copyable'
