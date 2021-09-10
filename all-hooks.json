@@ -445,7 +445,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@2.3.2"
+                "prettier@2.4.0"
             ]
         }
     ],
