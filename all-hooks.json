@@ -382,7 +382,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.0.0-beta.1"
+                "eslint@8.0.0-beta.2"
             ]
         }
     ],
