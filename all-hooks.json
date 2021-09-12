@@ -4389,7 +4389,6 @@
             "description": "Run any standard Python code quality tool on a Jupyter Notebook",
             "entry": "nbqa",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4401,7 +4400,6 @@
             "description": "Run 'black' on a Jupyter Notebook",
             "entry": "nbqa black",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4416,7 +4414,6 @@
             "description": "Run 'check-ast' on a Jupyter Notebook",
             "entry": "nbqa pre_commit_hooks.check_ast",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4434,7 +4431,6 @@
             "description": "Run 'flake8' on a Jupyter Notebook",
             "entry": "nbqa flake8",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4449,7 +4445,6 @@
             "description": "Run 'isort' on a Jupyter Notebook",
             "entry": "nbqa isort",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4464,7 +4459,6 @@
             "description": "Run 'mypy' on a Jupyter Notebook",
             "entry": "nbqa mypy",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4479,7 +4473,6 @@
             "description": "Run 'pylint' on a Jupyter Notebook",
             "entry": "nbqa pylint",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4494,7 +4487,6 @@
             "description": "Run 'pyupgrade' on a Jupyter Notebook",
             "entry": "nbqa pyupgrade",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4509,7 +4501,6 @@
             "description": "Run 'yapf' on a Jupyter Notebook",
             "entry": "nbqa yapf --in-place",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4524,7 +4515,6 @@
             "description": "Run 'autopep8' on a Jupyter Notebook",
             "entry": "nbqa autopep8 -i",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -4539,7 +4529,6 @@
             "description": "Run 'pydocstyle' on a Jupyter Notebook",
             "entry": "nbqa pydocstyle -i",
             "language": "python",
-            "language_version": "python3",
             "require_serial": true,
             "types": [
                 "jupyter"
@@ -5577,6 +5566,19 @@
             "language": "docker",
             "types": [
                 "xml"
+            ]
+        }
+    ],
+    "https://github.com/jackdewinter/pymarkdown": [
+        {
+            "id": "pymarkdown",
+            "name": "pymarkdown",
+            "description": "Markdown linter",
+            "language": "python",
+            "language_version": "python3",
+            "entry": "pymarkdown scan",
+            "types": [
+                "markdown"
             ]
         }
     ]
