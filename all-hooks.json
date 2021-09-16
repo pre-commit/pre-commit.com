@@ -445,7 +445,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@2.4.0"
+                "prettier@2.4.1"
             ]
         }
     ],
@@ -4962,14 +4962,6 @@
             "name": "maven spotless apply",
             "description": "Runs spotless:apply goal",
             "entry": "maven-spotless-apply",
-            "language": "python",
-            "pass_filenames": false
-        },
-        {
-            "id": "maven-checkstyle",
-            "name": "maven checkstyle check",
-            "description": "Runs checkstyle:check goal",
-            "entry": "maven-checkstyle",
             "language": "python",
             "pass_filenames": false
         }
