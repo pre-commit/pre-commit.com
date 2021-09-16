@@ -738,7 +738,7 @@ See the [Gitlab caching best practices](https://docs.gitlab.com/ee/ci/caching/#g
 ```yaml
 my_job:
   variables:
-    PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
+    PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit/
   cache:
     paths:
       - ${PRE_COMMIT_HOME}
