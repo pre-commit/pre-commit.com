@@ -1580,7 +1580,7 @@
             "require_serial": true,
             "entry": "terraform_docs.sh",
             "language": "script",
-            "files": "(\\.tf)$",
+            "files": "(\\.tf|\\.terraform\\.lock\\.hcl)$",
             "exclude": "\\.terraform\\/.*$"
         },
         {
