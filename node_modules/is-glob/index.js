@@ -7,8 +7,116 @@
 
 var isExtglob = require('is-extglob');
 var chars = { '{': '}', '(': ')', '[': ']'};
-var strictRegex = /\\(.)|(^!|\*|[\].+)]\?|\[[^\\\]]+\]|\{[^\\}]+\}|\(\?[:!=][^\\)]+\)|\([^|]+\|[^\\)]+\))/;
-var relaxedRegex = /\\(.)|(^!|[*?{}()[\]]|\(\?)/;
+var strictCheck = function (str) {
+  if (str[0] === '!') {
+    return true;
+  }
+  var index = 0;
+  while (index < str.length) {
+    if (str[index] === '*') {
+      return true;
+    }
+
+    if (str[index + 1] === '?' && /[\].+)]/.test(str[index])) {
+      return true;
+    }
+
+    if (str[index] === '[' && str[index + 1] !== ']') {
+      var closeIndex = str.indexOf(']', index);
+      if (closeIndex > index) {
+        var slashIndex = str.indexOf('\\', index);
+        if (slashIndex === -1 || slashIndex > closeIndex) {
+          return true;
+        }
+      }
+    }
+
+    if (str[index] === '{' && str[index + 1] !== '}') {
+      closeIndex = str.indexOf('}', index);
+      if (closeIndex > index) {
+        slashIndex = str.indexOf('\\', index);
+        if (slashIndex === -1 || slashIndex > closeIndex) {
+          return true;
+        }
+      }
+    }
+
+    if (str[index] === '(' && str[index + 1] === '?' && /[:!=]/.test(str[index + 2]) && str[index + 3] !== ')') {
+      closeIndex = str.indexOf(')', index);
+      if (closeIndex > index) {
+        slashIndex = str.indexOf('\\', index);
+        if (slashIndex === -1 || slashIndex > closeIndex) {
+          return true;
+        }
+      }
+    }
+
+    if (str[index] === '(' && str[index + 1] !== '|') {
+      var pipeIndex = str.indexOf('|', index);
+      if (pipeIndex > index && str[pipeIndex + 1] !== ')') {
+        closeIndex = str.indexOf(')', pipeIndex);
+        if (closeIndex > pipeIndex) {
+          slashIndex = str.indexOf('\\', pipeIndex);
+          if (slashIndex === -1 || slashIndex > closeIndex) {
+           return true;
+          }
+        }
+      }
+    }
+
+    if (str[index] === '\\') {
+      var open = str[index+1];
+      index += 2;
+      var close = chars[open];
+
+      if (close) {
+        var n = str.indexOf(close, index);
+        if (n !== -1) {
+          index = n + 1;
+        }
+      }
+
+      if (str[index] === '!') {
+        return true;
+      }
+    } else {
+      index++;
+    }
+  }
+  return false;
+}
+
+var relaxedCheck = function (str) {
+  if (str[0] === '!') {
+    return true;
+  }
+  var index = 0;
+  while (index < str.length) {
+    if (/[*?{}()[\]]/.test(str[index])) {
+      return true;
+    }
+
+    if (str[index] === '\\') {
+      var open = str[index+1];
+      index += 2;
+      var close = chars[open];
+
+      if (close) {
+        var n = str.indexOf(close, index);
+        if (n !== -1) {
+          index = n + 1;
+        }
+      }
+
+      if (str[index] === '!') {
+        return true;
+      }
+    } else {
+      index++;
+    }
+  }
+  return false;
+}
 
 module.exports = function isGlob(str, options) {
   if (typeof str !== 'string' || str === '') {
@@ -19,30 +127,12 @@ module.exports = function isGlob(str, options) {
     return true;
   }
 
-  var regex = strictRegex;
-  var match;
+  var check = strictCheck;
 
-  // optionally relax regex
+  // optionally relax check
   if (options && options.strict === false) {
-    regex = relaxedRegex;
+    check = relaxedCheck;
   }
 
-  while ((match = regex.exec(str))) {
-    if (match[2]) return true;
-    var idx = match.index + match[0].length;
-
-    // if an open bracket/brace/paren is escaped,
-    // set the index to the next closing character
-    var open = match[1];
-    var close = open ? chars[open] : null;
-    if (open && close) {
-      var n = str.indexOf(close, idx);
-      if (n !== -1) {
-        idx = n + 1;
-      }
-    }
-
-    str = str.slice(idx);
-  }
-  return false;
-};
+  return check(str);
+}
