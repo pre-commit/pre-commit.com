@@ -5765,5 +5765,15 @@
             ],
             "language": "python"
         }
+    ],
+    "https://github.com/tarioch/flux-check-hook": [
+        {
+            "id": "check-flux-helm-values",
+            "name": "Check flux helm values",
+            "description": "Verify that values used by flux HelmReleases are ok.",
+            "entry": "check-flux-helm-values",
+            "language": "python",
+            "files": "^[^.].*\\.yaml$"
+        }
     ]
 }
