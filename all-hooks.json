@@ -5047,6 +5047,18 @@
             ]
         }
     ],
+    "https://github.com/sirosen/fix-ligatures": [
+        {
+            "id": "fix-ligatures",
+            "name": "Fix ligature characters with NFKD normalization",
+            "description": "Replace ligature characters with normalized individual characters",
+            "entry": "fix-ligatures",
+            "language": "python",
+            "types": [
+                "text"
+            ]
+        }
+    ],
     "https://github.com/snok/pep585-upgrade": [
         {
             "id": "upgrade-type-hints",
