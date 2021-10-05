@@ -58,7 +58,9 @@
         <label for="search-hook-id" class="mb-2">Filter hook type:</label>
         <select id="select-hook-type" class="form-select form-select-sm">
             <option value="">--</option>
+                <option value="c">c</option>
                 <option value="c#">c#</option>
+                <option value="c++">c++</option>
                 <option value="cmake">cmake</option>
                 <option value="csv">csv</option>
                 <option value="cython">cython</option>
@@ -254,6 +256,16 @@ Also available in <a href="/all-hooks.json">json</a>.
                 <code>autopep8</code>
             </li>
     </ul>
+    <h3 data-repo="https://github.com/pre-commit/mirrors-clang-format">
+        <a href="https://github.com/pre-commit/mirrors-clang-format" target="_blank">
+            github.com/pre-commit/mirrors-clang-format
+        </a>
+    </h3>
+    <ul data-repo="https://github.com/pre-commit/mirrors-clang-format">
+            <li data-id="clang-format" data-types="c++, c, c#">
+                <code>clang-format</code>
+            </li>
+    </ul>
     <h3 data-repo="https://github.com/pre-commit/mirrors-coffeelint">
         <a href="https://github.com/pre-commit/mirrors-coffeelint" target="_blank">
             github.com/pre-commit/mirrors-coffeelint
@@ -310,7 +322,7 @@ Also available in <a href="/all-hooks.json">json</a>.
         </a>
     </h3>
     <ul data-repo="https://github.com/pre-commit/mirrors-mypy">
-            <li data-id="mypy" data-types="python">
+            <li data-id="mypy" data-types="python, pyi">
                 <code>mypy</code>
             </li>
     </ul>

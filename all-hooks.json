@@ -342,6 +342,26 @@
             "additional_dependencies": []
         }
     ],
+    "https://github.com/pre-commit/mirrors-clang-format": [
+        {
+            "id": "clang-format",
+            "name": "clang-format",
+            "entry": "clang-format",
+            "language": "python",
+            "types_or": [
+                "c++",
+                "c",
+                "c#"
+            ],
+            "args": [
+                "-style=file",
+                "-i"
+            ],
+            "require_serial": false,
+            "additional_dependencies": [],
+            "minimum_pre_commit_version": "2.9.2"
+        }
+    ],
     "https://github.com/pre-commit/mirrors-coffeelint": [
         {
             "id": "coffeelint",
@@ -422,15 +442,17 @@
             "name": "mypy",
             "entry": "mypy",
             "language": "python",
-            "types": [
-                "python"
+            "types_or": [
+                "python",
+                "pyi"
             ],
             "args": [
                 "--ignore-missing-imports",
                 "--scripts-are-modules"
             ],
             "require_serial": true,
-            "additional_dependencies": []
+            "additional_dependencies": [],
+            "minimum_pre_commit_version": "2.9.2"
         }
     ],
     "https://github.com/pre-commit/mirrors-prettier": [
