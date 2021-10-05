@@ -1,6 +1,7 @@
 # This file is used to generate all-hooks.json
 - https://github.com/pre-commit/pre-commit-hooks
 - https://github.com/pre-commit/mirrors-autopep8
+- https://github.com/pre-commit/mirrors-clang-format
 - https://github.com/pre-commit/mirrors-coffeelint
 - https://github.com/pre-commit/mirrors-csslint
 - https://github.com/pre-commit/mirrors-eslint
@@ -162,6 +163,7 @@
 - https://github.com/PrincetonUniversity/blocklint
 - https://github.com/sirosen/check-jsonschema
 - https://github.com/sirosen/fix-smartquotes
+- https://github.com/sirosen/fix-ligatures
 - https://github.com/snok/pep585-upgrade
 - https://github.com/jendrikseipp/vulture
 - https://github.com/mwouts/jupytext
@@ -199,4 +201,7 @@
 - https://github.com/FalcoSuessgott/lint-gitlab-ci
 - https://github.com/comkieffer/xml-linter-hook
 - https://github.com/jackdewinter/pymarkdown
+- https://github.com/klieret/jekyll-relative-url-check
+- https://github.com/tarioch/flux-check-hook
 - https://github.com/streetsidesoftware/cspell-cli
+
