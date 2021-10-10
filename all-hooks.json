@@ -402,8 +402,9 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.0.0-rc.0"
-            ]
+                "eslint@8.0.0"
+            ],
+            "minimum_pre_commit_version": "0"
         }
     ],
     "https://github.com/pre-commit/mirrors-fixmyjs": [
