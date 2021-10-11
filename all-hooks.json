@@ -5825,5 +5825,23 @@
             "language": "python",
             "files": "^[^.].*\\.yaml$"
         }
+    ],
+    "https://github.com/streetsidesoftware/cspell-cli": [
+        {
+            "id": "cspell",
+            "name": "cspell",
+            "description": "This hook runs CSpell spellchecker",
+            "entry": "cspell-cli",
+            "language": "node",
+            "types": [
+                "text"
+            ],
+            "args": [
+                "--no-must-find-files",
+                "--no-progress",
+                "--no-summary",
+                "--gitignore"
+            ]
+        }
     ]
 }
