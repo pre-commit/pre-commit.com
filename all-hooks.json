@@ -3,14 +3,14 @@
         {
             "id": "check-added-large-files",
             "name": "check for added large files",
-            "description": "prevent giant files from being committed",
+            "description": "prevents giant files from being committed.",
             "entry": "check-added-large-files",
             "language": "python"
         },
         {
             "id": "check-ast",
             "name": "check python ast",
-            "description": "simply check whether the files parse as valid python.",
+            "description": "simply checks whether the files parse as valid python.",
             "entry": "check-ast",
             "language": "python",
             "types": [
@@ -20,7 +20,7 @@
         {
             "id": "check-byte-order-marker",
             "name": "check BOM - deprecated: use fix-byte-order-marker",
-            "description": "forbid files which have a utf-8 byte-order marker",
+            "description": "forbids files which have a utf-8 byte-order marker.",
             "entry": "check-byte-order-marker",
             "language": "python",
             "types": [
@@ -30,7 +30,7 @@
         {
             "id": "check-builtin-literals",
             "name": "check builtin type constructor use",
-            "description": "require literal syntax when initializing empty or zero python builtin types.",
+            "description": "requires literal syntax when initializing empty or zero python builtin types.",
             "entry": "check-builtin-literals",
             "language": "python",
             "types": [
@@ -40,7 +40,7 @@
         {
             "id": "check-case-conflict",
             "name": "check for case conflicts",
-            "description": "check for files that would conflict in case-insensitive filesystems",
+            "description": "checks for files that would conflict in case-insensitive filesystems.",
             "entry": "check-case-conflict",
             "language": "python"
         },
@@ -73,7 +73,7 @@
         {
             "id": "check-json",
             "name": "check json",
-            "description": "this hook checks json files for parseable syntax.",
+            "description": "checks json files for parseable syntax.",
             "entry": "check-json",
             "language": "python",
             "types": [
@@ -98,7 +98,7 @@
         {
             "id": "pretty-format-json",
             "name": "pretty format json",
-            "description": "this hook sets a standard for formatting json files.",
+            "description": "sets a standard for formatting json files.",
             "entry": "pretty-format-json",
             "language": "python",
             "types": [
@@ -108,7 +108,7 @@
         {
             "id": "check-merge-conflict",
             "name": "check for merge conflicts",
-            "description": "check for files that contain merge conflict strings.",
+            "description": "checks for files that contain merge conflict strings.",
             "entry": "check-merge-conflict",
             "language": "python",
             "types": [
@@ -128,7 +128,7 @@
         {
             "id": "check-toml",
             "name": "check toml",
-            "description": "this hook checks toml files for parseable syntax.",
+            "description": "checks toml files for parseable syntax.",
             "entry": "check-toml",
             "language": "python",
             "types": [
@@ -148,7 +148,7 @@
         {
             "id": "check-xml",
             "name": "check xml",
-            "description": "this hook checks xml files for parseable syntax.",
+            "description": "checks xml files for parseable syntax.",
             "entry": "check-xml",
             "language": "python",
             "types": [
@@ -158,7 +158,7 @@
         {
             "id": "check-yaml",
             "name": "check yaml",
-            "description": "this hook checks yaml files for parseable syntax.",
+            "description": "checks yaml files for parseable syntax.",
             "entry": "check-yaml",
             "language": "python",
             "types": [
@@ -168,7 +168,7 @@
         {
             "id": "debug-statements",
             "name": "debug statements (python)",
-            "description": "check for debugger imports and py37+ `breakpoint()` calls in python source.",
+            "description": "checks for debugger imports and py37+ `breakpoint()` calls in python source.",
             "entry": "debug-statement-hook",
             "language": "python",
             "types": [
@@ -188,7 +188,7 @@
         {
             "id": "detect-aws-credentials",
             "name": "detect aws credentials",
-            "description": "detects *your* aws credentials from the aws cli credentials file",
+            "description": "detects *your* aws credentials from the aws cli credentials file.",
             "entry": "detect-aws-credentials",
             "language": "python",
             "types": [
@@ -198,7 +198,7 @@
         {
             "id": "detect-private-key",
             "name": "detect private key",
-            "description": "detects the presence of private keys",
+            "description": "detects the presence of private keys.",
             "entry": "detect-private-key",
             "language": "python",
             "types": [
@@ -208,7 +208,7 @@
         {
             "id": "double-quote-string-fixer",
             "name": "fix double quoted strings",
-            "description": "this hook replaces double quoted strings with single quoted strings",
+            "description": "replaces double quoted strings with single quoted strings.",
             "entry": "double-quote-string-fixer",
             "language": "python",
             "types": [
@@ -233,7 +233,7 @@
         {
             "id": "file-contents-sorter",
             "name": "file contents sorter",
-            "description": "sort the lines in specified files (defaults to alphabetical). you must provide list of target files as input in your .pre-commit-config.yaml file.",
+            "description": "sorts the lines in specified files (defaults to alphabetical). you must provide list of target files as input in your .pre-commit-config.yaml file.",
             "entry": "file-contents-sorter",
             "language": "python",
             "files": "^$"
@@ -241,7 +241,7 @@
         {
             "id": "fix-byte-order-marker",
             "name": "fix utf-8 byte order marker",
-            "description": "removes utf-8 byte order marker",
+            "description": "removes utf-8 byte order marker.",
             "entry": "fix-byte-order-marker",
             "language": "python",
             "types": [
@@ -251,9 +251,9 @@
         {
             "id": "fix-encoding-pragma",
             "name": "fix python encoding pragma",
+            "description": "adds # -*- coding: utf-8 -*- to the top of python files.",
             "language": "python",
             "entry": "fix-encoding-pragma",
-            "description": "add # -*- coding: utf-8 -*- to the top of python files",
             "types": [
                 "python"
             ]
@@ -261,9 +261,9 @@
         {
             "id": "forbid-new-submodules",
             "name": "forbid new submodules",
+            "description": "prevents addition of new git submodules.",
             "language": "python",
             "entry": "forbid-new-submodules",
-            "description": "prevent addition of new git submodules",
             "types": [
                 "directory"
             ]
@@ -271,7 +271,7 @@
         {
             "id": "mixed-line-ending",
             "name": "mixed line ending",
-            "description": "replaces or checks mixed line ending",
+            "description": "replaces or checks mixed line ending.",
             "entry": "mixed-line-ending",
             "language": "python",
             "types": [
@@ -281,7 +281,7 @@
         {
             "id": "name-tests-test",
             "name": "tests should end in _test.py",
-            "description": "this verifies that test files are named correctly",
+            "description": "this verifies that test files are named correctly.",
             "entry": "name-tests-test",
             "language": "python",
             "files": "(^|/)tests/.+\\.py$"
@@ -297,7 +297,7 @@
         {
             "id": "requirements-txt-fixer",
             "name": "fix requirements.txt",
-            "description": "sorts entries in requirements.txt",
+            "description": "sorts entries in requirements.txt.",
             "entry": "requirements-txt-fixer",
             "language": "python",
             "files": "requirements.*\\.txt$"
@@ -305,15 +305,15 @@
         {
             "id": "sort-simple-yaml",
             "name": "sort simple yaml files",
+            "description": "sorts simple yaml files which consist only of top-level keys, preserving comments and blocks.",
             "language": "python",
             "entry": "sort-simple-yaml",
-            "description": "sorts simple yaml files which consist only of top-level keys, preserving comments and blocks.",
             "files": "^$"
         },
         {
             "id": "trailing-whitespace",
             "name": "trim trailing whitespace",
-            "description": "this hook trims trailing whitespace.",
+            "description": "trims trailing whitespace.",
             "entry": "trailing-whitespace-fixer",
             "language": "python",
             "types": [
