@@ -325,6 +325,7 @@ Here's an example configuration with a few `local` hooks:
         entry: pylint
         language: system
         types: [python]
+        require_serial: true
     -   id: check-x
         name: Check X
         entry: ./bin/check-x.sh
