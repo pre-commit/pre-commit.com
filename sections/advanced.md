@@ -533,16 +533,23 @@ list of excluded / included things, you may find a
 expression useful.  One can enable this with yaml's multiline literals and
 the `(?x)` regex flag.
 
+As an example, if you wanted to exclude the file `path/to/some_file.py`,
+another file named `path/other/another_file.py`, and all files & directories
+in `directory/to/exclude/`, you might do something like:
+
 ```yaml
 # ...
     -   id: my-hook
         exclude: |
-            (?x)^(
-                path/to/file1.py|
-                path/to/file2.py|
-                path/to/file3.py
-            )$
+            (?x)(
+                ^path/to/some_file.py$|
+                ^path/other/another_file.py$|
+                ^directory/to/exclude/
+            )
 ```
+
+Note the use of `^` and `$` on full paths to perform an exact match, but the
+omission of `$` on the directory to do only a partial match.
 
 ## Overriding language version
 
