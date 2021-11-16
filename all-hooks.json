@@ -5911,5 +5911,22 @@
             "require_serial": true,
             "additional_dependencies": []
         }
+    ],
+    "https://github.com/adamchainz/pre-commit-dprint": [
+        {
+            "id": "dprint",
+            "name": "dprint",
+            "entry": "dprint fmt",
+            "language": "node",
+            "types": [
+                "text"
+            ],
+            "args": [],
+            "require_serial": false,
+            "additional_dependencies": [
+                "dprint@0.18.2"
+            ],
+            "minimum_pre_commit_version": "0"
+        }
     ]
 }
