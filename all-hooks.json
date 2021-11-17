@@ -3197,18 +3197,6 @@
             ]
         }
     ],
-    "https://gitlab.com/devopshq/gitlab-ci-linter": [
-        {
-            "id": "gitlab-ci-linter",
-            "name": ".gitlab-ci.yml linter",
-            "description": "Validates .gitlab-ci.yml file (pure-python version without dependencies)",
-            "entry": "gitlab-ci-linter",
-            "language": "python",
-            "language_version": "python3",
-            "pass_filenames": true,
-            "files": ".*.gitlab-ci.yml"
-        }
-    ],
     "https://github.com/bmorcos/pre-commit-hooks-cpp": [
         {
             "id": "clang-format",
@@ -5089,7 +5077,7 @@
             ]
         }
     ],
-    "https://github.com/sirosen/fix-smartquotes": [
+    "https://github.com/sirosen/texthooks": [
         {
             "id": "fix-smartquotes",
             "name": "Fix smartquote characters",
@@ -5099,14 +5087,22 @@
             "types": [
                 "text"
             ]
-        }
-    ],
-    "https://github.com/sirosen/fix-ligatures": [
+        },
         {
             "id": "fix-ligatures",
             "name": "Fix ligature characters with NFKD normalization",
             "description": "Replace ligature characters with normalized individual characters",
             "entry": "fix-ligatures",
+            "language": "python",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "forbid-bidi-controls",
+            "name": "Forbid the use of unicode BiDi control characters",
+            "description": "Check for lines of text which contain bidirectional text control characters",
+            "entry": "forbid-bidi-controls",
             "language": "python",
             "types": [
                 "text"
