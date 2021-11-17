@@ -65,7 +65,6 @@
 - https://github.com/mattlqx/pre-commit-ruby
 - https://github.com/mattlqx/pre-commit-sign
 - https://github.com/mattlqx/pre-commit-search-and-replace
-# - https://github.com/openstack-dev/bashate
 - https://github.com/pryorda/dockerfilelint-precommit-hooks
 - https://github.com/alessandrojcm/commitlint-pre-commit-hook
 - https://github.com/henryykt/pre-commit-perl
@@ -105,14 +104,12 @@
 - https://github.com/codingjoe/relint
 - https://github.com/nix-community/nixpkgs-fmt
 - https://github.com/d6e/beancount-check
-# - https://github.com/thg-consulting/inspectortiger
 - https://gitlab.com/iamlikeme/nbhooks
 - https://github.com/Vimjas/vint
 - https://github.com/eschulte/lisp-format
 - https://github.com/shellcheck-py/shellcheck-py
 - https://github.com/APIDevTools/swagger-cli
 - https://github.com/kynan/nbstripout
-- https://gitlab.com/devopshq/gitlab-ci-linter
 - https://github.com/bmorcos/pre-commit-hooks-cpp
 - https://github.com/igorshubovych/markdownlint-cli
 - https://github.com/TekWizely/pre-commit-golang
@@ -125,7 +122,6 @@
 - https://github.com/twu/skjold
 - https://github.com/commitizen-tools/commitizen
 - https://github.com/gherynos/pre-commit-java
-# - https://github.com/JamesWoolfenden/pre-commit
 - https://github.com/lietu/go-pre-commit
 - https://github.com/macisamuele/language-formatters-pre-commit-hooks
 - https://github.com/jlebar/pre-commit-hooks
@@ -135,7 +131,6 @@
 - https://github.com/hcodes/yaspeller
 - https://github.com/maltzj/google-style-precommit-hook
 - https://github.com/jvstein/pre-commit-dotnet-format
-# - https://github.com/hakancelik96/unimport
 - https://github.com/PeterMosmans/jenkinslint
 - https://github.com/nicklockwood/SwiftFormat
 - https://github.com/executablebooks/mdformat
