@@ -7,16 +7,6 @@ Using pip:
 pip install pre-commit
 ```
 
-Non-administrative installation:
-
-- _to upgrade: run again, to uninstall: pass `uninstall` to python_
-- _does not work on platforms without symlink support (windows)_
-
-
-```bash
-curl https://pre-commit.com/install-local.py | python -
-```
-
 In a python project, add the following to your requirements.txt (or
 requirements-dev.txt):
 
