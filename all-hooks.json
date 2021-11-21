@@ -5928,5 +5928,50 @@
             "minimum_pre_commit_version": "0",
             "description": "A pluggable and configurable code formatting platform written in Rust."
         }
+    ],
+    "https://github.com/scop/pre-commit-shfmt": [
+        {
+            "id": "shfmt",
+            "name": "shfmt",
+            "description": "Shell source code formatter (native install)",
+            "language": "golang",
+            "additional_dependencies": [
+                "mvdan.cc/sh/v3/cmd/shfmt@v3.4.0"
+            ],
+            "entry": "shfmt",
+            "args": [
+                "-w",
+                "-s"
+            ],
+            "types": [
+                "shell"
+            ],
+            "stages": [
+                "commit",
+                "merge-commit",
+                "push",
+                "manual"
+            ]
+        },
+        {
+            "id": "shfmt-docker",
+            "name": "shfmt",
+            "description": "Shell source code formatter (Docker image)",
+            "language": "docker_image",
+            "entry": "--net none mvdan/shfmt:v3.4.0",
+            "args": [
+                "-w",
+                "-s"
+            ],
+            "types": [
+                "shell"
+            ],
+            "stages": [
+                "commit",
+                "merge-commit",
+                "push",
+                "manual"
+            ]
+        }
     ]
 }
