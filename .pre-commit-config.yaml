@@ -23,7 +23,7 @@ repos:
     -   id: reorder-python-imports
         files: install-local.py
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v2.29.0
+    rev: v2.29.1
     hooks:
     -   id: pyupgrade
         args: [--py36-plus]
@@ -31,7 +31,7 @@ repos:
     -   id: pyupgrade
         files: install-local.py
 -   repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.2.0
+    rev: v2.2.1
     hooks:
     -   id: add-trailing-comma
 -   repo: https://github.com/pre-commit/mirrors-mypy
@@ -40,7 +40,7 @@ repos:
     -   id: mypy
         additional_dependencies: [types-all]
 -   repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.2.0
+    rev: v8.3.0
     hooks:
     -   id: eslint
         args: [--fix]
