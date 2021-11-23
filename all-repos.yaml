@@ -202,3 +202,4 @@
 - https://github.com/sqlfluff/sqlfluff
 - https://github.com/adamchainz/pre-commit-dprint
 - https://github.com/scop/pre-commit-shfmt
+- https://github.com/nozaq/pre-commit-deno
