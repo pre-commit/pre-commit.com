@@ -468,8 +468,9 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@2.4.1"
-            ]
+                "prettier@2.5.0"
+            ],
+            "minimum_pre_commit_version": "0"
         }
     ],
     "https://github.com/pre-commit/mirrors-puppet-lint": [
