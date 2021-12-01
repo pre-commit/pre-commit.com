@@ -46,6 +46,10 @@ file that tells pre-commit:
     =c= (optional: default `false`) if `true` this hook will run even if there
         are no matching files.
 =r=
+    =c= [`fail_fast`'](_#hooks-fail_fast)
+    =c= (optional: default `false`) if `true` pre-commit will stop running
+        hooks if this hook fails.  _new in 2.16.0_.
+=r=
     =c= [`verbose`](_#hooks-verbose)
     =c= (optional) if `true`, forces the output of the hook to be printed even when
         the hook passes.  _new in 1.6.0_.
