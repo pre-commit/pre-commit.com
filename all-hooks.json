@@ -1994,17 +1994,17 @@
         {
             "id": "hadolint",
             "name": "Lint Dockerfiles",
-            "description": "Runs hadolint Docker image to lint Dockerfiles",
-            "language": "docker_image",
-            "entry": "hadolint/hadolint hadolint",
+            "description": "Deprecated! Runs hadolint Docker image to lint Dockerfiles",
+            "language": "script",
+            "entry": "hadolint-deprecation.sh",
             "files": "Dockerfile"
         },
         {
             "id": "hadolint-system",
             "name": "Lint Dockerfiles",
-            "description": "Runs system hadolint to lint Dockerfiles",
-            "language": "system",
-            "entry": "hadolint",
+            "description": "Deprecated! Runs system hadolint to lint Dockerfiles",
+            "language": "script",
+            "entry": "hadolint-deprecation.sh",
             "files": "Dockerfile"
         }
     ],
