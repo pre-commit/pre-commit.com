@@ -5504,7 +5504,7 @@
             "id": "gitleaks",
             "name": "Detect hardcoded secrets",
             "description": "Detect hardcoded secrets using Gitleaks",
-            "entry": "gitleaks",
+            "entry": "gitleaks protect --verbose --redact --staged",
             "language": "golang",
             "pass_filenames": false
         }
@@ -6012,6 +6012,18 @@
             "language": "swift",
             "types": [
                 "swift"
+            ]
+        }
+    ],
+    "https://gitlab.com/bmares/check-json5": [
+        {
+            "id": "check-json5",
+            "name": "check json5",
+            "description": "checks json files for syntax parsable as json5 (with comments).",
+            "entry": "check-json5",
+            "language": "python",
+            "types": [
+                "json"
             ]
         }
     ]
