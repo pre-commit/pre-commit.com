@@ -468,7 +468,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@2.5.0"
+                "prettier@2.5.1"
             ],
             "minimum_pre_commit_version": "0"
         }
