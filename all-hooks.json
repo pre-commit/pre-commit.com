@@ -6025,5 +6025,18 @@
                 "json"
             ]
         }
+    ],
+    "https://github.com/semaphor-dk/dansabel": [
+        {
+            "id": "dansabel",
+            "name": "dansabel",
+            "description": "Checks and lints Ansible projects (YAML/Jinja2 only)",
+            "entry": "jinjalint.py",
+            "language": "python",
+            "types": [
+                "file"
+            ],
+            "files": "(\\.yml|\\.j2)$|/templates/.*"
+        }
     ]
 }
