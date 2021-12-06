@@ -5936,10 +5936,9 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.18.2"
+                "dprint@0.19.1"
             ],
-            "minimum_pre_commit_version": "0",
-            "description": "A pluggable and configurable code formatting platform written in Rust."
+            "minimum_pre_commit_version": "0"
         }
     ],
     "https://github.com/scop/pre-commit-shfmt": [
