@@ -6038,5 +6038,23 @@
             ],
             "files": "(\\.yml|\\.j2)$|/templates/.*"
         }
+    ],
+    "https://github.com/adamchainz/pre-commit-oxipng": [
+        {
+            "id": "oxipng",
+            "name": "oxipng",
+            "entry": "oxipng",
+            "language": "rust",
+            "types": [
+                "png"
+            ],
+            "args": [],
+            "require_serial": false,
+            "additional_dependencies": [
+                "cli:oxipng:5.0.1"
+            ],
+            "minimum_pre_commit_version": "0",
+            "description": "Multithreaded PNG optimizer written in Rust."
+        }
     ]
 }
