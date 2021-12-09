@@ -6056,5 +6056,46 @@
             "minimum_pre_commit_version": "0",
             "description": "Multithreaded PNG optimizer written in Rust."
         }
+    ],
+    "https://github.com/gitguardian/gg-shield": [
+        {
+            "id": "ggshield",
+            "name": "GitGuardian Shield (pre-commit)",
+            "entry": "ggshield",
+            "stages": [
+                "commit"
+            ],
+            "args": [
+                "scan",
+                "pre-commit"
+            ],
+            "language": "python"
+        },
+        {
+            "id": "docker-ggshield",
+            "name": "GitGuardian Shield (pre-commit,docker)",
+            "language": "docker_image",
+            "entry": "-e GITGUARDIAN_API_KEY gitguardian/ggshield:latest ggshield scan pre-commit"
+        },
+        {
+            "id": "ggshield-push",
+            "name": "GitGuardian Shield (pre-push)",
+            "entry": "ggshield",
+            "args": [
+                "scan",
+                "pre-push"
+            ],
+            "stages": [
+                "push"
+            ],
+            "pass_filenames": false,
+            "language": "python"
+        },
+        {
+            "id": "docker-ggshield-push",
+            "name": "GitGuardian Shield (pre-push,docker)",
+            "language": "docker_image",
+            "entry": "-e GITGUARDIAN_API_KEY gitguardian/ggshield:latest ggshield scan pre-push"
+        }
     ]
 }
