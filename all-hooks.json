@@ -5091,6 +5091,17 @@
             "types": [
                 "yaml"
             ]
+        },
+        {
+            "id": "check-readthedocs",
+            "name": "Validate ReadTheDocs Config",
+            "description": "Validate ReadTheDocs config against the schema provided by ReadTheDocs",
+            "entry": "check-jsonschema --schemafile \"https://raw.githubusercontent.com/readthedocs/readthedocs.org/6.3.0/readthedocs/rtd_tests/fixtures/spec/v2/schema.json\" --failover-builtin-schema vendor.readthedocs",
+            "language": "python",
+            "files": "^\\.readthedocs.(yml|yaml)$",
+            "types": [
+                "yaml"
+            ]
         }
     ],
     "https://github.com/sirosen/texthooks": [
@@ -5639,7 +5650,7 @@
             "id": "csquotes",
             "name": "All quotation marks should use csquotes",
             "description": "Ensure the use of LaTeX csquotes and prohibits manual quotation marks.",
-            "entry": "``.*''",
+            "entry": "``.*''|''.*''",
             "language": "pygrep",
             "types": [
                 "file",
