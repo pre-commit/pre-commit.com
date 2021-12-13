@@ -5102,6 +5102,17 @@
             "types": [
                 "yaml"
             ]
+        },
+        {
+            "id": "check-renovate",
+            "name": "Validate Renovate Config",
+            "description": "Validate Renovate config against the schema provided by Renovate (does not support renovate config in package.json)",
+            "entry": "check-jsonschema --schemafile \"https://docs.renovatebot.com/renovate-schema.json\" --failover-builtin-schema vendor.renovate",
+            "language": "python",
+            "files": "(?x)^(\n  \\.(github|gitlab)/renovate.(json|json5)|\n  renovate.(json|json5)|\n  .renovaterc(|.json)\n)$\n",
+            "types": [
+                "yaml"
+            ]
         }
     ],
     "https://github.com/sirosen/texthooks": [
