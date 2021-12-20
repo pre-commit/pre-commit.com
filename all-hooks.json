@@ -2416,23 +2416,23 @@
             ]
         },
         {
-            "id": "check-jamf-scripts",
-            "name": "Check Jamf Scripts",
-            "description": "This hook checks Jamf scripts for common issues.",
-            "entry": "check-jamf-scripts",
-            "language": "python",
-            "files": "(jamf|jss)/scripts/.*\\.(sh|bash|py|rb|js|pl)$",
-            "types": [
-                "text"
-            ]
-        },
-        {
             "id": "check-jamf-profiles",
             "name": "Check Jamf Profiles",
             "description": "This hook checks Jamf profiles for common issues.",
             "entry": "check-jamf-profiles",
             "language": "python",
             "files": "(jamf|jss)/profiles/.*\\.(mobileconfig|plist)$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-jamf-scripts",
+            "name": "Check Jamf Scripts",
+            "description": "This hook checks Jamf scripts for common issues.",
+            "entry": "check-jamf-scripts",
+            "language": "python",
+            "files": "(jamf|jss)/scripts/.*\\.(sh|bash|py|rb|js|pl)$",
             "types": [
                 "text"
             ]
@@ -2488,6 +2488,17 @@
             "entry": "check-plists",
             "language": "python",
             "files": "\\.(plist|recipe|mobileconfig|pkginfo)$",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "check-preference-manifests",
+            "name": "Check Apple Preference Manifests",
+            "description": "This hook checks preference manifest plists for inconsistencies and common issues.",
+            "entry": "check-preference-manifests",
+            "language": "python",
+            "files": "\\.plist$",
             "types": [
                 "text"
             ]
