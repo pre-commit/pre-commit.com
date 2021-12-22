@@ -1710,7 +1710,7 @@
             "pass_filenames": false,
             "always_run": false,
             "files": "\\.tf$",
-            "exclude": "\\.+.terraform\\/.*$",
+            "exclude": "\\.terraform\\/.*$",
             "require_serial": true
         },
         {
@@ -1718,7 +1718,8 @@
             "name": "terrascan",
             "description": "Runs terrascan on Terraform templates.",
             "language": "script",
-            "entry": "terrascan.sh"
+            "entry": "terrascan.sh",
+            "require_serial": true
         }
     ],
     "https://github.com/ansible-community/ansible-lint": [
