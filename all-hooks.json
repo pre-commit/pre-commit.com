@@ -527,7 +527,8 @@
                 "-i"
             ],
             "require_serial": false,
-            "additional_dependencies": []
+            "additional_dependencies": [],
+            "minimum_pre_commit_version": "0"
         }
     ],
     "https://github.com/pre-commit/pygrep-hooks": [
