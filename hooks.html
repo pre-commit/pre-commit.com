@@ -2246,6 +2246,22 @@ https://pypi.python.org/pypi/beautysh
                 <code>go-staticcheck-repo-pkg</code>
                     - Run &#39;staticcheck [$ARGS] ./...&#39; in repo root folder
             </li>
+            <li data-id="go-structslop-mod" data-types="">
+                <code>go-structslop-mod</code>
+                    - Run &#39;cd $(mod_root $FILE); structslop [$ARGS] ./...&#39; for each staged .go file
+            </li>
+            <li data-id="go-structslop-pkg" data-types="go">
+                <code>go-structslop-pkg</code>
+                    - Run &#39;structslop [$ARGS] ./$(dirname $FILE)&#39; for each staged .go file
+            </li>
+            <li data-id="go-structslop-repo-mod" data-types="">
+                <code>go-structslop-repo-mod</code>
+                    - Run &#39;cd $(mod_root); structslop [$ARGS] ./...&#39; for each module in the repo
+            </li>
+            <li data-id="go-structslop-repo-pkg" data-types="go">
+                <code>go-structslop-repo-pkg</code>
+                    - Run &#39;structslop [$ARGS] ./...&#39; in repo root folder
+            </li>
             <li data-id="go-test-mod" data-types="">
                 <code>go-test-mod</code>
                     - Run &#39;cd $(mod_root $FILE); go test [$ARGS] ./...&#39; for each staged .go file
