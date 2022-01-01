@@ -516,9 +516,6 @@ with `#!/usr/bin/env python3` will also be matched.
 As with `files` and `exclude`, you can also exclude types if necessary using
 `exclude_types`.
 
-If you'd like to use `types` with compatibility for older versions
-[here is a guide to ensuring compatibility](https://github.com/pre-commit/pre-commit/pull/551#issuecomment-312535540).
-
 ## Regular expressions
 
 The patterns for `files` and `exclude` are python
