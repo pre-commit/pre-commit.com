@@ -339,7 +339,8 @@
                 "-i"
             ],
             "require_serial": false,
-            "additional_dependencies": []
+            "additional_dependencies": [],
+            "minimum_pre_commit_version": "0"
         }
     ],
     "https://github.com/pre-commit/mirrors-clang-format": [
@@ -402,7 +403,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.5.0"
+                "eslint@8.6.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -433,8 +434,9 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "jshint@2.13.0"
-            ]
+                "jshint@2.13.2"
+            ],
+            "minimum_pre_commit_version": "0"
         }
     ],
     "https://github.com/pre-commit/mirrors-mypy": [
