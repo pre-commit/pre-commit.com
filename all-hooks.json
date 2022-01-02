@@ -5933,7 +5933,6 @@
             "language_version": "python3",
             "entry": "pymarkdown",
             "args": [
-                "--disable-version",
                 "scan"
             ],
             "types": [
