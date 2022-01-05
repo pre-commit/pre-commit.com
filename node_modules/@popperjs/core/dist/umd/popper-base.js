@@ -1,5 +1,5 @@
 /**
- * @popperjs/core v2.11.0 - MIT License
+ * @popperjs/core v2.11.2 - MIT License
  */
 
 (function (global, factory) {
@@ -662,7 +662,7 @@
 
 
     return clippingParents.filter(function (clippingParent) {
-      return isElement(clippingParent) && contains(clippingParent, clipperElement) && getNodeName(clippingParent) !== 'body' && (canEscapeClipping ? getComputedStyle(clippingParent).position !== 'static' : true);
+      return isElement(clippingParent) && contains(clippingParent, clipperElement) && getNodeName(clippingParent) !== 'body';
     });
   } // Gets the maximum area that the element is visible in due to any number of
   // clipping parents
