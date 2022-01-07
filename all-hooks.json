@@ -654,14 +654,14 @@
             "files": "\\.py$"
         }
     ],
-    "https://github.com/guykisel/pre-commit-robotframework-tidy": [
+    "https://github.com/MarketSquare/robotframework-tidy": [
         {
-            "id": "robotframework-tidy-wrapper",
-            "name": "robotframework tidy wrapper",
-            "description": "Runs Robot Framework's tidy tool.",
-            "entry": "python-robotframework-tidy",
+            "id": "robotidy",
+            "name": "robotidy",
+            "entry": "robotidy",
+            "files": ".*\\.(robot|resource)$",
             "language": "python",
-            "files": "\\.robot$"
+            "description": "RobotFramework source code formatter"
         }
     ],
     "https://github.com/guykisel/prospector-mirror": [
@@ -1984,7 +1984,7 @@
             "name": "Ansible Vault Encryption Check",
             "description": "Checks that vault files are encrypted",
             "entry": "encryption-check.sh",
-            "files": "((^|/)vault|vault.y[a]{0,1}ml$|.vault$)",
+            "files": "((?:^|\\/)vault|vault\\.ya?ml$|\\.vault$)",
             "language": "script"
         }
     ],
