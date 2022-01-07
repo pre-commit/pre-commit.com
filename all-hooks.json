@@ -6224,5 +6224,27 @@
             "entry": "-e GITGUARDIAN_API_KEY gitguardian/ggshield:latest ggshield scan pre-push",
             "description": "Runs ggshield to detect hardcoded secrets, security vulnerabilities and policy breaks in docker images."
         }
+    ],
+    "https://github.com/JohnnyMorganz/StyLua": [
+        {
+            "id": "stylua",
+            "name": "StyLua (cargo)",
+            "description": "An opinionated Lua code formatter",
+            "entry": "stylua",
+            "language": "rust",
+            "types": [
+                "lua"
+            ]
+        },
+        {
+            "id": "stylua-system",
+            "name": "StyLua (system)",
+            "description": "An opinionated Lua code formatter",
+            "entry": "stylua",
+            "language": "system",
+            "types": [
+                "lua"
+            ]
+        }
     ]
 }
