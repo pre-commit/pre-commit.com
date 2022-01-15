@@ -38,7 +38,7 @@ Also available in <a href="/all-hooks.json">json</a>.
         % for hook_dict in hooks:
             <li data-id="${hook_dict['id']}" data-types="${', '.join(hook_dict.get('types', []) + hook_dict.get('types_or', []))}">
                 <code>${hook_dict['id']}</code>
-                % if 'description' in hook_dict:
+                % if hook_dict.get('description'):
                     - ${hook_dict['description']}
                 % elif hook_dict['name'].lower() != hook_dict['id'].lower():
                     - ${hook_dict['name']}
