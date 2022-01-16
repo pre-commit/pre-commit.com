@@ -6251,5 +6251,18 @@
             ],
             "require_serial": true
         }
+    ],
+    "https://github.com/datarootsio/databooks": [
+        {
+            "id": "databooks",
+            "name": "databooks",
+            "description": "Remove notebook metadata using `databooks`.",
+            "entry": "databooks meta",
+            "language": "python",
+            "minimum_pre_commit_version": "2.9.2",
+            "types": [
+                "jupyter"
+            ]
+        }
     ]
 }
