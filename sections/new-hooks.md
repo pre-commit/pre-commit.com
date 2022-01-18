@@ -150,6 +150,7 @@ Hello from foo hook!
 - [dotnet](#dotnet)
 - [fail](#fail)
 - [golang](#golang)
+- [lua](#lua)
 - [node](#node)
 - [perl](#perl)
 - [python](#python)
@@ -312,6 +313,15 @@ the [`entry`](#hooks-entry) should match an executable which will get installed 
 
 __Support:__ golang hooks are known to work on any system which has go
 installed.  It has been tested on linux, macOS, and windows.
+
+### lua
+
+_new in 2.17.0_
+
+Lua hooks are installed with the version of Lua that is used by Luarocks.
+
+__Support:__ Lua hooks are known to work on any system which has Luarocks
+installed.  It has been tested on linux and macOS and _may_ work on windows.
 
 ### node
 
