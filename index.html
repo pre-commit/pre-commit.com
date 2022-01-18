@@ -500,6 +500,9 @@ via <code>conda env create --file environment.yml ...</code> to create the envir
 <p>The <code>conda</code> language also supports <a href="#config-additional_dependencies"><code>additional_dependencies</code></a>
 and will pass any of the values directly into <code>conda install</code>.  This language can therefore be
 used with <a href="#repository-local-hooks">local</a> hooks.</p>
+<p><em>new in 2.17.0</em>: <code>mamba</code> or <code>micromamba</code> can be used to install instead via the
+<code>PRE_COMMIT_USE_MAMBA=1</code> or <code>PRE_COMMIT_USE_MICROMAMBA=1</code> environment
+variables.</p>
 <p><strong>Support:</strong> <code>conda</code> hooks work as long as there is a system-installed <code>conda</code>
 binary (such as <a href="https://docs.conda.io/en/latest/miniconda.html"><code>miniconda</code></a>).
 It has been tested on linux, macOS, and windows.</p>
@@ -587,9 +590,10 @@ being added to the <code>changelog</code> directory:</p>
 <span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;changelog/.*(?&lt;!\.rst)$&#39;</span><span class="w"></span>
 </pre></div>
 <h3 id="golang">    golang <small><a href="#golang" class="text-decoration-none">¶</a></small></h3> <p>The hook repository must contain go source code.  It will be installed via
-<code>go get ./...</code>.  pre-commit will create an isolated <code>GOPATH</code> for each hook and
-the <a href="#hooks-entry"><code>entry</code></a> should match an executable which will get installed into the
+<code>go install ./...</code>.  pre-commit will create an isolated <code>GOPATH</code> for each hook
+and the <a href="#hooks-entry"><code>entry</code></a> should match an executable which will get installed into the
 <code>GOPATH</code>'s <code>bin</code> directory.</p>
+<p><em>changed in 2.17.0</em>: previously <code>go get ./...</code> was used</p>
 <p><strong>Support:</strong> golang hooks are known to work on any system which has go
 installed.  It has been tested on linux, macOS, and windows.</p>
 <h3 id="lua">    lua <small><a href="#lua" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.17.0</em></p>
