@@ -174,6 +174,10 @@ The `conda` language also supports [`additional_dependencies`](#config-additiona
 and will pass any of the values directly into `conda install`.  This language can therefore be
 used with [local](#repository-local-hooks) hooks.
 
+_new in 2.17.0_: `mamba` or `micromamba` can be used to install instead via the
+`PRE_COMMIT_USE_MAMBA=1` or `PRE_COMMIT_USE_MICROMAMBA=1` environment
+variables.
+
 __Support:__ `conda` hooks work as long as there is a system-installed `conda`
 binary (such as [`miniconda`](https://docs.conda.io/en/latest/miniconda.html)).
 It has been tested on linux, macOS, and windows.
@@ -307,9 +311,11 @@ being added to the `changelog` directory:
 ### golang
 
 The hook repository must contain go source code.  It will be installed via
-`go get ./...`.  pre-commit will create an isolated `GOPATH` for each hook and
-the [`entry`](#hooks-entry) should match an executable which will get installed into the
+`go install ./...`.  pre-commit will create an isolated `GOPATH` for each hook
+and the [`entry`](#hooks-entry) should match an executable which will get installed into the
 `GOPATH`'s `bin` directory.
+
+_changed in 2.17.0_: previously `go get ./...` was used
 
 __Support:__ golang hooks are known to work on any system which has go
 installed.  It has been tested on linux, macOS, and windows.
