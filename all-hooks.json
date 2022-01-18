@@ -2686,6 +2686,18 @@
             ]
         }
     ],
+    "https://github.com/lunarmodules/luacheck": [
+        {
+            "id": "luacheck",
+            "name": "Luacheck",
+            "description": "Lint and static analysis of Lua code",
+            "entry": "luacheck",
+            "language": "lua",
+            "types": [
+                "lua"
+            ]
+        }
+    ],
     "https://github.com/Calinou/pre-commit-luacheck": [
         {
             "id": "luacheck",
