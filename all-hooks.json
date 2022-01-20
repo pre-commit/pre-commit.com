@@ -5809,7 +5809,7 @@
             "id": "tilde-cite",
             "name": "Each \\cite needs a ~",
             "description": "Line breaks should never occur before the citation, thus they need to be protected with the ~.",
-            "entry": "[^~]\\\\cite",
+            "entry": "[^~]\\\\cite\\b",
             "language": "pygrep",
             "types": [
                 "file",
