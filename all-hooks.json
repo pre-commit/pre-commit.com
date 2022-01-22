@@ -4993,7 +4993,7 @@
             "description": "Runs Elixir tests with mix test.",
             "language": "system",
             "entry": "mix test",
-            "files": "\\.exs?$"
+            "files": "\\.ex$"
         }
     ],
     "https://github.com/Cretezy/flutter-format-pre-commit": [
