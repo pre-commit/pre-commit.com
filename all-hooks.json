@@ -2698,6 +2698,18 @@
             ]
         }
     ],
+    "https://github.com/Koihik/LuaFormatter": [
+        {
+            "id": "luaformatter",
+            "name": "LuaFormatter",
+            "description": "Format Lua code to a set style",
+            "entry": "lua-format -i",
+            "language": "lua",
+            "types": [
+                "lua"
+            ]
+        }
+    ],
     "https://github.com/Calinou/pre-commit-luacheck": [
         {
             "id": "luacheck",
