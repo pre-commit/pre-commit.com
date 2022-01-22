@@ -88,6 +88,7 @@
 - https://github.com/fortman/pre-commit-prometheus
 - https://github.com/syntaqx/git-hooks
 - https://github.com/lunarmodules/luacheck
+- https://github.com/Koihik/LuaFormatter
 - https://github.com/Calinou/pre-commit-luacheck
 - https://github.com/belminf/pre-commit-chef
 - https://github.com/pocc/pre-commit-hooks
