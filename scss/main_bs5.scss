@@ -4,6 +4,28 @@
 // flush footer to bottom
 html {
     height: 100%;
+
+    // smooth scrolling only when clicking between sections.
+    animation: smoothscroll1 1s;
+
+    &:focus-within {
+        animation-name: smoothscroll2;
+        scroll-behavior: smooth;
+    }
+}
+
+@keyframes smoothscroll1 {
+    from,
+    to {
+        scroll-behavior: smooth;
+    }
+}
+
+@keyframes smoothscroll2 {
+    from,
+    to {
+        scroll-behavior: smooth;
+    }
 }
 
 body {
