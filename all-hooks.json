@@ -5907,7 +5907,7 @@
         {
             "id": "format-ipy-cells",
             "name": "Format iPython Cells",
-            "description": "Format cells delimited by '# %%' in VS Code-style interactive Python notebooks. For details, see https://code.visualstudio.com/docs/python/jupyter-support-py.",
+            "description": "Format '# %%' cell delimiters in interactive Python notebooks. See https://code.visualstudio.com/docs/python/jupyter-support-py.",
             "entry": "format-ipy-cells",
             "language": "python",
             "types": [
@@ -6077,7 +6077,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.21.1"
+                "dprint@0.21.2"
             ],
             "minimum_pre_commit_version": "0"
         }
