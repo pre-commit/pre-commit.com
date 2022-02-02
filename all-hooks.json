@@ -5235,10 +5235,7 @@
             "description": "Validate Renovate config against the schema provided by Renovate (does not support renovate config in package.json)",
             "entry": "check-jsonschema --schemafile \"https://docs.renovatebot.com/renovate-schema.json\" --failover-builtin-schema vendor.renovate",
             "language": "python",
-            "files": "(?x)^(\n  \\.(github|gitlab)/renovate.(json|json5)|\n  renovate.(json|json5)|\n  .renovaterc(|.json)\n)$\n",
-            "types": [
-                "yaml"
-            ]
+            "files": "(?x)^(\n  \\.(github|gitlab)/renovate.json|\n  renovate.json|\n  .renovaterc(|.json)\n)$\n"
         }
     ],
     "https://github.com/sirosen/texthooks": [
@@ -6077,7 +6074,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.21.2"
+                "dprint@0.22.0"
             ],
             "minimum_pre_commit_version": "0"
         }
