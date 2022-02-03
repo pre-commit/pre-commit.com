@@ -2120,7 +2120,9 @@
             "name": "commitlint",
             "description": "Commitlint hook",
             "language": "node",
-            "entry": "commitlint --edit"
+            "entry": "commitlint --edit",
+            "pass_filenames": false,
+            "always_run": true
         },
         {
             "id": "commitlint-travis",
@@ -6278,6 +6280,15 @@
             "types": [
                 "jupyter"
             ]
+        }
+    ],
+    "https://github.com/standard/standard": [
+        {
+            "id": "standard",
+            "name": "standard",
+            "entry": "standard --fix",
+            "language": "node",
+            "files": "\\.(js|jsx|mjs|cjs)$"
         }
     ]
 }
