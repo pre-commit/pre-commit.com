@@ -241,8 +241,8 @@ arguments by specifying the [`args`](#config-args) property in your `.pre-commit
 as follows:
 
 ```yaml
--   repo: https://gitlab.com/PyCQA/flake8
-    rev: 3.8.3
+-   repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
     hooks:
     -   id: flake8
         args: [--max-line-length=131]
