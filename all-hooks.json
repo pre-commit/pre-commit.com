@@ -395,6 +395,7 @@
         {
             "id": "eslint",
             "name": "eslint",
+            "description": "",
             "entry": "eslint",
             "language": "node",
             "types": [
@@ -403,7 +404,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.8.0"
+                "eslint@8.9.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -6068,6 +6069,7 @@
         {
             "id": "dprint",
             "name": "dprint",
+            "description": "A pluggable and configurable code formatting platform written in Rust.",
             "entry": "dprint fmt",
             "language": "node",
             "types": [
@@ -6076,7 +6078,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.22.0"
+                "dprint@0.22.1"
             ],
             "minimum_pre_commit_version": "0"
         }
