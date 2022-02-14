@@ -1738,7 +1738,7 @@
             "pass_filenames": false,
             "always_run": true,
             "additional_dependencies": [
-                ".[community,yamllint]"
+                ".[community]"
             ]
         }
     ],
@@ -4620,7 +4620,8 @@
             "description": "Check syntax of staged Rego files",
             "entry": "opa check",
             "args": [
-                "."
+                ".",
+                "--strict"
             ],
             "pass_filenames": false,
             "language": "system",
@@ -5203,7 +5204,7 @@
             "id": "check-azure-pipelines",
             "name": "Validate Azure Pipelines",
             "description": "Validate Azure Pipelines config against the schema provided by Microsoft",
-            "entry": "check-jsonschema --builtin-schema vendor.azure-pipelines",
+            "entry": "check-jsonschema --builtin-schema vendor.azure-pipelines --data-transform azure-pipelines",
             "language": "python",
             "files": "^(\\.)?azure-pipelines.(yml|yaml)$",
             "types": [
