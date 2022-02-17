@@ -5913,11 +5913,6 @@
             "language": "python",
             "types": [
                 "python"
-            ],
-            "stages": [
-                "commit",
-                "push",
-                "manual"
             ]
         }
     ],
