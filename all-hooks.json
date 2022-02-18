@@ -347,12 +347,19 @@
         {
             "id": "clang-format",
             "name": "clang-format",
+            "description": "",
             "entry": "clang-format",
             "language": "python",
             "types_or": [
                 "c++",
                 "c",
-                "c#"
+                "c#",
+                "cuda",
+                "java",
+                "javascript",
+                "json",
+                "objective-c",
+                "proto"
             ],
             "args": [
                 "-style=file",
