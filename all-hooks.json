@@ -5186,28 +5186,6 @@
             "minimum_pre_commit_version": "2.9.0"
         },
         {
-            "id": "check-github-workflows",
-            "name": "Validate GitHub Workflows",
-            "description": "Validate GitHub Workflows against the schema provided by Schemastore",
-            "entry": "check-jsonschema --builtin-schema vendor.github-workflows",
-            "language": "python",
-            "files": "^\\.github/workflows/",
-            "types": [
-                "yaml"
-            ]
-        },
-        {
-            "id": "check-github-actions",
-            "name": "Validate GitHub Actions",
-            "description": "Validate GitHub Actions against the schema provided by Schemastore",
-            "entry": "check-jsonschema --builtin-schema vendor.github-actions",
-            "language": "python",
-            "files": "(?x)^(\n  action.(yml|yaml)|\n  \\.github/actions/.*\n)$\n",
-            "types": [
-                "yaml"
-            ]
-        },
-        {
             "id": "check-azure-pipelines",
             "name": "Validate Azure Pipelines",
             "description": "Validate Azure Pipelines config against the schema provided by Microsoft",
@@ -5219,12 +5197,45 @@
             ]
         },
         {
-            "id": "check-travis",
-            "name": "Validate Travis Config",
-            "description": "Validate Travis config against the schema provided by Schemastore",
-            "entry": "check-jsonschema --builtin-schema vendor.travis",
+            "id": "check-bamboo-spec",
+            "name": "Validate Bamboo Specs",
+            "description": "Validate Bamboo Specs against the schema provided by SchemaStore",
+            "entry": "check-jsonschema --builtin-schema vendor.bamboo-spec",
             "language": "python",
-            "files": "^\\.travis.(yml|yaml)$",
+            "files": "^bamboo-specs/.*\\.(yml|yaml)$",
+            "types": [
+                "yaml"
+            ]
+        },
+        {
+            "id": "check-github-actions",
+            "name": "Validate GitHub Actions",
+            "description": "Validate GitHub Actions against the schema provided by SchemaStore",
+            "entry": "check-jsonschema --builtin-schema vendor.github-actions",
+            "language": "python",
+            "files": "(?x)^(\n  action.(yml|yaml)|\n  \\.github/actions/.*\n)$\n",
+            "types": [
+                "yaml"
+            ]
+        },
+        {
+            "id": "check-github-workflows",
+            "name": "Validate GitHub Workflows",
+            "description": "Validate GitHub Workflows against the schema provided by SchemaStore",
+            "entry": "check-jsonschema --builtin-schema vendor.github-workflows",
+            "language": "python",
+            "files": "^\\.github/workflows/",
+            "types": [
+                "yaml"
+            ]
+        },
+        {
+            "id": "check-gitlab-ci",
+            "name": "Validate GitLab CI config",
+            "description": "Validate GitLab CI config against the schema provided by SchemaStore",
+            "entry": "check-jsonschema --builtin-schema vendor.gitlab-ci",
+            "language": "python",
+            "files": "^.*\\.gitlab-ci.yml$",
             "types": [
                 "yaml"
             ]
@@ -5246,7 +5257,18 @@
             "description": "Validate Renovate config against the schema provided by Renovate (does not support renovate config in package.json)",
             "entry": "check-jsonschema --builtin-schema vendor.renovate",
             "language": "python",
-            "files": "(?x)^(\n  \\.(github|gitlab)/renovate.json|\n  renovate.json|\n  .renovaterc(|.json)\n)$\n"
+            "files": "(?x)^(\n  renovate\\.(json|json5)|\n  \\.(github|gitlab)/renovate\\.(json|json5)|\n  \\.renovaterc(\\.json)?\n)$\n"
+        },
+        {
+            "id": "check-travis",
+            "name": "Validate Travis Config",
+            "description": "Validate Travis Config against the schema provided by SchemaStore",
+            "entry": "check-jsonschema --builtin-schema vendor.travis",
+            "language": "python",
+            "files": "^\\.travis.(yml|yaml)$",
+            "types": [
+                "yaml"
+            ]
         }
     ],
     "https://github.com/sirosen/texthooks": [
