@@ -5186,6 +5186,18 @@
             "minimum_pre_commit_version": "2.9.0"
         },
         {
+            "id": "check-metaschema",
+            "name": "Validate JSON Schema files",
+            "description": "Validate JSON Schema files against their matching metaschema",
+            "entry": "check-jsonschema --check-metaschema",
+            "language": "python",
+            "types_or": [
+                "json",
+                "yaml"
+            ],
+            "minimum_pre_commit_version": "2.9.0"
+        },
+        {
             "id": "check-azure-pipelines",
             "name": "Validate Azure Pipelines",
             "description": "Validate Azure Pipelines config against the schema provided by Microsoft",
