@@ -33,6 +33,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="https://github.com/pre-commit/demo-repo#readme">Demo</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/pre-commit/pre-commit.com">Edit this site on GitHub</a>
+                        </li>                        
                     </ul>
 
                     <ul class="navbar-nav ms-auto">
