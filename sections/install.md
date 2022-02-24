@@ -1,6 +1,14 @@
 Before you can run hooks, you need to have the pre-commit package manager
 installed.
 
+The most convinient option is to run pre-commit via [pipx](https://pypa.github.io/pipx/):
+
+```bash
+pipx run pre-commit <arguments here (see usage)>
+```
+
+`pipx` installs pre-commit into an an isolated environment and keeps it up to date.
+
 Using pip:
 
 ```bash
