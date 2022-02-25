@@ -6115,7 +6115,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.22.2"
+                "dprint@0.23.0"
             ],
             "minimum_pre_commit_version": "0"
         }
