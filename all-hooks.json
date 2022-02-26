@@ -411,7 +411,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.9.0"
+                "eslint@8.10.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -5463,7 +5463,7 @@
             "types": [
                 "dockerfile"
             ],
-            "entry": "hadolint/hadolint:v2.8.0 hadolint"
+            "entry": "ghcr.io/hadolint/hadolint:v2.8.0 hadolint"
         },
         {
             "id": "hadolint",
