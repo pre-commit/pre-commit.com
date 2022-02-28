@@ -5173,7 +5173,7 @@
             ]
         }
     ],
-    "https://github.com/sirosen/check-jsonschema": [
+    "https://github.com/python-jsonschema/check-jsonschema": [
         {
             "id": "check-jsonschema",
             "name": "Validate files with jsonschema",
