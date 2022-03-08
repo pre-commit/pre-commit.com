@@ -6389,5 +6389,17 @@
             "files": "^config/.*(.yaml|.yml|.json)$",
             "exclude": "^config/.*config(.yaml|.yml|.json)$"
         }
+    ],
+    "https://github.com/lyz-code/yamlfix": [
+        {
+            "id": "yamlfix",
+            "name": "yamlfix",
+            "entry": "yamlfix",
+            "language": "python",
+            "language_version": "python3",
+            "types": [
+                "yaml"
+            ]
+        }
     ]
 }
