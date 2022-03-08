@@ -6363,5 +6363,31 @@
             "language": "node",
             "files": "\\.(js|jsx|mjs|cjs)$"
         }
+    ],
+    "https://github.com/Sceptre/sceptrelint": [
+        {
+            "id": "check-file-names",
+            "name": "check file names",
+            "entry": "check-file-names",
+            "language": "python",
+            "files": "^config/.*(.yaml|.yml|.json)$",
+            "exclude": "^config/.*config(.yaml|.yml|.json)$"
+        },
+        {
+            "id": "check-stack-tags",
+            "name": "check stack tags",
+            "entry": "check-stack-tags",
+            "language": "python",
+            "files": "^config/.*(.yaml|.yml|.json)$",
+            "exclude": "^config/.*config(.yaml|.yml|.json)$"
+        },
+        {
+            "id": "check-stack-names",
+            "name": "check stack names",
+            "entry": "check-stack-names",
+            "language": "python",
+            "files": "^config/.*(.yaml|.yml|.json)$",
+            "exclude": "^config/.*config(.yaml|.yml|.json)$"
+        }
     ]
 }
