@@ -5336,6 +5336,16 @@
             "types": [
                 "text"
             ]
+        },
+        {
+            "id": "macro-expand",
+            "name": "Expand text macros",
+            "description": "Perform simple macro replacements in text files",
+            "entry": "macro-expand",
+            "language": "python",
+            "types": [
+                "text"
+            ]
         }
     ],
     "https://github.com/snok/pep585-upgrade": [
