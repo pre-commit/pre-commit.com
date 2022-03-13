@@ -1,7 +1,7 @@
 import getWindow from "./getWindow.js";
 import getNodeName from "./getNodeName.js";
 import getComputedStyle from "./getComputedStyle.js";
-import { isHTMLElement } from "./instanceOf.js";
+import { isHTMLElement, isShadowRoot } from "./instanceOf.js";
 import isTableElement from "./isTableElement.js";
 import getParentNode from "./getParentNode.js";
 
@@ -30,6 +30,10 @@ function getContainingBlock(element) {
   }
 
   var currentNode = getParentNode(element);
+
+  if (isShadowRoot(currentNode)) {
+    currentNode = currentNode.host;
+  }
 
   while (isHTMLElement(currentNode) && ['html', 'body'].indexOf(getNodeName(currentNode)) < 0) {
     var css = getComputedStyle(currentNode); // This is non-exhaustive but covers the most common CSS properties that
