@@ -4,7 +4,6 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import contextlib
-import distutils.spawn
 import hashlib
 import io
 import os.path
@@ -12,6 +11,8 @@ import shutil
 import subprocess
 import sys
 import tarfile
+
+import distutils.spawn
 
 
 if str is bytes:
