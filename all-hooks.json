@@ -5507,7 +5507,7 @@
             "types": [
                 "dockerfile"
             ],
-            "entry": "ghcr.io/hadolint/hadolint:v2.8.0 hadolint"
+            "entry": "ghcr.io/hadolint/hadolint:v2.9.1 hadolint"
         },
         {
             "id": "hadolint",
