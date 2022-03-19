@@ -1221,7 +1221,7 @@
             ],
             "language": "node",
             "additional_dependencies": [
-                "markdown-toc"
+                "github:Lucas-C/markdown-toc#handle-multiple-input-files"
             ],
             "files": ".*\\.md$"
         }
