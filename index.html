@@ -1392,6 +1392,8 @@ immutable caches:</p>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PRE_COMMIT_HOME}</span><span class="w"></span>
 </pre></div>
+<p>pre-commit's cache requires to be served from a constant location between the different builds. This isn't the default when using k8s runners
+on GitLab. In case you face the error <code>InvalidManifestError</code>, set <code>builds_dir</code> to something static e.g <code>builds_dir = &quot;/builds&quot;</code> in your <code>[[runner]]</code> config</p>
 <h3 id="travis-ci-example">    travis-ci example <small><a href="#travis-ci-example" class="text-decoration-none">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">directories</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/pre-commit</span><span class="w"></span>
