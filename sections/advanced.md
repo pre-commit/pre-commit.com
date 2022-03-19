@@ -743,7 +743,7 @@ my_job:
 ```
 
 pre-commit's cache requires to be served from a constant location between the different builds. This isn't the default when using k8s runners
-on Gitlab. In case you face the error `InvalidManifestError`, set `builds_dir` to something static e.g `builds_dir = "/builds"` in your `[[runner]]` config
+on GitLab. In case you face the error `InvalidManifestError`, set `builds_dir` to something static e.g `builds_dir = "/builds"` in your `[[runner]]` config
 
 ### travis-ci example
 
