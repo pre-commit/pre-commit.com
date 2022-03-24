@@ -413,7 +413,7 @@ Initialized empty Git repository in /tmp/sample/.git/
 $ cd sample
 $ git commit --allow-empty -m 'Initial commit'
 `.pre-commit-config.yaml` config file not found. Skipping `pre-commit`.
-[master (root-commit) d1b39c1] Initial commit
+[main (root-commit) d1b39c1] Initial commit
 ```
 
 To still require opt-in, but prompt the user to set up pre-commit use a
@@ -458,8 +458,8 @@ Some of the common tags you'll find from identify:
 - `executable` - whether the file has the executable bit set
 - `text` - whether the file looks like a text file
 - `binary` - whether the file looks like a binary file
-- [tags by extension / naming convention](https://github.com/pre-commit/identify/blob/master/identify/extensions.py)
-- [tags by shebang (`#!`)](https://github.com/pre-commit/identify/blob/master/identify/interpreters.py)
+- [tags by extension / naming convention](https://github.com/pre-commit/identify/blob/main/identify/extensions.py)
+- [tags by shebang (`#!`)](https://github.com/pre-commit/identify/blob/main/identify/interpreters.py)
 
 To discover the type of any file on disk, you can use `identify`'s cli:
 
@@ -645,7 +645,7 @@ pre-commit.ci also has the following benefits:
 - it will autofix pull requests
 - it will periodically autoupdate your configuration
 
-[![pre-commit.ci speed comparison](https://raw.githubusercontent.com/pre-commit-ci-demo/demo/master/img/2020-12-15_noop.svg)](https://github.com/pre-commit-ci-demo/demo#results)
+[![pre-commit.ci speed comparison](https://raw.githubusercontent.com/pre-commit-ci-demo/demo/main/img/2020-12-15_noop.svg)](https://github.com/pre-commit-ci-demo/demo#results)
 
 [pre-commit.ci]: https://pre-commit.ci
 
@@ -662,7 +662,7 @@ note: azure pipelines uses immutable caches so the python version and
 `.pre-commit-config.yaml` hash must be included in the cache key.  for a
 repository template, see [asottile@job--pre-commit.yml].
 
-[asottile@job--pre-commit.yml]: https://github.com/asottile/azure-pipeline-templates/blob/master/job--pre-commit.yml
+[asottile@job--pre-commit.yml]: https://github.com/asottile/azure-pipeline-templates/blob/main/job--pre-commit.yml
 
 ```yaml
 jobs:

@@ -113,7 +113,7 @@ _new in 1.14.0_: a commit is no longer necessary to `try-repo` on a local
 directory. `pre-commit` will clone any tracked uncommitted changes.
 
 ```pre-commit
-~/work/hook-repo $ git checkout origin/master -b feature
+~/work/hook-repo $ git checkout origin/main -b feature
 
 # ... make some changes
 
