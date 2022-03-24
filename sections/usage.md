@@ -27,6 +27,6 @@ pyupgrade................................................................Passed
 rst ``code`` is two backticks........................(no files to check)Skipped
 rst..................................................(no files to check)Skipped
 changelog filenames..................................(no files to check)Skipped
-[master 146c6c2c] Add super awesome feature
+[main 146c6c2c] Add super awesome feature
  1 file changed, 1 insertion(+)
 ```
