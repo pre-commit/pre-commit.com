@@ -52,14 +52,14 @@
                             A framework for managing and maintaining multi-language <span class="text-nowrap">pre-commit</span> hooks.
                         </p>
                         <div class="mb-3">
-                            <a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=master">
-                                <img src="https://dev.azure.com/asottile/asottile/_apis/build/status/pre-commit.pre-commit?branchName=master" alt="Build Status" style="max-width:100%;">
+                            <a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=main">
+                                <img src="https://dev.azure.com/asottile/asottile/_apis/build/status/pre-commit.pre-commit?branchName=main" alt="Build Status" style="max-width:100%;">
                             </a>
-                            <a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=master">
-                                <img src="https://img.shields.io/azure-devops/coverage/asottile/asottile/21/master.svg" alt="Azure DevOps Coverage" style="max-width:100%;">
+                            <a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=main">
+                                <img src="https://img.shields.io/azure-devops/coverage/asottile/asottile/21/main.svg" alt="Azure DevOps Coverage" style="max-width:100%;">
                             </a>
-                            <a href="https://results.pre-commit.ci/latest/github/pre-commit/pre-commit/master">
-                                <img src="https://results.pre-commit.ci/badge/github/pre-commit/pre-commit/master.svg" alt="pre-commit.ci status" style="max-width:100%;">
+                            <a href="https://results.pre-commit.ci/latest/github/pre-commit/pre-commit/main">
+                                <img src="https://results.pre-commit.ci/badge/github/pre-commit/pre-commit/main.svg" alt="pre-commit.ci status" style="max-width:100%;">
                             </a>
                         </div>
                         <div>
@@ -360,7 +360,7 @@ pyupgrade................................................................<span c
 rst ``code`` is two backticks........................(no files to check)<span class=" -Color -Color-Black -Color-Black-BGCyan">Skipped</span>
 rst..................................................(no files to check)<span class=" -Color -Color-Black -Color-Black-BGCyan">Skipped</span>
 changelog filenames..................................(no files to check)<span class=" -Color -Color-Black -Color-Black-BGCyan">Skipped</span>
-[master 146c6c2c] Add super awesome feature
+[main 146c6c2c] Add super awesome feature
  1 file changed, 1 insertion(+)
 </pre></div>
 
@@ -446,7 +446,7 @@ interactively:</p>
 command with hook types <code>prepare-commit-msg</code> and <code>commit-msg</code>.</p>
 <p><em>new in 1.14.0</em>: a commit is no longer necessary to <code>try-repo</code> on a local
 directory. <code>pre-commit</code> will clone any tracked uncommitted changes.</p>
-<div class="highlight pre-commit"><pre><span></span>~/work/hook-repo $ git checkout origin/master -b feature
+<div class="highlight pre-commit"><pre><span></span>~/work/hook-repo $ git checkout origin/main -b feature
 
 # ... make some changes
 
@@ -1160,7 +1160,7 @@ Debug Statements (Python)............................(no files to check)<span cl
 <span class="gp">$ </span><span class="nb">cd</span> sample
 <span class="gp">$ </span>git commit --allow-empty -m <span class="s1">&#39;Initial commit&#39;</span>
 <span class="go">`.pre-commit-config.yaml` config file not found. Skipping `pre-commit`.</span>
-<span class="go">[master (root-commit) d1b39c1] Initial commit</span>
+<span class="go">[main (root-commit) d1b39c1] Initial commit</span>
 </pre></div>
 <p>To still require opt-in, but prompt the user to set up pre-commit use a
 template hook as follows (for example in <code>~/.git-template/hooks/pre-commit</code>).</p>
@@ -1195,8 +1195,8 @@ chosen as it is a small portable pure python library.</p>
 <li><code>executable</code> - whether the file has the executable bit set</li>
 <li><code>text</code> - whether the file looks like a text file</li>
 <li><code>binary</code> - whether the file looks like a binary file</li>
-<li><a href="https://github.com/pre-commit/identify/blob/master/identify/extensions.py">tags by extension / naming convention</a></li>
-<li><a href="https://github.com/pre-commit/identify/blob/master/identify/interpreters.py">tags by shebang (<code>#!</code>)</a></li>
+<li><a href="https://github.com/pre-commit/identify/blob/main/identify/extensions.py">tags by extension / naming convention</a></li>
+<li><a href="https://github.com/pre-commit/identify/blob/main/identify/interpreters.py">tags by shebang (<code>#!</code>)</a></li>
 </ul>
 <p>To discover the type of any file on disk, you can use <code>identify</code>'s cli:</p>
 <div class="highlight console"><pre><span></span><span class="gp">$ </span>identify-cli setup.py
@@ -1330,13 +1330,13 @@ following the <a href="https://specifications.freedesktop.org/basedir-spec/based
 <li>it will autofix pull requests</li>
 <li>it will periodically autoupdate your configuration</li>
 </ul>
-<p><a href="https://github.com/pre-commit-ci-demo/demo#results"><img     src="https://raw.githubusercontent.com/pre-commit-ci-demo/demo/master/img/2020-12-15_noop.svg"    alt="pre-commit.ci speed comparison"    class="img-fluid img-thumbnail"></a></p>
+<p><a href="https://github.com/pre-commit-ci-demo/demo#results"><img     src="https://raw.githubusercontent.com/pre-commit-ci-demo/demo/main/img/2020-12-15_noop.svg"    alt="pre-commit.ci speed comparison"    class="img-fluid img-thumbnail"></a></p>
 <h3 id="appveyor-example">    appveyor example <small><a href="#appveyor-example" class="text-decoration-none">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span><span class="w"></span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;%USERPROFILE%\.cache\pre-commit&#39;</span><span class="w"></span>
 </pre></div>
 <h3 id="azure-pipelines-example">    azure pipelines example <small><a href="#azure-pipelines-example" class="text-decoration-none">¶</a></small></h3> <p>note: azure pipelines uses immutable caches so the python version and
 <code>.pre-commit-config.yaml</code> hash must be included in the cache key.  for a
-repository template, see <a href="https://github.com/asottile/azure-pipeline-templates/blob/master/job--pre-commit.yml">asottile@job--pre-commit.yml</a>.</p>
+repository template, see <a href="https://github.com/asottile/azure-pipeline-templates/blob/main/job--pre-commit.yml">asottile@job--pre-commit.yml</a>.</p>
 <div class="highlight yaml"><pre><span></span><span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">precommit</span><span class="w"></span>
 

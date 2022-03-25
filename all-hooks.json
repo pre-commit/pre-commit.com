@@ -480,7 +480,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@2.6.0"
+                "prettier@2.6.1"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -5507,7 +5507,7 @@
             "types": [
                 "dockerfile"
             ],
-            "entry": "ghcr.io/hadolint/hadolint:v2.9.2 hadolint"
+            "entry": "ghcr.io/hadolint/hadolint:v2.9.3 hadolint"
         },
         {
             "id": "hadolint",
