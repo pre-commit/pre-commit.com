@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import collections
 import json
 import os.path
@@ -34,7 +36,7 @@ ALL_TEMPLATES = [
 ]
 
 
-def get_env() -> Dict[str, Any]:
+def get_env() -> dict[str, Any]:
     body_parts = []
     for title, filename in SECTIONS:
         div_id, _ = os.path.splitext(os.path.basename(filename))
@@ -59,7 +61,7 @@ def get_env() -> Dict[str, Any]:
         hook_type
         for properties in all_hooks.values()
         for hook_type in (
-            properties[0].get("types", []) + properties[0].get("types_or", [])
+            properties[0].get('types', []) + properties[0].get('types_or', [])
         )
     }
     return {'all_hooks': all_hooks, 'all_types': all_types, 'body': body}

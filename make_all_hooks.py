@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import functools
 import json
 import multiprocessing
@@ -16,7 +18,7 @@ Loader = getattr(yaml, 'CSafeLoader', yaml.SafeLoader)
 fast_load = functools.partial(yaml.load, Loader=Loader)
 
 
-def get_manifest(repo_path: str) -> Tuple[bool, str, List[Dict[str, Any]]]:
+def get_manifest(repo_path: str) -> tuple[bool, str, list[dict[str, Any]]]:
     print(f'*** {repo_path}')
     with tempfile.TemporaryDirectory() as directory:
         repo_dir = os.path.join(directory, 'repo')
