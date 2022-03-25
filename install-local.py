@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-from __future__ import annotations
+from __future__ import absolute_import
+from __future__ import print_function
+from __future__ import unicode_literals
 
 import contextlib
 import hashlib
@@ -101,7 +103,7 @@ def main():
     ))
 
     print('*' * 79)
-    print(f'Installing pre-commit to {script_dest}')
+    print('Installing pre-commit to {}'.format(script_dest))
     print('*' * 79)
 
     if not os.path.exists(bin_dir):
@@ -114,7 +116,7 @@ def main():
     os.symlink(script_src, script_dest)
 
     if not distutils.spawn.find_executable('pre-commit'):
-        print(f'It looks like {bin_dir} is not on your path')
+        print('It looks like {} is not on your path'.format(bin_dir))
         print('You may want to add it.')
         print('Often this does the trick: source ~/.profile')
 

@@ -4,7 +4,6 @@ import collections
 import json
 import os.path
 from typing import Any
-from typing import Dict
 
 import mako.lookup
 import markupsafe
