@@ -5735,6 +5735,13 @@
             "entry": "gitleaks protect --verbose --redact --staged",
             "language": "golang",
             "pass_filenames": false
+        },
+        {
+            "id": "gitleaks-docker",
+            "name": "Detect hardcoded secrets",
+            "description": "Detect hardcoded secrets using Gitleaks",
+            "entry": "zricethezav/gitleaks:v8.5.2 protect --verbose --redact --staged",
+            "language": "docker_image"
         }
     ],
     "https://github.com/hugoh/pre-commit-fish": [
