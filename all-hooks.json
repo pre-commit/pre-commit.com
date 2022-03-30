@@ -4721,7 +4721,8 @@
             "language": "python",
             "language_version": "python3",
             "entry": "curlylint",
-            "files": "\\.(html|jinja|twig)$"
+            "files": "\\.(html|jinja|twig)$",
+            "require_serial": true
         }
     ],
     "https://github.com/cheshirekow/cmake-format-precommit": [
