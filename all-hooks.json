@@ -5920,6 +5920,19 @@
                 "tex"
             ],
             "minimum_pre_commit_version": "2.8.0"
+        },
+        {
+            "id": "unique-labels",
+            "name": "Ensure each label is only defined once.",
+            "entry": "unique_labels",
+            "language": "python",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0",
+            "require_serial": true,
+            "language_version": "python3"
         }
     ],
     "https://github.com/dfm/black_nbconvert": [
@@ -6171,7 +6184,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.24.1"
+                "dprint@0.24.2"
             ],
             "minimum_pre_commit_version": "0"
         }
