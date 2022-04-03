@@ -480,7 +480,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@2.6.1"
+                "prettier@2.6.2"
             ],
             "minimum_pre_commit_version": "0"
         }
