@@ -224,6 +224,11 @@ If you'd like to migrate to the new configuration format, run
 migrate your configuration.</p>
 <table class="table table-bordered"><tbody><tr><td><p><a id="top_level-repos" href="#top_level-repos"><code>repos</code></a></p>
 </td><td><p>A list of <a href="#pre-commit-configyaml---repos">repository mappings</a>.</p>
+</td></tr><tr><td><p><a id="top_level-default_install_hook_types" href="#top_level-default_install_hook_types"><code>default_install_hook_types</code></a></p>
+</td><td><p>(optional: default <code>[pre-commit]</code>) a list of <code>--hook-type</code>s which will
+be used by default when running
+<a href="#pre-commit-install"><code>pre-commit install</code></a>.</p>
+<p><em>new in 2.18.0</em></p>
 </td></tr><tr><td><p><a id="top_level-default_language_version" href="#top_level-default_language_version"><code>default_language_version</code></a></p>
 </td><td><p>(optional: default <code>{}</code>) a mapping from language to the default
 <a href="#config-language_version"><code>language_version</code></a> that should be used for that language.  This will
@@ -507,16 +512,18 @@ variables.</p>
 binary (such as <a href="https://docs.conda.io/en/latest/miniconda.html"><code>miniconda</code></a>).
 It has been tested on linux, macOS, and windows.</p>
 <h3 id="coursier">    coursier <small><a href="#coursier" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.8.0</em></p>
-<p>The hook repository must have a <code>.pre-commit-channel</code> folder and that folder must contain
-the coursier
+<p>The hook repository must have a <code>.pre-commit-channel</code> folder and that folder
+must contain the coursier
 <a href="https://get-coursier.io/docs/2.0.0-RC6-10/cli-install.html#application-descriptor-reference">application descriptors</a>
 for the hook to install. For configuring coursier hooks, your
 <a href="#hooks-entry"><code>entry</code></a> should correspond to an executable installed from the
 repository's <code>.pre-commit-channel</code> folder.</p>
-<p><strong>Support:</strong> <code>coursier</code> hooks are known to work on any system which has the <code>cs</code>
-package manager installed. The specific coursier applications you install may depend
-on various versions of the JVM, consult the hooks' documentation for clarification.
-It has been tested on linux.</p>
+<p><strong>Support:</strong> <code>coursier</code> hooks are known to work on any system which has the
+<code>cs</code> or <code>coursier</code> package manager installed. The specific coursier
+applications you install may depend on various versions of the JVM, consult
+the hooks' documentation for clarification.  It has been tested on linux.</p>
+<p><em>new in 2.18.0</em>: pre-commit now supports the <code>coursier</code> naming of the package
+manager executable.</p>
 <h3 id="dart">    dart <small><a href="#dart" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.15.0</em></p>
 <p>The hook repository must have a <code>pubspec.yaml</code> -- this must contain an
 <code>executables</code> section which will list the binaries that will be available
@@ -758,6 +765,8 @@ This option may be specified multiple times.</li>
 <span class="go">    rev: 0161422b4e09b47536ea13f49e786eb3616fe0d7  # frozen: v2.4.0</span>
 <span class="go">    rev: 34a269fd7650d264e4de7603157c10d0a9bb8211  # frozen: v1.25.2</span>
 </pre></div>
+<p><em>new in 2.18.0</em>: pre-commit will preferentially pick tags containing a <code>.</code> if
+there are ties.</p>
 <h2 id="pre-commit-clean">    pre-commit clean [options] <small><a href="#pre-commit-clean" class="text-decoration-none">¶</a></small></h2> <p>Clean out cached pre-commit files.</p>
 <p>Options: (no additional options)</p>
 <h2 id="pre-commit-gc">    pre-commit gc [options] <small><a href="#pre-commit-gc" class="text-decoration-none">¶</a></small></h2> <p><em>new in 1.14.0</em></p>
@@ -802,12 +811,15 @@ file.</li>
 </ul>
 <p>Some example useful invocations:</p>
 <ul>
-<li><code>pre-commit install</code>: Default invocation. Installs the pre-commit script
+<li><code>pre-commit install</code>: Default invocation. Installs the hook scripts
  alongside any existing git hooks.</li>
 <li><code>pre-commit install --install-hooks --overwrite</code>: Idempotently replaces
  existing git hook scripts with pre-commit, and also installs hook
  environments.</li>
 </ul>
+<p><em>new in 2.18.0</em>: <code>pre-commit install</code> will now install hooks from
+<a href="#top_level-default_language_version"><code>default_install_hook_types</code></a> if
+<code>--hook-type</code> is not specified on the command line.</p>
 <h2 id="pre-commit-install-hooks">    pre-commit install-hooks [options] <small><a href="#pre-commit-install-hooks" class="text-decoration-none">¶</a></small></h2> <p>Install all missing environments for the available hooks. Unless this command or
 <code>install --install-hooks</code> is executed, each hook's environment is created the
 first time the hook is called.</p>
