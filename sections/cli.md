@@ -68,6 +68,9 @@ $ grep rev: .pre-commit-config.yaml
     rev: 34a269fd7650d264e4de7603157c10d0a9bb8211  # frozen: v1.25.2
 ```
 
+_new in 2.18.0_: pre-commit will preferentially pick tags containing a `.` if
+there are ties.
+
 ## pre-commit clean [options] #pre-commit-clean
 
 Clean out cached pre-commit files.
@@ -140,11 +143,15 @@ Options:
 
 Some example useful invocations:
 
-- `pre-commit install`: Default invocation. Installs the pre-commit script
+- `pre-commit install`: Default invocation. Installs the hook scripts
    alongside any existing git hooks.
 - `pre-commit install --install-hooks --overwrite`: Idempotently replaces
    existing git hook scripts with pre-commit, and also installs hook
    environments.
+
+_new in 2.18.0_: `pre-commit install` will now install hooks from
+[`default_install_hook_types`](#top_level-default_language_version) if
+`--hook-type` is not specified on the command line.
 
 ## pre-commit install-hooks [options] #pre-commit-install-hooks
 

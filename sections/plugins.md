@@ -18,6 +18,13 @@ migrate your configuration.
     =c= [`repos`](_#top_level-repos)
     =c= A list of [repository mappings](#pre-commit-configyaml---repos).
 =r=
+    =c= [`default_install_hook_types`](_#top_level-default_install_hook_types)
+    =c= (optional: default `[pre-commit]`) a list of `--hook-type`s which will
+        be used by default when running
+        [`pre-commit install`](#pre-commit-install).
+
+        _new in 2.18.0_
+=r=
     =c= [`default_language_version`](_#top_level-default_language_version)
     =c= (optional: default `{}`) a mapping from language to the default
         [`language_version`](#config-language_version) that should be used for that language.  This will
