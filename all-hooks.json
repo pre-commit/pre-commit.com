@@ -1238,6 +1238,17 @@
     ],
     "https://github.com/chriskuehl/puppet-pre-commit-hooks": [
         {
+            "id": "bolt-validate",
+            "additional_dependencies": [
+                "puppet"
+            ],
+            "description": "Validate syntax of Bolt plans",
+            "entry": "bolt-validate",
+            "files": "plans/\\w+\\.pp$",
+            "language": "ruby",
+            "name": "Validate Bolt plans"
+        },
+        {
             "id": "epp-validate",
             "additional_dependencies": [
                 "puppet"
@@ -1260,7 +1271,7 @@
             "id": "g10k-validate",
             "description": "Validate syntax of Puppetfile using g10k",
             "entry": "g10k-validate",
-            "files": "^Puppetfile$",
+            "files": "Puppetfile$",
             "language": "ruby",
             "name": "Validate g10k Puppetfile"
         },
@@ -1283,6 +1294,7 @@
             "description": "Validate syntax of Puppet manifests",
             "entry": "puppet-validate",
             "files": "\\.pp$",
+            "exclude": "plans/",
             "language": "ruby",
             "name": "Validate Puppet manifests"
         },
@@ -1293,7 +1305,7 @@
             ],
             "description": "Validate syntax of Puppetfile using r10k",
             "entry": "r10k-validate",
-            "files": "^Puppetfile$",
+            "files": "Puppetfile$",
             "language": "ruby",
             "name": "Validate r10k Puppetfile"
         },
@@ -1716,11 +1728,22 @@
         },
         {
             "id": "checkov",
-            "name": "Checkov",
+            "name": "checkov (deprecated, use \"terraform_checkov\")",
             "description": "Runs checkov on Terraform templates.",
             "entry": "checkov -d .",
             "language": "python",
             "pass_filenames": false,
+            "always_run": false,
+            "files": "\\.tf$",
+            "exclude": "\\.terraform\\/.*$",
+            "require_serial": true
+        },
+        {
+            "id": "terraform_checkov",
+            "name": "Checkov",
+            "description": "Runs checkov on Terraform templates.",
+            "entry": "hooks/terraform_checkov.sh",
+            "language": "script",
             "always_run": false,
             "files": "\\.tf$",
             "exclude": "\\.terraform\\/.*$",
