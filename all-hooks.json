@@ -6219,7 +6219,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.24.4"
+                "dprint@0.25.0"
             ],
             "minimum_pre_commit_version": "0"
         }
