@@ -5708,7 +5708,7 @@
             "entry": "oelint-adv",
             "language": "python",
             "language_version": "python3",
-            "files": ".*\\.(bb)|(bbappend)$"
+            "files": ".*\\.(bb)|(bbappend)|(bbclass)$"
         }
     ],
     "https://github.com/jggomez/pre-commit-android-kotlin": [
