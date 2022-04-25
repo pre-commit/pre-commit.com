@@ -5035,7 +5035,7 @@
             "name": "Google Java Formatter",
             "description": "Runs the Google Java Formatter on Java source files. Minimum supported runtime version is JDK 11.",
             "language": "coursier",
-            "entry": "google-java-format-jdk11",
+            "entry": "google-java-format-jdk11 --java-opt --add-exports jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
             "files": "\\.java$",
             "require_serial": true
         },
