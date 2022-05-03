@@ -687,8 +687,8 @@ way to write a simple hook which prevents commits by file matching.  Specify
 the regex as the <a href="#hooks-entry"><code>entry</code></a>.  The <a href="#hooks-entry"><code>entry</code></a> may be any python
 <a href="#regular-expressions">regular expression</a>.  For case insensitive regexes you
 can apply the <code>(?i)</code> flag as the start of your entry, or use <code>args: [-i]</code>.</p>
-<p><em>new in 1.8.0</em>: For multiline matches, use <code>args: [--multiline]</code>.
-<em>new in 2.8.0</em>: To require all files to match, use <code>args: [--negate]</code>.</p>
+<p><em>new in 1.8.0</em>: For multiline matches, use <code>args: [--multiline]</code>.</p>
+<p><em>new in 2.8.0</em>: To require all files to match, use <code>args: [--negate]</code>.</p>
 <p><strong>Support:</strong> pygrep hooks are supported on all platforms which pre-commit runs
 on.</p>
 <h3 id="script">    script <small><a href="#script" class="text-decoration-none">¶</a></small></h3> <p>Script hooks provide a way to write simple scripts which validate files. The
