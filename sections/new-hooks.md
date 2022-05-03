@@ -463,6 +463,7 @@ the regex as the [`entry`](#hooks-entry).  The [`entry`](#hooks-entry) may be an
 can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
 
 _new in 1.8.0_: For multiline matches, use `args: [--multiline]`.
+
 _new in 2.8.0_: To require all files to match, use `args: [--negate]`.
 
 __Support:__ pygrep hooks are supported on all platforms which pre-commit runs
