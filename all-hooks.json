@@ -4377,7 +4377,7 @@
             "entry": "clang_format.py",
             "language": "script",
             "args": [
-                "11.0.0",
+                "15.0.0",
                 "diff"
             ],
             "require_serial": true
@@ -4388,7 +4388,7 @@
             "entry": "clang_format.py",
             "language": "script",
             "args": [
-                "11.0.0",
+                "15.0.0",
                 "whole-file"
             ],
             "require_serial": false
@@ -4543,6 +4543,28 @@
             "language": "script",
             "args": [
                 "11.0.0",
+                "whole-file"
+            ],
+            "require_serial": false
+        },
+        {
+            "id": "clang-format-diff-15.0.0",
+            "name": "clang-format-diff-15.0.0",
+            "entry": "clang_format.py",
+            "language": "script",
+            "args": [
+                "15.0.0",
+                "diff"
+            ],
+            "require_serial": true
+        },
+        {
+            "id": "clang-format-whole-file-15.0.0",
+            "name": "clang-format-whole-file-15.0.0",
+            "entry": "clang_format.py",
+            "language": "script",
+            "args": [
+                "15.0.0",
                 "whole-file"
             ],
             "require_serial": false
