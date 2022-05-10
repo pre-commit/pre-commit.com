@@ -57,16 +57,16 @@ pre-commit --version
 
 ```yaml
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.3.0
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
--   repo: https://github.com/psf/black
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/psf/black
     rev: 21.12b0
     hooks:
-    -   id: black
+      - id: black
 ```
 
 ### 3. Install the git hook scripts

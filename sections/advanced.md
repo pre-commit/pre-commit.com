@@ -39,9 +39,9 @@ prevent the commit from happening (use `pre-commit` instead).  Since
 `post-commit` does not operate on files, any hooks must set `always_run`:
 
 ```yaml
--   repo: local
+  - repo: local
     hooks:
-    -   id: post-commit-local
+      - id: post-commit-local
         name: post commit
         always_run: true
         stages: [post-commit]
@@ -170,9 +170,9 @@ or set working dir metadata properties. Since `post-checkout` doesn't operate
 on files, any hooks must set `always_run`:
 
 ```yaml
--   repo: local
+  - repo: local
     hooks:
-    -   id: post-checkout-local
+      - id: post-checkout-local
         name: Post checkout
         always_run: true
         stages: [post-checkout]
@@ -241,10 +241,10 @@ arguments by specifying the [`args`](#config-args) property in your `.pre-commit
 as follows:
 
 ```yaml
--   repo: https://github.com/PyCQA/flake8
+  - repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:
-    -   id: flake8
+      - id: flake8
         args: [--max-line-length=131]
 ```
 
@@ -258,10 +258,10 @@ the [`args`](#config-args) value and then a list of staged files.
 For example, assuming a `.pre-commit-config.yaml`:
 
 ```yaml
--   repo: https://github.com/path/to/your/hook/repo
+  - repo: https://github.com/path/to/your/hook/repo
     rev: badf00ddeadbeef
     hooks:
-    -   id: my-hook-script-id
+      - id: my-hook-script-id
         args: [--myarg1=1, --myarg1=2]
 ```
 
@@ -284,9 +284,9 @@ instead put your arguments directly in the hook [`entry`](#hooks-entry).
 For example:
 
 ```yaml
--   repo: local
+  - repo: local
     hooks:
-    -   id: check-requirements
+      - id: check-requirements
         name: check requirements files
         language: system
         entry: python -m scripts.check_requirements --compare
@@ -318,20 +318,20 @@ as specified under [Creating new hooks](#new-hooks).
 Here's an example configuration with a few `local` hooks:
 
 ```yaml
--   repo: local
+  - repo: local
     hooks:
-    -   id: pylint
+      - id: pylint
         name: pylint
         entry: pylint
         language: system
         types: [python]
         require_serial: true
-    -   id: check-x
+      - id: check-x
         name: Check X
         entry: ./bin/check-x.sh
         language: script
         files: \.x$
-    -   id: scss-lint
+      - id: scss-lint
         name: scss-lint
         entry: scss-lint
         language: ruby
@@ -348,9 +348,9 @@ _new in 1.4.0_
 pre-commit configuration itself.  These can be enabled using `repo: meta`.
 
 ```yaml
--   repo: meta
+  - repo: meta
     hooks:
-    -   id: ...
+      - id: ...
 ```
 
 The currently available `meta` hooks:
@@ -505,7 +505,7 @@ the `types` setting.  Here's an example of using `check-json` against non-json
 files:
 
 ```yaml
-    -   id: check-json
+      - id: check-json
         types: [file]  # override `types: [json]`
         files: \.(json|myext)$
 ```
@@ -532,7 +532,7 @@ the `(?x)` regex flag.
 
 ```yaml
 # ...
-    -   id: my-hook
+      - id: my-hook
         exclude: |
             (?x)^(
                 path/to/file1.py|
@@ -551,10 +551,10 @@ don’t want the default system installed version so you can override this on a
 per-hook basis by setting the [`language_version`](#config-language_version).
 
 ```yaml
--   repo: https://github.com/pre-commit/mirrors-scss-lint
+  - repo: https://github.com/pre-commit/mirrors-scss-lint
     rev: v0.54.0
     hooks:
-    -   id: scss-lint
+      - id: scss-lint
         language_version: 2.1.5
 ```
 

@@ -1,55 +1,56 @@
+---
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.2.0
     hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-yaml
-    -   id: debug-statements
-    -   id: double-quote-string-fixer
-    -   id: name-tests-test
-    -   id: requirements-txt-fixer
--   repo: https://github.com/asottile/reorder_python_imports
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: debug-statements
+      - id: double-quote-string-fixer
+      - id: name-tests-test
+      - id: requirements-txt-fixer
+  - repo: https://github.com/asottile/reorder_python_imports
     rev: v3.1.0
     hooks:
-    -   id: reorder-python-imports
-        args: [--py37-plus, --add-import, 'from __future__ import annotations']
+      - id: reorder-python-imports
+        args: [--py37-plus, --add-import, from __future__ import annotations]
         exclude: ^install-local.py$
-    -   id: reorder-python-imports
+      - id: reorder-python-imports
         files: ^install-local.py$
--   repo: https://github.com/asottile/add-trailing-comma
+  - repo: https://github.com/asottile/add-trailing-comma
     rev: v2.2.3
     hooks:
-    -   id: add-trailing-comma
+      - id: add-trailing-comma
         args: [--py36-plus]
--   repo: https://github.com/asottile/pyupgrade
+  - repo: https://github.com/asottile/pyupgrade
     rev: v2.32.1
     hooks:
-    -   id: pyupgrade
+      - id: pyupgrade
         args: [--py37-plus]
         exclude: ^install-local.py$
--   repo: https://github.com/pre-commit/mirrors-autopep8
+  - repo: https://github.com/pre-commit/mirrors-autopep8
     rev: v1.6.0
     hooks:
-    -   id: autopep8
--   repo: https://github.com/PyCQA/flake8
+      - id: autopep8
+  - repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:
-    -   id: flake8
--   repo: https://github.com/pre-commit/mirrors-mypy
+      - id: flake8
+  - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v0.950
     hooks:
-    -   id: mypy
+      - id: mypy
         additional_dependencies: [types-all]
--   repo: https://github.com/pre-commit/mirrors-eslint
+  - repo: https://github.com/pre-commit/mirrors-eslint
     rev: v8.15.0
     hooks:
-    -   id: eslint
+      - id: eslint
         args: [--fix]
--   repo: local
+  - repo: local
     hooks:
-    -   id: no-github-dot-git
+      - id: no-github-dot-git
         name: No need for .git for github/gitlab urls
-        entry: '(github|gitlab).*\.git'
+        entry: (github|gitlab).*\.git
         files: all-repos.yaml
         language: pygrep

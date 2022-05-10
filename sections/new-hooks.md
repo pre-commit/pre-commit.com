@@ -88,7 +88,7 @@ file that tells pre-commit:
 For example:
 
 ```yaml
--   id: trailing-whitespace
+  - id: trailing-whitespace
     name: Trim Trailing Whitespace
     description: This hook trims trailing whitespace.
     entry: trailing-whitespace-fixer
@@ -259,16 +259,16 @@ entrypoint you can specify it as well in your [`entry`](#hooks-entry).
 For example:
 
 ```yaml
--   id: dockerfile-provides-entrypoint
+  - id: dockerfile-provides-entrypoint
     name: ...
     language: docker_image
     entry: my.registry.example.com/docker-image-1:latest
--   id: dockerfile-no-entrypoint-1
+  - id: dockerfile-no-entrypoint-1
     name: ...
     language: docker_image
     entry: --entrypoint my-exe my.registry.example.com/docker-image-2:latest
 # Alternative equivalent solution
--   id: dockerfile-no-entrypoint-2
+  - id: dockerfile-no-entrypoint-2
     name: ...
     language: docker_image
     entry: my.registry.example.com/docker-image-3:latest my-exe
@@ -302,9 +302,9 @@ Here's an example which prevents any file except those ending with `.rst` from
 being added to the `changelog` directory:
 
 ```yaml
--   repo: local
+  - repo: local
     hooks:
-    -   id: changelogs-rst
+      - id: changelogs-rst
         name: changelogs must be rst
         entry: changelog filenames must end in .rst
         language: fail

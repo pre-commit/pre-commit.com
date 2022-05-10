@@ -97,10 +97,10 @@ A sample repository:
 
 ```yaml
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v1.2.3
     hooks:
-    -   ...
+      - ...
 ```
 
 ## .pre-commit-config.yaml - hooks
@@ -175,10 +175,10 @@ One example of a complete configuration:
 
 ```yaml
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v1.2.3
     hooks:
-    -   id: trailing-whitespace
+      - id: trailing-whitespace
 ```
 
 This configuration says to download the pre-commit-hooks project and run its
