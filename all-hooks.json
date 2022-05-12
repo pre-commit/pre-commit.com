@@ -6253,7 +6253,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.27.1"
+                "dprint@0.28.0"
             ],
             "minimum_pre_commit_version": "0"
         }
