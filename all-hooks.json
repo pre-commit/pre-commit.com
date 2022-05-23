@@ -4155,11 +4155,17 @@
             "id": "commitizen",
             "name": "commitizen check",
             "description": "Check whether the commit message follows commiting rules",
-            "entry": "cz check --commit-msg-file",
+            "entry": "cz check",
+            "args": [
+                "--allow-abort",
+                "--commit-msg-file"
+            ],
+            "stages": [
+                "commit-msg"
+            ],
             "language": "python",
             "language_version": "python3",
-            "require_serial": true,
-            "minimum_pre_commit_version": "0.15.4"
+            "minimum_pre_commit_version": "1.4.3"
         }
     ],
     "https://github.com/gherynos/pre-commit-java": [
@@ -6253,7 +6259,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.29.0"
+                "dprint@0.29.1"
             ],
             "minimum_pre_commit_version": "0"
         }
