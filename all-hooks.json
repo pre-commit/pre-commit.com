@@ -3016,7 +3016,8 @@
             "language": "python",
             "types": [
                 "rst"
-            ]
+            ],
+            "require_serial": true
         }
     ],
     "https://github.com/myint/autoflake": [
