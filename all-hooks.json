@@ -411,7 +411,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.16.0"
+                "eslint@8.17.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -6518,6 +6518,14 @@
             "id": "check-stack-names",
             "name": "check stack names",
             "entry": "check-stack-names",
+            "language": "python",
+            "files": "^config/.*(.yaml|.yml|.json)$",
+            "exclude": "^config/.*config(.yaml|.yml|.json)$"
+        },
+        {
+            "id": "check-stack-tag-values",
+            "name": "check stack tag values",
+            "entry": "check-stack-tag-values",
             "language": "python",
             "files": "^config/.*(.yaml|.yml|.json)$",
             "exclude": "^config/.*config(.yaml|.yml|.json)$"
