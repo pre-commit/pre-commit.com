@@ -51,7 +51,7 @@ file that tells pre-commit:
         hooks if this hook fails.  _new in 2.16.0_.
 =r=
     =c= [`verbose`](_#hooks-verbose)
-    =c= (optional) if `true`, forces the output of the hook to be printed even when
+    =c= (optional: default `false`) if `true`, forces the output of the hook to be printed even when
         the hook passes.  _new in 1.6.0_.
 =r=
     =c= [`pass_filenames`](_#hooks-pass_filenames)
