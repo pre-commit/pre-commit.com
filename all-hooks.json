@@ -345,10 +345,10 @@
     ],
     "https://github.com/pre-commit/mirrors-clang-format": [
         {
-            "id": "clang-format",
+            "id": "clang-format -i",
             "name": "clang-format",
             "description": "",
-            "entry": "clang-format",
+            "entry": "clang-format -i",
             "language": "python",
             "types_or": [
                 "c++",
@@ -362,8 +362,7 @@
                 "proto"
             ],
             "args": [
-                "-style=file",
-                "-i"
+                "-style=file"
             ],
             "require_serial": false,
             "additional_dependencies": [],
