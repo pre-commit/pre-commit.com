@@ -5,7 +5,12 @@
             "name": "check for added large files",
             "description": "prevents giant files from being committed.",
             "entry": "check-added-large-files",
-            "language": "python"
+            "language": "python",
+            "stages": [
+                "commit",
+                "push",
+                "manual"
+            ]
         },
         {
             "id": "check-ast",
@@ -281,7 +286,7 @@
         {
             "id": "name-tests-test",
             "name": "python tests naming",
-            "description": "this verifies that test files are named correctly.",
+            "description": "verifies that test files are named correctly.",
             "entry": "name-tests-test",
             "language": "python",
             "files": "(^|/)tests/.+\\.py$"
