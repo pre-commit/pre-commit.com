@@ -6209,7 +6209,7 @@
             "name": "frigate",
             "entry": "frigate hook",
             "description": "Run frigate to generate documentation for your Helm charts.",
-            "language": "python",
+            "language": "conda",
             "pass_filenames": false,
             "always_run": true
         }
@@ -6388,6 +6388,7 @@
                 "commit"
             ],
             "args": [
+                "secret",
                 "scan",
                 "pre-commit"
             ],
@@ -6406,6 +6407,7 @@
             "entry": "ggshield",
             "description": "Runs ggshield to detect hardcoded secrets, security vulnerabilities and policy breaks.",
             "args": [
+                "secret",
                 "scan",
                 "pre-push"
             ],
