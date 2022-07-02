@@ -415,7 +415,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.18.0"
+                "eslint@8.19.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -4299,7 +4299,7 @@
         {
             "id": "pretty-format-ini",
             "name": "Pretty format INI",
-            "description": "This hook sets a standard for formatting INI  files.",
+            "description": "This hook sets a standard for formatting INI files.",
             "entry": "pretty-format-ini",
             "language": "python",
             "types": [
@@ -6275,7 +6275,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.30.0"
+                "dprint@0.30.2"
             ],
             "minimum_pre_commit_version": "0"
         }
