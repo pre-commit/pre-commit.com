@@ -104,7 +104,6 @@
 - https://github.com/FelixSeptem/pre-commit-golang
 - https://gitlab.com/daverona/pre-commit/cpp
 - https://github.com/codingjoe/relint
-- https://github.com/cpendery/asort
 - https://github.com/nix-community/nixpkgs-fmt
 - https://github.com/d6e/beancount-check
 - https://gitlab.com/iamlikeme/nbhooks
@@ -220,3 +219,4 @@
 - https://github.com/dannysepler/rm_unneeded_f_str
 - https://github.com/cmhughes/latexindent.pl
 - https://github.com/sirwart/ripsecrets
+- https://github.com/cpendery/asort
