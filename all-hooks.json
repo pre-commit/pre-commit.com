@@ -438,6 +438,7 @@
         {
             "id": "jshint",
             "name": "jshint",
+            "description": "",
             "entry": "jshint",
             "language": "node",
             "types": [
@@ -446,7 +447,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "jshint@2.13.4"
+                "jshint@2.13.5"
             ],
             "minimum_pre_commit_version": "0"
         }
