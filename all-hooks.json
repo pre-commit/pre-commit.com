@@ -5006,7 +5006,7 @@
             "id": "nbqa-pydocstyle",
             "name": "nbqa-pydocstyle",
             "description": "Run 'pydocstyle' on a Jupyter Notebook",
-            "entry": "nbqa pydocstyle -i",
+            "entry": "nbqa pydocstyle",
             "language": "python",
             "require_serial": true,
             "types": [
