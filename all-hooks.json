@@ -6628,5 +6628,25 @@
             "require_serial": true,
             "minimum_pre_commit_version": "0"
         }
+    ],
+    "https://github.com/bagerard/graphviz-dot-hooks": [
+        {
+            "id": "check-dot",
+            "name": "check dot",
+            "description": "checks dot files for parseable syntax.",
+            "entry": "check-dot",
+            "language": "python",
+            "files": ".dot$",
+            "pass_filenames": true
+        },
+        {
+            "id": "render-dot",
+            "name": "render dot",
+            "description": "render all .dot to .dot.png",
+            "entry": "render-dot",
+            "language": "python",
+            "files": ".dot$",
+            "pass_filenames": true
+        }
     ]
 }
