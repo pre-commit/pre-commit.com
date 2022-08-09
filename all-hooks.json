@@ -6648,5 +6648,19 @@
             "files": ".dot$",
             "pass_filenames": true
         }
+    ],
+    "https://github.com/omnilib/ufmt": [
+        {
+            "id": "ufmt",
+            "name": "Format files with \u00b5fmt",
+            "description": "Safe, atomic formatting with black and \u00b5sort",
+            "language": "python",
+            "types_or": [
+                "python",
+                "pyi"
+            ],
+            "entry": "ufmt format",
+            "require_serial": true
+        }
     ]
 }
