@@ -335,6 +335,7 @@
         {
             "id": "autopep8",
             "name": "autopep8",
+            "description": "",
             "entry": "autopep8",
             "language": "python",
             "types": [
