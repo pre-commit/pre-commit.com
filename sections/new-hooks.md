@@ -6,7 +6,7 @@ want.
 
 The hook must exit nonzero on failure or modify files.
 
-A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml
+A git repo containing pre-commit plugins must contain a `.pre-commit-hooks.yaml`
 file that tells pre-commit:
 
 ```table
@@ -142,26 +142,28 @@ Hello from foo hook!
 
 ## Supported languages
 
-- [conda](#conda)
-- [coursier](#coursier)
-- [dart](#dart)
-- [docker](#docker)
-- [docker_image](#docker_image)
-- [dotnet](#dotnet)
-- [fail](#fail)
-- [golang](#golang)
-- [lua](#lua)
-- [node](#node)
-- [perl](#perl)
-- [python](#python)
-- [python_venv](#python_venv)
-- [r](#r)
-- [ruby](#ruby)
-- [rust](#rust)
-- [swift](#swift)
-- [pygrep](#pygrep)
-- [script](#script)
-- [system](#system)
+- [Developing hooks interactively](#developing-hooks-interactively)
+- [Supported languages](#supported-languages)
+  - [conda](#conda)
+  - [coursier](#coursier)
+  - [dart](#dart)
+  - [docker](#docker)
+  - [docker_image](#docker_image)
+  - [dotnet](#dotnet)
+  - [fail](#fail)
+  - [golang](#golang)
+  - [lua](#lua)
+  - [node](#node)
+  - [perl](#perl)
+  - [python](#python)
+  - [python_venv](#python_venv)
+  - [r](#r)
+  - [ruby](#ruby)
+  - [rust](#rust)
+  - [swift](#swift)
+  - [pygrep](#pygrep)
+  - [script](#script)
+  - [system](#system)
 
 ### conda
 
