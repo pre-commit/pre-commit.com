@@ -1404,6 +1404,14 @@
             "files": "\\.go$",
             "language": "script",
             "description": "Runs `golangci-lint`, install https://github.com/golangci/golangci-lint"
+        },
+        {
+            "id": "go-ruleguard",
+            "name": "go-ruleguard",
+            "entry": "run-go-ruleguard.sh",
+            "files": "\\.go$",
+            "language": "script",
+            "description": "Runs `go-ruleguard`, install https://github.com/quasilyte/go-ruleguard"
         }
     ],
     "https://github.com/dnephin/pre-commit-golang": [
