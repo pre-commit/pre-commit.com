@@ -1803,12 +1803,13 @@
             "id": "ansible-lint",
             "name": "Ansible-lint",
             "description": "This hook runs ansible-lint.",
-            "entry": "ansible-lint --force-color",
+            "entry": "python3 -m ansiblelint -v --force-color",
             "language": "python",
             "pass_filenames": false,
             "always_run": true,
             "additional_dependencies": [
-                ".[community]"
+                ".",
+                "ansible-core>=2.13.3"
             ]
         }
     ],
