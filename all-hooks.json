@@ -2004,6 +2004,7 @@
         {
             "id": "gitlint",
             "name": "gitlint",
+            "description": "Checks your git commit messages for style.",
             "language": "python",
             "additional_dependencies": [
                 "./gitlint-core[trusted-deps]"
@@ -3044,7 +3045,13 @@
             "types": [
                 "python"
             ],
-            "require_serial": true
+            "require_serial": true,
+            "args": [
+                "--in-place",
+                "--expand-star-imports",
+                "--remove-duplicate-keys",
+                "--remove-unused-variables"
+            ]
         }
     ],
     "https://github.com/lorenzwalthert/precommit": [
