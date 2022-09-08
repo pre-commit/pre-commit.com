@@ -15,9 +15,12 @@ _new in 2.8.0_: `pre-commit` now exits with more specific codes:
 
 Auto-update pre-commit config to the latest repos' versions.
 
+By default, pre-commit will choose the latest tag on the repository's default
+branch, preferentially picking a tag that contains a `.` in the case of ties.
+
 Options:
 
-- `--bleeding-edge`: update to the bleeding edge of the default branch instead
+- `--bleeding-edge`: update to the latest commit of the default branch instead
   of the latest tagged version (the default behaviour).
 - `--freeze`: _new in 1.21.0_: Store "frozen" hashes in [`rev`](#repos-rev)
   instead of tag names.
@@ -66,6 +69,16 @@ Updating https://github.com/asottile/pyupgrade ... updating v1.25.0 -> v1.25.2 (
 $ grep rev: .pre-commit-config.yaml
     rev: 0161422b4e09b47536ea13f49e786eb3616fe0d7  # frozen: v2.4.0
     rev: 34a269fd7650d264e4de7603157c10d0a9bb8211  # frozen: v1.25.2
+```
+
+You can check what the latest tag on the default branch of any repository is,
+you can do the following (using the pre-commit-hooks repository as an example):
+
+```console
+$ git clone --quiet https://github.com/pre-commit/pre-commit-hooks
+$ cd pre-commit-hooks
+$ git describe --tags --abbrev=0
+v2.4.0
 ```
 
 _new in 2.18.0_: pre-commit will preferentially pick tags containing a `.` if
