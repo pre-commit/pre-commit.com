@@ -5907,18 +5907,6 @@
             ]
         }
     ],
-    "https://github.com/redwarp/optimize-png-hooks": [
-        {
-            "id": "optimize-png",
-            "name": "Optimize PNG",
-            "description": "Optimizes PNG files",
-            "entry": "optimize_png",
-            "language": "rust",
-            "types": [
-                "png"
-            ]
-        }
-    ],
     "https://github.com/nbyl/pre-commit-license-checks": [
         {
             "id": "license-check-configuration-lint",
