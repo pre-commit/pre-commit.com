@@ -6318,6 +6318,30 @@
             ]
         }
     ],
+    "https://github.com/scop/pre-commit-perlcritic": [
+        {
+            "id": "perlcritic",
+            "name": "perlcritic",
+            "description": "Perl source code critic",
+            "language": "perl",
+            "additional_dependencies": [
+                "PETDANCE/Perl-Critic-1.140.tar.gz"
+            ],
+            "entry": "perlcritic",
+            "args": [
+                "--quiet"
+            ],
+            "types": [
+                "perl"
+            ],
+            "stages": [
+                "commit",
+                "merge-commit",
+                "push",
+                "manual"
+            ]
+        }
+    ],
     "https://github.com/BlankSpruce/gersemi": [
         {
             "id": "gersemi",
