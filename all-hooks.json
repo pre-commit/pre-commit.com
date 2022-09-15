@@ -1904,46 +1904,6 @@
             "pass_filenames": false
         }
     ],
-    "https://github.com/kintoandar/pre-commit": [
-        {
-            "id": "terraform_fmt",
-            "name": "terraform_fmt",
-            "description": "Formats terraform scripts into the correct checkstyle",
-            "entry": "bin/tf_fmt.sh",
-            "language": "script",
-            "types": [
-                "terraform"
-            ],
-            "exclude": "\\.terraform\\/.*$"
-        },
-        {
-            "id": "terraform_validate",
-            "name": "terraform_validate",
-            "description": "Validates terraform scripts syntax",
-            "entry": "bin/tf_validate.sh",
-            "language": "script",
-            "types": [
-                "terraform"
-            ],
-            "exclude": "\\.terraform\\/.*$"
-        },
-        {
-            "id": "prometheus_check_rules",
-            "name": "prometheus_check_rules",
-            "description": "Validates prometheus rules",
-            "entry": "bin/prom_rules.sh",
-            "language": "script",
-            "files": "\\.rules$"
-        },
-        {
-            "id": "prometheus_check_config",
-            "name": "prometheus_check_config",
-            "description": "Validates prometheus configuration",
-            "entry": "bin/prom_config.sh",
-            "language": "script",
-            "files": "prometheus.yml$"
-        }
-    ],
     "https://github.com/awebdeveloper/pre-commit-stylelint": [
         {
             "id": "stylelint",
