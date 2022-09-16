@@ -82,6 +82,9 @@ def virtualenv(path):
 
 def main():
     # type: (...) -> int
+    print('*** install-local.py: this script is deprecated ***')
+    print('=> https://pre-commit.com/#install')
+
     venv_path = os.path.join(os.environ['HOME'], '.pre-commit-venv')
     bin_dir = os.path.join(os.environ['HOME'], 'bin')
     script_src = os.path.join(venv_path, 'bin', 'pre-commit')
