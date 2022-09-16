@@ -2332,6 +2332,52 @@
             "minimum_pre_commit_version": "2.9.2"
         }
     ],
+    "https://github.com/PyCQA/docformatter": [
+        {
+            "id": "docformatter",
+            "name": "docformatter",
+            "description": "Formats docstrings to follow PEP 257.",
+            "entry": "docformatter",
+            "args": [
+                "-i"
+            ],
+            "language": "python",
+            "types": [
+                "python"
+            ]
+        },
+        {
+            "id": "docformatter-venv",
+            "name": "docformatter-venv",
+            "description": "Formats docstrings to follow PEP 257. Uses python3 -m venv.",
+            "entry": "docformatter",
+            "args": [
+                "-i"
+            ],
+            "language": "python_venv",
+            "types": [
+                "python"
+            ]
+        }
+    ],
+    "https://github.com/PyCQA/autoflake": [
+        {
+            "id": "autoflake",
+            "name": "autoflake",
+            "entry": "autoflake",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "require_serial": true,
+            "args": [
+                "--in-place",
+                "--expand-star-imports",
+                "--remove-duplicate-keys",
+                "--remove-unused-variables"
+            ]
+        }
+    ],
     "https://github.com/miki725/importanize": [
         {
             "id": "importanize",
@@ -2956,35 +3002,7 @@
             "additional_dependencies": []
         }
     ],
-    "https://github.com/myint/docformatter": [
-        {
-            "id": "docformatter",
-            "name": "docformatter",
-            "description": "Formats docstrings to follow PEP 257.",
-            "entry": "docformatter",
-            "args": [
-                "-i"
-            ],
-            "language": "python",
-            "types": [
-                "python"
-            ]
-        },
-        {
-            "id": "docformatter-venv",
-            "name": "docformatter-venv",
-            "description": "Formats docstrings to follow PEP 257. Uses python3 -m venv.",
-            "entry": "docformatter",
-            "args": [
-                "-i"
-            ],
-            "language": "python_venv",
-            "types": [
-                "python"
-            ]
-        }
-    ],
-    "https://github.com/myint/rstcheck": [
+    "https://github.com/rstcheck/rstcheck": [
         {
             "id": "rstcheck",
             "name": "rstcheck",
@@ -2994,24 +3012,6 @@
                 "rst"
             ],
             "require_serial": true
-        }
-    ],
-    "https://github.com/myint/autoflake": [
-        {
-            "id": "autoflake",
-            "name": "autoflake",
-            "entry": "autoflake",
-            "language": "python",
-            "types": [
-                "python"
-            ],
-            "require_serial": true,
-            "args": [
-                "--in-place",
-                "--expand-star-imports",
-                "--remove-duplicate-keys",
-                "--remove-unused-variables"
-            ]
         }
     ],
     "https://github.com/lorenzwalthert/precommit": [
