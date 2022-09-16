@@ -24,10 +24,14 @@ def get_manifest(repo_path: str) -> tuple[bool, str, list[dict[str, Any]]]:
         manifest_path = os.path.join(repo_dir, '.pre-commit-hooks.yaml')
         # Validate the manifest just to make sure it's ok.
         manifest = load_manifest(manifest_path)
-        # hooks should not set debugging `verbose: true` flag
         for hook in manifest:
+            # hooks should not set debugging `verbose: true` flag
             if hook['verbose']:
                 print(f'{repo_path} ({hook["id"]}) sets `verbose: true`')
+                return False, repo_path, []
+            # hooks should not set `fail-fast` breaking user expectations
+            if hook['fail_fast']:
+                print(f'{repo_path} ({hook["id"]}) sets `fail_fast: true`')
                 return False, repo_path, []
 
         with open(manifest_path) as f:
@@ -40,7 +44,7 @@ def main() -> int:
 
     hooks_json = {}
     with multiprocessing.Pool(4) as pool:
-        for ok, path, manifest in pool.map(get_manifest, repos):
+        for ok, path, manifest in pool.imap(get_manifest, repos):
             if not ok:
                 return 1
             hooks_json[path] = manifest
