@@ -77,6 +77,8 @@
 - https://github.com/PyCQA/doc8
 - https://github.com/PyCQA/prospector
 - https://github.com/PyCQA/isort
+- https://github.com/PyCQA/docformatter
+- https://github.com/PyCQA/autoflake
 - https://github.com/miki725/importanize
 - https://github.com/motet-a/jinjalint
 - https://github.com/milin/giticket
@@ -96,9 +98,7 @@
 - https://gitlab.com/smop/pre-commit-hooks
 - https://github.com/seddonym/import-linter
 - https://github.com/marco-c/taskcluster_yml_validator
-- https://github.com/myint/docformatter
-- https://github.com/myint/rstcheck
-- https://github.com/myint/autoflake
+- https://github.com/rstcheck/rstcheck
 - https://github.com/lorenzwalthert/precommit
 - https://github.com/FelixSeptem/pre-commit-golang
 - https://gitlab.com/daverona/pre-commit/cpp
