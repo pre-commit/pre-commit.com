@@ -6322,7 +6322,7 @@
         {
             "id": "perlcritic",
             "name": "perlcritic",
-            "description": "Perl source code critic",
+            "description": "Perl source code critic (native install)",
             "language": "perl",
             "additional_dependencies": [
                 "PETDANCE/Perl-Critic-1.140.tar.gz"
