@@ -4863,8 +4863,9 @@
             "entry": "nbqa",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ]
         },
         {
@@ -4874,8 +4875,9 @@
             "entry": "nbqa black",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "black"
@@ -4888,8 +4890,9 @@
             "entry": "nbqa pre_commit_hooks.check_ast",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "pre-commit-hooks"
@@ -4905,8 +4908,9 @@
             "entry": "nbqa flake8",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "flake8"
@@ -4919,8 +4923,9 @@
             "entry": "nbqa isort",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "isort"
@@ -4933,8 +4938,9 @@
             "entry": "nbqa mypy",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "mypy"
@@ -4947,8 +4953,9 @@
             "entry": "nbqa pylint",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "pylint"
@@ -4961,8 +4968,9 @@
             "entry": "nbqa pyupgrade",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "pyupgrade"
@@ -4975,8 +4983,9 @@
             "entry": "nbqa yapf --in-place",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "yapf"
@@ -4989,8 +4998,9 @@
             "entry": "nbqa autopep8 -i",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "autopep8"
@@ -5003,8 +5013,9 @@
             "entry": "nbqa pydocstyle",
             "language": "python",
             "require_serial": true,
-            "types": [
-                "jupyter"
+            "types_or": [
+                "jupyter",
+                "markdown"
             ],
             "additional_dependencies": [
                 "pydocstyle"
