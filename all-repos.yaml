@@ -2,7 +2,6 @@
 - https://github.com/pre-commit/pre-commit-hooks
 - https://github.com/pre-commit/mirrors-autopep8
 - https://github.com/pre-commit/mirrors-clang-format
-- https://github.com/pre-commit/mirrors-coffeelint
 - https://github.com/pre-commit/mirrors-csslint
 - https://github.com/pre-commit/mirrors-eslint
 - https://github.com/pre-commit/mirrors-fixmyjs
@@ -10,7 +9,6 @@
 - https://github.com/pre-commit/mirrors-mypy
 - https://github.com/pre-commit/mirrors-prettier
 - https://github.com/pre-commit/mirrors-puppet-lint
-- https://github.com/pre-commit/mirrors-ruby-lint
 - https://github.com/pre-commit/mirrors-scss-lint
 - https://github.com/pre-commit/mirrors-yapf
 - https://github.com/pre-commit/pygrep-hooks
