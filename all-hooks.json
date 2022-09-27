@@ -375,20 +375,6 @@
             "minimum_pre_commit_version": "2.9.2"
         }
     ],
-    "https://github.com/pre-commit/mirrors-coffeelint": [
-        {
-            "id": "coffeelint",
-            "name": "coffeelint",
-            "entry": "coffeelint",
-            "language": "node",
-            "files": "\\.(js|coffee)$",
-            "args": [],
-            "additional_dependencies": [
-                "coffeelint@2.1.0"
-            ],
-            "minimum_pre_commit_version": "0.7.0"
-        }
-    ],
     "https://github.com/pre-commit/mirrors-csslint": [
         {
             "id": "csslint",
@@ -502,19 +488,6 @@
             ],
             "args": [],
             "require_serial": false,
-            "additional_dependencies": []
-        }
-    ],
-    "https://github.com/pre-commit/mirrors-ruby-lint": [
-        {
-            "id": "ruby-lint",
-            "name": "ruby-lint",
-            "entry": "ruby-lint",
-            "language": "ruby",
-            "types": [
-                "ruby"
-            ],
-            "args": [],
             "additional_dependencies": []
         }
     ],
