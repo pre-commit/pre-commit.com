@@ -28,6 +28,12 @@ Using [homebrew](https://brew.sh):
 brew install pre-commit
 ```
 
+Using [MacPorts](https://ports.macports.org/port/pre-commit/):
+
+```bash
+sudo port install pre-commit
+```
+
 Using [conda](https://conda.io) (via [conda-forge](https://conda-forge.org)):
 
 ```bash
