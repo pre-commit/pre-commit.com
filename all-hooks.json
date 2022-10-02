@@ -5661,6 +5661,18 @@
             "minimum_pre_commit_version": "0.15.0"
         }
     ],
+    "https://github.com/MarcoGorelli/cython-lint": [
+        {
+            "id": "cython-lint",
+            "name": "cython-lint",
+            "description": "Lint Cython files",
+            "entry": "cython-lint",
+            "language": "python",
+            "types": [
+                "cython"
+            ]
+        }
+    ],
     "https://github.com/domdfcoding/flake2lint": [
         {
             "id": "flake2lint",
