@@ -169,6 +169,7 @@
 - https://github.com/guid-empty/flutter-dependency-validation-pre-commit
 - https://github.com/cpplint/cpplint
 - https://github.com/MarcoGorelli/absolufy-imports
+- https://github.com/MarcoGorelli/cython-lint
 - https://github.com/domdfcoding/flake2lint
 - https://github.com/dotnet/format
 - https://github.com/ashwin153/pre-commit-vagrant
