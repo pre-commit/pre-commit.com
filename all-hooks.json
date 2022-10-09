@@ -482,7 +482,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@3.0.0-alpha.0"
+                "prettier@3.0.0-alpha.1"
             ],
             "minimum_pre_commit_version": "0"
         }
