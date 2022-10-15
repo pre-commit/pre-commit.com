@@ -482,7 +482,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@3.0.0-alpha.1"
+                "prettier@3.0.0-alpha.2"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -5021,7 +5021,7 @@
         {
             "id": "gdformat",
             "name": "gdformat",
-            "description": "gdformat - formater for GDScript",
+            "description": "gdformat - formatter for GDScript",
             "entry": "gdformat",
             "language": "python",
             "language_version": "python3",
