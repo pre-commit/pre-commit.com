@@ -6712,5 +6712,22 @@
             ],
             "files": "(^|/)(openapi|swagger)\\.(json|ya?ml)$"
         }
+    ],
+    "https://github.com/nuztalgia/botstrap": [
+        {
+            "id": "detect-discord-bot-tokens",
+            "name": "forbid discord bot tokens",
+            "description": "Prevents unencrypted/plaintext Discord bot tokens from being committed.",
+            "language": "pygrep",
+            "entry": "(?a)[\\w-]{24,28}\\.[\\w-]{6}\\.[\\w-]{27,40}"
+        },
+        {
+            "id": "detect-encrypted-tokens",
+            "name": "forbid encrypted tokens",
+            "description": "Prevents files containing Botstrap-encrypted tokens from being committed.",
+            "language": "fail",
+            "entry": "*.key files contain encrypted token data and should be gitignored.",
+            "files": ".*\\.(?:content|fernet)\\.key$"
+        }
     ]
 }
