@@ -6719,7 +6719,7 @@
             "name": "detect discord bot tokens",
             "description": "Prevents unencrypted/plaintext Discord bot tokens from being committed.",
             "language": "pygrep",
-            "entry": "(?a)[\\w-]{24,28}\\.[\\w-]{6}\\.[\\w-]{27,40}"
+            "entry": "(?a)[\\w-]{24,}\\.[\\w-]{6}\\.[\\w-]{27,}"
         },
         {
             "id": "detect-encrypted-tokens",
