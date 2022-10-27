@@ -2189,9 +2189,26 @@
         {
             "id": "cfn-python-lint",
             "name": "AWS CloudFormation Linter",
+            "description": "cfn-lint is a tool for finding issues with CloudFormation templates",
             "entry": "cfn-lint",
             "language": "python",
             "files": "\\.(json|yaml|yml)$"
+        },
+        {
+            "id": "cfn-lint",
+            "name": "AWS CloudFormation Linter",
+            "description": "cfn-lint is a tool for finding issues with CloudFormation templates",
+            "entry": "cfn-lint",
+            "language": "python",
+            "files": "\\.(json|yaml|yml)$"
+        },
+        {
+            "id": "cfn-lint-rc",
+            "name": "AWS CloudFormation Linter",
+            "description": "cfn-lint is a tool for finding issues with CloudFormation templates",
+            "entry": "cfn-lint",
+            "language": "python",
+            "pass_filenames": false
         }
     ],
     "https://github.com/thoughtworks/talisman": [
