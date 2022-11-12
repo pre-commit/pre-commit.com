@@ -6,7 +6,7 @@ want.
 
 The hook must exit nonzero on failure or modify files.
 
-A git repo containing pre-commit plugins must contain a .pre-commit-hooks.yaml
+A git repo containing pre-commit plugins must contain a `.pre-commit-hooks.yaml`
 file that tells pre-commit:
 
 ```table
