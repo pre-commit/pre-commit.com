@@ -444,7 +444,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "jshint@2.13.5"
+                "jshint@2.13.6"
             ],
             "minimum_pre_commit_version": "0"
         }
