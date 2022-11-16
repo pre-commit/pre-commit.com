@@ -1880,15 +1880,15 @@ https://pypi.python.org/pypi/beautysh
     <ul data-repo="https://github.com/lorenzwalthert/precommit">
             <li data-id="roxygenize" data-types="">
                 <code>roxygenize</code>
-                    - run roxygen2::roxygenize()
+                    - run `roxygen2::roxygenize()`
             </li>
             <li data-id="use-tidy-description" data-types="">
                 <code>use-tidy-description</code>
-                    - run usethis::use_tidy_description()
+                    - run `usethis::use_tidy_description()`
             </li>
             <li data-id="style-files" data-types="">
                 <code>style-files</code>
-                    - style files with styler
+                    - style files with {styler}
             </li>
             <li data-id="no-browser-statement" data-types="">
                 <code>no-browser-statement</code>
@@ -1904,23 +1904,27 @@ https://pypi.python.org/pypi/beautysh
             </li>
             <li data-id="readme-rmd-rendered" data-types="">
                 <code>readme-rmd-rendered</code>
-                    - make sure README.Rmd hasn&#39;t been edited more recently than README.md
+                    - make sure README.Rmd hasn&#39;t been edited more recently than `README.md`
             </li>
             <li data-id="codemeta-description-updated" data-types="">
                 <code>codemeta-description-updated</code>
-                    - make sure codemeta.json is in sync with DESCRIPTION. It should be run after use-tidy-description.
+                    - make sure `codemeta.json` is in sync with `DESCRIPTION`. It should be run after use-tidy-description
             </li>
             <li data-id="spell-check" data-types="">
                 <code>spell-check</code>
-                    - perform a spell check with spelling::spell_check_files()
+                    - perform a spell check with `spelling::spell_check_files()`
             </li>
             <li data-id="deps-in-desc" data-types="">
                 <code>deps-in-desc</code>
-                    - Check if dependencies that can be parsed from code are in DESCRIPTION.
+                    - Check if dependencies that can be parsed from code are in `DESCRIPTION`
             </li>
             <li data-id="lintr" data-types="">
                 <code>lintr</code>
-                    - check if a .R file is lint free (using lintr)
+                    - check if a `.R` file is lint free (using {lintr})
+            </li>
+            <li data-id="pkgdown" data-types="">
+                <code>pkgdown</code>
+                    - check if your {pkgdown} config file has the correct entries for references and articles
             </li>
     </ul>
     <h3 data-repo="https://github.com/FelixSeptem/pre-commit-golang">
