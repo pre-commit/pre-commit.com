@@ -150,7 +150,7 @@ Some example useful invocations:
    environments.
 
 _new in 2.18.0_: `pre-commit install` will now install hooks from
-[`default_install_hook_types`](#top_level-default_language_version) if
+[`default_install_hook_types`](#top_level-default_install_hook_types) if
 `--hook-type` is not specified on the command line.
 
 ## pre-commit install-hooks [options] #pre-commit-install-hooks
