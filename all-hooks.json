@@ -1514,7 +1514,7 @@
             "id": "go-mod-tidy",
             "name": "go-mod-tidy",
             "entry": "run-go-mod-tidy.sh",
-            "files": "\\.go$",
+            "pass_filenames": false,
             "language": "script",
             "description": "Runs `go mod tidy -v`, requires golang"
         },
@@ -6328,7 +6328,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.32.2"
+                "dprint@0.33.0"
             ],
             "minimum_pre_commit_version": "0"
         }
