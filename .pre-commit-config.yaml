@@ -37,12 +37,12 @@ repos:
     hooks:
     -   id: flake8
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.990
+    rev: v0.991
     hooks:
     -   id: mypy
         additional_dependencies: [types-all]
 -   repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.27.0
+    rev: v8.28.0
     hooks:
     -   id: eslint
         args: [--fix]
