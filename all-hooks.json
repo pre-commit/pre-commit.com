@@ -6774,5 +6774,52 @@
             "entry": "*.key files contain encrypted token data and should be gitignored.",
             "files": ".*\\.(?:content|fernet)\\.key$"
         }
+    ],
+    "https://gitlab.com/adam-moss/pre-commit-trailer": [
+        {
+            "id": "add-pre-commit-config-trailer",
+            "stages": [
+                "commit-msg"
+            ],
+            "language": "script",
+            "name": "add pre-commit-config trailer",
+            "description": "add a commit message trailer indicating pre-commit has been used",
+            "entry": "src/pre_commit_trailer/add-pre-commit-config-trailer.sh"
+        },
+        {
+            "id": "add-pre-commit-user-skipped-trailer",
+            "stages": [
+                "commit-msg"
+            ],
+            "language": "script",
+            "name": "add pre-commit-user-skipped trailer",
+            "description": "add a commit message trailer indicating pre-commit hooks skipped",
+            "entry": "src/pre_commit_trailer/add-pre-commit-user-skipped-trailer.sh"
+        }
+    ],
+    "https://gitlab.com/adam-moss/pre-commit-ssh-git-signing-key": [
+        {
+            "id": "add-ssh-git-signing-key",
+            "stages": [
+                "commit-msg"
+            ],
+            "language": "script",
+            "name": "add ssh git signing key",
+            "description": "add the configured git signing key to the ssh-agent if it isn't already present",
+            "entry": "src/pre_commit_ssh_git_signing_key/add-ssh-git-signing-key.sh",
+            "pass_filenames": false
+        },
+        {
+            "id": "remove-ssh-git-signing-key",
+            "stages": [
+                "post-commit"
+            ],
+            "language": "script",
+            "name": "remove ssh git signing key",
+            "description": "remove the configured git signing key from the ssh-agent if it is still present",
+            "entry": "src/pre_commit_ssh_git_signing_key/remove-ssh-git-signing-key.sh",
+            "always_run": true,
+            "pass_filenames": false
+        }
     ]
 }
