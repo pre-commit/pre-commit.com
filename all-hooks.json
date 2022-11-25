@@ -5735,6 +5735,16 @@
             "types": [
                 "cython"
             ]
+        },
+        {
+            "id": "double-quote-cython-strings",
+            "name": "double-quote Cython strings",
+            "description": "replaces single-quoted strings with double-quoted strings.",
+            "entry": "double-quote-cython-strings",
+            "language": "python",
+            "types": [
+                "cython"
+            ]
         }
     ],
     "https://github.com/domdfcoding/flake2lint": [
