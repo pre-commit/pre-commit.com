@@ -6831,5 +6831,21 @@
             "always_run": true,
             "pass_filenames": false
         }
+    ],
+    "https://github.com/charliermarsh/ruff-pre-commit": [
+        {
+            "id": "ruff",
+            "name": "ruff",
+            "description": "Run 'ruff' for extremely fast Python linting",
+            "entry": "ruff",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "args": [],
+            "require_serial": false,
+            "additional_dependencies": [],
+            "minimum_pre_commit_version": "0"
+        }
     ]
 }
