@@ -1,7 +1,5 @@
-#!/usr/bin/env python
-from __future__ import absolute_import
-from __future__ import print_function
-from __future__ import unicode_literals
+#!/usr/bin/env python3
+from __future__ import annotations
 
 import contextlib
 import hashlib
@@ -11,17 +9,8 @@ import shutil
 import subprocess
 import sys
 import tarfile
-
-import distutils.spawn
-
-
-if str is bytes:
-    from urllib import urlopen  # type: ignore
-else:
-    from urllib.request import urlopen
-
-if False:
-    from typing import Generator
+import urllib.request
+from typing import Generator
 
 
 TGZ = (
@@ -33,33 +22,30 @@ CHECKSUM = 'e88fdcb08b0ecb11da97868f463dd06275923f50d87f4b9c8b2fc0994eec40f4'
 PKG_PATH = '/tmp/.virtualenv-pkg'
 
 
-def clean(dirname):
-    # type: (str) -> None
+def clean(dirname: str) -> None:
     if os.path.exists(dirname):
         shutil.rmtree(dirname)
 
 
 @contextlib.contextmanager
-def clean_path():
-    # type: (...) -> Generator[None, None, None]
+def clean_path() -> Generator[None, None, None]:
     try:
         yield
     finally:
         clean(PKG_PATH)
 
 
-def virtualenv(path):
-    # type: (str) -> int
+def virtualenv(path: str) -> int:
     clean(PKG_PATH)
     clean(path)
 
-    print('Downloading ' + TGZ)
-    tar_bytes = urlopen(TGZ).read()
+    print(f'Downloading {TGZ}')
+    tar_bytes = urllib.request.urlopen(TGZ).read()
     checksum = hashlib.sha256(tar_bytes).hexdigest()
     if checksum != CHECKSUM:
         print(
-            'Checksums did not match. '
-            'Got {}, expected {}.'.format(checksum, CHECKSUM),
+            f'Checksums did not match. '
+            f'Got {checksum}, expected {CHECKSUM}.',
             file=sys.stderr,
         )
         return 1
@@ -80,8 +66,7 @@ def virtualenv(path):
         ))
 
 
-def main():
-    # type: (...) -> int
+def main() -> int:
     print('*** install-local.py: this script is deprecated ***')
     print('=> https://pre-commit.com/#install')
 
@@ -106,7 +91,7 @@ def main():
     ))
 
     print('*' * 79)
-    print('Installing pre-commit to {}'.format(script_dest))
+    print(f'Installing pre-commit to {script_dest}')
     print('*' * 79)
 
     if not os.path.exists(bin_dir):
@@ -118,8 +103,8 @@ def main():
 
     os.symlink(script_src, script_dest)
 
-    if not distutils.spawn.find_executable('pre-commit'):
-        print('It looks like {} is not on your path'.format(bin_dir))
+    if not shutil.which('pre-commit'):
+        print(f'It looks like {bin_dir} is not on your path')
         print('You may want to add it.')
         print('Often this does the trick: source ~/.profile')
 
