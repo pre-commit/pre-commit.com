@@ -220,9 +220,16 @@ to run at the stage defined through that option. For instance,
 to run at the `push` stage.
 
 Hooks can however be confined to a stage by setting the [`stages`](#config-stages)
-property in your `.pre-commit-config.yaml`.  The [`stages`](#config-stages) property
-is an array and can contain any of `commit`, `merge-commit`, `push`, `prepare-commit-msg`,
+property in your `.pre-commit-config.yaml`, and the corresponding [`stages`](#hook-stages)
+property in the hook's `.pre-commit-hooks.yaml` definition.  The `stages` properties
+are arrays and can contain any of `commit`, `merge-commit`, `push`, `prepare-commit-msg`,
 `commit-msg`, `post-checkout`, `post-commit`, `post-merge`, `post-rewrite`, and `manual`.
+It is useful to provide an appropriate set of stages out of the box in
+`.pre-commit-hooks.yaml` hook definitions to avoid unnecessary runs of hooks in
+stages where they do not and can not do anything useful.  For example, a
+reasonable setting for code formatter and the like hooks would be
+`stages: [commit, merge-commit, push, manual]`, and one for hooks that operate
+on commit messages could be `stages: [commit-msg, manual]`.
 
 If you do not want to have hooks installed by default on the stage passed
 during a `pre-commit install --hook-type ...`, please set the [`default_stages`](#top_level-default_stages)

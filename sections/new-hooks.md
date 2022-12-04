@@ -80,7 +80,7 @@ file that tells pre-commit:
     =c= [`stages`](_#hooks-stages)
     =c= (optional: default (all stages)) confines the hook to the `commit`, `merge-commit`,
         `push`, `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`,
-        `post-merge`, `post-rewrite`, or `manual` stage.  See
+        `post-merge`, `post-rewrite`, and/or `manual` stage(s).  See
         [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 
 ```
