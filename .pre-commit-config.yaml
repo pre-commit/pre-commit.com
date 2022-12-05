@@ -21,7 +21,7 @@ repos:
     -   id: add-trailing-comma
         args: [--py36-plus]
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v3.2.2
+    rev: v3.3.0
     hooks:
     -   id: pyupgrade
         args: [--py37-plus]
@@ -39,7 +39,7 @@ repos:
     -   id: mypy
         additional_dependencies: [types-all]
 -   repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.28.0
+    rev: v8.29.0
     hooks:
     -   id: eslint
         args: [--fix]
