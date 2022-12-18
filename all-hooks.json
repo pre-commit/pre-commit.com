@@ -6112,6 +6112,12 @@
             ],
             "types": [
                 "text"
+            ],
+            "stages": [
+                "commit",
+                "merge-commit",
+                "push",
+                "manual"
             ]
         },
         {
@@ -6125,6 +6131,12 @@
             ],
             "types": [
                 "text"
+            ],
+            "stages": [
+                "commit",
+                "merge-commit",
+                "push",
+                "manual"
             ]
         }
     ],
