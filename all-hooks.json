@@ -6873,5 +6873,15 @@
             "additional_dependencies": [],
             "minimum_pre_commit_version": "0"
         }
+    ],
+    "https://github.com/mrtazz/checkmake": [
+        {
+            "id": "checkmake",
+            "name": "Makefile linter/analyzer",
+            "entry": "checkmake",
+            "language": "golang",
+            "pass_filenames": true,
+            "files": "(?x)^(\n    (GNU)?[Mm]akefile|\n    .*\\.mk|\n    .*\\.make\n)$\n"
+        }
     ]
 }
