@@ -6121,6 +6121,25 @@
             ]
         },
         {
+            "id": "typos-docker",
+            "name": "typos",
+            "description": "Source code spell checker, Docker image",
+            "language": "docker",
+            "entry": "typos",
+            "args": [
+                "--write-changes"
+            ],
+            "types": [
+                "text"
+            ],
+            "stages": [
+                "commit",
+                "merge-commit",
+                "push",
+                "manual"
+            ]
+        },
+        {
             "id": "typos-src",
             "name": "typos",
             "description": "Source code spell checker, source install",
@@ -6349,7 +6368,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.34.0"
+                "dprint@0.34.1"
             ],
             "minimum_pre_commit_version": "0"
         }
