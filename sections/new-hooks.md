@@ -440,8 +440,9 @@ build _your_ hook repo), or the special syntax
 `cli:{package_name}:{package_version}` for a CLI dependency (built separately,
 with binaries made available for use by hooks).
 
-__Support:__ Rust hooks currently require a pre-existing Rust installation.  It
-has been tested on linux, Windows, and macOS.
+_new in 2.21.0_: rust now supports `language_version`.
+
+__Support:__ It has been tested on linux, Windows, and macOS.
 
 ### swift
 

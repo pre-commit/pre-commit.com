@@ -577,6 +577,7 @@ Valid values for specific languages are listed below:
       windows.
 - node: See [nodeenv](https://github.com/ekalinin/nodeenv#advanced).
 - ruby: See [ruby-build](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).
+- _new in 2.21.0_ rust: `language_version` is passed to `rustup`
 
 _new in 1.14.0_: you can now set [`default_language_version`](#top_level-default_language_version)
 at the [top level](#pre-commit-configyaml---top-level) in your configuration to
