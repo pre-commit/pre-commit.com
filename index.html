@@ -146,7 +146,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 2.20.0
+pre-commit 2.21.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration" class="text-decoration-none">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -674,8 +674,8 @@ pre-commit cache, not polluting your user-level Cargo installations).</p>
 build <em>your</em> hook repo), or the special syntax
 <code>cli:{package_name}:{package_version}</code> for a CLI dependency (built separately,
 with binaries made available for use by hooks).</p>
-<p><strong>Support:</strong> Rust hooks currently require a pre-existing Rust installation.  It
-has been tested on linux, Windows, and macOS.</p>
+<p><em>new in 2.21.0</em>: rust now supports <code>language_version</code>.</p>
+<p><strong>Support:</strong> It has been tested on linux, Windows, and macOS.</p>
 <h3 id="swift">    swift <small><a href="#swift" class="text-decoration-none">¶</a></small></h3> <p>The hook repository must have a <code>Package.swift</code>.  It will be installed via
 <code>swift build -c release</code>.  The <a href="#hooks-entry"><code>entry</code></a> should match an executable created by
 building the repository.</p>
@@ -1297,6 +1297,7 @@ windows.</li>
 </li>
 <li>node: See <a href="https://github.com/ekalinin/nodeenv#advanced">nodeenv</a>.</li>
 <li>ruby: See <a href="https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build">ruby-build</a>.</li>
+<li><em>new in 2.21.0</em> rust: <code>language_version</code> is passed to <code>rustup</code></li>
 </ul>
 <p><em>new in 1.14.0</em>: you can now set <a href="#top_level-default_language_version"><code>default_language_version</code></a>
 at the <a href="#pre-commit-configyaml---top-level">top level</a> in your configuration to
