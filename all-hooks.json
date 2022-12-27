@@ -6917,5 +6917,17 @@
             "pass_filenames": true,
             "files": "(?x)^(\n    (GNU)?[Mm]akefile|\n    .*\\.mk|\n    .*\\.make\n)$\n"
         }
+    ],
+    "https://github.com/jshwi/docsig": [
+        {
+            "id": "docsig",
+            "name": "docsig",
+            "description": "check signature params for proper documentation",
+            "entry": "docsig",
+            "language": "python",
+            "types": [
+                "python"
+            ]
+        }
     ]
 }
