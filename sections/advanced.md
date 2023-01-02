@@ -75,6 +75,9 @@ pre-commit installed at .git/hooks/post-merge
 
 The hook fires after a successful `git merge`.
 
+Environment variables:
+- `PRE_COMMIT_IS_SQUASH_MERGE`: whether it is a squash merge.
+
 [post-merge]: https://git-scm.com/docs/githooks#_post_merge
 
 ## pre-commit during clean merges
@@ -104,7 +107,7 @@ $ pre-commit install --hook-type pre-push
 pre-commit installed at .git/hooks/pre-push
 ```
 
-During a push, pre-commit will export the following environment variables:
+Environment variables:
 - `PRE_COMMIT_FROM_REF`: the remote revision that is being pushed to.
     - _new in 2.2.0_ prior to 2.2.0 the variable was `PRE_COMMIT_SOURCE`.
 - `PRE_COMMIT_TO_REF`: the local revision that is being pushed to the remote.
@@ -112,7 +115,11 @@ During a push, pre-commit will export the following environment variables:
 - `PRE_COMMIT_REMOTE_NAME`: _new in 2.0.0_ which remote is being pushed to
   (for example `origin`)
 - `PRE_COMMIT_REMOTE_URL`: _new in 2.0.0_ the url of the remote that is being
-  pushed to (for example `git@github.com:pre-commit/pre-commit`.
+  pushed to (for example `git@github.com:pre-commit/pre-commit`).
+- `PRE_COMMIT_REMOTE_BRANCH`: _new in 2.10.0_ the name of the remote branch to
+  which we are pushing (for example `refs/heads/target-branch`)
+- `PRE_COMMIT_LOCAL_BRANCH`: _new in 2.14.0_ the name of the local branch that
+  is being pushed to the remote (for example `HEAD`)
 
 [pre-push]: https://git-scm.com/docs/githooks#_pre_push
 
