@@ -6922,8 +6922,8 @@
         {
             "id": "docsig",
             "name": "docsig",
-            "description": "check signature params for proper documentation",
             "entry": "docsig",
+            "description": "check signature params for proper documentation",
             "language": "python",
             "types": [
                 "python"

@@ -121,7 +121,7 @@ and building node to run eslint without root.</p>
     <p>Before you can run hooks, you need to have the pre-commit package manager
 installed.</p>
 <p>Using pip:</p>
-<div class="highlight bash"><pre><span></span>pip install pre-commit
+<div class="highlight bash"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pre-commit
 </pre></div>
 <p>In a python project, add the following to your requirements.txt (or
 requirements-dev.txt):</p>
@@ -133,10 +133,10 @@ requirements-dev.txt):</p>
 <li>run <code>python pre-commit-#.#.#.pyz ...</code> in place of <code>pre-commit ...</code></li>
 </ul>
 <p>Using <a href="https://brew.sh">homebrew</a>:</p>
-<div class="highlight bash"><pre><span></span>brew install pre-commit
+<div class="highlight bash"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>pre-commit
 </pre></div>
 <p>Using <a href="https://conda.io">conda</a> (via <a href="https://conda-forge.org">conda-forge</a>):</p>
-<div class="highlight bash"><pre><span></span>conda install -c conda-forge pre-commit
+<div class="highlight bash"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pre-commit
 </pre></div>
 <h2 id="quick-start">    Quick start <small><a href="#quick-start" class="text-decoration-none">¶</a></small></h2> <h3 id="1-install-pre-commit">    1. Install pre-commit <small><a href="#1-install-pre-commit" class="text-decoration-none">¶</a></small></h3> <ul>
 <li>follow the <a href="#install">install</a> instructions above</li>
@@ -154,22 +154,22 @@ pre-commit 2.21.0
 any programming language</li>
 <li>other <a href="hooks.html">supported hooks</a> are available</li>
 </ul>
-<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v2.3.0</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check-yaml</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end-of-file-fixer</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/psf/black</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21.12b0</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">black</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v2.3.0</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check-yaml</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end-of-file-fixer</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/psf/black</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21.12b0</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">black</span>
 </pre></div>
 <h3 id="3-install-the-git-hook-scripts">    3. Install the git hook scripts <small><a href="#3-install-the-git-hook-scripts" class="text-decoration-none">¶</a></small></h3> <ul>
 <li>run <code>pre-commit install</code> to set up the git hook scripts</li>
 </ul>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install
 <span class="go">pre-commit installed at .git/hooks/pre-commit</span>
 </pre></div>
 <ul>
@@ -231,8 +231,8 @@ be used by default when running
 <a href="#config-language_version"><code>language_version</code></a> that should be used for that language.  This will
 only override individual hooks that do not set <a href="#config-language_version"><code>language_version</code></a>.</p>
 <p>For example to use <code>python3.7</code> for <code>language: python</code> hooks:</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">default_language_version</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3.7</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">default_language_version</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3.7</span>
 </pre></div>
 <p><em>new in 1.14.0</em></p>
 </td></tr><tr><td><p><a id="top_level-default_stages" href="#top_level-default_stages"><code>default_stages</code></a></p>
@@ -240,7 +240,7 @@ only override individual hooks that do not set <a href="#config-language_version
 the <a href="#config-stages"><code>stages</code></a> property of hooks.  This will only override individual
 hooks that do not set <a href="#config-stages"><code>stages</code></a>.</p>
 <p>For example:</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">default_stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">commit</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">push</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">default_stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">commit</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">push</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p><em>new in 1.14.0</em></p>
 </td></tr><tr><td><p><a id="top_level-files" href="#top_level-files"><code>files</code></a></p>
@@ -254,10 +254,10 @@ running hooks after the first failure.  <em>new in 1.1.0</em>.</p>
 </td><td><p>(optional: default <code>'0'</code>) require a minimum version of pre-commit.
 <em>new in 1.15.0</em>.</p>
 </td></tr></tbody></table><p>A sample top-level:</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;^$&#39;</span><span class="w"></span>
-<span class="nt">fail_fast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="nt">repos</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;^$&#39;</span>
+<span class="nt">fail_fast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 <h2 id="pre-commit-configyaml---repos">    .pre-commit-config.yaml - repos <small><a href="#pre-commit-configyaml---repos" class="text-decoration-none">¶</a></small></h2> <p>The repository mapping tells pre-commit where to get the code for the hook
 from.</p>
@@ -268,11 +268,11 @@ from.</p>
 </td></tr><tr><td><p><a id="repos-hooks" href="#repos-hooks"><code>hooks</code></a></p>
 </td><td><p>A list of <a href="#pre-commit-configyaml---hooks">hook mappings</a>.</p>
 </td></tr></tbody></table><p>A sample repository:</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.2.3</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 <h2 id="pre-commit-configyaml---hooks">    .pre-commit-config.yaml - hooks <small><a href="#pre-commit-configyaml---hooks" class="text-decoration-none">¶</a></small></h2> <p>The hook mapping configures which hook from the repository is used and allows
 for customization.  All optional keys will receive their default from the
@@ -322,11 +322,11 @@ the hook passes.  <em>new in 1.6.0</em>.</p>
 </td><td><p>(optional) if present, the hook output will additionally be written to
 a file when the hook fails or <a href="#config-verbose">verbose</a> is <code>true</code>.</p>
 </td></tr></tbody></table><p>One example of a complete configuration:</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.2.3</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.2.3</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
 </pre></div>
 <p>This configuration says to download the pre-commit-hooks project and run its
 trailing-whitespace hook.</p>
@@ -431,12 +431,12 @@ compatible pre-commit version.</p>
 <code>post-merge</code>, <code>post-rewrite</code>, and/or <code>manual</code> stage(s).  See
 <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
 </td></tr></tbody></table><p>For example:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trim Trailing Whitespace</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">This hook trims trailing whitespace.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace-fixer</span><span class="w"></span>
-<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
-<span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">text</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trim Trailing Whitespace</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">This hook trims trailing whitespace.</span>
+<span class="w">    </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace-fixer</span>
+<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">text</span><span class="p p-Indicator">]</span>
 </pre></div>
 <h2 id="developing-hooks-interactively">    Developing hooks interactively <small><a href="#developing-hooks-interactively" class="text-decoration-none">¶</a></small></h2> <p>Since the <a href="#repos-repo"><code>repo</code></a> property of <code>.pre-commit-config.yaml</code> can refer to anything
 that <code>git clone ...</code> understands, it's often useful to point it at a local
@@ -528,7 +528,7 @@ after installation.  Match the <a href="#hooks-entry"><code>entry</code></a> to 
 <p><code>pre-commit</code> will build each executable using <code>dart compile exe bin/{executable}.dart</code>.</p>
 <p><code>language: dart</code> also supports <a href="#config-additional_dependencies"><code>additional_dependencies</code></a>.
 to specify a version for a dependency, separate the package name by a <code>:</code>:</p>
-<div class="highlight yaml"><pre><span></span><span class="w">        </span><span class="nt">additional_dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;hello_world_dart:1.0.0&#39;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="w">        </span><span class="nt">additional_dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;hello_world_dart:1.0.0&#39;</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p><strong>Support:</strong> <code>dart</code> hooks are known to work on any system which has the <code>dart</code>
 sdk installed.  It has been tested on linux, macOS, and windows.</p>
@@ -556,19 +556,19 @@ hooks.</p>
 If the container does not specify an <code>ENTRYPOINT</code> or you want to change the
 entrypoint you can specify it as well in your <a href="#hooks-entry"><code>entry</code></a>.</p>
 <p>For example:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dockerfile-provides-entrypoint</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
-<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker_image</span><span class="w"></span>
-<span class="w">    </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-1:latest</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
-<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker_image</span><span class="w"></span>
-<span class="w">    </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--entrypoint my-exe my.registry.example.com/docker-image-2:latest</span><span class="w"></span>
-<span class="c1"># Alternative equivalent solution</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-2</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
-<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker_image</span><span class="w"></span>
-<span class="w">    </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-3:latest my-exe</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dockerfile-provides-entrypoint</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker_image</span>
+<span class="w">    </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-1:latest</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-1</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker_image</span>
+<span class="w">    </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--entrypoint my-exe my.registry.example.com/docker-image-2:latest</span>
+<span class="c1"># Alternative equivalent solution</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dockerfile-no-entrypoint-2</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker_image</span>
+<span class="w">    </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-3:latest my-exe</span>
 </pre></div>
 <h3 id="dotnet">    dotnet <small><a href="#dotnet" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.8.0</em></p>
 <p>dotnet hooks are installed using the system installation of the dotnet CLI.</p>
@@ -585,13 +585,13 @@ especially useful for <a href="#repository-local-hooks">local</a> hooks.</p>
 a brief description for <a href="#hooks-name"><code>name</code></a> and more verbose fix instructions in <a href="#hooks-entry"><code>entry</code></a>.</p>
 <p>Here's an example which prevents any file except those ending with <code>.rst</code> from
 being added to the <code>changelog</code> directory:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changelogs-rst</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changelogs must be rst</span><span class="w"></span>
-<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changelog filenames must end in .rst</span><span class="w"></span>
-<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail</span><span class="w"></span>
-<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;changelog/.*(?&lt;!\.rst)$&#39;</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changelogs-rst</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changelogs must be rst</span>
+<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changelog filenames must end in .rst</span>
+<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail</span>
+<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;changelog/.*(?&lt;!\.rst)$&#39;</span>
 </pre></div>
 <h3 id="golang">    golang <small><a href="#golang" class="text-decoration-none">¶</a></small></h3> <p>The hook repository must contain go source code.  It will be installed via
 <code>go install ./...</code>.  pre-commit will create an isolated <code>GOPATH</code> for each hook
@@ -728,37 +728,37 @@ instead of tag names.</li>
 This option may be specified multiple times.</li>
 </ul>
 <p>Here are some sample invocations using this <code>.pre-commit-config.yaml</code>:</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v2.1.0</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/asottile/pyupgrade</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.25.0</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pyupgrade</span><span class="w"></span>
-<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">--py36-plus</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v2.1.0</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/asottile/pyupgrade</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.25.0</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pyupgrade</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">--py36-plus</span><span class="p p-Indicator">]</span>
 </pre></div>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>: default: update to latest tag on default branch
-<span class="gp">$ </span>pre-commit autoupdate  <span class="c1"># by default: pick tags</span>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>:<span class="w"> </span>default:<span class="w"> </span>update<span class="w"> </span>to<span class="w"> </span>latest<span class="w"> </span>tag<span class="w"> </span>on<span class="w"> </span>default<span class="w"> </span>branch
+<span class="gp">$ </span>pre-commit<span class="w"> </span>autoupdate<span class="w">  </span><span class="c1"># by default: pick tags</span>
 <span class="go">Updating https://github.com/pre-commit/pre-commit-hooks ... updating v2.1.0 -&gt; v2.4.0.</span>
 <span class="go">Updating https://github.com/asottile/pyupgrade ... updating v1.25.0 -&gt; v1.25.2.</span>
-<span class="gp">$ </span>grep rev: .pre-commit-config.yaml
+<span class="gp">$ </span>grep<span class="w"> </span>rev:<span class="w"> </span>.pre-commit-config.yaml
 <span class="go">    rev: v2.4.0</span>
 <span class="go">    rev: v1.25.2</span>
 </pre></div>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>: update a specific repository to the latest revision of the default branch
-<span class="gp">$ </span>pre-commit autoupdate --bleeding-edge --repo https://github.com/pre-commit/pre-commit-hooks
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>:<span class="w"> </span>update<span class="w"> </span>a<span class="w"> </span>specific<span class="w"> </span>repository<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>revision<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>branch
+<span class="gp">$ </span>pre-commit<span class="w"> </span>autoupdate<span class="w"> </span>--bleeding-edge<span class="w"> </span>--repo<span class="w"> </span>https://github.com/pre-commit/pre-commit-hooks
 <span class="go">Updating https://github.com/pre-commit/pre-commit-hooks ... updating v2.1.0 -&gt; 5df1a4bf6f04a1ed3a643167b38d502575e29aef.</span>
-<span class="gp">$ </span>grep rev: .pre-commit-config.yaml
+<span class="gp">$ </span>grep<span class="w"> </span>rev:<span class="w"> </span>.pre-commit-config.yaml
 <span class="go">    rev: 5df1a4bf6f04a1ed3a643167b38d502575e29aef</span>
 <span class="go">    rev: v1.25.0</span>
 </pre></div>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>: update to frozen versions
-<span class="gp">$ </span>pre-commit autoupdate --freeze
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>:<span class="w"> </span>update<span class="w"> </span>to<span class="w"> </span>frozen<span class="w"> </span>versions
+<span class="gp">$ </span>pre-commit<span class="w"> </span>autoupdate<span class="w"> </span>--freeze
 <span class="go">Updating https://github.com/pre-commit/pre-commit-hooks ... updating v2.1.0 -&gt; v2.4.0 (frozen).</span>
 <span class="go">Updating https://github.com/asottile/pyupgrade ... updating v1.25.0 -&gt; v1.25.2 (frozen).</span>
-<span class="gp">$ </span>grep rev: .pre-commit-config.yaml
+<span class="gp">$ </span>grep<span class="w"> </span>rev:<span class="w"> </span>.pre-commit-config.yaml
 <span class="go">    rev: 0161422b4e09b47536ea13f49e786eb3616fe0d7  # frozen: v2.4.0</span>
 <span class="go">    rev: 34a269fd7650d264e4de7603157c10d0a9bb8211  # frozen: v1.25.2</span>
 </pre></div>
@@ -782,8 +782,8 @@ the cache directory.</p>
 which hook type to install.</li>
 </ul>
 <p>Some example useful invocations:</p>
-<div class="highlight bash"><pre><span></span>git config --global init.templateDir ~/.git-template
-pre-commit init-templatedir ~/.git-template
+<div class="highlight bash"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>init.templateDir<span class="w"> </span>~/.git-template
+pre-commit<span class="w"> </span>init-templatedir<span class="w"> </span>~/.git-template
 </pre></div>
 <p>For Windows cmd.exe use <code>%HOMEPATH%</code> instead of <code>~</code>:</p>
 <div class="highlight batch"><pre><span></span>pre-commit init-templatedir <span class="nv">%HOMEPATH%</span>\.git-template
@@ -906,7 +906,7 @@ or more hooks. pre-commit solves this by querying a <code>SKIP</code> environmen
 variable. The <code>SKIP</code> environment variable is a comma separated list of hook
 ids. This allows you to skip a single hook instead of <code>--no-verify</code>ing the
 entire commit.</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span><span class="nv">SKIP</span><span class="o">=</span>flake8 git commit -m <span class="s2">&quot;foo&quot;</span>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span><span class="nv">SKIP</span><span class="o">=</span>flake8<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;foo&quot;</span>
 </pre></div>
 <h2 id="pre-commit-during-commits">    pre-commit during commits <small><a href="#pre-commit-during-commits" class="text-decoration-none">¶</a></small></h2> <p>Running hooks on unstaged changes can lead to both false-positives and
 false-negatives during committing.  pre-commit only runs on the staged
@@ -914,19 +914,19 @@ contents of files by temporarily saving the contents of your files at commit
 time and stashing the unstaged changes while running hooks.</p>
 <p><em>new in 2.4.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_commit">post-commit</a> hooks.</p>
 <p>To use <code>post-commit</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type post-commit
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>post-commit
 <span class="go">pre-commit installed at .git/hooks/post-commit</span>
 </pre></div>
 <p><code>post-commit</code> hooks fire after the commit succeeds and cannot be used to
 prevent the commit from happening (use <code>pre-commit</code> instead).  Since
 <code>post-commit</code> does not operate on files, any hooks must set <code>always_run</code>:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post-commit-local</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post commit</span><span class="w"></span>
-<span class="w">        </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">        </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">post-commit</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">        </span><span class="c1"># ...</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post-commit-local</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post commit</span>
+<span class="w">        </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">post-commit</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="c1"># ...</span>
 </pre></div>
 <h2 id="pre-commit-during-merges">    pre-commit during merges <small><a href="#pre-commit-during-merges" class="text-decoration-none">¶</a></small></h2> <p>The biggest gripe we’ve had in the past with pre-commit hooks was during merge
 conflict resolution.  When working on very large projects a merge often
@@ -940,20 +940,20 @@ were automatically merged by git.  Git isn't perfect and this can often catch
 implicit conflicts (such as with removed python imports).</p>
 <p><em>new in 2.11.0</em> pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_merge">post-merge</a> hooks.</p>
 <p>To use <code>post-merge</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type post-merge
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>post-merge
 <span class="go">pre-commit installed at .git/hooks/post-merge</span>
 </pre></div>
 <p>The hook fires after a successful <code>git merge</code>.</p>
 <h2 id="pre-commit-during-clean-merges">    pre-commit during clean merges <small><a href="#pre-commit-during-clean-merges" class="text-decoration-none">¶</a></small></h2> <p><em>new in 1.21.0</em> pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_pre_merge_commit">pre-merge-commit</a> hooks.</p>
 <p>To use <code>pre-merge-commit</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type pre-merge-commit
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>pre-merge-commit
 <span class="go">pre-commit installed at .git/hooks/pre-merge-commit</span>
 </pre></div>
 <p>The hook fires after a merge succeeds but before the merge commit is created.</p>
 <p>Note that you need to be using at least git 2.24 which added support for the
 pre-merge-commit hook.</p>
 <h2 id="pre-commit-during-push">    pre-commit during push <small><a href="#pre-commit-during-push" class="text-decoration-none">¶</a></small></h2> <p>To use <code>pre-push</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type pre-push
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>pre-push
 <span class="go">pre-commit installed at .git/hooks/pre-push</span>
 </pre></div>
 <p>During a push, pre-commit will export the following environment variables:</p>
@@ -973,7 +973,7 @@ pushed to (for example <code>git@github.com:pre-commit/pre-commit</code>.</li>
 </ul>
 <h2 id="pre-commit-for-commit-messages">    pre-commit for commit messages <small><a href="#pre-commit-for-commit-messages" class="text-decoration-none">¶</a></small></h2> <p>pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_commit_msg">commit-msg</a> hooks.</p>
 <p>To use <code>commit-msg</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type commit-msg
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>commit-msg
 <span class="go">pre-commit installed at .git/hooks/commit-msg</span>
 </pre></div>
 <p><code>commit-msg</code> hooks can be configured by setting <code>stages: [commit-msg]</code>.
@@ -982,7 +982,7 @@ current contents of the commit message which can be validated.  If a hook
 exits nonzero, the commit will be aborted.</p>
 <p><em>new in 1.16.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_prepare_commit_msg">prepare-commit-msg</a> hooks.</p>
 <p>To use <code>prepare-commit-msg</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type prepare-commit-msg
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>prepare-commit-msg
 <span class="go">pre-commit installed at .git/hooks/prepare-commit-msg</span>
 </pre></div>
 <p><code>prepare-commit-msg</code> hooks can be used to create dynamic templates for commit
@@ -995,20 +995,20 @@ indicates that no editor will be launched. If a hook exits nonzero,
 the commit will be aborted.</p>
 <h2 id="pre-commit-for-switching-branches">    pre-commit for switching branches <small><a href="#pre-commit-for-switching-branches" class="text-decoration-none">¶</a></small></h2> <p><em>new in 2.2.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_checkout">post-checkout</a> hooks.</p>
 <p>To use <code>post-checkout</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type post-checkout
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>post-checkout
 <span class="go">pre-commit installed at .git/hooks/post-checkout</span>
 </pre></div>
 <p><code>post-checkout</code> hooks can be used to perform repository validity checks,
 auto-display differences from the previous HEAD if different,
 or set working dir metadata properties. Since <code>post-checkout</code> doesn't operate
 on files, any hooks must set <code>always_run</code>:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post-checkout-local</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Post checkout</span><span class="w"></span>
-<span class="w">        </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">        </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">post-checkout</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">        </span><span class="c1"># ...</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post-checkout-local</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Post checkout</span>
+<span class="w">        </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">post-checkout</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="c1"># ...</span>
 </pre></div>
 <p><code>post-checkout</code> hooks have three environment variables they can check to
 do their work: <code>$PRE_COMMIT_FROM_REF</code>, <code>$PRE_COMMIT_TO_REF</code>,
@@ -1017,7 +1017,7 @@ and third arguments (respectively) that are normally passed to a regular
 post-checkout hook from Git.</p>
 <h2 id="pre-commit-for-rewriting">    pre-commit for rewriting <small><a href="#pre-commit-for-rewriting" class="text-decoration-none">¶</a></small></h2> <p><em>new in 2.15.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_rewrite">post-rewrite</a> hooks.</p>
 <p>To use <code>post-rewrite</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit install --hook-type post-rewrite
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>post-rewrite
 <span class="go">pre-commit installed at .git/hooks/post-rewrite</span>
 </pre></div>
 <p><code>post-rewrite</code> is triggered after git commands which modify history such as
@@ -1055,21 +1055,21 @@ be executed by running <code>pre-commit run --hook-stage manual [hookid]</code>.
 <h2 id="passing-arguments-to-hooks">    Passing arguments to hooks <small><a href="#passing-arguments-to-hooks" class="text-decoration-none">¶</a></small></h2> <p>Sometimes hooks require arguments to run correctly. You can pass static
 arguments by specifying the <a href="#config-args"><code>args</code></a> property in your <code>.pre-commit-config.yaml</code>
 as follows:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/PyCQA/flake8</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4.0.1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flake8</span><span class="w"></span>
-<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">--max-line-length=131</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/PyCQA/flake8</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4.0.1</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flake8</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">--max-line-length=131</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>This will pass <code>--max-line-length=131</code> to <code>flake8</code>.</p>
 <h3 id="arguments-pattern-in-hooks">    Arguments pattern in hooks <small><a href="#arguments-pattern-in-hooks" class="text-decoration-none">¶</a></small></h3> <p>If you are writing your own custom hook, your hook should expect to receive
 the <a href="#config-args"><code>args</code></a> value and then a list of staged files.</p>
 <p>For example, assuming a <code>.pre-commit-config.yaml</code>:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/path/to/your/hook/repo</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">badf00ddeadbeef</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-hook-script-id</span><span class="w"></span>
-<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">--myarg1=1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">--myarg1=2</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/path/to/your/hook/repo</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">badf00ddeadbeef</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-hook-script-id</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">--myarg1=1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">--myarg1=2</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>When you next run <code>pre-commit</code>, your script will be called:</p>
 <div class="highlight"><pre><span></span>path/to/script-or-system-exe --myarg1=1 --myarg1=2 dir/file1 dir/file2 file3
@@ -1081,13 +1081,13 @@ the <a href="#config-args"><code>args</code></a> value and then a list of staged
 into <a href="#config-args"><code>args</code></a> as there is nothing which can override them --
 instead put your arguments directly in the hook <a href="#hooks-entry"><code>entry</code></a>.</p>
 <p>For example:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check-requirements</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check requirements files</span><span class="w"></span>
-<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span><span class="w"></span>
-<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m scripts.check_requirements --compare</span><span class="w"></span>
-<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^requirements.*.txt$</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check-requirements</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check requirements files</span>
+<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span>
+<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m scripts.check_requirements --compare</span>
+<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^requirements.*.txt$</span>
 </pre></div>
 <h2 id="repository-local-hooks">    Repository local hooks <small><a href="#repository-local-hooks" class="text-decoration-none">¶</a></small></h2> <p>Repository-local hooks are useful when:</p>
 <ul>
@@ -1107,33 +1107,33 @@ mirror repository.</p>
 <a href="#hooks-entry"><code>entry</code></a>, and <a href="#hooks-files"><code>files</code></a> / <a href="#hooks-types"><code>types</code></a>
 as specified under <a href="#new-hooks">Creating new hooks</a>.</p>
 <p>Here's an example configuration with a few <code>local</code> hooks:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pylint</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pylint</span><span class="w"></span>
-<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pylint</span><span class="w"></span>
-<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span><span class="w"></span>
-<span class="w">        </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">python</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">        </span><span class="nt">require_serial</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check-x</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check X</span><span class="w"></span>
-<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./bin/check-x.sh</span><span class="w"></span>
-<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span><span class="w"></span>
-<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\.x$</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scss-lint</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scss-lint</span><span class="w"></span>
-<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scss-lint</span><span class="w"></span>
-<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruby</span><span class="w"></span>
-<span class="w">        </span><span class="nt">language_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.1.5</span><span class="w"></span>
-<span class="w">        </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">scss</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">        </span><span class="nt">additional_dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;scss_lint:0.52.0&#39;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pylint</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pylint</span>
+<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pylint</span>
+<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span>
+<span class="w">        </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">python</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">require_serial</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check-x</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check X</span>
+<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./bin/check-x.sh</span>
+<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span>
+<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\.x$</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
+<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
+<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruby</span>
+<span class="w">        </span><span class="nt">language_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
+<span class="w">        </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">scss</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">additional_dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;scss_lint:0.52.0&#39;</span><span class="p p-Indicator">]</span>
 </pre></div>
 <h2 id="meta-hooks">    meta hooks <small><a href="#meta-hooks" class="text-decoration-none">¶</a></small></h2> <p><em>new in 1.4.0</em></p>
 <p><code>pre-commit</code> provides several hooks which are useful for checking the
 pre-commit configuration itself.  These can be enabled using <code>repo: meta</code>.</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 <p>The currently available <code>meta</code> hooks:</p>
 <table class="table table-bordered"><tbody><tr><td><p><a id="meta-check_hooks_apply" href="#meta-check_hooks_apply"><code>check-hooks-apply</code></a></p>
@@ -1155,8 +1155,8 @@ automatically have the hooks set up without the need to run
 <code>pre-commit install</code>.</p>
 <p>To configure, first set <code>git</code>'s <code>init.templateDir</code> -- in this example I'm
 using <code>~/.git-template</code> as my template directory.</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>git config --global init.templateDir ~/.git-template
-<span class="gp">$ </span>pre-commit init-templatedir ~/.git-template
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>init.templateDir<span class="w"> </span>~/.git-template
+<span class="gp">$ </span>pre-commit<span class="w"> </span>init-templatedir<span class="w"> </span>~/.git-template
 <span class="go">pre-commit installed at /home/asottile/.git-template/hooks/pre-commit</span>
 </pre></div>
 <p>Now whenever you clone a pre-commit enabled repo, the hooks will already be
@@ -1171,25 +1171,25 @@ Debug Statements (Python)............................(no files to check)<span cl
 </pre></div>
 <p><code>init-templatedir</code> uses the <code>--allow-missing-config</code> option from
 <code>pre-commit install</code> so repos without a config will be skipped:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>git init sample
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>init<span class="w"> </span>sample
 <span class="go">Initialized empty Git repository in /tmp/sample/.git/</span>
-<span class="gp">$ </span><span class="nb">cd</span> sample
-<span class="gp">$ </span>git commit --allow-empty -m <span class="s1">&#39;Initial commit&#39;</span>
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>sample
+<span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>--allow-empty<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;Initial commit&#39;</span>
 <span class="go">`.pre-commit-config.yaml` config file not found. Skipping `pre-commit`.</span>
 <span class="go">[main (root-commit) d1b39c1] Initial commit</span>
 </pre></div>
 <p>To still require opt-in, but prompt the user to set up pre-commit use a
 template hook as follows (for example in <code>~/.git-template/hooks/pre-commit</code>).</p>
 <div class="highlight bash"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
-<span class="k">if</span> <span class="o">[</span> -f .pre-commit-config.yaml <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s1">&#39;pre-commit configuration detected, but `pre-commit install` was never run&#39;</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
-    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>.pre-commit-config.yaml<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;pre-commit configuration detected, but `pre-commit install` was never run&#39;</span><span class="w"> </span><span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 </pre></div>
 <p>With this, a forgotten <code>pre-commit install</code> produces an error on commit:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>git clone -q https://github.com/asottile/pyupgrade
-<span class="gp">$ </span><span class="nb">cd</span> pyupgrade/
-<span class="gp">$ </span>git commit -m <span class="s1">&#39;foo&#39;</span>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>-q<span class="w"> </span>https://github.com/asottile/pyupgrade
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>pyupgrade/
+<span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;foo&#39;</span>
 <span class="go">pre-commit configuration detected, but `pre-commit install` was never run</span>
 </pre></div>
 <h2 id="filtering-files-with-types">    Filtering files with types <small><a href="#filtering-files-with-types" class="text-decoration-none">¶</a></small></h2> <p>Filtering with <code>types</code> provides several advantages over traditional filtering
@@ -1215,11 +1215,11 @@ chosen as it is a small portable pure python library.</p>
 <li><a href="https://github.com/pre-commit/identify/blob/main/identify/interpreters.py">tags by shebang (<code>#!</code>)</a></li>
 </ul>
 <p>To discover the type of any file on disk, you can use <code>identify</code>'s cli:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>identify-cli setup.py
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>identify-cli<span class="w"> </span>setup.py
 <span class="go">[&quot;file&quot;, &quot;non-executable&quot;, &quot;python&quot;, &quot;text&quot;]</span>
-<span class="gp">$ </span>identify-cli some-random-file
+<span class="gp">$ </span>identify-cli<span class="w"> </span>some-random-file
 <span class="go">[&quot;file&quot;, &quot;non-executable&quot;, &quot;text&quot;]</span>
-<span class="gp">$ </span>identify-cli --filename-only some-random-file<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="gp">$ </span>identify-cli<span class="w"> </span>--filename-only<span class="w"> </span>some-random-file<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
 <span class="go">1</span>
 </pre></div>
 <p>If a file extension you use is not supported, please
@@ -1228,13 +1228,13 @@ chosen as it is a small portable pure python library.</p>
 filtering.  Tags within <code>types</code> are also evaluated using <code>AND</code>.</p>
 <p><em>new in 2.9.0</em>: Tags within <code>types_or</code> are evaluated using <code>OR</code>.</p>
 <p>For example:</p>
-<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^foo/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">python</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^foo/</span>
+<span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">python</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>will match a file <code>foo/1.py</code> but will not match <code>setup.py</code>.</p>
 <p>Another example:</p>
-<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^foo/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">types_or</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">javascript</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">jsx</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">ts</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">tsx</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^foo/</span>
+<span class="w">    </span><span class="nt">types_or</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">javascript</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">jsx</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">ts</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">tsx</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>will match any of <code>foo/bar.js</code> / <code>foo/bar.jsx</code> / <code>foo/bar.ts</code> / <code>foo/bar.tsx</code>
 but not <code>baz.js</code>.</p>
@@ -1242,9 +1242,9 @@ but not <code>baz.js</code>.</p>
 existing hook you'll need to revert back to <code>files</code> only matching by overriding
 the <code>types</code> setting.  Here's an example of using <code>check-json</code> against non-json
 files:</p>
-<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check-json</span><span class="w"></span>
-<span class="w">        </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># override `types: [json]`</span><span class="w"></span>
-<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\.(json|myext)$</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check-json</span>
+<span class="w">        </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># override `types: [json]`</span>
+<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\.(json|myext)$</span>
 </pre></div>
 <p>Files can also be matched by shebang.  With <code>types: python</code>, an <code>exe</code> starting
 with <code>#!/usr/bin/env python3</code> will also be matched.</p>
@@ -1259,14 +1259,14 @@ list of excluded / included things, you may find a
 <a href="https://docs.python.org/3/library/re.html#re.VERBOSE">verbose</a> regular
 expression useful.  One can enable this with yaml's multiline literals and
 the <code>(?x)</code> regex flag.</p>
-<div class="highlight yaml"><pre><span></span><span class="c1"># ...</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-hook</span><span class="w"></span>
-<span class="w">        </span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">            </span><span class="no">(?x)^(</span><span class="w"></span>
-<span class="w">                </span><span class="no">path/to/file1.py|</span><span class="w"></span>
-<span class="w">                </span><span class="no">path/to/file2.py|</span><span class="w"></span>
-<span class="w">                </span><span class="no">path/to/file3.py</span><span class="w"></span>
-<span class="w">            </span><span class="no">)$</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="c1"># ...</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-hook</span>
+<span class="w">        </span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">(?x)^(</span>
+<span class="w">                </span><span class="no">path/to/file1.py|</span>
+<span class="w">                </span><span class="no">path/to/file2.py|</span>
+<span class="w">                </span><span class="no">path/to/file3.py</span>
+<span class="w">            </span><span class="no">)$</span>
 </pre></div>
 <h2 id="overriding-language-version">    Overriding language version <small><a href="#overriding-language-version" class="text-decoration-none">¶</a></small></h2> <p>Sometimes you only want to run the hooks on a specific version of the
 language. For each language, they default to using the system installed
@@ -1274,11 +1274,11 @@ language (So for example if I’m running <code>python3.7</code> and a hook spec
 <code>python</code>, pre-commit will run the hook using <code>python3.7</code>). Sometimes you
 don’t want the default system installed version so you can override this on a
 per-hook basis by setting the <a href="#config-language_version"><code>language_version</code></a>.</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-scss-lint</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v0.54.0</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scss-lint</span><span class="w"></span>
-<span class="w">        </span><span class="nt">language_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.1.5</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-scss-lint</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v0.54.0</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scss-lint</span>
+<span class="w">        </span><span class="nt">language_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
 </pre></div>
 <p>This tells pre-commit to use ruby <code>2.1.5</code> to run the <code>scss-lint</code> hook.</p>
 <p>Valid values for specific languages are listed below:</p>
@@ -1299,11 +1299,11 @@ windows.</li>
 <p><em>new in 1.14.0</em>: you can now set <a href="#top_level-default_language_version"><code>default_language_version</code></a>
 at the <a href="#pre-commit-configyaml---top-level">top level</a> in your configuration to
 control the default versions across all hooks of a language.</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">default_language_version</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># force all unspecified python hooks to run python3</span><span class="w"></span>
-<span class="w">    </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># force all unspecified ruby hooks to run ruby 2.1.5</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ruby</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.1.5</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">default_language_version</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># force all unspecified python hooks to run python3</span>
+<span class="w">    </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3</span>
+<span class="w">    </span><span class="c1"># force all unspecified ruby hooks to run ruby 2.1.5</span>
+<span class="w">    </span><span class="nt">ruby</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
 </pre></div>
 <h2 id="badging-your-repository">    badging your repository <small><a href="#badging-your-repository" class="text-decoration-none">¶</a></small></h2> <p>you can add a badge to your repository to show your contributors / users that
 you use pre-commit!</p>
@@ -1348,72 +1348,72 @@ following the <a href="https://specifications.freedesktop.org/basedir-spec/based
 <li>it will periodically autoupdate your configuration</li>
 </ul>
 <p><a href="https://github.com/pre-commit-ci-demo/demo#results"><img     src="https://raw.githubusercontent.com/pre-commit-ci-demo/demo/main/img/2020-12-15_noop.svg"    alt="pre-commit.ci speed comparison"    class="img-fluid img-thumbnail"></a></p>
-<h3 id="appveyor-example">    appveyor example <small><a href="#appveyor-example" class="text-decoration-none">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;%USERPROFILE%\.cache\pre-commit&#39;</span><span class="w"></span>
+<h3 id="appveyor-example">    appveyor example <small><a href="#appveyor-example" class="text-decoration-none">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;%USERPROFILE%\.cache\pre-commit&#39;</span>
 </pre></div>
 <h3 id="azure-pipelines-example">    azure pipelines example <small><a href="#azure-pipelines-example" class="text-decoration-none">¶</a></small></h3> <p>note: azure pipelines uses immutable caches so the python version and
 <code>.pre-commit-config.yaml</code> hash must be included in the cache key.  for a
 repository template, see <a href="https://github.com/asottile/azure-pipeline-templates/blob/main/job--pre-commit.yml">asottile@job--pre-commit.yml</a>.</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">precommit</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">jobs</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">precommit</span>
 
-<span class="w">  </span><span class="c1"># ...</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># ...</span>
 
-<span class="w">  </span><span class="nt">variables</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PRE_COMMIT_HOME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(Pipeline.Workspace)/pre-commit-cache</span><span class="w"></span>
+<span class="w">  </span><span class="nt">variables</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">PRE_COMMIT_HOME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(Pipeline.Workspace)/pre-commit-cache</span>
 
-<span class="w">  </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
 
-<span class="w">  </span><span class="c1"># ...</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># ...</span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;##vso[task.setvariable variable=PY]$(python -VV)&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CacheBeta@0</span><span class="w"></span>
-<span class="w">    </span><span class="nt">inputs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit | .pre-commit-config.yaml | &quot;$(PY)&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(PRE_COMMIT_HOME)</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;##vso[task.setvariable variable=PY]$(python -VV)&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CacheBeta@0</span>
+<span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit | .pre-commit-config.yaml | &quot;$(PY)&quot;</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(PRE_COMMIT_HOME)</span>
 </pre></div>
 <h3 id="circleci-example">    circleci example <small><a href="#circleci-example" class="text-decoration-none">¶</a></small></h3> <p>like <a href="#azure-pipelines-example">azure pipelines</a>, circleci also uses immutable
 caches:</p>
-<div class="highlight yaml"><pre><span></span><span class="w">  </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">      </span><span class="no">cp .pre-commit-config.yaml pre-commit-cache-key.txt</span><span class="w"></span>
-<span class="w">      </span><span class="no">python --version --version &gt;&gt; pre-commit-cache-key.txt</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">restore_cache</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">keys</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">cp .pre-commit-config.yaml pre-commit-cache-key.txt</span>
+<span class="w">      </span><span class="no">python --version --version &gt;&gt; pre-commit-cache-key.txt</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">restore_cache</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">keys</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span>
 
-<span class="w">  </span><span class="c1"># ...</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># ...</span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">save_cache</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span><span class="w"></span>
-<span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">save_cache</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span>
 </pre></div>
 <p>(source: <a href="https://github.com/Unity-Technologies/ml-agents/pull/3094/files#diff-1d37e48f9ceff6d8030570cd36286a61">@chriselion</a>)</p>
 <h3 id="github-actions-example">    github actions example <small><a href="#github-actions-example" class="text-decoration-none">¶</a></small></h3> <p><strong>see the <a href="https://github.com/pre-commit/action">official pre-commit github action</a></strong></p>
 <p>like <a href="#azure-pipelines-example">azure pipelines</a>, github actions also uses
 immutable caches:</p>
-<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set PY</span><span class="w"></span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;PY=$(python -VV | sha256sum | cut -d&#39; &#39; -f1)&quot; &gt;&gt; $GITHUB_ENV</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v1</span><span class="w"></span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span><span class="w"></span>
-<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit|${{ env.PY }}|${{ hashFiles(&#39;.pre-commit-config.yaml&#39;) }}</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set PY</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;PY=$(python -VV | sha256sum | cut -d&#39; &#39; -f1)&quot; &gt;&gt; $GITHUB_ENV</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v1</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit|${{ env.PY }}|${{ hashFiles(&#39;.pre-commit-config.yaml&#39;) }}</span>
 </pre></div>
 <h3 id="gitlab-ci-example">    gitlab CI example <small><a href="#gitlab-ci-example" class="text-decoration-none">¶</a></small></h3> <p>See the <a href="https://docs.gitlab.com/ee/ci/caching/#good-caching-practices">Gitlab caching best practices</a> to fine tune the cache scope.</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">my_job</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">variables</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PRE_COMMIT_HOME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${CI_PROJECT_DIR}/.cache/pre-commit</span><span class="w"></span>
-<span class="w">  </span><span class="nt">cache</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PRE_COMMIT_HOME}</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">my_job</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">variables</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">PRE_COMMIT_HOME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${CI_PROJECT_DIR}/.cache/pre-commit</span>
+<span class="w">  </span><span class="nt">cache</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PRE_COMMIT_HOME}</span>
 </pre></div>
 <p>pre-commit's cache requires to be served from a constant location between the different builds. This isn't the default when using k8s runners
 on GitLab. In case you face the error <code>InvalidManifestError</code>, set <code>builds_dir</code> to something static e.g <code>builds_dir = &quot;/builds&quot;</code> in your <code>[[runner]]</code> config</p>
-<h3 id="travis-ci-example">    travis-ci example <small><a href="#travis-ci-example" class="text-decoration-none">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">directories</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/pre-commit</span><span class="w"></span>
+<h3 id="travis-ci-example">    travis-ci example <small><a href="#travis-ci-example" class="text-decoration-none">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">directories</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/pre-commit</span>
 </pre></div>
 <h2 id="usage-with-tox">    Usage with tox <small><a href="#usage-with-tox" class="text-decoration-none">¶</a></small></h2> <p><a href="https://tox.readthedocs.io/">tox</a> is useful for configuring test / CI tools
 such as pre-commit.  One feature of <code>tox&gt;=2</code> is it will clear environment
@@ -1437,15 +1437,15 @@ stderr:
 Check the log at /home/asottile/.cache/pre-commit/pre-commit.log
 </pre></div>
 <p>Add the following to your tox testenv:</p>
-<div class="highlight ini"><pre><span></span><span class="k">[testenv]</span><span class="w"></span>
-<span class="na">passenv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">SSH_AUTH_SOCK</span><span class="w"></span>
+<div class="highlight ini"><pre><span></span><span class="k">[testenv]</span>
+<span class="na">passenv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">SSH_AUTH_SOCK</span>
 </pre></div>
 <p>Likewise, when cloning repos over http / https
 (<code>repo: https://github.com:...</code>), you might be working behind a corporate
 http(s) proxy server, in which case <code>git</code> requires the <code>http_proxy</code>,
 <code>https_proxy</code> and <code>no_proxy</code> variables to be set, or the clone may fail:</p>
-<div class="highlight ini"><pre><span></span><span class="k">[testenv]</span><span class="w"></span>
-<span class="na">passenv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">http_proxy https_proxy no_proxy</span><span class="w"></span>
+<div class="highlight ini"><pre><span></span><span class="k">[testenv]</span>
+<span class="na">passenv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">http_proxy https_proxy no_proxy</span>
 </pre></div>
 <h2 id="using-the-latest-version-for-a-repository">    Using the latest version for a repository <small><a href="#using-the-latest-version-for-a-repository" class="text-decoration-none">¶</a></small></h2> <p><code>pre-commit</code> configuration aims to give a repeatable and fast experience and
 therefore intentionally doesn't provide facilities for &quot;unpinned latest
