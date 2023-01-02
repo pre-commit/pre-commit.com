@@ -944,6 +944,10 @@ implicit conflicts (such as with removed python imports).</p>
 <span class="go">pre-commit installed at .git/hooks/post-merge</span>
 </pre></div>
 <p>The hook fires after a successful <code>git merge</code>.</p>
+<p>Environment variables:</p>
+<ul>
+<li><code>PRE_COMMIT_IS_SQUASH_MERGE</code>: whether it is a squash merge.</li>
+</ul>
 <h2 id="pre-commit-during-clean-merges">    pre-commit during clean merges <small><a href="#pre-commit-during-clean-merges" class="text-decoration-none">¶</a></small></h2> <p><em>new in 1.21.0</em> pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_pre_merge_commit">pre-merge-commit</a> hooks.</p>
 <p>To use <code>pre-merge-commit</code> hooks with pre-commit, run:</p>
 <div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>pre-merge-commit
@@ -956,7 +960,7 @@ pre-merge-commit hook.</p>
 <div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>pre-push
 <span class="go">pre-commit installed at .git/hooks/pre-push</span>
 </pre></div>
-<p>During a push, pre-commit will export the following environment variables:</p>
+<p>Environment variables:</p>
 <ul>
 <li><code>PRE_COMMIT_FROM_REF</code>: the remote revision that is being pushed to.<ul>
 <li><em>new in 2.2.0</em> prior to 2.2.0 the variable was <code>PRE_COMMIT_SOURCE</code>.</li>
@@ -969,7 +973,11 @@ pre-merge-commit hook.</p>
 <li><code>PRE_COMMIT_REMOTE_NAME</code>: <em>new in 2.0.0</em> which remote is being pushed to
 (for example <code>origin</code>)</li>
 <li><code>PRE_COMMIT_REMOTE_URL</code>: <em>new in 2.0.0</em> the url of the remote that is being
-pushed to (for example <code>git@github.com:pre-commit/pre-commit</code>.</li>
+pushed to (for example <code>git@github.com:pre-commit/pre-commit</code>).</li>
+<li><code>PRE_COMMIT_REMOTE_BRANCH</code>: <em>new in 2.10.0</em> the name of the remote branch to
+which we are pushing (for example <code>refs/heads/target-branch</code>)</li>
+<li><code>PRE_COMMIT_LOCAL_BRANCH</code>: <em>new in 2.14.0</em> the name of the local branch that
+is being pushed to the remote (for example <code>HEAD</code>)</li>
 </ul>
 <h2 id="pre-commit-for-commit-messages">    pre-commit for commit messages <small><a href="#pre-commit-for-commit-messages" class="text-decoration-none">¶</a></small></h2> <p>pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_commit_msg">commit-msg</a> hooks.</p>
 <p>To use <code>commit-msg</code> hooks with pre-commit, run:</p>
