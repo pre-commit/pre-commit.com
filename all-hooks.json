@@ -5384,6 +5384,18 @@
             ]
         },
         {
+            "id": "check-buildkite",
+            "name": "Validate Buildkite Pipelines",
+            "description": "Validate Buildkite Pipelines against the schema provided by Buildkite",
+            "entry": "check-jsonschema --builtin-schema vendor.buildkite",
+            "language": "python",
+            "files": "(?x)^(\n  buildkite\\.(yml|yaml|json)|\n  buildkite\\.(.+)\\.(yml|yaml|json)|\n  (.*/)?\\.buildkite/pipeline\\.(yml|yaml|json)|\n  (.*/)?\\.buildkite/pipeline\\.(.+)\\.(yml|yaml|json)\n)$\n",
+            "types_or": [
+                "json",
+                "yaml"
+            ]
+        },
+        {
             "id": "check-dependabot",
             "name": "Validate Dependabot Config (v2)",
             "description": "Validate Dependabot Config (v2) against the schema provided by SchemaStore",
