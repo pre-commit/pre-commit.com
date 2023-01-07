@@ -5265,8 +5265,8 @@
     "https://github.com/frnmst/md-toc": [
         {
             "id": "md-toc",
-            "name": "Update markdown table-of-contents",
-            "description": "Replace TOC marker with a table of contents",
+            "name": "Update markdown table of contents",
+            "description": "Automatically generate and add a table of contents to markdown files",
             "language": "python",
             "types": [
                 "markdown"
