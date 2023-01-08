@@ -165,6 +165,7 @@
 - https://github.com/yoheimuta/protolint
 - https://github.com/hadolint/hadolint
 - https://github.com/google/go-jsonnet
+- https://github.com/google/yamlfmt
 - https://github.com/guid-empty/flutter-dependency-validation-pre-commit
 - https://github.com/cpplint/cpplint
 - https://github.com/MarcoGorelli/absolufy-imports
