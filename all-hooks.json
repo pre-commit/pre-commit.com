@@ -6452,7 +6452,7 @@
             "description": "Perl source code critic (native install)",
             "language": "perl",
             "additional_dependencies": [
-                "PETDANCE/Perl-Critic-1.146.tar.gz"
+                "PETDANCE/Perl-Critic-1.148.tar.gz"
             ],
             "entry": "perlcritic",
             "args": [
