@@ -6941,5 +6941,16 @@
                 "python"
             ]
         }
+    ],
+    "https://github.com/finsberg/clang-format-docs": [
+        {
+            "id": "clang-format-docs",
+            "name": "clang-format-docs",
+            "description": "Run `clang-format` on C++ code blocks in documentation files.",
+            "entry": "clang-format-docs",
+            "language": "python",
+            "language_version": "python3",
+            "files": "\\.(md|markdown)$"
+        }
     ]
 }
