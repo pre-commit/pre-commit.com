@@ -2171,6 +2171,10 @@
             "id": "perlcritic",
             "name": "perlcritic",
             "entry": "run-perlcritic.sh",
+            "types_or": [
+                "perl",
+                "file"
+            ],
             "files": "\\.(pl|pm|t|PL)$",
             "language": "script",
             "description": "Runs `perlcritic`, requires script in PATH"
@@ -2179,9 +2183,37 @@
             "id": "perltidy",
             "name": "perltidy",
             "entry": "run-perltidy.sh",
+            "types_or": [
+                "perl",
+                "file"
+            ],
             "files": "\\.(pl|pm|t|PL)$",
             "language": "script",
             "description": "Runs `perltidy`, requires script in PATH"
+        },
+        {
+            "id": "perlimports",
+            "name": "perlimports",
+            "entry": "run-perlimports.sh --inplace-edit",
+            "types_or": [
+                "perl",
+                "file"
+            ],
+            "files": "\\.(pl|pm|t|PL)$",
+            "language": "script",
+            "description": "Runs `perlimports --inplace-edit`, requires script in PATH"
+        },
+        {
+            "id": "perlimports-lint",
+            "name": "perlimports-lint",
+            "entry": "run-perlimports.sh --lint",
+            "types_or": [
+                "perl",
+                "file"
+            ],
+            "files": "\\.(pl|pm|t|PL)$",
+            "language": "script",
+            "description": "Runs `perlimports --lint`, requires script in PATH"
         }
     ],
     "https://github.com/juancarlospaco/pre-commit-nim": [
