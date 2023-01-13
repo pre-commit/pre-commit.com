@@ -608,8 +608,8 @@
         {
             "id": "rst-directive-colons",
             "name": "rst directives end with two colons",
-            "description": "Detect mistake of rst directive not ending with double colon",
-            "entry": "^\\s*\\.\\. [a-z]+:$",
+            "description": "Detect mistake of rst directive not ending with double colon or space before the double colon",
+            "entry": "^\\s*\\.\\. [a-z]+(| | :):$",
             "language": "pygrep",
             "types": [
                 "rst"
