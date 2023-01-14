@@ -4656,6 +4656,18 @@
             "types": [
                 "toml"
             ]
+        },
+        {
+            "id": "toml-sort-fix",
+            "name": "toml-sort-fix",
+            "entry": "toml-sort",
+            "args": [
+                "--in-place"
+            ],
+            "language": "python",
+            "types": [
+                "toml"
+            ]
         }
     ],
     "https://github.com/arenadotio/pre-commit-ocamlformat": [
