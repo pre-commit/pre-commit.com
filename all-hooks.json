@@ -315,7 +315,7 @@
             "description": "sorts entries in requirements.txt.",
             "entry": "requirements-txt-fixer",
             "language": "python",
-            "files": "requirements.*\\.txt$"
+            "files": "(requirements|constraints).*\\.txt$"
         },
         {
             "id": "sort-simple-yaml",
@@ -412,7 +412,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.31.0"
+                "eslint@8.32.0"
             ],
             "minimum_pre_commit_version": "0"
         }
