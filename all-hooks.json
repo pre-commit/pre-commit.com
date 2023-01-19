@@ -6997,5 +6997,20 @@
             "language_version": "python3",
             "files": "\\.(md|markdown)$"
         }
+    ],
+    "https://github.com/rubocop/rubocop": [
+        {
+            "id": "rubocop",
+            "name": "rubocop",
+            "entry": "rubocop",
+            "language": "ruby",
+            "types": [
+                "ruby"
+            ],
+            "args": [
+                "--autocorrect",
+                "--force-exclusion"
+            ]
+        }
     ]
 }
