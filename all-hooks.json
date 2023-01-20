@@ -7002,6 +7002,7 @@
         {
             "id": "rubocop",
             "name": "rubocop",
+            "description": "Enforce the community Ruby Style Guide with RuboCop",
             "entry": "rubocop",
             "language": "ruby",
             "types": [
