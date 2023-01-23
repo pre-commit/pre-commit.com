@@ -6953,7 +6953,7 @@
             "id": "ruff",
             "name": "ruff",
             "description": "Run 'ruff' for extremely fast Python linting",
-            "entry": "ruff",
+            "entry": "ruff --force-exclude",
             "language": "python",
             "types_or": [
                 "python",
