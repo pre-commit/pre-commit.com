@@ -52,7 +52,7 @@ file that tells pre-commit:
 =r=
     =c= [`verbose`](_#hooks-verbose)
     =c= (optional: default `false`) if `true`, forces the output of the hook to be printed even when
-        the hook passes.  _new in 1.6.0_.
+        the hook passes.
 =r=
     =c= [`pass_filenames`](_#hooks-pass_filenames)
     =c= (optional: default `true`) if `false` no filenames will be passed to
@@ -60,7 +60,7 @@ file that tells pre-commit:
 =r=
     =c= [`require_serial`](_#hooks-require_serial)
     =c= (optional: default `false`) if `true` this hook will execute using a
-        single process instead of in parallel. _new in 1.13.0_.
+        single process instead of in parallel.
 =r=
     =c= [`description`](_#hooks-description)
     =c= (optional: default `''`) description of the hook.  used for metadata
@@ -109,15 +109,13 @@ interactively:
 _note_: you may need to provide `--commit-msg-filename` when using this
 command with hook types `prepare-commit-msg` and `commit-msg`.
 
-_new in 1.14.0_: a commit is no longer necessary to `try-repo` on a local
+a commit is not necessary to `try-repo` on a local
 directory. `pre-commit` will clone any tracked uncommitted changes.
 
 ```pre-commit
 ~/work/hook-repo $ git checkout origin/main -b feature
 
 # ... make some changes
-
-# new in 1.14.0: a commit is no longer necessary for `try-repo`
 
 # In another terminal or tab
 
@@ -165,8 +163,6 @@ Hello from foo hook!
 
 ### conda
 
-_new in 1.21.0_
-
 The hook repository must contain an `environment.yml` file which will be used
 via `conda env create --file environment.yml ...` to create the environment.
 
@@ -200,6 +196,9 @@ the hooks' documentation for clarification.  It has been tested on linux.
 
 _new in 2.18.0_: pre-commit now supports the `coursier` naming of the package
 manager executable.
+
+_new in 3.0.0_: `language: coursier` hooks now support `repo: local` and
+`additional_dependencies`.
 
 ### dart
 
@@ -290,8 +289,6 @@ CLI installed.  It has been tested on linux and windows.
 
 ### fail
 
-_new in 1.11.0_
-
 A lightweight [`language`](#hooks-language) to forbid files by filename.  The `fail` language is
 especially useful for [local](#repository-local-hooks) hooks.
 
@@ -320,6 +317,9 @@ and the [`entry`](#hooks-entry) should match an executable which will get instal
 
 _changed in 2.17.0_: previously `go get ./...` was used
 
+_new in 3.0.0_: pre-commit will bootstrap `go` if it is not present. `language: golang`
+also now supports `language_version`
+
 __Support:__ golang hooks are known to work on any system which has go
 installed.  It has been tested on linux, macOS, and windows.
 
@@ -339,10 +339,7 @@ The hook repository must have a `package.json`.  It will be installed via
 match the [`entry`](#hooks-entry) – usually through `bin` in package.json.
 
 __Support:__ node hooks work without any system-level dependencies.  It has
-been tested on linux and macOS and _may_ work under cygwin.
-
-_new in 1.5.0_: windows is now supported for node hooks.  Currently python3
-only due to [a bug in cpython](https://bugs.python.org/issue32539).
+been tested on linux, windows, and macOS and _may_ work under cygwin.
 
 ### perl
 
@@ -376,8 +373,6 @@ __Support:__ python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.
 
 ### python_venv
-
-_new in 1.9.0_
 
 _new in 2.4.0_: The `python_venv` language is now an alias to `python` since
 `virtualenv>=20` creates equivalently structured environments.  Previously,
@@ -423,8 +418,6 @@ been tested on linux and macOS and _may_ work under cygwin.
 
 ### rust
 
-_new in 1.10.0_
-
 Rust hooks are installed using the system installation of
 [Cargo](https://github.com/rust-lang/cargo), Rust's official package manager.
 
@@ -455,15 +448,13 @@ installed.  It has been tested on linux and macOS.
 
 ### pygrep
 
-_new in 1.2.0_
-
 A cross-platform python implementation of `grep` – pygrep hooks are a quick
 way to write a simple hook which prevents commits by file matching.  Specify
 the regex as the [`entry`](#hooks-entry).  The [`entry`](#hooks-entry) may be any python
 [regular expression](#regular-expressions).  For case insensitive regexes you
 can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
 
-_new in 1.8.0_: For multiline matches, use `args: [--multiline]`.
+For multiline matches, use `args: [--multiline]`.
 
 _new in 2.8.0_: To require all files to match, use `args: [--negate]`.
 
