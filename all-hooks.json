@@ -6972,7 +6972,9 @@
             "entry": "checkmake",
             "language": "golang",
             "pass_filenames": true,
-            "files": "(?x)^(\n    (GNU)?[Mm]akefile|\n    .*\\.mk|\n    .*\\.make\n)$\n"
+            "types": [
+                "makefile"
+            ]
         }
     ],
     "https://github.com/jshwi/docsig": [
