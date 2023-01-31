@@ -6157,6 +6157,18 @@
             "minimum_pre_commit_version": "2.8.0",
             "require_serial": true,
             "language_version": "python3"
+        },
+        {
+            "id": "cleveref-instead-of-autoref",
+            "name": "Use \\Cref / \\cref instead of \\autoref",
+            "description": "Suggest replacing \\autoref with either \\Cref or \\cref.",
+            "entry": "\\\\autoref",
+            "language": "pygrep",
+            "types": [
+                "file",
+                "tex"
+            ],
+            "minimum_pre_commit_version": "2.8.0"
         }
     ],
     "https://github.com/dfm/black_nbconvert": [
