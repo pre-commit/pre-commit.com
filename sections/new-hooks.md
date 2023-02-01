@@ -418,8 +418,8 @@ been tested on linux and macOS and _may_ work under cygwin.
 
 ### rust
 
-Rust hooks are installed using the system installation of
-[Cargo](https://github.com/rust-lang/cargo), Rust's official package manager.
+Rust hooks are installed using [Cargo](https://github.com/rust-lang/cargo),
+Rust's official package manager.
 
 Hook repositories must have a `Cargo.toml` file which produces at least one
 binary ([example](https://github.com/chriskuehl/example-rust-pre-commit-hook)),
@@ -433,7 +433,8 @@ build _your_ hook repo), or the special syntax
 `cli:{package_name}:{package_version}` for a CLI dependency (built separately,
 with binaries made available for use by hooks).
 
-_new in 2.21.0_: rust now supports `language_version`.
+_new in 2.21.0_: pre-commit will bootstrap `rust` if it is not present.
+`language: rust` also now supports `language_version`
 
 __Support:__ It has been tested on linux, Windows, and macOS.
 
