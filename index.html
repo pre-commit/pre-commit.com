@@ -645,8 +645,8 @@ produce an executable that will match the <a href="#hooks-entry"><code>entry</co
 <code>executables</code> in your gemspec.</p>
 <p><strong>Support:</strong> ruby hooks work without any system-level dependencies.  It has
 been tested on linux and macOS and <em>may</em> work under cygwin.</p>
-<h3 id="rust">    rust <small><a href="#rust" class="text-decoration-none">¶</a></small></h3> <p>Rust hooks are installed using the system installation of
-<a href="https://github.com/rust-lang/cargo">Cargo</a>, Rust's official package manager.</p>
+<h3 id="rust">    rust <small><a href="#rust" class="text-decoration-none">¶</a></small></h3> <p>Rust hooks are installed using <a href="https://github.com/rust-lang/cargo">Cargo</a>,
+Rust's official package manager.</p>
 <p>Hook repositories must have a <code>Cargo.toml</code> file which produces at least one
 binary (<a href="https://github.com/chriskuehl/example-rust-pre-commit-hook">example</a>),
 whose name should match the <a href="#hooks-entry"><code>entry</code></a> definition for your hook. The repo will be
@@ -657,7 +657,8 @@ pre-commit cache, not polluting your user-level Cargo installations).</p>
 build <em>your</em> hook repo), or the special syntax
 <code>cli:{package_name}:{package_version}</code> for a CLI dependency (built separately,
 with binaries made available for use by hooks).</p>
-<p><em>new in 2.21.0</em>: rust now supports <code>language_version</code>.</p>
+<p><em>new in 2.21.0</em>: pre-commit will bootstrap <code>rust</code> if it is not present.
+<code>language: rust</code> also now supports <code>language_version</code></p>
 <p><strong>Support:</strong> It has been tested on linux, Windows, and macOS.</p>
 <h3 id="swift">    swift <small><a href="#swift" class="text-decoration-none">¶</a></small></h3> <p>The hook repository must have a <code>Package.swift</code>.  It will be installed via
 <code>swift build -c release</code>.  The <a href="#hooks-entry"><code>entry</code></a> should match an executable created by
