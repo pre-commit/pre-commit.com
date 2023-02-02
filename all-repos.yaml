@@ -65,7 +65,7 @@
 - https://github.com/alessandrojcm/commitlint-pre-commit-hook
 - https://github.com/henryykt/pre-commit-perl
 - https://github.com/juancarlospaco/pre-commit-nim
-- https://github.com/aws-cloudformation/cfn-python-lint
+- https://github.com/aws-cloudformation/cfn-lint
 - https://github.com/thoughtworks/talisman
 - https://github.com/PyCQA/flake8
 - https://github.com/PyCQA/bandit
