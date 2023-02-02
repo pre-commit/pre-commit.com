@@ -727,17 +727,6 @@
             ]
         }
     ],
-    "https://github.com/asottile/blacken-docs": [
-        {
-            "id": "blacken-docs",
-            "name": "blacken-docs",
-            "description": "Run `black` on python code blocks in documentation files",
-            "entry": "blacken-docs",
-            "language": "python",
-            "language_version": "python3",
-            "files": "\\.(rst|md|markdown|py|tex)$"
-        }
-    ],
     "https://github.com/asottile/dead": [
         {
             "id": "dead",
@@ -6454,6 +6443,31 @@
                 "dprint@0.34.4"
             ],
             "minimum_pre_commit_version": "0"
+        }
+    ],
+    "https://github.com/adamchainz/blacken-docs": [
+        {
+            "id": "blacken-docs",
+            "name": "blacken-docs",
+            "description": "Run `black` on python code blocks in documentation files",
+            "entry": "blacken-docs",
+            "language": "python",
+            "language_version": "python3",
+            "files": "\\.(rst|md|markdown|py|tex)$"
+        }
+    ],
+    "https://github.com/adamchainz/django-upgrade": [
+        {
+            "id": "django-upgrade",
+            "name": "django-upgrade",
+            "description": "Automatically upgrade your Django project code.",
+            "entry": "django-upgrade",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "files": "",
+            "minimum_pre_commit_version": "0.15.0"
         }
     ],
     "https://github.com/scop/pre-commit-shfmt": [
