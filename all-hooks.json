@@ -2222,7 +2222,7 @@
             "files": "\\.nim$"
         }
     ],
-    "https://github.com/aws-cloudformation/cfn-python-lint": [
+    "https://github.com/aws-cloudformation/cfn-lint": [
         {
             "id": "cfn-python-lint",
             "name": "AWS CloudFormation Linter",
