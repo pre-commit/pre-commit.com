@@ -7041,5 +7041,15 @@
                 "--force-exclusion"
             ]
         }
+    ],
+    "https://gitlab.com/engmark/vcard": [
+        {
+            "id": "vcard",
+            "name": "vcard",
+            "description": "vCard validator",
+            "entry": "vcard",
+            "language": "python",
+            "files": "\\.vcf$"
+        }
     ]
 }
