@@ -412,7 +412,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.34.0"
+                "eslint@8.35.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -2567,7 +2567,7 @@
             "description": "This hook checks Munki pkginfo files to ensure they are valid.",
             "entry": "check-munki-pkgsinfo",
             "language": "python",
-            "files": "^pkgsinfo/",
+            "files": "pkgsinfo/",
             "types": [
                 "text"
             ]
