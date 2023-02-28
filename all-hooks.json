@@ -7051,5 +7051,14 @@
             "language": "python",
             "files": "\\.vcf$"
         }
+    ],
+    "https://github.com/Data-Liberation-Front/csvlint.rb": [
+        {
+            "id": "csvlint",
+            "name": "csvlint",
+            "entry": "csvlint",
+            "language": "ruby",
+            "files": "\\.csv$"
+        }
     ]
 }
