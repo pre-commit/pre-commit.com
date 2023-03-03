@@ -482,7 +482,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@3.0.0-alpha.5"
+                "prettier@3.0.0-alpha.6"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -4222,7 +4222,10 @@
             "language": "docker",
             "entry": "/bin/bash /opt/run_pmd.sh",
             "files": "\\.java$",
-            "require_serial": true
+            "require_serial": true,
+            "args": [
+                "platform=linux/amd64"
+            ]
         },
         {
             "id": "cpd",
@@ -4231,7 +4234,10 @@
             "language": "docker",
             "entry": "/bin/bash /opt/run_cpd.sh",
             "files": "\\.java$",
-            "require_serial": true
+            "require_serial": true,
+            "args": [
+                "platform=linux/amd64"
+            ]
         },
         {
             "id": "checkstyle",
@@ -4240,7 +4246,10 @@
             "language": "docker",
             "entry": "/bin/bash /opt/run_checkstyle.sh",
             "files": "\\.java$",
-            "require_serial": true
+            "require_serial": true,
+            "args": [
+                "platform=linux/amd64"
+            ]
         }
     ],
     "https://github.com/lietu/go-pre-commit": [
@@ -6979,7 +6988,7 @@
             "id": "ruff",
             "name": "ruff",
             "description": "Run 'ruff' for extremely fast Python linting",
-            "entry": "ruff --force-exclude",
+            "entry": "ruff check --force-exclude",
             "language": "python",
             "types_or": [
                 "python",
