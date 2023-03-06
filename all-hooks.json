@@ -1306,12 +1306,12 @@
             "id": "golangci-lint",
             "name": "golangci-lint",
             "description": "Fast linters runner for Go.",
-            "entry": "golangci-lint run --fix",
+            "entry": "golangci-lint run --new-from-rev HEAD --fix",
             "types": [
                 "go"
             ],
             "language": "golang",
-            "pass_filenames": false
+            "pass_filenames": true
         }
     ],
     "https://github.com/Bahjat/pre-commit-golang": [
@@ -6531,7 +6531,7 @@
             "description": "Perl source code critic (native install)",
             "language": "perl",
             "additional_dependencies": [
-                "PETDANCE/Perl-Critic-1.148.tar.gz"
+                "PETDANCE/Perl-Critic-1.150.tar.gz"
             ],
             "entry": "perlcritic",
             "args": [
