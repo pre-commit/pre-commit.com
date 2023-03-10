@@ -185,6 +185,7 @@
 - https://github.com/hugoh/pre-commit-fish
 - https://github.com/nbyl/pre-commit-license-checks
 - https://github.com/jonasbb/pre-commit-latex-hooks
+- https://github.com/joclement/pre-commit-latex-linters
 - https://github.com/dfm/black_nbconvert
 - https://github.com/crate-ci/typos
 - https://github.com/snakemake/snakefmt
