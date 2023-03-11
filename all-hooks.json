@@ -412,7 +412,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.35.0"
+                "eslint@8.36.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -6449,7 +6449,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.34.5"
+                "dprint@0.35.0"
             ],
             "minimum_pre_commit_version": "0"
         }
