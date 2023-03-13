@@ -6449,7 +6449,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.35.0"
+                "dprint@0.35.3"
             ],
             "minimum_pre_commit_version": "0"
         }
