@@ -82,7 +82,7 @@ Environment variables:
 
 ## pre-commit during clean merges
 
-_new in 1.21.0_ pre-commit can be used to manage [pre-merge-commit] hooks.
+pre-commit can be used to manage [pre-merge-commit] hooks.
 
 To use `pre-merge-commit` hooks with pre-commit, run:
 
@@ -139,7 +139,7 @@ pre-commit installed at .git/hooks/commit-msg
 current contents of the commit message which can be validated.  If a hook
 exits nonzero, the commit will be aborted.
 
-_new in 1.16.0_: pre-commit can be used to manage [prepare-commit-msg] hooks.
+pre-commit can be used to manage [prepare-commit-msg] hooks.
 
 To use `prepare-commit-msg` hooks with pre-commit, run:
 
@@ -242,7 +242,7 @@ If you do not want to have hooks installed by default on the stage passed
 during a `pre-commit install --hook-type ...`, please set the [`default_stages`](#top_level-default_stages)
 top level configuration property to the desired stages, also as an array.
 
-_new in 1.8.0_: An additional `manual` stage is available for one off execution
+An additional `manual` stage is available for one off execution
 that won't run in any hook context.  This special stage is useful for taking
 advantage of `pre-commit`'s cross-platform / cross-language package management
 without running it on every commit.  Hooks confined to `stages: [manual]` can
@@ -356,8 +356,6 @@ Here's an example configuration with a few `local` hooks:
 
 ## meta hooks
 
-_new in 1.4.0_
-
 `pre-commit` provides several hooks which are useful for checking the
 pre-commit configuration itself.  These can be enabled using `repo: meta`.
 
@@ -374,22 +372,17 @@ The currently available `meta` hooks:
     =c= [`check-hooks-apply`](_#meta-check_hooks_apply)
     =c= ensures that the configured hooks apply to at least one file in the
         repository.
-        _new in 1.4.0_.
 =r=
     =c= [`check-useless-excludes`](_#meta-check_useless_excludes)
     =c= ensures that `exclude` directives apply to _any_ file in the
         repository.
-        _new in 1.4.0_.
 =r=
     =c= [`identity`](_#meta-identity)
     =c= a simple hook which prints all arguments passed to it, useful for
         debugging.
-        _new in 1.14.0_.
 ```
 
 ## automatically enabling pre-commit on repositories
-
-_new in 1.18.0_
 
 `pre-commit init-templatedir` can be used to set up a skeleton for `git`'s
 `init.templateDir` option.  This means that any newly cloned repository will
@@ -577,7 +570,7 @@ This tells pre-commit to use ruby `2.1.5` to run the `scss-lint` hook.
 Valid values for specific languages are listed below:
 - python: Whatever system installed python interpreters you have. The value of
   this argument is passed as the `-p` to `virtualenv`.
-    - _new in 1.4.3_: on windows the
+    - on windows the
       [pep394](https://www.python.org/dev/peps/pep-0394/) name will be
       translated into a py launcher call for portability.  So continue to use
       names like `python3` (`py -3`) or `python3.6` (`py -3.6`) even on
@@ -585,8 +578,9 @@ Valid values for specific languages are listed below:
 - node: See [nodeenv](https://github.com/ekalinin/nodeenv#advanced).
 - ruby: See [ruby-build](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).
 - _new in 2.21.0_ rust: `language_version` is passed to `rustup`
+- _new in 3.0.0_ golang: use the versions on [go.dev/dl](https://go.dev/dl/) such as `1.19.5`
 
-_new in 1.14.0_: you can now set [`default_language_version`](#top_level-default_language_version)
+you can set [`default_language_version`](#top_level-default_language_version)
 at the [top level](#pre-commit-configyaml---top-level) in your configuration to
 control the default versions across all hooks of a language.
 

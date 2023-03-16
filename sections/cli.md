@@ -1,7 +1,7 @@
 All pre-commit commands take the following options:
 
 - `--color {auto,always,never}`: whether to use color in output.
-  Defaults to `auto`.  _new in 1.18.0_: can be overridden by using
+  Defaults to `auto`.  can be overridden by using
   `PRE_COMMIT_COLOR={auto,always,never}` or disabled using `TERM=dumb`.
 - `-c CONFIG`, `--config CONFIG`: path to alternate config file
 - `-h`, `--help`: show help and available options.
@@ -19,10 +19,9 @@ Options:
 
 - `--bleeding-edge`: update to the bleeding edge of the default branch instead
   of the latest tagged version (the default behaviour).
-- `--freeze`: _new in 1.21.0_: Store "frozen" hashes in [`rev`](#repos-rev)
-  instead of tag names.
-- `--repo REPO`: _new in 1.4.1_: Only update this repository. _new in 1.7.0_:
-  This option may be specified multiple times.
+- `--freeze`: Store "frozen" hashes in [`rev`](#repos-rev) instead of tag names.
+- `--repo REPO`: Only update this repository. This option may be specified
+  multiple times.
 
 Here are some sample invocations using this `.pre-commit-config.yaml`:
 
@@ -79,8 +78,6 @@ Options: (no additional options)
 
 ## pre-commit gc [options] #pre-commit-gc
 
-_new in 1.14.0_
-
 Clean unused cached repos.
 
 `pre-commit` keeps a cache of installed hook repositories which grows over
@@ -90,8 +87,6 @@ the cache directory.
 Options: (no additional options)
 
 ## pre-commit init-templatedir DIRECTORY [options] #pre-commit-init-templatedir
-
-_new in 1.18.0_
 
 Install hook script in a directory intended for use with
 `git config init.templateDir`.
@@ -169,8 +164,6 @@ Options: (no additional options)
 
 ## pre-commit migrate-config [options] #pre-commit-migrate-config
 
-_new in 1.0.0_
-
 Migrate list configuration to the new map configuration format.
 
 Options: (no additional options)
@@ -212,8 +205,6 @@ Produce a sample `.pre-commit-config.yaml`.
 Options: (no additional options)
 
 ## pre-commit try-repo REPO [options] #pre-commit-try-repo
-
-_new in 1.3.0_
 
 Try the hooks in a repository, useful for developing new hooks.
 `try-repo` can also be used for testing out a repository before adding it to
