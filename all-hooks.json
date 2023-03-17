@@ -6414,7 +6414,7 @@
         {
             "id": "sqlfluff-lint",
             "name": "sqlfluff-lint",
-            "entry": "sqlfluff lint",
+            "entry": "sqlfluff lint --processes 0",
             "language": "python",
             "description": "Lints sql files with `SQLFluff`",
             "types": [
@@ -6426,7 +6426,7 @@
         {
             "id": "sqlfluff-fix",
             "name": "sqlfluff-fix",
-            "entry": "sqlfluff fix --force",
+            "entry": "sqlfluff fix --force --show-lint-violations --processes 0",
             "language": "python",
             "description": "Fixes sql lint errors with `SQLFluff`",
             "types": [
