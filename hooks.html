@@ -4181,6 +4181,189 @@ Will sort imports alphabetically and then group them in the following order:
                     - Enforce the community Ruby Style Guide with RuboCop
             </li>
     </ul>
+    <h3 data-repo="https://github.com/dbt-checkpoint/dbt-checkpoint">
+        <a href="https://github.com/dbt-checkpoint/dbt-checkpoint" target="_blank">
+            github.com/dbt-checkpoint/dbt-checkpoint
+        </a>
+    </h3>
+    <ul data-repo="https://github.com/dbt-checkpoint/dbt-checkpoint">
+            <li data-id="check-column-desc-are-same" data-types="">
+                <code>check-column-desc-are-same</code>
+                    - Check the models have same descriptions for same column names.
+            </li>
+            <li data-id="check-column-name-contract" data-types="sql, yaml">
+                <code>check-column-name-contract</code>
+                    - Check column name abides to contract.
+            </li>
+            <li data-id="check-macro-has-description" data-types="yaml, sql">
+                <code>check-macro-has-description</code>
+                    - Ensures that the macro has description in properties file.
+            </li>
+            <li data-id="check-macro-arguments-have-desc" data-types="yaml, sql">
+                <code>check-macro-arguments-have-desc</code>
+                    - Ensures that the macro has arguments with descriptions in properties file.
+            </li>
+            <li data-id="check-model-columns-have-desc" data-types="yaml, sql">
+                <code>check-model-columns-have-desc</code>
+                    - Ensures that the model has columns with descriptions in properties file.
+            </li>
+            <li data-id="check-model-has-all-columns" data-types="sql, yaml">
+                <code>check-model-has-all-columns</code>
+                    - Ensures that all columns in database are specified in properties file.
+            </li>
+            <li data-id="check-model-has-description" data-types="yaml, sql">
+                <code>check-model-has-description</code>
+                    - Ensures that the model has description in properties file.
+            </li>
+            <li data-id="check-model-has-meta-keys" data-types="yaml, sql">
+                <code>check-model-has-meta-keys</code>
+                    - Ensures that the model has a list of valid meta keys.
+            </li>
+            <li data-id="check-model-has-properties-file" data-types="sql, yaml">
+                <code>check-model-has-properties-file</code>
+                    - Ensures that the model has properties file (schema file).
+            </li>
+            <li data-id="check-model-has-tests-by-group" data-types="sql, yaml">
+                <code>check-model-has-tests-by-group</code>
+                    - Ensures that the model has a number of tests from a group of tests.
+            </li>
+            <li data-id="check-model-has-tests-by-name" data-types="sql, yaml">
+                <code>check-model-has-tests-by-name</code>
+                    - Ensures that the model has a number of tests of a certain name (e.g. data, unique).
+            </li>
+            <li data-id="check-model-has-tests-by-type" data-types="sql, yaml">
+                <code>check-model-has-tests-by-type</code>
+                    - Ensures that the model has a number of tests of a certain type (data, schema).
+            </li>
+            <li data-id="check-model-has-tests" data-types="sql, yaml">
+                <code>check-model-has-tests</code>
+                    - Ensures that the model has a number of tests.
+            </li>
+            <li data-id="check-model-name-contract" data-types="sql">
+                <code>check-model-name-contract</code>
+                    - Check model name abides to contract.
+            </li>
+            <li data-id="check-model-parents-schema" data-types="yaml, sql">
+                <code>check-model-parents-schema</code>
+                    - Check parent models or sources are from certain schema
+            </li>
+            <li data-id="check-model-parents-database" data-types="sql, yaml">
+                <code>check-model-parents-database</code>
+                    - Check parent models or sources are from certain database
+            </li>
+            <li data-id="check-model-parents-and-childs" data-types="sql, yaml">
+                <code>check-model-parents-and-childs</code>
+                    - Ensures the model has a specific number (max/min) of parents or/and childs.
+            </li>
+            <li data-id="check-model-tags" data-types="sql, yaml">
+                <code>check-model-tags</code>
+                    - Ensures that the model has only valid tags from the provided list.
+            </li>
+            <li data-id="check-script-has-no-table-name" data-types="sql">
+                <code>check-script-has-no-table-name</code>
+                    - Ensures that the script is using only source or ref macro to specify the table name.
+            </li>
+            <li data-id="check-script-ref-and-source" data-types="sql">
+                <code>check-script-ref-and-source</code>
+                    - Ensures that the script contains only existing sources or macros.
+            </li>
+            <li data-id="check-script-semicolon" data-types="sql">
+                <code>check-script-semicolon</code>
+                    - Ensure that the script does not have a semicolon at the end of the file.
+            </li>
+            <li data-id="check-source-childs" data-types="sql">
+                <code>check-source-childs</code>
+                    - Ensures the source has a specific number (max/min) of childs.
+            </li>
+            <li data-id="check-source-columns-have-desc" data-types="yaml">
+                <code>check-source-columns-have-desc</code>
+                    - Ensures that the source has columns with descriptions in the properties file.
+            </li>
+            <li data-id="check-source-has-all-columns" data-types="yaml">
+                <code>check-source-has-all-columns</code>
+                    - Ensures that all columns in the database are specified in the properties file.
+            </li>
+            <li data-id="check-source-table-has-description" data-types="yaml">
+                <code>check-source-table-has-description</code>
+                    - Ensures that the source table has description in properties file.
+            </li>
+            <li data-id="check-source-has-freshness" data-types="yaml">
+                <code>check-source-has-freshness</code>
+                    - Ensures that the source has freshness options.
+            </li>
+            <li data-id="check-source-has-loader" data-types="yaml">
+                <code>check-source-has-loader</code>
+                    - Ensures that the source has loader option.
+            </li>
+            <li data-id="check-source-has-meta-keys" data-types="yaml">
+                <code>check-source-has-meta-keys</code>
+                    - Ensures that the source has a list of valid meta keys.
+            </li>
+            <li data-id="check-source-has-tests-by-name" data-types="yaml">
+                <code>check-source-has-tests-by-name</code>
+                    - Ensures that the source has a number of tests of a certain name (e.g. data, unique).
+            </li>
+            <li data-id="check-source-has-tests-by-type" data-types="yaml">
+                <code>check-source-has-tests-by-type</code>
+                    - Ensures that the source has a number of tests of a certain type (data, schema).
+            </li>
+            <li data-id="check-source-has-tests-by-group" data-types="yaml">
+                <code>check-source-has-tests-by-group</code>
+                    - Ensures that the source has a number of tests of a certain group (unique, unique-combination-of-columns).
+            </li>
+            <li data-id="check-source-has-tests" data-types="yaml">
+                <code>check-source-has-tests</code>
+                    - Ensures that the source has a number of tests.
+            </li>
+            <li data-id="check-source-tags" data-types="yaml">
+                <code>check-source-tags</code>
+                    - Ensures that the source has only valid tags from the provided list.
+            </li>
+            <li data-id="dbt-clean" data-types="">
+                <code>dbt-clean</code>
+                    - Deletes all folders specified in the clean-targets.
+            </li>
+            <li data-id="dbt-compile" data-types="sql">
+                <code>dbt-compile</code>
+                    - Generates executable SQL from source model, test, and analysis files.
+            </li>
+            <li data-id="dbt-deps" data-types="">
+                <code>dbt-deps</code>
+                    - Pulls the most recent version of the dependencies listed in your packages.yml.
+            </li>
+            <li data-id="dbt-docs-generate" data-types="">
+                <code>dbt-docs-generate</code>
+                    - The command is responsible for generating your project&#39;s documentation website.
+            </li>
+            <li data-id="dbt-run" data-types="sql">
+                <code>dbt-run</code>
+                    - Executes compiled sql model files.
+            </li>
+            <li data-id="dbt-test" data-types="sql">
+                <code>dbt-test</code>
+                    - Runs tests on data in deployed models.
+            </li>
+            <li data-id="generate-missing-sources" data-types="sql">
+                <code>generate-missing-sources</code>
+                    - If any source is missing this hook tries to create it.
+            </li>
+            <li data-id="generate-model-properties-file" data-types="sql">
+                <code>generate-model-properties-file</code>
+                    - Generate model properties file if does not exists.
+            </li>
+            <li data-id="unify-column-description" data-types="">
+                <code>unify-column-description</code>
+                    - Unify column descriptions across all models
+            </li>
+            <li data-id="replace-script-table-names" data-types="sql">
+                <code>replace-script-table-names</code>
+                    - Replace table names with source or ref macros in the script.
+            </li>
+            <li data-id="remove-script-semicolon" data-types="sql">
+                <code>remove-script-semicolon</code>
+                    - Remove semicolon at the end of the script.
+            </li>
+    </ul>
     <h3 data-repo="https://gitlab.com/engmark/vcard">
         <a href="https://gitlab.com/engmark/vcard" target="_blank">
             gitlab.com/engmark/vcard
