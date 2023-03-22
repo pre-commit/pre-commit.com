@@ -346,7 +346,7 @@ been tested on linux, windows, and macOS and _may_ work under cygwin.
 _new in 2.1.0_
 
 Perl hooks are installed using the system installation of
-[cpan](https://perldoc.perl.org/5.30.0/cpan.html), the CPAN package installer
+[cpan](https://perldoc.perl.org/cpan), the CPAN package installer
 that comes with Perl.
 
 Hook repositories must have something that `cpan` supports, typically
@@ -356,7 +356,7 @@ via `cpan -T .` (with the installed files stored in your pre-commit cache,
 not polluting other Perl installations).
 
 When specifying [`additional_dependencies`](#config-additional_dependencies) for Perl, you can use any of the
-[install argument formats understood by `cpan`](https://perldoc.perl.org/5.30.0/CPAN.html#get%2c-make%2c-test%2c-install%2c-clean-modules-or-distributions).
+[install argument formats understood by `cpan`](https://perldoc.perl.org/CPAN#get%2c-make%2c-test%2c-install%2c-clean-modules-or-distributions).
 
 __Support:__ Perl hooks currently require a pre-existing Perl installation,
 including the `cpan` tool in `PATH`.  It has been tested on linux, macOS, and
