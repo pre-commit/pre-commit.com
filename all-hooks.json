@@ -6487,6 +6487,11 @@
             "types": [
                 "shell"
             ],
+            "exclude_types": [
+                "csh",
+                "tcsh",
+                "zsh"
+            ],
             "stages": [
                 "commit",
                 "merge-commit",
@@ -6506,6 +6511,11 @@
             ],
             "types": [
                 "shell"
+            ],
+            "exclude_types": [
+                "csh",
+                "tcsh",
+                "zsh"
             ],
             "stages": [
                 "commit",
