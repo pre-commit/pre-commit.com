@@ -601,7 +601,7 @@ match the <a href="#hooks-entry"><code>entry</code></a> – usually through <cod
 been tested on linux, windows, and macOS and <em>may</em> work under cygwin.</p>
 <h3 id="perl">    perl <small><a href="#perl" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.1.0</em></p>
 <p>Perl hooks are installed using the system installation of
-<a href="https://perldoc.perl.org/5.30.0/cpan.html">cpan</a>, the CPAN package installer
+<a href="https://perldoc.perl.org/cpan">cpan</a>, the CPAN package installer
 that comes with Perl.</p>
 <p>Hook repositories must have something that <code>cpan</code> supports, typically
 <code>Makefile.PL</code> or <code>Build.PL</code>, which it uses to install an executable to
@@ -609,7 +609,7 @@ use in the <a href="#hooks-entry"><code>entry</code></a> definition for your hoo
 via <code>cpan -T .</code> (with the installed files stored in your pre-commit cache,
 not polluting other Perl installations).</p>
 <p>When specifying <a href="#config-additional_dependencies"><code>additional_dependencies</code></a> for Perl, you can use any of the
-<a href="https://perldoc.perl.org/5.30.0/CPAN.html#get%2c-make%2c-test%2c-install%2c-clean-modules-or-distributions">install argument formats understood by <code>cpan</code></a>.</p>
+<a href="https://perldoc.perl.org/CPAN#get%2c-make%2c-test%2c-install%2c-clean-modules-or-distributions">install argument formats understood by <code>cpan</code></a>.</p>
 <p><strong>Support:</strong> Perl hooks currently require a pre-existing Perl installation,
 including the <code>cpan</code> tool in <code>PATH</code>.  It has been tested on linux, macOS, and
 Windows.</p>

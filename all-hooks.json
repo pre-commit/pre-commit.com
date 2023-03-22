@@ -375,7 +375,8 @@
                 "javascript",
                 "json",
                 "objective-c",
-                "proto"
+                "proto",
+                "textproto"
             ],
             "args": [
                 "-style=file"
