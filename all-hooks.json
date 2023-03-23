@@ -1312,7 +1312,8 @@
                 "go"
             ],
             "language": "golang",
-            "pass_filenames": true
+            "require_serial": true,
+            "pass_filenames": false
         }
     ],
     "https://github.com/Bahjat/pre-commit-golang": [
