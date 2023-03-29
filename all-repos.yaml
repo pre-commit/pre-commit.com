@@ -148,7 +148,6 @@
 - https://gitlab.com/jvenom/elixir-pre-commit-hooks
 - https://github.com/Cretezy/flutter-format-pre-commit
 - https://github.com/dluksza/flutter-analyze-pre-commit
-- https://github.com/Virtomize/flutter-test-pre-commit
 - https://github.com/fluttercommunity/import_sorter
 - https://github.com/editorconfig-checker/editorconfig-checker.python
 - https://gitlab.com/pablodiehl/pre-commit-lua-formatter
@@ -234,3 +233,4 @@
 - https://github.com/dbt-checkpoint/dbt-checkpoint
 - https://gitlab.com/engmark/vcard
 - https://github.com/Data-Liberation-Front/csvlint.rb
+- https://github.com/Virtomize/flutter-test-pre-commit
