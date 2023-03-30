@@ -5741,6 +5741,18 @@
             "minimum_pre_commit_version": "2.10.1"
         }
     ],
+    "https://github.com/google/yamlfmt": [
+        {
+            "id": "yamlfmt",
+            "name": "yamlfmt",
+            "description": "This hook uses github.com/google/yamlfmt to format yaml files. Requires golang >1.18 to be installed.",
+            "entry": "yamlfmt",
+            "language": "golang",
+            "types": [
+                "yaml"
+            ]
+        }
+    ],
     "https://github.com/guid-empty/flutter-dependency-validation-pre-commit": [
         {
             "id": "flutter-dependency-validation",
