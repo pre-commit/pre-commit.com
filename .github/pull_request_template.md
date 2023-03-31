@@ -9,4 +9,5 @@ my new repository:
   * `script`
   * `docker`
   * `docker_image`
-- [ ] does not contain "pre-commit" in the name
+- [ ] does not contain "pre-commit" in the name (as that is reserved for
+      officially associated hooks)
