@@ -8,4 +8,5 @@ my new repository:
   * `system`
   * `script`
   * `docker`
+  * `docker_image`
 - [ ] does not contain "pre-commit" in the name
