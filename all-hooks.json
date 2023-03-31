@@ -1069,6 +1069,12 @@
             "exclude": "(Makefile|debian/rules|.gitmodules)(\\.in)?$"
         },
         {
+            "id": "chmod",
+            "name": "Set file permissions",
+            "entry": "chmod",
+            "language": "python"
+        },
+        {
             "id": "insert-license",
             "name": "Insert license in comments",
             "description": "Insert a short license disclaimer as a header comment in source files",
@@ -5745,7 +5751,7 @@
         {
             "id": "yamlfmt",
             "name": "yamlfmt",
-            "description": "This hook uses github.com/google/yamlfmt to format yaml files. Requires golang >1.18 to be installed.",
+            "description": "This hook uses github.com/google/yamlfmt to format yaml files. Requires golang >1.20 to be installed.",
             "entry": "yamlfmt",
             "language": "golang",
             "types": [

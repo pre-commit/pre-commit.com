@@ -697,6 +697,10 @@ Also available in <a href="/all-hooks.json">json</a>.
                 <code>remove-tabs</code>
                     - Replace tabs by whitespaces before committing
             </li>
+            <li data-id="chmod" data-types="">
+                <code>chmod</code>
+                    - Set file permissions
+            </li>
             <li data-id="insert-license" data-types="">
                 <code>insert-license</code>
                     - Insert a short license disclaimer as a header comment in source files
@@ -3317,7 +3321,7 @@ Will sort imports alphabetically and then group them in the following order:
     <ul data-repo="https://github.com/google/yamlfmt">
             <li data-id="yamlfmt" data-types="yaml">
                 <code>yamlfmt</code>
-                    - This hook uses github.com/google/yamlfmt to format yaml files. Requires golang &gt;1.18 to be installed.
+                    - This hook uses github.com/google/yamlfmt to format yaml files. Requires golang &gt;1.20 to be installed.
             </li>
     </ul>
     <h3 data-repo="https://github.com/guid-empty/flutter-dependency-validation-pre-commit">
