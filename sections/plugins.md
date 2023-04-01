@@ -135,10 +135,8 @@ repository's configuration.
     =c= (optional) list of additional parameters to pass to the hook.
 =r=
     =c= [`stages`](_#config-stages)
-    =c= (optional) confines the hook to the `commit`, `merge-commit`, `push`,
-        `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`,
-        `post-merge`, `post-rewrite`, or `manual` stage.  See
-        [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
+    =c= (optional) selects which git hook(s) to run for.
+        See [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
     =c= [`additional_dependencies`](_#config-additional_dependencies)
     =c= (optional) a list of dependencies that will be installed in the
