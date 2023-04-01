@@ -294,10 +294,8 @@ hook.  See <a href="#overriding-language-version">Overriding Language Version</a
 </td></tr><tr><td><p><a id="config-args" href="#config-args"><code>args</code></a></p>
 </td><td><p>(optional) list of additional parameters to pass to the hook.</p>
 </td></tr><tr><td><p><a id="config-stages" href="#config-stages"><code>stages</code></a></p>
-</td><td><p>(optional) confines the hook to the <code>commit</code>, <code>merge-commit</code>, <code>push</code>,
-<code>prepare-commit-msg</code>, <code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>,
-<code>post-merge</code>, <code>post-rewrite</code>, or <code>manual</code> stage.  See
-<a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
+</td><td><p>(optional) selects which git hook(s) to run for.
+See <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
 </td></tr><tr><td><p><a id="config-additional_dependencies" href="#config-additional_dependencies"><code>additional_dependencies</code></a></p>
 </td><td><p>(optional) a list of dependencies that will be installed in the
 environment where this hook gets run.  One useful application is to
@@ -416,10 +414,8 @@ compatible pre-commit version.</p>
 </td></tr><tr><td><p><a id="hooks-args" href="#hooks-args"><code>args</code></a></p>
 </td><td><p>(optional: default <code>[]</code>) list of additional parameters to pass to the hook.</p>
 </td></tr><tr><td><p><a id="hooks-stages" href="#hooks-stages"><code>stages</code></a></p>
-</td><td><p>(optional: default (all stages)) confines the hook to the <code>commit</code>, <code>merge-commit</code>,
-<code>push</code>, <code>prepare-commit-msg</code>, <code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>,
-<code>post-merge</code>, <code>post-rewrite</code>, and/or <code>manual</code> stage(s).  See
-<a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
+</td><td><p>(optional: default (all stages)) selects which git hook(s) to run for.
+See <a href="#confining-hooks-to-run-at-certain-stages">Confining hooks to run at certain stages</a>.</p>
 </td></tr></tbody></table><p>For example:</p>
 <div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trim Trailing Whitespace</span>
@@ -760,8 +756,7 @@ the cache directory.</p>
 <code>git config init.templateDir</code>.</p>
 <p>Options:</p>
 <ul>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}</code>:
+<li><code>-t HOOK_TYPE, --hook-type HOOK_TYPE</code>:
 which hook type to install.</li>
 </ul>
 <p>Some example useful invocations:</p>
@@ -783,8 +778,7 @@ already!</p>
 script.</li>
 <li><code>--install-hooks</code>: Also install environments for all available hooks now
 (rather than when they are first executed). See <a href="#pre-commit-install-hooks"><code>pre-commit install-hooks</code></a>.</li>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}</code>:
+<li><code>-t HOOK_TYPE, --hook-type HOOK_TYPE</code>:
 Specify which hook type to install.</li>
 <li><code>--allow-missing-config</code>: Hook scripts will permit a missing configuration
 file.</li>
@@ -869,9 +863,7 @@ which are also supported by <code>pre-commit try-repo</code>.</li>
 <h2 id="pre-commit-uninstall">    pre-commit uninstall [options] <small><a href="#pre-commit-uninstall" class="text-decoration-none">¶</a></small></h2> <p>Uninstall the pre-commit script.</p>
 <p>Options:</p>
 <ul>
-<li><code>-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}</code>,
-<code>--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}</code>:
-which hook type to uninstall.</li>
+<li><code>-t HOOK_TYPE, --hook-type HOOK_TYPE</code>: which hook type to uninstall.</li>
 </ul>
 
 </div>
@@ -889,158 +881,148 @@ ids. This allows you to skip a single hook instead of <code>--no-verify</code>in
 entire commit.</p>
 <div class="highlight console"><pre><span></span><span class="gp">$ </span><span class="nv">SKIP</span><span class="o">=</span>flake8<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;foo&quot;</span>
 </pre></div>
-<h2 id="pre-commit-during-commits">    pre-commit during commits <small><a href="#pre-commit-during-commits" class="text-decoration-none">¶</a></small></h2> <p>Running hooks on unstaged changes can lead to both false-positives and
-false-negatives during committing.  pre-commit only runs on the staged
-contents of files by temporarily saving the contents of your files at commit
-time and stashing the unstaged changes while running hooks.</p>
-<p><em>new in 2.4.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_commit">post-commit</a> hooks.</p>
-<p>To use <code>post-commit</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>post-commit
-<span class="go">pre-commit installed at .git/hooks/post-commit</span>
-</pre></div>
-<p><code>post-commit</code> hooks fire after the commit succeeds and cannot be used to
-prevent the commit from happening (use <code>pre-commit</code> instead).  Since
-<code>post-commit</code> does not operate on files, any hooks must set <code>always_run</code>:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post-commit-local</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post commit</span>
-<span class="w">        </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">        </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">post-commit</span><span class="p p-Indicator">]</span>
-<span class="w">        </span><span class="c1"># ...</span>
-</pre></div>
-<h2 id="pre-commit-during-merges">    pre-commit during merges <small><a href="#pre-commit-during-merges" class="text-decoration-none">¶</a></small></h2> <p>The biggest gripe we’ve had in the past with pre-commit hooks was during merge
-conflict resolution.  When working on very large projects a merge often
-results in hundreds of committed files. I shouldn’t need to run hooks on all
-of these files that I didn’t even touch!  This often led to running commit
-with <code>--no-verify</code> and allowed introduction of real bugs that hooks could have
-caught.</p>
-<p>pre-commit solves this by only running hooks on files that conflict or were
-manually edited during conflict resolution.  This also includes files which
-were automatically merged by git.  Git isn't perfect and this can often catch
-implicit conflicts (such as with removed python imports).</p>
-<p><em>new in 2.11.0</em> pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_merge">post-merge</a> hooks.</p>
-<p>To use <code>post-merge</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>post-merge
-<span class="go">pre-commit installed at .git/hooks/post-merge</span>
-</pre></div>
-<p>The hook fires after a successful <code>git merge</code>.</p>
-<p>Environment variables:</p>
-<ul>
-<li><code>PRE_COMMIT_IS_SQUASH_MERGE</code>: whether it is a squash merge.</li>
-</ul>
-<h2 id="pre-commit-during-clean-merges">    pre-commit during clean merges <small><a href="#pre-commit-during-clean-merges" class="text-decoration-none">¶</a></small></h2> <p>pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_pre_merge_commit">pre-merge-commit</a> hooks.</p>
-<p>To use <code>pre-merge-commit</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>pre-merge-commit
-<span class="go">pre-commit installed at .git/hooks/pre-merge-commit</span>
-</pre></div>
-<p>The hook fires after a merge succeeds but before the merge commit is created.</p>
-<p>Note that you need to be using at least git 2.24 which added support for the
-pre-merge-commit hook.</p>
-<h2 id="pre-commit-during-push">    pre-commit during push <small><a href="#pre-commit-during-push" class="text-decoration-none">¶</a></small></h2> <p>To use <code>pre-push</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>pre-push
+<h2 id="confining-hooks-to-run-at-certain-stages">    Confining hooks to run at certain stages <small><a href="#confining-hooks-to-run-at-certain-stages" class="text-decoration-none">¶</a></small></h2> <p>pre-commit supports many different types of <code>git</code> hooks (not just
+<code>pre-commit</code>!).</p>
+<p>Providers of hooks can select which git hooks they run on by setting the
+<a href="#hooks-stages"><code>stages</code></a> property in <code>.pre-commit-hooks.yaml</code> -- this can
+also be overridden by setting <a href="#config-stages"><code>stages</code></a> in
+<code>.pre-commit-config.yaml</code>.  If <code>stages</code> is not set in either of those places
+the default value will be pulled from the top-level
+<a href="#top_level-default_stages"><code>default_stages</code></a> option (which defaults to <em>all</em>
+stages).  By default, tools are enabled for <a href="#supported-git-hooks">every hook type</a>
+that pre-commit supports.</p>
+<p><em>new in 3.2.0</em>: The values of <code>stages</code> match the hook names.  Previously,
+<code>commit</code>, <code>push</code>, and <code>merge-commit</code> matched <code>pre-commit</code>, <code>pre-push</code>, and
+<code>pre-merge-commit</code> respectively.</p>
+<p>The <code>manual</code> stage (via <code>stages: [manual]</code>) is a special stage which will not
+be automatically triggered by any <code>git</code> hook -- this is useful if you want to
+add a tool which is not automatically run, but is run on demand using
+<code>pre-commit run --hook-stage manual [hookid]</code>.</p>
+<p>If you are authoring a tool, it is usually a good idea to provide an appropriate
+<code>stages</code> property.  For example a reasonable setting for a linter or code
+formatter would be <code>stages: [pre-commit, pre-merge-commit, pre-push, manual]</code>.</p>
+<p>To install <code>pre-commit</code> for particular git hooks, pass <code>--hook-type</code> to
+<code>pre-commit install</code>.  This can be specified multiple times such as:</p>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>pre-commit<span class="w"> </span>--hook-type<span class="w"> </span>pre-push
+<span class="go">pre-commit installed at .git/hooks/pre-commit</span>
 <span class="go">pre-commit installed at .git/hooks/pre-push</span>
 </pre></div>
-<p>Environment variables:</p>
-<ul>
-<li><code>PRE_COMMIT_FROM_REF</code>: the remote revision that is being pushed to.<ul>
-<li><em>new in 2.2.0</em> prior to 2.2.0 the variable was <code>PRE_COMMIT_SOURCE</code>.</li>
-</ul>
-</li>
-<li><code>PRE_COMMIT_TO_REF</code>: the local revision that is being pushed to the remote.<ul>
-<li><em>new in 2.2.0</em> prior to 2.2.0 the variable was <code>PRE_COMMIT_ORIGIN</code>.</li>
-</ul>
-</li>
-<li><code>PRE_COMMIT_REMOTE_NAME</code>: <em>new in 2.0.0</em> which remote is being pushed to
-(for example <code>origin</code>)</li>
-<li><code>PRE_COMMIT_REMOTE_URL</code>: <em>new in 2.0.0</em> the url of the remote that is being
-pushed to (for example <code>git@github.com:pre-commit/pre-commit</code>).</li>
-<li><code>PRE_COMMIT_REMOTE_BRANCH</code>: <em>new in 2.10.0</em> the name of the remote branch to
-which we are pushing (for example <code>refs/heads/target-branch</code>)</li>
-<li><code>PRE_COMMIT_LOCAL_BRANCH</code>: <em>new in 2.14.0</em> the name of the local branch that
-is being pushed to the remote (for example <code>HEAD</code>)</li>
-</ul>
-<h2 id="pre-commit-for-commit-messages">    pre-commit for commit messages <small><a href="#pre-commit-for-commit-messages" class="text-decoration-none">¶</a></small></h2> <p>pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_commit_msg">commit-msg</a> hooks.</p>
-<p>To use <code>commit-msg</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>commit-msg
+<p>Additionally, one can specify a default set of git hook types to be installed
+for by setting the top-level <a href="#top_level-default_install_hook_types"><code>default_install_hook_types</code></a>.</p>
+<p>For example:</p>
+<div class="highlight yaml"><pre><span></span><span class="nt">default_install_hook_types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">pre-commit</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pre-push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">commit-msg</span><span class="p p-Indicator">]</span>
+</pre></div>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w">  </span>install
+<span class="go">pre-commit installed at .git/hooks/pre-commit</span>
+<span class="go">pre-commit installed at .git/hooks/pre-push</span>
 <span class="go">pre-commit installed at .git/hooks/commit-msg</span>
 </pre></div>
-<p><code>commit-msg</code> hooks can be configured by setting <code>stages: [commit-msg]</code>.
-<code>commit-msg</code> hooks will be passed a single filename -- this file contains the
-current contents of the commit message which can be validated.  If a hook
-exits nonzero, the commit will be aborted.</p>
-<p>pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_prepare_commit_msg">prepare-commit-msg</a> hooks.</p>
-<p>To use <code>prepare-commit-msg</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>prepare-commit-msg
-<span class="go">pre-commit installed at .git/hooks/prepare-commit-msg</span>
-</pre></div>
-<p><code>prepare-commit-msg</code> hooks can be used to create dynamic templates for commit
-messages. <code>prepare-commit-msg</code> hooks can be configured by setting
-<code>stages: [prepare-commit-msg]</code>. <code>prepare-commit-msg</code> hooks will be passed a
-single filename -- this file contains any initial commit message (e.g. from
-<code>git commit -m &quot;...&quot;</code> or a template) and can be modified by the hook before
-the editor is shown. A hook may want to check for <code>GIT_EDITOR=:</code> as this
-indicates that no editor will be launched. If a hook exits nonzero,
-the commit will be aborted.</p>
-<h2 id="pre-commit-for-switching-branches">    pre-commit for switching branches <small><a href="#pre-commit-for-switching-branches" class="text-decoration-none">¶</a></small></h2> <p><em>new in 2.2.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_checkout">post-checkout</a> hooks.</p>
-<p>To use <code>post-checkout</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>post-checkout
-<span class="go">pre-commit installed at .git/hooks/post-checkout</span>
-</pre></div>
-<p><code>post-checkout</code> hooks can be used to perform repository validity checks,
-auto-display differences from the previous HEAD if different,
-or set working dir metadata properties. Since <code>post-checkout</code> doesn't operate
-on files, any hooks must set <code>always_run</code>:</p>
-<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post-checkout-local</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Post checkout</span>
-<span class="w">        </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">        </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">post-checkout</span><span class="p p-Indicator">]</span>
-<span class="w">        </span><span class="c1"># ...</span>
-</pre></div>
-<p><code>post-checkout</code> hooks have three environment variables they can check to
-do their work: <code>$PRE_COMMIT_FROM_REF</code>, <code>$PRE_COMMIT_TO_REF</code>,
-and <code>$PRE_COMMIT_CHECKOUT_TYPE</code>. These correspond to the first, second,
-and third arguments (respectively) that are normally passed to a regular
-post-checkout hook from Git.</p>
-<h2 id="pre-commit-for-rewriting">    pre-commit for rewriting <small><a href="#pre-commit-for-rewriting" class="text-decoration-none">¶</a></small></h2> <p><em>new in 2.15.0</em>: pre-commit can be used to manage <a href="https://git-scm.com/docs/githooks#_post_rewrite">post-rewrite</a> hooks.</p>
-<p>To use <code>post-rewrite</code> hooks with pre-commit, run:</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>post-rewrite
-<span class="go">pre-commit installed at .git/hooks/post-rewrite</span>
-</pre></div>
-<p><code>post-rewrite</code> is triggered after git commands which modify history such as
-<code>git commit --amend</code> and <code>git rebase</code>.</p>
-<p>since <code>post-rewrite</code> does not operate on any files, you must set
-<a href="#hooks-always_run"><code>always_run: true</code></a>.</p>
-<p><code>git</code> tells the <code>post-rewrite</code> hook which command triggered the rewrite.
-<code>pre-commit</code> exposes this as <code>$PRE_COMMIT_REWRITE_COMMAND</code>.</p>
-<h2 id="confining-hooks-to-run-at-certain-stages">    Confining hooks to run at certain stages <small><a href="#confining-hooks-to-run-at-certain-stages" class="text-decoration-none">¶</a></small></h2> <p>Since the <a href="#top_level-default_stages"><code>default_stages</code></a> top level configuration property of the
-<code>.pre-commit-config.yaml</code> file is set to all stages by default, when installing
-hooks using the <code>-t</code>/<code>--hook-type</code> option (see <a href="#pre-commit-install">pre-commit
-install [options]</a>), all hooks will be installed by default
-to run at the stage defined through that option. For instance,
-<code>pre-commit install --hook-type pre-push</code> will install by default all hooks
-to run at the <code>push</code> stage.</p>
-<p>Hooks can however be confined to a stage by setting the <a href="#config-stages"><code>stages</code></a>
-property in your <code>.pre-commit-config.yaml</code>, and the corresponding <a href="#hook-stages"><code>stages</code></a>
-property in the hook's <code>.pre-commit-hooks.yaml</code> definition.  The <code>stages</code> properties
-are arrays and can contain any of <code>commit</code>, <code>merge-commit</code>, <code>push</code>, <code>prepare-commit-msg</code>,
-<code>commit-msg</code>, <code>post-checkout</code>, <code>post-commit</code>, <code>post-merge</code>, <code>post-rewrite</code>, and <code>manual</code>.
-It is useful to provide an appropriate set of stages out of the box in
-<code>.pre-commit-hooks.yaml</code> hook definitions to avoid unnecessary runs of hooks in
-stages where they do not and can not do anything useful.  For example, a
-reasonable setting for code formatter and the like hooks would be
-<code>stages: [commit, merge-commit, push, manual]</code>, and one for hooks that operate
-on commit messages could be <code>stages: [commit-msg, manual]</code>.</p>
-<p>If you do not want to have hooks installed by default on the stage passed
-during a <code>pre-commit install --hook-type ...</code>, please set the <a href="#top_level-default_stages"><code>default_stages</code></a>
-top level configuration property to the desired stages, also as an array.</p>
-<p>An additional <code>manual</code> stage is available for one off execution
-that won't run in any hook context.  This special stage is useful for taking
-advantage of <code>pre-commit</code>'s cross-platform / cross-language package management
-without running it on every commit.  Hooks confined to <code>stages: [manual]</code> can
-be executed by running <code>pre-commit run --hook-stage manual [hookid]</code>.</p>
+<p><a name="pre-commit-during-commits"></a>
+<a name="pre-commit-during-merges"></a>
+<a name="pre-commit-during-clean-merges"></a>
+<a name="pre-commit-during-push"></a>
+<a name="pre-commit-for-commit-messages"></a>
+<a name="pre-commit-for-switching-branches"></a>
+<a name="pre-commit-for-rewriting"></a></p>
+<h2 id="supported-git-hooks">    Supported git hooks <small><a href="#supported-git-hooks" class="text-decoration-none">¶</a></small></h2> <ul>
+<li><a href="#commit-msg">commit-msg</a></li>
+<li><a href="#post-checkout">post-checkout</a></li>
+<li><a href="#post-merge">post-merge</a></li>
+<li><a href="#post-rewrite">post-rewrite</a></li>
+<li><a href="#pre-commit">pre-commit</a></li>
+<li><a href="#pre-merge-commit">pre-merge-commit</a></li>
+<li><a href="#pre-push">pre-push</a></li>
+<li><a href="#pre-rebase">pre-rebase</a></li>
+<li><a href="#prepare-commit-msg">prepare-comit-msg</a></li>
+</ul>
+<h3 id="commit-msg">    commit-msg <small><a href="#commit-msg" class="text-decoration-none">¶</a></small></h3> <p><a href="https://git-scm.com/docs/githooks#_commit_msg">git commit-msg docs</a></p>
+<p><code>commit-msg</code> hooks will be passed a single filename -- this file contains the
+current contents of the commit message to be validated.  The commit will be
+aborted if there is a nonzero exit code.</p>
+<h3 id="post-checkout">    post-checkout <small><a href="#post-checkout" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.2.0</em></p>
+<p><a href="https://git-scm.com/docs/githooks#_post_checkout">git post-checkout docs</a></p>
+<p>post-checkout hooks run <em>after</em> a <code>checkout</code> has occurred and can be used to
+set up or manage state in the repository.</p>
+<p><code>post-checkout</code> hooks do not operate on files so they must be set as
+<code>always_run: true</code> or they will always be skipped.</p>
+<p>environment variables:</p>
+<ul>
+<li><code>PRE_COMMIT_FROM_REF</code>: the first argument to the <code>post-checkout</code> git hook</li>
+<li><code>PRE_COMMIT_TO_REF</code>:  the second argument to the <code>post-checkout</code> git hook</li>
+<li><code>PRE_COMMIT_CHECKOUT_TYPE</code>: the third argument to the <code>post-checkout</code> git hook</li>
+</ul>
+<h3 id="post-commit">    post-commit <small><a href="#post-commit" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.4.0</em></p>
+<p><a href="https://git-scm.com/docs/githooks#_post_commit">git post-commit docs</a></p>
+<p><code>post-commit</code> runs after the commit has already succeeded so it cannot be used
+to prevent the commit from happening.</p>
+<p><code>post-commit</code> hooks do not operate on files so they must be set as
+<code>always_run: true</code> or they will always be skipped.</p>
+<h3 id="post-merge">    post-merge <small><a href="#post-merge" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.11.0</em></p>
+<p><a href="https://git-scm.com/docs/githooks#_post_merge">git post-merge docs</a></p>
+<p><code>post-merge</code> runs after a successful <code>git merge</code>.</p>
+<p>environment variables:</p>
+<ul>
+<li><code>PRE_COMMIT_IS_SQUASH_MERGE</code>: the first argument to the <code>post-merge</code> git hook.</li>
+</ul>
+<h3 id="post-rewrite">    post-rewrite <small><a href="#post-rewrite" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.15.0</em></p>
+<p><a href="https://git-scm.com/docs/githooks#_post_rewrite">git post-rewrite docs</a></p>
+<p><code>post-rewrite</code> runs after a git command which modifies history such as
+<code>git commit --amend</code> or <code>git rebase</code>.</p>
+<p><code>post-rewrite</code> hooks do not operate on files so they must be set as
+<code>always_run: true</code> or they will always be skipped.</p>
+<p>environment variables:</p>
+<ul>
+<li><code>PRE_COMMIT_REWRITE_COMMAND</code>: the first argument to the <code>post-rewrite</code> git hook.</li>
+</ul>
+<h3 id="pre-commit">    pre-commit <small><a href="#pre-commit" class="text-decoration-none">¶</a></small></h3> <p><a href="https://git-scm.com/docs/githooks#_pre_commit">git pre-commit docs</a></p>
+<p><code>pre-commit</code> is triggered before the commit is finalized to allow checks on the
+code being committed.  Running hooks on unstaged changes can lead to both
+false-positives and false-negatives during committing.  pre-commit only runs
+on the staged contents of files by temporarily stashing the unstaged changes
+while running hooks.</p>
+<h3 id="pre-merge-commit">    pre-merge-commit <small><a href="#pre-merge-commit" class="text-decoration-none">¶</a></small></h3> <p><a href="https://git-scm.com/docs/githooks#_pre_merge_commit">git pre-merge-commit docs</a></p>
+<p><code>pre-merge-commit</code> fires after a merge succeeds but before the merge commit is
+created.  This hook runs on all staged files from the merge.</p>
+<p>Note that you need to be using at least git 2.24 for this hook.</p>
+<h3 id="pre-push">    pre-push <small><a href="#pre-push" class="text-decoration-none">¶</a></small></h3> <p><a href="https://git-scm.com/docs/githooks#_pre_push">git pre-push docs</a></p>
+<p><code>pre-push</code> is triggered on <code>git push</code>.</p>
+<p>environment variables:</p>
+<ul>
+<li><code>PRE_COMMIT_FROM_REF</code>: the revision that is being pushed to.</li>
+<li><code>PRE_COMMIT_TO_REF</code>: the local revision that is being pushed to the remote.</li>
+<li><code>PRE_COMMIT_REMOTE_NAME</code>: which remote is being pushed to (for example <code>origin</code>)</li>
+<li><code>PRE_COMMIT_REMOTE_URL</code>: the url of the remote that is being pushed to (for
+example <code>git@github.com:pre-commit/pre-commit</code>)</li>
+<li><code>PRE_COMMIT_REMOTE_BRANCH</code>: the name of the remote branch to which we are
+ pushing (for example <code>refs/heads/target-branch</code>)</li>
+<li><code>PRE_COMMIT_LOCAL_BRANCH</code>: the name of the local branch that is being pushed
+to the remote (for example <code>HEAD</code>)</li>
+</ul>
+<h3 id="pre-rebase">    pre-rebase <small><a href="#pre-rebase" class="text-decoration-none">¶</a></small></h3> <p><em>new in 3.2.0</em></p>
+<p><a href="https://git-scm.com/docs/githooks#_pre_rebase">git pre-rebase docs</a></p>
+<p><code>pre-rebase</code> is triggered before a rebase occurs.  A hook failure can cancel a
+rebase from occurring.</p>
+<p><code>pre-rebase</code> hooks do not operate on files so they must be set as
+<code>always_run: true</code> or they will always be skipped.</p>
+<p>environment variables:</p>
+<ul>
+<li><code>PRE_COMMIT_PRE_REBASE_UPSTREAM</code>: the first argument to the <code>pre-rebase</code> git hook</li>
+<li><code>PRE_COMMIT_PRE_REBASE_BRANCH</code>: the second argument to the <code>pre-rebase</code> git hook.</li>
+</ul>
+<h3 id="prepare-commit-msg">    prepare-commit-msg <small><a href="#prepare-commit-msg" class="text-decoration-none">¶</a></small></h3> <p><a href="https://git-scm.com/docs/githooks#_prepare_commit_msg">git prepare-commit-msg docs</a></p>
+<p><code>prepare-commit-msg</code> hooks will be passed a single filename -- this file may
+be empty or it could contain the commit message from <code>-m</code> or from other
+templates.  <code>prepare-commit-msg</code> hooks can modify the contents of this file to
+change what will be committed.  A hook may want to check for <code>GIT_EDITOR=:</code> as
+this indicates that no editor will be launched.  If a hook exits nonzero, the
+commit will be aborted.</p>
+<p>environment variables:</p>
+<ul>
+<li><code>PRE_COMMIT_COMMIT_MSG_SOURCE</code>: the second argument to the
+<code>prepare-commit-msg</code> git hook</li>
+<li><code>PRE_COMMIT_COMMIT_OBJECT_NAME</code>: the third argument to the
+<code>prepare-commit-msg</code> git hook</li>
+</ul>
 <h2 id="passing-arguments-to-hooks">    Passing arguments to hooks <small><a href="#passing-arguments-to-hooks" class="text-decoration-none">¶</a></small></h2> <p>Sometimes hooks require arguments to run correctly. You can pass static
 arguments by specifying the <a href="#config-args"><code>args</code></a> property in your <code>.pre-commit-config.yaml</code>
 as follows:</p>
