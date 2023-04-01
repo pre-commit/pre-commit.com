@@ -66,13 +66,13 @@ def _render_table(code: str) -> str:
             output.append('<tr>')
         elif line.startswith(COL):
             _maybe_end_col()
-            col_buffer = line[len(COL):]
+            col_buffer = line.removeprefix(COL)
         elif col_buffer is not None:
             if line == '\n':
                 col_buffer += line
             else:
                 assert line.startswith(INDENT), line
-                col_buffer += line[len(INDENT):]
+                col_buffer += line.removeprefix(INDENT)
         else:
             raise AssertionError(line)
 
@@ -95,7 +95,7 @@ class Renderer(markdown_code_blocks.CodeRenderer):
         self, link: str, text: str | None, title: str | None,
     ) -> str:
         if link.startswith(SELF_LINK_PREFIX):
-            a_id = link[len(SELF_LINK_PREFIX):]
+            a_id = link.removeprefix(SELF_LINK_PREFIX)
             return f'<a id="{a_id}" href="#{a_id}">{text}</a>'
         else:
             return super().link(link, text, title)
