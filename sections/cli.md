@@ -93,8 +93,7 @@ Install hook script in a directory intended for use with
 
 Options:
 
-- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}`,
-  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}`:
+- `-t HOOK_TYPE, --hook-type HOOK_TYPE`:
   which hook type to install.
 
 Some example useful invocations:
@@ -130,8 +129,7 @@ Options:
 - `--install-hooks`: Also install environments for all available hooks now
   (rather than when they are first executed). See [`pre-commit
   install-hooks`](#pre-commit-install-hooks).
-- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}`,
-  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}`:
+- `-t HOOK_TYPE, --hook-type HOOK_TYPE`:
   Specify which hook type to install.
 - `--allow-missing-config`: Hook scripts will permit a missing configuration
   file.
@@ -236,6 +234,4 @@ Uninstall the pre-commit script.
 
 Options:
 
-- `-t {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}`,
-  `--hook-type {pre-commit,pre-merge-commit,pre-push,prepare-commit-msg,commit-msg,post-checkout,post-commit,post-merge,post-rewrite}`:
-  which hook type to uninstall.
+- `-t HOOK_TYPE, --hook-type HOOK_TYPE`: which hook type to uninstall.

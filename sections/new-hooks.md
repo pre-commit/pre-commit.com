@@ -78,10 +78,8 @@ file that tells pre-commit:
     =c= (optional: default `[]`) list of additional parameters to pass to the hook.
 =r=
     =c= [`stages`](_#hooks-stages)
-    =c= (optional: default (all stages)) confines the hook to the `commit`, `merge-commit`,
-        `push`, `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`,
-        `post-merge`, `post-rewrite`, and/or `manual` stage(s).  See
-        [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
+    =c= (optional: default (all stages)) selects which git hook(s) to run for.
+        See [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 
 ```
 
