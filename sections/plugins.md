@@ -38,7 +38,7 @@ pre-commit config file describes what repositories and hooks are installed.
         For example:
 
         ```yaml
-        default_stages: [commit, push]
+        default_stages: [pre-commit, pre-push]
         ```
 =r=
     =c= [`files`](_#top_level-files)
