@@ -6470,7 +6470,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "dprint@0.35.3"
+                "dprint@0.35.4"
             ],
             "minimum_pre_commit_version": "0"
         }
