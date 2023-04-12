@@ -7041,6 +7041,16 @@
             "types": [
                 "makefile"
             ]
+        },
+        {
+            "id": "checkmake-system",
+            "name": "Makefile linter/analyzer",
+            "entry": "checkmake",
+            "language": "system",
+            "types": [
+                "makefile"
+            ],
+            "pass_filenames": true
         }
     ],
     "https://github.com/jshwi/docsig": [
