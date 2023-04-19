@@ -278,7 +278,7 @@ For example:
         name: check requirements files
         language: system
         entry: python -m scripts.check_requirements --compare
-        files: ^requirements.*.txt$
+        files: ^requirements.*\.txt$
 ```
 
 ## Repository local hooks
