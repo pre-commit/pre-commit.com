@@ -2034,23 +2034,7 @@
             "description": "Checks that docker-compose files are valid",
             "language": "script",
             "entry": "compose-check.sh",
-            "files": "docker-compose.y[a]{0,1}ml$"
-        },
-        {
-            "id": "hadolint",
-            "name": "Lint Dockerfiles",
-            "description": "Deprecated! Runs hadolint Docker image to lint Dockerfiles",
-            "language": "script",
-            "entry": "hadolint-deprecation.sh",
-            "files": "Dockerfile"
-        },
-        {
-            "id": "hadolint-system",
-            "name": "Lint Dockerfiles",
-            "description": "Deprecated! Runs system hadolint to lint Dockerfiles",
-            "language": "script",
-            "entry": "hadolint-deprecation.sh",
-            "files": "Dockerfile"
+            "files": "(docker-)?compose.y[a]{0,1}ml$"
         }
     ],
     "https://github.com/mattlqx/pre-commit-ruby": [
