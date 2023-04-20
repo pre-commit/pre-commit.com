@@ -2030,11 +2030,11 @@
     "https://github.com/IamTheFij/docker-pre-commit": [
         {
             "id": "docker-compose-check",
-            "name": "Validate docker-compose files",
-            "description": "Checks that docker-compose files are valid",
+            "name": "Validate docker compose files",
+            "description": "Checks that docker compose files are valid",
             "language": "script",
             "entry": "compose-check.sh",
-            "files": "(docker-)?compose.y[a]{0,1}ml$"
+            "files": "(docker-)?compose\\.ya?ml$"
         }
     ],
     "https://github.com/mattlqx/pre-commit-ruby": [
