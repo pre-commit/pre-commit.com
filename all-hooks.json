@@ -483,7 +483,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@3.0.0-alpha.8-for-vscode"
+                "prettier@3.0.0-alpha.9-for-vscode"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -1800,7 +1800,6 @@
             "pass_filenames": false,
             "always_run": true,
             "additional_dependencies": [
-                ".",
                 "ansible-core>=2.13.3"
             ]
         }
