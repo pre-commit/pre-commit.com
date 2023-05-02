@@ -22,6 +22,7 @@ Options:
 - `--freeze`: Store "frozen" hashes in [`rev`](#repos-rev) instead of tag names.
 - `--repo REPO`: Only update this repository. This option may be specified
   multiple times.
+- `-j` / `--jobs`: _new in 3.3.0_ Number of threads to use (default: 1).
 
 Here are some sample invocations using this `.pre-commit-config.yaml`:
 
