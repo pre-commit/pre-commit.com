@@ -702,7 +702,7 @@
             "minimum_pre_commit_version": "0.15.0"
         }
     ],
-    "https://github.com/asottile/reorder_python_imports": [
+    "https://github.com/asottile/reorder-python-imports": [
         {
             "id": "reorder-python-imports",
             "name": "Reorder python imports",
