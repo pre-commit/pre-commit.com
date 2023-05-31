@@ -2714,7 +2714,7 @@
             "description": "Test if the CircleCI config is well formed.",
             "entry": "hooks/circleci-config-validate.sh",
             "language": "script",
-            "files": "^.circleci/config.yml$"
+            "files": "^.circleci/*.yml$"
         },
         {
             "id": "go-fmt",
