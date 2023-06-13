@@ -16,12 +16,12 @@ repos:
         args: [--py37-plus, --add-import, 'from __future__ import annotations']
     -   id: reorder-python-imports
 -   repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.4.0
+    rev: v2.5.1
     hooks:
     -   id: add-trailing-comma
         args: [--py36-plus]
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v3.4.0
+    rev: v3.6.0
     hooks:
     -   id: pyupgrade
         args: [--py37-plus]
