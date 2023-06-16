@@ -2324,7 +2324,8 @@
             "language_version": "python3",
             "types": [
                 "python"
-            ]
+            ],
+            "require_serial": true
         }
     ],
     "https://github.com/PyCQA/pydocstyle": [
