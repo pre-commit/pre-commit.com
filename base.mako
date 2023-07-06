@@ -54,11 +54,8 @@
                             A framework for managing and maintaining multi-language <span class="text-nowrap">pre-commit</span> hooks.
                         </p>
                         <div class="mb-3">
-                            <a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=main">
-                                <img src="https://dev.azure.com/asottile/asottile/_apis/build/status/pre-commit.pre-commit?branchName=main" alt="Build Status" style="max-width:100%;">
-                            </a>
-                            <a href="https://dev.azure.com/asottile/asottile/_build/latest?definitionId=21&branchName=main">
-                                <img src="https://img.shields.io/azure-devops/coverage/asottile/asottile/21/main.svg" alt="Azure DevOps Coverage" style="max-width:100%;">
+                            <a href="https://github.com/pre-commit/pre-commit/actions/workflows/main.yml">
+                                <img src="https://github.com/pre-commit/pre-commit/actions/workflows/main.yml/badge.svg" alt="build status" style="max-width:100%;">
                             </a>
                             <a href="https://results.pre-commit.ci/latest/github/pre-commit/pre-commit/main">
                                 <img src="https://results.pre-commit.ci/badge/github/pre-commit/pre-commit/main.svg" alt="pre-commit.ci status" style="max-width:100%;">
@@ -68,10 +65,6 @@
                             ## https://buttons.github.io/
                             <a class="github-button" href="https://github.com/pre-commit/pre-commit" data-show-count="true" aria-label="Star pre-commit/pre-commit on GitHub">Star</a>
                             <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-                            ## https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://pre-commit.com" data-text="pre-commit - A framework for managing and maintaining multi-language pre-commit hooks.">Tweet</a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                         </div>
                     </div>
                     <img src="logo-top-shelf.png" alt="pre-commit logo" class="d-none d-lg-block"></img>

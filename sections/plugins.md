@@ -6,13 +6,6 @@ pre-commit config file describes what repositories and hooks are installed.
 
 ## .pre-commit-config.yaml - top level
 
-_new in 1.0.0_: The default configuration file top-level was changed from a
-list to a map.  If you're using an old version of pre-commit, the top-level
-list is the same as the value of [`repos`](#pre-commit-configyaml---repos).
-If you'd like to migrate to the new configuration format, run
-[`pre-commit migrate-config`](#pre-commit-migrate-config) to automatically
-migrate your configuration.
-
 ```table
 =r=
     =c= [`repos`](_#top_level-repos)
@@ -36,8 +29,6 @@ migrate your configuration.
         default_language_version:
             python: python3.7
         ```
-
-        _new in 1.14.0_
 =r=
     =c= [`default_stages`](_#top_level-default_stages)
     =c= (optional: default (all stages)) a configuration-wide default for
@@ -47,24 +38,21 @@ migrate your configuration.
         For example:
 
         ```yaml
-        default_stages: [commit, push]
+        default_stages: [pre-commit, pre-push]
         ```
-
-        _new in 1.14.0_
 =r=
     =c= [`files`](_#top_level-files)
-    =c= (optional: default `''`) global file include pattern.  _new in 1.21.0_.
+    =c= (optional: default `''`) global file include pattern.
 =r=
     =c= [`exclude`](_#top_level-exclude)
-    =c= (optional: default `^$`) global file exclude pattern.  _new in 1.1.0_.
+    =c= (optional: default `^$`) global file exclude pattern.
 =r=
     =c= [`fail_fast`](_#top_level-fail_fast)
     =c= (optional: default `false`) set to `true` to have pre-commit stop
-        running hooks after the first failure.  _new in 1.1.0_.
+        running hooks after the first failure.
 =r=
     =c= [`minimum_pre_commit_version`](_#top_level-minimum_pre_commit_version)
     =c= (optional: default `'0'`) require a minimum version of pre-commit.
-        _new in 1.15.0_.
 ```
 
 A sample top-level:
@@ -87,7 +75,7 @@ from.
     =c= the repository url to `git clone` from
 =r=
     =c= [`rev`](_#repos-rev)
-    =c= the revision or tag to clone at.  _new in 1.7.0_: previously `sha`
+    =c= the revision or tag to clone at.
 =r=
     =c= [`hooks`](_#repos-hooks)
     =c= A list of [hook mappings](#pre-commit-configyaml---hooks).
@@ -117,7 +105,6 @@ repository's configuration.
     =c= [`alias`](_#config-alias)
     =c= (optional) allows the hook to be referenced using an additional id when
         using `pre-commit run <hookid>`.
-        _new in 1.14.0_.
 =r=
     =c= [`name`](_#config-name)
     =c= (optional) override the name of the hook - shown during hook execution.
@@ -148,10 +135,8 @@ repository's configuration.
     =c= (optional) list of additional parameters to pass to the hook.
 =r=
     =c= [`stages`](_#config-stages)
-    =c= (optional) confines the hook to the `commit`, `merge-commit`, `push`,
-        `prepare-commit-msg`, `commit-msg`, `post-checkout`, `post-commit`,
-        `post-merge`, `post-rewrite`, or `manual` stage.  See
-        [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
+    =c= (optional) selects which git hook(s) to run for.
+        See [Confining hooks to run at certain stages](#confining-hooks-to-run-at-certain-stages).
 =r=
     =c= [`additional_dependencies`](_#config-additional_dependencies)
     =c= (optional) a list of dependencies that will be installed in the
@@ -164,7 +149,7 @@ repository's configuration.
 =r=
     =c= [`verbose`](_#config-verbose)
     =c= (optional) if `true`, forces the output of the hook to be printed even when
-        the hook passes.  _new in 1.6.0_.
+        the hook passes.
 =r=
     =c= [`log_file`](_#config-log_file)
     =c= (optional) if present, the hook output will additionally be written to

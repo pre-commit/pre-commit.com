@@ -18,9 +18,8 @@
 - https://github.com/guykisel/prospector-mirror
 - https://github.com/asottile/add-trailing-comma
 - https://github.com/asottile/pyupgrade
-- https://github.com/asottile/reorder_python_imports
+- https://github.com/asottile/reorder-python-imports
 - https://github.com/asottile/yesqa
-- https://github.com/asottile/blacken-docs
 - https://github.com/asottile/dead
 - https://github.com/asottile/setup-cfg-fmt
 - https://github.com/asottile/cheetah_lint
@@ -66,7 +65,7 @@
 - https://github.com/alessandrojcm/commitlint-pre-commit-hook
 - https://github.com/henryykt/pre-commit-perl
 - https://github.com/juancarlospaco/pre-commit-nim
-- https://github.com/aws-cloudformation/cfn-python-lint
+- https://github.com/aws-cloudformation/cfn-lint
 - https://github.com/thoughtworks/talisman
 - https://github.com/PyCQA/flake8
 - https://github.com/PyCQA/bandit
@@ -166,6 +165,7 @@
 - https://github.com/yoheimuta/protolint
 - https://github.com/hadolint/hadolint
 - https://github.com/google/go-jsonnet
+- https://github.com/google/yamlfmt
 - https://github.com/guid-empty/flutter-dependency-validation-pre-commit
 - https://github.com/cpplint/cpplint
 - https://github.com/MarcoGorelli/absolufy-imports
@@ -201,7 +201,8 @@
 - https://github.com/rapidsai/frigate
 - https://github.com/norwoodj/helm-docs
 - https://github.com/sqlfluff/sqlfluff
-- https://github.com/adamchainz/pre-commit-dprint
+- https://github.com/adamchainz/blacken-docs
+- https://github.com/adamchainz/django-upgrade
 - https://github.com/scop/pre-commit-shfmt
 - https://github.com/scop/pre-commit-perlcritic
 - https://github.com/BlankSpruce/gersemi
@@ -225,4 +226,12 @@
 - https://gitlab.com/adam-moss/pre-commit-trailer
 - https://gitlab.com/adam-moss/pre-commit-ssh-git-signing-key
 - https://github.com/charliermarsh/ruff-pre-commit
+- https://github.com/mrtazz/checkmake
+- https://github.com/jshwi/docsig
+- https://github.com/finsberg/clang-format-docs
+- https://github.com/rubocop/rubocop
+- https://github.com/dbt-checkpoint/dbt-checkpoint
+- https://gitlab.com/engmark/vcard
+- https://github.com/Data-Liberation-Front/csvlint.rb
+- https://github.com/christopher-hacker/enforce-notebook-run-order
 - https://github.com/terraform-docs/terraform-docs
