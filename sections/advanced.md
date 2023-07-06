@@ -18,221 +18,209 @@ entire commit.
 $ SKIP=flake8 git commit -m "foo"
 ```
 
-## pre-commit during commits
+## Confining hooks to run at certain stages
 
-Running hooks on unstaged changes can lead to both false-positives and
-false-negatives during committing.  pre-commit only runs on the staged
-contents of files by temporarily saving the contents of your files at commit
-time and stashing the unstaged changes while running hooks.
+pre-commit supports many different types of `git` hooks (not just
+`pre-commit`!).
 
-_new in 2.4.0_: pre-commit can be used to manage [post-commit] hooks.
+Providers of hooks can select which git hooks they run on by setting the
+[`stages`](#hooks-stages) property in `.pre-commit-hooks.yaml` -- this can
+also be overridden by setting [`stages`](#config-stages) in
+`.pre-commit-config.yaml`.  If `stages` is not set in either of those places
+the default value will be pulled from the top-level
+[`default_stages`](#top_level-default_stages) option (which defaults to _all_
+stages).  By default, tools are enabled for [every hook type](#supported-git-hooks)
+that pre-commit supports.
 
-To use `post-commit` hooks with pre-commit, run:
+_new in 3.2.0_: The values of `stages` match the hook names.  Previously,
+`commit`, `push`, and `merge-commit` matched `pre-commit`, `pre-push`, and
+`pre-merge-commit` respectively.
 
-```console
-$ pre-commit install --hook-type post-commit
-pre-commit installed at .git/hooks/post-commit
-```
+The `manual` stage (via `stages: [manual]`) is a special stage which will not
+be automatically triggered by any `git` hook -- this is useful if you want to
+add a tool which is not automatically run, but is run on demand using
+`pre-commit run --hook-stage manual [hookid]`.
 
-`post-commit` hooks fire after the commit succeeds and cannot be used to
-prevent the commit from happening (use `pre-commit` instead).  Since
-`post-commit` does not operate on files, any hooks must set `always_run`:
+If you are authoring a tool, it is usually a good idea to provide an appropriate
+`stages` property.  For example a reasonable setting for a linter or code
+formatter would be `stages: [pre-commit, pre-merge-commit, pre-push, manual]`.
 
-```yaml
--   repo: local
-    hooks:
-    -   id: post-commit-local
-        name: post commit
-        always_run: true
-        stages: [post-commit]
-        # ...
-```
-
-[post-commit]: https://git-scm.com/docs/githooks#_post_commit
-
-## pre-commit during merges
-
-The biggest gripe we’ve had in the past with pre-commit hooks was during merge
-conflict resolution.  When working on very large projects a merge often
-results in hundreds of committed files. I shouldn’t need to run hooks on all
-of these files that I didn’t even touch!  This often led to running commit
-with `--no-verify` and allowed introduction of real bugs that hooks could have
-caught.
-
-pre-commit solves this by only running hooks on files that conflict or were
-manually edited during conflict resolution.  This also includes files which
-were automatically merged by git.  Git isn't perfect and this can often catch
-implicit conflicts (such as with removed python imports).
-
-_new in 2.11.0_ pre-commit can be used to manage [post-merge] hooks.
-
-To use `post-merge` hooks with pre-commit, run:
+To install `pre-commit` for particular git hooks, pass `--hook-type` to
+`pre-commit install`.  This can be specified multiple times such as:
 
 ```console
-$ pre-commit install --hook-type post-merge
-pre-commit installed at .git/hooks/post-merge
-```
-
-The hook fires after a successful `git merge`.
-
-[post-merge]: https://git-scm.com/docs/githooks#_post_merge
-
-## pre-commit during clean merges
-
-_new in 1.21.0_ pre-commit can be used to manage [pre-merge-commit] hooks.
-
-To use `pre-merge-commit` hooks with pre-commit, run:
-
-```console
-$ pre-commit install --hook-type pre-merge-commit
-pre-commit installed at .git/hooks/pre-merge-commit
-```
-
-The hook fires after a merge succeeds but before the merge commit is created.
-
-Note that you need to be using at least git 2.24 which added support for the
-pre-merge-commit hook.
-
-[pre-merge-commit]: https://git-scm.com/docs/githooks#_pre_merge_commit
-
-## pre-commit during push
-
-To use `pre-push` hooks with pre-commit, run:
-
-```console
-$ pre-commit install --hook-type pre-push
+$ pre-commit install --hook-type pre-commit --hook-type pre-push
+pre-commit installed at .git/hooks/pre-commit
 pre-commit installed at .git/hooks/pre-push
 ```
 
-During a push, pre-commit will export the following environment variables:
-- `PRE_COMMIT_FROM_REF`: the remote revision that is being pushed to.
-    - _new in 2.2.0_ prior to 2.2.0 the variable was `PRE_COMMIT_SOURCE`.
-- `PRE_COMMIT_TO_REF`: the local revision that is being pushed to the remote.
-    - _new in 2.2.0_ prior to 2.2.0 the variable was `PRE_COMMIT_ORIGIN`.
-- `PRE_COMMIT_REMOTE_NAME`: _new in 2.0.0_ which remote is being pushed to
-  (for example `origin`)
-- `PRE_COMMIT_REMOTE_URL`: _new in 2.0.0_ the url of the remote that is being
-  pushed to (for example `git@github.com:pre-commit/pre-commit`.
+Additionally, one can specify a default set of git hook types to be installed
+for by setting the top-level [`default_install_hook_types`](#top_level-default_install_hook_types).
 
-[pre-push]: https://git-scm.com/docs/githooks#_pre_push
+For example:
 
-## pre-commit for commit messages
-
-pre-commit can be used to manage [commit-msg] hooks.
-
-To use `commit-msg` hooks with pre-commit, run:
+```yaml
+default_install_hook_types: [pre-commit, pre-push, commit-msg]
+```
 
 ```console
-$ pre-commit install --hook-type commit-msg
+$ pre-commit  install
+pre-commit installed at .git/hooks/pre-commit
+pre-commit installed at .git/hooks/pre-push
 pre-commit installed at .git/hooks/commit-msg
 ```
 
-`commit-msg` hooks can be configured by setting `stages: [commit-msg]`.
+[anchor](__#pre-commit-during-commits)
+[anchor](__#pre-commit-during-merges)
+[anchor](__#pre-commit-during-clean-merges)
+[anchor](__#pre-commit-during-push)
+[anchor](__#pre-commit-for-commit-messages)
+[anchor](__#pre-commit-for-switching-branches)
+[anchor](__#pre-commit-for-rewriting)
+
+## Supported git hooks
+
+- [commit-msg](#commit-msg)
+- [post-checkout](#post-checkout)
+- [post-merge](#post-merge)
+- [post-rewrite](#post-rewrite)
+- [pre-commit](#pre-commit)
+- [pre-merge-commit](#pre-merge-commit)
+- [pre-push](#pre-push)
+- [pre-rebase](#pre-rebase)
+- [prepare-comit-msg](#prepare-commit-msg)
+
+### commit-msg
+
+[git commit-msg docs](https://git-scm.com/docs/githooks#_commit_msg)
+
 `commit-msg` hooks will be passed a single filename -- this file contains the
-current contents of the commit message which can be validated.  If a hook
-exits nonzero, the commit will be aborted.
+current contents of the commit message to be validated.  The commit will be
+aborted if there is a nonzero exit code.
 
-_new in 1.16.0_: pre-commit can be used to manage [prepare-commit-msg] hooks.
+### post-checkout
 
-To use `prepare-commit-msg` hooks with pre-commit, run:
+_new in 2.2.0_
 
-```console
-$ pre-commit install --hook-type prepare-commit-msg
-pre-commit installed at .git/hooks/prepare-commit-msg
-```
+[git post-checkout docs](https://git-scm.com/docs/githooks#_post_checkout)
 
-`prepare-commit-msg` hooks can be used to create dynamic templates for commit
-messages. `prepare-commit-msg` hooks can be configured by setting
-`stages: [prepare-commit-msg]`. `prepare-commit-msg` hooks will be passed a
-single filename -- this file contains any initial commit message (e.g. from
-`git commit -m "..."` or a template) and can be modified by the hook before
-the editor is shown. A hook may want to check for `GIT_EDITOR=:` as this
-indicates that no editor will be launched. If a hook exits nonzero,
-the commit will be aborted.
+post-checkout hooks run *after* a `checkout` has occurred and can be used to
+set up or manage state in the repository.
 
-[commit-msg]: https://git-scm.com/docs/githooks#_commit_msg
-[prepare-commit-msg]: https://git-scm.com/docs/githooks#_prepare_commit_msg
+`post-checkout` hooks do not operate on files so they must be set as
+`always_run: true` or they will always be skipped.
 
+environment variables:
+- `PRE_COMMIT_FROM_REF`: the first argument to the `post-checkout` git hook
+- `PRE_COMMIT_TO_REF`:  the second argument to the `post-checkout` git hook
+- `PRE_COMMIT_CHECKOUT_TYPE`: the third argument to the `post-checkout` git hook
 
-## pre-commit for switching branches
-_new in 2.2.0_: pre-commit can be used to manage [post-checkout] hooks.
+### post-commit
 
-To use `post-checkout` hooks with pre-commit, run:
+_new in 2.4.0_
 
-```console
-$ pre-commit install --hook-type post-checkout
-pre-commit installed at .git/hooks/post-checkout
-```
+[git post-commit docs](https://git-scm.com/docs/githooks#_post_commit)
 
-`post-checkout` hooks can be used to perform repository validity checks,
-auto-display differences from the previous HEAD if different,
-or set working dir metadata properties. Since `post-checkout` doesn't operate
-on files, any hooks must set `always_run`:
+`post-commit` runs after the commit has already succeeded so it cannot be used
+to prevent the commit from happening.
 
-```yaml
--   repo: local
-    hooks:
-    -   id: post-checkout-local
-        name: Post checkout
-        always_run: true
-        stages: [post-checkout]
-        # ...
-```
+`post-commit` hooks do not operate on files so they must be set as
+`always_run: true` or they will always be skipped.
 
-`post-checkout` hooks have three environment variables they can check to
-do their work: `$PRE_COMMIT_FROM_REF`, `$PRE_COMMIT_TO_REF`,
-and `$PRE_COMMIT_CHECKOUT_TYPE`. These correspond to the first, second,
-and third arguments (respectively) that are normally passed to a regular
-post-checkout hook from Git.
+### post-merge
 
-[post-checkout]: https://git-scm.com/docs/githooks#_post_checkout
+_new in 2.11.0_
 
-## pre-commit for rewriting
+[git post-merge docs](https://git-scm.com/docs/githooks#_post_merge)
 
-_new in 2.15.0_: pre-commit can be used to manage [post-rewrite] hooks.
+`post-merge` runs after a successful `git merge`.
 
-To use `post-rewrite` hooks with pre-commit, run:
+environment variables:
+- `PRE_COMMIT_IS_SQUASH_MERGE`: the first argument to the `post-merge` git hook.
 
-```console
-$ pre-commit install --hook-type post-rewrite
-pre-commit installed at .git/hooks/post-rewrite
-```
+### post-rewrite
 
-`post-rewrite` is triggered after git commands which modify history such as
-`git commit --amend` and `git rebase`.
+_new in 2.15.0_
 
-since `post-rewrite` does not operate on any files, you must set
-[`always_run: true`](#hooks-always_run).
+[git post-rewrite docs](https://git-scm.com/docs/githooks#_post_rewrite)
 
-`git` tells the `post-rewrite` hook which command triggered the rewrite.
-`pre-commit` exposes this as `$PRE_COMMIT_REWRITE_COMMAND`.
+`post-rewrite` runs after a git command which modifies history such as
+`git commit --amend` or `git rebase`.
 
-[post-rewrite]: https://git-scm.com/docs/githooks#_post_rewrite
+`post-rewrite` hooks do not operate on files so they must be set as
+`always_run: true` or they will always be skipped.
 
-## Confining hooks to run at certain stages
+environment variables:
+- `PRE_COMMIT_REWRITE_COMMAND`: the first argument to the `post-rewrite` git hook.
 
-Since the [`default_stages`](#top_level-default_stages) top level configuration property of the
-`.pre-commit-config.yaml` file is set to all stages by default, when installing
-hooks using the `-t`/`--hook-type` option (see [pre-commit
-install [options]](#pre-commit-install)), all hooks will be installed by default
-to run at the stage defined through that option. For instance,
-`pre-commit install --hook-type pre-push` will install by default all hooks
-to run at the `push` stage.
+### pre-commit
 
-Hooks can however be confined to a stage by setting the [`stages`](#config-stages)
-property in your `.pre-commit-config.yaml`.  The [`stages`](#config-stages) property
-is an array and can contain any of `commit`, `merge-commit`, `push`, `prepare-commit-msg`,
-`commit-msg`, `post-checkout`, `post-commit`, `post-merge`, `post-rewrite`, and `manual`.
+[git pre-commit docs](https://git-scm.com/docs/githooks#_pre_commit)
 
-If you do not want to have hooks installed by default on the stage passed
-during a `pre-commit install --hook-type ...`, please set the [`default_stages`](#top_level-default_stages)
-top level configuration property to the desired stages, also as an array.
+`pre-commit` is triggered before the commit is finalized to allow checks on the
+code being committed.  Running hooks on unstaged changes can lead to both
+false-positives and false-negatives during committing.  pre-commit only runs
+on the staged contents of files by temporarily stashing the unstaged changes
+while running hooks.
 
-_new in 1.8.0_: An additional `manual` stage is available for one off execution
-that won't run in any hook context.  This special stage is useful for taking
-advantage of `pre-commit`'s cross-platform / cross-language package management
-without running it on every commit.  Hooks confined to `stages: [manual]` can
-be executed by running `pre-commit run --hook-stage manual [hookid]`.
+### pre-merge-commit
+
+[git pre-merge-commit docs](https://git-scm.com/docs/githooks#_pre_merge_commit)
+
+`pre-merge-commit` fires after a merge succeeds but before the merge commit is
+created.  This hook runs on all staged files from the merge.
+
+Note that you need to be using at least git 2.24 for this hook.
+
+### pre-push
+
+[git pre-push docs](https://git-scm.com/docs/githooks#_pre_push)
+
+`pre-push` is triggered on `git push`.
+
+environment variables:
+- `PRE_COMMIT_FROM_REF`: the revision that is being pushed to.
+- `PRE_COMMIT_TO_REF`: the local revision that is being pushed to the remote.
+- `PRE_COMMIT_REMOTE_NAME`: which remote is being pushed to (for example `origin`)
+- `PRE_COMMIT_REMOTE_URL`: the url of the remote that is being pushed to (for
+  example `git@github.com:pre-commit/pre-commit`)
+- `PRE_COMMIT_REMOTE_BRANCH`: the name of the remote branch to which we are
+   pushing (for example `refs/heads/target-branch`)
+- `PRE_COMMIT_LOCAL_BRANCH`: the name of the local branch that is being pushed
+  to the remote (for example `HEAD`)
+
+### pre-rebase
+
+_new in 3.2.0_
+
+[git pre-rebase docs](https://git-scm.com/docs/githooks#_pre_rebase)
+
+`pre-rebase` is triggered before a rebase occurs.  A hook failure can cancel a
+rebase from occurring.
+
+`pre-rebase` hooks do not operate on files so they must be set as
+`always_run: true` or they will always be skipped.
+
+environment variables:
+- `PRE_COMMIT_PRE_REBASE_UPSTREAM`: the first argument to the `pre-rebase` git hook
+- `PRE_COMMIT_PRE_REBASE_BRANCH`: the second argument to the `pre-rebase` git hook.
+
+### prepare-commit-msg
+
+[git prepare-commit-msg docs](https://git-scm.com/docs/githooks#_prepare_commit_msg)
+
+`prepare-commit-msg` hooks will be passed a single filename -- this file may
+be empty or it could contain the commit message from `-m` or from other
+templates.  `prepare-commit-msg` hooks can modify the contents of this file to
+change what will be committed.  A hook may want to check for `GIT_EDITOR=:` as
+this indicates that no editor will be launched.  If a hook exits nonzero, the
+commit will be aborted.
+
+environment variables:
+- `PRE_COMMIT_COMMIT_MSG_SOURCE`: the second argument to the
+  `prepare-commit-msg` git hook
+- `PRE_COMMIT_COMMIT_OBJECT_NAME`: the third argument to the
+  `prepare-commit-msg` git hook
 
 ## Passing arguments to hooks
 
@@ -290,7 +278,7 @@ For example:
         name: check requirements files
         language: system
         entry: python -m scripts.check_requirements --compare
-        files: ^requirements.*.txt$
+        files: ^requirements.*\.txt$
 ```
 
 ## Repository local hooks
@@ -342,8 +330,6 @@ Here's an example configuration with a few `local` hooks:
 
 ## meta hooks
 
-_new in 1.4.0_
-
 `pre-commit` provides several hooks which are useful for checking the
 pre-commit configuration itself.  These can be enabled using `repo: meta`.
 
@@ -360,22 +346,17 @@ The currently available `meta` hooks:
     =c= [`check-hooks-apply`](_#meta-check_hooks_apply)
     =c= ensures that the configured hooks apply to at least one file in the
         repository.
-        _new in 1.4.0_.
 =r=
     =c= [`check-useless-excludes`](_#meta-check_useless_excludes)
     =c= ensures that `exclude` directives apply to _any_ file in the
         repository.
-        _new in 1.4.0_.
 =r=
     =c= [`identity`](_#meta-identity)
     =c= a simple hook which prints all arguments passed to it, useful for
         debugging.
-        _new in 1.14.0_.
 ```
 
 ## automatically enabling pre-commit on repositories
-
-_new in 1.18.0_
 
 `pre-commit init-templatedir` can be used to set up a skeleton for `git`'s
 `init.templateDir` option.  This means that any newly cloned repository will
@@ -563,15 +544,17 @@ This tells pre-commit to use ruby `2.1.5` to run the `scss-lint` hook.
 Valid values for specific languages are listed below:
 - python: Whatever system installed python interpreters you have. The value of
   this argument is passed as the `-p` to `virtualenv`.
-    - _new in 1.4.3_: on windows the
+    - on windows the
       [pep394](https://www.python.org/dev/peps/pep-0394/) name will be
       translated into a py launcher call for portability.  So continue to use
       names like `python3` (`py -3`) or `python3.6` (`py -3.6`) even on
       windows.
 - node: See [nodeenv](https://github.com/ekalinin/nodeenv#advanced).
 - ruby: See [ruby-build](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).
+- _new in 2.21.0_ rust: `language_version` is passed to `rustup`
+- _new in 3.0.0_ golang: use the versions on [go.dev/dl](https://go.dev/dl/) such as `1.19.5`
 
-_new in 1.14.0_: you can now set [`default_language_version`](#top_level-default_language_version)
+you can set [`default_language_version`](#top_level-default_language_version)
 at the [top level](#pre-commit-configyaml---top-level) in your configuration to
 control the default versions across all hooks of a language.
 
