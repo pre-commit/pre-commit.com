@@ -508,6 +508,7 @@
         {
             "id": "scss-lint",
             "name": "scss_lint",
+            "description": "",
             "entry": "scss-lint",
             "language": "ruby",
             "types": [
@@ -515,7 +516,8 @@
             ],
             "args": [],
             "require_serial": false,
-            "additional_dependencies": []
+            "additional_dependencies": [],
+            "minimum_pre_commit_version": "0"
         }
     ],
     "https://github.com/pre-commit/mirrors-yapf": [
