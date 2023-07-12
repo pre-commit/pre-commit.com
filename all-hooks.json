@@ -5260,6 +5260,13 @@
             "entry": "run",
             "language": "script",
             "files": "\\.dart$"
+        },
+        {
+            "id": "dart-format",
+            "name": "Dart Code format",
+            "entry": "rundartformat",
+            "language": "script",
+            "files": "\\.dart$"
         }
     ],
     "https://github.com/fluttercommunity/import_sorter": [
@@ -5440,6 +5447,17 @@
             "entry": "check-jsonschema --builtin-schema vendor.bamboo-spec",
             "language": "python",
             "files": "^bamboo-specs/.*\\.(yml|yaml)$",
+            "types": [
+                "yaml"
+            ]
+        },
+        {
+            "id": "check-bitbucket-pipelines",
+            "name": "Validate Bitbucket Pipelines",
+            "description": "Validate Bitbucket Pipelines against the schema provided by SchemaStore",
+            "entry": "check-jsonschema --builtin-schema vendor.bitbucket-pipelines",
+            "language": "python",
+            "files": "bitbucket-pipelines\\.(yml|yaml)$",
             "types": [
                 "yaml"
             ]
