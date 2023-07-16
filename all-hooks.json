@@ -7592,5 +7592,17 @@
             "language_version": "python3",
             "fail_fast": false
         }
+    ],
+    "https://github.com/mxr/unkey": [
+        {
+            "id": "unkey",
+            "name": "unkey",
+            "description": "Automatically remove extra calls to keys().",
+            "entry": "unkey",
+            "language": "python",
+            "types": [
+                "python"
+            ]
+        }
     ]
 }
