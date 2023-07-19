@@ -7604,5 +7604,18 @@
                 "python"
             ]
         }
+    ],
+    "https://github.com/Mateusz-Grzelinski/actionlint-py": [
+        {
+            "id": "actionlint",
+            "name": "actionlint",
+            "description": "Test shell scripts with actionlint",
+            "entry": "actionlint",
+            "language": "python",
+            "types": [
+                "yaml"
+            ],
+            "files": "^.github/workflows/"
+        }
     ]
 }
