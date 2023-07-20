@@ -12,6 +12,7 @@
 - https://github.com/pre-commit/mirrors-scss-lint
 - https://github.com/pre-commit/mirrors-yapf
 - https://github.com/pre-commit/pygrep-hooks
+- https://github.com/pre-commit/sync-pre-commit-deps
 - https://github.com/FalconSocial/pre-commit-mirrors-pep257
 - https://github.com/FalconSocial/pre-commit-python-sorter
 - https://github.com/MarketSquare/robotframework-tidy
