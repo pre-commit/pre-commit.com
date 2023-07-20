@@ -639,6 +639,17 @@
             ]
         }
     ],
+    "https://github.com/pre-commit/sync-pre-commit-deps": [
+        {
+            "id": "sync-pre-commit-deps",
+            "name": "sync-pre-commit-deps",
+            "description": "Sync pre-commit hook dependencies based on other installed hooks",
+            "entry": "sync-pre-commit-deps",
+            "language": "python",
+            "language_version": "python3",
+            "files": "^\\.pre-commit-config.yaml$"
+        }
+    ],
     "https://github.com/FalconSocial/pre-commit-mirrors-pep257": [
         {
             "id": "pep257",
@@ -7609,7 +7620,7 @@
         {
             "id": "actionlint",
             "name": "actionlint",
-            "description": "Test shell scripts with actionlint",
+            "description": "Lint GitHub workflows with actionlint",
             "entry": "actionlint",
             "language": "python",
             "types": [
