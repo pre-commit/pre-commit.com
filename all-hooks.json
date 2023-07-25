@@ -4876,8 +4876,8 @@
             "id": "auto-smart-commit",
             "name": "Auto Jira smart commit",
             "description": "Automatically transform your Git commit messages into Jira smart commits",
-            "entry": "auto-smart-commit.py",
-            "language": "script",
+            "entry": "auto-smart-commit",
+            "language": "python",
             "stages": [
                 "prepare-commit-msg"
             ],
