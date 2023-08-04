@@ -1116,7 +1116,7 @@
         {
             "id": "chmod",
             "name": "Set file permissions",
-            "entry": "chmod",
+            "entry": "pre_commit_chmod",
             "language": "python"
         },
         {
