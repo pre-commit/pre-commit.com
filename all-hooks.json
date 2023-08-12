@@ -413,7 +413,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.46.0"
+                "eslint@8.47.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -5501,6 +5501,17 @@
             "entry": "check-jsonschema --builtin-schema vendor.dependabot",
             "language": "python",
             "files": "^\\.github/dependabot.(yml|yaml)$",
+            "types": [
+                "yaml"
+            ]
+        },
+        {
+            "id": "check-drone-ci",
+            "name": "Validate Drone-CI Config",
+            "description": "Validate Drone-CI Config against the schema provided by SchemaStore",
+            "entry": "check-jsonschema --builtin-schema vendor.drone-ci",
+            "language": "python",
+            "files": "^\\.drone\\.yml$",
             "types": [
                 "yaml"
             ]
