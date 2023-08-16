@@ -483,7 +483,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@3.0.1"
+                "prettier@3.0.2"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -6523,7 +6523,6 @@
             "description": "Run `black` on python code blocks in documentation files",
             "entry": "blacken-docs",
             "language": "python",
-            "language_version": "python3",
             "files": "\\.(rst|md|markdown|py|tex)$"
         }
     ],
