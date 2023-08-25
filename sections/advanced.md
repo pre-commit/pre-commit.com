@@ -82,6 +82,7 @@ pre-commit installed at .git/hooks/commit-msg
 
 - [commit-msg](#commit-msg)
 - [post-checkout](#post-checkout)
+- [post-commit](#post-commit)
 - [post-merge](#post-merge)
 - [post-rewrite](#post-rewrite)
 - [pre-commit](#pre-commit)
