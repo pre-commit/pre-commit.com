@@ -483,7 +483,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@3.0.2"
+                "prettier@3.0.3"
             ],
             "minimum_pre_commit_version": "0"
         }
