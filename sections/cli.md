@@ -175,7 +175,7 @@ Options:
 
 - `[hook-id]`: specify a single hook-id to run only that hook.
 - `-a`, `--all-files`: run on all the files in the repo.
-- `--files [FILES [FILES ...]]`: specific filenames to run hooks on.
+- `-f`, `--files [FILES [FILES ...]]`: specific filenames to run hooks on.
 - `--from-ref FROM_REF` + `--to-ref TO_REF`: run against the files changed
   between `FROM_REF...TO_REF` in git.
     - _new in 2.2.0_: prior to 2.2.0 the arguments were `--source` and
