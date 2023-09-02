@@ -146,6 +146,7 @@ Hello from foo hook!
 - [dotnet](#dotnet)
 - [fail](#fail)
 - [golang](#golang)
+- [haskell](#haskell)
 - [lua](#lua)
 - [node](#node)
 - [perl](#perl)
@@ -319,6 +320,19 @@ _new in 3.0.0_: pre-commit will bootstrap `go` if it is not present. `language: 
 also now supports `language_version`
 
 __Support:__ golang hooks are known to work on any system which has go
+installed.  It has been tested on linux, macOS, and windows.
+
+### haskell
+
+_new in 3.4.0_
+
+The hook repository must have one or more `*.cabal` files.  Once installed
+the `executable`s from these packages will be available to use with `entry`.
+
+This language supports `additional_dependencies` so it can be used as a
+`repo: local` hook.
+
+__Support:__ haskell hooks are known to work on any system which has `cabal`
 installed.  It has been tested on linux, macOS, and windows.
 
 ### lua
