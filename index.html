@@ -140,7 +140,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 3.3.3
+pre-commit 3.4.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration" class="text-decoration-none">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -464,6 +464,7 @@ Hello from foo hook!
 <li><a href="#dotnet">dotnet</a></li>
 <li><a href="#fail">fail</a></li>
 <li><a href="#golang">golang</a></li>
+<li><a href="#haskell">haskell</a></li>
 <li><a href="#lua">lua</a></li>
 <li><a href="#node">node</a></li>
 <li><a href="#perl">perl</a></li>
@@ -582,6 +583,13 @@ and the <a href="#hooks-entry"><code>entry</code></a> should match an executable
 <p><em>new in 3.0.0</em>: pre-commit will bootstrap <code>go</code> if it is not present. <code>language: golang</code>
 also now supports <code>language_version</code></p>
 <p><strong>Support:</strong> golang hooks are known to work on any system which has go
+installed.  It has been tested on linux, macOS, and windows.</p>
+<h3 id="haskell">    haskell <small><a href="#haskell" class="text-decoration-none">¶</a></small></h3> <p><em>new in 3.4.0</em></p>
+<p>The hook repository must have one or more <code>*.cabal</code> files.  Once installed
+the <code>executable</code>s from these packages will be available to use with <code>entry</code>.</p>
+<p>This language supports <code>additional_dependencies</code> so it can be used as a
+<code>repo: local</code> hook.</p>
+<p><strong>Support:</strong> haskell hooks are known to work on any system which has <code>cabal</code>
 installed.  It has been tested on linux, macOS, and windows.</p>
 <h3 id="lua">    lua <small><a href="#lua" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.17.0</em></p>
 <p>Lua hooks are installed with the version of Lua that is used by Luarocks.</p>
