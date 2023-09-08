@@ -149,6 +149,7 @@
 - https://gitlab.com/jvenom/elixir-pre-commit-hooks
 - https://github.com/Cretezy/flutter-format-pre-commit
 - https://github.com/dluksza/flutter-analyze-pre-commit
+- https://github.com/dluksza/flutter-test-pre-commit
 - https://github.com/fluttercommunity/import_sorter
 - https://github.com/editorconfig-checker/editorconfig-checker.python
 - https://gitlab.com/pablodiehl/pre-commit-lua-formatter
@@ -237,3 +238,4 @@
 - https://github.com/christopher-hacker/enforce-notebook-run-order
 - https://github.com/mxr/unkey
 - https://github.com/Mateusz-Grzelinski/actionlint-py
+- https://github.com/B2RJ/dart-format-pre-commit
