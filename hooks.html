@@ -858,7 +858,11 @@ Also available in <a href="/all-hooks.json">json</a>.
     <ul data-repo="https://github.com/golangci/golangci-lint">
             <li data-id="golangci-lint" data-types="go">
                 <code>golangci-lint</code>
-                    - Fast linters runner for Go.
+                    - Fast linters runner for Go. Note that only modified files are linted, so linters like &#39;unused&#39; that need to scan all files won&#39;t work as expected.
+            </li>
+            <li data-id="golangci-lint-full" data-types="go">
+                <code>golangci-lint-full</code>
+                    - Fast linters runner for Go. Runs on all files in the repo. Use this hook if you use pre-commit in CI.
             </li>
     </ul>
     <h3 data-repo="https://github.com/Bahjat/pre-commit-golang">
