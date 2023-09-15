@@ -1779,6 +1779,7 @@
             "description": "Static analysis of Terraform templates to spot potential security issues.",
             "require_serial": true,
             "entry": "hooks/terraform_tfsec.sh",
+            "files": "\\.tf(vars)?$",
             "language": "script"
         },
         {
@@ -7737,6 +7738,24 @@
                 "yaml"
             ],
             "files": "^.github/workflows/"
+        }
+    ],
+    "https://github.com/andrewring/github-distributed-owners": [
+        {
+            "id": "github-distributed-owners",
+            "name": "GitHub Distributed Owners",
+            "description": "Auto generate a GitHub compatible CODEOWNERS files from OWNERS files distributed through the file tree.",
+            "entry": "github-distributed-owners",
+            "language": "rust",
+            "types": [
+                "file",
+                "text"
+            ],
+            "args": [
+                "--output-file=.github/CODEOWNERS"
+            ],
+            "pass_filenames": false,
+            "require_serial": true
         }
     ]
 }
