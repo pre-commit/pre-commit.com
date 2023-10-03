@@ -7781,5 +7781,15 @@
                 "pyi"
             ]
         }
+    ],
+    "https://github.com/igrr/astyle_py": [
+        {
+            "id": "astyle_py",
+            "name": "astyle formatter",
+            "description": "Astyle python wrapper. By default checks the formatting according to the given options. If '--fix' option is given, corrects formatting. Pass astyle options (such as '--style=otbs') via 'args' array.",
+            "entry": "astyle_py",
+            "language": "python",
+            "files": "^.*\\.(c|cpp|cxx|h|hpp|inc)$"
+        }
     ]
 }
