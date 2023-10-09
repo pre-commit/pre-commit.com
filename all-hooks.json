@@ -6282,7 +6282,8 @@
             "language": "python",
             "entry": "typos",
             "args": [
-                "--write-changes"
+                "--write-changes",
+                "--force-exclude"
             ],
             "types": [
                 "text"
@@ -6301,7 +6302,8 @@
             "language": "docker",
             "entry": "typos",
             "args": [
-                "--write-changes"
+                "--write-changes",
+                "--force-exclude"
             ],
             "types": [
                 "text"
@@ -6320,7 +6322,8 @@
             "language": "rust",
             "entry": "typos",
             "args": [
-                "--write-changes"
+                "--write-changes",
+                "--force-exclude"
             ],
             "types": [
                 "text"
