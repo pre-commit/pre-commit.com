@@ -10,7 +10,6 @@
 - https://github.com/pre-commit/mirrors-prettier
 - https://github.com/pre-commit/mirrors-puppet-lint
 - https://github.com/pre-commit/mirrors-scss-lint
-- https://github.com/pre-commit/mirrors-yapf
 - https://github.com/pre-commit/pygrep-hooks
 - https://github.com/pre-commit/sync-pre-commit-deps
 - https://github.com/FalconSocial/pre-commit-mirrors-pep257
@@ -167,6 +166,7 @@
 - https://github.com/hadolint/hadolint
 - https://github.com/google/go-jsonnet
 - https://github.com/google/yamlfmt
+- https://github.com/google/yapf
 - https://github.com/guid-empty/flutter-dependency-validation-pre-commit
 - https://github.com/cpplint/cpplint
 - https://github.com/MarcoGorelli/absolufy-imports
