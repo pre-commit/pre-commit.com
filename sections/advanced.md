@@ -89,7 +89,7 @@ pre-commit installed at .git/hooks/commit-msg
 - [pre-merge-commit](#pre-merge-commit)
 - [pre-push](#pre-push)
 - [pre-rebase](#pre-rebase)
-- [prepare-comit-msg](#prepare-commit-msg)
+- [prepare-commit-msg](#prepare-commit-msg)
 
 ### commit-msg
 
