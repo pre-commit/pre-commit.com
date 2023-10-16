@@ -967,6 +967,8 @@ to prevent the commit from happening.</p>
 <h3 id="post-merge">    post-merge <small><a href="#post-merge" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.11.0</em></p>
 <p><a href="https://git-scm.com/docs/githooks#_post_merge">git post-merge docs</a></p>
 <p><code>post-merge</code> runs after a successful <code>git merge</code>.</p>
+<p><code>post-merge</code> hooks do not operate on files so they must be set as
+<code>always_run: true</code> or they will always be skipped.</p>
 <p>environment variables:</p>
 <ul>
 <li><code>PRE_COMMIT_IS_SQUASH_MERGE</code>: the first argument to the <code>post-merge</code> git hook.</li>
