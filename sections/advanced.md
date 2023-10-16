@@ -136,6 +136,9 @@ _new in 2.11.0_
 
 `post-merge` runs after a successful `git merge`.
 
+`post-merge` hooks do not operate on files so they must be set as
+`always_run: true` or they will always be skipped.
+
 environment variables:
 - `PRE_COMMIT_IS_SQUASH_MERGE`: the first argument to the `post-merge` git hook.
 
