@@ -5643,6 +5643,17 @@
             "types": [
                 "text"
             ]
+        },
+        {
+            "id": "alphabetize-codeowners",
+            "name": "Alphabetize Codeowners",
+            "description": "Alphabetize GitHub CODEOWNERS files to list owners in the same order",
+            "entry": "alphabetize-codeowners",
+            "language": "python",
+            "types": [
+                "text"
+            ],
+            "files": "^(CODEOWNERS|\\.github/CODEOWNERS|docs/CODEOWNERS)$"
         }
     ],
     "https://github.com/snok/pep585-upgrade": [
