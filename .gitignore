@@ -1,11 +1,6 @@
-# Generated artifacts
 *.html
 *.pyc
 *.swp
 /all-hooks.json
 /build
 /node_modules
-
-# IDE
-.idea
-.vscode
