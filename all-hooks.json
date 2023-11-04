@@ -413,7 +413,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.52.0"
+                "eslint@8.53.0"
             ],
             "minimum_pre_commit_version": "0"
         }
