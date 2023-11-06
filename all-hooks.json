@@ -7397,7 +7397,7 @@
         },
         {
             "id": "check-model-has-tests",
-            "name": "Check the model has a tests",
+            "name": "Check that model has tests",
             "description": "Ensures that the model has a number of tests.",
             "entry": "check-model-has-tests",
             "language": "python",
