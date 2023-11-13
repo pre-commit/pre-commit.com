@@ -483,7 +483,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@3.0.3"
+                "prettier@3.1.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -6593,7 +6593,49 @@
         {
             "id": "shfmt",
             "name": "shfmt",
-            "description": "Shell source code formatter (native install)",
+            "description": "Shell source code formatter (prebuilt upstream executable)",
+            "language": "python",
+            "entry": "wrun",
+            "args": [
+                "--url",
+                "darwin/amd64=https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_darwin_amd64#ae1d1ab961c113fb3dc2ff1150f33c3548983550d91da889b3171a5bcfaab14f",
+                "--url",
+                "darwin/arm64=https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_darwin_arm64#ad7ff6f666adba3d801eb17365a15539f07296718d39fb62cc2fde6b527178aa",
+                "--url",
+                "linux/386=https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_linux_386#9f0b53d765e11c519be1866c5c3e4614f3f4bac4c982c935f879f561c38f17c1",
+                "--url",
+                "linux/amd64=https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_linux_amd64#0264c424278b18e22453fe523ec01a19805ce3b8ebf18eaf3aadc1edc23f42e3",
+                "--url",
+                "linux/arm=https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_linux_arm#3d1f5a1aede8161293bc42007af5b983f16d62857736c789f062346ed839f299",
+                "--url",
+                "linux/arm64=https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_linux_arm64#111612560d15bd53d8e8f8f85731176ce12f3b418ec473d39a40ed6bbec772de",
+                "--url",
+                "windows/386=https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_windows_386.exe#8bd0422554dd6ce5e07d9d17d020d89254b5c056009005df824e39a8cbdcf6aa",
+                "--url",
+                "windows/amd64=https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_windows_amd64.exe#2807b4af91fbbd961b68716de06c044f1b4f897457fc89fba216e5e2e351c64f",
+                "--",
+                "-w",
+                "-s"
+            ],
+            "types": [
+                "shell"
+            ],
+            "exclude_types": [
+                "csh",
+                "tcsh",
+                "zsh"
+            ],
+            "stages": [
+                "commit",
+                "merge-commit",
+                "push",
+                "manual"
+            ]
+        },
+        {
+            "id": "shfmt-src",
+            "name": "shfmt",
+            "description": "Shell source code formatter (build from source)",
             "language": "golang",
             "additional_dependencies": [
                 "mvdan.cc/sh/v3/cmd/shfmt@v3.7.0"
