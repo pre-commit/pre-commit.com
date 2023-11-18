@@ -7852,5 +7852,17 @@
             "language": "python",
             "files": "^.*\\.(c|cpp|cxx|h|hpp|inc)$"
         }
+    ],
+    "https://gitlab.com/codementors/pre-commit/add-issue-number-to-conventional-commit": [
+        {
+            "id": "add-issue-number",
+            "name": "Add issue number",
+            "description": "Looks for a issue number in the name of the current branch and adds it to the conventional commit",
+            "entry": "add-issue-number-to-conventional-commit",
+            "language": "python",
+            "stages": [
+                "prepare-commit-msg"
+            ]
+        }
     ]
 }
