@@ -33,6 +33,10 @@ def get_manifest(repo_path: str) -> tuple[bool, str, list[dict[str, Any]]]:
             if hook['fail_fast']:
                 print(f'{repo_path} ({hook["id"]}) sets `fail_fast: true`')
                 return False, repo_path, []
+            # hook names should be short and not cause wrapping by default
+            if len(hook['name']) > 50:
+                print(f'{repo_path} ({hook["id"]}) has too long `name` (>50)')
+                return False, repo_path, []
 
         with open(manifest_path) as f:
             return True, repo_path, fast_load(f)

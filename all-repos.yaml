@@ -27,14 +27,14 @@
 - https://github.com/digitalpulp/pre-commit-php
 - https://github.com/elidupuis/mirrors-jscs
 - https://github.com/elidupuis/mirrors-sass-lint
-- https://github.com/jumanjihouse/pre-commit-hooks
+# - https://github.com/jumanjihouse/pre-commit-hooks
 - https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
 - https://github.com/Lucas-C/pre-commit-hooks
 - https://github.com/Lucas-C/pre-commit-hooks-go
-- https://github.com/Lucas-C/pre-commit-hooks-java
+# - https://github.com/Lucas-C/pre-commit-hooks-java
 - https://github.com/Lucas-C/pre-commit-hooks-lxml
-- https://github.com/Lucas-C/pre-commit-hooks-markup
-- https://github.com/Lucas-C/pre-commit-hooks-nodejs
+# - https://github.com/Lucas-C/pre-commit-hooks-markup
+# - https://github.com/Lucas-C/pre-commit-hooks-nodejs
 - https://github.com/Lucas-C/pre-commit-hooks-safety
 - https://github.com/chriskuehl/puppet-pre-commit-hooks
 - https://github.com/golangci/golangci-lint
@@ -154,10 +154,10 @@
 - https://gitlab.com/pablodiehl/pre-commit-lua-formatter
 - https://github.com/frnmst/md-toc
 - https://github.com/mgedmin/check-manifest
-- https://github.com/ecugol/pre-commit-hooks-django
+# - https://github.com/ecugol/pre-commit-hooks-django
 - https://github.com/PrincetonUniversity/blocklint
 - https://github.com/python-jsonschema/check-jsonschema
-- https://github.com/sirosen/texthooks
+# - https://github.com/sirosen/texthooks
 - https://github.com/snok/pep585-upgrade
 - https://github.com/jendrikseipp/vulture
 - https://github.com/mwouts/jupytext
@@ -185,8 +185,8 @@
 - https://github.com/chrismgrayftsinc/jsonnetfmt
 - https://github.com/zricethezav/gitleaks
 - https://github.com/hugoh/pre-commit-fish
-- https://github.com/nbyl/pre-commit-license-checks
-- https://github.com/jonasbb/pre-commit-latex-hooks
+# - https://github.com/nbyl/pre-commit-license-checks
+# - https://github.com/jonasbb/pre-commit-latex-hooks
 - https://github.com/dfm/black_nbconvert
 - https://github.com/crate-ci/typos
 - https://github.com/snakemake/snakefmt
@@ -231,7 +231,7 @@
 - https://github.com/jshwi/docsig
 - https://github.com/finsberg/clang-format-docs
 - https://github.com/rubocop/rubocop
-- https://github.com/dbt-checkpoint/dbt-checkpoint
+# - https://github.com/dbt-checkpoint/dbt-checkpoint
 - https://gitlab.com/engmark/vcard
 - https://github.com/Data-Liberation-Front/csvlint.rb
 - https://github.com/christopher-hacker/enforce-notebook-run-order
