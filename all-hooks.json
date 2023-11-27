@@ -5359,6 +5359,69 @@
             ]
         }
     ],
+    "https://github.com/sirosen/texthooks": [
+        {
+            "id": "fix-smartquotes",
+            "name": "Fix smartquote characters",
+            "description": "Replace \"smartquote\" characters with regular quotes",
+            "entry": "fix-smartquotes",
+            "language": "python",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "fix-ligatures",
+            "name": "Fix ligature characters with NFKD normalization",
+            "description": "Replace ligature characters with normalized individual characters",
+            "entry": "fix-ligatures",
+            "language": "python",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "fix-spaces",
+            "name": "Normalize irregular space characters to \"space\"",
+            "description": "Replace non-breaking spaces and other characters with the standard space character",
+            "entry": "fix-spaces",
+            "language": "python",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "forbid-bidi-controls",
+            "name": "Forbid the use of unicode BiDi control characters",
+            "description": "Check for lines of text which contain bidirectional text control characters",
+            "entry": "forbid-bidi-controls",
+            "language": "python",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "macro-expand",
+            "name": "Expand text macros",
+            "description": "Perform simple macro replacements in text files",
+            "entry": "macro-expand",
+            "language": "python",
+            "types": [
+                "text"
+            ]
+        },
+        {
+            "id": "alphabetize-codeowners",
+            "name": "Alphabetize Codeowners",
+            "description": "Alphabetize GitHub CODEOWNERS files to list owners in the same order",
+            "entry": "alphabetize-codeowners",
+            "language": "python",
+            "types": [
+                "text"
+            ],
+            "files": "^(CODEOWNERS|\\.github/CODEOWNERS|docs/CODEOWNERS)$"
+        }
+    ],
     "https://github.com/snok/pep585-upgrade": [
         {
             "id": "upgrade-type-hints",
