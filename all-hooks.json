@@ -4566,7 +4566,7 @@
         {
             "id": "swiftformat",
             "name": "SwiftFormat",
-            "description": "Check swift files for formating issues with SwiftFormat",
+            "description": "Check swift files for formatting issues with SwiftFormat",
             "entry": "swiftformat",
             "language": "swift",
             "types": [
