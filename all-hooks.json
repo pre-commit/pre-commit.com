@@ -475,7 +475,7 @@
             "id": "prettier",
             "name": "prettier",
             "description": "",
-            "entry": "prettier --write --list-different --ignore-unknown",
+            "entry": "prettier --write --ignore-unknown",
             "language": "node",
             "types": [
                 "text"
