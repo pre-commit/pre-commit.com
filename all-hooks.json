@@ -4262,7 +4262,7 @@
             "name": "bazel buildifier",
             "description": "Runs `buildifier`, requires buildifier binary",
             "entry": "buildifier",
-            "files": "^(.*/)?(BUILD\\.bazel|BUILD|WORKSPACE)$|\\.BUILD$|\\.bzl$",
+            "files": "^(.*/)?(BUILD\\.bazel|BUILD|WORKSPACE|WORKSPACE\\.bzlmod)$|\\.BUILD$|\\.bzl$",
             "language": "system"
         },
         {
