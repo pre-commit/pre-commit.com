@@ -4,7 +4,7 @@ installable package (gem, npm, pypi, etc.) or exposes an executable, it can be
 used with pre-commit. Each git repo can support as many languages/hooks as you
 want.
 
-The hook must exit nonzero on failure or modify files.
+The hook must exit nonzero on failure or if it modifies files.
 
 A git repo containing pre-commit plugins must contain a `.pre-commit-hooks.yaml`
 file that tells pre-commit:
