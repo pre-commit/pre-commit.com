@@ -34,7 +34,10 @@ def get_manifest(repo_path: str) -> tuple[bool, str, list[dict[str, Any]]]:
                 print(f'{repo_path} ({hook["id"]}) sets `fail_fast: true`')
                 return False, repo_path, []
             # hook names should be short and not cause wrapping by default
-            if len(hook['name']) > 50:
+            if (
+                    len(hook['name']) > 50 and
+                    'deprecated' not in hook['name'].lower()
+            ):
                 print(f'{repo_path} ({hook["id"]}) has too long `name` (>50)')
                 return False, repo_path, []
 
