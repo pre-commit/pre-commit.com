@@ -413,7 +413,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@8.55.0"
+                "eslint@8.56.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -483,7 +483,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "prettier@4.0.0-alpha.5"
+                "prettier@4.0.0-alpha.7"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -1552,10 +1552,19 @@
         },
         {
             "id": "terraform_tfsec",
-            "name": "Terraform validate with tfsec",
+            "name": "Terraform validate with tfsec (deprecated, use \"terraform_trivy\")",
             "description": "Static analysis of Terraform templates to spot potential security issues.",
             "require_serial": true,
             "entry": "hooks/terraform_tfsec.sh",
+            "files": "\\.tf(vars)?$",
+            "language": "script"
+        },
+        {
+            "id": "terraform_trivy",
+            "name": "Terraform validate with trivy",
+            "description": "Static analysis of Terraform templates to spot potential security issues.",
+            "require_serial": true,
+            "entry": "hooks/terraform_trivy.sh",
             "files": "\\.tf(vars)?$",
             "language": "script"
         },
@@ -4219,7 +4228,7 @@
         {
             "id": "pretty-format-kotlin",
             "name": "KTLint",
-            "description": "Runs KTLint over Kotlin source files",
+            "description": "Runs KTLint (or ktfmt) over Kotlin source files",
             "entry": "pretty-format-kotlin",
             "language": "python",
             "types": [
