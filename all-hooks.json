@@ -6807,7 +6807,7 @@
             "pass_filenames": false
         }
     ],
-    "https://github.com/charliermarsh/ruff-pre-commit": [
+    "https://github.com/astral-sh/ruff-pre-commit": [
         {
             "id": "ruff",
             "name": "ruff",
