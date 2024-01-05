@@ -4,28 +4,5 @@
     "dependencies": {
         "bootstrap": "^5.0.0",
         "sass": "^1.32.13"
-    },
-    "eslintConfig": {
-        "extends": "eslint:recommended",
-        "rules": {
-            "indent": [
-                "error",
-                4
-            ],
-            "quotes": [
-                "error",
-                "single"
-            ],
-            "semi": [
-                "error",
-                "always"
-            ]
-        },
-        "parserOptions": {
-            "ecmaVersion": 6
-        },
-        "env": {
-            "browser": true
-        }
     }
 }
