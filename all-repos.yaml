@@ -226,7 +226,7 @@
 - https://github.com/nuztalgia/botstrap
 - https://gitlab.com/adam-moss/pre-commit-trailer
 - https://gitlab.com/adam-moss/pre-commit-ssh-git-signing-key
-- https://github.com/charliermarsh/ruff-pre-commit
+- https://github.com/astral-sh/ruff-pre-commit
 - https://github.com/mrtazz/checkmake
 - https://github.com/jshwi/docsig
 - https://github.com/finsberg/clang-format-docs
