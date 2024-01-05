@@ -13,15 +13,13 @@
         document.execCommand('copy');
         document.body.removeChild(textArea);
     }
-    const codeBlockElements = document.getElementsByClassName('copyable');
-    for (let i = 0; i < codeBlockElements.length; i++) {
-        const block = codeBlockElements[i];
+    for (const block of document.getElementsByClassName('copyable')) {
         const copyIcon = new Image(16, 16);
         copyIcon.setAttribute('src', './assets/copy-icon.svg');
         copyIcon.setAttribute('alt', 'copy');
         copyIcon.setAttribute('title', 'copy to clipboard');
         block.insertBefore(copyIcon, block.children[0]);
-        copyIcon.addEventListener('click', (block) => {
+        copyIcon.addEventListener('click', () => {
             const text = block.getElementsByTagName('pre')[0].innerText;
             copyTextToClipboard(text);
         });
