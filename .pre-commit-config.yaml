@@ -37,11 +37,11 @@ repos:
     hooks:
     -   id: mypy
         additional_dependencies: [types-all]
--   repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v9.0.0-alpha.0
+-   repo: https://github.com/biomejs/pre-commit
+    rev: v0.1.0
     hooks:
-    -   id: eslint
-        args: [--fix]
+    -   id: biome-check
+        additional_dependencies: ["@biomejs/biome@1.4.1"]
 -   repo: local
     hooks:
     -   id: no-github-dot-git

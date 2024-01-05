@@ -1,6 +1,8 @@
-(function () {
+'use strict';
+
+(() => {
     function copyTextToClipboard(text) {
-        var textArea = document.createElement('textarea');
+        const textArea = document.createElement('textarea');
         textArea.value = text;
         textArea.style.position = 'fixed';
         textArea.style.left = '-1';
@@ -11,17 +13,17 @@
         document.execCommand('copy');
         document.body.removeChild(textArea);
     }
-    var codeBlockElements = document.getElementsByClassName('copyable');
-    for (var i = 0; i < codeBlockElements.length; i++) {
-        var block = codeBlockElements[i];
-        var copyIcon = new Image(16, 16);
+    const codeBlockElements = document.getElementsByClassName('copyable');
+    for (let i = 0; i < codeBlockElements.length; i++) {
+        const block = codeBlockElements[i];
+        const copyIcon = new Image(16, 16);
         copyIcon.setAttribute('src', './assets/copy-icon.svg');
         copyIcon.setAttribute('alt', 'copy');
         copyIcon.setAttribute('title', 'copy to clipboard');
         block.insertBefore(copyIcon, block.children[0]);
-        copyIcon.addEventListener('click', function(block) {
-            var text = block.getElementsByTagName('pre')[0].innerText;
+        copyIcon.addEventListener('click', (block) => {
+            const text = block.getElementsByTagName('pre')[0].innerText;
             copyTextToClipboard(text);
-        }.bind(null, block));
+        });
     }
 })();

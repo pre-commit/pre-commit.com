@@ -22,7 +22,10 @@
                     const hookId = repoHook.dataset.id.toLowerCase();
                     const hookTypes = repoHook.dataset.types.split(', ');
 
-                    if (hookId.includes(id) && (type === '' || hookTypes.includes(type))) {
+                    if (
+                        hookId.includes(id) &&
+                        (type === '' || hookTypes.includes(type))
+                    ) {
                         repoHook.hidden = false;
                         hasVisibleHooks = true;
                     } else {
@@ -32,7 +35,8 @@
             }
 
             repo.hidden = !hasVisibleHooks;
-            hooks.querySelector(`h3[data-repo="${repo.dataset.repo}"]`).hidden = !hasVisibleHooks;
+            hooks.querySelector(`h3[data-repo="${repo.dataset.repo}"]`).hidden =
+                !hasVisibleHooks;
         }
     };
 
