@@ -357,8 +357,18 @@ The currently available `meta` hooks:
 =r=
     =c= [`identity`](_#meta-identity)
     =c= a simple hook which prints all arguments passed to it, useful for
-        debugging or printing a help message (if `pass_filenames` is set to
-        `false`).
+        debugging.
+```
+
+The `identity` hook can be used to print a message when `pre-commit` is run:
+
+```yaml
+-   repo: meta
+    hooks:
+    -   id: identity
+        name: Print troubleshooting information
+        args: ['For help with troubleshooting, please see our documentation.']
+        pass_filenames: false
 ```
 
 ## automatically enabling pre-commit on repositories
