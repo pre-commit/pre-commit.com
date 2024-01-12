@@ -357,7 +357,8 @@ The currently available `meta` hooks:
 =r=
     =c= [`identity`](_#meta-identity)
     =c= a simple hook which prints all arguments passed to it, useful for
-        debugging.
+        debugging or printing a help message (if `pass_filenames` is set to
+        `false`).
 ```
 
 ## automatically enabling pre-commit on repositories
