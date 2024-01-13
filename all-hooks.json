@@ -7065,5 +7065,15 @@
                 "python"
             ]
         }
+    ],
+    "https://github.com/KindDragon/gn-build-py": [
+        {
+            "id": "gn-format",
+            "name": "GN Format",
+            "description": "This hook formats GN files using the gn binary packed to python package.",
+            "entry": "gn format",
+            "language": "python",
+            "files": "\\.(gn|gni)$"
+        }
     ]
 }
