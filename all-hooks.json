@@ -7075,5 +7075,18 @@
             "language": "python",
             "files": "\\.(gn|gni)$"
         }
+    ],
+    "https://github.com/stefmolin/exif-stripper": [
+        {
+            "id": "strip-exif",
+            "name": "strip-exif",
+            "description": "This hook ensures that no image metadata (EXIF) is present on images added to version control.",
+            "entry": "strip-exif",
+            "require_serial": false,
+            "language": "python",
+            "types": [
+                "image"
+            ]
+        }
     ]
 }
