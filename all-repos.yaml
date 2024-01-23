@@ -1,6 +1,5 @@
 # This file is used to generate all-hooks.json
 - https://github.com/pre-commit/pre-commit-hooks
-- https://github.com/pre-commit/mirrors-autopep8
 - https://github.com/pre-commit/mirrors-clang-format
 - https://github.com/pre-commit/mirrors-csslint
 - https://github.com/pre-commit/mirrors-eslint
@@ -246,3 +245,4 @@
 - https://github.com/hakancelikdev/unexport
 - https://github.com/KindDragon/gn-build-py
 - https://github.com/stefmolin/exif-stripper
+- https://github.com/hhatto/autopep8
