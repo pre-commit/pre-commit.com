@@ -5120,7 +5120,7 @@
         {
             "id": "dart-import-sorter",
             "name": "Dart Import Sorter",
-            "entry": "dart pub run import_sorter:main",
+            "entry": "dart pub run import_sorter",
             "language": "system",
             "types": [
                 "dart"
@@ -5131,7 +5131,7 @@
         {
             "id": "flutter-import-sorter",
             "name": "Flutter Import Sorter",
-            "entry": "flutter pub run import_sorter:main",
+            "entry": "flutter pub run import_sorter",
             "language": "system",
             "types": [
                 "dart"
