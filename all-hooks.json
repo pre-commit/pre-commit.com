@@ -5042,7 +5042,7 @@
             "name": "ktlint",
             "description": "Runs the ktlint linter and formatter on Kotlin source files.",
             "language": "coursier",
-            "entry": "ktlint",
+            "entry": "ktlint -J--add-opens=java.base/java.lang=ALL-UNNAMED",
             "files": "\\.kt$",
             "require_serial": true
         },
