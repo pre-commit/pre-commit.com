@@ -5382,6 +5382,17 @@
             "types": [
                 "yaml"
             ]
+        },
+        {
+            "id": "check-woodpecker-ci",
+            "name": "Validate Woodpecker Config",
+            "description": "Validate Woodpecker Config against the schema provided by SchemaStore",
+            "entry": "check-jsonschema --builtin-schema vendor.woodpecker-ci",
+            "language": "python",
+            "files": "(?x)^(\n  ^\\.woodpecker\\.(yml|yaml)$|\n  ^\\.woodpecker/.+\\.(yml|yaml)$\n)$\n",
+            "types": [
+                "yaml"
+            ]
         }
     ],
     "https://github.com/sirosen/texthooks": [
