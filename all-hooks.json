@@ -5455,7 +5455,7 @@
             "types": [
                 "text"
             ],
-            "files": "^(CODEOWNERS|\\.github/CODEOWNERS|docs/CODEOWNERS)$"
+            "files": "^(CODEOWNERS|docs/CODEOWNERS|\\.(github|gitlab|gitea)/CODEOWNERS)$"
         }
     ],
     "https://github.com/snok/pep585-upgrade": [
