@@ -314,6 +314,9 @@ The hook repository must contain go source code.  It will be installed via
 and the [`entry`](#hooks-entry) should match an executable which will get installed into the
 `GOPATH`'s `bin` directory.
 
+This language supports `additional_dependencies` and will pass any of the values directly to `go
+install`. It can be used as a `repo: local` hook.
+
 _changed in 2.17.0_: previously `go get ./...` was used
 
 _new in 3.0.0_: pre-commit will bootstrap `go` if it is not present. `language: golang`
