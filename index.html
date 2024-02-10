@@ -579,6 +579,7 @@ being added to the <code>changelog</code> directory:</p>
 <code>go install ./...</code>.  pre-commit will create an isolated <code>GOPATH</code> for each hook
 and the <a href="#hooks-entry"><code>entry</code></a> should match an executable which will get installed into the
 <code>GOPATH</code>'s <code>bin</code> directory.</p>
+<p>This language supports <code>additional_dependencies</code> and will pass any of the values directly to <code>go install</code>. It can be used as a <code>repo: local</code> hook.</p>
 <p><em>changed in 2.17.0</em>: previously <code>go get ./...</code> was used</p>
 <p><em>new in 3.0.0</em>: pre-commit will bootstrap <code>go</code> if it is not present. <code>language: golang</code>
 also now supports <code>language_version</code></p>
