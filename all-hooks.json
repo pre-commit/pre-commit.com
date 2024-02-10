@@ -341,24 +341,6 @@
             ]
         }
     ],
-    "https://github.com/pre-commit/mirrors-autopep8": [
-        {
-            "id": "autopep8",
-            "name": "autopep8",
-            "description": "",
-            "entry": "autopep8",
-            "language": "python",
-            "types": [
-                "python"
-            ],
-            "args": [
-                "-i"
-            ],
-            "require_serial": false,
-            "additional_dependencies": [],
-            "minimum_pre_commit_version": "0"
-        }
-    ],
     "https://github.com/pre-commit/mirrors-clang-format": [
         {
             "id": "clang-format",
@@ -7096,6 +7078,21 @@
             "language": "python",
             "types": [
                 "image"
+            ]
+        }
+    ],
+    "https://github.com/hhatto/autopep8": [
+        {
+            "id": "autopep8",
+            "name": "autopep8",
+            "description": "A tool that automatically formats Python code to conform to the PEP 8 style guide.",
+            "entry": "autopep8",
+            "language": "python",
+            "types": [
+                "python"
+            ],
+            "args": [
+                "-i"
             ]
         }
     ]
