@@ -247,3 +247,6 @@
 - https://github.com/stefmolin/exif-stripper
 - https://github.com/hhatto/autopep8
 - https://github.com/rhysd/actionlint
+- https://github.com/lalten/xmllint-format-hook
+- https://github.com/lalten/lemminx-pre-commit-hook
+- https://github.com/lalten/check-gha-pinning
