@@ -6236,7 +6236,7 @@
             "description": "Shell source code formatter (build from source)",
             "language": "golang",
             "additional_dependencies": [
-                "mvdan.cc/sh/v3/cmd/shfmt@v3.7.0"
+                "mvdan.cc/sh/v3/cmd/shfmt@v3.8.0"
             ],
             "entry": "shfmt",
             "args": [
@@ -6263,7 +6263,7 @@
             "name": "shfmt",
             "description": "Shell source code formatter (Docker image)",
             "language": "docker_image",
-            "entry": "--net none mvdan/shfmt:v3.7.0@sha256:c029770b8d8091b482cd1b30bd190d1d422bb5787e6ddc7894ef7d9784578690",
+            "entry": "--net none mvdan/shfmt:v3.8.0@sha256:7443e0094a8af5f764f0e8619a64c3b6169d716da68c175fb08ba28a99235c8a",
             "args": [
                 "-w",
                 "-s"
