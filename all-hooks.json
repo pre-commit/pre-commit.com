@@ -1443,7 +1443,7 @@
             "language": "script",
             "require_serial": true,
             "files": "\\.(tf(vars)?|hcl)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terraform_fmt",
@@ -1452,7 +1452,7 @@
             "entry": "hooks/terraform_fmt.sh",
             "language": "script",
             "files": "(\\.tf|\\.tfvars)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terraform_docs",
@@ -1462,7 +1462,7 @@
             "entry": "hooks/terraform_docs.sh",
             "language": "script",
             "files": "(\\.tf|\\.terraform\\.lock\\.hcl)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terraform_docs_without_aggregate_type_defaults",
@@ -1472,7 +1472,7 @@
             "entry": "hooks/terraform_docs.sh",
             "language": "script",
             "files": "(\\.tf)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terraform_docs_replace",
@@ -1482,7 +1482,7 @@
             "entry": "terraform_docs_replace",
             "language": "python",
             "files": "(\\.tf)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terraform_validate",
@@ -1492,7 +1492,7 @@
             "entry": "hooks/terraform_validate.sh",
             "language": "script",
             "files": "(\\.tf|\\.tfvars)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terraform_providers_lock",
@@ -1502,7 +1502,7 @@
             "entry": "hooks/terraform_providers_lock.sh",
             "language": "script",
             "files": "(\\.terraform\\.lock\\.hcl)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terraform_tflint",
@@ -1512,7 +1512,7 @@
             "entry": "hooks/terraform_tflint.sh",
             "language": "script",
             "files": "(\\.tf|\\.tfvars)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terragrunt_fmt",
@@ -1521,7 +1521,7 @@
             "entry": "hooks/terragrunt_fmt.sh",
             "language": "script",
             "files": "(\\.hcl)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terragrunt_validate",
@@ -1530,7 +1530,7 @@
             "entry": "hooks/terragrunt_validate.sh",
             "language": "script",
             "files": "(\\.hcl)$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terraform_tfsec",
@@ -1559,7 +1559,7 @@
             "pass_filenames": false,
             "always_run": false,
             "files": "\\.tf$",
-            "exclude": "\\.terraform\\/.*$",
+            "exclude": "\\.terraform/.*$",
             "require_serial": true
         },
         {
@@ -1570,7 +1570,7 @@
             "language": "script",
             "always_run": false,
             "files": "\\.tf$",
-            "exclude": "\\.terraform\\/.*$",
+            "exclude": "\\.terraform/.*$",
             "require_serial": true
         },
         {
@@ -1583,7 +1583,7 @@
             "always_run": false,
             "require_serial": true,
             "files": "\\.tf$",
-            "exclude": "\\.terraform\\/.*$"
+            "exclude": "\\.terraform/.*$"
         },
         {
             "id": "terrascan",
@@ -1592,7 +1592,7 @@
             "language": "script",
             "entry": "hooks/terrascan.sh",
             "files": "\\.tf$",
-            "exclude": "\\.terraform\\/.*$",
+            "exclude": "\\.terraform/.*$",
             "require_serial": true
         },
         {
