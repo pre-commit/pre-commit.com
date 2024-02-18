@@ -49,3 +49,8 @@ repos:
         entry: '(github|gitlab).*\.git'
         files: all-repos.yaml
         language: pygrep
+    -   id: no-github-trailing-slash
+        name: No need for trailing / for urls
+        entry: '.*/$'
+        files: all-repos.yaml
+        language: pygrep
