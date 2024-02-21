@@ -955,18 +955,6 @@
             ]
         }
     ],
-    "https://github.com/Lucas-C/pre-commit-hooks-go": [
-        {
-            "id": "checkmake",
-            "name": "Makefile linter/analyzer",
-            "entry": "checkmake",
-            "language": "golang",
-            "additional_dependencies": [
-                "github.com/mrtazz/checkmake"
-            ],
-            "files": "Makefile"
-        }
-    ],
     "https://github.com/Lucas-C/pre-commit-hooks-lxml": [
         {
             "id": "forbid-html-img-without-alt-text",
