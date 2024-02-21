@@ -29,7 +29,6 @@
 # - https://github.com/jumanjihouse/pre-commit-hooks
 - https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
 - https://github.com/Lucas-C/pre-commit-hooks
-- https://github.com/Lucas-C/pre-commit-hooks-go
 # - https://github.com/Lucas-C/pre-commit-hooks-java
 - https://github.com/Lucas-C/pre-commit-hooks-lxml
 # - https://github.com/Lucas-C/pre-commit-hooks-markup
