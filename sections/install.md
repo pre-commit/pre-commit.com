@@ -34,6 +34,12 @@ Using [conda](https://conda.io) (via [conda-forge](https://conda-forge.org)):
 conda install -c conda-forge pre-commit
 ```
 
+Using [pixi](https://pixi.sh/latest/#installation):
+
+```bash
+pixi global install pre-commit
+```
+
 ## Quick start
 
 ### 1. Install pre-commit
