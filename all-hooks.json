@@ -7117,7 +7117,7 @@
                 "yaml"
             ],
             "files": "^\\.github/workflows/",
-            "entry": "docker.io/rhysd/actionlint:1.6.26"
+            "entry": "docker.io/rhysd/actionlint:1.6.27"
         },
         {
             "id": "actionlint-system",
