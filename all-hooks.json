@@ -7130,5 +7130,16 @@
             "files": "^\\.github/workflows/",
             "entry": "actionlint"
         }
+    ],
+    "https://github.com/hija/clean-dotenv": [
+        {
+            "id": "clean-dotenv",
+            "name": "Clean Dotenv",
+            "description": "Automatically creates an .env.example which creates the same keys as your .env file, but without the values",
+            "entry": "clean-dotenv",
+            "language": "python",
+            "always_run": true,
+            "pass_filenames": false
+        }
     ]
 }
