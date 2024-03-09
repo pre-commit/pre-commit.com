@@ -395,7 +395,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@9.0.0-beta.1"
+                "eslint@9.0.0-beta.2"
             ],
             "minimum_pre_commit_version": "0"
         }
