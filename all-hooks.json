@@ -395,7 +395,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@9.0.0-beta.2"
+                "eslint@9.0.0-rc.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -1479,7 +1479,7 @@
             "require_serial": true,
             "entry": "hooks/terraform_validate.sh",
             "language": "script",
-            "files": "(\\.tf|\\.tfvars)$",
+            "files": "\\.(tf(vars)?|terraform\\.lock\\.hcl)$",
             "exclude": "\\.terraform/.*$"
         },
         {
