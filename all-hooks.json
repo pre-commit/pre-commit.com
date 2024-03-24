@@ -1918,9 +1918,9 @@
             "description": "Hashes some fields of the commit and adds a signature for verification by other systems",
             "entry": "sign-commit",
             "language": "ruby",
-            "language_version": "2.6.6",
+            "language_version": "3.2.2",
             "pass_filenames": true,
-            "minimum_pre_commit_version": "0.15.4",
+            "minimum_pre_commit_version": "3.0.0",
             "stages": [
                 "commit-msg"
             ]
