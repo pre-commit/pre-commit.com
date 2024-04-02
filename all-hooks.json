@@ -6176,7 +6176,7 @@
         {
             "id": "sqlfluff-fix",
             "name": "sqlfluff-fix",
-            "entry": "sqlfluff fix --force --show-lint-violations --processes 0",
+            "entry": "sqlfluff fix --show-lint-violations --processes 0",
             "language": "python",
             "description": "Fixes sql lint errors with `SQLFluff`",
             "types": [
