@@ -95,6 +95,7 @@
 - https://github.com/marco-c/taskcluster_yml_validator
 - https://github.com/rstcheck/rstcheck
 - https://github.com/lorenzwalthert/precommit
+- https://github.com/lorenzwalthert/gitignore-tidy
 - https://github.com/FelixSeptem/pre-commit-golang
 - https://gitlab.com/daverona/pre-commit/cpp
 - https://github.com/codingjoe/relint
