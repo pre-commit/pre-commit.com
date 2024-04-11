@@ -5361,6 +5361,17 @@
             "files": "(?x)^(\n  renovate\\.(json|json5)|\n  \\.(github|gitlab)/renovate\\.(json|json5)|\n  \\.renovaterc(\\.json)?\n)$\n"
         },
         {
+            "id": "check-taskfile",
+            "name": "Validate Taskfile Config",
+            "description": "Validate Taskfile config against the schema provided by Task",
+            "entry": "check-jsonschema --builtin-schema vendor.taskfile",
+            "language": "python",
+            "files": "(?x)^(\n  Taskfile\\.(yml|yaml)|\n  taskfile\\.(yml|yaml)|\n  Taskfile\\.dist\\.(yml|yaml)|\n  taskfile\\.dist\\.(yml|yaml)\n)$\n",
+            "types": [
+                "yaml"
+            ]
+        },
+        {
             "id": "check-travis",
             "name": "Validate Travis Config",
             "description": "Validate Travis Config against the schema provided by SchemaStore",
