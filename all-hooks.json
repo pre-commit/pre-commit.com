@@ -2988,6 +2988,16 @@
             "files": "^man/|_pkgdown\\.yml"
         }
     ],
+    "https://github.com/lorenzwalthert/gitignore-tidy": [
+        {
+            "id": "tidy-gitignore",
+            "name": "Sort entries in gitignore",
+            "description": "Ensure gitignore entries are unique, sorted and have no unecessary white spaces",
+            "entry": "gitignore-tidy",
+            "language": "python",
+            "files": "\\.gitignore$"
+        }
+    ],
     "https://github.com/FelixSeptem/pre-commit-golang": [
         {
             "id": "bazel-buildifier",
