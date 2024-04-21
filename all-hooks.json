@@ -80,7 +80,7 @@
             "name": "check illegal windows names",
             "entry": "Illegal windows filenames detected",
             "language": "fail",
-            "files": "(?i)(^|/)(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])(\\.|/|$)"
+            "files": "(?i)((^|/)(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])(\\.|/|$)|:)"
         },
         {
             "id": "check-json",
@@ -365,7 +365,8 @@
                 "json",
                 "objective-c",
                 "proto",
-                "textproto"
+                "textproto",
+                "metal"
             ],
             "args": [
                 "-style=file"
