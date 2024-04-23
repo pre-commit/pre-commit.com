@@ -403,7 +403,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@9.1.0"
+                "eslint@9.1.1"
             ],
             "minimum_pre_commit_version": "0"
         }
