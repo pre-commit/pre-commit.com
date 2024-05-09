@@ -7713,7 +7713,7 @@
                 "yaml"
             ],
             "files": "^\\.github/workflows/",
-            "entry": "docker.io/rhysd/actionlint:1.6.27"
+            "entry": "docker.io/rhysd/actionlint:1.7.0"
         },
         {
             "id": "actionlint-system",
