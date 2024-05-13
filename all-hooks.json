@@ -1930,8 +1930,8 @@
             "id": "search-and-replace",
             "name": "Search and replace strings",
             "description": "Search and replace strings",
-            "entry": "bin/search-and-replace.rb",
-            "language": "script",
+            "entry": "search-and-replace",
+            "language": "ruby",
             "pass_filenames": true,
             "exclude_types": [
                 "binary"
