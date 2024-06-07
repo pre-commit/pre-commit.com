@@ -22,18 +22,6 @@ As a 0-dependency [zipapp]:
 [zipapp]: https://docs.python.org/3/library/zipapp.html
 [github releases]: https://github.com/pre-commit/pre-commit/releases
 
-Using [homebrew](https://brew.sh):
-
-```bash
-brew install pre-commit
-```
-
-Using [conda](https://conda.io) (via [conda-forge](https://conda-forge.org)):
-
-```bash
-conda install -c conda-forge pre-commit
-```
-
 ## Quick start
 
 ### 1. Install pre-commit
