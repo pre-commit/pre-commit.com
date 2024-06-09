@@ -2472,6 +2472,17 @@
             ]
         },
         {
+            "id": "format-xml-plist",
+            "name": "Auto-format plist [XML]",
+            "description": "Auto-format a Property List (plist) as XML.",
+            "entry": "plutil -convert xml1",
+            "language": "system",
+            "files": "\\.(mobileconfig|pkginfo|plist|recipe)$",
+            "types": [
+                "text"
+            ]
+        },
+        {
             "id": "munki-makecatalogs",
             "name": "Run Munki Makecatalogs",
             "description": "This hook runs the \"makecatalogs\" command to ensure all referenced packages are present and catalogs are up to date.",
