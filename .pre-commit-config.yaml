@@ -20,7 +20,7 @@ repos:
     hooks:
     -   id: add-trailing-comma
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.2
+    rev: v3.16.0
     hooks:
     -   id: pyupgrade
         args: [--py38-plus]
@@ -38,7 +38,7 @@ repos:
     -   id: mypy
         additional_dependencies: [types-all]
 -   repo: https://github.com/biomejs/pre-commit
-    rev: v0.1.0
+    rev: v0.2.0
     hooks:
     -   id: biome-check
         additional_dependencies: ["@biomejs/biome@1.4.1"]
