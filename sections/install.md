@@ -1,39 +1,57 @@
-Before you can run hooks, you need to have the pre-commit package manager
-installed.
-
-Using pip:
+pre-commit is a command-line tool. To check to see if pre-commit is installed,
+run it like this:
 
 ```bash
-pip install pre-commit
+pre-commit --version
 ```
 
-In a python project, add the following to your requirements.txt (or
-requirements-dev.txt):
+pre-commit is designed for projects in any programming language, and pre-commit
+plugins are written in different languages as well. pre-commit itself is built
+using Python, and for that reason, you need to make sure that the `python` or
+`python3` executable is installed on your machine:
 
+```bash
+python --version # or: python3 --version
 ```
-pre-commit
+
+Now, choose one of these official installation methods to install the
+pre-commit tool:
+
+### Using [`pipx`](https://pipx.pypa.io/stable/):
+
+```bash
+pipx install pre-commit
 ```
 
-As a 0-dependency [zipapp]:
+### Using a download from GitHub releases' page:
 
-- locate and download the `.pyz` file from the [github releases]
-- run `python pre-commit-#.#.#.pyz ...` in place of `pre-commit ...`
+1. Navigate to [pre-commit's GitHub releases][github releases]
+2. Download the `.pyz` file listed there. `.pyz` files only depend on
+    Python and include all other dependencies (see [zipapp]).
+3. Mark it as executable:
+    ```bash
+    chmod +x pre-commit-*.pyz
+    ```
+4. Now run it:
+    ```bash
+    ./pre-commit-*.pyz --version
+    ```
+5. To run it as `pre-commit` from any directory, rename the file to
+   `pre-commit` and move it to somewhere on your `PATH`.
+
+### As a dependency in your Python project:
+
+If you prefer to install pre-commit in your Python project's virtual
+environment, run `pip install pre-commit` or add `pre-commit` to your
+`requirements.txt` or `requirements-dev.txt` or `Pipfile` or `pyproject.toml`.
+
 
 [zipapp]: https://docs.python.org/3/library/zipapp.html
 [github releases]: https://github.com/pre-commit/pre-commit/releases
 
 ## Quick start
 
-### 1. Install pre-commit
-
-- follow the [install](#install) instructions above
-- `pre-commit --version` should show you what version you're using
-
-```cmd
-pre-commit --version
-```
-
-### 2. Add a pre-commit configuration
+### 1. Add a pre-commit configuration
 
 - create a file named `.pre-commit-config.yaml`
 - you can generate a very basic configuration using
@@ -57,7 +75,7 @@ repos:
     -   id: black
 ```
 
-### 3. Install the git hook scripts
+### 2. Install the git hook scripts
 
 - run `pre-commit install` to set up the git hook scripts
 
@@ -68,7 +86,7 @@ pre-commit installed at .git/hooks/pre-commit
 
 - now `pre-commit` will run automatically on `git commit`!
 
-### 4. (optional) Run against all the files
+### 3. (optional) Run against all the files
 
 - it's usually a good idea to run the hooks against all of the files when adding
   new hooks (usually `pre-commit` will only run on the changed files during
