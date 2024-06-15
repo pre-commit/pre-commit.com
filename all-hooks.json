@@ -403,7 +403,7 @@
             "args": [],
             "require_serial": false,
             "additional_dependencies": [
-                "eslint@9.4.0"
+                "eslint@9.5.0"
             ],
             "minimum_pre_commit_version": "0"
         }
@@ -5285,6 +5285,14 @@
                 "json",
                 "yaml"
             ]
+        },
+        {
+            "id": "check-circle-ci",
+            "name": "Validate CircleCI config",
+            "description": "Validate CircleCI config against the schema provided by SchemaStore",
+            "entry": "check-jsonschema --builtin-schema vendor.circle-ci",
+            "language": "python",
+            "files": "^\\.circleci/config\\.(yml|yaml)$"
         },
         {
             "id": "check-cloudbuild",
