@@ -29,7 +29,7 @@ push: venv
 	venv/bin/markdown-to-presentation push \
 		.nojekyll README.md CNAME \
 		build assets *.html *.png *.svg favicon.ico \
-		all-hooks.json install-local.py
+		all-hooks.json
 
 clean:
 	rm -rf venv build node_modules *.html all-hooks.json
