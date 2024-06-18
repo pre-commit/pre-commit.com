@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-import collections
-import json
 import os.path
-from typing import Any
 
 import mako.lookup
 import markupsafe
@@ -29,13 +26,7 @@ template_lookup = mako.lookup.TemplateLookup(
 )
 
 
-ALL_TEMPLATES = [
-    filename for filename in os.listdir('.')
-    if filename.endswith('.mako') and filename != 'base.mako'
-]
-
-
-def get_env() -> dict[str, Any]:
+def index_body() -> markupsafe.Markup:
     body_parts = []
     for title, filename in SECTIONS:
         div_id, _ = os.path.splitext(os.path.basename(filename))
@@ -50,30 +41,22 @@ def get_env() -> dict[str, Any]:
                 f'</div>\n',
             ),
         )
-    body = markupsafe.Markup().join(body_parts)
+    return markupsafe.Markup().join(body_parts)
 
-    all_hooks = json.loads(
-        open('all-hooks.json').read(),
-        object_pairs_hook=collections.OrderedDict,
-    )
-    all_types = {
-        hook_type
-        for properties in all_hooks.values()
-        for hook_type in (
-            properties[0].get('types', []) + properties[0].get('types_or', [])
-        )
-    }
-    return {'all_hooks': all_hooks, 'all_types': all_types, 'body': body}
+
+def hooks_body() -> markupsafe.Markup:
+    with open('sections/hooks.md') as f:
+        return md(f.read())
 
 
 def main() -> int:
-    env = get_env()
-    for template in ALL_TEMPLATES:
-        template_name, _ = os.path.splitext(template)
-        env['template_name'] = template_name
-        with open(f'{template_name}.html', 'w') as html_file:
-            template_obj = template_lookup.get_template(template)
-            html_file.write(template_obj.render(**env))
+    with open('index.html', 'w') as f:
+        tmpl = template_lookup.get_template('index.mako')
+        f.write(tmpl.render(body=index_body(), template_name='index'))
+
+    with open('hooks.html', 'w') as f:
+        tmpl = template_lookup.get_template('hooks.mako')
+        f.write(tmpl.render(body=hooks_body(), template_name='hooks'))
     return 0
 
 

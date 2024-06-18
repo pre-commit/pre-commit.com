@@ -42,15 +42,3 @@ repos:
     hooks:
     -   id: biome-check
         additional_dependencies: ["@biomejs/biome@1.8.1"]
--   repo: local
-    hooks:
-    -   id: no-github-dot-git
-        name: No need for .git for github/gitlab urls
-        entry: '(github|gitlab).*\.git'
-        files: all-repos.yaml
-        language: pygrep
-    -   id: no-github-trailing-slash
-        name: No need for trailing / for urls
-        entry: '.*/$'
-        files: all-repos.yaml
-        language: pygrep

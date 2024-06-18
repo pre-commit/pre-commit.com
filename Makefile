@@ -1,4 +1,4 @@
-all: install-hooks build/main_bs5.css all-hooks.json index.html hooks.html
+all: install-hooks build/main_bs5.css index.html hooks.html
 
 .PHONY: install-hooks
 install-hooks: venv
@@ -7,10 +7,7 @@ install-hooks: venv
 build/main_bs5.css: node_modules build scss/main_bs5.scss scss/_variables.scss
 	node_modules/.bin/sass --style=compressed --load-path=. scss/main_bs5.scss build/main_bs5.css
 
-all-hooks.json: venv make_all_hooks.py all-repos.yaml
-	venv/bin/python make_all_hooks.py
-
-index.html hooks.html: venv all-hooks.json base.mako index.mako hooks.mako make_templates.py template_lib.py sections/*.md
+index.html hooks.html: venv base.mako index.mako hooks.mako make_templates.py template_lib.py sections/*.md
 	venv/bin/python make_templates.py
 
 venv: requirements-dev.txt Makefile
@@ -28,11 +25,10 @@ node_modules: package.json
 push: venv
 	venv/bin/markdown-to-presentation push \
 		.nojekyll README.md CNAME \
-		build assets *.html *.png *.svg favicon.ico \
-		all-hooks.json
+		build assets *.html *.png *.svg favicon.ico
 
 clean:
-	rm -rf venv build node_modules *.html all-hooks.json
+	rm -rf venv build node_modules *.html
 
 build:
 	mkdir -p build
