@@ -1,6 +1,4 @@
 *.html
 *.pyc
-*.swp
-/all-hooks.json
 /build
 /node_modules

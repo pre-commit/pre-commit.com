@@ -153,7 +153,7 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             return ret
 
 
-def md(s: str) -> str:
+def md(s: str) -> markupsafe.Markup:
     html = markdown_code_blocks.highlight(s, Renderer=Renderer)
     # manually bless the highlighted output.
     return markupsafe.Markup(html)
