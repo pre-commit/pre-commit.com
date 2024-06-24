@@ -384,6 +384,10 @@ The hook repository must be installable via `pip install .` (usually by either
 executable that will match the [`entry`](#hooks-entry) – usually through `console_scripts` or
 `scripts` in setup.py.
 
+This language also supports `additional_dependencies`
+so it can be used with [local](#repository-local-hooks) hooks.
+The specified dependencies will be appended to the `pip install` command.
+
 __Support:__ python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.
 
