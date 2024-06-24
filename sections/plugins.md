@@ -72,7 +72,8 @@ from.
 ```table
 =r=
     =c= [`repo`](_#repos-repo)
-    =c= the repository url to `git clone` from
+    =c= the repository url to `git clone` from,
+        or the special sentinel value [`local`](#repository-local-hooks).
 =r=
     =c= [`rev`](_#repos-rev)
     =c= the revision or tag to clone at.
