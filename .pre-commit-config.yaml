@@ -25,7 +25,7 @@ repos:
     -   id: pyupgrade
         args: [--py38-plus]
 -   repo: https://github.com/hhatto/autopep8
-    rev: v2.3.0
+    rev: v2.3.1
     hooks:
     -   id: autopep8
 -   repo: https://github.com/PyCQA/flake8
@@ -38,7 +38,7 @@ repos:
     -   id: mypy
         additional_dependencies: [types-all]
 -   repo: https://github.com/biomejs/pre-commit
-    rev: v0.3.0
+    rev: v0.4.0
     hooks:
     -   id: biome-check
         additional_dependencies: ["@biomejs/biome@1.8.1"]
