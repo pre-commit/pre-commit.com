@@ -73,7 +73,9 @@ from.
 =r=
     =c= [`repo`](_#repos-repo)
     =c= the repository url to `git clone` from,
-        or the special sentinel value [`local`](#repository-local-hooks).
+        or one of the special sentinel values:
+        [`local`](#repository-local-hooks),
+        [`meta`](#meta-hooks).
 =r=
     =c= [`rev`](_#repos-rev)
     =c= the revision or tag to clone at.
