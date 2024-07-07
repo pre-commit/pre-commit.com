@@ -613,6 +613,9 @@ Windows.</p>
 <code>setup.py</code> or <code>pyproject.toml</code>).  The installed package will provide an
 executable that will match the <a href="#hooks-entry"><code>entry</code></a> – usually through <code>console_scripts</code> or
 <code>scripts</code> in setup.py.</p>
+<p>This language also supports <code>additional_dependencies</code>
+so it can be used with <a href="#repository-local-hooks">local</a> hooks.
+The specified dependencies will be appended to the <code>pip install</code> command.</p>
 <p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.</p>
 <h3 id="python_venv">    python_venv <small><a href="#python_venv" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.4.0</em>: The <code>python_venv</code> language is now an alias to <code>python</code> since
