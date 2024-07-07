@@ -244,7 +244,10 @@ running hooks after the first failure.</p>
 <h2 id="pre-commit-configyaml---repos">    .pre-commit-config.yaml - repos <small><a href="#pre-commit-configyaml---repos" class="text-decoration-none">¶</a></small></h2> <p>The repository mapping tells pre-commit where to get the code for the hook
 from.</p>
 <table class="table table-bordered"><tbody><tr><td><p><a id="repos-repo" href="#repos-repo"><code>repo</code></a></p>
-</td><td><p>the repository url to <code>git clone</code> from</p>
+</td><td><p>the repository url to <code>git clone</code> from
+or one of the special sentinel values:
+<a href="#repository-local-hooks"><code>local</code></a>,
+<a href="#meta-hooks"><code>meta</code></a>.</p>
 </td></tr><tr><td><p><a id="repos-rev" href="#repos-rev"><code>rev</code></a></p>
 </td><td><p>the revision or tag to clone at.</p>
 </td></tr><tr><td><p><a id="repos-hooks" href="#repos-hooks"><code>hooks</code></a></p>
@@ -1078,7 +1081,7 @@ repository (such as your app's virtualenv for pylint).</li>
 <p>You can configure repository-local hooks by specifying the <a href="#repos-repo"><code>repo</code></a> as the
 sentinel <code>local</code>.</p>
 <p>local hooks can use any language which supports <a href="#config-additional_dependencies"><code>additional_dependencies</code></a>
-or <code>docker_image</code> / <code>fail</code> / <code>pygrep</code> / <code>script</code> / <code>system</code>.
+or <a href="#docker_image"><code>docker_image</code></a> / <a href="#fail"><code>fail</code></a> / <a href="#pygrep"><code>pygrep</code></a> / <a href="#script"><code>script</code></a> / <a href="#system"><code>system</code></a>.
 This enables you to install things which previously would require a trivial
 mirror repository.</p>
 <p>A <code>local</code> hook must define <a href="#hooks-id"><code>id</code></a>, <a href="#hooks-name"><code>name</code></a>, <a href="#hooks-language"><code>language</code></a>,
