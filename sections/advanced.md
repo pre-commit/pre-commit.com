@@ -299,7 +299,7 @@ You can configure repository-local hooks by specifying the [`repo`](#repos-repo)
 sentinel `local`.
 
 local hooks can use any language which supports [`additional_dependencies`](#config-additional_dependencies)
-or `docker_image` / `fail` / `pygrep` / `script` / `system`.
+or [`docker_image`](#docker_image) / [`fail`](#fail) / [`pygrep`](#pygrep) / [`script`](#script) / [`system`](#system).
 This enables you to install things which previously would require a trivial
 mirror repository.
 
