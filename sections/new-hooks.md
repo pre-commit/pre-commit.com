@@ -1,5 +1,7 @@
 pre-commit currently supports hooks written in
-[many languages](#supported-languages). As long as your git repo is an
+[many "languages"](#supported-languages).  In the context of pre-commit the term
+"language" refers to the package manager and environment isolation tools that pre-commit will use to
+install the hook.  As long as your git repo is an
 installable package (gem, npm, pypi, etc.) or exposes an executable, it can be
 used with pre-commit. Each git repo can support as many languages/hooks as you
 want.
@@ -22,7 +24,7 @@ file that tells pre-commit:
         arguments that will not be overridden such as `entry: autopep8 -i`.
 =r=
     =c= [`language`](_#hooks-language)
-    =c= the language of the hook - tells pre-commit how to install the hook.
+    =c= the package manager and environment isolation tools used to install the hook
 =r=
     =c= [`files`](_#hooks-files)
     =c= (optional: default `''`) the pattern of files to run on.
@@ -379,6 +381,8 @@ Windows.
 
 ### python
 
+Use [virtualenv] and pip to create the enivronment to install the hook.
+
 The hook repository must be installable via `pip install .` (usually by either
 `setup.py` or `pyproject.toml`).  The installed package will provide an
 executable that will match the [`entry`](#hooks-entry) – usually through `console_scripts` or
@@ -390,6 +394,8 @@ The specified dependencies will be appended to the `pip install` command.
 
 __Support:__ python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.
+
+[virtualenv]: https://virtualenv.pypa.io/en/latest/
 
 ### python_venv
 
