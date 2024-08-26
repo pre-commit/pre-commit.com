@@ -36,7 +36,6 @@ repos:
     rev: v1.11.2
     hooks:
     -   id: mypy
-        additional_dependencies: [types-all]
 -   repo: https://github.com/biomejs/pre-commit
     rev: v0.4.0
     hooks:
