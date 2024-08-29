@@ -45,9 +45,11 @@ for python projects:
 [adamchainz/django-upgrade]: https://github.com/adamchainz/django-upgrade
 
 for shell scripts:
+- [scop/pre-commit-shfmt]: runs shfmt to format shell scripts
 - [shellcheck-py/shellcheck-py]: runs shellcheck on your scripts
 - [openstack/bashate]: code style enforcement for bash programs
 
+[scop/pre-commit-shfmt]: https://github.com/scop/pre-commit-shfmt
 [shellcheck-py/shellcheck-py]: https://github.com/shellcheck-py/shellcheck-py
 [openstack/bashate]: https://github.com/openstack/bashate
 
