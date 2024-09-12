@@ -241,6 +241,31 @@ run via `boot2docker` are known to be unable to make modifications to files.
 See [this repository](https://github.com/pre-commit/pre-commit-docker-flake8)
 for an example Docker-based hook.
 
+There is a [known issue](https://github.com/pre-commit/pre-commit/issues/1243)
+using rootless podman with this language, such as with `podman-docker`. One
+workaround is to place this script (adapted from `podman-docker`) as `docker`
+on your `$PATH`, such as `$HOME/.local/bin/docker`.
+
+```bash
+#!/bin/bash
+[ -e /etc/containers/nodocker ] || \
+echo "Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg." >&2
+
+# Check for and drop -u flag -- workaround to https://github.com/pre-commit/pre-commit/issues/1243
+args=() # declare array
+while [[ "$#" -gt 0 ]]; do
+  if [[ "$1" == "-u" || "$1" == "--user" ]]; then
+    echo "Dropping arguments '$1 $2' before passing to podman" >&2
+    shift 2
+  else
+    args+=("$1")
+    shift 1
+  fi
+done
+
+exec /usr/bin/podman "${args[@]}"
+```
+
 ### docker_image
 
 A more lightweight approach to `docker` hooks.  The `docker_image`
