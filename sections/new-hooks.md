@@ -37,7 +37,6 @@ file that tells pre-commit:
     =c= [`types_or`](_#hooks-types_or)
     =c= (optional: default `[]`)  list of file types to run on (OR).  See
         [Filtering files with types](#filtering-files-with-types).
-        _new in 2.9.0_.
 =r=
     =c= [`exclude_types`](_#hooks-exclude_types)
     =c= (optional: default `[]`)  the pattern of files to exclude.
@@ -48,7 +47,7 @@ file that tells pre-commit:
 =r=
     =c= [`fail_fast`](_#hooks-fail_fast)
     =c= (optional: default `false`) if `true` pre-commit will stop running
-        hooks if this hook fails.  _new in 2.16.0_.
+        hooks if this hook fails.
 =r=
     =c= [`verbose`](_#hooks-verbose)
     =c= (optional: default `false`) if `true`, forces the output of the hook to be printed even when
@@ -151,7 +150,6 @@ Hello from foo hook!
 - [node](#node)
 - [perl](#perl)
 - [python](#python)
-- [python_venv](#python_venv)
 - [r](#r)
 - [ruby](#ruby)
 - [rust](#rust)
@@ -169,7 +167,7 @@ The `conda` language also supports [`additional_dependencies`](#config-additiona
 and will pass any of the values directly into `conda install`.  This language can therefore be
 used with [local](#repository-local-hooks) hooks.
 
-_new in 2.17.0_: `mamba` or `micromamba` can be used to install instead via the
+`mamba` or `micromamba` can be used to install instead via the
 `PRE_COMMIT_USE_MAMBA=1` or `PRE_COMMIT_USE_MICROMAMBA=1` environment
 variables.
 
@@ -178,8 +176,6 @@ binary (such as [`miniconda`](https://docs.conda.io/en/latest/miniconda.html)).
 It has been tested on linux, macOS, and windows.
 
 ### coursier
-
-_new in 2.8.0_
 
 The hook repository must have a `.pre-commit-channel` folder and that folder
 must contain the coursier
@@ -193,15 +189,13 @@ __Support:__ `coursier` hooks are known to work on any system which has the
 applications you install may depend on various versions of the JVM, consult
 the hooks' documentation for clarification.  It has been tested on linux.
 
-_new in 2.18.0_: pre-commit now supports the `coursier` naming of the package
-manager executable.
+pre-commit also supports the `coursier` naming of the package manager
+executable.
 
 _new in 3.0.0_: `language: coursier` hooks now support `repo: local` and
 `additional_dependencies`.
 
 ### dart
-
-_new in 2.15.0_
 
 The hook repository must have a `pubspec.yaml` -- this must contain an
 `executables` section which will list the binaries that will be available
@@ -274,8 +268,6 @@ For example:
 
 ### dotnet
 
-_new in 2.8.0_
-
 dotnet hooks are installed using the system installation of the dotnet CLI.
 
 Hook repositories must contain a dotnet CLI tool which can be `pack`ed and
@@ -340,8 +332,6 @@ installed.  It has been tested on linux, macOS, and windows.
 
 ### lua
 
-_new in 2.17.0_
-
 Lua hooks are installed with the version of Lua that is used by Luarocks.
 
 __Support:__ Lua hooks are known to work on any system which has Luarocks
@@ -357,8 +347,6 @@ __Support:__ node hooks work without any system-level dependencies.  It has
 been tested on linux, windows, and macOS and _may_ work under cygwin.
 
 ### perl
-
-_new in 2.1.0_
 
 Perl hooks are installed using the system installation of
 [cpan](https://perldoc.perl.org/cpan), the CPAN package installer
@@ -391,23 +379,7 @@ The specified dependencies will be appended to the `pip install` command.
 __Support:__ python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.
 
-### python_venv
-
-_new in 2.4.0_: The `python_venv` language is now an alias to `python` since
-`virtualenv>=20` creates equivalently structured environments.  Previously,
-this [`language`](#hooks-language) created environments using the [venv] module.
-
-This [`language`](#hooks-language) will be removed eventually so it is suggested to use `python`
-instead.
-
-[venv]: https://docs.python.org/3/library/venv.html
-
-__Support:__ python hooks work without any system-level dependencies.  It
-has been tested on linux, macOS, windows, and cygwin.
-
 ### r
-
-_new in 2.11.0_
 
 This hook repository must have a `renv.lock` file that will be restored with
 [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html) on
@@ -452,8 +424,8 @@ build _your_ hook repo), or the special syntax
 `cli:{package_name}:{package_version}` for a CLI dependency (built separately,
 with binaries made available for use by hooks).
 
-_new in 2.21.0_: pre-commit will bootstrap `rust` if it is not present.
-`language: rust` also now supports `language_version`
+pre-commit will bootstrap `rust` if it is not present.
+`language: rust` also supports `language_version`
 
 __Support:__ It has been tested on linux, Windows, and macOS.
 
@@ -476,7 +448,7 @@ can apply the `(?i)` flag as the start of your entry, or use `args: [-i]`.
 
 For multiline matches, use `args: [--multiline]`.
 
-_new in 2.8.0_: To require all files to match, use `args: [--negate]`.
+To require all files to match, use `args: [--negate]`.
 
 __Support:__ pygrep hooks are supported on all platforms which pre-commit runs
 on.

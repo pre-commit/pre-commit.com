@@ -15,8 +15,6 @@ pre-commit config file describes what repositories and hooks are installed.
     =c= (optional: default `[pre-commit]`) a list of `--hook-type`s which will
         be used by default when running
         [`pre-commit install`](#pre-commit-install).
-
-        _new in 2.18.0_
 =r=
     =c= [`default_language_version`](_#top_level-default_language_version)
     =c= (optional: default `{}`) a mapping from language to the default
@@ -129,7 +127,6 @@ repository's configuration.
     =c= [`types_or`](_#config-types_or)
     =c= (optional) override the default file types to run on (OR).  See
         [Filtering files with types](#filtering-files-with-types).
-        _new in 2.9.0_.
 =r=
     =c= [`exclude_types`](_#config-exclude_types)
     =c= (optional) file types to exclude.

@@ -6,7 +6,7 @@ All pre-commit commands take the following options:
 - `-c CONFIG`, `--config CONFIG`: path to alternate config file
 - `-h`, `--help`: show help and available options.
 
-_new in 2.8.0_: `pre-commit` now exits with more specific codes:
+`pre-commit` exits with specific codes:
 - `1`: a detected / expected error
 - `3`: an unexpected error
 - `130`: the process was interrupted by `^C`
@@ -68,8 +68,7 @@ $ grep rev: .pre-commit-config.yaml
     rev: 34a269fd7650d264e4de7603157c10d0a9bb8211  # frozen: v1.25.2
 ```
 
-_new in 2.18.0_: pre-commit will preferentially pick tags containing a `.` if
-there are ties.
+pre-commit will preferentially pick tags containing a `.` if there are ties.
 
 ## pre-commit clean [options] #pre-commit-clean
 
@@ -143,7 +142,7 @@ Some example useful invocations:
    existing git hook scripts with pre-commit, and also installs hook
    environments.
 
-_new in 2.18.0_: `pre-commit install` will now install hooks from
+`pre-commit install` will install hooks from
 [`default_install_hook_types`](#top_level-default_install_hook_types) if
 `--hook-type` is not specified on the command line.
 
@@ -178,8 +177,6 @@ Options:
 - `--files [FILES [FILES ...]]`: specific filenames to run hooks on.
 - `--from-ref FROM_REF` + `--to-ref TO_REF`: run against the files changed
   between `FROM_REF...TO_REF` in git.
-    - _new in 2.2.0_: prior to 2.2.0 the arguments were `--source` and
-      `--origin`.
 - `--hook-stage STAGE`: select a [`stage` to run](#confining-hooks-to-run-at-certain-stages).
 - `--show-diff-on-failure`: when hooks fail, run `git diff` directly afterward.
 - `-v`, `--verbose`: produce hook output independent of success.  Include hook
