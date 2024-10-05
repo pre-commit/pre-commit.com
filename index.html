@@ -134,7 +134,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 3.8.0
+pre-commit 4.0.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration" class="text-decoration-none">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -210,7 +210,6 @@ pre-commit config file describes what repositories and hooks are installed.</p>
 </td><td><p>(optional: default <code>[pre-commit]</code>) a list of <code>--hook-type</code>s which will
 be used by default when running
 <a href="#pre-commit-install"><code>pre-commit install</code></a>.</p>
-<p><em>new in 2.18.0</em></p>
 </td></tr><tr><td><p><a id="top_level-default_language_version" href="#top_level-default_language_version"><code>default_language_version</code></a></p>
 </td><td><p>(optional: default <code>{}</code>) a mapping from language to the default
 <a href="#config-language_version"><code>language_version</code></a> that should be used for that language.  This will
@@ -281,8 +280,7 @@ hook.  See <a href="#overriding-language-version">Overriding Language Version</a
 <a href="#filtering-files-with-types">Filtering files with types</a>.</p>
 </td></tr><tr><td><p><a id="config-types_or" href="#config-types_or"><code>types_or</code></a></p>
 </td><td><p>(optional) override the default file types to run on (OR).  See
-<a href="#filtering-files-with-types">Filtering files with types</a>.
-<em>new in 2.9.0</em>.</p>
+<a href="#filtering-files-with-types">Filtering files with types</a>.</p>
 </td></tr><tr><td><p><a id="config-exclude_types" href="#config-exclude_types"><code>exclude_types</code></a></p>
 </td><td><p>(optional) file types to exclude.</p>
 </td></tr><tr><td><p><a id="config-args" href="#config-args"><code>args</code></a></p>
@@ -377,8 +375,7 @@ arguments that will not be overridden such as <code>entry: autopep8 -i</code>.</
 <a href="#filtering-files-with-types">Filtering files with types</a>.</p>
 </td></tr><tr><td><p><a id="hooks-types_or" href="#hooks-types_or"><code>types_or</code></a></p>
 </td><td><p>(optional: default <code>[]</code>)  list of file types to run on (OR).  See
-<a href="#filtering-files-with-types">Filtering files with types</a>.
-<em>new in 2.9.0</em>.</p>
+<a href="#filtering-files-with-types">Filtering files with types</a>.</p>
 </td></tr><tr><td><p><a id="hooks-exclude_types" href="#hooks-exclude_types"><code>exclude_types</code></a></p>
 </td><td><p>(optional: default <code>[]</code>)  the pattern of files to exclude.</p>
 </td></tr><tr><td><p><a id="hooks-always_run" href="#hooks-always_run"><code>always_run</code></a></p>
@@ -386,7 +383,7 @@ arguments that will not be overridden such as <code>entry: autopep8 -i</code>.</
 are no matching files.</p>
 </td></tr><tr><td><p><a id="hooks-fail_fast" href="#hooks-fail_fast"><code>fail_fast</code></a></p>
 </td><td><p>(optional: default <code>false</code>) if <code>true</code> pre-commit will stop running
-hooks if this hook fails.  <em>new in 2.16.0</em>.</p>
+hooks if this hook fails.</p>
 </td></tr><tr><td><p><a id="hooks-verbose" href="#hooks-verbose"><code>verbose</code></a></p>
 </td><td><p>(optional: default <code>false</code>) if <code>true</code>, forces the output of the hook to be printed even when
 the hook passes.</p>
@@ -466,7 +463,6 @@ Hello from foo hook!
 <li><a href="#node">node</a></li>
 <li><a href="#perl">perl</a></li>
 <li><a href="#python">python</a></li>
-<li><a href="#python_venv">python_venv</a></li>
 <li><a href="#r">r</a></li>
 <li><a href="#ruby">ruby</a></li>
 <li><a href="#rust">rust</a></li>
@@ -480,14 +476,13 @@ via <code>conda env create --file environment.yml ...</code> to create the envir
 <p>The <code>conda</code> language also supports <a href="#config-additional_dependencies"><code>additional_dependencies</code></a>
 and will pass any of the values directly into <code>conda install</code>.  This language can therefore be
 used with <a href="#repository-local-hooks">local</a> hooks.</p>
-<p><em>new in 2.17.0</em>: <code>mamba</code> or <code>micromamba</code> can be used to install instead via the
+<p><code>mamba</code> or <code>micromamba</code> can be used to install instead via the
 <code>PRE_COMMIT_USE_MAMBA=1</code> or <code>PRE_COMMIT_USE_MICROMAMBA=1</code> environment
 variables.</p>
 <p><strong>Support:</strong> <code>conda</code> hooks work as long as there is a system-installed <code>conda</code>
 binary (such as <a href="https://docs.conda.io/en/latest/miniconda.html"><code>miniconda</code></a>).
 It has been tested on linux, macOS, and windows.</p>
-<h3 id="coursier">    coursier <small><a href="#coursier" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.8.0</em></p>
-<p>The hook repository must have a <code>.pre-commit-channel</code> folder and that folder
+<h3 id="coursier">    coursier <small><a href="#coursier" class="text-decoration-none">¶</a></small></h3> <p>The hook repository must have a <code>.pre-commit-channel</code> folder and that folder
 must contain the coursier
 <a href="https://get-coursier.io/docs/2.0.0-RC6-10/cli-install.html#application-descriptor-reference">application descriptors</a>
 for the hook to install. For configuring coursier hooks, your
@@ -497,12 +492,11 @@ repository's <code>.pre-commit-channel</code> folder.</p>
 <code>cs</code> or <code>coursier</code> package manager installed. The specific coursier
 applications you install may depend on various versions of the JVM, consult
 the hooks' documentation for clarification.  It has been tested on linux.</p>
-<p><em>new in 2.18.0</em>: pre-commit now supports the <code>coursier</code> naming of the package
-manager executable.</p>
+<p>pre-commit also supports the <code>coursier</code> naming of the package manager
+executable.</p>
 <p><em>new in 3.0.0</em>: <code>language: coursier</code> hooks now support <code>repo: local</code> and
 <code>additional_dependencies</code>.</p>
-<h3 id="dart">    dart <small><a href="#dart" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.15.0</em></p>
-<p>The hook repository must have a <code>pubspec.yaml</code> -- this must contain an
+<h3 id="dart">    dart <small><a href="#dart" class="text-decoration-none">¶</a></small></h3> <p>The hook repository must have a <code>pubspec.yaml</code> -- this must contain an
 <code>executables</code> section which will list the binaries that will be available
 after installation.  Match the <a href="#hooks-entry"><code>entry</code></a> to an executable.</p>
 <p><code>pre-commit</code> will build each executable using <code>dart compile exe bin/{executable}.dart</code>.</p>
@@ -550,8 +544,7 @@ entrypoint you can specify it as well in your <a href="#hooks-entry"><code>entry
 <span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker_image</span>
 <span class="w">    </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my.registry.example.com/docker-image-3:latest my-exe</span>
 </pre></div>
-<h3 id="dotnet">    dotnet <small><a href="#dotnet" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.8.0</em></p>
-<p>dotnet hooks are installed using the system installation of the dotnet CLI.</p>
+<h3 id="dotnet">    dotnet <small><a href="#dotnet" class="text-decoration-none">¶</a></small></h3> <p>dotnet hooks are installed using the system installation of the dotnet CLI.</p>
 <p>Hook repositories must contain a dotnet CLI tool which can be <code>pack</code>ed and
 <code>install</code>ed as per <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create">this</a>
 example. The <code>entry</code> should match an executable created by building the
@@ -589,8 +582,7 @@ the <code>executable</code>s from these packages will be available to use with <
 <code>repo: local</code> hook.</p>
 <p><strong>Support:</strong> haskell hooks are known to work on any system which has <code>cabal</code>
 installed.  It has been tested on linux, macOS, and windows.</p>
-<h3 id="lua">    lua <small><a href="#lua" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.17.0</em></p>
-<p>Lua hooks are installed with the version of Lua that is used by Luarocks.</p>
+<h3 id="lua">    lua <small><a href="#lua" class="text-decoration-none">¶</a></small></h3> <p>Lua hooks are installed with the version of Lua that is used by Luarocks.</p>
 <p><strong>Support:</strong> Lua hooks are known to work on any system which has Luarocks
 installed.  It has been tested on linux and macOS and <em>may</em> work on windows.</p>
 <h3 id="node">    node <small><a href="#node" class="text-decoration-none">¶</a></small></h3> <p>The hook repository must have a <code>package.json</code>.  It will be installed via
@@ -598,8 +590,7 @@ installed.  It has been tested on linux and macOS and <em>may</em> work on windo
 match the <a href="#hooks-entry"><code>entry</code></a> – usually through <code>bin</code> in package.json.</p>
 <p><strong>Support:</strong> node hooks work without any system-level dependencies.  It has
 been tested on linux, windows, and macOS and <em>may</em> work under cygwin.</p>
-<h3 id="perl">    perl <small><a href="#perl" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.1.0</em></p>
-<p>Perl hooks are installed using the system installation of
+<h3 id="perl">    perl <small><a href="#perl" class="text-decoration-none">¶</a></small></h3> <p>Perl hooks are installed using the system installation of
 <a href="https://perldoc.perl.org/cpan">cpan</a>, the CPAN package installer
 that comes with Perl.</p>
 <p>Hook repositories must have something that <code>cpan</code> supports, typically
@@ -621,15 +612,7 @@ so it can be used with <a href="#repository-local-hooks">local</a> hooks.
 The specified dependencies will be appended to the <code>pip install</code> command.</p>
 <p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
 has been tested on linux, macOS, windows, and cygwin.</p>
-<h3 id="python_venv">    python_venv <small><a href="#python_venv" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.4.0</em>: The <code>python_venv</code> language is now an alias to <code>python</code> since
-<code>virtualenv&gt;=20</code> creates equivalently structured environments.  Previously,
-this <a href="#hooks-language"><code>language</code></a> created environments using the <a href="https://docs.python.org/3/library/venv.html">venv</a> module.</p>
-<p>This <a href="#hooks-language"><code>language</code></a> will be removed eventually so it is suggested to use <code>python</code>
-instead.</p>
-<p><strong>Support:</strong> python hooks work without any system-level dependencies.  It
-has been tested on linux, macOS, windows, and cygwin.</p>
-<h3 id="r">    r <small><a href="#r" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.11.0</em></p>
-<p>This hook repository must have a <code>renv.lock</code> file that will be restored with
+<h3 id="r">    r <small><a href="#r" class="text-decoration-none">¶</a></small></h3> <p>This hook repository must have a <code>renv.lock</code> file that will be restored with
 <a href="https://rstudio.github.io/renv/reference/restore.html"><code>renv::restore()</code></a> on
 hook installation. If the repository is an R package (i.e. has <code>Type: Package</code>
 in <code>DESCRIPTION</code>), it is installed. The supported syntax in <a href="#hooks-entry"><code>entry</code></a> is
@@ -659,8 +642,8 @@ pre-commit cache, not polluting your user-level Cargo installations).</p>
 build <em>your</em> hook repo), or the special syntax
 <code>cli:{package_name}:{package_version}</code> for a CLI dependency (built separately,
 with binaries made available for use by hooks).</p>
-<p><em>new in 2.21.0</em>: pre-commit will bootstrap <code>rust</code> if it is not present.
-<code>language: rust</code> also now supports <code>language_version</code></p>
+<p>pre-commit will bootstrap <code>rust</code> if it is not present.
+<code>language: rust</code> also supports <code>language_version</code></p>
 <p><strong>Support:</strong> It has been tested on linux, Windows, and macOS.</p>
 <h3 id="swift">    swift <small><a href="#swift" class="text-decoration-none">¶</a></small></h3> <p>The hook repository must have a <code>Package.swift</code>.  It will be installed via
 <code>swift build -c release</code>.  The <a href="#hooks-entry"><code>entry</code></a> should match an executable created by
@@ -673,7 +656,7 @@ the regex as the <a href="#hooks-entry"><code>entry</code></a>.  The <a href="#h
 <a href="#regular-expressions">regular expression</a>.  For case insensitive regexes you
 can apply the <code>(?i)</code> flag as the start of your entry, or use <code>args: [-i]</code>.</p>
 <p>For multiline matches, use <code>args: [--multiline]</code>.</p>
-<p><em>new in 2.8.0</em>: To require all files to match, use <code>args: [--negate]</code>.</p>
+<p>To require all files to match, use <code>args: [--negate]</code>.</p>
 <p><strong>Support:</strong> pygrep hooks are supported on all platforms which pre-commit runs
 on.</p>
 <h3 id="script">    script <small><a href="#script" class="text-decoration-none">¶</a></small></h3> <p>Script hooks provide a way to write simple scripts which validate files. The
@@ -699,7 +682,7 @@ Defaults to <code>auto</code>.  can be overridden by using
 <li><code>-c CONFIG</code>, <code>--config CONFIG</code>: path to alternate config file</li>
 <li><code>-h</code>, <code>--help</code>: show help and available options.</li>
 </ul>
-<p><em>new in 2.8.0</em>: <code>pre-commit</code> now exits with more specific codes:</p>
+<p><code>pre-commit</code> exits with specific codes:</p>
 <ul>
 <li><code>1</code>: a detected / expected error</li>
 <li><code>3</code>: an unexpected error</li>
@@ -750,8 +733,7 @@ multiple times.</li>
 <span class="go">    rev: 0161422b4e09b47536ea13f49e786eb3616fe0d7  # frozen: v2.4.0</span>
 <span class="go">    rev: 34a269fd7650d264e4de7603157c10d0a9bb8211  # frozen: v1.25.2</span>
 </pre></div>
-<p><em>new in 2.18.0</em>: pre-commit will preferentially pick tags containing a <code>.</code> if
-there are ties.</p>
+<p>pre-commit will preferentially pick tags containing a <code>.</code> if there are ties.</p>
 <h2 id="pre-commit-clean">    pre-commit clean [options] <small><a href="#pre-commit-clean" class="text-decoration-none">¶</a></small></h2> <p>Clean out cached pre-commit files.</p>
 <p>Options: (no additional options)</p>
 <h2 id="pre-commit-gc">    pre-commit gc [options] <small><a href="#pre-commit-gc" class="text-decoration-none">¶</a></small></h2> <p>Clean unused cached repos.</p>
@@ -798,7 +780,7 @@ file.</li>
  existing git hook scripts with pre-commit, and also installs hook
  environments.</li>
 </ul>
-<p><em>new in 2.18.0</em>: <code>pre-commit install</code> will now install hooks from
+<p><code>pre-commit install</code> will install hooks from
 <a href="#top_level-default_install_hook_types"><code>default_install_hook_types</code></a> if
 <code>--hook-type</code> is not specified on the command line.</p>
 <h2 id="pre-commit-install-hooks">    pre-commit install-hooks [options] <small><a href="#pre-commit-install-hooks" class="text-decoration-none">¶</a></small></h2> <p>Install all missing environments for the available hooks. Unless this command or
@@ -818,11 +800,7 @@ the hook environments in one command, use <code>pre-commit install --install-hoo
 <li><code>-a</code>, <code>--all-files</code>: run on all the files in the repo.</li>
 <li><code>--files [FILES [FILES ...]]</code>: specific filenames to run hooks on.</li>
 <li><code>--from-ref FROM_REF</code> + <code>--to-ref TO_REF</code>: run against the files changed
-between <code>FROM_REF...TO_REF</code> in git.<ul>
-<li><em>new in 2.2.0</em>: prior to 2.2.0 the arguments were <code>--source</code> and
-<code>--origin</code>.</li>
-</ul>
-</li>
+between <code>FROM_REF...TO_REF</code> in git.</li>
 <li><code>--hook-stage STAGE</code>: select a <a href="#confining-hooks-to-run-at-certain-stages"><code>stage</code> to run</a>.</li>
 <li><code>--show-diff-on-failure</code>: when hooks fail, run <code>git diff</code> directly afterward.</li>
 <li><code>-v</code>, <code>--verbose</code>: produce hook output independent of success.  Include hook
@@ -947,8 +925,7 @@ for by setting the top-level <a href="#top_level-default_install_hook_types"><co
 <p><code>commit-msg</code> hooks will be passed a single filename -- this file contains the
 current contents of the commit message to be validated.  The commit will be
 aborted if there is a nonzero exit code.</p>
-<h3 id="post-checkout">    post-checkout <small><a href="#post-checkout" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.2.0</em></p>
-<p><a href="https://git-scm.com/docs/githooks#_post_checkout">git post-checkout docs</a></p>
+<h3 id="post-checkout">    post-checkout <small><a href="#post-checkout" class="text-decoration-none">¶</a></small></h3> <p><a href="https://git-scm.com/docs/githooks#_post_checkout">git post-checkout docs</a></p>
 <p>post-checkout hooks run <em>after</em> a <code>checkout</code> has occurred and can be used to
 set up or manage state in the repository.</p>
 <p><code>post-checkout</code> hooks do not operate on files so they must be set as
@@ -959,14 +936,12 @@ set up or manage state in the repository.</p>
 <li><code>PRE_COMMIT_TO_REF</code>:  the second argument to the <code>post-checkout</code> git hook</li>
 <li><code>PRE_COMMIT_CHECKOUT_TYPE</code>: the third argument to the <code>post-checkout</code> git hook</li>
 </ul>
-<h3 id="post-commit">    post-commit <small><a href="#post-commit" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.4.0</em></p>
-<p><a href="https://git-scm.com/docs/githooks#_post_commit">git post-commit docs</a></p>
+<h3 id="post-commit">    post-commit <small><a href="#post-commit" class="text-decoration-none">¶</a></small></h3> <p><a href="https://git-scm.com/docs/githooks#_post_commit">git post-commit docs</a></p>
 <p><code>post-commit</code> runs after the commit has already succeeded so it cannot be used
 to prevent the commit from happening.</p>
 <p><code>post-commit</code> hooks do not operate on files so they must be set as
 <code>always_run: true</code> or they will always be skipped.</p>
-<h3 id="post-merge">    post-merge <small><a href="#post-merge" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.11.0</em></p>
-<p><a href="https://git-scm.com/docs/githooks#_post_merge">git post-merge docs</a></p>
+<h3 id="post-merge">    post-merge <small><a href="#post-merge" class="text-decoration-none">¶</a></small></h3> <p><a href="https://git-scm.com/docs/githooks#_post_merge">git post-merge docs</a></p>
 <p><code>post-merge</code> runs after a successful <code>git merge</code>.</p>
 <p><code>post-merge</code> hooks do not operate on files so they must be set as
 <code>always_run: true</code> or they will always be skipped.</p>
@@ -974,8 +949,7 @@ to prevent the commit from happening.</p>
 <ul>
 <li><code>PRE_COMMIT_IS_SQUASH_MERGE</code>: the first argument to the <code>post-merge</code> git hook.</li>
 </ul>
-<h3 id="post-rewrite">    post-rewrite <small><a href="#post-rewrite" class="text-decoration-none">¶</a></small></h3> <p><em>new in 2.15.0</em></p>
-<p><a href="https://git-scm.com/docs/githooks#_post_rewrite">git post-rewrite docs</a></p>
+<h3 id="post-rewrite">    post-rewrite <small><a href="#post-rewrite" class="text-decoration-none">¶</a></small></h3> <p><a href="https://git-scm.com/docs/githooks#_post_rewrite">git post-rewrite docs</a></p>
 <p><code>post-rewrite</code> runs after a git command which modifies history such as
 <code>git commit --amend</code> or <code>git rebase</code>.</p>
 <p><code>post-rewrite</code> hooks do not operate on files so they must be set as
@@ -1202,7 +1176,7 @@ chosen as it is a small portable pure python library.</p>
 <a href="https://github.com/pre-commit/identify">submit a pull request</a>!</p>
 <p><code>types</code>, <code>types_or</code>, and <code>files</code> are evaluated together with <code>AND</code> when
 filtering.  Tags within <code>types</code> are also evaluated using <code>AND</code>.</p>
-<p><em>new in 2.9.0</em>: Tags within <code>types_or</code> are evaluated using <code>OR</code>.</p>
+<p>Tags within <code>types_or</code> are evaluated using <code>OR</code>.</p>
 <p>For example:</p>
 <div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^foo/</span>
 <span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">file</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">python</span><span class="p p-Indicator">]</span>
@@ -1270,7 +1244,7 @@ windows.</li>
 </li>
 <li>node: See <a href="https://github.com/ekalinin/nodeenv#advanced">nodeenv</a>.</li>
 <li>ruby: See <a href="https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build">ruby-build</a>.</li>
-<li><em>new in 2.21.0</em> rust: <code>language_version</code> is passed to <code>rustup</code></li>
+<li>rust: <code>language_version</code> is passed to <code>rustup</code></li>
 <li><em>new in 3.0.0</em> golang: use the versions on <a href="https://go.dev/dl/">go.dev/dl</a> such as <code>1.19.5</code></li>
 </ul>
 <p>you can set <a href="#top_level-default_language_version"><code>default_language_version</code></a>
