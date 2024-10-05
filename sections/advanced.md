@@ -101,8 +101,6 @@ aborted if there is a nonzero exit code.
 
 ### post-checkout
 
-_new in 2.2.0_
-
 [git post-checkout docs](https://git-scm.com/docs/githooks#_post_checkout)
 
 post-checkout hooks run *after* a `checkout` has occurred and can be used to
@@ -118,8 +116,6 @@ environment variables:
 
 ### post-commit
 
-_new in 2.4.0_
-
 [git post-commit docs](https://git-scm.com/docs/githooks#_post_commit)
 
 `post-commit` runs after the commit has already succeeded so it cannot be used
@@ -129,8 +125,6 @@ to prevent the commit from happening.
 `always_run: true` or they will always be skipped.
 
 ### post-merge
-
-_new in 2.11.0_
 
 [git post-merge docs](https://git-scm.com/docs/githooks#_post_merge)
 
@@ -143,8 +137,6 @@ environment variables:
 - `PRE_COMMIT_IS_SQUASH_MERGE`: the first argument to the `post-merge` git hook.
 
 ### post-rewrite
-
-_new in 2.15.0_
 
 [git post-rewrite docs](https://git-scm.com/docs/githooks#_post_rewrite)
 
@@ -463,7 +455,7 @@ If a file extension you use is not supported, please
 `types`, `types_or`, and `files` are evaluated together with `AND` when
 filtering.  Tags within `types` are also evaluated using `AND`.
 
-_new in 2.9.0_: Tags within `types_or` are evaluated using `OR`.
+Tags within `types_or` are evaluated using `OR`.
 
 For example:
 
@@ -555,7 +547,7 @@ Valid values for specific languages are listed below:
       windows.
 - node: See [nodeenv](https://github.com/ekalinin/nodeenv#advanced).
 - ruby: See [ruby-build](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).
-- _new in 2.21.0_ rust: `language_version` is passed to `rustup`
+- rust: `language_version` is passed to `rustup`
 - _new in 3.0.0_ golang: use the versions on [go.dev/dl](https://go.dev/dl/) such as `1.19.5`
 
 you can set [`default_language_version`](#top_level-default_language_version)
