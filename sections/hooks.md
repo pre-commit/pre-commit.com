@@ -112,6 +112,7 @@ for other programming languages:
 - [JohnnyMorganz/StyLua]: an opinionated Lua code formatter
 - [Koihik/LuaFormatter]: a formatter for Lua code
 - [mrtazz/checkmake]: linter for Makefile syntax
+- [nbqa-dev/nbqa]: run common linters on Jupyter Notebooks
 
 [realm/SwiftLint]: https://github.com/realm/SwiftLint
 [nicklockwood/SwiftFormat]: https://github.com/nicklockwood/SwiftFormat
@@ -124,6 +125,7 @@ for other programming languages:
 [JohnnyMorganz/StyLua]: https://github.com/JohnnyMorganz/StyLua
 [Koihik/LuaFormatter]: https://github.com/Koihik/LuaFormatter
 [mrtazz/checkmake]: https://github.com/mrtazz/checkmake
+[nbqa-dev/nbqa]: https://github.com/nbQA-dev/nbQA
 
 ## finding hooks
 
