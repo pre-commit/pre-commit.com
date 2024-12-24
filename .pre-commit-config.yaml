@@ -41,5 +41,3 @@ repos:
     hooks:
     -   id: biome-check
         additional_dependencies: ["@biomejs/biome@1.8.1"]
-        # https://github.com/biomejs/pre-commit/issues/16
-        language_version: default
