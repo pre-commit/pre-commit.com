@@ -87,7 +87,7 @@ A sample repository:
 ```yaml
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.2.3
+    rev: v5.0.0
     hooks:
     -   ...
 ```
@@ -161,7 +161,7 @@ One example of a complete configuration:
 ```yaml
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.2.3
+    rev: v5.0.0
     hooks:
     -   id: trailing-whitespace
 ```
