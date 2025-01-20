@@ -134,7 +134,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 4.0.1
+pre-commit 4.1.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration" class="text-decoration-none">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -582,6 +582,35 @@ the <code>executable</code>s from these packages will be available to use with <
 <code>repo: local</code> hook.</p>
 <p><strong>Support:</strong> haskell hooks are known to work on any system which has <code>cabal</code>
 installed.  It has been tested on linux, macOS, and windows.</p>
+<h3 id="julia">    julia <small><a href="#julia" class="text-decoration-none">¶</a></small></h3> <p><em>new in 4.1.0</em></p>
+<p>For configuring julia hooks, your <a href="#hooks-entry"><code>entry</code></a> should be a path to a julia source
+file relative to the hook repository (optionally with arguments).</p>
+<p>Hooks run in an isolated package environment defined by a <code>Project.toml</code> file (optionally
+with a <code>Manifest.toml</code> file) in the hook repository. If no <code>Project.toml</code> file is found the
+hook is run in an empty environment.</p>
+<p>Julia hooks support <a href="#config-additional_dependencies"><code>additional_dependencies</code></a> which can
+be used to augment, or override, the existing environment in the hooks repository. This also
+means that julia can be used as a <code>repo: local</code> hook. <code>additional_dependencies</code> are passed
+to <code>pkg&gt; add</code> and should be specified using
+<a href="https://pkgdocs.julialang.org/v1/repl/#repl-add">Pkg REPL mode syntax</a>.</p>
+<p>Examples:</p>
+<div class="highlight yaml"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo-without-args</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">julia</span>
+<span class="w">  </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/foo.jl</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar-with-args</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">julia</span>
+<span class="w">  </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/bar.jl --arg1 --arg2</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baz-with-extra-deps</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">julia</span>
+<span class="w">  </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/baz.jl</span>
+<span class="w">  </span><span class="nt">additional_dependencies</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;ExtraDepA@1&#39;</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;ExtraDepB@2.4&#39;</span>
+</pre></div>
+<p><strong>Support:</strong> julia hooks are known to work on any system which has <code>julia</code> installed.</p>
 <h3 id="lua">    lua <small><a href="#lua" class="text-decoration-none">¶</a></small></h3> <p>Lua hooks are installed with the version of Lua that is used by Luarocks.</p>
 <p><strong>Support:</strong> Lua hooks are known to work on any system which has Luarocks
 installed.  It has been tested on linux and macOS and <em>may</em> work on windows.</p>
