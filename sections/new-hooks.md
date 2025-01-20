@@ -330,6 +330,45 @@ This language supports `additional_dependencies` so it can be used as a
 __Support:__ haskell hooks are known to work on any system which has `cabal`
 installed.  It has been tested on linux, macOS, and windows.
 
+### julia
+
+_new in 4.1.0_
+
+For configuring julia hooks, your [`entry`](#hooks-entry) should be a path to a julia source
+file relative to the hook repository (optionally with arguments).
+
+Hooks run in an isolated package environment defined by a `Project.toml` file (optionally
+with a `Manifest.toml` file) in the hook repository. If no `Project.toml` file is found the
+hook is run in an empty environment.
+
+Julia hooks support [`additional_dependencies`](#config-additional_dependencies) which can
+be used to augment, or override, the existing environment in the hooks repository. This also
+means that julia can be used as a `repo: local` hook. `additional_dependencies` are passed
+to `pkg> add` and should be specified using
+[Pkg REPL mode syntax](https://pkgdocs.julialang.org/v1/repl/#repl-add).
+
+Examples:
+
+```yaml
+- id: foo-without-args
+  name: ...
+  language: julia
+  entry: bin/foo.jl
+- id: bar-with-args
+  name: ...
+  language: julia
+  entry: bin/bar.jl --arg1 --arg2
+- id: baz-with-extra-deps
+  name: ...
+  language: julia
+  entry: bin/baz.jl
+  additional_dependencies:
+   - 'ExtraDepA@1'
+   - 'ExtraDepB@2.4'
+```
+
+__Support:__ julia hooks are known to work on any system which has `julia` installed.
+
 ### lua
 
 Lua hooks are installed with the version of Lua that is used by Luarocks.
