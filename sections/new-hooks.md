@@ -489,6 +489,9 @@ For multiline matches, use `args: [--multiline]`.
 
 To require all files to match, use `args: [--negate]`.
 
+The single line matches include trailing newline, you need to include it to
+match something at the end of the string, for example `word\n$'.
+
 __Support:__ pygrep hooks are supported on all platforms which pre-commit runs
 on.
 
