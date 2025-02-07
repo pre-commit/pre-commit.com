@@ -75,13 +75,15 @@ for text / docs / prose:
 - [crate-ci/typos]: find and fix common typographical errors
 - [thlorenz/doctoc]: generate a table-of-contents in markdown files
 - [amperser/proselint]: A linter for prose.
-- [markdownlint/markdownlint]: a Markdown lint tool
+- [markdownlint/markdownlint]: a Markdown lint tool in Ruby
+- [igorshubovych/markdownlint-cli]: a Markdown lint tool in Node
 - [codespell-project/codespell]: check code for common misspellings
 
 [crate-ci/typos]: https://github.com/crate-ci/typos
 [thlorenz/doctoc]: https://github.com/thlorenz/doctoc
 [amperser/proselint]: https://github.com/amperser/proselint
 [markdownlint/markdownlint]: https://github.com/markdownlint/markdownlint
+[igorshubovych/markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
 [codespell-project/codespell]: https://github.com/codespell-project/codespell
 
 for linting commit messages:
