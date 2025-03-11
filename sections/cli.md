@@ -29,7 +29,7 @@ Here are some sample invocations using this `.pre-commit-config.yaml`:
 ```yaml
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.1.0
+    rev: v5.0.0
     hooks:
     -   id: trailing-whitespace
 -   repo: https://github.com/asottile/pyupgrade
