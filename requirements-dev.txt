@@ -1,5 +1,0 @@
-mako
-markdown-code-blocks>=3.0.0
-markdown-to-presentation>=0.0.12
-pre-commit>=1.21.0
-pygments-pre-commit>=1.4.0

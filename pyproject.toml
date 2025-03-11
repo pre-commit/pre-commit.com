@@ -1,0 +1,19 @@
+[project]
+name = "pre-commit.com"
+version = "0.1.0"
+description = "This powers https://pre-commit.com"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "mako>=1.2.4",
+    "markdown-code-blocks>=3.0.0",
+    "markdown-to-presentation>=0.0.12",
+    "pre-commit>=1.21.0",
+    "pygments-pre-commit>=1.4.0",
+]
+
+[tool.mypy]
+disallow_untyped_defs = true
