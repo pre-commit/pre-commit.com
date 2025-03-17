@@ -138,7 +138,7 @@ for example, here's some searches you may find useful using [sourcegraph]:
 
 - hooks which run on python files: [`file:^\.pre-commit-hooks\.yaml$ "types: [python]"`](https://sourcegraph.com/search?q=context:global+file:^\.pre-commit-hooks\.yaml%24+%22types:+[python]%22)
 - hooks which run on shell files: [`file:^\.pre-commit-hooks\.yaml$ "types: [shell]"`](https://sourcegraph.com/search?q=context:global+file:^\.pre-commit-hooks\.yaml%24+"types:+[shell]")
-- pre-commit configurations in popular projects: [`file:^\.pre-commit-config\.yaml$`](https://sourcegraph.com/search?q=context:global+file:^\.pre-commit-hooks\.yaml%24+"types:+[shell]")
+- pre-commit configurations in popular projects: [`file:^\.pre-commit-config\.yaml$`](https://sourcegraph.com/search?q=context:global+file:^\.pre-commit-hooks\.yaml")
 
 [sourcegraph]: https://sourcegraph.com/search
 
