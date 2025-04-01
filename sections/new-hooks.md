@@ -107,7 +107,7 @@ _note_: you may need to provide `--commit-msg-filename` when using this
 command with hook types `prepare-commit-msg` and `commit-msg`.
 
 Specifying a commit is not necessary to `try-repo` on a local
-directory, however, the repository must have at least one commit in its history. 
+directory, however, the repository must have at least one commit in its history.
 `pre-commit` will clone any tracked uncommitted changes.
 
 ```pre-commit
