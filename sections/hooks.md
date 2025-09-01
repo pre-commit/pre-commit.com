@@ -129,6 +129,11 @@ for other programming languages:
 [mrtazz/checkmake]: https://github.com/mrtazz/checkmake
 [nbqa-dev/nbqa]: https://github.com/nbQA-dev/nbQA
 
+for bumping pre-commit hooks:
+- [ramonvermeulen/pre-commit-bump]: updates the versions of all pre-commit hooks
+
+[ramonvermeulen/pre-commit-bump]: https://github.com/ramonvermeulen/pre-commit-bump
+
 ## finding hooks
 
 it's recommended to use your favorite searching tool to find existing hooks to
