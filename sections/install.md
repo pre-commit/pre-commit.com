@@ -7,6 +7,8 @@ Using pip:
 pip install pre-commit
 ```
 
+(In certain OS's such as Ubuntu24 that lock down pip without a custom venv, you may need to use "pipx" instead of "pip")
+
 In a python project, add the following to your requirements.txt (or
 requirements-dev.txt):
 
