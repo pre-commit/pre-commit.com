@@ -272,7 +272,7 @@ For example:
     hooks:
     -   id: check-requirements
         name: check requirements files
-        language: system
+        language: unsupported
         entry: python -m scripts.check_requirements --compare
         files: ^requirements.*\.txt$
 ```
@@ -291,7 +291,7 @@ You can configure repository-local hooks by specifying the [`repo`](#repos-repo)
 sentinel `local`.
 
 local hooks can use any language which supports [`additional_dependencies`](#config-additional_dependencies)
-or [`docker_image`](#docker_image) / [`fail`](#fail) / [`pygrep`](#pygrep) / [`script`](#script) / [`system`](#system).
+or [`docker_image`](#docker_image) / [`fail`](#fail) / [`pygrep`](#pygrep) / [`unsupported`](#unsupported) / [`unsupported_script`](#unsupported_script).
 This enables you to install things which previously would require a trivial
 mirror repository.
 
@@ -307,13 +307,13 @@ Here's an example configuration with a few `local` hooks:
     -   id: pylint
         name: pylint
         entry: pylint
-        language: system
+        language: unsupported
         types: [python]
         require_serial: true
     -   id: check-x
         name: Check X
         entry: ./bin/check-x.sh
-        language: script
+        language: unsupported_script
         files: \.x$
     -   id: scss-lint
         name: scss-lint

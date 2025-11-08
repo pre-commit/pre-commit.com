@@ -161,7 +161,7 @@ you may send [a pull request] to expand this list however there are a few
 requirements you *must* follow or your PR will be closed without comment:
 
 - the tool must already be fairly popular (>500 stars)
-- the tool must use a managed language (no `system` / `script` / `docker` hooks)
+- the tool must use a managed language (no `unsupported` / `unsupported_script` / `docker` hooks)
 - the tool must operate on files
 
 [a pull request]: https://github.com/pre-commit/pre-commit.com/blob/main/sections/hooks.md
