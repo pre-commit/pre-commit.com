@@ -155,8 +155,8 @@ Hello from foo hook!
 - [rust](#rust)
 - [swift](#swift)
 - [pygrep](#pygrep)
-- [script](#script)
-- [system](#system)
+- [unsupported](#unsupported)
+- [unsupported_script](#unsupported_scripts)
 
 ### conda
 
@@ -492,17 +492,11 @@ To require all files to match, use `args: [--negate]`.
 __Support:__ pygrep hooks are supported on all platforms which pre-commit runs
 on.
 
-### script
+### unsupported
 
-Script hooks provide a way to write simple scripts which validate files. The
-[`entry`](#hooks-entry) should be a path relative to the root of the hook repository.
-
-This hook type will not be given a virtual environment to work with – if it
-needs additional dependencies the consumer must install them manually.
-
-__Support:__ the support of script hooks depend on the scripts themselves.
-
-### system
+[anchor](__#system)
+_new in 4.4.0_: previously `language: system`.  the alias will be removed in a
+future version
 
 System hooks provide a way to write hooks for system-level executables which
 don't have a supported language above (or have special environment
@@ -511,4 +505,14 @@ requirements that don't allow them to run in isolation such as pylint).
 This hook type will not be given a virtual environment to work with – if it
 needs additional dependencies the consumer must install them manually.
 
-__Support:__ the support of system hooks depend on the executables.
+### unsupported_script
+
+[anchor](__#script)
+_new in 4.4.0_: previously `language: script`.  the alias will be removed in a
+future version
+
+Script hooks provide a way to write simple scripts which validate files. The
+[`entry`](#hooks-entry) should be a path relative to the root of the hook repository.
+
+This hook type will not be given a virtual environment to work with – if it
+needs additional dependencies the consumer must install them manually.
