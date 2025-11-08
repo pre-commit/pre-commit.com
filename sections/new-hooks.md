@@ -156,7 +156,7 @@ Hello from foo hook!
 - [swift](#swift)
 - [pygrep](#pygrep)
 - [unsupported](#unsupported)
-- [unsupported_script](#unsupported_scripts)
+- [unsupported_script](#unsupported_script)
 
 ### conda
 
