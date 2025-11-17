@@ -54,11 +54,11 @@ for shell scripts:
 for the web:
 - [biomejs/pre-commit]: a fast formatter / fixer written in rust
 - [standard/standard]: linter / fixer
-- [shssoichiro/oxipng]: optimize png files
+- [oxipng/oxipng]: optimize png files
 
 [biomejs/pre-commit]: https://github.com/biomejs/pre-commit
 [standard/standard]: https://github.com/standard/standard
-[shssoichiro/oxipng]: https://github.com/shssoichiro/oxipng
+[oxipng/oxipng]: https://github.com/oxipng/oxipng
 
 for configuration files:
 - [python-jsonschema/check-jsonschema]: check many common configurations with jsonschema
