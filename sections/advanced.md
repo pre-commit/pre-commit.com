@@ -352,6 +352,99 @@ The currently available `meta` hooks:
         debugging.
 ```
 
+## `pre-commit hazmat`
+
+"hazardous materials"
+
+pre-commit provides a few `entry` prefix "helpers" for unusual situations.
+
+in case it's not clear, using these is _usually_ a bad idea.
+
+_note_: hazmat helpers do not work on languages which adjust `entry` (`docker`
+/ `docker_image` / `fail` / `julia` / `pygrep` / `r` / `unsupported_script`).
+
+### `pre-commit hazmat cd`
+
+_new in 4.5.0_
+
+for "monorepo" usage one can use this to target a subdirectory.
+
+this entry prefix will cd to the target subdir and adjust filename arguments
+
+example usage:
+
+```yaml
+# recommended:
+# minimum_pre_commit_version: 4.5.0
+repos:
+-   repo: ...
+    rev: ...
+    hooks:
+    -   id: example
+        alias: example-repo1
+        name: example (repo1)
+        files: ^repo1/
+        # important! ends with `--`
+        # important! copy `args: [...]` to entry and blank out `args: []`
+        entry: pre-commit hazmat cd repo1 example-bin --arg1 --
+        args: []
+
+    -   id: example
+        alias: example-repo2
+        name: example (repo2)
+        files: ^repo2/
+        entry: pre-commit hazmat cd repo2 example-bin --arg1 --
+        args: []
+
+    # ... etc.
+```
+
+### `pre-commit hazmat ignore-exit-code`
+
+_new in 4.5.0_
+
+it's a bad idea to introduce warning noise but this gives you a way to do it.
+
+example:
+
+```yaml
+# recommended:
+# minimum_pre_commit_version: 4.5.0
+repos:
+-   repo: ...
+    rev: ...
+    hooks:
+    -   id: example
+        # important! copy `args: [...]` to entry and blank out `args: []`
+        entry: pre-commit hazmat ignore-exit-code example-bin --arg1 --
+        args: []
+        # otherwise the output will always be hidden
+        verbose: true
+```
+
+### `pre-commit hazmat n1`
+
+_new in 4.5.0_
+
+some hooks only take one filename argument.  this runs them one at a time
+(which is super slow!)
+
+example:
+
+```yaml
+# recommended:
+# minimum_pre_commit_version: 4.5.0
+repos:
+-   repo: ...
+    rev: ...
+    hooks:
+    -   id: example
+        # important! ends with `--`
+        # important! copy `args: [...]` to entry and blank out `args: []`
+        entry: pre-commit hazmat n1 example-bin --arg1 --
+        args: []
+```
+
 ## automatically enabling pre-commit on repositories
 
 `pre-commit init-templatedir` can be used to set up a skeleton for `git`'s
