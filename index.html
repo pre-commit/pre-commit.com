@@ -134,7 +134,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 4.4.0
+pre-commit 4.5.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration" class="text-decoration-none">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -1132,7 +1132,72 @@ repository.</p>
 </td></tr><tr><td><p><a id="meta-identity" href="#meta-identity"><code>identity</code></a></p>
 </td><td><p>a simple hook which prints all arguments passed to it, useful for
 debugging.</p>
-</td></tr></tbody></table><h2 id="automatically-enabling-pre-commit-on-repositories">    automatically enabling pre-commit on repositories <small><a href="#automatically-enabling-pre-commit-on-repositories" class="text-decoration-none">¶</a></small></h2> <p><code>pre-commit init-templatedir</code> can be used to set up a skeleton for <code>git</code>'s
+</td></tr></tbody></table><h2 id="codepre-commit-hazmatcode">    <code>pre-commit hazmat</code> <small><a href="#codepre-commit-hazmatcode" class="text-decoration-none">¶</a></small></h2> <p>&quot;hazardous materials&quot;</p>
+<p>pre-commit provides a few <code>entry</code> prefix &quot;helpers&quot; for unusual situations.</p>
+<p>in case it's not clear, using these is <em>usually</em> a bad idea.</p>
+<p><em>note</em>: hazmat helpers do not work on languages which adjust <code>entry</code> (<code>docker</code>
+/ <code>docker_image</code> / <code>fail</code> / <code>julia</code> / <code>pygrep</code> / <code>r</code> / <code>unsupported_script</code>).</p>
+<h3 id="codepre-commit-hazmat-cdcode">    <code>pre-commit hazmat cd</code> <small><a href="#codepre-commit-hazmat-cdcode" class="text-decoration-none">¶</a></small></h3> <p><em>new in 4.5.0</em></p>
+<p>for &quot;monorepo&quot; usage one can use this to target a subdirectory.</p>
+<p>this entry prefix will cd to the target subdir and adjust filename arguments</p>
+<p>example usage:</p>
+<div class="highlight yaml"><pre><span></span><span class="c1"># recommended:</span>
+<span class="c1"># minimum_pre_commit_version: 4.5.0</span>
+<span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
+<span class="w">        </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example-repo1</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example (repo1)</span>
+<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^repo1/</span>
+<span class="w">        </span><span class="c1"># important! ends with `--`</span>
+<span class="w">        </span><span class="c1"># important! copy `args: [...]` to entry and blank out `args: []`</span>
+<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit hazmat cd repo1 example-bin --arg1 --</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
+<span class="w">        </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example-repo2</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example (repo2)</span>
+<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^repo2/</span>
+<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit hazmat cd repo2 example-bin --arg1 --</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+
+<span class="w">    </span><span class="c1"># ... etc.</span>
+</pre></div>
+<h3 id="codepre-commit-hazmat-ignore-exit-codecode">    <code>pre-commit hazmat ignore-exit-code</code> <small><a href="#codepre-commit-hazmat-ignore-exit-codecode" class="text-decoration-none">¶</a></small></h3> <p><em>new in 4.5.0</em></p>
+<p>it's a bad idea to introduce warning noise but this gives you a way to do it.</p>
+<p>example:</p>
+<div class="highlight yaml"><pre><span></span><span class="c1"># recommended:</span>
+<span class="c1"># minimum_pre_commit_version: 4.5.0</span>
+<span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
+<span class="w">        </span><span class="c1"># important! copy `args: [...]` to entry and blank out `args: []`</span>
+<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit hazmat ignore-exit-code example-bin --arg1 --</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">        </span><span class="c1"># otherwise the output will always be hidden</span>
+<span class="w">        </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+<h3 id="codepre-commit-hazmat-n1code">    <code>pre-commit hazmat n1</code> <small><a href="#codepre-commit-hazmat-n1code" class="text-decoration-none">¶</a></small></h3> <p><em>new in 4.5.0</em></p>
+<p>some hooks only take one filename argument.  this runs them one at a time
+(which is super slow!)</p>
+<p>example:</p>
+<div class="highlight yaml"><pre><span></span><span class="c1"># recommended:</span>
+<span class="c1"># minimum_pre_commit_version: 4.5.0</span>
+<span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
+<span class="w">        </span><span class="c1"># important! ends with `--`</span>
+<span class="w">        </span><span class="c1"># important! copy `args: [...]` to entry and blank out `args: []`</span>
+<span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit hazmat n1 example-bin --arg1 --</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+</pre></div>
+<h2 id="automatically-enabling-pre-commit-on-repositories">    automatically enabling pre-commit on repositories <small><a href="#automatically-enabling-pre-commit-on-repositories" class="text-decoration-none">¶</a></small></h2> <p><code>pre-commit init-templatedir</code> can be used to set up a skeleton for <code>git</code>'s
 <code>init.templateDir</code> option.  This means that any newly cloned repository will
 automatically have the hooks set up without the need to run
 <code>pre-commit install</code>.</p>
