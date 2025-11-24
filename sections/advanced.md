@@ -426,7 +426,7 @@ repos:
 
 _new in 4.5.0_
 
-some hooks only take one filename argument.  this runs them one at a time
+some hooks only take one filename argument.  This runs them one at a time
 (which is super slow!)
 
 example:
