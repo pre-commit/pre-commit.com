@@ -32,6 +32,9 @@ for python projects:
 - [PyCQA/isort]: an import sorter for python
 - [PyCQA/(others)]: a few other python code quality tools
 - [adamchainz/django-upgrade]: automatically upgrade your Django project code
+- [djlint/djLint]: linter and formatter for html templates
+- [abravalheri/validate-pyproject]: validate configuration in pyproject.toml
+- [astral-sh/uv-pre-commit]: package management with uv
 
 [asottile/pyupgrade]: https://github.com/asottile/pyupgrade
 [asottile/(others)]: https://sourcegraph.com/search?q=context:global+file:%5E%5C.pre-commit-hooks%5C.yaml%24+repo:%5Egithub.com/asottile/
@@ -43,6 +46,9 @@ for python projects:
 [PyCQA/isort]: https://github.com/PyCQA/isort
 [PyCQA/(others)]: https://sourcegraph.com/search?q=context:global+file:%5E%5C.pre-commit-hooks%5C.yaml%24+repo:%5Egithub.com/PyCQA/
 [adamchainz/django-upgrade]: https://github.com/adamchainz/django-upgrade
+[djlint/djLint]: https://github.com/djlint/djLint
+[abravalheri/validate-pyproject]: https://github.com/abravalheri/validate-pyproject
+[astral-sh/uv-pre-commit]: https://github.com/astral-sh/uv-pre-commit
 
 for shell scripts:
 - [shellcheck-py/shellcheck-py]: runs shellcheck on your scripts
@@ -65,11 +71,15 @@ for configuration files:
 - [rhysd/actionlint]: lint your GitHub Actions workflow files
 - [google/yamlfmt]: a formatter for yaml files
 - [adrienverge/yamllint]: a linter for YAML files
+- [ComPWA/taplo-pre-commit]: a formatter and linter for toml
+- [editorconfig-checker/editorconfig-checker]: ensure files match .editorconfig
 
 [python-jsonschema/check-jsonschema]: https://github.com/python-jsonschema/check-jsonschema
 [rhysd/actionlint]: https://github.com/rhysd/actionlint
 [google/yamlfmt]: https://github.com/google/yamlfmt
 [adrienverge/yamllint]: https://github.com/adrienverge/yamllint
+[ComPWA/taplo-pre-commit]: https://github.com/ComPWA/taplo-pre-commit
+[editorconfig-checker/editorconfig-checker]: https://github.com/editorconfig-checker/editorconfig-checker
 
 for text / docs / prose:
 - [crate-ci/typos]: find and fix common typographical errors
