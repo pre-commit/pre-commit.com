@@ -146,6 +146,7 @@ Hello from foo hook!
 - [fail](#fail)
 - [golang](#golang)
 - [haskell](#haskell)
+- [julia](#julia)
 - [lua](#lua)
 - [node](#node)
 - [perl](#perl)
