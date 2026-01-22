@@ -174,6 +174,8 @@ Note that you need to be using at least git 2.24 for this hook.
 
 `pre-push` is triggered on `git push`.
 
+note: `pre-push` hooks are not triggered for ref deletions.
+
 environment variables:
 - `PRE_COMMIT_FROM_REF`: the revision that is being pushed to.
 - `PRE_COMMIT_TO_REF`: the local revision that is being pushed to the remote.
