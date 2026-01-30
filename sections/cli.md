@@ -233,3 +233,11 @@ Uninstall the pre-commit script.
 Options:
 
 - `-t HOOK_TYPE, --hook-type HOOK_TYPE`: which hook type to uninstall.
+
+## pre-commit validate-config [options] [filenames ...] #pre-commit-validate-config
+
+Validate .pre-commit-config.yaml files
+
+## pre-commit validate-manifest [options] [filenames ...] #pre-commit-validate-manifest
+
+Validate .pre-commit-hooks.yaml files
