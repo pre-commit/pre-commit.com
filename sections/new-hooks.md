@@ -4,6 +4,9 @@ installable package (gem, npm, pypi, etc.) or exposes an executable, it can be
 used with pre-commit. Each git repo can support as many languages/hooks as you
 want.
 
+_new in 2.5.0_: `pre-commit` sets the `PRE_COMMIT=1` environment variable
+during hook execution.
+
 The hook must exit nonzero on failure or modify files.
 
 A git repo containing pre-commit plugins must contain a `.pre-commit-hooks.yaml`
