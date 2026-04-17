@@ -77,6 +77,7 @@ for text / docs / prose:
 - [amperser/proselint]: A linter for prose.
 - [markdownlint/markdownlint]: a Markdown lint tool in Ruby
 - [DavidAnson/markdownlint-cli2]: a Markdown lint tool in Node
+- [shinagawa-web/gomarklint]: a Markdown lint tool in Go, single binary, no Node.js required
 - [codespell-project/codespell]: check code for common misspellings
 
 [crate-ci/typos]: https://github.com/crate-ci/typos
@@ -84,6 +85,7 @@ for text / docs / prose:
 [amperser/proselint]: https://github.com/amperser/proselint
 [markdownlint/markdownlint]: https://github.com/markdownlint/markdownlint
 [DavidAnson/markdownlint-cli2]: https://github.com/DavidAnson/markdownlint-cli2
+[shinagawa-web/gomarklint]: https://github.com/shinagawa-web/gomarklint
 [codespell-project/codespell]: https://github.com/codespell-project/codespell
 
 for linting commit messages:
