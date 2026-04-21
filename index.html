@@ -134,7 +134,7 @@ requirements-dev.txt):</p>
 <li><code>pre-commit --version</code> should show you what version you're using</li>
 </ul>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit --version
-pre-commit 4.5.1
+pre-commit 4.6.0
 </pre></div>
 <h3 id="2-add-a-pre-commit-configuration">    2. Add a pre-commit configuration <small><a href="#2-add-a-pre-commit-configuration" class="text-decoration-none">¶</a></small></h3> <ul>
 <li>create a file named <code>.pre-commit-config.yaml</code></li>
@@ -1202,7 +1202,54 @@ debugging.</p>
 <span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit hazmat n1 example-bin --arg1 --</span>
 <span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 </pre></div>
-<h2 id="automatically-enabling-pre-commit-on-repositories">    automatically enabling pre-commit on repositories <small><a href="#automatically-enabling-pre-commit-on-repositories" class="text-decoration-none">¶</a></small></h2> <p><code>pre-commit init-templatedir</code> can be used to set up a skeleton for <code>git</code>'s
+<h2 id="usage-with-git-254-hook-configuration">    usage with git 2.54+ hook configuration <small><a href="#usage-with-git-254-hook-configuration" class="text-decoration-none">¶</a></small></h2> <p><em>new in 4.6.0</em>: pre-commit improved support for <code>git config</code>-based hooks.
+a later version will change <code>pre-commit install</code> to use this approach.</p>
+<p><a href="https://github.blog/open-source/git/highlights-from-git-2-54/#h-config-based-hooks">git 2.54</a> introduced a new way to install git hook tools via <code>git config</code>.</p>
+<p>the basic gist is the following enables a hook in a git repo:</p>
+<div class="highlight bash"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.&lt;name&gt;.event<span class="w"> </span>pre-push
+git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.&lt;name&gt;.command<span class="w"> </span><span class="s1">&#39;some command here&#39;</span>
+</pre></div>
+<p>an example setup with <code>pre-commit</code> might look like:</p>
+<div class="highlight bash"><pre><span></span><span class="c1"># note, the &quot;hook&quot; name here is `pre-commit.pre-commit`</span>
+<span class="c1"># for the `pre-commit` &quot;tool&quot; and the `pre-commit` &quot;event&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit.event<span class="w"> </span>pre-commit
+git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit.command<span class="w"> </span><span class="s1">&#39;pre-commit hook-impl --hook-type pre-commit --&#39;</span>
+
+<span class="c1"># please follow that naming scheme for future compatibility with `pre-commit install`</span>
+
+<span class="c1"># an example with pre-push:</span>
+<span class="c1">#</span>
+<span class="c1"># git config set hook.pre-commit.pre-push.event pre-push</span>
+<span class="c1"># git config set hook.pre-commit.pre-push.command &#39;pre-commit hook-impl --hook-type pre-push --&#39;</span>
+</pre></div>
+<p><code>pre-commit hook-impl</code> is a &quot;hidden&quot; implementation command with these options:</p>
+<ul>
+<li><code>--hook-type ...</code>: the <a href="#supported-git-hooks">hook type</a> to use</li>
+<li><code>--skip-on-missing-config</code>: silently pass when a config is missing</li>
+</ul>
+<p>some interesting applications of this:</p>
+<h3 id="global-installation-of-pre-commit">    &quot;global&quot; installation of pre-commit <small><a href="#global-installation-of-pre-commit" class="text-decoration-none">¶</a></small></h3> <p>with <code>git config set --global ...</code> this can automatically enable pre-commit
+for all repositories:</p>
+<div class="highlight bash"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--global<span class="w"> </span>hook.pre-commit.pre-commit.event<span class="w"> </span>pre-commit
+git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--global<span class="w"> </span>hook.pre-commit.pre-commit.command<span class="w"> </span><span class="s1">&#39;pre-commit hook-impl --hook-type pre-commit --skip-on-missing-config --&#39;</span>
+</pre></div>
+<ul>
+<li>this setup <strong>not recommended</strong> as it can lead to accidentally running hooks
+when interacting with an untrusted repository.</li>
+<li><code>--skip-on-missing-config</code> is recommended here as arbitrary git repositories
+may not have a <code>.pre-commit-config.yaml</code>.</li>
+</ul>
+<h3 id="always-running-a-hook-on-all-files">    always running a hook on all files <small><a href="#always-running-a-hook-on-all-files" class="text-decoration-none">¶</a></small></h3> <p>since you can configure pre-commit as many times as you want you <em>could</em> invoke
+pre-commit to run a particular hook always and on all files</p>
+<div class="highlight bash"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit-always.event<span class="w"> </span>pre-commit
+git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit-always.command<span class="w"> </span><span class="s1">&#39;pre-commit run hookid --hook-stage pre-commit --all-files&#39;</span>
+</pre></div>
+<p><em>note</em>: this is not recommended as it has the tendancy to be slow and deviates
+from the normal expectations of pre-commit.</p>
+<h2 id="automatically-enabling-pre-commit-on-repositories">    automatically enabling pre-commit on repositories <small><a href="#automatically-enabling-pre-commit-on-repositories" class="text-decoration-none">¶</a></small></h2> <p><em>note</em>: if you are on a new-enough version of <code>git</code> you may want to use
+<a href="#global-installation-of-pre-commit">this approach</a> instead.</p>
+<hr />
+<p><code>pre-commit init-templatedir</code> can be used to set up a skeleton for <code>git</code>'s
 <code>init.templateDir</code> option.  This means that any newly cloned repository will
 automatically have the hooks set up without the need to run
 <code>pre-commit install</code>.</p>
