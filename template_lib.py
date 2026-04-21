@@ -12,7 +12,7 @@ import markupsafe
 
 
 ID_RE = re.compile(r' #([a-z0-9-]+)$')
-SPECIAL_CHARS_RE = re.compile('[^a-z0-9 _-]')
+SPECIAL_CHARS_RE = re.compile('(&[a-z]+;|[^a-z0-9 _-])')
 
 
 ROW = '=r='

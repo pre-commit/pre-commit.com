@@ -445,7 +445,78 @@ repos:
         args: []
 ```
 
+## usage with git 2.54+ hook configuration
+
+_new in 4.6.0_: pre-commit improved support for `git config`-based hooks.
+a later version will change `pre-commit install` to use this approach.
+
+[git 2.54] introduced a new way to install git hook tools via `git config`.
+
+the basic gist is the following enables a hook in a git repo:
+
+```bash
+git config set hook.<name>.event pre-push
+git config set hook.<name>.command 'some command here'
+```
+
+an example setup with `pre-commit` might look like:
+
+```bash
+# note, the "hook" name here is `pre-commit.pre-commit`
+# for the `pre-commit` "tool" and the `pre-commit` "event"
+git config set hook.pre-commit.pre-commit.event pre-commit
+git config set hook.pre-commit.pre-commit.command 'pre-commit hook-impl --hook-type pre-commit --'
+
+# please follow that naming scheme for future compatibility with `pre-commit install`
+
+# an example with pre-push:
+#
+# git config set hook.pre-commit.pre-push.event pre-push
+# git config set hook.pre-commit.pre-push.command 'pre-commit hook-impl --hook-type pre-push --'
+```
+
+`pre-commit hook-impl` is a "hidden" implementation command with these options:
+- `--hook-type ...`: the [hook type](#supported-git-hooks) to use
+- `--skip-on-missing-config`: silently pass when a config is missing
+
+some interesting applications of this:
+
+### "global" installation of pre-commit
+
+with `git config set --global ...` this can automatically enable pre-commit
+for all repositories:
+
+```bash
+git config set --global hook.pre-commit.pre-commit.event pre-commit
+git config set --global hook.pre-commit.pre-commit.command 'pre-commit hook-impl --hook-type pre-commit --skip-on-missing-config --'
+```
+
+- this setup **not recommended** as it can lead to accidentally running hooks
+  when interacting with an untrusted repository.
+- `--skip-on-missing-config` is recommended here as arbitrary git repositories
+  may not have a `.pre-commit-config.yaml`.
+
+### always running a hook on all files
+
+since you can configure pre-commit as many times as you want you *could* invoke
+pre-commit to run a particular hook always and on all files
+
+```bash
+git config set hook.pre-commit.pre-commit-always.event pre-commit
+git config set hook.pre-commit.pre-commit-always.command 'pre-commit run hookid --hook-stage pre-commit --all-files'
+```
+
+*note*: this is not recommended as it has the tendancy to be slow and deviates
+from the normal expectations of pre-commit.
+
+[git 2.54]: https://github.blog/open-source/git/highlights-from-git-2-54/#h-config-based-hooks
+
 ## automatically enabling pre-commit on repositories
+
+*note*: if you are on a new-enough version of `git` you may want to use
+[this approach](#global-installation-of-pre-commit) instead.
+
+___
 
 `pre-commit init-templatedir` can be used to set up a skeleton for `git`'s
 `init.templateDir` option.  This means that any newly cloned repository will
