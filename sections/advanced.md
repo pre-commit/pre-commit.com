@@ -477,6 +477,7 @@ git config set hook.pre-commit.pre-commit.command 'pre-commit hook-impl --hook-t
 
 `pre-commit hook-impl` is a "hidden" implementation command with these options:
 - `--hook-type ...`: the [hook type](#supported-git-hooks) to use
+- `--config ...`: (optional) path to `.pre-commit-config.yaml`
 - `--skip-on-missing-config`: silently pass when a config is missing
 
 some interesting applications of this:
