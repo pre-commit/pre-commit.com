@@ -32,6 +32,7 @@ for python projects:
 - [PyCQA/isort]: an import sorter for python
 - [PyCQA/(others)]: a few other python code quality tools
 - [adamchainz/django-upgrade]: automatically upgrade your Django project code
+- [ScienceIsNeato/slop-mop]: quality gates for AI-assisted codebases
 
 [asottile/pyupgrade]: https://github.com/asottile/pyupgrade
 [asottile/(others)]: https://sourcegraph.com/search?q=context:global+file:%5E%5C.pre-commit-hooks%5C.yaml%24+repo:%5Egithub.com/asottile/
@@ -43,6 +44,7 @@ for python projects:
 [PyCQA/isort]: https://github.com/PyCQA/isort
 [PyCQA/(others)]: https://sourcegraph.com/search?q=context:global+file:%5E%5C.pre-commit-hooks%5C.yaml%24+repo:%5Egithub.com/PyCQA/
 [adamchainz/django-upgrade]: https://github.com/adamchainz/django-upgrade
+[ScienceIsNeato/slop-mop]: https://github.com/ScienceIsNeato/slop-mop
 
 for shell scripts:
 - [shellcheck-py/shellcheck-py]: runs shellcheck on your scripts
