@@ -37,6 +37,6 @@ repos:
     hooks:
     -   id: mypy
 -   repo: https://github.com/biomejs/pre-commit
-    rev: v2.4.16
+    rev: v2.5.0
     hooks:
     -   id: biome-check
