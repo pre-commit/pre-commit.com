@@ -137,10 +137,10 @@ Options:
 Some example useful invocations:
 
 - `pre-commit install`: Default invocation. Installs the hook scripts
-   alongside any existing git hooks.
+  alongside any existing git hooks.
 - `pre-commit install --install-hooks --overwrite`: Idempotently replaces
-   existing git hook scripts with pre-commit, and also installs hook
-   environments.
+  existing git hook scripts with pre-commit, and also installs hook
+  environments.
 
 `pre-commit install` will install hooks from
 [`default_install_hook_types`](#top_level-default_install_hook_types) if
