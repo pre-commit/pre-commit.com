@@ -181,7 +181,7 @@ environment variables:
 - `PRE_COMMIT_REMOTE_URL`: the url of the remote that is being pushed to (for
   example `git@github.com:pre-commit/pre-commit`)
 - `PRE_COMMIT_REMOTE_BRANCH`: the name of the remote branch to which we are
-   pushing (for example `refs/heads/target-branch`)
+  pushing (for example `refs/heads/target-branch`)
 - `PRE_COMMIT_LOCAL_BRANCH`: the name of the local branch that is being pushed
   to the remote (for example `HEAD`)
 
