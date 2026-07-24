@@ -90,16 +90,14 @@ def _render_cmd(code: str) -> str:
 
 
 class Renderer(markdown_code_blocks.CodeRenderer):
-    def link(
-        self, link: str, text: str | None, title: str | None,
-    ) -> str:
-        if link.startswith('_#'):
-            a_id = link.removeprefix('_#')
+    def link(self, text: str, url: str, title: str | None = None) -> str:
+        if url.startswith('_#'):
+            a_id = url.removeprefix('_#')
             return f'<a id="{a_id}" href="#{a_id}">{text}</a>'
-        elif link.startswith('__#'):
-            return f'<a name="{link.removeprefix("__#")}"></a>'
+        elif url.startswith('__#'):
+            return f'<a name="{url.removeprefix("__#")}"></a>'
         else:
-            return super().link(link, text, title)
+            return super().link(text, url, title)
 
     def heading(self, text: str, level: int) -> str:
         match = ID_RE.search(text)
@@ -121,16 +119,11 @@ class Renderer(markdown_code_blocks.CodeRenderer):
         else:
             return super().codespan(text)
 
-    def image(
-            self,
-            src: str,
-            alt: str = '',
-            title: str | None = None,
-    ) -> str:
+    def image(self, text: str, url: str, title: str | None = None) -> str:
         return (
             f'<img '
-            f'    src="{html.escape(src)}"'
-            f'    alt="{html.escape(alt)}"'
+            f'    src="{html.escape(url)}"'
+            f'    alt="{html.escape(text)}"'
             f'    class="img-fluid img-thumbnail"'
             f'>'
         )
