@@ -235,7 +235,7 @@ running hooks after the first failure.</p>
 </td></tr><tr><td><p><a id="top_level-minimum_pre_commit_version" href="#top_level-minimum_pre_commit_version"><code>minimum_pre_commit_version</code></a></p>
 </td><td><p>(optional: default <code>'0'</code>) require a minimum version of pre-commit.</p>
 </td></tr></tbody></table><p>A sample top-level:</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;^$&#39;</span>
+<div class="highlight yaml"><pre><span></span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="s">'^$'</span>
 <span class="nt">fail_fast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="nt">repos</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span>
@@ -329,7 +329,7 @@ slow. For example: If the machine does not have node installed, pre-commit
 will download and build a copy of node.</p>
 <div class="highlight pre-commit"><pre><span></span>$ pre-commit install
 pre-commit installed at /home/asottile/workspace/pytest/.git/hooks/pre-commit
-$ git commit -m &quot;Add super awesome feature&quot;
+$ git commit -m "Add super awesome feature"
 black....................................................................<span class=" -Color -Color-BGGreen">Passed</span>
 blacken-docs.........................................(no files to check)<span class=" -Color -Color-Black -Color-Black-BGCyan">Skipped</span>
 Trim Trailing Whitespace.................................................<span class=" -Color -Color-BGGreen">Passed</span>
@@ -505,7 +505,7 @@ after installation.  Match the <a href="#hooks-entry"><code>entry</code></a> to 
 <p><code>pre-commit</code> will build each executable using <code>dart compile exe bin/{executable}.dart</code>.</p>
 <p><code>language: dart</code> also supports <a href="#config-additional_dependencies"><code>additional_dependencies</code></a>.
 to specify a version for a dependency, separate the package name by a <code>:</code>:</p>
-<div class="highlight yaml"><pre><span></span><span class="w">        </span><span class="nt">additional_dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;hello_world_dart:1.0.0&#39;</span><span class="p p-Indicator">]</span>
+<div class="highlight yaml"><pre><span></span><span class="w">        </span><span class="nt">additional_dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'hello_world_dart:1.0.0'</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p><strong>Support:</strong> <code>dart</code> hooks are known to work on any system which has the <code>dart</code>
 sdk installed.  It has been tested on linux, macOS, and windows.</p>
@@ -566,7 +566,7 @@ being added to the <code>changelog</code> directory:</p>
 <span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changelogs must be rst</span>
 <span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changelog filenames must end in .rst</span>
 <span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail</span>
-<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;changelog/.*(?&lt;!\.rst)$&#39;</span>
+<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="s">'changelog/.*(?&lt;!\.rst)$'</span>
 </pre></div>
 <h3 id="golang">    golang <small><a href="#golang" class="text-decoration-none">¶</a></small></h3> <p>The hook repository must contain go source code.  It will be installed via
 <code>go install ./...</code>.  pre-commit will create an isolated <code>GOPATH</code> for each hook
@@ -610,8 +610,8 @@ to <code>pkg&gt; add</code> and should be specified using
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">julia</span>
 <span class="w">  </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/baz.jl</span>
 <span class="w">  </span><span class="nt">additional_dependencies</span><span class="p">:</span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;ExtraDepA@1&#39;</span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;ExtraDepB@2.4&#39;</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'ExtraDepA@1'</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'ExtraDepB@2.4'</span>
 </pre></div>
 <p><strong>Support:</strong> julia hooks are known to work on any system which has <code>julia</code> installed.</p>
 <h3 id="lua">    lua <small><a href="#lua" class="text-decoration-none">¶</a></small></h3> <p>Lua hooks are installed with the version of Lua that is used by Luarocks.</p>
@@ -902,7 +902,7 @@ or more hooks. pre-commit solves this by querying a <code>SKIP</code> environmen
 variable. The <code>SKIP</code> environment variable is a comma separated list of hook
 ids. This allows you to skip a single hook instead of <code>--no-verify</code>ing the
 entire commit.</p>
-<div class="highlight console"><pre><span></span><span class="gp">$ </span><span class="nv">SKIP</span><span class="o">=</span>flake8<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;foo&quot;</span>
+<div class="highlight console"><pre><span></span><span class="gp">$ </span><span class="nv">SKIP</span><span class="o">=</span>flake8<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"foo"</span>
 </pre></div>
 <h2 id="confining-hooks-to-run-at-certain-stages">    Confining hooks to run at certain stages <small><a href="#confining-hooks-to-run-at-certain-stages" class="text-decoration-none">¶</a></small></h2> <p>pre-commit supports many different types of <code>git</code> hooks (not just
 <code>pre-commit</code>!).</p>
@@ -1119,7 +1119,7 @@ as specified under <a href="#new-hooks">Creating new hooks</a>.</p>
 <span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruby</span>
 <span class="w">        </span><span class="nt">language_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.1.5</span>
 <span class="w">        </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">scss</span><span class="p p-Indicator">]</span>
-<span class="w">        </span><span class="nt">additional_dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;scss_lint:0.52.0&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">additional_dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'scss_lint:0.52.0'</span><span class="p p-Indicator">]</span>
 </pre></div>
 <h2 id="meta-hooks">    meta hooks <small><a href="#meta-hooks" class="text-decoration-none">¶</a></small></h2> <p><code>pre-commit</code> provides several hooks which are useful for checking the
 pre-commit configuration itself.  These can be enabled using <code>repo: meta</code>.</p>
@@ -1207,20 +1207,20 @@ a later version will change <code>pre-commit install</code> to use this approach
 <p><a href="https://github.blog/open-source/git/highlights-from-git-2-54/#h-config-based-hooks">git 2.54</a> introduced a new way to install git hook tools via <code>git config</code>.</p>
 <p>the basic gist is the following enables a hook in a git repo:</p>
 <div class="highlight bash"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.&lt;name&gt;.event<span class="w"> </span>pre-push
-git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.&lt;name&gt;.command<span class="w"> </span><span class="s1">&#39;some command here&#39;</span>
+git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.&lt;name&gt;.command<span class="w"> </span><span class="s1">'some command here'</span>
 </pre></div>
 <p>an example setup with <code>pre-commit</code> might look like:</p>
-<div class="highlight bash"><pre><span></span><span class="c1"># note, the &quot;hook&quot; name here is `pre-commit.pre-commit`</span>
-<span class="c1"># for the `pre-commit` &quot;tool&quot; and the `pre-commit` &quot;event&quot;</span>
+<div class="highlight bash"><pre><span></span><span class="c1"># note, the "hook" name here is `pre-commit.pre-commit`</span>
+<span class="c1"># for the `pre-commit` "tool" and the `pre-commit` "event"</span>
 git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit.event<span class="w"> </span>pre-commit
-git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit.command<span class="w"> </span><span class="s1">&#39;pre-commit hook-impl --hook-type pre-commit --&#39;</span>
+git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit.command<span class="w"> </span><span class="s1">'pre-commit hook-impl --hook-type pre-commit --'</span>
 
 <span class="c1"># please follow that naming scheme for future compatibility with `pre-commit install`</span>
 
 <span class="c1"># an example with pre-push:</span>
 <span class="c1">#</span>
 <span class="c1"># git config set hook.pre-commit.pre-push.event pre-push</span>
-<span class="c1"># git config set hook.pre-commit.pre-push.command &#39;pre-commit hook-impl --hook-type pre-push --&#39;</span>
+<span class="c1"># git config set hook.pre-commit.pre-push.command 'pre-commit hook-impl --hook-type pre-push --'</span>
 </pre></div>
 <p><code>pre-commit hook-impl</code> is a &quot;hidden&quot; implementation command with these options:</p>
 <ul>
@@ -1232,7 +1232,7 @@ git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</s
 <h3 id="global-installation-of-pre-commit">    &quot;global&quot; installation of pre-commit <small><a href="#global-installation-of-pre-commit" class="text-decoration-none">¶</a></small></h3> <p>with <code>git config set --global ...</code> this can automatically enable pre-commit
 for all repositories:</p>
 <div class="highlight bash"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--global<span class="w"> </span>hook.pre-commit.pre-commit.event<span class="w"> </span>pre-commit
-git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--global<span class="w"> </span>hook.pre-commit.pre-commit.command<span class="w"> </span><span class="s1">&#39;pre-commit hook-impl --hook-type pre-commit --skip-on-missing-config --&#39;</span>
+git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--global<span class="w"> </span>hook.pre-commit.pre-commit.command<span class="w"> </span><span class="s1">'pre-commit hook-impl --hook-type pre-commit --skip-on-missing-config --'</span>
 </pre></div>
 <ul>
 <li>this setup <strong>not recommended</strong> as it can lead to accidentally running hooks
@@ -1243,7 +1243,7 @@ may not have a <code>.pre-commit-config.yaml</code>.</li>
 <h3 id="always-running-a-hook-on-all-files">    always running a hook on all files <small><a href="#always-running-a-hook-on-all-files" class="text-decoration-none">¶</a></small></h3> <p>since you can configure pre-commit as many times as you want you <em>could</em> invoke
 pre-commit to run a particular hook always and on all files</p>
 <div class="highlight bash"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit-always.event<span class="w"> </span>pre-commit
-git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit-always.command<span class="w"> </span><span class="s1">&#39;pre-commit run hookid --hook-stage pre-commit --all-files&#39;</span>
+git<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>hook.pre-commit.pre-commit-always.command<span class="w"> </span><span class="s1">'pre-commit run hookid --hook-stage pre-commit --all-files'</span>
 </pre></div>
 <p><em>note</em>: this is not recommended as it has the tendancy to be slow and deviates
 from the normal expectations of pre-commit.</p>
@@ -1264,7 +1264,7 @@ using <code>~/.git-template</code> as my template directory.</p>
 set up!</p>
 <div class="highlight pre-commit"><pre><span></span>$ git clone -q git@github.com:asottile/pyupgrade
 $ cd pyupgrade
-$ git commit --allow-empty -m &#39;Hello world!&#39;
+$ git commit --allow-empty -m 'Hello world!'
 Check docstring is first.............................(no files to check)<span class=" -Color -Color-Black -Color-Black-BGCyan">Skipped</span>
 Check Yaml...........................................(no files to check)<span class=" -Color -Color-Black -Color-Black-BGCyan">Skipped</span>
 Debug Statements (Python)............................(no files to check)<span class=" -Color -Color-Black -Color-Black-BGCyan">Skipped</span>
@@ -1275,7 +1275,7 @@ Debug Statements (Python)............................(no files to check)<span cl
 <div class="highlight console"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>init<span class="w"> </span>sample
 <span class="go">Initialized empty Git repository in /tmp/sample/.git/</span>
 <span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>sample
-<span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>--allow-empty<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;Initial commit&#39;</span>
+<span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>--allow-empty<span class="w"> </span>-m<span class="w"> </span><span class="s1">'Initial commit'</span>
 <span class="go">`.pre-commit-config.yaml` config file not found. Skipping `pre-commit`.</span>
 <span class="go">[main (root-commit) d1b39c1] Initial commit</span>
 </pre></div>
@@ -1283,14 +1283,14 @@ Debug Statements (Python)............................(no files to check)<span cl
 template hook as follows (for example in <code>~/.git-template/hooks/pre-commit</code>).</p>
 <div class="highlight bash"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>.pre-commit-config.yaml<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;pre-commit configuration detected, but `pre-commit install` was never run&#39;</span><span class="w"> </span><span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'pre-commit configuration detected, but `pre-commit install` was never run'</span><span class="w"> </span><span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 </pre></div>
 <p>With this, a forgotten <code>pre-commit install</code> produces an error on commit:</p>
 <div class="highlight console"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>-q<span class="w"> </span>https://github.com/asottile/pyupgrade
 <span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>pyupgrade/
-<span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;foo&#39;</span>
+<span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'foo'</span>
 <span class="go">pre-commit configuration detected, but `pre-commit install` was never run</span>
 </pre></div>
 <h2 id="filtering-files-with-types">    Filtering files with types <small><a href="#filtering-files-with-types" class="text-decoration-none">¶</a></small></h2> <p>Filtering with <code>types</code> provides several advantages over traditional filtering
@@ -1317,9 +1317,9 @@ chosen as it is a small portable pure python library.</p>
 </ul>
 <p>To discover the type of any file on disk, you can use <code>identify</code>'s cli:</p>
 <div class="highlight console"><pre><span></span><span class="gp">$ </span>identify-cli<span class="w"> </span>setup.py
-<span class="go">[&quot;file&quot;, &quot;non-executable&quot;, &quot;python&quot;, &quot;text&quot;]</span>
+<span class="go">["file", "non-executable", "python", "text"]</span>
 <span class="gp">$ </span>identify-cli<span class="w"> </span>some-random-file
-<span class="go">[&quot;file&quot;, &quot;non-executable&quot;, &quot;text&quot;]</span>
+<span class="go">["file", "non-executable", "text"]</span>
 <span class="gp">$ </span>identify-cli<span class="w"> </span>--filename-only<span class="w"> </span>some-random-file<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
 <span class="go">1</span>
 </pre></div>
@@ -1416,7 +1416,7 @@ you use pre-commit!</p>
 </pre></div>
 </div></li>
 <li><p>HTML:</p>
-<div class="copyable"><div class="highlight html"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://github.com/pre-commit/pre-commit&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;pre-commit&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;max-width:100%;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<div class="copyable"><div class="highlight html"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://github.com/pre-commit/pre-commit"</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit"</span> <span class="na">alt</span><span class="o">=</span><span class="s">"pre-commit"</span> <span class="na">style</span><span class="o">=</span><span class="s">"max-width:100%;"</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
 </div></li>
 <li><p>reStructuredText:</p>
@@ -1451,7 +1451,7 @@ following the <a href="https://specifications.freedesktop.org/basedir-spec/based
 </ul>
 <p><a href="https://github.com/pre-commit-ci-demo/demo#results"><img     src="https://raw.githubusercontent.com/pre-commit-ci-demo/demo/main/img/2020-12-15_noop.svg"    alt="pre-commit.ci speed comparison"    class="img-fluid img-thumbnail"></a></p>
 <h3 id="appveyor-example">    appveyor example <small><a href="#appveyor-example" class="text-decoration-none">¶</a></small></h3> <div class="highlight yaml"><pre><span></span><span class="nt">cache</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;%USERPROFILE%\.cache\pre-commit&#39;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'%USERPROFILE%\.cache\pre-commit'</span>
 </pre></div>
 <h3 id="azure-pipelines-example">    azure pipelines example <small><a href="#azure-pipelines-example" class="text-decoration-none">¶</a></small></h3> <p>note: azure pipelines uses immutable caches so the python version and
 <code>.pre-commit-config.yaml</code> hash must be included in the cache key.  for a
@@ -1468,10 +1468,10 @@ repository template, see <a href="https://github.com/asottile/azure-pipeline-tem
 
 <span class="w">  </span><span class="c1"># ...</span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;##vso[task.setvariable variable=PY]$(python -VV)&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo "##vso[task.setvariable variable=PY]$(python -VV)"</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CacheBeta@0</span>
 <span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit | .pre-commit-config.yaml | &quot;$(PY)&quot;</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit | .pre-commit-config.yaml | "$(PY)"</span>
 <span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(PRE_COMMIT_HOME)</span>
 </pre></div>
 <h3 id="circleci-example">    circleci example <small><a href="#circleci-example" class="text-decoration-none">¶</a></small></h3> <p>like <a href="#azure-pipelines-example">azure pipelines</a>, circleci also uses immutable
@@ -1483,12 +1483,12 @@ caches:</p>
 <span class="w">      </span><span class="no">python --version --version &gt;&gt; pre-commit-cache-key.txt</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">restore_cache</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">keys</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}</span>
 
 <span class="w">  </span><span class="c1"># ...</span>
 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">save_cache</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum &quot;pre-commit-cache-key.txt&quot; }}</span>
+<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span>
 </pre></div>
@@ -1497,11 +1497,11 @@ caches:</p>
 <p>like <a href="#azure-pipelines-example">azure pipelines</a>, github actions also uses
 immutable caches:</p>
 <div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set PY</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;PY=$(python -VV | sha256sum | cut -d&#39; &#39; -f1)&quot; &gt;&gt; $GITHUB_ENV</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" &gt;&gt; $GITHUB_ENV</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v3</span>
 <span class="w">      </span><span class="nt">with</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/pre-commit</span>
-<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit|${{ env.PY }}|${{ hashFiles(&#39;.pre-commit-config.yaml&#39;) }}</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}</span>
 </pre></div>
 <h3 id="gitlab-ci-example">    gitlab CI example <small><a href="#gitlab-ci-example" class="text-decoration-none">¶</a></small></h3> <p>See the <a href="https://docs.gitlab.com/ee/ci/caching/#good-caching-practices">Gitlab caching best practices</a> to fine tune the cache scope.</p>
 <div class="highlight yaml"><pre><span></span><span class="nt">my_job</span><span class="p">:</span>
@@ -1525,7 +1525,7 @@ allowed to be passed through.</p>
 <p>When cloning repos over ssh (<code>repo: git@github.com:...</code>), <code>git</code> requires the
 <code>SSH_AUTH_SOCK</code> variable and will otherwise fail:</p>
 <div class="highlight pre-commit"><pre><span></span>[INFO] Initializing environment for git@github.com:pre-commit/pre-commit-hooks.
-An unexpected error has occurred: CalledProcessError: command: (&#39;/usr/bin/git&#39;, &#39;fetch&#39;, &#39;origin&#39;, &#39;--tags&#39;)
+An unexpected error has occurred: CalledProcessError: command: ('/usr/bin/git', 'fetch', 'origin', '--tags')
 return code: 128
 expected return code: 0
 stdout: (none)
