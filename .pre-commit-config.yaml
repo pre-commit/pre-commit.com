@@ -33,10 +33,10 @@ repos:
     hooks:
     -   id: flake8
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v2.3.1
+    rev: v2.4.0
     hooks:
     -   id: mypy
 -   repo: https://github.com/biomejs/pre-commit
-    rev: v2.5.14
+    rev: v2.5.15
     hooks:
     -   id: biome-check
