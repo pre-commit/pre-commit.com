@@ -13,7 +13,7 @@ repos:
     rev: v3.17.0
     hooks:
     -   id: reorder-python-imports
-        args: [--py310-plus, --add-import, 'from __future__ import annotations']
+        args: [--py314-plus]
     -   id: reorder-python-imports
 -   repo: https://github.com/asottile/add-trailing-comma
     rev: v4.0.0
@@ -23,7 +23,7 @@ repos:
     rev: v3.21.2
     hooks:
     -   id: pyupgrade
-        args: [--py310-plus]
+        args: [--py314-plus]
 -   repo: https://github.com/hhatto/autopep8
     rev: v2.3.2
     hooks:
