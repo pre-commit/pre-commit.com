@@ -40,3 +40,4 @@ repos:
     rev: v2.6.3
     hooks:
     -   id: biome-check
+        types_or: [javascript, json]
