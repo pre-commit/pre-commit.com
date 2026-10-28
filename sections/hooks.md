@@ -97,10 +97,12 @@ for secret scanning / security:
 - [gitleaks/gitleaks]
 - [trufflesecurity/truffleHog]
 - [thoughtworks/talisman]
+- [crenoxhq/crenox]
 
 [gitleaks/gitleaks]: https://github.com/gitleaks/gitleaks
 [trufflesecurity/truffleHog]: https://github.com/trufflesecurity/truffleHog
 [thoughtworks/talisman]: https://github.com/thoughtworks/talisman
+[crenoxhq/crenox]: https://github.com/crenoxhq/crenox
 
 for other programming languages:
 - [realm/SwiftLint]: enforce Swift style and conventions
