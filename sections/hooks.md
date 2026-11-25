@@ -78,6 +78,7 @@ for text / docs / prose:
 - [markdownlint/markdownlint]: a Markdown lint tool in Ruby
 - [DavidAnson/markdownlint-cli2]: a Markdown lint tool in Node
 - [codespell-project/codespell]: check code for common misspellings
+- [errata-ai/vale]: a tool that checks prose against configured editorial style guide
 
 [crate-ci/typos]: https://github.com/crate-ci/typos
 [thlorenz/doctoc]: https://github.com/thlorenz/doctoc
@@ -85,6 +86,7 @@ for text / docs / prose:
 [markdownlint/markdownlint]: https://github.com/markdownlint/markdownlint
 [DavidAnson/markdownlint-cli2]: https://github.com/DavidAnson/markdownlint-cli2
 [codespell-project/codespell]: https://github.com/codespell-project/codespell
+[errata-ai/vale]: https://github.com/errata-ai/vale
 
 for linting commit messages:
 - [jorisroovers/gitlint]
